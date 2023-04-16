@@ -180,7 +180,7 @@
 		max-width: 100%;
 		position: relative;
 		display: inline-block;
-		transform: scale(0.95) translateX(-7%);
+		transform: scale(0.9) translateX(-1%);
 		transform-origin: left;
 		padding-top: 0.7rem;
 		filter: brightness(50%);

@@ -12,7 +12,7 @@
 	xml:space="preserve"
 	width="0"
 	height="0"
-	style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+	style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd;position: absolute"
 	viewBox="0 0 1594.82 607.45"
 >
 	<!-- 
@@ -47,7 +47,7 @@
 	.banner-selection {
 		position: absolute;
 		left: 0;
-		top: 15%;
+		top: 13.5%;
 		z-index: +1;
 		display: flex;
 		flex-direction: column;
