@@ -1,35 +1,47 @@
 :root {
-	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
-	--color-bg-0: rgb(202, 216, 228);
-	--color-bg-1: hsl(209, 36%, 86%);
-	--color-bg-2: hsl(224, 44%, 95%);
-	--color-theme-1: #ff3e00;
-	--color-theme-2: #4075a6;
-	--color-text: rgba(0, 0, 0, 0.7);
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
-	font-family: var(--font-body);
-	color: var(--color-text);
+	--hsr-font: 'DDin Pro', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
+	--color-text: #e7e7e7;
+	--color-second: #c3b294;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgba(210, 198, 156, 0.5);
+	border-radius: 5px;
+	transition: all 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(210, 198, 156, 1);
 }
 
 body {
-	min-height: 100vh;
+	overflow: hidden;
 	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--color-bg-1);
-	background-size: 100vw 100vh;
-	background-image: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.75) 0%,
-			rgba(255, 255, 255, 0) 100%
-		),
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
+	color: var(--color-text);
 }
 
-h1,
-h2,
+body,
+button:hover,
+input,
+a:hover {
+	user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-drag: none;
+	cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAABelBMVEUAAAD24sXw5MwAAADx5cwAAADn1rT16dLu48vv4cbw5Mz06ND67uPr4Mjy5s3r273t38PLwa3x5c3w5czy59Dw5Mvx5c3y5s/06NDx5c7z6dHz6NHw5c3//uL889zz6NP59+jw6dDu5cr///rx4s3/8ODr3cBcV01WUkgqKh+spJLx5c3y5c7u4MW+taLu4cfTyLPx5c3h1b/w48vx5c3y5s3c0Lvx59Ht4cnz6tTx5M706NTy5c7y5M3w5M729uXp3sj//98AAADz58/369L/9dvk2cL/8tn47NTy5s3r2LI8Oy/879b57dT//8X35sX55sT35MDv9LjYzbfw3LbQxrHl6bDe46qxqJaSinuPiHiQk21PS0FKSDwcGxX/99r47db/7sj//8fu4MXm28Tx4cPf0731+rzw3brb0Lry3rfn67HFu6e9s6C7v4+poY+knIuTlnF5c2ZtZ1tbVUthYkpaXEUxLyktKiUkIR0oKhsYFBYXGgsKCQaP9k5pAAAAQnRSTlMABf78+vr+/v76+GoO/vz7+PHq48/Puqacm4leVklIPSsjHRgRCP7+/v797+7s6d7XxsTAsa+vloqDfXBiTEMdFwi8nze6AAABQElEQVQoz7WRRW/DQBBGXVMaZk5DTcrMDLO2w8xYZmb+77Vyilex1Evnspp980arb4n/LM0GQfTJUpMlIK/O7tFqWdl2TvK2oIxpzyl1EZW7hyzeLOeUiEb8wg7RA65mDYgkaX7cI3Y4XM/qEeJIWhGxh8RWCt0ZfbRwHUX9JG/axGVvht0vQU1IkSou6QxLqe+EjRYAEjeIE2XzlsT0D7Hc6U8b4PEiFVNxnDPUBbcNrEL4+mwAfN/1c7GINdCd/GRcIXxAvvICMFya8EjWhqfjSHiD8uHZbYt5WsGea43HjhNQTqcrr9S9F4PzRZ22BVf5BlAwpcESXLyktSPwkIA201zC43UUlclniqFG35m6WrJVbFwHRxZjtd4Eihnz48mvmX3E4IBrzlitzRB4BXc7hzjgUOOsY+O/ITP0l/oFZ+g05ejbiLAAAAAASUVORK5CYII='),
+		auto;
+}
+
 p {
 	font-weight: 400;
 }
@@ -43,63 +55,49 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
-h1 {
-	font-size: 2rem;
-	text-align: center;
-}
-
-h2 {
-	font-size: 1rem;
-}
-
-pre {
-	font-size: 16px;
-	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-	padding: 0.5em;
-	overflow-x: auto;
-	color: var(--color-text);
-}
-
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
+img {
+	object-fit: cover;
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+	user-drag: none;
+	width: 100%;
+	height: auto;
 }
 
 input,
 button {
 	font-size: inherit;
 	font-family: inherit;
+	letter-spacing: -0.03rem;
 }
 
 button:focus:not(:focus-visible) {
 	outline: none;
 }
 
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
+button {
+	background-color: transparent;
+	border: 0;
+	outline: 0;
+	font-size: 1rem;
+}
+
+.mobileLandscape {
+	font-size: 0.7rem;
+}
+
+@media screen and (max-width: 900px) {
+	body,
+	html {
+		font-size: 0.9rem;
 	}
 }
 
-.visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: auto;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	white-space: nowrap;
+@media screen and (max-width: 400px) {
+	body,
+	html {
+		font-size: 0.8rem;
+	}
 }

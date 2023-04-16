@@ -1,0 +1,69 @@
+<script>
+	import ButtonBanner from '$lib/components/ButtonBanner.svelte';
+	import { activeBanner, bannerList } from '$lib/stores/app-store';
+
+	const selectBanner = (bn) => {
+		activeBanner.set(bn);
+	};
+</script>
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	xml:space="preserve"
+	width="0"
+	height="0"
+	style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+	viewBox="0 0 1594.82 607.45"
+>
+	<!-- 
+    set svg under 1px 
+    formula : 1/svg width and 1/svg height
+  -->
+	<clipPath
+		id="buttonFrame"
+		transform="scale(0.00062703 0.00164622602)"
+		clipPathUnits="objectBoundingBox"
+	>
+		<path
+			d="M-0 0l252.81 0c4.72,20.97 23.26,36.62 45.42,36.62 22.16,0 40.71,-15.65 45.42,-36.62l1251.17 0 0 607.45 -1250.98 0c-4.4,-21.4 -23.14,-37.49 -45.61,-37.49 -22.47,0 -41.21,16.08 -45.61,37.49l-252.62 0 0 -607.45zm292.89 87.22l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 31.73l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 34.03l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 30.8l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 31.5l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 30.11l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 32.43l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 33.35l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 31.38l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 31.38l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 31.38l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 31.38l18.18 0 0 18.38 -18.18 0 0 -18.38zm0 31.38l18.18 0 0 18.39 -18.18 0 0 -18.39zm0 31.38l18.18 0 0 18.38 -18.18 0 0 -18.38z"
+		/>
+	</clipPath>
+</svg>
+
+<div class="banner-selection">
+	{#each $bannerList as { type, item }, i}
+		<div class="item">
+			<ButtonBanner
+				active={i === $activeBanner}
+				banner={type}
+				{item}
+				on:select={() => selectBanner(i)}
+			/>
+		</div>
+	{/each}
+</div>
+
+<style>
+	.banner-selection {
+		position: absolute;
+		left: 0;
+		top: 15%;
+		z-index: +1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media screen and (max-width: 750px) {
+		.banner-selection {
+			flex-direction: row;
+			width: 90%;
+			justify-content: center;
+			top: 10%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.item {
+			padding: 0 1%;
+		}
+	}
+</style>

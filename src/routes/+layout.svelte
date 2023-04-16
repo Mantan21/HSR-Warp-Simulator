@@ -1,50 +1,116 @@
 <script>
+	import { isLoading, locale } from 'svelte-i18n';
+	import { page } from '$app/stores';
+	import { dev } from '$app/environment';
 	import './styles.css';
+	import {
+		isMobile,
+		isMobileLandscape,
+		viewportWidth,
+		viewportHeight
+	} from '$lib/stores/app-store';
+	import { onMount } from 'svelte';
+	import { mobileDetect } from '$lib/helpers/mobile-detect';
+	import { mountLocale } from '$lib/helpers/i18n';
+
+	let innerHeight;
+	let innerWidth;
+	$: viewportWidth.set(innerWidth);
+	$: viewportHeight.set(innerHeight);
+
+	const setMobileMode = () => {
+		// if ($isPWA) return isMobileLandscape.set(true);
+		const angle = screen.orientation?.angle || 0;
+		const rotate = angle === 90 || angle === 270;
+		isMobileLandscape.set(rotate);
+	};
+
+	mountLocale();
+	onMount(() => {
+		isMobile.set(mobileDetect() || innerWidth < 601);
+		if ($isMobile) setMobileMode();
+
+		window.addEventListener('orientationchange', () => {
+			if ($isMobile) setMobileMode();
+		});
+		// prevent Righ click (hold on android) on production mode
+		if (!dev) document.addEventListener('contextmenu', (e) => e.preventDefault());
+	});
 </script>
 
-<div class="app">
-	<main>
-		<slot />
-	</main>
+<svelte:window bind:innerHeight bind:innerWidth />
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
-</div>
+<svelte:head>
+	<link rel="preload" href="/fonts/d-din-pro.woff2" as="font" type="font/woff2" crossorigin />
+</svelte:head>
+
+<main
+	style="--screen-width:{innerWidth}px; --screen-height:{innerHeight}px"
+	class:mobileLandscape={$isMobileLandscape}
+>
+	{#if !$isLoading}
+		<slot />
+	{/if}
+	<a
+		href="/"
+		on:click|preventDefault={() => window.location.replace('/')}
+		class="uid"
+		title="Try Your Luck by this Simulator"
+	>
+		HSR.WishSimulator.App
+	</a>
+</main>
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+	@font-face {
+		font-family: 'DDin Pro';
+		src: url('/fonts/d-din-pro.woff2') format('woff2');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	:global(.os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle) {
+		background-color: #d2c69c;
+		opacity: 0.5;
+	}
+	:global(.os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:hover),
+	:global(.os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:active) {
+		background-color: #d2c69c;
+		opacity: 1;
+	}
+
+	:global(.os-theme-light > .os-scrollbar-vertical) {
+		width: 8px;
+	}
+	:global(.os-theme-light > .os-scrollbar-horizontal) {
+		height: 8px;
 	}
 
 	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
+		display: block;
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+		font-family: var(--hsr-font);
 	}
 
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
+	:global(audio) {
+		visibility: hidden;
 	}
 
-	footer a {
-		font-weight: bold;
+	.uid {
+		display: block;
+		position: fixed;
+		bottom: 0px;
+		right: 2em;
+		z-index: 9999;
+		color: #fff;
+		text-shadow: 0 0 1.5px rgba(0, 0, 0, 0.7);
+		font-family: Roboto, sans-serif;
+		pointer-events: none;
 	}
 
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
+	.mobileLandscape .uid {
+		right: 5%;
 	}
 </style>
