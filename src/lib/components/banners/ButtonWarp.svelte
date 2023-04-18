@@ -1,0 +1,154 @@
+<script>
+	import Icon from '../Icon.svelte';
+
+	export let bannerType = '';
+	export let single = false;
+
+	$: depature = bannerType == 'depature';
+	$: event = ['cone', 'character'].includes(bannerType);
+	$: cost = depature ? 8 : 10;
+</script>
+
+<div class="warp-btn">
+	{#if depature}
+		<span class="remaining">Remaining Warps: 50/50</span>
+		<span class="discount">-20%</span>
+	{/if}
+	<button class:depature>
+		<div class="cost">
+			<Icon type={event ? 'specialpass' : 'regularpass'} />
+			<span>× {single ? '1   ' : cost}</span>
+		</div>
+		<span class="text">
+			Warp ×{single ? 1 : 10}
+		</span>
+	</button>
+</div>
+
+<style>
+	.warp-btn {
+		position: relative;
+	}
+
+	button {
+		background-color: var(--color-text);
+		color: #222;
+		font-weight: bold;
+		padding: 0.5rem 0;
+		font-size: 130%;
+		border-radius: 10rem;
+		position: relative;
+		min-width: 12.5rem;
+		max-width: 15.5rem;
+		width: calc(0.19 * var(--width));
+		margin-left: 0.2rem;
+		transition: all 0.2s;
+	}
+
+	button:active {
+		filter: brightness(85%);
+		transform: scale(0.95);
+	}
+
+	button.depature {
+		max-width: 23rem;
+		width: calc(0.26 * var(--width));
+	}
+
+	@media screen and (min-width: 600px) {
+		button.depature {
+			min-width: 18rem;
+		}
+	}
+
+	.cost,
+	button {
+		display: inline-flex;
+		position: relative;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	button::after {
+		content: '';
+		width: 97%;
+		height: 80%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border: 0.08rem solid #bbb;
+		border-radius: 5rem;
+	}
+
+	@media screen and (max-width: 640px) {
+		button :global(img) {
+			width: 22px;
+		}
+	}
+
+	.cost {
+		white-space: nowrap;
+		padding: 0 1rem;
+		position: relative;
+		font-size: 90%;
+	}
+
+	.cost::after {
+		content: '';
+		height: 100%;
+		border-right: 1.5px dashed #aaa;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.cost span {
+		padding-left: 0.5rem;
+	}
+
+	span.text {
+		text-align: center;
+		width: 90%;
+		transform: translateX(-10%);
+	}
+
+	span.discount {
+		position: absolute;
+		top: 0;
+		right: 5%;
+		background-color: #73a95d;
+		display: inline-block;
+		padding: 0.5% 4%;
+		font-size: 100%;
+		color: var(--color-text);
+		border-top-right-radius: 2rem;
+		border-bottom-right-radius: 2rem;
+		z-index: +1;
+		transform: translateY(-30%);
+	}
+
+	span.remaining {
+		position: absolute;
+		right: 0;
+		top: -75%;
+		padding: 0.2% 15% 0.2% 0;
+		color: var(--color-text);
+		font-weight: normal;
+		font-size: 140%;
+		white-space: nowrap;
+	}
+
+	/* Mobile Landscape */
+	:global(.mobileLandscape) button {
+		font-size: 120%;
+		min-width: 11rem;
+		padding: 0.3rem 0;
+	}
+	:global(.mobileLandscape) button.depature {
+		width: calc(0.33 * var(--width));
+	}
+	:global(.mobileLandscape) button :global(img) {
+		width: 22px;
+	}
+</style>

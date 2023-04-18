@@ -1,7 +1,7 @@
 :root {
 	--hsr-font: 'DDin Pro', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
 		'Helvetica Neue', sans-serif;
-	--color-text: #e7e7e7;
+	--color-text: #e7e8ea;
 	--color-second: #c3b294;
 }
 
@@ -62,7 +62,6 @@ img {
 	-moz-user-drag: none;
 	-o-user-drag: none;
 	user-drag: none;
-	width: 100%;
 	height: auto;
 }
 
@@ -100,4 +99,40 @@ button {
 	html {
 		font-size: 0.8rem;
 	}
+}
+
+/* Gradient Combat Type - Icon */
+.icon-gradient {
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 180%;
+	background-position: top;
+}
+
+.icon-gradient.imaginary {
+	background-image: linear-gradient(to bottom, #e9e140 40%, #fff);
+}
+.icon-gradient.fire {
+	background-image: linear-gradient(to bottom, #df2c30 40%, #fff);
+}
+.icon-gradient.ice {
+	background-image: linear-gradient(to bottom, #2b8dca 40%, #fff);
+}
+.icon-gradient.lightning {
+	background-image: linear-gradient(to bottom, #a358c1 40%, #fff);
+}
+.icon-gradient.wind {
+	background-image: linear-gradient(to bottom, #4db787 40%, #fff);
+}
+.icon-gradient.physical {
+	background-image: linear-gradient(to bottom, #9c9a9b 40%, #fff);
+}
+.icon-gradient.quantum {
+	background-image: linear-gradient(to bottom, #524ab5 40%, #fff);
+}
+
+.hsr-star {
+	color: #ffce63;
 }

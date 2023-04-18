@@ -1,7 +1,11 @@
 <script>
+	import { regularPass, specialPass, stellarJade } from '$lib/stores/app-store';
 	import ButtonClose from '$lib/components/ButtonClose.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
-	import { regularPass, stellarJade } from '$lib/stores/app-store';
+
+	export let bannerType = '';
+	$: event = ['cone', 'character'].includes(bannerType);
+	$: balance = event ? $specialPass : $regularPass;
 </script>
 
 <header>
@@ -10,7 +14,7 @@
 		<h2>Depature Warp</h2>
 	</div>
 	<div class="budget">
-		<MyFund type="regularpass">{$regularPass}</MyFund>
+		<MyFund type={event ? 'specialpass' : 'regularpass'}>{balance}</MyFund>
 		<MyFund type="stellarjade">{$stellarJade}</MyFund>
 	</div>
 	<div class="close">

@@ -27,14 +27,14 @@
 		align-items: center;
 		justify-content: space-between;
 		width: fit-content;
-		height: 1.7rem;
+		height: 1.6rem;
 		background-color: rgba(0, 0, 0, 0.3);
 		border-radius: 50px;
 		color: #fff;
 		vertical-align: middle;
 		text-align: center;
 		position: relative;
-		margin: 0 1.5rem 0 0;
+		margin: 0 1rem 0 0;
 		padding: 0 0.5rem 0 0;
 		border: 0.7px solid #656565;
 	}

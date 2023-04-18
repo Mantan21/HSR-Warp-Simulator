@@ -1,5 +1,5 @@
 <script>
-	import ButtonBanner from '$lib/components/ButtonBanner.svelte';
+	import ButtonBanner from '$lib/components/banners/ButtonBanner.svelte';
 	import { activeBanner, bannerList } from '$lib/stores/app-store';
 
 	const selectBanner = (bn) => {
@@ -48,13 +48,13 @@
 		position: absolute;
 		left: 0;
 		top: 13.5%;
-		z-index: +1;
+		z-index: +3;
 		display: flex;
 		flex-direction: column;
 	}
 
 	@media screen and (max-width: 750px) {
-		.banner-selection {
+		:global(main):not(.mobileLandscape) .banner-selection {
 			flex-direction: row;
 			width: 90%;
 			justify-content: center;

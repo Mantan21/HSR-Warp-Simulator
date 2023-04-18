@@ -18,7 +18,7 @@
 		aspect-ratio: 1/1;
 		color: var(--color-text);
 		font-size: 190%;
-		margin-left: 2rem;
+		margin-left: 1.7rem;
 		transition: all 0.2s;
 	}
 

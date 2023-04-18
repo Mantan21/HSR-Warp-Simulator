@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export const regularPass = writable(0);
+export const regularPass = writable(2);
 export const specialPass = writable(0);
 export const stellarJade = writable(1600);
 
