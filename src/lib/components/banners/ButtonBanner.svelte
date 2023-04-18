@@ -122,7 +122,7 @@
 		top: 0;
 		left: 0;
 		z-index: +2;
-		transition: transform 0.18s ease-in;
+		transition: transform 0.17s ease-in;
 	}
 
 	.active .overflow figure::after {
@@ -184,7 +184,7 @@
 		transform-origin: left;
 		padding-top: 0.7rem;
 		filter: brightness(50%);
-		transition: all 0.25s;
+		transition: transform 0.2s linear 0.18s, filter 0.5s;
 	}
 
 	button:hover {
@@ -235,6 +235,6 @@
 
 	/* Mobile Landscape */
 	:global(.mobileLandscape) svg.frame {
-		width: 8rem;
+		max-width: 8rem;
 	}
 </style>

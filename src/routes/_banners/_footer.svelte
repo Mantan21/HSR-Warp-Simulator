@@ -73,7 +73,7 @@
 	}
 
 	@media screen and (max-width: 999px) {
-		.info-button {
+		:global(main):not(.mobileLandscape) .info-button {
 			flex-wrap: wrap;
 		}
 	}

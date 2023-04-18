@@ -42,7 +42,7 @@
 		max-width: 15.5rem;
 		width: calc(0.19 * var(--width));
 		margin-left: 0.2rem;
-		transition: all 0.2s;
+		transition: filter 0.2s, transform 0.2s;
 	}
 
 	button:active {

@@ -16,6 +16,11 @@
 		width: calc(0.138 * var(--width));
 		max-width: 10rem;
 		min-width: 7rem;
+		transition: all 0.2s;
+	}
+
+	button:active {
+		transform: scale(0.95);
 	}
 
 	button::after {

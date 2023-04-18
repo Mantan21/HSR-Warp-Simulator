@@ -33,7 +33,7 @@
 			<div
 				class="warp-banner"
 				in:fly|local={{ y: -100, duration: 200, delay: 200 }}
-				out:fly={{ y: 100, duration: 200 }}
+				out:fly|local={{ y: 100, duration: 200 }}
 			>
 				<BannerItem banner={type} />
 			</div>
