@@ -35,7 +35,6 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
 .hsr-close:before {
 	content: '\61';
 }
@@ -113,4 +112,11 @@
 }
 .hsr-physical:before {
 	content: '\7a';
+}
+.hsr-time:before {
+	content: '\41';
+}
+
+.hsr-search:before {
+	content: '\42';
 }
