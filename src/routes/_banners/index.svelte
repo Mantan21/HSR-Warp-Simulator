@@ -1,29 +1,56 @@
 <script>
+	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
+	import { fade, fly } from '$lib/helpers/transition';
 	import { activeBanner, bannerList } from '$lib/stores/app-store';
-	import BannerItem from './BannerItem.svelte';
-	import BannerSelection from '$lib/components/banners/BannerSelection.svelte';
 	import Footer from './_footer.svelte';
 	import Header from './_header.svelte';
-	import { fade, fly } from '$lib/helpers/transition';
+	import BannerItem from './BannerItem.svelte';
+	import BannerSelection from '$lib/components/banners/BannerSelection.svelte';
 
 	$: bannerType = $bannerList[$activeBanner].type;
+
+	let color1;
+	let color2;
+	const colorthief = new ColorThief();
+
+	const getColor = (list) => {
+		try {
+			const { item } = list.find(({ type }) => type === 'character');
+
+			const img = new Image();
+			img.crossOrigin = 'anonymous';
+			img.src = `/images/characters/5star/${item}.webp`;
+			img.addEventListener('load', () => {
+				const [clr1, clr2] = colorthief.getPalette(img, 2);
+				color1 = clr1.join(',');
+				color2 = clr2.join(',');
+			});
+		} catch (e) {
+			color1 = color2 = '255,255,255';
+			console.log(e);
+		}
+	};
+
+	$: getColor($bannerList);
 </script>
 
-<div class="banner">
+<div class="banner" style="--bn-color2: rgba({color1}, 0.8); --bn-color1: rgba({color2}, 0.8)">
 	{#if bannerType === 'depature'}
-		<img
-			transition:fade|local={{ duration: 250 }}
-			src="/images/background/depature-bg.webp"
-			alt="Background"
-			class="bg"
-		/>
+		<div class="bg" transition:fade|local={{ duration: 250 }}>
+			<img src="/images/background/depature-bg.webp" alt="Background" crossorigin="anonymous" />
+		</div>
 	{:else if bannerType === 'stellar'}
-		<img
-			transition:fade|local={{ duration: 250 }}
-			src="/images/background/stellar-bg.webp"
-			alt="Background"
-			class="bg"
-		/>
+		<div class="bg" transition:fade|local={{ duration: 250 }}>
+			<img src="/images/background/stellar-bg.webp" alt="Background" crossorigin="anonymous" />
+		</div>
+	{:else if bannerType === 'character'}
+		<div class="bg character" transition:fade|local={{ duration: 250 }}>
+			<img
+				src="/images/characters/5star/{$bannerList[$activeBanner].item}.webp"
+				alt="Background"
+				crossorigin="anonymous"
+			/>
+		</div>
 	{/if}
 
 	<Header {bannerType} />
@@ -57,16 +84,41 @@
 		z-index: +1;
 	}
 
-	img.bg {
+	.bg {
 		width: 100vw;
 		height: 100%;
-		object-fit: cover;
 		position: fixed;
 		z-index: 0;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%) scale(1.1);
 		filter: blur(10px);
-		-webkit-filter: blur(10px);
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg.character {
+		background-image: linear-gradient(
+			170deg,
+			rgb(0, 0, 0, 1),
+			var(--bn-color1) 50%,
+			var(--bn-color2)
+		);
+
+		background-size: 200%;
+		background-position: top left;
+		filter: blur(15px);
+		background-color: #fff;
+	}
+
+	.bg.character img {
+		position: absolute;
+		transform: scale(1.9);
+		top: -28%;
+		left: -4.5%;
+		mask-image: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 20%, transparent 65%);
 	}
 </style>

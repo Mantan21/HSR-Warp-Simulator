@@ -24,11 +24,11 @@
 		<div class="warp-button">
 			{#if !isDepature}
 				<div class="btn">
-					<ButtonWarp single {bannerType}>Warp x1</ButtonWarp>
+					<ButtonWarp single {bannerType} />
 				</div>
 			{/if}
 			<div class="btn">
-				<ButtonWarp {bannerType}>Warp x10</ButtonWarp>
+				<ButtonWarp {bannerType} />
 			</div>
 		</div>
 	</div>

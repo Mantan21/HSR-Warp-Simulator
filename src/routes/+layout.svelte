@@ -42,6 +42,13 @@
 
 <svelte:head>
 	<link rel="preload" href="/fonts/d-din-pro.woff2" as="font" type="font/woff2" crossorigin />
+	<link
+		rel="preload"
+		href="/fonts/StarRailNeue-Regular.woff2"
+		as="font"
+		type="font/woff2"
+		crossorigin
+	/>
 </svelte:head>
 
 <main
@@ -65,6 +72,13 @@
 	@font-face {
 		font-family: 'DDin Pro';
 		src: url('/fonts/d-din-pro.woff2') format('woff2');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'StarRail Neue';
+		src: url('/fonts/StarRailNeue-Regular.woff2') format('woff2');
 		font-weight: normal;
 		font-style: normal;
 	}

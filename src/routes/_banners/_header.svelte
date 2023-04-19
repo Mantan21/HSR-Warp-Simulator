@@ -4,7 +4,7 @@
 	import MyFund from '$lib/components/MyFund.svelte';
 
 	export let bannerType = '';
-	$: event = ['cone', 'character'].includes(bannerType);
+	$: event = ['lightcone', 'character'].includes(bannerType);
 	$: balance = event ? $specialPass : $regularPass;
 </script>
 

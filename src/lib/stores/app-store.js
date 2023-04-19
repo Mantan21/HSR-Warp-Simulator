@@ -9,7 +9,7 @@ export const showDepature = writable(true);
 export const bannerList = writable([
 	{ type: 'depature' },
 	{ type: 'character', item: 'seele' },
-	{ type: 'cone', item: 'in-the-night' },
+	{ type: 'lightcone', item: 'in-the-night' },
 	{ type: 'stellar' }
 ]);
 

@@ -5,7 +5,7 @@
 	export let single = false;
 
 	$: depature = bannerType == 'depature';
-	$: event = ['cone', 'character'].includes(bannerType);
+	$: event = ['lightcone', 'character'].includes(bannerType);
 	$: cost = depature ? 8 : 10;
 </script>
 

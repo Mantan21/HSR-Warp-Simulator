@@ -23,3 +23,19 @@ export const scale = (node, args) => {
 	if (!animate) return;
 	return scaleTransition(node, args);
 };
+
+export const diagonalSlide = (node, { duration = 300, delay = 0 }) => {
+	return {
+		duration,
+		delay,
+		css: (t, u) => {
+			return `
+			-webkit-mask-image: linear-gradient(45deg, black 50%, transparent 50%);
+			mask-image: linear-gradient(45deg, black 50%, transparent 50%);
+			-webkit-mask-size: 285% 100%;
+			        mask-size: 285% 100%;
+			-webkit-mask-position: ${u * 100}%;
+			        mask-position: ${u * 100}%`;
+		}
+	};
+};

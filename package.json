@@ -45,8 +45,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"colorthief": "^2.4.0",
 		"howler": "^2.2.3",
 		"idb": "^7.1.1",
+		"overlayscrollbars": "^2.1.1",
 		"svelte-i18n": "^3.6.0"
 	}
 }

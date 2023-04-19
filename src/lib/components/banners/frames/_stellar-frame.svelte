@@ -1,8 +1,8 @@
 <script>
-	import { scale } from '$lib/helpers/transition';
+	import { fade, fly, scale } from '$lib/helpers/transition';
 	import LightCones from '$lib/components/LightCones.svelte';
 
-	const lightcones = ['something-irreplaceable', 'night-on-the-milty-way', 'the-battle-isnt-over'];
+	const lightcones = ['night-on-the-milty-way', 'something-irreplaceable', 'the-battle-isnt-over'];
 
 	const chars = [
 		{
@@ -52,7 +52,7 @@
 	</div>
 	<div class="character">
 		{#each chars as { combat_type, name }}
-			<div class="char-group {name}">
+			<div class="char-group {name}" in:fly={{ duration: 1000, delay: 250, x: -20 }}>
 				<div class="name">
 					<i class="hsr-{combat_type} icon-gradient {combat_type}" />
 					<span>{name}</span>
@@ -62,6 +62,13 @@
 				</div>
 			</div>
 		{/each}
+
+		<div class="char-group additional">
+			<button in:fade={{ delay: 250, duration: 500 }}>
+				<img src="/images/utils/additional-reward.svg" alt="Additional Rewards" />
+			</button>
+			<caption>Additional Rewards</caption>
+		</div>
 	</div>
 </div>
 
@@ -176,13 +183,13 @@
 		width: 70%;
 	}
 
-	.lc1 {
+	.lc2 {
 		left: -10%;
 		top: 10%;
 		transform: scale(0.55) rotate(-15deg);
 		z-index: +1;
 	}
-	.lc2 {
+	.lc1 {
 		left: 13%;
 		top: -2%;
 		transform: scale(0.65) rotate(9deg);
@@ -243,5 +250,30 @@
 	.himeko {
 		top: 42.5%;
 		right: 11.5%;
+	}
+
+	/* Aditional Rewards */
+	.additional {
+		right: 2%;
+		bottom: 9%;
+	}
+
+	.additional button {
+		width: calc(0.055 * var(--bw));
+		aspect-ratio: 1/1;
+		border-radius: 100%;
+		background-color: rgba(0, 0, 0, 0.2);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+	.additional img {
+		width: 80%;
+	}
+
+	.additional caption {
+		text-align: center;
+		font-size: calc(0.014 * var(--bw));
 	}
 </style>

@@ -1,4 +1,6 @@
 <script>
+	import { fly } from '$lib/helpers/transition';
+
 	const chars = [
 		{
 			name: 'welt',
@@ -33,7 +35,7 @@
 
 <div class="content">
 	{#each chars as { combat_type, name }}
-		<div class="char-group {name}">
+		<div class="char-group {name}" in:fly={{ duration: 1000, delay: 250, x: -20 }}>
 			<div class="name">
 				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
 				<span>{name}</span>
@@ -44,7 +46,7 @@
 		</div>
 	{/each}
 
-	<div class="info">
+	<div class="info" in:fly={{ duration: 1000, x: -20, delay: 250 }}>
 		<span class="banner-name"> Starter Warp </span>
 		<h1 class="banner-title">Depature Warp</h1>
 		<div class="description">

@@ -45,7 +45,7 @@
 					</g>
 				</g>
 			</svg>
-		{:else if banner === 'cone'}
+		{:else if banner === 'lightcone'}
 			<img class="cone-bg" src="/images/light-cones/5star/{item}.webp" alt={item} />
 		{/if}
 	</div>
@@ -57,7 +57,7 @@
 				<img src="/images/utils/depature-icon.svg" alt="Depature" />
 			{:else if banner === 'stellar'}
 				<img src="/images/utils/stellar-icon.svg" alt="Stellar" />
-			{:else if banner === 'cone'}
+			{:else if banner === 'lightcone'}
 				<img class="cone-fg" src="/images/light-cones/icons/{item}.webp" alt={item} />
 			{/if}
 		</figure>
@@ -184,7 +184,7 @@
 		transform-origin: left;
 		padding-top: 0.7rem;
 		filter: brightness(50%);
-		transition: transform 0.2s linear 0.18s, filter 0.5s;
+		transition: transform 0.2s linear 0.23s, filter 0.5s;
 	}
 
 	button:hover {
