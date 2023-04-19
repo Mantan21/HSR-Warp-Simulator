@@ -1,10 +1,12 @@
 <script>
 	import CharacterFrame from '$lib/components/banners/frames/_character-frame.svelte';
 	import DepatureFrame from '$lib/components/banners/frames/_depature-frame.svelte';
+	import LightconeFrame from '$lib/components/banners/frames/_lightcone-frame.svelte';
 	import StellarFrame from '$lib/components/banners/frames/_stellar-frame.svelte';
 	import { viewportHeight, viewportWidth } from '$lib/stores/app-store';
 	import BnCharacter from './_bn-character.svelte';
 	import BnDepature from './_bn-depature.svelte';
+	import BnLightcone from './_bn-lightcone.svelte';
 	import BnStellar from './_bn-stellar.svelte';
 
 	export let banner = 'depature';
@@ -36,6 +38,11 @@
 			<div class="frame">
 				<CharacterFrame />
 			</div>
+		{:else if banner === 'lightcone'}
+			<BnLightcone />
+			<div class="frame">
+				<LightconeFrame />
+			</div>
 		{/if}
 	</div>
 </section>
@@ -45,7 +52,7 @@
 		width: 100%;
 		height: 100%;
 		/* background-image: url('/images/background/standard.jpg'); */
-		/* background-image: url('/images/background/chars.jpg'); */
+		/* background-image: url('/images/background/cones.jpg'); */
 		background-size: cover;
 		background-position: center;
 		position: relative;

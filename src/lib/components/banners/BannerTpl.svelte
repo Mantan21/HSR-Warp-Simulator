@@ -1,7 +1,20 @@
+<script>
+	export let blank = false;
+</script>
+
 <div class="container">
-	<div class="corner-text">
-		<span>MADE BY AGUzzTN </span>
-	</div>
+	{#if blank}
+		<slot />
+	{:else}
+		<div class="info-border" />
+		<div class="info">
+			<div class="wrapper-info" />
+		</div>
+		<div class="featured">
+			<slot />
+		</div>
+	{/if}
+
 	<svg
 		class="banner-corner"
 		xmlns="http://www.w3.org/2000/svg"
@@ -13,18 +26,12 @@
 		<g id="Layer_x0020_1">
 			<metadata id="CorelCorpID_0Corel-Layer" />
 			<path
-				class="fil0"
 				d="M68909.65 94154.68l0 -82480.77 0 -11673.91 -11673.85 0 -57235.8 0c0,6420.78 5253.57,11673.91 11673.91,11673.91l35926.8 0c5385.08,92.08 9635.09,2685.92 9635.09,7115.95l0 63690.91c0,6420.78 5253.07,11673.91 11673.85,11673.91z"
 			/>
 		</g>
 	</svg>
-
-	<div class="info-border" />
-	<div class="info">
-		<div class="wrapper-info" />
-	</div>
-	<div class="featured">
-		<slot />
+	<div class="corner-text">
+		<span>MADE BY AGUZZTN </span>
 	</div>
 </div>
 

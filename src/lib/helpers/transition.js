@@ -1,3 +1,4 @@
+import { cubicOut } from 'svelte/easing';
 import {
 	fade as fadeTransition,
 	fly as flyTransition,
@@ -24,7 +25,28 @@ export const scale = (node, args) => {
 	return scaleTransition(node, args);
 };
 
+export const scaleOrigin = (node, { duration = 300, delay = 0, origin = null, start = 0.5 }) => {
+	if (!animate) return;
+	const transformOrigin = origin ? `transform-origin: ${origin}` : '';
+	const o = +getComputedStyle(node).opacity;
+	const m = getComputedStyle(node).transform.match(/scale\(([0-9.]+)\)/);
+	const s = m ? m[1] : 1;
+	const is = 1 - start;
+	return {
+		start,
+		delay,
+		duration,
+		css: (t) => {
+			const eased = cubicOut(t);
+			return `opacity: ${eased * o}; transform: scale(${
+				eased * s * is + start
+			}); ${transformOrigin}`;
+		}
+	};
+};
+
 export const diagonalSlide = (node, { duration = 300, delay = 0 }) => {
+	if (!animate) return;
 	return {
 		duration,
 		delay,

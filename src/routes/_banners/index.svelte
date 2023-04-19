@@ -51,6 +51,14 @@
 				crossorigin="anonymous"
 			/>
 		</div>
+	{:else if bannerType === 'lightcone'}
+		<div class="bg lightcone" transition:fade|local={{ duration: 250 }}>
+			<img
+				src="/images/light-cones/5star/{$bannerList[$activeBanner].item}.webp"
+				alt="Background"
+				crossorigin="anonymous"
+			/>
+		</div>
 	{/if}
 
 	<Header {bannerType} />
@@ -107,7 +115,6 @@
 			var(--bn-color1) 50%,
 			var(--bn-color2)
 		);
-
 		background-size: 200%;
 		background-position: top left;
 		filter: blur(15px);
@@ -120,5 +127,26 @@
 		top: -28%;
 		left: -4.5%;
 		mask-image: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 20%, transparent 65%);
+	}
+
+	.bg.lightcone {
+		filter: blur(15px);
+		background-image: linear-gradient(
+			170deg,
+			rgb(0, 0, 0, 1),
+			var(--bn-color1) 50%,
+			var(--bn-color2)
+		);
+	}
+
+	.bg.lightcone img {
+		position: absolute;
+		top: unset;
+		left: unset;
+		bottom: -2%;
+		right: 0%;
+		height: unset;
+		min-height: 100;
+		opacity: 0.8;
 	}
 </style>

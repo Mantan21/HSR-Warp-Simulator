@@ -1,8 +1,12 @@
 <script>
-	import { fade, fly, scale } from '$lib/helpers/transition';
-	import LightCones from '$lib/components/LightCones.svelte';
+	import { fade, fly } from '$lib/helpers/transition';
+	import RateupLightones from '../RateupLightones.svelte';
 
-	const lightcones = ['night-on-the-milty-way', 'something-irreplaceable', 'the-battle-isnt-over'];
+	const lightcones = [
+		{ name: 'night-on-the-milty-way', rarity: 5 },
+		{ name: 'something-irreplaceable', rarity: 5 },
+		{ name: 'the-battle-isnt-over', rarity: 5 }
+	];
 
 	const chars = [
 		{
@@ -22,7 +26,7 @@
 
 <div class="content">
 	<div class="banner-name">Regular Warp</div>
-	<div class="wrapper-info">
+	<div class="wrapper-info" in:fade={{ duration: 500, delay: 250 }}>
 		<div class="info-body">
 			<h1>Stellar Warp</h1>
 			<div class="description">
@@ -30,24 +34,7 @@
 				<p>Permanent</p>
 			</div>
 
-			<div class="featured-lightcones">
-				<div class="lightcones-list">
-					{#each lightcones as cone, i}
-						<div in:scale={{ delay: 300 + i * 100, start: 2 }} class="lc-item lc{i + 1}">
-							<LightCones item={cone} />
-						</div>
-					{/each}
-				</div>
-				<div class="lightcones-info">
-					<div class="lightcones-name">
-						Something Irreplaceable
-						<span>etc.</span>
-					</div>
-					<div class="stars">
-						{#each Array(5) as _} <i class="hsr-star" /> {/each}
-					</div>
-				</div>
-			</div>
+			<RateupLightones {lightcones} showCaption />
 		</div>
 	</div>
 	<div class="character">
@@ -127,6 +114,7 @@
 		font-size: calc(0.05 * var(--bw));
 	}
 
+	/* Featured Lightcone */
 	.featured-lightcones {
 		width: 100%;
 		height: 100%;
@@ -267,7 +255,13 @@
 		justify-content: center;
 		align-items: center;
 		position: relative;
+		transition: transform 0.1s;
 	}
+
+	.additional button:active {
+		transform: scale(0.95);
+	}
+
 	.additional img {
 		width: 80%;
 	}

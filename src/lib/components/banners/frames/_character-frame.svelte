@@ -1,6 +1,6 @@
 <script>
 	import positionToStyle from '$lib/helpers/cssPosition';
-	import { diagonalSlide, fly } from '$lib/helpers/transition';
+	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
 	const rateup = [
 		{
 			name: 'natasha',
@@ -34,7 +34,7 @@
 
 	<!-- Left Pane -->
 	<div class="wrapper-info">
-		<div class="info-body">
+		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="short-detail">
 				<h1>Butterfly on Swordtip</h1>
 				<div class="time"><i class="hsr-time" /> <caption> ∞ days ∞ hours</caption></div>
@@ -45,11 +45,11 @@
 			</div>
 
 			<div class="rateup-characters">
-				<div class="rateup-row" in:diagonalSlide={{ delay: 250 }}>
+				<div class="rateup-row" in:diagonalSlide={{ delay: 300, duration: 350 }}>
 					{#each rateup as { name, position }, i}
 						<div class="rateup-item">
 							<div class="rateup-content">
-								<figure in:fly={{ x: -20, duration: 1000, delay: 250 + 100 * i }}>
+								<figure in:fly={{ x: -20, duration: 1000, delay: 300 + 100 * i }}>
 									<img
 										src="/images/characters/4star/{name}.webp"
 										alt={name}
@@ -262,6 +262,7 @@
 		align-items: center;
 		font-size: calc(0.014 * var(--bw));
 		margin-top: 4%;
+		line-height: 0;
 		background-color: rgba(0, 0, 0, 0.65);
 	}
 </style>
