@@ -26,15 +26,11 @@
 			</div>
 			<RateupLightones {lightcones} />
 		</div>
-
-		<div class="detail-btn">
-			<button>Details</button>
-		</div>
 	</div>
 
 	<!-- Right Pane -->
 	<div class="item-name">
-		<div class="row" in:fly={{ duration: 1500, delay: 250, x: -20 }}>
+		<div class="row" in:fade={{ duration: 1000, delay: 250 }}>
 			<div class="path">
 				<img src="/images/utils/the-hunt.svg" alt="The Hunt" />
 			</div>
@@ -57,30 +53,6 @@
 		height: 100%;
 		position: relative;
 		display: flex;
-	}
-
-	.detail-btn {
-		position: absolute;
-		left: 50%;
-		bottom: 7%;
-		transform: translateX(-50%);
-	}
-
-	.detail-btn button {
-		padding: calc(0.005 * var(--bw)) calc(0.02 * var(--bw));
-		font-size: calc(0.015 * var(--bw));
-		border-radius: 5rem;
-		background-color: var(--color-text);
-		color: #333;
-		transition: all 0.2s;
-	}
-
-	button:hover {
-		background-color: #ddd;
-	}
-
-	button:active {
-		transform: scale(0.95);
 	}
 
 	.banner-name {

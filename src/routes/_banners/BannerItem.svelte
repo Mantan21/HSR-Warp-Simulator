@@ -1,37 +1,38 @@
 <script>
-	import CharacterFrame from '$lib/components/banners/frames/_character-frame.svelte';
-	import DepatureFrame from '$lib/components/banners/frames/_depature-frame.svelte';
-	import LightconeFrame from '$lib/components/banners/frames/_lightcone-frame.svelte';
-	import StellarFrame from '$lib/components/banners/frames/_stellar-frame.svelte';
+	import { fade } from '$lib/helpers/transition';
 	import { viewportHeight, viewportWidth } from '$lib/stores/app-store';
+	import CharacterFrame from '$lib/components/banners/frames/_character-frame.svelte';
+	import StarterFrame from '$lib/components/banners/frames/_starter-frame.svelte';
+	import LightconeFrame from '$lib/components/banners/frames/_lightcone-frame.svelte';
+	import RegularFrame from '$lib/components/banners/frames/_regular-frame.svelte';
 	import BnCharacter from './_bn-character.svelte';
-	import BnDepature from './_bn-depature.svelte';
+	import BnStarter from './_bn-starter.svelte';
 	import BnLightcone from './_bn-lightcone.svelte';
-	import BnStellar from './_bn-stellar.svelte';
+	import BnRegular from './_bn-regular.svelte';
 
-	export let banner = 'depature';
+	export let banner = 'starter';
 	let bannerWidth;
 
 	$: fit = $viewportHeight * 1.7 > $viewportWidth;
 </script>
 
-<section>
+<section class={banner}>
 	<div
 		class="wrap"
-		class:shadow={banner !== 'depature'}
+		class:shadow={banner !== 'starter'}
 		class:fit
 		bind:clientWidth={bannerWidth}
 		style="--bw:{bannerWidth}px"
 	>
-		{#if banner === 'depature'}
-			<BnDepature />
+		{#if banner === 'starter'}
+			<BnStarter />
 			<div class="frame">
-				<DepatureFrame />
+				<StarterFrame />
 			</div>
-		{:else if banner === 'stellar'}
-			<BnStellar />
+		{:else if banner === 'regular'}
+			<BnRegular />
 			<div class="frame">
-				<StellarFrame />
+				<RegularFrame />
 			</div>
 		{:else if banner === 'character'}
 			<BnCharacter />
@@ -44,6 +45,9 @@
 				<LightconeFrame />
 			</div>
 		{/if}
+		<div class="detail-btn" in:fade={{ duration: 500, delay: 300 }}>
+			<button>Details</button>
+		</div>
 	</div>
 </section>
 
@@ -51,10 +55,6 @@
 	section {
 		width: 100%;
 		height: 100%;
-		/* background-image: url('/images/background/standard.jpg'); */
-		/* background-image: url('/images/background/cones.jpg'); */
-		background-size: cover;
-		background-position: center;
 		position: relative;
 		display: flex;
 		justify-content: center;
@@ -90,6 +90,37 @@
 	.wrap.fit {
 		width: 75%;
 		transform: translate(10%, 3.4%);
+	}
+
+	.detail-btn {
+		position: absolute;
+		left: 15%;
+		bottom: 8%;
+		transform: translateX(-50%);
+	}
+
+	.starter .detail-btn {
+		left: unset;
+		right: 58%;
+		bottom: 22%;
+		transform: unset;
+	}
+
+	.detail-btn button {
+		padding: calc(0.005 * var(--bw)) calc(0.02 * var(--bw));
+		font-size: calc(0.014 * var(--bw));
+		border-radius: 5rem;
+		background-color: var(--color-text);
+		color: #333;
+		transition: all 0.2s;
+	}
+
+	button:hover {
+		background-color: #ddd;
+	}
+
+	button:active {
+		transform: scale(0.95);
 	}
 
 	@media screen and (max-width: 750px) {

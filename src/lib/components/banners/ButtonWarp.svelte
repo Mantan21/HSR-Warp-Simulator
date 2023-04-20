@@ -4,17 +4,17 @@
 	export let bannerType = '';
 	export let single = false;
 
-	$: depature = bannerType == 'depature';
+	$: starter = bannerType == 'starter';
 	$: event = ['lightcone', 'character'].includes(bannerType);
-	$: cost = depature ? 8 : 10;
+	$: cost = starter ? 8 : 10;
 </script>
 
 <div class="warp-btn">
-	{#if depature}
+	{#if starter}
 		<span class="remaining">Remaining Warps: 50/50</span>
 		<span class="discount">-20%</span>
 	{/if}
-	<button class:depature>
+	<button class:starter>
 		<div class="cost">
 			<Icon type={event ? 'specialpass' : 'regularpass'} />
 			<span>× {single ? '1   ' : cost}</span>
@@ -50,13 +50,13 @@
 		transform: scale(0.95);
 	}
 
-	button.depature {
+	button.starter {
 		max-width: 23rem;
 		width: calc(0.26 * var(--width));
 	}
 
 	@media screen and (min-width: 600px) {
-		button.depature {
+		button.starter {
 			min-width: 18rem;
 		}
 	}
@@ -145,7 +145,7 @@
 		min-width: 11rem;
 		padding: 0.3rem 0;
 	}
-	:global(.mobileLandscape) button.depature {
+	:global(.mobileLandscape) button.starter {
 		width: calc(0.33 * var(--width));
 	}
 	:global(.mobileLandscape) button :global(img) {

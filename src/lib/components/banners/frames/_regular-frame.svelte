@@ -97,6 +97,7 @@
 		flex-direction: column;
 		height: calc(0.11 * var(--bw));
 		overflow: auto;
+		margin-bottom: -8%;
 	}
 	.description p {
 		font-size: calc(0.021 * var(--bw));

@@ -3,9 +3,9 @@
 
 	export let active = false;
 	export let item = '';
-	export let banner = 'depature';
+	export let banner = 'starter';
 
-	$: std = ['depature', 'stellar'].includes(banner);
+	$: std = ['starter', 'regular'].includes(banner);
 
 	const dispatch = createEventDispatcher();
 	const click = () => {
@@ -53,9 +53,9 @@
 		<figure>
 			{#if banner === 'character'}
 				<img src="/images/banners/button/{item}.webp" alt="Seele" />
-			{:else if banner === 'depature'}
+			{:else if banner === 'starter'}
 				<img src="/images/utils/depature-icon.svg" alt="Depature" />
-			{:else if banner === 'stellar'}
+			{:else if banner === 'regular'}
 				<img src="/images/utils/stellar-icon.svg" alt="Stellar" />
 			{:else if banner === 'lightcone'}
 				<img class="cone-fg" src="/images/light-cones/icons/{item}.webp" alt={item} />

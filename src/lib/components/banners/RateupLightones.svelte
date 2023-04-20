@@ -1,5 +1,5 @@
 <script>
-	import { scale } from '$lib/helpers/transition';
+	import { scale, fade } from '$lib/helpers/transition';
 	import LightCones from '../LightCones.svelte';
 
 	export let lightcones = [];
@@ -15,7 +15,7 @@
 		{/each}
 	</div>
 	{#if showCaption}
-		<div class="lightcones-info">
+		<div class="lightcones-info" in:fade={{ delay: 300 }}>
 			<div class="lightcones-name">
 				Something Irreplaceable
 				<span>etc.</span>

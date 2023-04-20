@@ -1,5 +1,5 @@
 <script>
-	import { fly } from '$lib/helpers/transition';
+	import { fade, fly } from '$lib/helpers/transition';
 
 	const chars = [
 		{
@@ -35,7 +35,7 @@
 
 <div class="content">
 	{#each chars as { combat_type, name }}
-		<div class="char-group {name}" in:fly={{ duration: 1000, delay: 250, x: -20 }}>
+		<div class="char-group {name}" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="name">
 				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
 				<span>{name}</span>
@@ -83,6 +83,7 @@
 	h1.banner-title {
 		font-size: calc(0.035 * var(--bw));
 		padding: 2.5%;
+		width: 75%;
 		filter: drop-shadow(0.1rem 0.1rem 0.5rem #000);
 	}
 

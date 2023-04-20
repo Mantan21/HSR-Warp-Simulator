@@ -2,10 +2,10 @@
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import ButtonWarp from '$lib/components/banners/ButtonWarp.svelte';
 
-	export let bannerType = 'depature';
+	export let bannerType = 'starter';
 
 	let footerWidth;
-	$: isDepature = bannerType === 'depature';
+	$: isStarter = bannerType === 'starter';
 </script>
 
 <div class="button-container" style="--width:{footerWidth}px" bind:clientWidth={footerWidth}>
@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="warp-button">
-			{#if !isDepature}
+			{#if !isStarter}
 				<div class="btn">
 					<ButtonWarp single {bannerType} />
 				</div>

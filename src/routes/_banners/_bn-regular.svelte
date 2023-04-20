@@ -7,17 +7,17 @@
 	<div class="featured-bg" />
 	<div class="splash-art himeko">
 		<figure in:fly={{ x: -15, duration: 1500, delay: 250 }}>
-			<img src="/images/banners/stellar/himeko.webp" alt="Himeko" />
+			<img src="/images/banners/regular/himeko.webp" alt="Himeko" />
 		</figure>
 	</div>
 	<div class="splash-art gepard">
 		<figure in:fly={{ x: -15, duration: 1500, delay: 250 }}>
-			<img src="/images/banners/stellar/gepard.webp" alt="Gepard" />
+			<img src="/images/banners/regular/gepard.webp" alt="Gepard" />
 		</figure>
 	</div>
 	<div class="splash-art bronya">
 		<figure in:fly={{ x: -30, duration: 1500, delay: 250 }}>
-			<img src="/images/banners/stellar/bronya.webp" alt="Bronya" />
+			<img src="/images/banners/regular/bronya.webp" alt="Bronya" />
 		</figure>
 	</div>
 </BannerTpl>

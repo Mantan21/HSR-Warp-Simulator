@@ -35,11 +35,11 @@
 </script>
 
 <div class="banner" style="--bn-color2: rgba({color1}, 0.8); --bn-color1: rgba({color2}, 0.8)">
-	{#if bannerType === 'depature'}
+	{#if bannerType === 'starter'}
 		<div class="bg" transition:fade|local={{ duration: 250 }}>
 			<img src="/images/background/depature-bg.webp" alt="Background" crossorigin="anonymous" />
 		</div>
-	{:else if bannerType === 'stellar'}
+	{:else if bannerType === 'regular'}
 		<div class="bg" transition:fade|local={{ duration: 250 }}>
 			<img src="/images/background/stellar-bg.webp" alt="Background" crossorigin="anonymous" />
 		</div>
