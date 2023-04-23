@@ -1,6 +1,5 @@
 <script>
 	import { isLoading, locale } from 'svelte-i18n';
-	import { page } from '$app/stores';
 	import { dev } from '$app/environment';
 	import './styles.css';
 	import {
@@ -9,9 +8,15 @@
 		viewportWidth,
 		viewportHeight
 	} from '$lib/stores/app-store';
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import { mobileDetect } from '$lib/helpers/mobile-detect';
 	import { mountLocale } from '$lib/helpers/i18n';
+	import { fade } from '$lib/helpers/transition';
+	import InitialLoader from '$lib/components/InitialLoader.svelte';
+
+	let isLoaded = false;
+	const loaded = () => (isLoaded = true);
+	setContext('loaded', loaded);
 
 	let innerHeight;
 	let innerWidth;
@@ -41,6 +46,13 @@
 <svelte:window bind:innerHeight bind:innerWidth />
 
 <svelte:head>
+	<link
+		rel="preload"
+		href="/fonts/NovecentoSans-WideBold.woff2"
+		as="font"
+		type="font/woff2"
+		crossorigin
+	/>
 	<link rel="preload" href="/fonts/d-din-pro.woff2" as="font" type="font/woff2" crossorigin />
 	<link
 		rel="preload"
@@ -55,8 +67,12 @@
 	style="--screen-width:{innerWidth}px; --screen-height:{innerHeight}px"
 	class:mobileLandscape={$isMobileLandscape}
 >
-	{#if !$isLoading}
+	{#if !$isLoading && isLoaded}
 		<slot />
+	{:else}
+		<div class="loading" transition:fade={{ duration: 250 }}>
+			<InitialLoader />
+		</div>
 	{/if}
 	<a
 		href="/"
@@ -79,6 +95,13 @@
 	@font-face {
 		font-family: 'StarRail Neue';
 		src: url('/fonts/StarRailNeue-Regular.woff2') format('woff2');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'Novecento';
+		src: url('/fonts/NovecentoSans-WideBold.woff2') format('woff2');
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -106,6 +129,15 @@
 		height: 100vh;
 		overflow: hidden;
 		font-family: var(--hsr-font);
+	}
+
+	.loading {
+		width: 100vw;
+		height: 100%;
+		position: absolute;
+		z-index: 9980;
+		left: 0;
+		top: 0;
 	}
 
 	:global(audio) {

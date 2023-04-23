@@ -1,4 +1,6 @@
 <script>
+	import { assets } from '$lib/stores/app-store';
+
 	export let type = 'stellarjade';
 	const allowAddition = type === 'stellarjade';
 
@@ -11,7 +13,7 @@
 
 <button class={type}>
 	<div class="icon">
-		<img src="/images/utils/{iconList[type]}" alt="Icon" />
+		<img src={$assets[iconList[type]]} alt="Icon" />
 	</div>
 	<span class="amount">
 		<slot />

@@ -1,5 +1,6 @@
 <script>
 	import { fade, fly } from '$lib/helpers/transition';
+	import { assets } from '$lib/stores/app-store';
 	import RateupLightones from '../RateupLightones.svelte';
 
 	const lightcones = [
@@ -52,7 +53,7 @@
 
 		<div class="char-group additional">
 			<button in:fade={{ delay: 250, duration: 500 }}>
-				<img src="/images/utils/additional-reward.svg" alt="Additional Rewards" />
+				<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
 			</button>
 			<caption>Additional Rewards</caption>
 		</div>

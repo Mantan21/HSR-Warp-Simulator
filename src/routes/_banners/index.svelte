@@ -1,7 +1,7 @@
 <script>
 	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
 	import { fade, fly } from '$lib/helpers/transition';
-	import { activeBanner, bannerList } from '$lib/stores/app-store';
+	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
 	import Footer from './_footer.svelte';
 	import Header from './_header.svelte';
 	import BannerItem from './BannerItem.svelte';
@@ -37,11 +37,11 @@
 <div class="banner" style="--bn-color2: rgba({color1}, 0.8); --bn-color1: rgba({color2}, 0.8)">
 	{#if bannerType === 'starter'}
 		<div class="bg" transition:fade|local={{ duration: 250 }}>
-			<img src="/images/background/depature-bg.webp" alt="Background" crossorigin="anonymous" />
+			<img src={$assets['depature-bg.webp']} alt="Background" crossorigin="anonymous" />
 		</div>
 	{:else if bannerType === 'regular'}
 		<div class="bg" transition:fade|local={{ duration: 250 }}>
-			<img src="/images/background/stellar-bg.webp" alt="Background" crossorigin="anonymous" />
+			<img src={$assets['stellar-bg.webp']} alt="Background" crossorigin="anonymous" />
 		</div>
 	{:else if bannerType === 'character'}
 		<div class="bg character" transition:fade|local={{ duration: 250 }}>

@@ -1,6 +1,7 @@
 <script>
 	import LightCones from '$lib/components/LightCones.svelte';
 	import { fade, fly } from '$lib/helpers/transition';
+	import { assets } from '$lib/stores/app-store';
 	import RateupLightones from '../RateupLightones.svelte';
 
 	const lightcones = [
@@ -32,7 +33,7 @@
 	<div class="item-name">
 		<div class="row" in:fade={{ duration: 1000, delay: 250 }}>
 			<div class="path">
-				<img src="/images/utils/the-hunt.svg" alt="The Hunt" />
+				<img src={$assets['the-hunt.svg']} alt="The Hunt" />
 			</div>
 			<div class="name">In the Night</div>
 			<span class="stars">

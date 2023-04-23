@@ -1,10 +1,12 @@
 <script>
+	import { assets } from '$lib/stores/app-store';
+
 	export let type = '';
 	export let style = '';
 
 	$: pic = {
-		regularpass: '/images/utils/regular-pass.webp',
-		specialpass: '/images/utils/special-pass.webp'
+		regularpass: $assets['regular-pass.webp'],
+		specialpass: $assets['special-pass.webp']
 	};
 </script>
 

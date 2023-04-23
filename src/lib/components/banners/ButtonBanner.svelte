@@ -1,4 +1,5 @@
 <script>
+	import { assets } from '$lib/stores/app-store';
 	import { createEventDispatcher } from 'svelte';
 
 	export let active = false;
@@ -54,9 +55,9 @@
 			{#if banner === 'character'}
 				<img src="/images/banners/button/{item}.webp" alt="Seele" />
 			{:else if banner === 'starter'}
-				<img src="/images/utils/depature-icon.svg" alt="Depature" />
+				<img src={$assets['depature-icon.svg']} alt="Depature" />
 			{:else if banner === 'regular'}
-				<img src="/images/utils/stellar-icon.svg" alt="Stellar" />
+				<img src={$assets['stellar-icon.svg']} alt="Stellar" />
 			{:else if banner === 'lightcone'}
 				<img class="cone-fg" src="/images/light-cones/icons/{item}.webp" alt={item} />
 			{/if}
