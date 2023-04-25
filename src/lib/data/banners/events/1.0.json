@@ -1,0 +1,23 @@
+{
+	"patch": 1.0,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"featured": {
+						"bannerName": "butterfly-on-swordtip-1",
+						"characterName": "seele"
+					},
+					"rateup": ["natasha", "hook", "pela"]
+				},
+				"lightcone": {
+					"name": "brilian-fixation-1",
+					"featured": "in-the-night",
+					"rateup": ["good-night-and-sleep-well", "the-moles-welcome-you", "post-op-conversation"]
+				}
+			}
+		}
+	]
+}

@@ -1,6 +1,7 @@
 import { starter } from '$lib/data/banners/starter.json';
+import characterWarp from './warpCharacter';
 import { roll } from './roll';
-import starterWarp from './starterWarp';
+import starterWarp from './warpStarter';
 
 const WARP = {
 	async init(version, phase) {
@@ -23,15 +24,25 @@ const WARP = {
 		const result = starterWarp(rarity, this._starter);
 		return result;
 	},
+	_characterWarp(rarity) {
+		const regularChar = this._regularBanner.characters;
+		const charBannerWarp = characterWarp.init({
+			data: this._characterBanner,
+			version: this._version,
+			phase: this._phase,
+			regularList: regularChar
+		});
+		return charBannerWarp.get(rarity);
+	},
 
 	getItem(rarity, banner) {
 		const date = new Date();
 		const time = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-		const resultObj = { time, bannerName: banner };
+		const resultObj = { time, banner };
 
 		if (banner === 'starter') return { ...resultObj, ...this._starterWish(rarity) };
+		if (banner === 'character') return { ...resultObj, ...this._characterWarp(rarity) };
 		// if (banner === 'standard') result = this._standardWish(rarity);
-		// if (banner === 'events') result = this._limitedWish(rarity, indexOfBanner);
 		// if (banner === 'weapons') result = this._weaponWish(rarity);
 		return { type: null, rarity: 0, name: null };
 	}
