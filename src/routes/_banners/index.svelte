@@ -146,7 +146,9 @@
 		bottom: -2%;
 		right: 0%;
 		height: unset;
-		min-height: 100;
+		width: unset;
+		min-height: 100vh;
+		min-width: 100vw;
 		opacity: 0.8;
 	}
 </style>

@@ -4,6 +4,8 @@ export const regularPass = writable(200);
 export const specialPass = writable(10);
 export const stellarJade = writable(1600);
 
+export const version = writable(1.0);
+export const phase = writable(1);
 export const activeBanner = writable(0);
 export const showStarterBanner = writable(true);
 export const bannerList = writable([

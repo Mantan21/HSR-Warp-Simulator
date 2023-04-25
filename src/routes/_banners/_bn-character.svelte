@@ -6,8 +6,12 @@
 <BannerTpl>
 	<div class="featured-bg" />
 	<div class="splash-art">
-		<figure class="seele" in:fly={{ x: -15, duration: 1500, delay: 200 }}>
-			<img src="/images/characters/5star/seele.webp" alt="Seele" />
+		<figure class="seele">
+			<img
+				src="/images/characters/5star/seele.webp"
+				alt="Seele"
+				in:fly={{ x: -15, duration: 1500, delay: 200 }}
+			/>
 		</figure>
 	</div>
 </BannerTpl>

@@ -1,0 +1,249 @@
+{
+	"data": [
+		{
+			"name": "texture-of-memories",
+			"rarity": 5,
+			"path": "preservation"
+		},
+		{
+			"name": "cruising-of-stellar-sea",
+			"rarity": 5,
+			"path": "hunt"
+		},
+		{
+			"name": "on-the-fall-of-an-aeon",
+			"rarity": 5,
+			"path": "destruction"
+		},
+		{
+			"name": "time-waits-for-no-one",
+			"rarity": 5,
+			"path": "abundance"
+		},
+		{
+			"name": "sleep-light-the-dead",
+			"rarity": 5,
+			"path": "hunt"
+		},
+		{
+			"name": "before-dawn",
+			"rarity": 5,
+			"path": "erudition"
+		},
+		{
+			"name": "moment-of-victory",
+			"rarity": 5,
+			"path": "preservation"
+		},
+		{
+			"name": "in-the-name-of-the-world",
+			"rarity": 5,
+			"path": "nihility"
+		},
+		{
+			"name": "the-battle-isnt-over",
+			"rarity": 5,
+			"path": "harmony"
+		},
+		{
+			"name": "something-irreplaceable",
+			"rarity": 5,
+			"path": "destruction"
+		},
+		{
+			"name": "in-the-night",
+			"rarity": 5,
+			"path": "hunt"
+		},
+		{
+			"name": "night-on-the-milky-way",
+			"rarity": 5,
+			"path": "erudition"
+		},
+		{
+			"name": "today-is-another-peaceful-day",
+			"rarity": 4,
+			"path": "erudition"
+		},
+		{
+			"name": "nowhere-to-run",
+			"rarity": 4,
+			"path": "destruction"
+		},
+		{
+			"name": "carve-the-moon-weave-the-clouds",
+			"rarity": 4,
+			"path": "harmony"
+		},
+		{
+			"name": "return-to-darkness",
+			"rarity": 4,
+			"path": "hunt"
+		},
+		{
+			"name": "this-is-me",
+			"rarity": 4,
+			"path": "preservation"
+		},
+		{
+			"name": "we-will-meet-again",
+			"rarity": 4,
+			"path": "nihility"
+		},
+		{
+			"name": "warm-night-wont-last",
+			"rarity": 4,
+			"path": "abundance"
+		},
+		{
+			"name": "the-seriousness-of-breakfast",
+			"rarity": 4,
+			"path": "erudition"
+		},
+		{
+			"name": "woof-walk-time",
+			"rarity": 4,
+			"path": "destruction"
+		},
+		{
+			"name": "make-the-world-clamor",
+			"rarity": 4,
+			"path": "erudition"
+		},
+		{
+			"name": "a-secret-vow",
+			"rarity": 4,
+			"path": "destruction"
+		},
+		{
+			"name": "planetary-rendeznous",
+			"rarity": 4,
+			"path": "harmony"
+		},
+		{
+			"name": "swordplay",
+			"rarity": 4,
+			"path": "hunt"
+		},
+		{
+			"name": "landaus-choice",
+			"rarity": 4,
+			"path": "preservation"
+		},
+		{
+			"name": "eyes-of-prey",
+			"rarity": 4,
+			"path": "nihility"
+		},
+		{
+			"name": "shared-feeling",
+			"rarity": 4,
+			"path": "abundance"
+		},
+		{
+			"name": "the-birth-of-self",
+			"rarity": 4,
+			"path": "erudition"
+		},
+		{
+			"name": "the-moles-welcome-you",
+			"rarity": 4,
+			"path": "destruction"
+		},
+		{
+			"name": "memories-of-the-past",
+			"rarity": 4,
+			"path": "harmony"
+		},
+		{
+			"name": "only-silence-remains",
+			"rarity": 4,
+			"path": "hunt"
+		},
+		{
+			"name": "one-day-of-my-new-life",
+			"rarity": 4,
+			"path": "preservation"
+		},
+		{
+			"name": "good-night-and-sleep-well",
+			"rarity": 4,
+			"path": "nihility"
+		},
+		{
+			"name": "post-op-conversation",
+			"rarity": 4,
+			"path": "abundance"
+		},
+		{
+			"name": "passkey",
+			"rarity": 3,
+			"path": "erudition"
+		},
+		{
+			"name": "messing-cogs",
+			"rarity": 3,
+			"path": "harmony"
+		},
+		{
+			"name": "loop",
+			"rarity": 3,
+			"path": "nihility"
+		},
+		{
+			"name": "defense",
+			"rarity": 3,
+			"path": "preservation"
+		},
+		{
+			"name": "shattered-home",
+			"rarity": 3,
+			"path": "destruction"
+		},
+		{
+			"name": "fine-fruit",
+			"rarity": 3,
+			"path": "abundance"
+		},
+		{
+			"name": "darting-arrow",
+			"rarity": 3,
+			"path": "hunt"
+		},
+		{
+			"name": "data-bank",
+			"rarity": 3,
+			"path": "erudition"
+		},
+		{
+			"name": "chorus",
+			"rarity": 3,
+			"path": "harmony"
+		},
+		{
+			"name": "void",
+			"rarity": 3,
+			"path": "nihility"
+		},
+		{
+			"name": "amber",
+			"rarity": 3,
+			"path": "preservation"
+		},
+		{
+			"name": "collapsing-sky",
+			"rarity": 3,
+			"path": "destruction"
+		},
+		{
+			"name": "curnocopia",
+			"rarity": 3,
+			"path": "abundance"
+		},
+		{
+			"name": "arrows",
+			"rarity": 3,
+			"path": "hunt"
+		}
+	]
+}

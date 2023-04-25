@@ -1,18 +1,19 @@
 <script>
+	import { onMount, setContext } from 'svelte';
 	import { isLoading, locale } from 'svelte-i18n';
 	import { dev } from '$app/environment';
-	import './styles.css';
 	import {
 		isMobile,
 		isMobileLandscape,
 		viewportWidth,
 		viewportHeight
 	} from '$lib/stores/app-store';
-	import { onMount, setContext } from 'svelte';
 	import { mobileDetect } from '$lib/helpers/mobile-detect';
 	import { mountLocale } from '$lib/helpers/i18n';
 	import { fade } from '$lib/helpers/transition';
+
 	import InitialLoader from '$lib/components/InitialLoader.svelte';
+	import './styles.css';
 
 	let isLoaded = false;
 	const loaded = () => (isLoaded = true);

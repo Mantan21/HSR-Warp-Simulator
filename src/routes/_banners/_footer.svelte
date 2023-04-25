@@ -1,11 +1,29 @@
 <script>
+	import { phase, version } from '$lib/stores/app-store';
+	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import ButtonWarp from '$lib/components/banners/ButtonWarp.svelte';
 
 	export let bannerType = 'starter';
+	$: isStarter = bannerType === 'starter';
 
 	let footerWidth;
-	$: isStarter = bannerType === 'starter';
+	let rollCount;
+	let WarpInstance;
+
+	const initialWarp = async (version, phase) => (WarpInstance = await WARP.init(version, phase));
+	$: initialWarp($version, $phase);
+
+	const doRoll = (count, bannerToRoll) => {
+		rollCount = count;
+		const tmp = [];
+
+		for (let i = 0; i < count; i++) {
+			const result = roll(bannerToRoll, WarpInstance);
+			tmp.push(result);
+			console.log(result.rarity, result);
+		}
+	};
 </script>
 
 <div class="button-container" style="--width:{footerWidth}px" bind:clientWidth={footerWidth}>
@@ -24,11 +42,11 @@
 		<div class="warp-button">
 			{#if !isStarter}
 				<div class="btn">
-					<ButtonWarp single {bannerType} />
+					<ButtonWarp single {bannerType} on:click={() => doRoll(1, bannerType)} />
 				</div>
 			{/if}
 			<div class="btn">
-				<ButtonWarp {bannerType} />
+				<ButtonWarp {bannerType} on:click={() => doRoll(10, bannerType)} />
 			</div>
 		</div>
 	</div>
