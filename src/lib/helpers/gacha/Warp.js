@@ -3,6 +3,7 @@ import { roll } from './roll';
 import characterWarp from './warpCharacter';
 import starterWarp from './warpStarter';
 import lightconeWarp from './warpLightcone';
+import regularWarp from './warpRegular';
 
 const WARP = {
 	async init(version, phase) {
@@ -23,6 +24,11 @@ const WARP = {
 
 	_starterWish(rarity) {
 		const result = starterWarp(rarity, this._starter);
+		return result;
+	},
+
+	_regularWarp(rarity) {
+		const result = regularWarp(rarity, this._regularBanner);
 		return result;
 	},
 
@@ -56,7 +62,7 @@ const WARP = {
 		if (banner === 'starter') return { ...resultObj, ...this._starterWish(rarity) };
 		if (banner === 'character') return { ...resultObj, ...this._characterWarp(rarity) };
 		if (banner === 'lightcone') return { ...resultObj, ...this._lightconeWarp(rarity) };
-		// if (banner === 'standard') result = this._standardWish(rarity);
+		if (banner === 'regular') return { ...resultObj, ...this._regularWarp(rarity) };
 		return { type: null, rarity: 0, name: null };
 	}
 };

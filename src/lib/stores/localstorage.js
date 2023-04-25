@@ -31,15 +31,15 @@ export const localPity = {
 	}
 };
 
-export const starterRollQty = {
-	get() {
-		const rollCount = storageLocal.get('starterRollQty');
-		if (isNaN(rollCount)) return 0;
-		if (rollCount > 50) return 50;
-		return rollCount;
+export const rollCounter = {
+	get(banner) {
+		const rollCount = storageLocal.get('rollCounter');
+		return rollCount[banner] || 0;
 	},
-	set(number = 0) {
-		storageLocal.set('starterRollQty', number);
+	set(banner, rollNumber) {
+		const rollCount = storageLocal.get('rollCounter');
+		rollCount[banner] = rollNumber;
+		storageLocal.set('rollCounter', rollCount);
 	}
 };
 

@@ -1,5 +1,5 @@
 import { showStarterBanner } from '$lib/stores/app-store';
-import { guaranteedStatus, localPity, starterRollQty } from '$lib/stores/localstorage';
+import { guaranteedStatus, localPity, rollCounter } from '$lib/stores/localstorage';
 import prob, { base4StarChar, base4StarLC, base5StarChar, base5StarLC } from './probabilities';
 
 export const roll = async (banner, WarpInstance) => {
@@ -34,14 +34,19 @@ export const roll = async (banner, WarpInstance) => {
 	let { rarity } = prob(item);
 	let pity = 1;
 
+	const rollQty = rollCounter.get(banner);
+	rollCounter.set(banner, rollQty + 1);
+
 	if (banner === 'starter') {
-		const rollQty = starterRollQty.get();
-		starterRollQty.set(rollQty + 1);
+		// starter banner limited 50 pulls
 		const isAlreadyGet5star = guaranteedStatus.get('starter');
-		if (rollQty === 49) showStarterBanner.set(false);
+		if (rollQty >= 49) showStarterBanner.set(false);
 		const isGuaranteed50pull = rollQty === 49 && !isAlreadyGet5star;
 		if (isGuaranteed50pull) rarity = 5;
 	}
+
+	// 300th pulls on regular banner, pick a character
+	// if (banner === 'regular' && rollQty >= 299) rarity = 5;
 
 	if (rarity === 5) {
 		localPity.set(`pity4${banner}`, pity4 + 1);
