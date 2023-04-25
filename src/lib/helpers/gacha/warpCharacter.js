@@ -42,27 +42,22 @@ const characterWarp = {
 		}
 
 		if (rarity === 5) {
+			const resultType = rand(['featured', 'regular']);
+			const isGuaranteed = guaranteedStatus.get('character5star');
+
 			// Guaranteed
-			const characterResult = this._featuredChars();
-			if (guaranteedStatus.get('character5star')) {
+			if (resultType === 'featured' || isGuaranteed) {
+				const characterResult = this._featuredChars();
 				guaranteedStatus.set('character5star', false);
-				characterResult.status = 'guaranteed';
+				characterResult.status = isGuaranteed ? 'guaranteed' : 'win';
 				return characterResult;
 			}
 
-			// not guaranteed
-			const resultType = rand(['limited', 'regular']);
-			if (resultType === 'regular') {
-				guaranteedStatus.set('character5star', true);
-				const result = rand(regularChars5Star(this._regularList));
-				result.status = 'lose';
-				return result;
-			}
-
-			// win 50: 50
-			guaranteedStatus.set('character5star', false);
-			characterResult.status = 'win';
-			return characterResult;
+			// Lose 50/50
+			const result = rand(regularChars5Star(this._regularList));
+			guaranteedStatus.set('character5star', true);
+			result.status = 'lose';
+			return result;
 		}
 	}
 };

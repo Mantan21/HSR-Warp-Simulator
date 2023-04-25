@@ -28,7 +28,8 @@
 		{
 			"name": "before-dawn",
 			"rarity": 5,
-			"path": "erudition"
+			"path": "erudition",
+			"limited": true
 		},
 		{
 			"name": "moment-of-victory",
@@ -53,7 +54,8 @@
 		{
 			"name": "in-the-night",
 			"rarity": 5,
-			"path": "hunt"
+			"path": "hunt",
+			"limited": true
 		},
 		{
 			"name": "night-on-the-milky-way",

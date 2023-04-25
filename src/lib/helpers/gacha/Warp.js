@@ -1,7 +1,8 @@
 import { starter } from '$lib/data/banners/starter.json';
-import characterWarp from './warpCharacter';
 import { roll } from './roll';
+import characterWarp from './warpCharacter';
 import starterWarp from './warpStarter';
+import lightconeWarp from './warpLightcone';
 
 const WARP = {
 	async init(version, phase) {
@@ -24,6 +25,7 @@ const WARP = {
 		const result = starterWarp(rarity, this._starter);
 		return result;
 	},
+
 	_characterWarp(rarity) {
 		const regularChar = this._regularBanner.characters;
 		const charBannerWarp = characterWarp.init({
@@ -32,7 +34,18 @@ const WARP = {
 			phase: this._phase,
 			regularList: regularChar
 		});
-		return charBannerWarp.get(rarity);
+		const result = { bannerName: this._characterBanner.featured.bannerName };
+		return { ...result, ...charBannerWarp.get(rarity) };
+	},
+
+	_lightconeWarp(rarity) {
+		const { _lightconeBanner, _phase, _version } = this;
+		const lightconeBannerWarp = lightconeWarp.init({
+			data: _lightconeBanner,
+			version: _version,
+			phase: _phase
+		});
+		return lightconeBannerWarp.get(rarity);
 	},
 
 	getItem(rarity, banner) {
@@ -42,8 +55,8 @@ const WARP = {
 
 		if (banner === 'starter') return { ...resultObj, ...this._starterWish(rarity) };
 		if (banner === 'character') return { ...resultObj, ...this._characterWarp(rarity) };
+		if (banner === 'lightcone') return { ...resultObj, ...this._lightconeWarp(rarity) };
 		// if (banner === 'standard') result = this._standardWish(rarity);
-		// if (banner === 'weapons') result = this._weaponWish(rarity);
 		return { type: null, rarity: 0, name: null };
 	}
 };
