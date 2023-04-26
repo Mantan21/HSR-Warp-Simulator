@@ -46,12 +46,12 @@
 		</div>
 	{/each}
 
-	<div class="info" in:fly={{ duration: 1000, x: -20, delay: 250 }}>
+	<div class="info" in:fly={{ duration: 1000, y: 20, delay: 250 }}>
 		<span class="banner-name"> Starter Warp </span>
-		<h1 class="banner-title">Depature Warp</h1>
+		<h1 class="banner-title">Departure Warp</h1>
 		<div class="description">
 			<p>
-				20% off for set of Warps, and a <span>5</span>-star character is guaranteed within
+				20% off for set of 10 Warps, and a <span>5</span>-star character is guaranteed within
 				<span>50</span> Warps
 			</p>
 		</div>
@@ -81,7 +81,7 @@
 	}
 
 	h1.banner-title {
-		font-size: calc(0.035 * var(--bw));
+		font-size: calc(0.032 * var(--bw));
 		padding: 2.5%;
 		width: 75%;
 		filter: drop-shadow(0.1rem 0.1rem 0.5rem #000);
@@ -89,16 +89,23 @@
 
 	.description {
 		background-color: rgba(0, 0, 0, 0.5);
-		padding: 2.5%;
+		padding: calc(0.02 * var(--bw)) 2.5%;
 		width: calc(0.425 * var(--bw));
 		aspect-ratio: 5/1;
 		display: flex;
 		align-items: center;
+		overflow-y: auto;
 	}
+
+	.description::-webkit-scrollbar {
+		display: none;
+	}
+
 	.description p {
-		font-size: calc(0.022 * var(--bw));
-		font-weight: bold;
+		font-size: calc(0.021 * var(--bw));
 		line-height: normal;
+		font-weight: 500;
+		margin-top: calc(0.015 * var(--bw));
 	}
 
 	.description span {
@@ -117,12 +124,12 @@
 	}
 	.name i {
 		padding: 0 calc(0.01 * var(--bw));
-		font-size: calc(0.025 * var(--bw));
+		font-size: calc(0.022 * var(--bw));
 	}
 	.name span {
 		display: block;
 		padding-right: calc(0.01 * var(--bw));
-		font-size: calc(0.02 * var(--bw));
+		font-size: calc(0.015 * var(--bw));
 		text-transform: capitalize;
 	}
 

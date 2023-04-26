@@ -5,6 +5,7 @@
 
 	let anyError = false;
 	let current = 0;
+	$: percentage = current > 99 ? 100 : current.toFixed();
 
 	const handleLoaded = getContext('loaded');
 
@@ -69,9 +70,11 @@
 		<div class="ornament ornament2" />
 		<div class="ornament ornament3" />
 		<div class="text">
-			<div class="percentage">{current > 99 ? 100 : current.toFixed()}</div>
-			<div class="loading">LOADING</div>
-			<div class="hsr-text">LOADING</div>
+			<div class="loading">{percentage < 1 ? 'WAITING' : 'LOADING'}</div>
+			{#if percentage > 0}
+				<div class="percentage">{percentage}</div>
+				<div class="hsr-text">LOADING</div>
+			{/if}
 		</div>
 	</div>
 </section>
@@ -177,7 +180,6 @@
 	.hsr-text {
 		font-family: var(--hsr-neue);
 		position: absolute;
-		width: 100%;
 		left: 50%;
 		bottom: 83%;
 		transform: translate(calc(-50% + (0.03 * var(--screen-width))), -50%);

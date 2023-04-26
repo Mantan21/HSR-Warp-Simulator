@@ -12,14 +12,14 @@
 	let WarpInstance;
 
 	const initialWarp = async (version, phase) => (WarpInstance = await WARP.init(version, phase));
-	$: initialWarp($version, $phase);
+	$: initialWarp($version.toFixed(1).toString(), $phase);
 
-	const doRoll = (count, bannerToRoll) => {
+	const doRoll = async (count, bannerToRoll) => {
 		rollCount = count;
 		const tmp = [];
 
 		for (let i = 0; i < count; i++) {
-			const result = roll(bannerToRoll, WarpInstance);
+			const result = await roll(bannerToRoll, WarpInstance);
 			tmp.push(result);
 			console.log(result.rarity, result);
 		}
@@ -36,7 +36,7 @@
 				<ButtonGeneral>Collection</ButtonGeneral>
 			</div>
 			<div class="btn">
-				<ButtonGeneral>Records</ButtonGeneral>
+				<ButtonGeneral>View Details</ButtonGeneral>
 			</div>
 		</div>
 		<div class="warp-button">
@@ -86,8 +86,11 @@
 
 	/* Mobile Landscape */
 	:global(.mobileLandscape) .button-container {
-		bottom: 3%;
-		padding-right: 1rem;
+		bottom: 4.5%;
+		padding-right: 6.5%;
+	}
+	:global(.mobileLandscape) .warp-button {
+		transform: scale(0.95);
 	}
 
 	@media screen and (max-width: 999px) {

@@ -55,8 +55,13 @@
 	img {
 		position: absolute;
 		z-index: 1;
-		top: -102%;
+		bottom: -57%;
 		left: -8%;
 		width: 160%;
+	}
+
+	:global(.mobileLandscape) img {
+		bottom: -80%;
+		left: -3%;
 	}
 </style>

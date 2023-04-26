@@ -1,5 +1,5 @@
 :root {
-	--hsr-font: 'DDin Pro', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+	--hsr-font: 'StarRail Global', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
 		'Helvetica Neue', sans-serif;
 	--hsr-neue: 'StarRail Neue', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
 		sans-serif;
@@ -82,24 +82,28 @@ button {
 	background-color: transparent;
 	border: 0;
 	outline: 0;
-	font-size: 1rem;
+}
+body,
+html,
+button {
+	font-size: 0.9rem;
 }
 
 .mobileLandscape {
-	font-size: 0.7rem;
+	font-size: 0.6rem;
 }
 
 @media screen and (max-width: 900px) {
 	body,
 	html {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 	}
 }
 
 @media screen and (max-width: 400px) {
 	body,
 	html {
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 	}
 }
 

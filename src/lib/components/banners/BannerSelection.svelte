@@ -53,6 +53,11 @@
 		flex-direction: column;
 	}
 
+	:global(.mobileLandscape) .banner-selection {
+		left: 3%;
+		top: 15%;
+	}
+
 	@media screen and (max-width: 750px) {
 		:global(main):not(.mobileLandscape) .banner-selection {
 			flex-direction: row;

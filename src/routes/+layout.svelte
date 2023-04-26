@@ -54,7 +54,13 @@
 		type="font/woff2"
 		crossorigin
 	/>
-	<link rel="preload" href="/fonts/d-din-pro.woff2" as="font" type="font/woff2" crossorigin />
+	<link
+		rel="preload"
+		href="/fonts/optimized_global_web.woff2"
+		as="font"
+		type="font/woff2"
+		crossorigin
+	/>
 	<link
 		rel="preload"
 		href="/fonts/StarRailNeue-Regular.woff2"
@@ -87,8 +93,8 @@
 
 <style>
 	@font-face {
-		font-family: 'DDin Pro';
-		src: url('/fonts/d-din-pro.woff2') format('woff2');
+		font-family: 'StarRail GLobal';
+		src: url('/fonts/optimized_global_web.woff2') format('woff2');
 		font-weight: normal;
 		font-style: normal;
 	}

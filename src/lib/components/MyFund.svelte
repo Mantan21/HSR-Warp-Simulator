@@ -41,7 +41,8 @@
 		border: 0.7px solid #656565;
 	}
 	:global(.mobileLandscape) button {
-		height: 1.4rem;
+		height: 1.1rem;
+		margin: 0.3rem 0;
 	}
 
 	span.amount {
@@ -51,7 +52,7 @@
 	}
 
 	:global(.mobileLandscape) span.amount {
-		font-size: 120%;
+		font-size: 82%;
 		min-width: 2.5rem;
 	}
 
@@ -61,12 +62,17 @@
 		font-size: 130%;
 	}
 
+	:global(.mobileLandscape) span.plus {
+		font-size: 100%;
+		transform: translate(20%);
+	}
+
 	img {
 		width: 2.5rem;
 		aspect-ratio: 1/1;
 	}
 	:global(.mobileLandscape) img {
-		width: 2rem;
+		width: 1.7rem;
 	}
 
 	@media screen and (max-width: 900px) {

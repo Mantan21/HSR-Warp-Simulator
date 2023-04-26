@@ -1,4 +1,5 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
 	import Icon from '../Icon.svelte';
 
 	export let bannerType = '';
@@ -7,6 +8,9 @@
 	$: starter = bannerType == 'starter';
 	$: event = ['lightcone', 'character'].includes(bannerType);
 	$: cost = starter ? 8 : 10;
+
+	const dispatch = createEventDispatcher();
+	const handleClick = () => dispatch('click');
 </script>
 
 <div class="warp-btn">
@@ -14,7 +18,8 @@
 		<span class="remaining">Remaining Warps: 50/50</span>
 		<span class="discount">-20%</span>
 	{/if}
-	<button class:starter>
+
+	<button class:starter on:click={handleClick}>
 		<div class="cost">
 			<Icon type={event ? 'specialpass' : 'regularpass'} />
 			<span>× {single ? '1   ' : cost}</span>

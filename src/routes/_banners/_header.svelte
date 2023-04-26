@@ -25,23 +25,23 @@
 <style>
 	header {
 		width: 100%;
-		padding: 0 2%;
+		padding: 3.7vh 2% 0;
 		position: absolute;
 		top: 0;
 		left: 0;
 		z-index: +2;
 		display: flex;
 		align-items: center;
-		padding-top: 3vh;
 	}
 
 	.warp h1 {
 		color: var(--color-second);
-		font-size: 115%;
+		font-size: 110%;
 	}
 
 	.warp h2 {
-		font-size: 135%;
+		margin-top: 2%;
+		font-size: 130%;
 		white-space: nowrap;
 	}
 
@@ -49,5 +49,9 @@
 		margin-left: auto;
 		text-align: right;
 		width: fit-content;
+	}
+
+	:global(.mobileLandscape) header {
+		padding: 1.5vh 5%;
 	}
 </style>

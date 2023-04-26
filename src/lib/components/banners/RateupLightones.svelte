@@ -36,7 +36,7 @@
 
 	.lightcones-info {
 		position: absolute;
-		top: 31%;
+		top: 49%;
 		width: 100%;
 		padding: 0 3%;
 		display: flex;
@@ -49,8 +49,8 @@
 		height: calc(0.052 * var(--bw));
 		width: 100%;
 		text-align: center;
-		padding: 0 12% 0 2%;
-		font-size: calc(0.023 * var(--bw));
+		padding: 2% 12% 2% 2%;
+		font-size: calc(0.018 * var(--bw));
 		color: var(--color-text);
 		position: relative;
 		z-index: +2;

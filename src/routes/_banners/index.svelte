@@ -31,6 +31,11 @@
 		}
 	};
 
+	const bannerTransition = (node, args) => {
+		if (args.fade) return fade(node, args);
+		return fly(node, args);
+	};
+
 	$: getColor($bannerList);
 </script>
 
@@ -67,8 +72,13 @@
 		{#if type === bannerType}
 			<div
 				class="warp-banner"
-				in:fly|local={{ y: -100, duration: 200, delay: 200 }}
-				out:fly|local={{ y: 100, duration: 200 }}
+				in:bannerTransition|local={{
+					y: -100,
+					duration: 200,
+					delay: 200,
+					fade: bannerType === 'starter'
+				}}
+				out:bannerTransition|local={{ y: 100, duration: 200 }}
 			>
 				<BannerItem banner={type} />
 			</div>

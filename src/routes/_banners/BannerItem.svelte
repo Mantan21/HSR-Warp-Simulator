@@ -1,6 +1,5 @@
 <script>
-	import { fade } from '$lib/helpers/transition';
-	import { viewportHeight, viewportWidth } from '$lib/stores/app-store';
+	import { isMobileLandscape, viewportHeight, viewportWidth } from '$lib/stores/app-store';
 	import CharacterFrame from '$lib/components/banners/frames/_character-frame.svelte';
 	import StarterFrame from '$lib/components/banners/frames/_starter-frame.svelte';
 	import LightconeFrame from '$lib/components/banners/frames/_lightcone-frame.svelte';
@@ -13,7 +12,7 @@
 	export let banner = 'starter';
 	let bannerWidth;
 
-	$: fit = $viewportHeight * 1.7 > $viewportWidth;
+	$: fit = $viewportHeight * ($isMobileLandscape ? 1.9 : 1.7) > $viewportWidth;
 </script>
 
 <section class={banner}>
@@ -45,9 +44,6 @@
 				<LightconeFrame />
 			</div>
 		{/if}
-		<div class="detail-btn" in:fade={{ duration: 500, delay: 300 }}>
-			<button>Details</button>
-		</div>
 	</div>
 </section>
 
@@ -84,7 +80,9 @@
 	}
 
 	:global(.mobileLandscape) .wrap {
-		transform: translate(6.3%, 2%);
+		aspect-ratio: 1670/825;
+		max-width: 155vh;
+		transform: translate(6.3%, 4.2%);
 	}
 
 	.wrap.fit {
@@ -97,30 +95,6 @@
 		left: 15%;
 		bottom: 8%;
 		transform: translateX(-50%);
-	}
-
-	.starter .detail-btn {
-		left: unset;
-		right: 58%;
-		bottom: 22%;
-		transform: unset;
-	}
-
-	.detail-btn button {
-		padding: calc(0.005 * var(--bw)) calc(0.02 * var(--bw));
-		font-size: calc(0.014 * var(--bw));
-		border-radius: 5rem;
-		background-color: var(--color-text);
-		color: #333;
-		transition: all 0.2s;
-	}
-
-	button:hover {
-		background-color: #ddd;
-	}
-
-	button:active {
-		transform: scale(0.95);
 	}
 
 	@media screen and (max-width: 750px) {

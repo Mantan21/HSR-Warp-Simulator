@@ -89,22 +89,31 @@
 		height: 100%;
 		border-left: 1px solid #aaa;
 		padding: 5%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	:global(.mobileLandscape) .info-body {
+		padding: 5% 5% 5% 7%;
 	}
 
 	.description {
-		padding: 5% 0 0 1%;
+		padding: 6% 0 0 1%;
 		display: flex;
 		align-items: flex-start;
 		flex-direction: column;
-		height: calc(0.11 * var(--bw));
+		height: calc(0.2 * var(--bw));
 		overflow: auto;
-		margin-bottom: -8%;
 	}
 	.description p {
-		font-size: calc(0.021 * var(--bw));
-		font-weight: bold;
-		line-height: normal;
+		font-size: calc(0.017 * var(--bw));
+		line-height: 130%;
 		margin-bottom: 5%;
+		margin-top: 2%;
+	}
+
+	:global(.mobileLandscape) .description p {
+		font-size: calc(0.016 * var(--bw));
 	}
 
 	.description span {
@@ -112,14 +121,24 @@
 	}
 
 	h1 {
-		padding-top: 10%;
-		font-size: calc(0.05 * var(--bw));
+		margin-top: 5%;
+		font-size: calc(0.041 * var(--bw));
+		height: calc(0.2 * var(--bw));
+		display: flex;
+		align-items: center;
+	}
+
+	:global(.mobileLandscape) h1 {
+		margin-top: 13%;
+		font-size: calc(0.022 * var(--bw));
+		height: calc(0.07 * var(--bw));
+		line-height: 100%;
 	}
 
 	/* Featured Lightcone */
 	.featured-lightcones {
 		width: 100%;
-		height: 100%;
+		height: fit-content;
 		position: relative;
 	}
 
@@ -208,12 +227,12 @@
 	}
 	.name i {
 		padding: 0 calc(0.01 * var(--bw));
-		font-size: calc(0.025 * var(--bw));
+		font-size: calc(0.023 * var(--bw));
 	}
 	.name span {
 		display: block;
 		padding-right: calc(0.01 * var(--bw));
-		font-size: calc(0.02 * var(--bw));
+		font-size: calc(0.015 * var(--bw));
 		text-transform: capitalize;
 	}
 

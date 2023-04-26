@@ -26,6 +26,10 @@
 		transform: scale(0.9);
 	}
 
+	:global(.mobileLandscape) button {
+		margin-left: 0.7rem;
+	}
+
 	@media screen and (max-width: 600px) {
 		button {
 			margin-left: 0.5rem;

@@ -68,10 +68,13 @@
 <style>
 	svg.frame {
 		max-width: 100%;
-		width: 10.2rem;
+		width: 11.2rem;
 		aspect-ratio: 150/60;
-		margin-left: -0.2rem;
 		position: relative;
+	}
+
+	:global(.mobileLandscape) svg.frame {
+		max-width: 7.2rem;
 	}
 
 	.border {
@@ -80,23 +83,28 @@
 
 	.svgFill {
 		background-color: #40453f;
-		aspect-ratio: 159.482/60.745;
-		width: 97%;
+		aspect-ratio: 160/60;
 	}
 
 	.svgFill,
 	.overflow {
 		clip-path: url(#buttonFrame);
 		position: absolute;
-		left: 0.4%;
-		bottom: 7%;
+		left: 1%;
+		bottom: 8%;
+		width: 97.5%;
 		overflow: hidden;
+	}
+
+	:global(.mobileLandscape) .svgFill,
+	:global(.mobileLandscape) .overflow {
+		bottom: 12.8%;
+		left: 1.5%;
 	}
 
 	.overflow {
 		aspect-ratio: 160/80;
 		display: flex;
-		width: 97%;
 		justify-content: center;
 		align-items: flex-end;
 	}
@@ -104,10 +112,9 @@
 	.overflow figure {
 		position: relative;
 		bottom: 0;
-		left: -1%;
 		display: flex;
 		width: 100%;
-		aspect-ratio: 159.482/60.5;
+		aspect-ratio: 160/60;
 		overflow: hidden;
 	}
 
@@ -123,7 +130,8 @@
 		top: 0;
 		left: 0;
 		z-index: +2;
-		transition: transform 0.17s ease-in;
+		transform: skew(-20deg) translateX(-20%);
+		transition: transform 0.2s ease-in;
 	}
 
 	.active .overflow figure::after {
@@ -132,7 +140,7 @@
 			rgba(255, 255, 255, 0.7) 30%,
 			rgba(255, 255, 255, 0.1)
 		);
-		transform: translateX(110%);
+		transform: skew(-30deg) translateX(110%);
 	}
 
 	.overflow img {
@@ -188,6 +196,11 @@
 		transition: transform 0.2s linear 0.23s, filter 0.5s;
 	}
 
+	:global(.mobileLandscape) button {
+		padding: 0;
+		transform: scale(0.92) translateX(-1%);
+	}
+
 	button:hover {
 		filter: brightness(90%);
 	}
@@ -195,6 +208,10 @@
 	button.active {
 		transform: scale(1) translateX(-1%);
 		filter: brightness(100%);
+	}
+
+	:global(.mobileLandscape) button.active {
+		transform: scale(0.97) translateX(3%);
 	}
 
 	button.active .rotation {
@@ -215,6 +232,12 @@
 		opacity: 0.4;
 	}
 
+	:global(.mobileLandscape) button.active::after {
+		width: 100%;
+		bottom: -1%;
+		right: -2%;
+	}
+
 	@media screen and (max-width: 750px) {
 		button {
 			transform-origin: center;
@@ -225,6 +248,14 @@
 		}
 	}
 
+	@media screen and (max-width: 600px) {
+		.svgFill,
+		.overflow {
+			bottom: 10%;
+			left: 1%;
+		}
+	}
+
 	@keyframes rotate {
 		from {
 			transform: rotate(0deg);
@@ -232,10 +263,5 @@
 		to {
 			transform: rotate(-360deg);
 		}
-	}
-
-	/* Mobile Landscape */
-	:global(.mobileLandscape) svg.frame {
-		max-width: 8rem;
 	}
 </style>

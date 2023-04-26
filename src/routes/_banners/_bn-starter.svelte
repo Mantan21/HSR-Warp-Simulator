@@ -3,25 +3,25 @@
 </script>
 
 <div class="character-group">
-	<div class="gepard character" in:fly={{ x: -30, duration: 1500, delay: 250 }}>
+	<div class="gepard character" in:fly={{ y: 30, duration: 1000, delay: 250 }}>
 		<img src="/images/banners/starter/1.0/gepard.webp" alt="gepard" />
 	</div>
-	<div class="bailu character" in:fly={{ x: -15, duration: 1500, delay: 250 }}>
+	<div class="bailu character" in:fly={{ y: 15, duration: 1000, delay: 250 }}>
 		<img src="/images/banners/starter/1.0/bailu.webp" alt="bailu" />
 	</div>
-	<div class="yanqing character" in:fly={{ x: -15, duration: 1500, delay: 250 }}>
+	<div class="yanqing character" in:fly={{ y: 15, duration: 1000, delay: 250 }}>
 		<img src="/images/banners/starter/1.0/yanqing.webp" alt="Yanqing" />
 	</div>
-	<div class="clara character" in:fly={{ x: -30, duration: 1500, delay: 250 }}>
+	<div class="clara character" in:fly={{ y: 30, duration: 1000, delay: 250 }}>
 		<img src="/images/banners/starter/1.0/clara.webp" alt="clara" />
 	</div>
-	<div class="bronya character" in:fly={{ x: -15, duration: 1500, delay: 250 }}>
+	<div class="bronya character" in:fly={{ y: 15, duration: 1000, delay: 250 }}>
 		<img src="/images/banners/starter/1.0/bronya.webp" alt="bronya" />
 	</div>
-	<div class="himeko character" in:fly={{ x: -15, duration: 1500, delay: 250 }}>
+	<div class="himeko character" in:fly={{ y: 15, duration: 1000, delay: 250 }}>
 		<img src="/images/banners/starter/1.0/himeko.webp" alt="Himeko" />
 	</div>
-	<div class="welt character" in:fly={{ x: -30, duration: 1500, delay: 250 }}>
+	<div class="welt character" in:fly={{ y: 30, duration: 1000, delay: 250 }}>
 		<img src="/images/banners/starter/1.0/welt.webp" alt="Welt" />
 	</div>
 </div>

@@ -54,6 +54,10 @@
 		z-index: -1;
 		mask-image: linear-gradient(transparent 10%, black 25%, black 60%, transparent 80%);
 	}
+	:global(.mobileLandscape) .gepard {
+		width: 95%;
+	}
+
 	.bronya {
 		top: -14.5%;
 		left: -5.5%;
@@ -61,6 +65,11 @@
 		z-index: +1;
 		mask-image: linear-gradient(transparent 0, black 15%, black 70%, transparent 85%);
 	}
+	:global(.mobileLandscape) .bronya {
+		width: 105%;
+		left: -0.5%;
+	}
+
 	.bronya img {
 		mask-image: linear-gradient(to right, black 85%, transparent 95%);
 	}
@@ -70,5 +79,9 @@
 		width: 79%;
 		z-index: -1;
 		mask-image: linear-gradient(transparent 0, black 15%, black 70%, transparent 85%);
+	}
+	:global(.mobileLandscape) .himeko {
+		left: 30%;
+		width: 70%;
 	}
 </style>
