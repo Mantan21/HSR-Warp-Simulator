@@ -4,11 +4,9 @@
 	import { assets } from '$lib/stores/app-store';
 	import RateupLightones from '../RateupLightones.svelte';
 
-	const lightcones = [
-		{ name: 'the-moles-welcome-you', rarity: 4 },
-		{ name: 'good-night-and-sleep-well', rarity: 4 },
-		{ name: 'post-op-conversation', rarity: 4 }
-	];
+	export let item = {};
+
+	$: lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
 </script>
 
 <div class="content">
@@ -33,9 +31,9 @@
 	<div class="item-name">
 		<div class="row" in:fade={{ duration: 1000, delay: 250 }}>
 			<div class="path">
-				<img src={$assets['the-hunt.svg']} alt="The Hunt" />
+				<img src={$assets[`the-${item.path}.svg`]} alt="The Hunt" />
 			</div>
-			<div class="name">In the Night</div>
+			<div class="name">{item.featured}</div>
 			<span class="stars">
 				{#each Array(5) as _}
 					<i class="hsr-star" />
@@ -44,7 +42,7 @@
 		</div>
 	</div>
 	<div class="featured-lighcone" in:fly={{ duration: 1000, delay: 250, x: -20 }}>
-		<LightCones item="in-the-night" />
+		<LightCones item={item.featured} />
 	</div>
 </div>
 

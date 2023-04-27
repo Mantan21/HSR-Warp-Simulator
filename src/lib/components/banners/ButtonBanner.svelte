@@ -1,12 +1,21 @@
 <script>
-	import { assets } from '$lib/stores/app-store';
 	import { createEventDispatcher } from 'svelte';
+	import { data } from '$lib/data/characters.json';
+	import { assets } from '$lib/stores/app-store';
+	import positionToStyle from '$lib/helpers/cssPosition';
 
 	export let active = false;
-	export let item = '';
+	export let item = {};
 	export let banner = 'starter';
 
+	$: featured = item.featured;
 	$: std = ['starter', 'regular'].includes(banner);
+
+	const buttonOffset = (characterName) => {
+		const nullValue = { buttonOffset: {} };
+		const { buttonOffset } = data.find(({ name }) => name === characterName) || nullValue;
+		return positionToStyle(buttonOffset);
+	};
 
 	const dispatch = createEventDispatcher();
 	const click = () => {
@@ -47,19 +56,23 @@
 				</g>
 			</svg>
 		{:else if banner === 'lightcone'}
-			<img class="cone-bg" src="/images/light-cones/5star/{item}.webp" alt={item} />
+			<img class="cone-bg" src="/images/light-cones/5star/{featured}.webp" alt={item} />
 		{/if}
 	</div>
 	<div class="overflow">
 		<figure>
 			{#if banner === 'character'}
-				<img src="/images/banners/button/{item}.webp" alt="Seele" />
+				<img
+					src="/images/banners/button/{featured.characterName}.webp"
+					style={buttonOffset(featured.characterName)}
+					alt="Seele"
+				/>
 			{:else if banner === 'starter'}
 				<img src={$assets['depature-icon.svg']} alt="Depature" />
 			{:else if banner === 'regular'}
 				<img src={$assets['stellar-icon.svg']} alt="Stellar" />
 			{:else if banner === 'lightcone'}
-				<img class="cone-fg" src="/images/light-cones/icons/{item}.webp" alt={item} />
+				<img class="cone-fg" src="/images/light-cones/icons/{featured}.webp" alt={item} />
 			{/if}
 		</figure>
 	</div>
@@ -178,8 +191,8 @@
 	}
 
 	img.cone-fg {
-		width: 50%;
-		top: -25%;
+		width: 55%;
+		top: -30%;
 		left: 50%;
 		transform: translateX(-30%);
 	}

@@ -10,6 +10,8 @@
 	import BnRegular from './_bn-regular.svelte';
 
 	export let banner = 'starter';
+	export let item = {};
+
 	let bannerWidth;
 
 	$: fit = $viewportHeight * ($isMobileLandscape ? 1.9 : 1.7) > $viewportWidth;
@@ -34,14 +36,14 @@
 				<RegularFrame />
 			</div>
 		{:else if banner === 'character'}
-			<BnCharacter />
+			<BnCharacter {item} />
 			<div class="frame">
-				<CharacterFrame />
+				<CharacterFrame {item} />
 			</div>
 		{:else if banner === 'lightcone'}
-			<BnLightcone />
+			<BnLightcone {item} />
 			<div class="frame">
-				<LightconeFrame />
+				<LightconeFrame {item} />
 			</div>
 		{/if}
 	</div>

@@ -7,26 +7,28 @@
 	import BannerItem from './BannerItem.svelte';
 	import BannerSelection from '$lib/components/banners/BannerSelection.svelte';
 
-	$: bannerType = $bannerList[$activeBanner].type;
+	let item, type;
+	$: ({ item, type } = $bannerList[$activeBanner]);
+	$: bannerType = type;
 
-	let color1;
-	let color2;
+	let color1 = '0,0,0';
+	let color2 = color1;
 	const colorthief = new ColorThief();
 
 	const getColor = (list) => {
 		try {
-			const { item } = list.find(({ type }) => type === 'character');
+			const { item } = list.find(({ type }) => type === 'character') || { item: null };
+			if (!item) return;
 
 			const img = new Image();
 			img.crossOrigin = 'anonymous';
-			img.src = `/images/characters/5star/${item}.webp`;
+			img.src = `/images/characters/5star/${item.featured.characterName}.webp`;
 			img.addEventListener('load', () => {
 				const [clr1, clr2] = colorthief.getPalette(img, 2);
 				color1 = clr1.join(',');
 				color2 = clr2.join(',');
 			});
 		} catch (e) {
-			color1 = color2 = '255,255,255';
 			console.log(e);
 		}
 	};
@@ -42,7 +44,7 @@
 <div class="banner" style="--bn-color2: rgba({color1}, 0.8); --bn-color1: rgba({color2}, 0.8)">
 	{#if bannerType === 'starter'}
 		<div class="bg" transition:fade|local={{ duration: 250 }}>
-			<img src={$assets['depature-bg.webp']} alt="Background" crossorigin="anonymous" />
+			<img src={$assets['departure-bg.webp']} alt="Background" crossorigin="anonymous" />
 		</div>
 	{:else if bannerType === 'regular'}
 		<div class="bg" transition:fade|local={{ duration: 250 }}>
@@ -51,7 +53,7 @@
 	{:else if bannerType === 'character'}
 		<div class="bg character" transition:fade|local={{ duration: 250 }}>
 			<img
-				src="/images/characters/5star/{$bannerList[$activeBanner].item}.webp"
+				src="/images/characters/5star/{item.featured.characterName}.webp"
 				alt="Background"
 				crossorigin="anonymous"
 			/>
@@ -59,7 +61,7 @@
 	{:else if bannerType === 'lightcone'}
 		<div class="bg lightcone" transition:fade|local={{ duration: 250 }}>
 			<img
-				src="/images/light-cones/5star/{$bannerList[$activeBanner].item}.webp"
+				src="/images/light-cones/5star/{item.featured}.webp"
 				alt="Background"
 				crossorigin="anonymous"
 			/>
@@ -68,7 +70,7 @@
 
 	<Header {bannerType} />
 	<BannerSelection />
-	{#each $bannerList as { type }}
+	{#each $bannerList as { type, item }}
 		{#if type === bannerType}
 			<div
 				class="warp-banner"
@@ -80,7 +82,7 @@
 				}}
 				out:bannerTransition|local={{ y: 100, duration: 200 }}
 			>
-				<BannerItem banner={type} />
+				<BannerItem banner={type} {item} />
 			</div>
 		{/if}
 	{/each}

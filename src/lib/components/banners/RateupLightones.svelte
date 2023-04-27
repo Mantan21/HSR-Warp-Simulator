@@ -86,17 +86,17 @@
 
 	.lc1 {
 		left: 13%;
-		top: -2%;
+		top: -12%;
 		transform: scale(0.65) rotate(9deg);
 	}
 	.lc2 {
-		left: -10%;
+		left: -12%;
 		top: 10%;
 		transform: scale(0.55) rotate(-15deg);
 	}
 	.lc3 {
-		left: 35%;
+		left: 40%;
 		top: 20%;
-		transform: scale(0.5) rotate(25deg);
+		transform: scale(0.48) rotate(25deg);
 	}
 </style>

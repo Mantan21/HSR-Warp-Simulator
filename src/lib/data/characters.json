@@ -17,20 +17,36 @@
 			"rarity": 4,
 			"combat_type": "physical",
 			"path": "hunt",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": {
+				"l": -643,
+				"h": 470,
+				"t": -145
+			}
 		},
 		{
 			"name": "jing-yuan",
 			"rarity": 5,
 			"combat_type": "lightning",
-			"path": "erudition"
+			"path": "erudition",
+			"buttonOffset": { "t": -30, "w": 110 },
+			"bannerOffset": {
+				"b": -38,
+				"l": 7,
+				"w": 115
+			}
 		},
 		{
 			"name": "tingyun",
 			"rarity": 4,
 			"combat_type": "lightning",
 			"path": "harmony",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": {
+				"h": 455,
+				"t": -95,
+				"l": -645
+			}
 		},
 		{
 			"name": "qingque",
@@ -44,7 +60,12 @@
 			"rarity": 4,
 			"combat_type": "fire",
 			"path": "destruction",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": {
+				"h": 520,
+				"l": -700,
+				"t": -215
+			}
 		},
 		{
 			"name": "sampo",
@@ -64,14 +85,24 @@
 			"rarity": 4,
 			"combat_type": "ice",
 			"path": "nihilty",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": {
+				"h": 570,
+				"t": -202,
+				"l": -605
+			}
 		},
 		{
 			"name": "natasha",
 			"rarity": 4,
 			"combat_type": "physical",
 			"path": "abundance",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": {
+				"h": 440,
+				"l": -600,
+				"t": -72
+			}
 		},
 		{
 			"name": "gepard",
@@ -90,7 +121,13 @@
 			"name": "seele",
 			"rarity": 5,
 			"combat_type": "quantum",
-			"path": "hunt"
+			"path": "hunt",
+			"buttonOffset": { "t": -30, "w": 110 },
+			"bannerOffset": {
+				"b": -57,
+				"l": -8,
+				"w": 160
+			}
 		},
 		{
 			"name": "bronya",
@@ -143,7 +180,12 @@
 			"rarity": 4,
 			"combat_type": "ice",
 			"path": "preservation",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": {
+				"h": 410,
+				"t": -105,
+				"l": -530
+			}
 		}
 	]
 }

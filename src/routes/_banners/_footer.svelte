@@ -1,5 +1,5 @@
 <script>
-	import { phase, version } from '$lib/stores/app-store';
+	import { activeVersion, activePhase } from '$lib/stores/app-store';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import ButtonWarp from '$lib/components/banners/ButtonWarp.svelte';
@@ -11,8 +11,11 @@
 	let rollCount;
 	let WarpInstance;
 
-	const initialWarp = async (version, phase) => (WarpInstance = await WARP.init(version, phase));
-	$: initialWarp($version.toFixed(1).toString(), $phase);
+	const initialWarp = async (version, phase) => {
+		if (!version || !phase) return;
+		WarpInstance = await WARP.init(version, phase);
+	};
+	$: initialWarp($activeVersion, $activePhase);
 
 	const doRoll = async (count, bannerToRoll) => {
 		rollCount = count;

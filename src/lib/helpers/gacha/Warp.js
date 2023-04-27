@@ -1,4 +1,5 @@
 import { starter } from '$lib/data/banners/starter.json';
+import { regular } from '$lib/data/banners/regular.json';
 import { roll } from './roll';
 import characterWarp from './warpCharacter';
 import starterWarp from './warpStarter';
@@ -7,11 +8,10 @@ import regularWarp from './warpRegular';
 
 const WARP = {
 	async init(version, phase) {
-		const { data } = await import('$lib/data/banners/events/1.0.json');
+		const { data } = await import(`../../data/banners/events/${version}.json`);
 		const { character, lightcone, regularVersion } = data.find((d) => d.phase === phase).banners;
-
-		const { regular } = await import('$lib/data/banners/regular.json');
 		const regularBanner = regular.find(({ version }) => version === regularVersion);
+
 		this._version = version;
 		this._phase = phase;
 		this._starter = starter;

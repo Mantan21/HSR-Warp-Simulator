@@ -1,7 +1,7 @@
 const images = [
 	{
 		dir: 'background',
-		paths: ['depature-bg.webp', 'stellar-bg.webp']
+		paths: ['departure-bg.webp', 'stellar-bg.webp']
 	},
 	{
 		dir: 'utils',
@@ -16,7 +16,12 @@ const images = [
 			'special-pass.webp',
 			'stellar-icon.svg',
 			'stellar-jade.webp',
-			'the-hunt.svg'
+			'the-destruction.svg',
+			'the-erudition.svg',
+			'the-harmony.svg',
+			'the-hunt.svg',
+			'the-nihility.svg',
+			'the-preservation.svg'
 		]
 	}
 ];

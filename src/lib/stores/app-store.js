@@ -4,16 +4,11 @@ export const regularPass = writable(200);
 export const specialPass = writable(10);
 export const stellarJade = writable(1600);
 
-export const version = writable(1.0);
-export const phase = writable(1);
+export const activeVersion = writable(null);
+export const activePhase = writable(null);
 export const activeBanner = writable(0);
 export const showStarterBanner = writable(true);
-export const bannerList = writable([
-	{ type: 'starter' },
-	{ type: 'character', item: 'seele' },
-	{ type: 'lightcone', item: 'in-the-night' },
-	{ type: 'regular' }
-]);
+export const bannerList = writable([{ type: 'starter' }]);
 
 export const isMobileLandscape = writable(false);
 export const isMobile = writable(false);

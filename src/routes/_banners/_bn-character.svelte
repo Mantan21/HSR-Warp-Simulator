@@ -1,6 +1,23 @@
 <script>
 	import { fly } from '$lib/helpers/transition';
+	import { data } from '$lib/data/characters.json';
 	import BannerTpl from '$lib/components/banners/BannerTpl.svelte';
+	import { isMobileLandscape } from '$lib/stores/app-store';
+	import positionToStyle from '$lib/helpers/cssPosition';
+
+	export let item = {};
+
+	const characterOffset = (characterName, ismobile) => {
+		const nullValue = { bannerOffset: {} };
+		const { bannerOffset } = data.find(({ name }) => name === characterName) || nullValue;
+		if (!ismobile) return positionToStyle(bannerOffset);
+
+		const tmp = {};
+		tmp.b = (bannerOffset?.b || 0) - 23;
+		tmp.l = (bannerOffset?.l || 0) + 5;
+
+		return positionToStyle({ ...bannerOffset, ...tmp });
+	};
 </script>
 
 <BannerTpl>
@@ -8,9 +25,10 @@
 	<div class="splash-art">
 		<figure class="seele">
 			<img
-				src="/images/characters/5star/seele.webp"
+				src="/images/characters/5star/{item.featured.characterName}.webp"
 				alt="Seele"
 				in:fly={{ x: -15, duration: 1500, delay: 200 }}
+				style={characterOffset(item.featured.characterName, $isMobileLandscape)}
 			/>
 		</figure>
 	</div>

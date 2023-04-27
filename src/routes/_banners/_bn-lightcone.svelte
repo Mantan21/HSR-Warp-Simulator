@@ -1,13 +1,15 @@
 <script>
 	import BannerTpl from '$lib/components/banners/BannerTpl.svelte';
 	import { scaleOrigin } from '$lib/helpers/transition';
+
+	export let item = {};
 </script>
 
 <BannerTpl blank>
 	<div class="wrapper">
 		<div class="layer-bg">
 			<img
-				src="/images/light-cones/5star/in-the-night.webp"
+				src="/images/light-cones/5star/{item.featured}.webp"
 				alt="In The Night"
 				in:scaleOrigin={{ start: 1.1, duration: 2000, delay: 250, origin: '100% 80%' }}
 			/>

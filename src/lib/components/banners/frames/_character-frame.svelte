@@ -1,32 +1,19 @@
 <script>
+	import { data } from '$lib/data/characters.json';
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
-	const rateup = [
-		{
-			name: 'natasha',
-			position: {
-				h: 440,
-				l: -600,
-				t: -72
-			}
-		},
-		{
-			name: 'hook',
-			position: {
-				h: 520,
-				l: -700,
-				t: -215
-			}
-		},
-		{
-			name: 'pela',
-			position: {
-				h: 570,
-				t: -202,
-				l: -605
-			}
-		}
-	];
+
+	export let item = {};
+
+	let rateup = [];
+	let featured = { bannerName: null, combat_type: null };
+	$: ({ rateup, featured } = item);
+
+	const characterOffset = (characterName) => {
+		const nullValue = { bannerOffset: {} };
+		const { bannerOffset } = data.find(({ name }) => name === characterName) || nullValue;
+		return positionToStyle(bannerOffset);
+	};
 </script>
 
 <div class="content">
@@ -36,7 +23,7 @@
 	<div class="wrapper-info">
 		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="short-detail">
-				<h1>Butterfly on Swordtip</h1>
+				<h1>{featured.bannerName}</h1>
 				<div class="time"><i class="hsr-time" /> <caption> ∞ days ∞ hours</caption></div>
 				<div class="description">
 					<p>Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity</p>
@@ -46,14 +33,14 @@
 
 			<div class="rateup-characters">
 				<div class="rateup-row" in:diagonalSlide={{ delay: 300, duration: 350 }}>
-					{#each rateup as { name, position }, i}
+					{#each rateup as name, i}
 						<div class="rateup-item">
 							<div class="rateup-content">
 								<figure in:fly={{ x: -20, duration: 1000, delay: 300 + 100 * i }}>
 									<img
 										src="/images/characters/4star/{name}.webp"
 										alt={name}
-										style={positionToStyle(position)}
+										style={characterOffset(name)}
 									/>
 								</figure>
 							</div>
@@ -68,8 +55,8 @@
 	<div class="character">
 		<div class="char-group" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="name">
-				<i class="hsr-quantum icon-gradient quantum" />
-				<span>Seele</span>
+				<i class="hsr-{featured.combat_type} icon-gradient {featured.combat_type}" />
+				<span>{featured.characterName}</span>
 			</div>
 			<div class="stars">
 				{#each Array(5) as _} <i class="hsr-star" />{/each}

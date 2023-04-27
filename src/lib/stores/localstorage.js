@@ -54,3 +54,15 @@ export const guaranteedStatus = {
 		storageLocal.set('guaranteedStatus', guaranteedStatus);
 	}
 };
+
+export const localConfig = {
+	get(key) {
+		const config = storageLocal.get('config');
+		return config[key] || null;
+	},
+	set(key, value) {
+		const config = storageLocal.get('config');
+		config[key] = value;
+		storageLocal.set('config', config);
+	}
+};
