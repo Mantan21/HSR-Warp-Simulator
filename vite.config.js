@@ -1,9 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 // import { VitePWA } from 'vite-plugin-pwa';
-import { config as envConfig } from 'dotenv';
 
-envConfig();
-const { VITE_APP_TITLE, VITE_DESCRIPTION, VITE_HOST } = process.env;
 const iconSize = [72, 96, 128, 144, 152, 192, 256, 384, 512];
 const icons = iconSize.map((size) => {
 	const iconObj = {
@@ -45,15 +42,15 @@ const screenshots = [
 
 const manifest = {
 	orientation: 'landscape',
-	name: VITE_APP_TITLE,
-	short_name: 'WishSimulator.App',
+	name: 'Honkai: Star Rail Warp Simulator',
+	short_name: 'HSR Warp Simulator',
 	theme_color: '#ffffff',
 	background_color: '#ffffff',
 	display: 'fullscreen',
 	scope: '/',
 	start_url: '/?pwasc=homescreen',
 	categories: ['games', 'utilities'],
-	description: VITE_DESCRIPTION,
+	description: 'Realistic Gacha Simulation for Honkai: Star Rail',
 	dir: 'auto',
 	icons,
 	screenshots,
@@ -61,7 +58,7 @@ const manifest = {
 	related_applications: [
 		{
 			platform: 'webapp',
-			url: `${VITE_HOST}/appmanifest.json`
+			url: 'https://hsr.wishsimulator.app/appmanifest.json'
 		},
 		{
 			platform: 'play',

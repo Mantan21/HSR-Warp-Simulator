@@ -21,10 +21,9 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-vercel": "^2.4.1",
+		"@sveltejs/adapter-cloudflare": "^2.2.1",
 		"@sveltejs/kit": "^1.5.0",
 		"autoprefixer": "^10.4.14",
-		"dotenv": "^16.0.3",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
