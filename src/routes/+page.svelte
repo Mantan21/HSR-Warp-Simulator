@@ -1,48 +1,65 @@
-<script>
-	import { onMount } from 'svelte';
-	import { starter } from '$lib/data/banners/starter.json';
-	import { regular } from '$lib/data/banners/regular.json';
-	import { checkStarterBanner, setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
-	import { activePhase, activeVersion, bannerList, showStarterBanner } from '$lib/stores/app-store';
-	import Banners from './_banners/index.svelte';
+<div class="to-early">
+	<img src="/images/background/Honkai.Star.Rail.webp" alt="BG" class="bg" />
 
-	let pageActive = 'index';
+	<div class="container">
+		<h1>Honkai: Star Rail Warp Simulator</h1>
+		<h2>You came too Early!!</h2>
 
-	const switchBanner = async (version, phase) => {
-		if (!version || !phase) return;
-		const list = checkStarterBanner() ? [{ type: 'starter', item: starter.characters }] : [];
-		const { data } = await import(`../lib/data/banners/events/${version}.json`);
-		const { character, lightcone, regularVersion } = data.find((d) => d.phase === phase).banners;
-		const regularChar = regular.find(({ version }) => version === regularVersion)?.characters;
+		<article>
+			The creation of the Simulator still in progress, please come back later! <br />
+		</article>
+	</div>
+</div>
 
-		list.push({ type: 'character', item: character });
-		list.push({ type: 'lightcone', item: lightcone });
-		list.push({ type: 'regular', item: regularChar });
+<style>
+	.to-early {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+	}
 
-		bannerList.set(list);
-	};
+	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		min-width: 100vw;
+		min-height: 100vh;
+		filter: blur(10px);
+		z-index: -1;
+	}
 
-	const handleShhowStarter = (show) => {
-		if ($bannerList.length < 2) return;
-		if (!show) {
-			return bannerList.update((bn) => {
-				return bn.filter(({ type }) => type !== 'starter');
-			});
-		}
-		return bannerList.update((bn) => {
-			bn.unshift({ type: 'starter', item: starter.characters });
-			return bn;
-		});
-	};
+	.container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		max-width: 90%;
+		width: 600px;
+		color: #000;
+		background-color: #fff;
+		text-align: center;
+		padding: 7% 2%;
+		border-radius: 1rem;
+	}
 
-	$: switchBanner($activeVersion, $activePhase);
-	$: handleShhowStarter($showStarterBanner);
+	h1 {
+		font-size: 150%;
+		color: orange;
+	}
 
-	onMount(() => {
-		setBannerVersionAndPhase();
-	});
-</script>
+	h2 {
+		font-size: 250%;
+	}
 
-{#if pageActive === 'index'}
-	<Banners />
-{/if}
+	h1,
+	h2,
+	article {
+		margin: 1% 0;
+	}
+
+	article {
+		padding: 2%;
+		opacity: 0.7;
+	}
+</style>
