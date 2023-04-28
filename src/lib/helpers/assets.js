@@ -16,6 +16,7 @@ const images = [
 			'special-pass.webp',
 			'stellar-icon.svg',
 			'stellar-jade.webp',
+			'the-abundance.svg',
 			'the-destruction.svg',
 			'the-erudition.svg',
 			'the-harmony.svg',
