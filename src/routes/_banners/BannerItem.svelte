@@ -1,13 +1,13 @@
 <script>
 	import { isMobileLandscape, viewportHeight, viewportWidth } from '$lib/stores/app-store';
-	import CharacterFrame from '$lib/components/banners/frames/_character-frame.svelte';
-	import StarterFrame from '$lib/components/banners/frames/_starter-frame.svelte';
-	import LightconeFrame from '$lib/components/banners/frames/_lightcone-frame.svelte';
-	import RegularFrame from '$lib/components/banners/frames/_regular-frame.svelte';
-	import BnCharacter from './_bn-character.svelte';
-	import BnStarter from './_bn-starter.svelte';
-	import BnLightcone from './_bn-lightcone.svelte';
-	import BnRegular from './_bn-regular.svelte';
+	import BnCharacter from './banner-card/_bn-character.svelte';
+	import BnStarter from './banner-card/_bn-starter.svelte';
+	import BnLightcone from './banner-card/_bn-lightcone.svelte';
+	import BnRegular from './banner-card/_bn-regular.svelte';
+	import CharacterFrame from './banner-card/_character-frame.svelte';
+	import LightconeFrame from './banner-card/_lightcone-frame.svelte';
+	import RegularFrame from './banner-card/_regular-frame.svelte';
+	import StarterFrame from './banner-card/_starter-frame.svelte';
 
 	export let banner = 'starter';
 	export let item = {};

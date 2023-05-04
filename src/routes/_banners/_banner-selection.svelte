@@ -1,6 +1,6 @@
 <script>
-	import ButtonBanner from '$lib/components/banners/ButtonBanner.svelte';
 	import { activeBanner, bannerList } from '$lib/stores/app-store';
+	import ButtonBanner from './_button-banner.svelte';
 
 	const selectBanner = (bn) => {
 		activeBanner.set(bn);

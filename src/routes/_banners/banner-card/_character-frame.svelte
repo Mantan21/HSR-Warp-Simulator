@@ -5,9 +5,8 @@
 
 	export let item = {};
 
-	let rateup = [];
-	let featured = { bannerName: null, combat_type: null };
-	$: ({ rateup, featured } = item);
+	let rateup, bannerName, path, combat_type;
+	$: ({ rateup, bannerName, path, combat_type, featured } = item);
 
 	const characterOffset = (characterName) => {
 		const nullValue = { bannerOffset: {} };
@@ -23,7 +22,7 @@
 	<div class="wrapper-info">
 		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="short-detail">
-				<h1>{featured.bannerName}</h1>
+				<h1>{bannerName}</h1>
 				<div class="time"><i class="hsr-time" /> <caption> ∞ days ∞ hours</caption></div>
 				<div class="description">
 					<p>Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity</p>
@@ -55,8 +54,8 @@
 	<div class="character">
 		<div class="char-group" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="name">
-				<i class="hsr-{featured.combat_type} icon-gradient {featured.combat_type}" />
-				<span>{featured.characterName}</span>
+				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
+				<span>{featured}</span>
 			</div>
 			<div class="stars">
 				{#each Array(5) as _} <i class="hsr-star" />{/each}

@@ -9,9 +9,14 @@
 </script>
 
 <header>
-	<div class="warp">
-		<h1>Warp</h1>
-		<h2>Depature Warp</h2>
+	<div class="row">
+		<div class="logo">
+			<i class="hsr-warp" />
+		</div>
+		<div class="warp">
+			<h1>Warp</h1>
+			<h2>Depature Warp</h2>
+		</div>
 	</div>
 	<div class="budget">
 		<MyFund type={event ? 'specialpass' : 'regularpass'}>{balance}</MyFund>
@@ -32,6 +37,23 @@
 		z-index: +2;
 		display: flex;
 		align-items: center;
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+	}
+
+	.logo {
+		font-size: 1.4rem;
+		color: var(--color-second);
+		line-height: 0;
+		padding-right: 8%;
+		display: none;
+	}
+
+	:global(.mobileLandscape) .logo {
+		display: unset;
 	}
 
 	.warp h1 {

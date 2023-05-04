@@ -2,7 +2,7 @@
 	import LightCones from '$lib/components/LightCones.svelte';
 	import { fade, fly } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
-	import RateupLightones from '../RateupLightones.svelte';
+	import RateupLightones from './__rateup-lightcones.svelte';
 
 	export let item = {};
 

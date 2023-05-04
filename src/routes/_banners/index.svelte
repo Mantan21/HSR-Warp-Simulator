@@ -5,7 +5,7 @@
 	import Footer from './_footer.svelte';
 	import Header from './_header.svelte';
 	import BannerItem from './BannerItem.svelte';
-	import BannerSelection from '$lib/components/banners/BannerSelection.svelte';
+	import BannerSelection from './_banner-selection.svelte';
 
 	let item, type;
 	$: ({ item, type } = $bannerList[$activeBanner]);
@@ -22,7 +22,7 @@
 
 			const img = new Image();
 			img.crossOrigin = 'anonymous';
-			img.src = `/images/characters/5star/${item.featured.characterName}.webp`;
+			img.src = `/images/characters/5star/${item.featured}.webp`;
 			img.addEventListener('load', () => {
 				const [clr1, clr2] = colorthief.getPalette(img, 2);
 				color1 = clr1.join(',');
@@ -53,7 +53,7 @@
 	{:else if bannerType === 'character'}
 		<div class="bg character" transition:fade|local={{ duration: 250 }}>
 			<img
-				src="/images/characters/5star/{item.featured.characterName}.webp"
+				src="/images/characters/5star/{item.featured}.webp"
 				alt="Background"
 				crossorigin="anonymous"
 			/>

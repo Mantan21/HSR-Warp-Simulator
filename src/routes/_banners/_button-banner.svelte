@@ -63,8 +63,8 @@
 		<figure>
 			{#if banner === 'character'}
 				<img
-					src="/images/banners/button/{featured.characterName}.webp"
-					style={buttonOffset(featured.characterName)}
+					src="/images/banners/button/{featured}.webp"
+					style={buttonOffset(featured)}
 					alt="Seele"
 				/>
 			{:else if banner === 'starter'}
@@ -84,6 +84,7 @@
 		width: 11.2rem;
 		aspect-ratio: 150/60;
 		position: relative;
+		pointer-events: none;
 	}
 
 	:global(.mobileLandscape) svg.frame {
@@ -107,6 +108,7 @@
 		bottom: 8%;
 		width: 97.5%;
 		overflow: hidden;
+		pointer-events: none;
 	}
 
 	:global(.mobileLandscape) .svgFill,

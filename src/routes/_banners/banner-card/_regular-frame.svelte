@@ -1,12 +1,12 @@
 <script>
 	import { fade, fly } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
-	import RateupLightones from '../RateupLightones.svelte';
+	import RateupLightones from './__rateup-lightcones.svelte';
 
 	const lightcones = [
 		{ name: 'night-on-the-milty-way', rarity: 5 },
 		{ name: 'something-irreplaceable', rarity: 5 },
-		{ name: 'the-battle-isnt-over', rarity: 5 }
+		{ name: 'but-the-battle-isnt-over', rarity: 5 }
 	];
 
 	const chars = [

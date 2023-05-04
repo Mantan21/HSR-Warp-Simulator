@@ -1,6 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import Icon from '../Icon.svelte';
+	import Icon from '$lib/components/Icon.svelte';
 
 	export let bannerType = '';
 	export let single = false;
@@ -131,9 +131,11 @@
 		border-bottom-right-radius: 2rem;
 		z-index: +1;
 		transform: translateY(-30%);
+		pointer-events: none;
 	}
 
 	span.remaining {
+		pointer-events: none;
 		position: absolute;
 		right: 0;
 		top: -75%;

@@ -1,6 +1,6 @@
 <script>
 	import { scale, fade } from '$lib/helpers/transition';
-	import LightCones from '../LightCones.svelte';
+	import LightCones from '$lib/components/LightCones.svelte';
 
 	export let lightcones = [];
 	export let showCaption = false;

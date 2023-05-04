@@ -1,6 +1,6 @@
 <script>
-	import BannerTpl from '$lib/components/banners/BannerTpl.svelte';
 	import { scaleOrigin } from '$lib/helpers/transition';
+	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
 </script>
