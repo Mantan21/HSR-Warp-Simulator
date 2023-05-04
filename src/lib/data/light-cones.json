@@ -1,21 +1,6 @@
 {
 	"data": [
 		{
-			"name": "texture-of-memories",
-			"rarity": 5,
-			"path": "preservation"
-		},
-		{
-			"name": "cruising-of-stellar-sea",
-			"rarity": 5,
-			"path": "hunt"
-		},
-		{
-			"name": "on-the-fall-of-an-aeon",
-			"rarity": 5,
-			"path": "destruction"
-		},
-		{
 			"name": "time-waits-for-no-one",
 			"rarity": 5,
 			"path": "abundance"
@@ -42,7 +27,7 @@
 			"path": "nihility"
 		},
 		{
-			"name": "the-battle-isnt-over",
+			"name": "but-the-battle-isnt-over",
 			"rarity": 5,
 			"path": "harmony"
 		},
@@ -63,51 +48,6 @@
 			"path": "erudition"
 		},
 		{
-			"name": "today-is-another-peaceful-day",
-			"rarity": 4,
-			"path": "erudition"
-		},
-		{
-			"name": "nowhere-to-run",
-			"rarity": 4,
-			"path": "destruction"
-		},
-		{
-			"name": "carve-the-moon-weave-the-clouds",
-			"rarity": 4,
-			"path": "harmony"
-		},
-		{
-			"name": "return-to-darkness",
-			"rarity": 4,
-			"path": "hunt"
-		},
-		{
-			"name": "this-is-me",
-			"rarity": 4,
-			"path": "preservation"
-		},
-		{
-			"name": "we-will-meet-again",
-			"rarity": 4,
-			"path": "nihility"
-		},
-		{
-			"name": "warm-night-wont-last",
-			"rarity": 4,
-			"path": "abundance"
-		},
-		{
-			"name": "the-seriousness-of-breakfast",
-			"rarity": 4,
-			"path": "erudition"
-		},
-		{
-			"name": "woof-walk-time",
-			"rarity": 4,
-			"path": "destruction"
-		},
-		{
 			"name": "make-the-world-clamor",
 			"rarity": 4,
 			"path": "erudition"
@@ -118,7 +58,7 @@
 			"path": "destruction"
 		},
 		{
-			"name": "planetary-rendeznous",
+			"name": "planetary-rendezvous",
 			"rarity": 4,
 			"path": "harmony"
 		},
@@ -143,7 +83,7 @@
 			"path": "abundance"
 		},
 		{
-			"name": "the-birth-of-self",
+			"name": "the-birth-of-the-self",
 			"rarity": 4,
 			"path": "erudition"
 		},
@@ -163,7 +103,7 @@
 			"path": "hunt"
 		},
 		{
-			"name": "one-day-of-my-new-life",
+			"name": "day-one-of-my-new-life",
 			"rarity": 4,
 			"path": "preservation"
 		},
@@ -176,6 +116,41 @@
 			"name": "post-op-conversation",
 			"rarity": 4,
 			"path": "abundance"
+		},
+		{
+			"name": "dance-dance-dance",
+			"rarity": 4,
+			"path": "harmony"
+		},
+		{
+			"name": "trend-of-the-universal-market",
+			"rarity": 4,
+			"path": "preservation"
+		},
+		{
+			"name": "geniuses-repose",
+			"rarity": 4,
+			"path": "erudition"
+		},
+		{
+			"name": "subscribe-for-more",
+			"rarity": 4,
+			"path": "hunt"
+		},
+		{
+			"name": "perfect-timing",
+			"rarity": 4,
+			"path": "abundance"
+		},
+		{
+			"name": "resolution-shines-as-pearls-of-sweat",
+			"rarity": 4,
+			"path": "nihility"
+		},
+		{
+			"name": "under-the-blue-sky",
+			"rarity": 4,
+			"path": "destruction"
 		},
 		{
 			"name": "passkey",
@@ -238,7 +213,7 @@
 			"path": "destruction"
 		},
 		{
-			"name": "curnocopia",
+			"name": "cornucopia",
 			"rarity": 3,
 			"path": "abundance"
 		},
@@ -246,6 +221,41 @@
 			"name": "arrows",
 			"rarity": 3,
 			"path": "hunt"
+		},
+		{
+			"name": "mutual-demise",
+			"rarity": 3,
+			"path": "destruction"
+		},
+		{
+			"name": "mediation",
+			"rarity": 3,
+			"path": "harmony"
+		},
+		{
+			"name": "multiplication",
+			"rarity": 3,
+			"path": "abundance"
+		},
+		{
+			"name": "hidden-shadow",
+			"rarity": 3,
+			"path": "nihility"
+		},
+		{
+			"name": "adversarial",
+			"rarity": 3,
+			"path": "hunt"
+		},
+		{
+			"name": "pioneering",
+			"rarity": 3,
+			"path": "preservation"
+		},
+		{
+			"name": "sagacity",
+			"rarity": 3,
+			"path": "erudition"
 		}
 	]
 }
