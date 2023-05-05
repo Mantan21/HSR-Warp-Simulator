@@ -40,7 +40,7 @@ const WARP = {
 			phase: this._phase,
 			regularList: regularChar
 		});
-		const result = { bannerName: this._characterBanner.featured.bannerName };
+		const result = { bannerName: this._characterBanner.bannerName };
 		return { ...result, ...charBannerWarp.get(rarity) };
 	},
 

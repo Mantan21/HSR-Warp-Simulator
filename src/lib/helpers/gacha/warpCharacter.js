@@ -18,7 +18,7 @@ const characterWarp = {
 	},
 
 	_featuredChars() {
-		const { characterName } = this._featured;
+		const characterName = this._featured;
 		const result = getAllChars(5).find(({ name }) => name === characterName);
 		return result;
 	},
