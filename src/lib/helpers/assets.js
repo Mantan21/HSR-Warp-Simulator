@@ -10,19 +10,16 @@ const images = [
 			'circle-ornament1.svg',
 			'circle-ornament2.svg',
 			'depature-icon.svg',
+			'eidolon-4star.webp',
+			'eidolon-5star.webp',
 			'regular-pass-clean.webp',
 			'regular-pass.webp',
 			'special-pass-clean.webp',
 			'special-pass.webp',
 			'stellar-icon.svg',
 			'stellar-jade.webp',
-			'the-abundance.svg',
-			'the-destruction.svg',
-			'the-erudition.svg',
-			'the-harmony.svg',
-			'the-hunt.svg',
-			'the-nihility.svg',
-			'the-preservation.svg'
+			'undying-embers.webp',
+			'undying-starlight.webp'
 		]
 	}
 ];

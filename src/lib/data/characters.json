@@ -4,7 +4,8 @@
 			"name": "bailu",
 			"rarity": 5,
 			"combat_type": "lightning",
-			"path": "abundance"
+			"path": "abundance",
+			"splashartOffset": { "t": 55 }
 		},
 		{
 			"name": "yanqing",
@@ -18,6 +19,7 @@
 			"combat_type": "physical",
 			"path": "hunt",
 			"release": "1.0-0",
+			"splashartOffset": { "t": 45 },
 			"bannerOffset": {
 				"l": -643,
 				"h": 470,
@@ -29,6 +31,7 @@
 			"rarity": 5,
 			"combat_type": "lightning",
 			"path": "erudition",
+			"splashartOffset": { "t": 45, "w": 100 },
 			"buttonOffset": { "t": -30, "w": 110 },
 			"bannerOffset": {
 				"b": -38,
@@ -42,6 +45,7 @@
 			"combat_type": "lightning",
 			"path": "harmony",
 			"release": "1.0-0",
+			"splashartOffset": { "t": 55 },
 			"bannerOffset": {
 				"h": 455,
 				"t": -95,
@@ -53,7 +57,8 @@
 			"rarity": 4,
 			"combat_type": "quantum",
 			"path": "erudition",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": { "w": 70 }
 		},
 		{
 			"name": "hook",
@@ -71,7 +76,7 @@
 			"name": "sampo",
 			"rarity": 4,
 			"combat_type": "wind",
-			"path": "nihilty",
+			"path": "nihility",
 			"release": "1.0-0"
 		},
 		{
@@ -84,8 +89,9 @@
 			"name": "pela",
 			"rarity": 4,
 			"combat_type": "ice",
-			"path": "nihilty",
+			"path": "nihility",
 			"release": "1.0-0",
+			"splashartOffset": { "l": 58, "t": 45 },
 			"bannerOffset": {
 				"h": 570,
 				"t": -202,
@@ -98,6 +104,7 @@
 			"combat_type": "physical",
 			"path": "abundance",
 			"release": "1.0-0",
+			"splashartOffset": { "t": 50, "w": 80 },
 			"bannerOffset": {
 				"h": 440,
 				"l": -600,
@@ -108,7 +115,8 @@
 			"name": "gepard",
 			"rarity": 5,
 			"combat_type": "ice",
-			"path": "preservation"
+			"path": "preservation",
+			"splashartOffset": { "t": 40 }
 		},
 		{
 			"name": "serval",
@@ -127,20 +135,30 @@
 				"b": -57,
 				"l": -8,
 				"w": 160
+			},
+			"splashartOffset": {
+				"t": 35,
+				"l": 60,
+				"w": 130
 			}
 		},
 		{
 			"name": "bronya",
 			"rarity": 5,
 			"combat_type": "wind",
-			"path": "harmony"
+			"path": "harmony",
+			"splashartOffset": { "t": 33, "w": 100, "l": 55 }
 		},
 		{
 			"name": "herta",
 			"rarity": 4,
 			"combat_type": "ice",
 			"path": "erudition",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"splashartOffset": {
+				"t": 60,
+				"l": 55
+			}
 		},
 		{
 			"name": "asta",
@@ -160,20 +178,22 @@
 			"name": "welt",
 			"rarity": 5,
 			"combat_type": "imaginary",
-			"path": "nihilty"
+			"path": "nihility"
 		},
 		{
 			"name": "himeko",
 			"rarity": 5,
 			"combat_type": "fire",
-			"path": "erudition"
+			"path": "erudition",
+			"splashartOffset": { "t": 32, "w": 90 }
 		},
 		{
 			"name": "dan-heng",
 			"rarity": 4,
 			"combat_type": "wind",
 			"path": "hunt",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"splashartOffset": { "w": 90, "t": 45 }
 		},
 		{
 			"name": "march-7th",
@@ -181,6 +201,7 @@
 			"combat_type": "ice",
 			"path": "preservation",
 			"release": "1.0-0",
+			"splashartOffset": { "t": 45, "w": 100 },
 			"bannerOffset": {
 				"h": 410,
 				"t": -105,

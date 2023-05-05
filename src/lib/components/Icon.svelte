@@ -6,7 +6,11 @@
 
 	$: pic = {
 		regularpass: $assets['regular-pass.webp'],
-		specialpass: $assets['special-pass.webp']
+		specialpass: $assets['special-pass.webp'],
+		eidolon4: $assets['eidolon-4star.webp'],
+		eidolon5: $assets['eidolon-5star.webp'],
+		embers: $assets['undying-embers.webp'],
+		starlight: $assets['undying-starlight.webp']
 	};
 </script>
 
