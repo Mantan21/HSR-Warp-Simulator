@@ -3,6 +3,7 @@
 	import { data } from '$lib/data/characters.json';
 	import { assets } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/cssPosition';
+	import { playSfx } from '$lib/helpers/audio';
 
 	export let active = false;
 	export let item = {};
@@ -20,6 +21,8 @@
 	const dispatch = createEventDispatcher();
 	const click = () => {
 		dispatch('select', { selected: banner });
+		if (active) return;
+		playSfx('switch-banner');
 	};
 </script>
 

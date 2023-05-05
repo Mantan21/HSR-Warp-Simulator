@@ -2,9 +2,7 @@
 	import { activeBanner, bannerList } from '$lib/stores/app-store';
 	import ButtonBanner from './_button-banner.svelte';
 
-	const selectBanner = (bn) => {
-		activeBanner.set(bn);
-	};
+	const selectBanner = (bn) => activeBanner.set(bn);
 </script>
 
 <svg

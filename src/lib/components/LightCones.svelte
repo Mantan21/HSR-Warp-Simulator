@@ -1,13 +1,24 @@
 <script>
+	import { fly } from 'svelte/transition';
+
 	export let item = '';
 	export let rarity = 5;
 	export let small = false;
+	export let animate = false;
+
+	const transitionFly = (node, args) => {
+		if (!animate) return;
+		return fly(node, args);
+	};
 </script>
 
-<div class="light-cone" class:small>
-	<div class="layer layer-back" />
+<div class="light-cone" class:small in:transitionFly={{ y: -300, x: -30, duration: 500 }}>
+	<div class="layer layer-back" in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }} />
 	<img src="/images/light-cones/{rarity}star/{item}.webp" alt="Light Cones" />
-	<div class="layer layer-front" />
+	<div
+		class="layer layer-front"
+		in:transitionFly={{ y: -300, x: -30, duration: 500, opacity: 1 }}
+	/>
 </div>
 
 <style>

@@ -1,7 +1,8 @@
 <script>
 	import { getContext, onMount } from 'svelte';
-	import { viewportHeight, muted, assets, bannerList } from '$lib/stores/app-store';
+	import { viewportHeight, muted, assets } from '$lib/stores/app-store';
 	import { fade } from '$lib/helpers/transition';
+	import { playSfx, stopSfx } from '$lib/helpers/audio';
 
 	export let show;
 	export let rarity;
@@ -23,6 +24,7 @@
 	};
 
 	const skip = () => {
+		stopSfx(`express-${rarity}star`);
 		onExpressArrived();
 		[v3star, regular4star, regular5star, event4star, event5star].forEach((video) => {
 			video.load();
@@ -41,6 +43,8 @@
 	});
 
 	const showVideoHandle = (rarity, type) => {
+		playSfx(`express-${rarity}star`);
+
 		let videoContent;
 		if (rarity !== 3) {
 			if (['starter', 'regular'].includes(type)) {

@@ -4,7 +4,7 @@
 	import RateupLightones from './__rateup-lightcones.svelte';
 
 	const lightcones = [
-		{ name: 'night-on-the-milty-way', rarity: 5 },
+		{ name: 'night-on-the-milky-way', rarity: 5 },
 		{ name: 'something-irreplaceable', rarity: 5 },
 		{ name: 'but-the-battle-isnt-over', rarity: 5 }
 	];

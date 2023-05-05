@@ -1,7 +1,7 @@
 <script>
 	import LightCones from '$lib/components/LightCones.svelte';
+	import Path from '$lib/components/Path.svelte';
 	import { fade, fly } from '$lib/helpers/transition';
-	import { assets } from '$lib/stores/app-store';
 	import RateupLightones from './__rateup-lightcones.svelte';
 
 	export let item = {};
@@ -31,7 +31,7 @@
 	<div class="item-name">
 		<div class="row" in:fade={{ duration: 1000, delay: 250 }}>
 			<div class="path">
-				<img src={$assets[`the-${item.path}.svg`]} alt="The Hunt" />
+				<Path path={item.path} dark />
 			</div>
 			<div class="name">{item.featured}</div>
 			<span class="stars">
@@ -175,9 +175,6 @@
 	.path {
 		width: 45%;
 		padding-bottom: 5%;
-	}
-	.path img {
-		width: 100%;
 	}
 
 	.item-name .name {
