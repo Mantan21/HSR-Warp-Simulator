@@ -10,9 +10,12 @@
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import SplashartInfo from './_splashart-info.svelte';
 	import BonusItem from './_bonus-item.svelte';
+	import { assets } from '$lib/stores/app-store';
+	import ResultList from './ResultList.svelte';
 
 	export let list = [];
 	let intro5star = false;
+	let showResultList = false;
 
 	$: console.log(list);
 
@@ -45,7 +48,7 @@
 
 		// Multi Pull
 		if (activeIndex > list.length - 2) {
-			// showWishList = true;
+			showResultList = true;
 			return;
 		}
 		if (startIndex !== 'start') {
@@ -64,7 +67,7 @@
 
 <div class="warp-result">
 	<img
-		src="/images/background/warp-bg.webp"
+		src={$assets['warp-bg.webp']}
 		alt="bg"
 		in:scale={{ start: 1.3, opacity: 1, duration: 1000, easing: cubicOut }}
 	/>
@@ -72,42 +75,50 @@
 	<div class="close">
 		<ButtonClose on:click={close} />
 	</div>
-	<div class="container">
-		{#each list as { name, path, rarity, combat_type, type, splashartOffset }, i}
-			{#if activeIndex === i}
-				{#if intro5star}
-					<!--  -->
-					<SsrScreen {path} />
-				{:else}
-					<div class="wrapper" on:mousedown={showItem}>
-						<SplashLight {rarity} />
-						{#if type === 'lightcone'}
-							<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
-								<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
-									<div class="lightcone-item">
-										<LightCones item={name} {rarity} animate />
+
+	{#if showResultList}
+		<ResultList {list} />
+	{:else}
+		<div class="container">
+			{#each list as { name, path, rarity, combat_type, type, splashartOffset }, i}
+				{#if activeIndex === i}
+					{#if intro5star}
+						<!--  -->
+						<SsrScreen {path} />
+					{:else}
+						<div class="wrapper" on:mousedown={showItem}>
+							<SplashLight {rarity} />
+							{#if type === 'lightcone'}
+								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
+									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
+										<div class="lightcone-item">
+											<LightCones item={name} {rarity} animate />
+										</div>
 									</div>
 								</div>
-							</div>
-						{:else}
-							<div class="item-art character" in:scale={{ start: 1.3, duration: 500, opacity: 1 }}>
-								<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
-									<img
-										src="/images/characters/{rarity}star/{name}.webp"
-										style={positionToStyle(splashartOffset)}
-										alt={name}
-									/>
+							{:else}
+								<div
+									class="item-art character"
+									in:scale={{ start: 1.3, duration: 500, opacity: 1 }}
+								>
+									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
+										<img
+											src="/images/characters/{rarity}star/{name}.webp"
+											style={positionToStyle(splashartOffset)}
+											alt={name}
+										/>
+									</div>
 								</div>
-							</div>
-						{/if}
+							{/if}
 
-						<SplashartInfo {name} combatType={combat_type} {path} />
-						<BonusItem {rarity} type="starlight" qty="8" />
-					</div>
+							<SplashartInfo {name} combatType={combat_type} {path} {rarity} />
+							<BonusItem {rarity} type="starlight" qty="8" />
+						</div>
+					{/if}
 				{/if}
-			{/if}
-		{/each}
-	</div>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style>

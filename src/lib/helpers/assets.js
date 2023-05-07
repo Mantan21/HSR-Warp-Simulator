@@ -1,7 +1,7 @@
 const images = [
 	{
 		dir: 'background',
-		paths: ['departure-bg.webp', 'stellar-bg.webp']
+		paths: ['departure-bg.webp', 'stellar-bg.webp', 'warp-bg.webp']
 	},
 	{
 		dir: 'utils',

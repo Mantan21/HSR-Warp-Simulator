@@ -1,32 +1,30 @@
 import { localConfig } from '$lib/stores/localstorage';
 import { Howl } from 'howler';
 
-const sfxSources = {
-	click: '/audiofx/click.mp3',
-	'express-3star': '/audiofx/express-3star.mp3',
-	'express-4star': '/audiofx/express-4star.mp3',
-	'express-5star': '/audiofx/express-5star.mp3',
-	'switch-banner': '/audiofx/switch-banner.mp3',
-	'reveal-3star': '/audiofx/reveal-3star.mp3',
-	'reveal-4star': '/audiofx/reveal-4star.mp3',
-	'reveal-5star': '/audiofx/reveal-5star.mp3',
-	'warp-backsound': '/audiofx/warp-backsound.mp3',
-	'warpresult-close': '/audiofx/warpresult-close.mp3'
-};
+const sfxList = [
+	'click',
+	'express-3star',
+	'express-4star',
+	'express-5star',
+	'switch-banner',
+	'reveal-3star',
+	'reveal-4star',
+	'reveal-5star',
+	'warp-backsound',
+	'warpresult-close',
+	'warpresult-list'
+];
 
-const sounds = {};
-const soundInit = () => {
-	Object.keys(sfxSources).forEach((key) => {
-		sounds[key] = new Howl({
-			src: [sfxSources[key]],
-			loop: key === 'warp-backsound'
-		});
+const sounds = sfxList.reduce((prev, current) => {
+	const sfx = prev || {};
+	sfx[current] = new Howl({
+		src: [`/audiofx/${current}.mp3`],
+		loop: current === 'warp-backsound'
 	});
-};
-soundInit();
+	return sfx;
+}, {});
 
 const sfxids = {};
-
 export const playSfx = (nameOfSoundfx = 'click') => {
 	try {
 		if (!sounds[nameOfSoundfx]) throw new Error('No Sound effect for ' + nameOfSoundfx);

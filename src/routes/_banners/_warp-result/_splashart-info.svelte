@@ -5,6 +5,7 @@
 	export let name;
 	export let path;
 	export let combatType;
+	export let rarity;
 </script>
 
 <div class="info">
@@ -22,7 +23,7 @@
 			<div class="right">
 				<div class="name">{name}</div>
 				<div class="rarity">
-					{#each Array(5) as _}
+					{#each Array(rarity) as _}
 						<i class="hsr-star" />
 					{/each}
 				</div>
