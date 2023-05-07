@@ -1,17 +1,39 @@
 {
 	"data": [
 		{
+			"name": "jing-yuan",
+			"rarity": 5,
+			"combat_type": "lightning",
+			"path": "erudition",
+			"splashartOffset": { "t": 45, "w": 100 },
+			"gachaCardOffset": { "t": 145, "l": 35, "w": 530 },
+			"buttonOffset": { "t": -30, "w": 110 },
+			"bannerOffset": { "b": -38, "l": 7, "w": 115 }
+		},
+		{
+			"name": "seele",
+			"rarity": 5,
+			"combat_type": "quantum",
+			"path": "hunt",
+			"buttonOffset": { "t": -30, "w": 110 },
+			"bannerOffset": { "b": -57, "l": -8, "w": 160 },
+			"gachaCardOffset": { "t": 20, "l": 120, "w": 570 },
+			"splashartOffset": { "t": 35, "l": 60, "w": 130 }
+		},
+		{
 			"name": "bailu",
 			"rarity": 5,
 			"combat_type": "lightning",
 			"path": "abundance",
-			"splashartOffset": { "t": 55 }
+			"splashartOffset": { "t": 55 },
+			"gachaCardOffset": { "w": 285, "t": 100, "l": 35 }
 		},
 		{
 			"name": "yanqing",
 			"rarity": 5,
 			"combat_type": "ice",
-			"path": "hunt"
+			"path": "hunt",
+			"gachaCardOffset": { "l": 30, "t": 170 }
 		},
 		{
 			"name": "sushang",
@@ -20,24 +42,8 @@
 			"path": "hunt",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 45 },
-			"bannerOffset": {
-				"l": -643,
-				"h": 470,
-				"t": -145
-			}
-		},
-		{
-			"name": "jing-yuan",
-			"rarity": 5,
-			"combat_type": "lightning",
-			"path": "erudition",
-			"splashartOffset": { "t": 45, "w": 100 },
-			"buttonOffset": { "t": -30, "w": 110 },
-			"bannerOffset": {
-				"b": -38,
-				"l": 7,
-				"w": 115
-			}
+			"gachaCardOffset": { "t": 145, "w": 470, "l": 40 },
+			"bannerOffset": { "l": -643, "h": 470, "t": -145 }
 		},
 		{
 			"name": "tingyun",
@@ -46,11 +52,8 @@
 			"path": "harmony",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 55 },
-			"bannerOffset": {
-				"h": 455,
-				"t": -95,
-				"l": -645
-			}
+			"gachaCardOffset": { "l": 30, "t": 200 },
+			"bannerOffset": { "h": 455, "t": -95, "l": -645 }
 		},
 		{
 			"name": "qingque",
@@ -58,7 +61,8 @@
 			"combat_type": "quantum",
 			"path": "erudition",
 			"release": "1.0-0",
-			"bannerOffset": { "w": 70 }
+			"bannerOffset": { "w": 70 },
+			"gachaCardOffset": { "w": 350, "t": 140 }
 		},
 		{
 			"name": "hook",
@@ -66,11 +70,8 @@
 			"combat_type": "fire",
 			"path": "destruction",
 			"release": "1.0-0",
-			"bannerOffset": {
-				"h": 520,
-				"l": -700,
-				"t": -215
-			}
+			"gachaCardOffset": { "l": 40, "t": 77, "w": 460 },
+			"bannerOffset": { "h": 520, "l": -700, "t": -215 }
 		},
 		{
 			"name": "sampo",
@@ -83,7 +84,8 @@
 			"name": "clara",
 			"rarity": 5,
 			"combat_type": "physical",
-			"path": "destruction"
+			"path": "destruction",
+			"gachaCardOffset": { "l": 70, "t": 175 }
 		},
 		{
 			"name": "pela",
@@ -92,11 +94,8 @@
 			"path": "nihility",
 			"release": "1.0-0",
 			"splashartOffset": { "l": 58, "t": 45 },
-			"bannerOffset": {
-				"h": 570,
-				"t": -202,
-				"l": -605
-			}
+			"gachaCardOffset": { "t": 140, "w": 480, "l": 85 },
+			"bannerOffset": { "h": 570, "t": -202, "l": -605 }
 		},
 		{
 			"name": "natasha",
@@ -105,49 +104,32 @@
 			"path": "abundance",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 50, "w": 80 },
-			"bannerOffset": {
-				"h": 440,
-				"l": -600,
-				"t": -72
-			}
+			"gachaCardOffset": { "l": 30, "t": 215 },
+			"bannerOffset": { "h": 440, "l": -600, "t": -72 }
 		},
 		{
 			"name": "gepard",
 			"rarity": 5,
 			"combat_type": "ice",
 			"path": "preservation",
-			"splashartOffset": { "t": 40 }
+			"splashartOffset": { "t": 40 },
+			"gachaCardOffset": { "l": 0, "t": 100, "w": 580 }
 		},
 		{
 			"name": "serval",
 			"rarity": 4,
 			"combat_type": "lightning",
 			"path": "erudition",
-			"release": "1.0-0"
-		},
-		{
-			"name": "seele",
-			"rarity": 5,
-			"combat_type": "quantum",
-			"path": "hunt",
-			"buttonOffset": { "t": -30, "w": 110 },
-			"bannerOffset": {
-				"b": -57,
-				"l": -8,
-				"w": 160
-			},
-			"splashartOffset": {
-				"t": 35,
-				"l": 60,
-				"w": 130
-			}
+			"release": "1.0-0",
+			"gachaCardOffset": { "l": 25, "t": 125, "w": 575 }
 		},
 		{
 			"name": "bronya",
 			"rarity": 5,
 			"combat_type": "wind",
 			"path": "harmony",
-			"splashartOffset": { "t": 33, "w": 100, "l": 55 }
+			"splashartOffset": { "t": 33, "w": 100, "l": 55 },
+			"gachaCardOffset": { "t": 70, "w": 640, "l": 70 }
 		},
 		{
 			"name": "herta",
@@ -155,37 +137,39 @@
 			"combat_type": "ice",
 			"path": "erudition",
 			"release": "1.0-0",
-			"splashartOffset": {
-				"t": 60,
-				"l": 55
-			}
+			"splashartOffset": { "t": 60, "l": 55 },
+			"gachaCardOffset": { "w": 350, "t": 195, "l": 45 }
 		},
 		{
 			"name": "asta",
 			"rarity": 4,
 			"combat_type": "fire",
 			"path": "harmony",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"gachaCardOffset": { "t": 145 }
 		},
 		{
 			"name": "arlan",
 			"rarity": 4,
 			"combat_type": "lightning",
 			"path": "destruction",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 }
 		},
 		{
 			"name": "welt",
 			"rarity": 5,
 			"combat_type": "imaginary",
-			"path": "nihility"
+			"path": "nihility",
+			"gachaCardOffset": { "w": 445, "t": 220, "l": 55 }
 		},
 		{
 			"name": "himeko",
 			"rarity": 5,
 			"combat_type": "fire",
 			"path": "erudition",
-			"splashartOffset": { "t": 32, "w": 90 }
+			"splashartOffset": { "t": 32, "w": 90 },
+			"gachaCardOffset": { "l": 55, "t": 60, "w": 520 }
 		},
 		{
 			"name": "dan-heng",
@@ -193,7 +177,8 @@
 			"combat_type": "wind",
 			"path": "hunt",
 			"release": "1.0-0",
-			"splashartOffset": { "w": 90, "t": 45 }
+			"splashartOffset": { "w": 90, "t": 45 },
+			"gachaCardOffset": { "t": 110, "l": 13, "w": 520 }
 		},
 		{
 			"name": "march-7th",
@@ -202,11 +187,8 @@
 			"path": "preservation",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 45, "w": 100 },
-			"bannerOffset": {
-				"h": 410,
-				"t": -105,
-				"l": -530
-			}
+			"gachaCardOffset": { "t": 160, "l": 40 },
+			"bannerOffset": { "h": 410, "t": -105, "l": -530 }
 		}
 	]
 }

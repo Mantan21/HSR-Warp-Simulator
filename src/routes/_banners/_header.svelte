@@ -4,8 +4,15 @@
 	import MyFund from '$lib/components/MyFund.svelte';
 
 	export let bannerType = '';
+	export let bannerName = '';
+
 	$: event = ['lightcone', 'character'].includes(bannerType);
 	$: balance = event ? $specialPass : $regularPass;
+
+	const getBannerName = (type) => {
+		if (type === 'starter') return 'Depature Warp';
+		return 'Stellar Warp';
+	};
 </script>
 
 <header>
@@ -15,7 +22,7 @@
 		</div>
 		<div class="warp">
 			<h1>Warp</h1>
-			<h2>Depature Warp</h2>
+			<h2>{bannerName || getBannerName(bannerType)}</h2>
 		</div>
 	</div>
 	<div class="budget">

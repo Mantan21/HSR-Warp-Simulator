@@ -1,6 +1,9 @@
 import { showStarterBanner } from '$lib/stores/app-store';
+import IDBManager from '$lib/stores/idbManager';
 import { guaranteedStatus, localPity, rollCounter } from '$lib/stores/localstorage';
 import prob, { base4StarChar, base4StarLC, base5StarChar, base5StarLC } from './probabilities';
+
+const { addHistory, countItem } = IDBManager;
 
 export const roll = async (banner, WarpInstance) => {
 	const pity5 = localPity.get(`pity5${banner}`);
@@ -65,7 +68,52 @@ export const roll = async (banner, WarpInstance) => {
 		localPity.set(`pity5${banner}`, pity5 + 1);
 	}
 
+	// Get Item
 	const randomItem = WarpInstance.getItem(rarity, banner);
-	const result = { pity, ...randomItem };
+
+	const numberOfItemOfHistory = await countItem(randomItem.name);
+	await saveResult({ pity, ...randomItem });
+
+	const isFullEidolon = numberOfItemOfHistory > 6;
+	const isNew = numberOfItemOfHistory < 1;
+
+	// Undying Counter
+	const undyingType = randomItem.rarity === 3 ? 'embers' : 'starlight';
+	const undyingQty = getMilestoneQty(randomItem.rarity, randomItem.type, isFullEidolon, isNew);
+
+	// Set Eidolon
+	if (randomItem.type === 'character' && !isNew) {
+		randomItem.eidolon = !isFullEidolon;
+	}
+
+	const result = { pity, isNew, undyingQty, undyingType, ...randomItem };
 	return result;
+};
+
+const getMilestoneQty = (rarity, type, isFullEidolon, isNew) => {
+	// Always give bonus on obtaining lightcone
+	if (type === 'lightcone') {
+		if (rarity === 3) return 20; // *3
+		if (rarity === 4) return 8; // *4
+		return 40; // *5
+	}
+
+	// Don't give bonus to newly obtained character
+	if (isNew) return 0;
+
+	// Give starlight for duplicate characters
+	if (rarity === 4) return isFullEidolon ? 20 : 8; // *4
+	return isFullEidolon ? 100 : 40; // *5
+};
+
+const saveResult = async (result) => {
+	// await addHistory()
+
+	const data = { ...result };
+	delete data.buttonOffset;
+	delete data.splashartOffset;
+	delete data.gachaCardOffset;
+	delete data.bannerOffset;
+
+	await addHistory(data);
 };

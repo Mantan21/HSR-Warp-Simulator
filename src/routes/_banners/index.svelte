@@ -68,7 +68,7 @@
 		</div>
 	{/if}
 
-	<Header {bannerType} />
+	<Header {bannerType} bannerName={item?.bannerName} />
 	<BannerSelection />
 	{#each $bannerList as { type, item }}
 		{#if type === bannerType}

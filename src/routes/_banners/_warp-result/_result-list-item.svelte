@@ -13,7 +13,8 @@
 	export let path = '';
 	export let cardOffset = {};
 
-	export let undying = 'embers';
+	export let undyingType = 'embers';
+	export let undyingQty = 0;
 	export let eidolon = false;
 </script>
 
@@ -45,12 +46,12 @@
 	{:else}
 		<span> TICKET </span>
 
-		{#if !isNew}
+		{#if undyingQty > 0}
 			<div class="bonus" in:fade={{ delay: 700, duration: 200 }}>
-				<div class="bonus-item undying star{undying === 'embers' ? 4 : 5}">
+				<div class="bonus-item undying star{undyingType === 'embers' ? 4 : 5}">
 					<div class="icon">
-						<Icon type={undying} style="width:70%" />
-						<caption> x8</caption>
+						<Icon type={undyingType} style="width:70%" />
+						<caption> x{undyingQty}</caption>
 					</div>
 				</div>
 				{#if eidolon}

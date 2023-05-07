@@ -9,7 +9,7 @@
 	export let qty = 0;
 </script>
 
-<div class="bonus" in:fly={{ x: 100, duration: 400, delay: 800 }}>
+<div class="bonus" in:fly={{ x: 100, duration: 400, delay: 700 }}>
 	{#if eidolon}
 		<div class="convert">Converted to</div>
 		<div class="item eidolon star{rarity}">
@@ -24,17 +24,22 @@
 		</div>
 	{/if}
 
-	<div class="item undying star{type === 'embers' ? 4 : 5}">
-		<div class="icon">
-			<picture>
-				<Icon {type} style="width:70%" />
-			</picture>
+	{#if qty > 0}
+		<div
+			class="item undying star{type === 'embers' ? 4 : 5}"
+			in:fly={{ x: 50, duration: 400, delay: 900 }}
+		>
+			<div class="icon">
+				<picture>
+					<Icon {type} style="width:70%" />
+				</picture>
+			</div>
+			<div class="caption">
+				<small> Bonus drop: </small>
+				<span> Undying {type} x{qty}</span>
+			</div>
 		</div>
-		<div class="caption">
-			<small> Bonus drop: </small>
-			<span> Undying {type} x{qty}</span>
-		</div>
-	</div>
+	{/if}
 </div>
 
 <style>

@@ -17,8 +17,6 @@
 	let intro5star = false;
 	let showResultList = false;
 
-	$: console.log(list);
-
 	let activeIndex = 0;
 	const closeResult = getContext('closeResult');
 	const close = () => {
@@ -80,10 +78,9 @@
 		<ResultList {list} />
 	{:else}
 		<div class="container">
-			{#each list as { name, path, rarity, combat_type, type, splashartOffset }, i}
+			{#each list as { name, path, rarity, combat_type, type, splashartOffset, eidolon, undyingType, undyingQty, isNew }, i}
 				{#if activeIndex === i}
 					{#if intro5star}
-						<!--  -->
 						<SsrScreen {path} />
 					{:else}
 						<div class="wrapper" on:mousedown={showItem}>
@@ -111,8 +108,8 @@
 								</div>
 							{/if}
 
-							<SplashartInfo {name} combatType={combat_type} {path} {rarity} />
-							<BonusItem {rarity} type="starlight" qty="8" />
+							<SplashartInfo {name} combatType={combat_type} {path} {rarity} {isNew} />
+							<BonusItem {rarity} type={undyingType} qty={undyingQty} {eidolon} />
 						</div>
 					{/if}
 				{/if}

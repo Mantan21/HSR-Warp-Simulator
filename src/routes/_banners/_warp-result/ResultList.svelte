@@ -33,17 +33,19 @@
 			{#if Object.keys(groupedList).length > 0}
 				{#each Object.keys(groupedList) as key, layer}
 					<div class="{key} row" in:fly={{ x: layer === 1 ? 200 : -200, duration: 600 }}>
-						{#each groupedList[key] as { name, rarity, combat_type, type, path, gachaCardOffset }, i}
+						{#each groupedList[key] as { name, rarity, combat_type, type, path, gachaCardOffset, isNew, eidolon, undyingType, undyingQty }, i}
 							<div class=" item item{i}">
 								<ResultListItem
 									{rarity}
 									{type}
 									{path}
+									{eidolon}
+									{isNew}
+									{undyingType}
+									{undyingQty}
 									itemName={name}
 									combatType={combat_type}
 									cardOffset={gachaCardOffset}
-									undying="starlight"
-									eidolon
 								/>
 							</div>
 						{/each}

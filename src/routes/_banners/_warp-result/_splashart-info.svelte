@@ -6,6 +6,7 @@
 	export let path;
 	export let combatType;
 	export let rarity;
+	export let isNew;
 </script>
 
 <div class="info">
@@ -28,12 +29,14 @@
 					{/each}
 				</div>
 
-				<div class="new">
-					<span>
-						New
-						<i class="hsr-star" />
-					</span>
-				</div>
+				{#if isNew}
+					<div class="new">
+						<span>
+							New
+							<i class="hsr-star" />
+						</span>
+					</div>
+				{/if}
 
 				{#if combatType}
 					<div class="path">

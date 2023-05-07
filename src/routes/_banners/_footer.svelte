@@ -10,7 +10,7 @@
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import ButtonWarp from './_button-warp.svelte';
-	import AstralExpress from './AstralExpress.svelte';
+	import AstralExpress from './_warp-result/_astral-express.svelte';
 	import WarpResult from './_warp-result/WarpResult.svelte';
 	import { playSfx } from '$lib/helpers/audio';
 
