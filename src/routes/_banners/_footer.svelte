@@ -5,7 +5,8 @@
 		activePhase,
 		viewportHeight,
 		isMobileLandscape,
-		viewportWidth
+		viewportWidth,
+		assets
 	} from '$lib/stores/app-store';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
@@ -45,11 +46,13 @@
 
 	// Astral Express
 	let autoSkip = false;
+	let skipSplashart = false;
 	let showAstralExpress = false;
 	let astralRarity = 3;
 	let showWarpResult = false;
 
-	const showSplashArt = () => {
+	const showSplashArt = ({ skip } = { skip: false }) => {
+		skipSplashart = skip;
 		showWarpResult = true;
 		showAstralExpress = false;
 	};
@@ -59,7 +62,7 @@
 	setContext('closeResult', closeResult);
 
 	const handleGachaAnimation = () => {
-		if (autoSkip) return showSplashArt();
+		if (autoSkip) return showSplashArt({ skip: true });
 		const star = wishResult.map(({ rarity }) => rarity);
 		if (star.includes(5)) astralRarity = 5;
 		else if (star.includes(4)) astralRarity = 4;
@@ -99,10 +102,14 @@
 	</div>
 </div>
 
-<div class="warp-container" class:show={showAstralExpress || showWarpResult}>
+<div
+	class="warp-container"
+	class:show={showAstralExpress || showWarpResult}
+	style="--bg:url({$assets['warp-bg.webp']})"
+>
 	<AstralExpress show={showAstralExpress} rarity={astralRarity} banner={bannerType} />
 	{#if showWarpResult}
-		<WarpResult list={wishResult} />
+		<WarpResult list={wishResult} skip={skipSplashart} />
 	{/if}
 </div>
 
@@ -118,7 +125,9 @@
 	}
 
 	.warp-container.show {
-		background-color: #000;
+		background-image: var(--bg);
+		background-size: cover;
+		background-position: center center;
 		pointer-events: unset;
 	}
 

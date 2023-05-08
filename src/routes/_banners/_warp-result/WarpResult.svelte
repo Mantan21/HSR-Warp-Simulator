@@ -15,7 +15,9 @@
 	import BonusItem from './_bonus-item.svelte';
 	import ResultList from './ResultList.svelte';
 
+	export let skip = false;
 	export let list = [];
+
 	let intro5star = false;
 	let showResultList = false;
 
@@ -58,26 +60,35 @@
 	};
 
 	onMount(() => {
-		playSfx('warp-backsound');
 		showItem('start');
+		if (skip) return (showResultList = true);
+		playSfx('warp-backsound');
 	});
 
 	onDestroy(() => stopSfx('warp-backsound'));
 </script>
 
 <div class="warp-result">
-	<img
-		src={$assets['warp-bg.webp']}
-		alt="bg"
-		crossorigin="anonymous"
-		in:scale={{ start: 1.3, opacity: 1, duration: 1000, easing: cubicOut }}
-	/>
+	{#if !skip}
+		<img
+			src={$assets['warp-bg.webp']}
+			alt="bg"
+			crossorigin="anonymous"
+			in:scale={{ start: 1.3, opacity: 1, duration: 1000, easing: cubicOut }}
+		/>
+	{/if}
 
-	<div class="close">
-		<ButtonClose on:click={close} />
-	</div>
+	{#if list.length > 1 && !showResultList}
+		<button class="skip" on:click={() => (showResultList = true)}>
+			<i class="hsr-skip" />
+		</button>
+	{:else}
+		<div class="close">
+			<ButtonClose on:click={close} />
+		</div>
+	{/if}
 
-	{#if showResultList}
+	{#if showResultList && list.length > 1}
 		<ResultList {list} />
 	{:else}
 		<div class="container">
@@ -134,21 +145,29 @@
 
 	img {
 		position: absolute;
+		top: 0;
+		left: 0;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		object-position: center;
 	}
 
-	.close {
+	.close,
+	.skip {
 		position: absolute;
 		top: 0;
 		right: 0;
 		padding: 3.7vh 2%;
 		z-index: +12;
+		color: #fff;
+	}
+	.skip {
+		font-size: 200%;
 	}
 
-	:global(.mobileLandscape) .close {
+	:global(.mobileLandscape) .close,
+	:global(.mobileLandscape) .skip {
 		padding: 1.5vh 5%;
 	}
 

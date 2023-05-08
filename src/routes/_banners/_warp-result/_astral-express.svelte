@@ -18,15 +18,15 @@
 	const muted = true;
 
 	const showSplashArt = getContext('showSplashArt');
-	const onExpressArrived = () => {
-		showSplashArt();
+	const onExpressArrived = ({ skip } = { skip: false }) => {
+		showSplashArt({ skip });
 		showSkipButton = false;
 		showBg = false;
 	};
 
 	const skip = () => {
 		stopSfx(`express-${rarity}star`);
-		onExpressArrived();
+		onExpressArrived({ skip: true });
 		[v3star, regular4star, regular5star, event4star, event5star].forEach((video) => {
 			video.load();
 			video.style.display = 'none';
