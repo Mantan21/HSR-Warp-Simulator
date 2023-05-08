@@ -1,16 +1,18 @@
 <script>
 	import { getContext, onDestroy, onMount } from 'svelte';
-	import { scale } from '$lib/helpers/transition';
 	import { cubicOut } from 'svelte/easing';
+	import { t } from 'svelte-i18n';
+	import { scale } from '$lib/helpers/transition';
+	import { assets } from '$lib/stores/app-store';
+	import { playSfx, stopSfx } from '$lib/helpers/audio';
+	import positionToStyle from '$lib/helpers/cssPosition';
+
 	import ButtonClose from '$lib/components/ButtonClose.svelte';
 	import SplashLight from './_splash-light.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
-	import { playSfx, stopSfx } from '$lib/helpers/audio';
 	import SsrScreen from './_ssr-screen.svelte';
-	import positionToStyle from '$lib/helpers/cssPosition';
 	import SplashartInfo from './_splashart-info.svelte';
 	import BonusItem from './_bonus-item.svelte';
-	import { assets } from '$lib/stores/app-store';
 	import ResultList from './ResultList.svelte';
 
 	export let list = [];
@@ -67,6 +69,7 @@
 	<img
 		src={$assets['warp-bg.webp']}
 		alt="bg"
+		crossorigin="anonymous"
 		in:scale={{ start: 1.3, opacity: 1, duration: 1000, easing: cubicOut }}
 	/>
 
@@ -89,7 +92,7 @@
 								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
 									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
 										<div class="lightcone-item">
-											<LightCones item={name} {rarity} animate />
+											<LightCones item={name} animate />
 										</div>
 									</div>
 								</div>
@@ -100,16 +103,17 @@
 								>
 									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
 										<img
-											src="/images/characters/{rarity}star/{name}.webp"
+											src={$assets[`splash-art/${name}`]}
 											style={positionToStyle(splashartOffset)}
-											alt={name}
+											crossorigin="anonymous"
+											alt={$t(name)}
 										/>
 									</div>
 								</div>
 							{/if}
 
 							<SplashartInfo {name} combatType={combat_type} {path} {rarity} {isNew} />
-							<BonusItem {rarity} type={undyingType} qty={undyingQty} {eidolon} />
+							<BonusItem {rarity} type={undyingType} qty={undyingQty} {eidolon} {name} />
 						</div>
 					{/if}
 				{/if}

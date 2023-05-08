@@ -4,25 +4,25 @@
 
 <div class="character-group">
 	<div class="gepard character" in:fly={{ y: 30, duration: 1000, delay: 250 }}>
-		<img src="/images/banners/starter/1.0/gepard.webp" alt="gepard" />
+		<img src="/images/banners/starter/1.0/gepard.webp" alt="gepard" crossorigin="anonymous" />
 	</div>
 	<div class="bailu character" in:fly={{ y: 15, duration: 1000, delay: 250 }}>
-		<img src="/images/banners/starter/1.0/bailu.webp" alt="bailu" />
+		<img src="/images/banners/starter/1.0/bailu.webp" alt="bailu" crossorigin="anonymous" />
 	</div>
 	<div class="yanqing character" in:fly={{ y: 15, duration: 1000, delay: 250 }}>
-		<img src="/images/banners/starter/1.0/yanqing.webp" alt="Yanqing" />
+		<img src="/images/banners/starter/1.0/yanqing.webp" alt="Yanqing" crossorigin="anonymous" />
 	</div>
 	<div class="clara character" in:fly={{ y: 30, duration: 1000, delay: 250 }}>
-		<img src="/images/banners/starter/1.0/clara.webp" alt="clara" />
+		<img src="/images/banners/starter/1.0/clara.webp" alt="clara" crossorigin="anonymous" />
 	</div>
 	<div class="bronya character" in:fly={{ y: 15, duration: 1000, delay: 250 }}>
-		<img src="/images/banners/starter/1.0/bronya.webp" alt="bronya" />
+		<img src="/images/banners/starter/1.0/bronya.webp" alt="bronya" crossorigin="anonymous" />
 	</div>
 	<div class="himeko character" in:fly={{ y: 15, duration: 1000, delay: 250 }}>
-		<img src="/images/banners/starter/1.0/himeko.webp" alt="Himeko" />
+		<img src="/images/banners/starter/1.0/himeko.webp" alt="Himeko" crossorigin="anonymous" />
 	</div>
 	<div class="welt character" in:fly={{ y: 30, duration: 1000, delay: 250 }}>
-		<img src="/images/banners/starter/1.0/welt.webp" alt="Welt" />
+		<img src="/images/banners/starter/1.0/welt.webp" alt="Welt" crossorigin="anonymous" />
 	</div>
 </div>
 

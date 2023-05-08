@@ -1,5 +1,6 @@
 <script>
 	import { fade, fly } from '$lib/helpers/transition';
+	import { t } from 'svelte-i18n';
 
 	const chars = [
 		{
@@ -38,7 +39,7 @@
 		<div class="char-group {name}" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="name">
 				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
-				<span>{name}</span>
+				<span>{$t(name)}</span>
 			</div>
 			<div class="stars">
 				{#each Array(5) as _} <i class="hsr-star" />{/each}
@@ -47,8 +48,8 @@
 	{/each}
 
 	<div class="info" in:fly={{ duration: 1000, y: 20, delay: 250 }}>
-		<span class="banner-name"> Starter Warp </span>
-		<h1 class="banner-title">Departure Warp</h1>
+		<span class="banner-name"> {$t('banner.starter')} </span>
+		<h1 class="banner-title">{$t('banner.departure')}</h1>
 		<div class="description">
 			<p>
 				20% off for set of 10 Warps, and a <span>5</span>-star character is guaranteed within
@@ -130,7 +131,6 @@
 		display: block;
 		padding-right: calc(0.01 * var(--bw));
 		font-size: calc(0.015 * var(--bw));
-		text-transform: capitalize;
 	}
 
 	.stars {

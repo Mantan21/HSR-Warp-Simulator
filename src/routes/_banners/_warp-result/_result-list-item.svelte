@@ -1,4 +1,5 @@
 <script>
+	import { assets } from '$lib/stores/app-store';
 	import Icon from '$lib/components/Icon.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
@@ -39,7 +40,7 @@
 			</div>
 			<div class="col lc-right">
 				<div class="lc-picture">
-					<LightCones item={itemName} {rarity} small />
+					<LightCones item={itemName} small />
 				</div>
 			</div>
 		</div>
@@ -81,10 +82,10 @@
 			{/if}
 			<picture>
 				<img
-					src="/images/characters/{rarity}star/{itemName}.webp"
+					src={$assets[`splash-art/${itemName}`]}
 					alt={itemName}
-					crossorigin="anonymous"
 					style={positionToStyle(cardOffset)}
+					crossorigin="anonymous"
 				/>
 			</picture>
 		</div>

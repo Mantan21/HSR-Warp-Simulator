@@ -2,6 +2,7 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import { fly } from '$lib/helpers/transition';
 
+	export let name = '';
 	export let eidolon = false;
 	export let rarity = 4;
 
@@ -19,7 +20,7 @@
 				</picture>
 			</div>
 			<div class="caption">
-				<span> Herta's Eidolon x1</span>
+				<span> {name}'s Eidolon x1</span>
 			</div>
 		</div>
 	{/if}

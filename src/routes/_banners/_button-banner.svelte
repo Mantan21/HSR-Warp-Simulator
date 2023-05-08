@@ -4,6 +4,7 @@
 	import { assets } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import { playSfx } from '$lib/helpers/audio';
+	import { t } from 'svelte-i18n';
 
 	export let active = false;
 	export let item = {};
@@ -59,7 +60,7 @@
 				</g>
 			</svg>
 		{:else if banner === 'lightcone'}
-			<img class="cone-bg" src="/images/light-cones/5star/{featured}.webp" alt={item} />
+			<img class="cone-bg" src={$assets[featured]} alt={$t(featured)} crossorigin="anonymous" />
 		{/if}
 	</div>
 	<div class="overflow">
@@ -68,14 +69,20 @@
 				<img
 					src="/images/banners/button/{featured}.webp"
 					style={buttonOffset(featured)}
-					alt="Seele"
+					alt={$t(featured)}
+					crossorigin="anonymous"
 				/>
 			{:else if banner === 'starter'}
 				<img src={$assets['depature-icon.svg']} alt="Depature" />
 			{:else if banner === 'regular'}
 				<img src={$assets['stellar-icon.svg']} alt="Stellar" />
 			{:else if banner === 'lightcone'}
-				<img class="cone-fg" src="/images/light-cones/icons/{featured}.webp" alt={item} />
+				<img
+					class="cone-fg"
+					src="/images/light-cones/icons/{featured}.webp"
+					alt={item}
+					crossorigin="anonymous"
+				/>
 			{/if}
 		</figure>
 	</div>

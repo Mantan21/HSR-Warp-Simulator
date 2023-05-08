@@ -1,6 +1,7 @@
 <script>
 	import { fade, fly } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
+	import { t } from 'svelte-i18n';
 	import RateupLightones from './__rateup-lightcones.svelte';
 
 	const lightcones = [
@@ -26,10 +27,10 @@
 </script>
 
 <div class="content">
-	<div class="banner-name">Regular Warp</div>
+	<div class="banner-name">{$t('banner.regular')}</div>
 	<div class="wrapper-info" in:fade={{ duration: 500, delay: 250 }}>
 		<div class="info-body">
-			<h1>Stellar Warp</h1>
+			<h1>{$t('banner.stellar')}</h1>
 			<div class="description">
 				<p>Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity</p>
 				<p>Permanent</p>
@@ -43,7 +44,7 @@
 			<div class="char-group {name}" in:fly={{ duration: 1000, delay: 250, x: -20 }}>
 				<div class="name">
 					<i class="hsr-{combat_type} icon-gradient {combat_type}" />
-					<span>{name}</span>
+					<span>{$t(name)}</span>
 				</div>
 				<div class="stars">
 					{#each Array(5) as _} <i class="hsr-star" />{/each}
@@ -233,7 +234,6 @@
 		display: block;
 		padding-right: calc(0.01 * var(--bw));
 		font-size: calc(0.015 * var(--bw));
-		text-transform: capitalize;
 	}
 
 	.stars {

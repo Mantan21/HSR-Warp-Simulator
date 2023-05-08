@@ -1,7 +1,8 @@
 <script>
+	import { t } from 'svelte-i18n';
 	import { fly } from '$lib/helpers/transition';
 	import { data } from '$lib/data/characters.json';
-	import { isMobileLandscape } from '$lib/stores/app-store';
+	import { assets, isMobileLandscape } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import BannerTpl from './__banner-tpl.svelte';
 
@@ -25,8 +26,9 @@
 	<div class="splash-art">
 		<figure class="seele">
 			<img
-				src="/images/characters/5star/{item.featured}.webp"
-				alt="Seele"
+				crossorigin="anonymous"
+				src={$assets[`splash-art/${item.featured}`]}
+				alt={$t(item.featured)}
 				in:fly={{ x: -15, duration: 1500, delay: 200 }}
 				style={characterOffset(item.featured, $isMobileLandscape)}
 			/>

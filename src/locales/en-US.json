@@ -1,1 +1,13 @@
-{}
+{
+	"banner": {
+		"starter": "Starter Warp",
+		"regular": "Regular Warp",
+		"character-event": "Character Event Warp",
+		"lightcone-event": "Light Cone Event Warp",
+		"departure": "Departure Warp",
+		"stellar": "Stellar Warp",
+		"brilliant-fixation": "Brilliant Fixation",
+		"butterfly-on-swordtip": "Butterfly on Swordtip",
+		"swirl-of-heavenly-spear": "Swirl of Heavenly Spear"
+	}
+}

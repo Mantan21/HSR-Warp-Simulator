@@ -1,3 +1,6 @@
+import { data as charDB } from '$lib/data/characters.json';
+import { data as lcDB } from '$lib/data/light-cones.json';
+
 const images = [
 	{
 		dir: 'background',
@@ -23,6 +26,20 @@ const images = [
 		]
 	}
 ];
+
+export const getAssetList = async () => {
+	const pathList = {};
+
+	charDB.forEach(({ name, rarity }) => {
+		pathList[`closeup/${name}`] = `/images/characters/closeup${rarity}star/${name}.webp`;
+		pathList[`splash-art/${name}`] = `/images/characters/splash-art/${rarity}star/${name}.webp`;
+	});
+
+	lcDB.forEach(({ name, rarity }) => {
+		pathList[name] = `/images/light-cones/${rarity}star/${name}.webp`;
+	});
+	return pathList;
+};
 
 export const listingAssets = () => {
 	const arr = [];

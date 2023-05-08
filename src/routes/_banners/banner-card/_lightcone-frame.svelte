@@ -1,7 +1,8 @@
 <script>
+	import { t } from 'svelte-i18n';
+	import { fade, fly } from '$lib/helpers/transition';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
-	import { fade, fly } from '$lib/helpers/transition';
 	import RateupLightones from './__rateup-lightcones.svelte';
 
 	export let item = {};
@@ -10,13 +11,13 @@
 </script>
 
 <div class="content">
-	<div class="banner-name">Light Cone Event Warp</div>
+	<div class="banner-name">{$t('banner.lightcone-event')}</div>
 
 	<!-- Left Pane -->
 	<div class="wrapper-info">
 		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="short-detail">
-				<h1>Brillian Fixation</h1>
+				<h1>{$t('banner.brilliant-fixation')}</h1>
 				<div class="time"><i class="hsr-time" /> <caption> ∞ days ∞ hours</caption></div>
 				<div class="description">
 					<p>Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity</p>
@@ -33,7 +34,7 @@
 			<div class="path">
 				<Path path={item.path} dark />
 			</div>
-			<div class="name">{item.featured}</div>
+			<div class="name">{$t(item.featured)}</div>
 			<span class="stars">
 				{#each Array(5) as _}
 					<i class="hsr-star" />

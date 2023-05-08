@@ -14,7 +14,7 @@
 	};
 </script>
 
-<img src={pic[type]} alt={type} {style} />
+<img src={pic[type]} alt={type} {style} crossorigin="anonymous" />
 
 <style>
 	img {

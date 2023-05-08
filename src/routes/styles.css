@@ -4,7 +4,7 @@
 	--hsr-neue: 'StarRail Neue', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
 		sans-serif;
 	--color-text: #e7e8ea;
-	--color-second: #c3b294;
+	--color-second: #e6cb94;
 }
 
 * {
@@ -31,9 +31,9 @@ body {
 }
 
 body,
-button:hover,
+button,
 input,
-a:hover {
+a {
 	user-select: none;
 	-moz-user-select: -moz-none;
 	-khtml-user-select: none;
@@ -90,7 +90,7 @@ button {
 }
 
 .mobileLandscape {
-	font-size: 0.6rem;
+	font-size: 0.7rem;
 }
 
 @media screen and (max-width: 900px) {

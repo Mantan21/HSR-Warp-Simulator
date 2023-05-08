@@ -1,5 +1,7 @@
 <script>
+	import { t } from 'svelte-i18n';
 	import { scaleOrigin } from '$lib/helpers/transition';
+	import { assets } from '$lib/stores/app-store';
 	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
@@ -9,14 +11,15 @@
 	<div class="wrapper">
 		<div class="layer-bg">
 			<img
-				src="/images/light-cones/5star/{item.featured}.webp"
-				alt="In The Night"
+				src={$assets[item.featured]}
+				alt={$t(item.featured)}
+				crossorigin="anonymous"
 				in:scaleOrigin={{ start: 1.1, duration: 2000, delay: 250, origin: '100% 80%' }}
 			/>
 		</div>
 		<div class="layer-white">
-			<img src="/images/utils/circle-ornament1.svg" alt="Circle" class="ornament ornament1" />
-			<img src="/images/utils/circle-ornament2.svg" alt="Circle" class="ornament ornament2" />
+			<img src={$assets['circle-ornament1.svg']} alt="Circle" class="ornament ornament1" />
+			<img src={$assets['circle-ornament2.svg']} alt="Circle" class="ornament ornament2" />
 			<div class="ornament ornament3" />
 		</div>
 	</div>

@@ -1,7 +1,10 @@
 <script>
+	import { t } from 'svelte-i18n';
 	import { data } from '$lib/data/characters.json';
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
+	import { assets } from '$lib/stores/app-store';
+	import { getBannerName } from '$lib/helpers/text-proccesor';
 
 	export let item = {};
 
@@ -16,13 +19,13 @@
 </script>
 
 <div class="content">
-	<div class="banner-name">Character Event Warp</div>
+	<div class="banner-name">{$t('banner.character-event')}</div>
 
 	<!-- Left Pane -->
 	<div class="wrapper-info">
 		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="short-detail">
-				<h1>{bannerName}</h1>
+				<h1>{$t(`banner.${getBannerName(bannerName).name}`)}</h1>
 				<div class="time"><i class="hsr-time" /> <caption> ∞ days ∞ hours</caption></div>
 				<div class="description">
 					<p>Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity</p>
@@ -37,9 +40,10 @@
 							<div class="rateup-content">
 								<figure in:fly={{ x: -20, duration: 1000, delay: 300 + 100 * i }}>
 									<img
-										src="/images/characters/4star/{name}.webp"
-										alt={name}
+										src={$assets[`splash-art/${name}`]}
+										alt={$t(name)}
 										style={characterOffset(name)}
+										crossorigin="anonymous"
 									/>
 								</figure>
 							</div>
@@ -55,7 +59,7 @@
 		<div class="char-group" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="name">
 				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
-				<span>{featured}</span>
+				<span>{$t(featured)}</span>
 			</div>
 			<div class="stars">
 				{#each Array(5) as _} <i class="hsr-star" />{/each}
@@ -231,7 +235,6 @@
 		display: block;
 		padding-right: calc(0.01 * var(--bw));
 		font-size: calc(0.016 * var(--bw));
-		text-transform: capitalize;
 	}
 
 	.stars {

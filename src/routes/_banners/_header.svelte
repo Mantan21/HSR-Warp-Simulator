@@ -2,6 +2,9 @@
 	import { regularPass, specialPass, stellarJade } from '$lib/stores/app-store';
 	import ButtonClose from '$lib/components/ButtonClose.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
+	import HeaderTitle from '$lib/components/HeaderTitle.svelte';
+	import { t } from 'svelte-i18n';
+	import { getBannerName } from '$lib/helpers/text-proccesor';
 
 	export let bannerType = '';
 	export let bannerName = '';
@@ -9,21 +12,16 @@
 	$: event = ['lightcone', 'character'].includes(bannerType);
 	$: balance = event ? $specialPass : $regularPass;
 
-	const getBannerName = (type) => {
-		if (type === 'starter') return 'Depature Warp';
-		return 'Stellar Warp';
+	const nameOfBanner = (type) => {
+		if (event) return $t(`banner.${getBannerName(bannerName).name}`);
+		if (type === 'starter') return $t('banner.departure');
+		return $t('banner.stellar');
 	};
 </script>
 
 <header>
 	<div class="row">
-		<div class="logo">
-			<i class="hsr-warp" />
-		</div>
-		<div class="warp">
-			<h1>Warp</h1>
-			<h2>{bannerName || getBannerName(bannerType)}</h2>
-		</div>
+		<HeaderTitle icon="warp" h1="Warp" h2={nameOfBanner(bannerType)} />
 	</div>
 	<div class="budget">
 		<MyFund type={event ? 'specialpass' : 'regularpass'}>{balance}</MyFund>
@@ -44,34 +42,6 @@
 		z-index: +2;
 		display: flex;
 		align-items: center;
-	}
-
-	.row {
-		display: flex;
-		align-items: center;
-	}
-
-	.logo {
-		font-size: 1.4rem;
-		color: var(--color-second);
-		line-height: 0;
-		padding-right: 8%;
-		display: none;
-	}
-
-	:global(.mobileLandscape) .logo {
-		display: unset;
-	}
-
-	.warp h1 {
-		color: var(--color-second);
-		font-size: 110%;
-	}
-
-	.warp h2 {
-		margin-top: 2%;
-		font-size: 130%;
-		white-space: nowrap;
 	}
 
 	.budget {

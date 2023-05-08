@@ -13,7 +13,7 @@
 
 <button class={type}>
 	<div class="icon">
-		<img src={$assets[iconList[type]]} alt="Icon" />
+		<img src={$assets[iconList[type]]} alt="Icon" crossorigin="anonymous" />
 	</div>
 	<span class="amount">
 		<slot />
