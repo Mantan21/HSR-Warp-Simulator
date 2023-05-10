@@ -1,8 +1,9 @@
 <script>
 	import { getContext, onMount } from 'svelte';
-	import { viewportHeight, assets } from '$lib/stores/app-store';
+	import { viewportHeight } from '$lib/stores/app-store';
 	import { fade } from '$lib/helpers/transition';
 	import { playSfx, stopSfx } from '$lib/helpers/audio';
+	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 
 	export let show;
 	export let rarity;
@@ -14,14 +15,12 @@
 	let event4star;
 	let event5star;
 	let showSkipButton = false;
-	let showBg = false;
 	const muted = true;
 
 	const showSplashArt = getContext('showSplashArt');
 	const onExpressArrived = ({ skip } = { skip: false }) => {
 		showSplashArt({ skip });
 		showSkipButton = false;
-		showBg = false;
 	};
 
 	const skip = () => {
@@ -55,18 +54,13 @@
 			}
 		} else videoContent = v3star;
 
-		if (videoContent.error || isNaN(videoContent.duration)) {
+		if (!videoContent || videoContent.error || isNaN(videoContent.duration)) {
 			// showToast = true;
 			console.error("Can't play Meteor Animation because it cannot be loaded", videoContent.error);
 			return onExpressArrived();
 		}
 		videoContent.style.display = 'unset';
 		videoContent.play();
-
-		const x = setTimeout(() => {
-			showBg = true;
-			clearTimeout(x);
-		}, 500);
 		return;
 	};
 
@@ -76,7 +70,6 @@
 <div
 	class:show
 	class="express"
-	class:bg={showBg}
 	style="height: {$viewportHeight}px"
 	on:mousedown={() => (showSkipButton = true)}
 >
@@ -88,9 +81,9 @@
 		<video bind:this={event5star} {muted} src="/videos/event-5star.mp4" type="video/mp4" />
 
 		{#if showSkipButton}
-			<button class="skip" in:fade={{ duration: 200 }} on:click={skip}>
-				<i class="hsr-skip" />
-			</button>
+			<div class="skip" in:fade={{ duration: 200 }}>
+				<ButtonIcon icon="skip" on:click={skip} />
+			</div>
 		{/if}
 	</div>
 </div>
@@ -103,11 +96,6 @@
 		top: 0;
 		left: 0;
 		width: 100vw;
-	}
-	.express.bg {
-		background-image: url('/images/background/warp-bg.webp');
-		background-size: 130%;
-		background-position: center center;
 	}
 	.express.show {
 		display: block;
@@ -133,15 +121,13 @@
 
 	.skip {
 		position: absolute;
-		top: 2%;
-		right: 2%;
-		color: #fff;
-		font-size: 200%;
+		top: 0;
+		right: 0;
+		padding: 3.7vh 2%;
 		z-index: 10;
 	}
 
 	:global(.mobileLandscape) .skip {
-		right: 6%;
-		top: 1rem;
+		padding: 1.5vh 5%;
 	}
 </style>

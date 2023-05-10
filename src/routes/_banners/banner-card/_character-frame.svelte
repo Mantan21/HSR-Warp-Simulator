@@ -3,8 +3,8 @@
 	import { data } from '$lib/data/characters.json';
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
-	import { assets } from '$lib/stores/app-store';
 	import { getBannerName } from '$lib/helpers/text-proccesor';
+	import { assetPath } from '$lib/helpers/assets';
 
 	export let item = {};
 
@@ -38,14 +38,18 @@
 					{#each rateup as name, i}
 						<div class="rateup-item">
 							<div class="rateup-content">
-								<figure in:fly={{ x: -20, duration: 1000, delay: 300 + 100 * i }}>
+								<picture in:fly={{ x: -20, duration: 1000, delay: 300 + 100 * i }}>
+									<source
+										srcset={assetPath(`splash-art/4/${name}`, 1280)}
+										media="(min-width: 840px)"
+									/>
 									<img
-										src={$assets[`splash-art/${name}`]}
+										src={assetPath(`splash-art/4/${name}`, 640)}
 										alt={$t(name)}
 										style={characterOffset(name)}
 										crossorigin="anonymous"
 									/>
-								</figure>
+								</picture>
 							</div>
 						</div>
 					{/each}
@@ -199,12 +203,13 @@
 		background-color: rgba(255, 255, 255, 0.9);
 	}
 
-	figure {
+	picture {
 		position: relative;
 		height: 100%;
+		display: block;
 	}
 
-	figure img {
+	picture img {
 		position: absolute;
 		height: 200%;
 	}

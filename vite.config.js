@@ -1,4 +1,6 @@
+import path from 'path';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { imagetools } from 'vite-imagetools';
 // import { VitePWA } from 'vite-plugin-pwa';
 
 const iconSize = [72, 96, 128, 144, 152, 192, 256, 384, 512];
@@ -71,6 +73,7 @@ const manifest = {
 /** @type {import('vite').UserConfig} */
 const config = {
 	plugins: [
+		imagetools({}),
 		sveltekit()
 		// VitePWA({
 		// 	strategies: 'injectManifest',
@@ -82,6 +85,11 @@ const config = {
 		// 	manifest
 		// })
 	],
+	resolve: {
+		alias: {
+			'@images': path.resolve(__dirname, './src/images')
+		}
+	},
 	build: {
 		chunkSizeWarningLimit: 350,
 		target: ['es2020']

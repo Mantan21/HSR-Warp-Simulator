@@ -1,6 +1,6 @@
 <script>
 	import { getContext, onMount } from 'svelte';
-	import { blobAssets, getAssetList, listingAssets } from '$lib/helpers/assets';
+	import { assetPath, blobAssets, listingAssets } from '$lib/helpers/assets';
 	import { assets } from '$lib/stores/app-store';
 
 	let anyError = false;
@@ -23,11 +23,10 @@
 		}
 
 		const loadedAssets = await Promise.all(arr);
-		const assetList = await getAssetList();
 		assets.update((pv) => {
 			pv = {};
 			loadedAssets.forEach(({ url, name }) => (pv[name] = url));
-			return { ...pv, ...assetList };
+			return pv;
 		});
 
 		if (anyError === false) handleLoaded();
@@ -66,7 +65,11 @@
 <section>
 	<div class="wrapper">
 		<div class="ornament ornament1">
-			<img src="/images/utils/loading-ornament.svg" alt="Loader Circle" crossorigin="anonymous" />
+			<img
+				src={assetPath('utils/loading-ornament.svg')}
+				alt="Loader Circle"
+				crossorigin="anonymous"
+			/>
 		</div>
 		<div class="ornament ornament2" />
 		<div class="ornament ornament3" />

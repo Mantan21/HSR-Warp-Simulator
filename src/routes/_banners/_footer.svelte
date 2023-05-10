@@ -1,5 +1,5 @@
 <script>
-	import { setContext } from 'svelte';
+	import { getContext, setContext } from 'svelte';
 	import {
 		activeVersion,
 		activePhase,
@@ -24,6 +24,13 @@
 	let wishResult;
 	let WarpInstance;
 
+	const navigate = getContext('navigate');
+	const goto = (page) => {
+		navigate(page);
+		playSfx('click');
+	};
+
+	// Warp
 	const initialWarp = async (version, phase) => {
 		if (!version || !phase) return;
 		WarpInstance = await WARP.init(version, phase);
@@ -83,7 +90,7 @@
 				<ButtonGeneral>Exchange</ButtonGeneral>
 			</div>
 			<div class="btn">
-				<ButtonGeneral>Collection</ButtonGeneral>
+				<ButtonGeneral on:click={() => goto('collection')}>Collection</ButtonGeneral>
 			</div>
 			<div class="btn">
 				<ButtonGeneral>View Details</ButtonGeneral>

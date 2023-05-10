@@ -7,13 +7,14 @@
 	import { playSfx, stopSfx } from '$lib/helpers/audio';
 	import positionToStyle from '$lib/helpers/cssPosition';
 
-	import ButtonClose from '$lib/components/ButtonClose.svelte';
+	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import SplashLight from './_splash-light.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import SsrScreen from './_ssr-screen.svelte';
 	import SplashartInfo from './_splashart-info.svelte';
 	import BonusItem from './_bonus-item.svelte';
 	import ResultList from './ResultList.svelte';
+	import { assetPath } from '$lib/helpers/assets';
 
 	export let skip = false;
 	export let list = [];
@@ -79,12 +80,12 @@
 	{/if}
 
 	{#if list.length > 1 && !showResultList}
-		<button class="skip" on:click={() => (showResultList = true)}>
-			<i class="hsr-skip" />
-		</button>
+		<div class="skip">
+			<ButtonIcon icon="skip" on:click={() => (showResultList = true)} />
+		</div>
 	{:else}
 		<div class="close">
-			<ButtonClose on:click={close} />
+			<ButtonIcon on:click={close} />
 		</div>
 	{/if}
 
@@ -103,7 +104,7 @@
 								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
 									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
 										<div class="lightcone-item">
-											<LightCones item={name} animate />
+											<LightCones item={name} {rarity} animate />
 										</div>
 									</div>
 								</div>
@@ -112,14 +113,21 @@
 									class="item-art character"
 									in:scale={{ start: 1.3, duration: 500, opacity: 1 }}
 								>
-									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
+									<picture
+										class="item-content"
+										in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}
+									>
+										<source
+											srcset={assetPath(`splash-art/${rarity}/${name}`, 1280)}
+											media="(min-width: 840px)"
+										/>
 										<img
-											src={$assets[`splash-art/${name}`]}
+											src={assetPath(`splash-art/${rarity}/${name}`, 640)}
 											style={positionToStyle(splashartOffset)}
 											crossorigin="anonymous"
 											alt={$t(name)}
 										/>
-									</div>
+									</picture>
 								</div>
 							{/if}
 
@@ -160,10 +168,6 @@
 		right: 0;
 		padding: 3.7vh 2%;
 		z-index: +12;
-		color: #fff;
-	}
-	.skip {
-		font-size: 200%;
 	}
 
 	:global(.mobileLandscape) .close,

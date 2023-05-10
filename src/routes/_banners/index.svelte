@@ -1,12 +1,14 @@
 <script>
+	import { t } from 'svelte-i18n';
 	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
 	import { fade, fly } from '$lib/helpers/transition';
 	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
+	import { assetPath } from '$lib/helpers/assets.js';
+
 	import Footer from './_footer.svelte';
 	import Header from './_header.svelte';
 	import BannerItem from './BannerItem.svelte';
 	import BannerSelection from './_banner-selection.svelte';
-	import { t } from 'svelte-i18n';
 
 	let item, type;
 	$: ({ item, type } = $bannerList[$activeBanner]);
@@ -23,7 +25,7 @@
 
 			const img = new Image();
 			img.crossOrigin = 'anonymous';
-			img.src = $assets[`splash-art/${item.featured}`];
+			img.src = assetPath(`splash-art/5/${item.featured}`, 640);
 			img.addEventListener('load', () => {
 				const [clr1, clr2] = colorthief.getPalette(img, 2);
 				color1 = clr1.join(',');
@@ -42,7 +44,11 @@
 	$: getColor($bannerList);
 </script>
 
-<div class="banner" style="--bn-color2: rgba({color1}, 0.8); --bn-color1: rgba({color2}, 0.8)">
+<div
+	class="banner"
+	style="--bn-color2: rgba({color1}, 0.8); --bn-color1: rgba({color2}, 0.8)"
+	transition:fade={{ duration: 250 }}
+>
 	{#if bannerType === 'starter'}
 		<div class="bg" transition:fade|local={{ duration: 250 }}>
 			<img src={$assets['departure-bg.webp']} alt="Background" crossorigin="anonymous" />
@@ -54,14 +60,18 @@
 	{:else if bannerType === 'character'}
 		<div class="bg character" transition:fade|local={{ duration: 250 }}>
 			<img
-				src={$assets[`splash-art/${item.featured}`]}
+				src={assetPath(`splash-art/5/${item.featured}`, 640)}
 				alt={$t(item.featured)}
 				crossorigin="anonymous"
 			/>
 		</div>
 	{:else if bannerType === 'lightcone'}
 		<div class="bg lightcone" transition:fade|local={{ duration: 250 }}>
-			<img src={$assets[item.featured]} alt={$t(item.featured)} crossorigin="anonymous" />
+			<img
+				src={assetPath(`lc/5/${item.featured}`, 150)}
+				alt={$t(item.featured)}
+				crossorigin="anonymous"
+			/>
 		</div>
 	{/if}
 

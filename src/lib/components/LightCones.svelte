@@ -1,11 +1,12 @@
 <script>
-	import { assets } from '$lib/stores/app-store';
+	import { assetPath } from '$lib/helpers/assets';
 	import { t } from 'svelte-i18n';
 	import { fly } from 'svelte/transition';
 
 	export let item = '';
 	export let small = false;
 	export let animate = false;
+	export let rarity = 5;
 
 	const transitionFly = (node, args) => {
 		if (!animate) return;
@@ -14,8 +15,16 @@
 </script>
 
 <div class="light-cone" class:small in:transitionFly={{ y: -300, x: -30, duration: 500 }}>
-	<div class="layer layer-back" in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }} />
-	<img src={$assets[item]} crossorigin="anonymous" alt={$t(item)} />
+	{#if !small}
+		<div class="layer layer-back" in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }} />
+	{/if}
+	<img
+		src={assetPath(`lc/${rarity}/${item}`, small ? 150 : 450)}
+		crossorigin="anonymous"
+		alt={$t(item)}
+		loading="lazy"
+		on:error={(e) => e.target.remove()}
+	/>
 	<div
 		class="layer layer-front"
 		in:transitionFly={{ y: -300, x: -30, duration: 500, opacity: 1 }}
@@ -44,7 +53,7 @@
 	.layer-front {
 		height: 99%;
 		width: 99%;
-		background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 50%);
+		background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.6), transparent 50%);
 		box-shadow: 0.2rem 0.2rem 1px #bbb, 0.2rem -0.1rem 1px rgba(255, 255, 255, 0.8),
 			-0.1rem 0px 1px rgba(255, 255, 255, 0.8);
 		top: -4%;
@@ -67,7 +76,11 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 0.5rem;
-		border: 0.1rem solid var(--color-second);
+		border-right: 0.1rem solid var(--color-second);
+		border-bottom: 0.1rem solid var(--color-second);
+	}
+
+	.light-cone:not(.small) .layer-front::after {
 		mask-image: linear-gradient(135deg, transparent 40%, black);
 	}
 
@@ -75,7 +88,7 @@
 		height: 97%;
 		bottom: -3%;
 		right: -5%;
-		background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 50%);
+		background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2), transparent 50%);
 		box-shadow: 0.2rem 0.2rem 1px rgba(255, 255, 255, 0.8),
 			0.2rem -0.1rem 1px rgba(255, 255, 255, 0.8), -0.1rem 0px 1px rgba(255, 255, 255, 0.8);
 	}

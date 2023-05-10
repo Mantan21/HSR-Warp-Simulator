@@ -1,16 +1,18 @@
 <script>
-	import { assets } from '$lib/stores/app-store';
+	import { t } from 'svelte-i18n';
+	import positionToStyle from '$lib/helpers/cssPosition';
+	import { fade } from '$lib/helpers/transition';
+	import { assetPath } from '$lib/helpers/assets';
+
 	import Icon from '$lib/components/Icon.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
-	import positionToStyle from '$lib/helpers/cssPosition';
-	import { fade } from '$lib/helpers/transition';
 
 	export let isNew = false;
 	export let rarity = 3;
 	export let type = 'lightcone';
-	export let combatType = 'ice';
-	export let itemName = 'yanqing';
+	export let combatType = '';
+	export let itemName = '';
 	export let path = '';
 	export let cardOffset = {};
 
@@ -40,7 +42,7 @@
 			</div>
 			<div class="col lc-right">
 				<div class="lc-picture">
-					<LightCones item={itemName} small />
+					<LightCones item={itemName} {rarity} small />
 				</div>
 			</div>
 		</div>
@@ -81,9 +83,13 @@
 				</div>
 			{/if}
 			<picture>
+				<source
+					srcset={assetPath(`splash-art/${rarity}/${itemName}`, 1280)}
+					media="(min-width: 840px)"
+				/>
 				<img
-					src={$assets[`splash-art/${itemName}`]}
-					alt={itemName}
+					src={assetPath(`splash-art/${rarity}/${itemName}`, 640)}
+					alt={$t(itemName)}
 					style={positionToStyle(cardOffset)}
 					crossorigin="anonymous"
 				/>

@@ -4,7 +4,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"]
+			"$lib/*": ["src/lib/*"],
+			"@images/*": ["src/images/*"]
 		},
 		"preserveValueImports": false,
 		"allowJs": true,

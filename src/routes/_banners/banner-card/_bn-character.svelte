@@ -2,9 +2,10 @@
 	import { t } from 'svelte-i18n';
 	import { fly } from '$lib/helpers/transition';
 	import { data } from '$lib/data/characters.json';
-	import { assets, isMobileLandscape } from '$lib/stores/app-store';
+	import { isMobileLandscape } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import BannerTpl from './__banner-tpl.svelte';
+	import { assetPath } from '$lib/helpers/assets';
 
 	export let item = {};
 
@@ -24,15 +25,23 @@
 <BannerTpl>
 	<div class="featured-bg" />
 	<div class="splash-art">
-		<figure class="seele">
+		<picture>
+			<source
+				srcset={assetPath(`splash-art/5/${item.featured}`, 2000)}
+				media="(min-width: 1280px)"
+			/>
+			<source
+				srcset={assetPath(`splash-art/5/${item.featured}`, 1280)}
+				media="(min-width: 640px)"
+			/>
 			<img
 				crossorigin="anonymous"
-				src={$assets[`splash-art/${item.featured}`]}
 				alt={$t(item.featured)}
+				src={assetPath(`splash-art/5/${item.featured}`, 640)}
 				in:fly={{ x: -15, duration: 1500, delay: 200 }}
 				style={characterOffset(item.featured, $isMobileLandscape)}
 			/>
-		</figure>
+		</picture>
 	</div>
 </BannerTpl>
 
@@ -65,7 +74,8 @@
 		mask-image: linear-gradient(to right, transparent 20%, black 27%);
 	}
 
-	figure {
+	picture {
+		display: block;
 		width: 100%;
 		height: 100%;
 		position: relative;

@@ -1,10 +1,11 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { data } from '$lib/data/characters.json';
 	import { assets } from '$lib/stores/app-store';
+	import { assetPath } from '$lib/helpers/assets';
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import { playSfx } from '$lib/helpers/audio';
-	import { t } from 'svelte-i18n';
 
 	export let active = false;
 	export let item = {};
@@ -60,14 +61,19 @@
 				</g>
 			</svg>
 		{:else if banner === 'lightcone'}
-			<img class="cone-bg" src={$assets[featured]} alt={$t(featured)} crossorigin="anonymous" />
+			<img
+				class="cone-bg"
+				src={assetPath(`lc/5/${featured}`, 150)}
+				alt={$t(featured)}
+				crossorigin="anonymous"
+			/>
 		{/if}
 	</div>
 	<div class="overflow">
 		<figure>
 			{#if banner === 'character'}
 				<img
-					src="/images/banners/button/{featured}.webp"
+					src={assetPath(`banners/button/${featured}.webp`)}
 					style={buttonOffset(featured)}
 					alt={$t(featured)}
 					crossorigin="anonymous"
@@ -79,8 +85,8 @@
 			{:else if banner === 'lightcone'}
 				<img
 					class="cone-fg"
-					src="/images/light-cones/icons/{featured}.webp"
-					alt={item}
+					src={assetPath(`light-cones/icons/${featured}.webp`)}
+					alt={$t(featured)}
 					crossorigin="anonymous"
 				/>
 			{/if}

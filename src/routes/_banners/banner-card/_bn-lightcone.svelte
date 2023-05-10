@@ -3,20 +3,22 @@
 	import { scaleOrigin } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
 	import BannerTpl from './__banner-tpl.svelte';
+	import { assetPath } from '$lib/helpers/assets';
 
 	export let item = {};
 </script>
 
 <BannerTpl blank>
 	<div class="wrapper">
-		<div class="layer-bg">
+		<picture class="layer-bg">
+			<source srcset={assetPath(`lc/5/${item.featured}`, 450)} media="(max-width: 640px)" />
 			<img
-				src={$assets[item.featured]}
+				src={assetPath(`lc/5/${item.featured}`, 890)}
 				alt={$t(item.featured)}
 				crossorigin="anonymous"
 				in:scaleOrigin={{ start: 1.1, duration: 2000, delay: 250, origin: '100% 80%' }}
 			/>
-		</div>
+		</picture>
 		<div class="layer-white">
 			<img src={$assets['circle-ornament1.svg']} alt="Circle" class="ornament ornament1" />
 			<img src={$assets['circle-ornament2.svg']} alt="Circle" class="ornament ornament2" />
@@ -37,6 +39,7 @@
 	}
 
 	.layer-bg {
+		display: block;
 		width: 100%;
 		height: 100%;
 		position: relative;

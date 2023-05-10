@@ -1,3 +1,4 @@
+import path from 'path';
 import adapter from '@sveltejs/adapter-cloudflare';
 import preprocess from 'svelte-preprocess';
 
@@ -5,7 +6,10 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	kit: {
 		appDir: 'internal',
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			'@image': path.resolve('./src/post')
+		}
 	},
 	preprocess: preprocess({ postcss: true })
 };

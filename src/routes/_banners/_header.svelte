@@ -1,8 +1,8 @@
 <script>
 	import { regularPass, specialPass, stellarJade } from '$lib/stores/app-store';
-	import ButtonClose from '$lib/components/ButtonClose.svelte';
+	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
-	import HeaderTitle from '$lib/components/HeaderTitle.svelte';
+	import Header from '$lib/components/Header.svelte';
 	import { t } from 'svelte-i18n';
 	import { getBannerName } from '$lib/helpers/text-proccesor';
 
@@ -19,38 +19,12 @@
 	};
 </script>
 
-<header>
-	<div class="row">
-		<HeaderTitle icon="warp" h1="Warp" h2={nameOfBanner(bannerType)} />
-	</div>
+<Header icon="warp" h1="Warp" h2={nameOfBanner(bannerType)} hideDesktopIcon>
 	<div class="budget">
 		<MyFund type={event ? 'specialpass' : 'regularpass'}>{balance}</MyFund>
 		<MyFund type="stellarjade">{$stellarJade}</MyFund>
 	</div>
 	<div class="close">
-		<ButtonClose />
+		<ButtonIcon />
 	</div>
-</header>
-
-<style>
-	header {
-		width: 100%;
-		padding: 3.7vh 2% 0;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: +2;
-		display: flex;
-		align-items: center;
-	}
-
-	.budget {
-		margin-left: auto;
-		text-align: right;
-		width: fit-content;
-	}
-
-	:global(.mobileLandscape) header {
-		padding: 1.5vh 5%;
-	}
-</style>
+</Header>
