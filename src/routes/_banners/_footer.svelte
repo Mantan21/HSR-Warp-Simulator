@@ -9,11 +9,12 @@
 		assets
 	} from '$lib/stores/app-store';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
+	import { playSfx } from '$lib/helpers/audio';
+
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import ButtonWarp from './_button-warp.svelte';
-	import AstralExpress from './_warp-result/_astral-express.svelte';
-	import WarpResult from './_warp-result/WarpResult.svelte';
-	import { playSfx } from '$lib/helpers/audio';
+	import AstralExpress from './warp-result/_astral-express.svelte';
+	import WarpResult from './warp-result/WarpResult.svelte';
 
 	export let bannerType = 'starter';
 	$: isStarter = bannerType === 'starter';
