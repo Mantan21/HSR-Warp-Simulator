@@ -1,6 +1,8 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 
+	export let icon = 'close';
+
 	const dispatch = createEventDispatcher();
 	const handleClose = () => {
 		return dispatch('click');
@@ -8,7 +10,7 @@
 </script>
 
 <button on:click|preventDefault|stopPropagation={handleClose}>
-	<i class="hsr-close" />
+	<i class="hsr-{icon}" />
 </button>
 
 <style>

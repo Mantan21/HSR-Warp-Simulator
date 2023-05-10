@@ -3,6 +3,9 @@ import { Howl } from 'howler';
 
 const sfxList = [
 	'click',
+	'close',
+	'collection-close',
+	'collection-open',
 	'express-3star',
 	'express-4star',
 	'express-5star',
@@ -10,6 +13,7 @@ const sfxList = [
 	'reveal-3star',
 	'reveal-4star',
 	'reveal-5star',
+	'sidebar-click',
 	'warp-backsound',
 	'warpresult-close',
 	'warpresult-list'
@@ -44,7 +48,6 @@ export const stopSfx = (nameOfSoundfx = 'click') => {
 		if (localConfig.get('muted')) return;
 		if (!sounds[nameOfSoundfx]) throw new Error('No Sound effect for ' + nameOfSoundfx);
 
-		// if (!nameOfSoundfx === 'warp-backsound') return sounds[nameOfSoundfx].stop();
 		sounds[nameOfSoundfx].fade(1, 0, 1000, sfxids[nameOfSoundfx]);
 	} catch (e) {
 		console.error('Unable to Stop Sfx : ', e.message);

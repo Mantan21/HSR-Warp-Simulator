@@ -35,6 +35,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 .hsr-close:before {
 	content: '\61';
 }
@@ -116,7 +117,66 @@
 .hsr-time:before {
 	content: '\41';
 }
-
 .hsr-search:before {
 	content: '\42';
+}
+.hsr-bulb:before {
+	content: '\44';
+}
+.hsr-warp:before {
+	content: '\43';
+}
+.hsr-share:before {
+	content: '\45';
+}
+.hsr-settings:before {
+	content: '\46';
+}
+.hsr-refresh:before {
+	content: '\47';
+}
+.hsr-trash:before {
+	content: '\48';
+}
+.hsr-archive:before {
+	content: '\49';
+}
+.hsr-back:before {
+	content: '\4a';
+}
+.hsr-character:before {
+	content: '\4b';
+}
+.hsr-check:before {
+	content: '\4c';
+}
+.hsr-times:before {
+	content: '\4d';
+}
+.hsr-embers:before {
+	content: '\4e';
+}
+.hsr-recomended:before {
+	content: '\4f';
+}
+.hsr-shop:before {
+	content: '\50';
+}
+.hsr-lightcone:before {
+	content: '\51';
+}
+.hsr-more:before {
+	content: '\52';
+}
+.hsr-all:before {
+	content: '\53';
+}
+.hsr-stellar-jade:before {
+	content: '\54';
+}
+.hsr-starlight:before {
+	content: '\55';
+}
+.hsr-menu-bar:before {
+	content: '\56';
 }

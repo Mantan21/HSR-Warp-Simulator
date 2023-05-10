@@ -1,6 +1,18 @@
 {
 	"data": [
 		{
+			"name": "before-dawn",
+			"rarity": 5,
+			"path": "erudition",
+			"limited": true
+		},
+		{
+			"name": "in-the-night",
+			"rarity": 5,
+			"path": "hunt",
+			"limited": true
+		},
+		{
 			"name": "time-waits-for-no-one",
 			"rarity": 5,
 			"path": "abundance"
@@ -9,12 +21,6 @@
 			"name": "sleep-like-the-dead",
 			"rarity": 5,
 			"path": "hunt"
-		},
-		{
-			"name": "before-dawn",
-			"rarity": 5,
-			"path": "erudition",
-			"limited": true
 		},
 		{
 			"name": "moment-of-victory",
@@ -35,12 +41,6 @@
 			"name": "something-irreplaceable",
 			"rarity": 5,
 			"path": "destruction"
-		},
-		{
-			"name": "in-the-night",
-			"rarity": 5,
-			"path": "hunt",
-			"limited": true
 		},
 		{
 			"name": "night-on-the-milky-way",

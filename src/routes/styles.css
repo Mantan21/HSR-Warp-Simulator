@@ -24,6 +24,19 @@
 	background-color: rgba(210, 198, 156, 1);
 }
 
+/* OverlayScrollbar */
+div[data-overlayscrollbars='host'] {
+	height: 100%;
+}
+
+.os-theme-light .os-scrollbar-track {
+	background-color: rgba(210, 198, 156, 0.2) !important;
+}
+
+.os-scrollbar-vertical {
+	width: 7px;
+}
+
 body {
 	overflow: hidden;
 	margin: 0;

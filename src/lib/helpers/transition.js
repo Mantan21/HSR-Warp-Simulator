@@ -9,24 +9,27 @@ const animate = true;
 
 /** @type {import('svelte/types/runtime/transition').FadeParams} */
 export const fade = (node, args) => {
-	if (!animate) return;
+	if (!animate || args?.disable) return;
 	return fadeTransition(node, args);
 };
 
 /** @type {import('svelte/types/runtime/transition').FlyParams} */
 export const fly = (node, args) => {
-	if (!animate) return;
+	if (!animate || args?.disable) return;
 	return flyTransition(node, args);
 };
 
 /** @type {import('svelte/types/runtime/transition').ScaleParams} */
 export const scale = (node, args) => {
-	if (!animate) return;
+	if (!animate || args?.disable) return;
 	return scaleTransition(node, args);
 };
 
-export const scaleOrigin = (node, { duration = 300, delay = 0, origin = null, start = 0.5 }) => {
-	if (!animate) return;
+export const scaleOrigin = (
+	node,
+	{ duration = 300, delay = 0, origin = null, start = 0.5, disable = false }
+) => {
+	if (!animate || disable) return;
 	const transformOrigin = origin ? `transform-origin: ${origin}` : '';
 	const o = +getComputedStyle(node).opacity;
 	const m = getComputedStyle(node).transform.match(/scale\(([0-9.]+)\)/);
@@ -45,8 +48,8 @@ export const scaleOrigin = (node, { duration = 300, delay = 0, origin = null, st
 	};
 };
 
-export const diagonalSlide = (node, { duration = 300, delay = 0 }) => {
-	if (!animate) return;
+export const diagonalSlide = (node, { duration = 300, delay = 0, disable = false }) => {
+	if (!animate || disable) return;
 	return {
 		duration,
 		delay,

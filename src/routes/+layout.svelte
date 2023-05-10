@@ -2,6 +2,9 @@
 	import { onMount, setContext } from 'svelte';
 	import { isLoading, locale } from 'svelte-i18n';
 	import { dev } from '$app/environment';
+	import 'overlayscrollbars/overlayscrollbars.css';
+	import './styles.css';
+
 	import { APP_TITLE, DESCRIPTION, HOST, KEYWORDS } from '$lib/data/site-setup.json';
 	import {
 		isMobile,
@@ -14,7 +17,6 @@
 	import { fade } from '$lib/helpers/transition';
 
 	import InitialLoader from '$lib/components/InitialLoader.svelte';
-	import './styles.css';
 
 	let isLoaded = false;
 	const loaded = () => (isLoaded = true);
@@ -155,6 +157,7 @@
 		height: 100vh;
 		overflow: hidden;
 		font-family: var(--hsr-font);
+		background-color: #000;
 	}
 
 	.loading {

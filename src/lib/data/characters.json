@@ -70,7 +70,7 @@
 			"combat_type": "fire",
 			"path": "destruction",
 			"release": "1.0-0",
-			"gachaCardOffset": { "l": 40, "t": 77, "w": 460 },
+			"gachaCardOffset": { "l": 50, "t": 65, "w": 460 },
 			"bannerOffset": { "h": 520, "l": -700, "t": -215 }
 		},
 		{
