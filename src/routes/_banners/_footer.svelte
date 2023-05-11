@@ -15,6 +15,7 @@
 	import ButtonWarp from './_button-warp.svelte';
 	import AstralExpress from './warp-result/_astral-express.svelte';
 	import WarpResult from './warp-result/WarpResult.svelte';
+	import { t } from 'svelte-i18n';
 
 	export let bannerType = 'starter';
 	$: isStarter = bannerType === 'starter';
@@ -88,13 +89,19 @@
 	<div class="row">
 		<div class="info-button">
 			<div class="btn">
-				<ButtonGeneral>Exchange</ButtonGeneral>
+				<ButtonGeneral>
+					{$t('shop.heading')}
+				</ButtonGeneral>
 			</div>
 			<div class="btn">
-				<ButtonGeneral on:click={() => goto('collection')}>Collection</ButtonGeneral>
+				<ButtonGeneral on:click={() => goto('collection')}>
+					{$t('collection.button')}
+				</ButtonGeneral>
 			</div>
 			<div class="btn">
-				<ButtonGeneral>View Details</ButtonGeneral>
+				<ButtonGeneral>
+					{$t('details.view')}
+				</ButtonGeneral>
 			</div>
 		</div>
 		<div class="warp-button">

@@ -18,10 +18,13 @@
 		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="short-detail">
 				<h1>{$t('banner.brilliant-fixation')}</h1>
-				<div class="time"><i class="hsr-time" /> <caption> ∞ days ∞ hours</caption></div>
+				<div class="time">
+					<i class="hsr-time" />
+					<caption> {$t('warp.duration')}</caption>
+				</div>
 				<div class="description">
-					<p>Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity</p>
-					<p>Featured Light Cone</p>
+					<p>{@html $t('warp.eventDescription')}</p>
+					<p>{$t('warp.itemRateBoost', { values: { itemtype: $t('lightcone') } })}</p>
 				</div>
 			</div>
 			<RateupLightones {lightcones} />
@@ -130,7 +133,7 @@
 		font-size: calc(0.016 * var(--bw));
 	}
 
-	.description span,
+	.description :global(span),
 	.time {
 		color: #e6993d;
 	}

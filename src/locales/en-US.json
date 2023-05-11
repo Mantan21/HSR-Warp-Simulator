@@ -1,4 +1,48 @@
 {
+	"character": "Character",
+	"lightcone": "Light Cone",
+	"etc": "etc.",
+	"new": "New",
+	"converted": "Converted to",
+	"loading": "Loading",
+	"nodata": "No Data",
+	"item": {
+		"embers": "Undying Embers",
+		"starlight": "Undying Starlight"
+	},
+	"path": {
+		"all": "All",
+		"abundance": "Abundance",
+		"destruction": "Destruction",
+		"erudition": "Erudition",
+		"harmony": "Harmony",
+		"hunt": "Hunt",
+		"nihility": "Nihility",
+		"preservation": "Preservation",
+		"the-abundance": "The Abundance",
+		"the-destruction": "The Destruction",
+		"the-erudition": "The Erudition",
+		"the-harmony": "The Harmony",
+		"the-hunt": "The Hunt",
+		"the-nihility": "The Nihility",
+		"the-preservation": "The Preservation"
+	},
+	"warp": {
+		"heading": "Warp",
+		"button": "Warp ×{qty}",
+		"result": "Warp Result",
+		"duration": "∞ days ∞ hours",
+		"additional": "Additional Rewards",
+		"permanent": "Permanent",
+		"starterRemaining": "Remaining Warps: {remaining}/50",
+		"starterDescription": "20% off for set of 10 Warps, and a <span>5</span>-star character is guaranteed within <span>50</span> Warps",
+		"regularDescription": "Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity",
+		"eventDescription": "Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity",
+		"itemRateBoost": "Featured {itemtype} receives a drop rate boost ",
+		"bonusdrop": "Bonus drop:",
+		"eidolonBonus": "{charName}'s Eidolon ×1",
+		"undyingBonus": "{undyingType} ×{qty}"
+	},
 	"banner": {
 		"starter": "Starter Warp",
 		"regular": "Regular Warp",
@@ -9,5 +53,17 @@
 		"brilliant-fixation": "Brilliant Fixation",
 		"butterfly-on-swordtip": "Butterfly on Swordtip",
 		"swirl-of-heavenly-spear": "Swirl of Heavenly Spear"
+	},
+	"details": {
+		"view": "View Details"
+	},
+	"collection": {
+		"heading": "Bank Data",
+		"button": "Collection",
+		"showAll": "Show All {itemtype}",
+		"notOwned": "Not Owned"
+	},
+	"shop": {
+		"heading": "Exchange"
 	}
 }

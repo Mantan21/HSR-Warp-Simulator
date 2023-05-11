@@ -1,6 +1,7 @@
 <script>
 	import { fly } from '$lib/helpers/transition';
 	import Path from '$lib/components/Path.svelte';
+	import { t } from 'svelte-i18n';
 
 	export let name;
 	export let path;
@@ -22,7 +23,7 @@
 				{/if}
 			</div>
 			<div class="right">
-				<div class="name">{name}</div>
+				<div class="name">{$t(name)}</div>
 				<div class="rarity">
 					{#each Array(rarity) as _}
 						<i class="hsr-star" />
@@ -32,7 +33,7 @@
 				{#if isNew}
 					<div class="new">
 						<span>
-							New
+							{$t('new')}
 							<i class="hsr-star" />
 						</span>
 					</div>
@@ -40,7 +41,8 @@
 
 				{#if combatType}
 					<div class="path">
-						<i class="hsr-{path}" /> <span>{path}</span>
+						<i class="hsr-{path}" />
+						<span>{$t(`path.the-${path}`)}</span>
 					</div>
 				{/if}
 			</div>

@@ -1,34 +1,31 @@
 <script>
 	import { getContext } from 'svelte';
+	import { t } from 'svelte-i18n';
 
 	export let itemtype;
 	const showItem = getContext('showItem');
 </script>
 
 <div class="row">
-	<div class="col">
-		<button class:active={itemtype === 'character'} on:click={() => showItem('character')}>
-			<span class="icon">
-				<i class="hsr-character" />
-			</span>
-			<span> Characters</span>
-		</button>
-	</div>
-	<div class="col">
-		<button class:active={itemtype === 'lightcone'} on:click={() => showItem('lightcone')}>
-			<span class="icon">
-				<i class="hsr-lightcone" />
-			</span>
-			<span> Lightcones</span>
-		</button>
-	</div>
+	<button class:active={itemtype === 'character'} on:click={() => showItem('character')}>
+		<span class="icon">
+			<i class="hsr-character" />
+		</span>
+		<span> {$t('character')}</span>
+	</button>
+	<button class:active={itemtype === 'lightcone'} on:click={() => showItem('lightcone')}>
+		<span class="icon">
+			<i class="hsr-lightcone" />
+		</span>
+		<span> {$t('lightcone')}</span>
+	</button>
 </div>
 
 <style>
 	.row {
 		width: 100%;
-		display: flex;
-		justify-content: center;
+		text-align: center;
+		white-space: nowrap;
 	}
 
 	button {
@@ -36,11 +33,12 @@
 		display: inline-flex;
 		align-items: center;
 		line-height: 0;
-		padding: calc(0.01 * var(--screen-width));
+		padding: calc(0.02 * var(--screen-width)) calc(0.025 * var(--screen-width));
 		margin-right: calc(0.02 * var(--screen-width));
 		font-size: 130%;
 		transition: all 0.5s;
 		opacity: 0.75;
+		position: relative;
 	}
 	@media screen and (max-width: 900px) {
 		button {
@@ -57,13 +55,21 @@
 		opacity: 1;
 	}
 
-	span.icon {
-		padding: 5%;
-		margin-right: 10%;
+	.icon {
+		padding: 3.5%;
 		border-radius: 100%;
-		position: relative;
 		background-color: transparent;
 		transition: all 0.5s;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translate(-10%, -50%);
+	}
+
+	@media screen and (max-width: 750px) {
+		.icon {
+			transform: translate(-100%, -50%);
+		}
 	}
 
 	.active span.icon {

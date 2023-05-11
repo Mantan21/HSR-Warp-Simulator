@@ -55,7 +55,7 @@
 
 		{#if !isOwned}
 			<div class="not-owned">
-				<span> Belum Didapatkan </span>
+				<span> {$t('collection.notOwned')} </span>
 			</div>
 		{/if}
 

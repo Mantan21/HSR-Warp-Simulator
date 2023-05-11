@@ -23,7 +23,7 @@
 
 <div class="item star{rarity} {type}">
 	{#if isNew}
-		<div class="new">New</div>
+		<div class="new">{$t('new')}</div>
 	{/if}
 	{#if type === 'lightcone'}
 		<div class="content">
@@ -54,14 +54,14 @@
 				<div class="bonus-item undying star{undyingType === 'embers' ? 4 : 5}">
 					<div class="icon">
 						<Icon type={undyingType} style="width:70%" />
-						<caption> x{undyingQty}</caption>
+						<caption> ×{undyingQty}</caption>
 					</div>
 				</div>
 				{#if eidolon}
 					<div class="bonus-item eidolon star{rarity}">
 						<div class="icon">
 							<Icon type="eidolon{rarity}" style="width:70%" />
-							<caption> x1</caption>
+							<caption> ×1</caption>
 						</div>
 					</div>
 				{/if}

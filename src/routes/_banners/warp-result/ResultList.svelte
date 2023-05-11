@@ -1,8 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
-	import ResultListItem from './_result-list-item.svelte';
+	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/audio';
 	import { fly, scale } from '$lib/helpers/transition';
+	import ResultListItem from './_result-list-item.svelte';
 
 	export let list = [];
 
@@ -24,7 +25,7 @@
 			<i class="hsr-warp" />
 		</div>
 		<div class="title">
-			<h1>Warp Result</h1>
+			<h1>{$t('warp.result')}</h1>
 		</div>
 	</div>
 

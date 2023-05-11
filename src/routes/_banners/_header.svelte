@@ -1,10 +1,11 @@
 <script>
+	import { t } from 'svelte-i18n';
 	import { regularPass, specialPass, stellarJade } from '$lib/stores/app-store';
+	import { getBannerName } from '$lib/helpers/text-proccesor';
+
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import { t } from 'svelte-i18n';
-	import { getBannerName } from '$lib/helpers/text-proccesor';
 
 	export let bannerType = '';
 	export let bannerName = '';
@@ -19,10 +20,10 @@
 	};
 </script>
 
-<Header icon="warp" h1="Warp" h2={nameOfBanner(bannerType)} hideDesktopIcon>
+<Header icon="warp" h1={$t('warp.heading')} h2={nameOfBanner(bannerType)} hideDesktopIcon>
 	<div class="budget">
-		<MyFund type={event ? 'specialpass' : 'regularpass'}>{balance}</MyFund>
-		<MyFund type="stellarjade">{$stellarJade}</MyFund>
+		<MyFund type={event ? 'specialpass' : 'regularpass'}>∞</MyFund>
+		<MyFund type="stellarjade">∞</MyFund>
 	</div>
 	<div class="close">
 		<ButtonIcon />

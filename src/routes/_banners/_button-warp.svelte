@@ -1,5 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { t } from 'svelte-i18n';
+	import { starterRemaining } from '$lib/stores/app-store';
 	import Icon from '$lib/components/Icon.svelte';
 
 	export let bannerType = '';
@@ -15,7 +17,9 @@
 
 <div class="warp-btn">
 	{#if starter}
-		<span class="remaining">Remaining Warps: 50/50</span>
+		<span class="remaining">
+			{$t('warp.starterRemaining', { values: { remaining: $starterRemaining } })}
+		</span>
 		<span class="discount">-20%</span>
 	{/if}
 
@@ -25,7 +29,7 @@
 			<span>× {single ? '1   ' : cost}</span>
 		</div>
 		<span class="text">
-			Warp ×{single ? 1 : 10}
+			{$t('warp.button', { values: { qty: single ? 1 : 10 } })}
 		</span>
 	</button>
 </div>

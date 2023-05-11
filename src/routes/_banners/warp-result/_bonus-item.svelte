@@ -1,6 +1,7 @@
 <script>
 	import Icon from '$lib/components/Icon.svelte';
 	import { fly } from '$lib/helpers/transition';
+	import { t } from 'svelte-i18n';
 
 	export let name = '';
 	export let eidolon = false;
@@ -12,7 +13,7 @@
 
 <div class="bonus" in:fly={{ x: 100, duration: 400, delay: 700 }}>
 	{#if eidolon}
-		<div class="convert">Converted to</div>
+		<div class="convert">{$t('converted')}</div>
 		<div class="item eidolon star{rarity}">
 			<div class="icon">
 				<picture>
@@ -20,7 +21,7 @@
 				</picture>
 			</div>
 			<div class="caption">
-				<span> {name}'s Eidolon x1</span>
+				<span> {$t('warp.eidolonBonus', { values: { charName: $t(name) } })}</span>
 			</div>
 		</div>
 	{/if}
@@ -36,8 +37,10 @@
 				</picture>
 			</div>
 			<div class="caption">
-				<small> Bonus drop: </small>
-				<span> Undying {type} x{qty}</span>
+				<small> {$t('warp.bonusdrop')} </small>
+				<span>
+					{$t('warp.undyingBonus', { values: { undyingType: $t(`item.${type}`), qty } })}
+				</span>
 			</div>
 		</div>
 	{/if}

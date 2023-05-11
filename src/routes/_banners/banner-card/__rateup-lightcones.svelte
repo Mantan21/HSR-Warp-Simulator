@@ -1,7 +1,7 @@
 <script>
+	import { t } from 'svelte-i18n';
 	import { scale, fade } from '$lib/helpers/transition';
 	import LightCones from '$lib/components/LightCones.svelte';
-	import { t } from 'svelte-i18n';
 
 	export let lightcones = [];
 	export let showCaption = false;
@@ -19,7 +19,7 @@
 		<div class="lightcones-info" in:fade={{ delay: 300 }}>
 			<div class="lightcones-name">
 				{$t('something-irreplaceable')}
-				<span>etc.</span>
+				<span>{$t('etc')}</span>
 			</div>
 			<div class="stars">
 				{#each Array(5) as _} <i class="hsr-star" /> {/each}

@@ -29,9 +29,9 @@
 
 <div class="menu" class:hide={!showToggle} transition:fade={{ duration: 250 }}>
 	<div class="wrapper">
-		<button title="Options">
-			<i class="hsr-bulb" />
-		</button>
+		<!-- <button title="Options">
+			<i class="hsr-settings" />
+		</button> -->
 
 		<button on:click={handleFullscreen} title="Fullscreen">
 			<i class="hsr-{!fullscreen ? 'fullscreen' : 'shrink'}" />

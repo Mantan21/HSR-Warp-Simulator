@@ -9,6 +9,7 @@
 	import Footer from './_footer.svelte';
 	import CollectionList from './_collection-list.svelte';
 	import { cookie } from '$lib/stores/cookies';
+	import { t } from 'svelte-i18n';
 
 	let footerHeight;
 	let showAll = cookie.get('showAllCollection');
@@ -49,7 +50,7 @@
 	style="--bg: url('{$assets['archive-bg.webp']}')"
 	transition:fade={{ duration: 250 }}
 >
-	<Header icon="archive" h1="Data Bank" h2={itemtype} relative>
+	<Header icon="archive" h1={$t('collection.heading')} h2={$t(itemtype)} relative>
 		<div class="showAll">
 			<input
 				type="checkbox"
@@ -60,7 +61,7 @@
 			/>
 			<label for="showAll">
 				<i>✔</i>
-				Show All {itemtype}
+				{$t('collection.showAll', { values: { itemtype: $t(itemtype) } })}
 				<span> {itemQty.owned}/{itemQty.all}</span>
 			</label>
 		</div>

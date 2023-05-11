@@ -32,8 +32,8 @@
 		<div class="info-body">
 			<h1>{$t('banner.stellar')}</h1>
 			<div class="description">
-				<p>Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity</p>
-				<p>Permanent</p>
+				<p>{@html $t('warp.regularDescription')}</p>
+				<p>{@html $t('warp.permanent')}</p>
 			</div>
 
 			<RateupLightones {lightcones} showCaption />
@@ -56,7 +56,7 @@
 			<button in:fade={{ delay: 250, duration: 500 }}>
 				<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
 			</button>
-			<caption>Additional Rewards</caption>
+			<caption>{$t('warp.additional')}</caption>
 		</div>
 	</div>
 </div>
@@ -106,7 +106,7 @@
 		height: calc(0.2 * var(--bw));
 		overflow: auto;
 	}
-	.description p {
+	.description :global(p) {
 		font-size: calc(0.017 * var(--bw));
 		line-height: 130%;
 		margin-bottom: 5%;
@@ -117,7 +117,7 @@
 		font-size: calc(0.016 * var(--bw));
 	}
 
-	.description span {
+	.description :global(span) {
 		color: #e6993d;
 	}
 

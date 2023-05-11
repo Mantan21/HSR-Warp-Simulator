@@ -1,5 +1,7 @@
 <script>
+	import { getContext, onMount } from 'svelte';
 	import { flip } from 'svelte/animate';
+	import { t } from 'svelte-i18n';
 	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
 	import { fade } from '$lib/helpers/transition';
 	import { isMobileLandscape } from '$lib/stores/app-store';
@@ -8,7 +10,6 @@
 	import { data as lcDB } from '$lib/data/light-cones.json';
 
 	import CollectionItem from './_collection-item.svelte';
-	import { getContext, onMount } from 'svelte';
 
 	export let itemtype = 'character';
 	export let showAll = false;
@@ -107,11 +108,11 @@
 <div class="collection" bind:clientWidth={containerWidth}>
 	{#if !isLoaded}
 		<div class="load" in:fade|local={{ duration: 250 }}>
-			<span>Loading...</span>
+			<span>{$t('loading')}...</span>
 		</div>
 	{:else if dataToShow.length < 1}
 		<div class="load" in:fade|local={{ duration: 250 }}>
-			<span>No Data</span>
+			<span>{$t('nodata')}</span>
 		</div>
 	{:else}
 		<Scrollable options={{ scrollbars: { theme: 'os-theme-light' } }}>

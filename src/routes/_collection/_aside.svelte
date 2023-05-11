@@ -4,6 +4,7 @@
 	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
 	import { playSfx } from '$lib/helpers/audio';
 	import { isMobileLandscape, viewportWidth } from '$lib/stores/app-store';
+	import { t } from 'svelte-i18n';
 
 	export let activePath = 'all';
 	let isOpen = false;
@@ -42,7 +43,7 @@
 							<div class="ornament"><span /></div>
 							<i class="hsr-{item}" />
 						</div>
-						<span> {item} </span>
+						<span> {$t(`path.${item}`)} </span>
 					</button>
 				</div>
 			{/each}

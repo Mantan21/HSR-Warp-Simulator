@@ -1,6 +1,6 @@
 <script>
-	import { fade, fly } from '$lib/helpers/transition';
 	import { t } from 'svelte-i18n';
+	import { fade, fly } from '$lib/helpers/transition';
 
 	const chars = [
 		{
@@ -51,10 +51,7 @@
 		<span class="banner-name"> {$t('banner.starter')} </span>
 		<h1 class="banner-title">{$t('banner.departure')}</h1>
 		<div class="description">
-			<p>
-				20% off for set of 10 Warps, and a <span>5</span>-star character is guaranteed within
-				<span>50</span> Warps
-			</p>
+			<p>{@html $t('warp.starterDescription')}</p>
 		</div>
 	</div>
 </div>
@@ -109,7 +106,7 @@
 		margin-top: calc(0.015 * var(--bw));
 	}
 
-	.description span {
+	.description :global(span) {
 		color: #e6993d;
 	}
 
