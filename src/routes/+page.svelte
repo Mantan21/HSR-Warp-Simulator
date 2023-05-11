@@ -4,9 +4,14 @@
 	import { setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
+
 	import Banners from './_banners/index.svelte';
 	import Menu from './_menu/index.svelte';
 	import Collection from './_collection/index.svelte';
+	import LoginPage from './_login/index.svelte';
+
+	let loggedIn = false;
+	setContext('login', () => (loggedIn = true));
 
 	let pageActive = 'index';
 	const navigate = (page) => {
@@ -31,11 +36,15 @@
 	});
 </script>
 
-{#if pageActive === 'index'}
-	<Banners />
-	<Menu />
-{/if}
+{#if !loggedIn}
+	<LoginPage />
+{:else}
+	{#if pageActive === 'index'}
+		<Banners />
+		<Menu />
+	{/if}
 
-{#if pageActive === 'collection'}
-	<Collection />
+	{#if pageActive === 'collection'}
+		<Collection />
+	{/if}
 {/if}

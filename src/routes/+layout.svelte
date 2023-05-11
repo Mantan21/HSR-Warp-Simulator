@@ -19,8 +19,7 @@
 	import InitialLoader from '$lib/components/InitialLoader.svelte';
 
 	let isLoaded = false;
-	const loaded = () => (isLoaded = true);
-	setContext('loaded', loaded);
+	setContext('loaded', () => (isLoaded = true));
 
 	let innerHeight;
 	let innerWidth;
