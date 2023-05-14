@@ -1,4 +1,9 @@
-import { storageVersion, version as siteVersion, warpPhase } from '$lib/data/warp-setup.json';
+import {
+	storageVersion,
+	version as siteVersion,
+	warpPhase,
+	initialAmount
+} from '$lib/data/warp-setup.json';
 import {
 	activePhase,
 	activeVersion,
@@ -12,11 +17,15 @@ import {
 import { localConfig, rollCounter } from '$lib/stores/localstorage';
 
 const importLocalBalance = () => {
-	const placeholder = { stellarJade: 0, specialPass: 0, regullarPass: 0 };
+	const placeholder = {
+		stellarJade: initialAmount.stellarJade,
+		specialPass: initialAmount.ticketPass,
+		regularPass: initialAmount.ticketPass
+	};
 	const lb = localConfig.get('balance') || placeholder;
-	stellarJade.set(lb.stellarJade);
-	specialPass.set(lb.specialPass);
-	regularPass.set(lb.regularPass);
+	stellarJade.set(lb.stellarJade || 0);
+	specialPass.set(lb.specialPass || 0);
+	regularPass.set(lb.regularPass) || 0;
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);

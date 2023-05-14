@@ -38,8 +38,8 @@
 				crossorigin="anonymous"
 				alt={$t(item.featured)}
 				src={assetPath(`splash-art/5/${item.featured}`, 640)}
-				in:fly={{ x: -15, duration: 1500, delay: 200 }}
 				style={characterOffset(item.featured, $isMobileLandscape)}
+				in:fly={{ x: -30, duration: 3000, delay: 200 }}
 			/>
 		</picture>
 	</div>
