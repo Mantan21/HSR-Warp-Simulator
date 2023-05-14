@@ -6,9 +6,17 @@
 	"converted": "Converted to",
 	"loading": "Loading",
 	"nodata": "No Data",
+	"tip": "Tip",
+	"unlimited": "Unlimited",
+	"default": "Default",
+	"cancel": "Cancel",
+	"confirm": "Confirm",
 	"item": {
 		"embers": "Undying Embers",
-		"starlight": "Undying Starlight"
+		"starlight": "Undying Starlight",
+		"stellarJade": "Stellar Jade",
+		"specialPass": "Star Rail Special Pass",
+		"regularPass": "Star Rail Regular Pass"
 	},
 	"path": {
 		"all": "All",
@@ -39,6 +47,7 @@
 		"regularDescription": "Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity",
 		"eventDescription": "Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity",
 		"itemRateBoost": "Featured {itemtype} receives a drop rate boost ",
+		"convertModal": "Insufficient {ticket}. Consume {jadeNeeded} Stellar Jade to purchase {ticketNeeded} {ticket}?",
 		"bonusdrop": "Bonus drop:",
 		"eidolonBonus": "{charName}'s Eidolon ×1",
 		"undyingBonus": "{undyingType} ×{qty}"
@@ -65,5 +74,14 @@
 	},
 	"shop": {
 		"heading": "Exchange"
+	},
+	"menu": {
+		"heading": "Menu",
+		"settings": "Settings",
+		"warpNumber": "Number of Warps",
+		"clearStorage": "Clear Storage",
+		"clearNow": "Clear Now",
+		"resetPrompt": "Are you sure to clear ALL DATA and reset the settings?",
+		"resetInfo": "This action will remove your Pull History, Pity Calculation, Balance and all items from Collection too!"
 	}
 }

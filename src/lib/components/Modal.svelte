@@ -3,6 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import ButtonGeneral from './ButtonGeneral.svelte';
 	import ButtonIcon from './ButtonIcon.svelte';
+	import { t } from 'svelte-i18n';
 
 	export let title = '';
 	export let disabled = false;
@@ -26,8 +27,12 @@
 			<slot />
 		</div>
 		<div class="footer">
-			<ButtonGeneral icon="times" on:click={cancel}>Cancel</ButtonGeneral>
-			<ButtonGeneral icon="check" on:click={confirm} {disabled}>Confirm</ButtonGeneral>
+			<ButtonGeneral icon="times" on:click={cancel}>
+				{$t('cancel')}
+			</ButtonGeneral>
+			<ButtonGeneral icon="check" on:click={confirm} {disabled}>
+				{$t('confirm')}
+			</ButtonGeneral>
 		</div>
 	</div>
 </div>

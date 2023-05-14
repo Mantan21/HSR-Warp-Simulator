@@ -8,6 +8,7 @@
 	import MainMenu from './Menu.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import { storageReset } from '$lib/helpers/storage-reset';
+	import { t } from 'svelte-i18n';
 
 	const localToggle = cookie.get('menuToggle');
 	let showToggle = localToggle === undefined ? true : localToggle;
@@ -66,11 +67,8 @@
 {#if isModalOpen}
 	<Modal title={modalTitle} on:cancel={closeModal} on:confirm={clearStorage}>
 		<div class="modal-content">
-			<div class="caption">Are you sure to clear ALL DATA and reset the settings?</div>
-			<small>
-				This action will remove Your History, Pity Calculation, Balance and all items from
-				Collection!
-			</small>
+			<div class="caption">{$t('menu.resetPrompt')}</div>
+			<small> {$t('menu.resetInfo')} </small>
 		</div>
 	</Modal>
 {/if}

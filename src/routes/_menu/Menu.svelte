@@ -1,12 +1,13 @@
 <script>
 	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Settings from './_settings.svelte';
 
 	const closeMenu = getContext('toggleMenu');
-	let activeMenu = 'setting';
+	let activeMenu = 'settings';
 
 	let activeOption = '';
 	const openOption = (option) => (activeOption = option);
@@ -14,7 +15,7 @@
 </script>
 
 <section transition:fade={{ duration: 200 }} on:mousedown={() => openOption('')}>
-	<Header h1="Menu" h2={activeMenu} icon="menu" relative>
+	<Header h1={$t('menu.heading')} h2={$t(`menu.${activeMenu}`)} icon="menu" relative>
 		<div class="close">
 			<ButtonIcon on:click={closeMenu} />
 		</div>

@@ -2,6 +2,7 @@
 	import { createEventDispatcher, getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { playSfx } from '$lib/helpers/audio';
+	import { t } from 'svelte-i18n';
 
 	export let showOption = false;
 	export let optionName;
@@ -38,20 +39,20 @@
 		<!-- Clear Storage -->
 		{#if optionName === 'reset'}
 			<button class="selected-option" on:click={clearStorage}>
-				Clear Now <i class="hsr-trash" />
+				{$t('menu.clearNow')} <i class="hsr-trash" />
 			</button>
 
 			<!-- Numeber of Warps -->
 		{:else if optionName === 'warpnumber'}
 			<button class="selected-option" on:click={handleOption}>
-				{activeIndicator} <i class="hsr-caret-{showOption ? 'up' : 'down'}" />
+				{$t(activeIndicator)} <i class="hsr-caret-{showOption ? 'up' : 'down'}" />
 			</button>
 
 			{#if showOption}
 				<div class="select-option" transition:fly={{ y: -20, duration: 200 }}>
 					{#each ['default', 'unlimited'] as op}
 						<button class:selected={op === activeIndicator} on:click={() => select(op)}>
-							<span> {op} </span>
+							<span> {$t(op)} </span>
 						</button>
 					{/each}
 				</div>
