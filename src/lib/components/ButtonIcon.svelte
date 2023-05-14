@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	export let icon = 'close';
+	export let dark = false;
 
 	const dispatch = createEventDispatcher();
 	const handleClose = () => {
@@ -9,7 +10,7 @@
 	};
 </script>
 
-<button on:click|preventDefault|stopPropagation={handleClose}>
+<button on:click|preventDefault|stopPropagation={handleClose} class:dark>
 	<i class="hsr-{icon}" />
 </button>
 
@@ -22,6 +23,10 @@
 		font-size: 190%;
 		margin-left: 1.7rem;
 		transition: all 0.2s;
+	}
+
+	button.dark {
+		color: #000;
 	}
 
 	button:active {

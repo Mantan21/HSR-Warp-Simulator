@@ -1,5 +1,6 @@
 <script>
 	import { getContext, setContext } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import {
 		activeVersion,
 		activePhase,
@@ -11,11 +12,10 @@
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import { playSfx } from '$lib/helpers/audio';
 
-	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import ButtonWarp from './_button-warp.svelte';
 	import AstralExpress from './warp-result/_astral-express.svelte';
 	import WarpResult from './warp-result/WarpResult.svelte';
-	import { t } from 'svelte-i18n';
+	import Button from './_button.svelte';
 
 	export let bannerType = 'starter';
 	$: isStarter = bannerType === 'starter';
@@ -89,19 +89,19 @@
 	<div class="row">
 		<div class="info-button">
 			<div class="btn">
-				<ButtonGeneral>
+				<Button>
 					{$t('shop.heading')}
-				</ButtonGeneral>
+				</Button>
 			</div>
 			<div class="btn">
-				<ButtonGeneral on:click={() => goto('collection')}>
+				<Button on:click={() => goto('collection')}>
 					{$t('collection.button')}
-				</ButtonGeneral>
+				</Button>
 			</div>
 			<div class="btn">
-				<ButtonGeneral>
+				<Button>
 					{$t('details.view')}
-				</ButtonGeneral>
+				</Button>
 			</div>
 		</div>
 		<div class="warp-button">

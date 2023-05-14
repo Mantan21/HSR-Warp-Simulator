@@ -35,7 +35,6 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
 .hsr-close:before {
 	content: '\61';
 }
@@ -129,7 +128,7 @@
 .hsr-share:before {
 	content: '\45';
 }
-.hsr-settings:before {
+.hsr-cog:before {
 	content: '\46';
 }
 .hsr-refresh:before {
@@ -149,9 +148,6 @@
 }
 .hsr-check:before {
 	content: '\4c';
-}
-.hsr-times:before {
-	content: '\4d';
 }
 .hsr-embers:before {
 	content: '\4e';
@@ -179,4 +175,22 @@
 }
 .hsr-menu-bar:before {
 	content: '\56';
+}
+.hsr-log:before {
+	content: '\57';
+}
+.hsr-cogs:before {
+	content: '\58';
+}
+.hsr-menu:before {
+	content: '\59';
+}
+.hsr-bug:before {
+	content: '\5a';
+}
+.hsr-honor:before {
+	content: '\30';
+}
+.hsr-times:before {
+	content: '\31';
 }
