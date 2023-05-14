@@ -4,7 +4,13 @@ import {
 	version,
 	warpPhase
 } from '$lib/data/warp-setup.json';
-import { regularPass, specialPass, stellarJade } from '$lib/stores/app-store';
+import {
+	regularPass,
+	showStarterBanner,
+	specialPass,
+	starterRemaining,
+	stellarJade
+} from '$lib/stores/app-store';
 import IDBManager from '$lib/stores/idbManager';
 import { localConfig } from '$lib/stores/localstorage';
 
@@ -22,4 +28,6 @@ export const storageReset = async () => {
 	stellarJade.set(balance.stellarJade);
 	specialPass.set(balance.ticketPass);
 	regularPass.set(balance.ticketPass);
+	showStarterBanner.set(true);
+	starterRemaining.set(50);
 };

@@ -5,6 +5,7 @@ import {
 	regularPass,
 	showStarterBanner,
 	specialPass,
+	starterRemaining,
 	stellarJade,
 	warpAmount
 } from '$lib/stores/app-store';
@@ -19,6 +20,9 @@ const importLocalBalance = () => {
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);
+
+	const starterRollCount = rollCounter.get('starter') || 0;
+	starterRemaining.set(50 - starterRollCount);
 };
 
 const setBannerVersionAndPhase = () => {

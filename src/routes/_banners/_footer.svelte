@@ -7,24 +7,32 @@
 		viewportHeight,
 		isMobileLandscape,
 		viewportWidth,
-		assets
+		assets,
+		warpAmount,
+		specialPass,
+		regularPass,
+		embers,
+		starlight
 	} from '$lib/stores/app-store';
+	import { localConfig } from '$lib/stores/localstorage';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import { playSfx } from '$lib/helpers/audio';
 
-	import ButtonWarp from './_button-warp.svelte';
 	import AstralExpress from './warp-result/_astral-express.svelte';
 	import WarpResult from './warp-result/WarpResult.svelte';
 	import Button from './_button.svelte';
+	import ButtonWarp from './_button-warp.svelte';
+	import ConvertModal from './_convert-modal.svelte';
 
 	export let bannerType = 'starter';
+
 	$: isStarter = bannerType === 'starter';
 	$: fit = $viewportHeight * ($isMobileLandscape ? 1.9 : 1.7) > $viewportWidth;
 
 	let footerWidth;
-	let rollCount;
-	let wishResult;
-	let WarpInstance;
+	let multi = false;
+	let rollCost;
+	let showConverModal = false;
 
 	const navigate = getContext('navigate');
 	const goto = (page) => {
@@ -32,7 +40,21 @@
 		playSfx('click');
 	};
 
+	// Convert Modal
+	const closeModal = ({ confirm = false }) => {
+		playSfx(confirm ? 'click' : 'close');
+		showConverModal = false;
+	};
+	setContext('closeModal', closeModal);
+
 	// Warp
+	$: isUnlimited = $warpAmount === 'unlimited';
+	$: isSpecialPass = ['lightcone', 'character'].includes(bannerType);
+	$: currencyUsed = isSpecialPass ? $specialPass : $regularPass;
+
+	let warpResult;
+	let WarpInstance;
+
 	const initialWarp = async (version, phase) => {
 		if (!version || !phase) return;
 		WarpInstance = await WARP.init(version, phase);
@@ -41,16 +63,60 @@
 
 	const doRoll = async (count, bannerToRoll) => {
 		playSfx();
-		rollCount = count;
+		multi = count > 1;
 		const tmp = [];
+
+		rollCost = bannerToRoll === 'starter' ? 8 : count;
+		if (!isUnlimited && rollCost > currencyUsed) return (showConverModal = true);
 
 		for (let i = 0; i < count; i++) {
 			const result = await roll(bannerToRoll, WarpInstance);
 			tmp.push(result);
 		}
 
-		wishResult = tmp;
+		warpResult = tmp;
 		handleGachaAnimation();
+		if (isUnlimited) return;
+		updateMilestones();
+		updateBalance(bannerToRoll);
+	};
+
+	const reroll = () => {
+		doRoll(multi ? 10 : 1, bannerType);
+		showConverModal = false;
+	};
+	setContext('reroll', reroll);
+
+	const updateMilestones = () => {
+		const update = (type) => {
+			const qty = warpResult.reduce((prev, { undyingQty, undyingType }) => {
+				return prev + (undyingType === type ? undyingQty : 0);
+			}, 0);
+
+			const milestone = type === 'embers' ? embers : starlight;
+			const localBalance = localConfig.get('balance');
+			milestone.update((n) => {
+				const afterUpdate = n + qty;
+				localBalance[type] = afterUpdate;
+				localConfig.set('balance', localBalance);
+				return afterUpdate;
+			});
+		};
+
+		update('starlight');
+		update('embers');
+	};
+
+	const updateBalance = (banner) => {
+		const isSpecialPass = ['lightcone', 'character'].includes(banner);
+		const currency = isSpecialPass ? specialPass : regularPass;
+		currency.update((n) => {
+			const afterUpdate = n - rollCost;
+			const localBalance = localConfig.get('balance');
+			localBalance[isSpecialPass ? 'specialPass' : 'regularPass'] = afterUpdate;
+			localConfig.set('balance', localBalance);
+			return afterUpdate;
+		});
 	};
 
 	// Astral Express
@@ -72,13 +138,17 @@
 
 	const handleGachaAnimation = () => {
 		if (autoSkip) return showSplashArt({ skip: true });
-		const star = wishResult.map(({ rarity }) => rarity);
+		const star = warpResult.map(({ rarity }) => rarity);
 		if (star.includes(5)) astralRarity = 5;
 		else if (star.includes(4)) astralRarity = 4;
 		else astralRarity = 3;
 		showAstralExpress = true;
 	};
 </script>
+
+{#if showConverModal}
+	<ConvertModal {rollCost} {isSpecialPass} />
+{/if}
 
 <div
 	class="button-container"
@@ -124,7 +194,7 @@
 >
 	<AstralExpress show={showAstralExpress} rarity={astralRarity} banner={bannerType} />
 	{#if showWarpResult}
-		<WarpResult list={wishResult} skip={skipSplashart} />
+		<WarpResult list={warpResult} skip={skipSplashart} />
 	{/if}
 </div>
 

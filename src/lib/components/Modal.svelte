@@ -5,6 +5,7 @@
 	import ButtonIcon from './ButtonIcon.svelte';
 
 	export let title = '';
+	export let disabled = false;
 	const closeModal = getContext('closeModal');
 
 	const dispatch = createEventDispatcher();
@@ -26,7 +27,7 @@
 		</div>
 		<div class="footer">
 			<ButtonGeneral icon="times" on:click={cancel}>Cancel</ButtonGeneral>
-			<ButtonGeneral icon="check" on:click={confirm}>Confirm</ButtonGeneral>
+			<ButtonGeneral icon="check" on:click={confirm} {disabled}>Confirm</ButtonGeneral>
 		</div>
 	</div>
 </div>
@@ -38,8 +39,8 @@
 		left: 0;
 		width: 100%;
 		height: var(--screen-height);
-		background-color: rgba(0, 0, 0, 0.2);
-		backdrop-filter: blur(5px);
+		background-color: rgba(0, 0, 0, 0.3);
+		backdrop-filter: blur(10px);
 		z-index: 500;
 		display: flex;
 		justify-content: center;
@@ -55,7 +56,7 @@
 		padding: 0% 5% 3%;
 		min-height: 100px;
 		display: flex;
-		justify-items: center;
+		align-items: center;
 	}
 
 	.container {

@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	export let icon = '';
+	export let disabled = false;
 
 	const dispatch = createEventDispatcher();
 	const handleClick = () => {
@@ -9,7 +10,7 @@
 	};
 </script>
 
-<button on:click={handleClick}>
+<button on:click={handleClick} {disabled}>
 	{#if !!icon}
 		<i class="hsr-{icon}" />
 	{/if}
@@ -50,6 +51,16 @@
 		width: 96%;
 		border: 1px solid #bbb;
 		border-radius: 3rem;
+	}
+
+	button:disabled {
+		background-color: transparent;
+		color: #eee;
+		border: 1px solid #eee;
+		opacity: 0.6;
+	}
+	button:disabled::after {
+		border: none;
 	}
 
 	button:not(:disabled):active {
