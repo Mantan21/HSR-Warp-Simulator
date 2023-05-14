@@ -33,7 +33,7 @@
 		display: inline-flex;
 		align-items: center;
 		line-height: 0;
-		padding: calc(0.02 * var(--screen-width)) calc(0.025 * var(--screen-width));
+		padding: calc(0.015 * var(--screen-width)) calc(0.025 * var(--screen-width));
 		margin-right: calc(0.02 * var(--screen-width));
 		font-size: 130%;
 		transition: all 0.5s;

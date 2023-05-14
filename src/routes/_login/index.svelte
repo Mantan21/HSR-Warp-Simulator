@@ -1,4 +1,5 @@
 <script>
+	import { dev } from '$app/environment';
 	import { getContext, onMount } from 'svelte';
 	import { fade } from '$lib/helpers/transition';
 	import { assetPath } from '$lib/helpers/assets';
@@ -27,6 +28,7 @@
 	};
 
 	onMount(async () => {
+		if (dev) return login();
 		const { validity } = await accessKey.initialLoad();
 		if (validity) return login();
 		showForm = true;

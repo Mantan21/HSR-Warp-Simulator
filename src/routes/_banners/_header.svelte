@@ -1,6 +1,6 @@
 <script>
 	import { t } from 'svelte-i18n';
-	import { regularPass, specialPass, stellarJade } from '$lib/stores/app-store';
+	import { regularPass, specialPass, stellarJade, warpAmount } from '$lib/stores/app-store';
 	import { getBannerName } from '$lib/helpers/text-proccesor';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
@@ -12,6 +12,7 @@
 
 	$: event = ['lightcone', 'character'].includes(bannerType);
 	$: balance = event ? $specialPass : $regularPass;
+	$: unlimitedWarp = $warpAmount === 'unlimited';
 
 	const nameOfBanner = (type) => {
 		if (event) return $t(`banner.${getBannerName(bannerName).name}`);
@@ -22,8 +23,12 @@
 
 <Header icon="warp" h1={$t('warp.heading')} h2={nameOfBanner(bannerType)} hideDesktopIcon>
 	<div class="budget">
-		<MyFund type={event ? 'specialpass' : 'regularpass'}>∞</MyFund>
-		<MyFund type="stellarjade">∞</MyFund>
+		<MyFund type={event ? 'specialpass' : 'regularpass'}>
+			{unlimitedWarp ? '∞' : balance}
+		</MyFund>
+		<MyFund type="stellarjade">
+			{unlimitedWarp ? '∞' : $stellarJade}
+		</MyFund>
 	</div>
 	<div class="close">
 		<ButtonIcon />

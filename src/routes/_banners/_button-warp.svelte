@@ -26,7 +26,7 @@
 	<button class:starter on:click={handleClick}>
 		<div class="cost">
 			<Icon type={event ? 'specialpass' : 'regularpass'} />
-			<span>× {single ? '1   ' : cost}</span>
+			<span>×{single ? '1 ' : `${cost}`}</span>
 		</div>
 		<span class="text">
 			{$t('warp.button', { values: { qty: single ? 1 : 10 } })}
@@ -98,7 +98,8 @@
 
 	.cost {
 		white-space: nowrap;
-		padding: 0 1rem;
+		padding-left: 1rem;
+		padding-right: 0.5rem;
 		position: relative;
 		font-size: 90%;
 	}

@@ -133,23 +133,6 @@
 		font-style: normal;
 	}
 
-	:global(.os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle) {
-		background-color: #d2c69c;
-		opacity: 0.5;
-	}
-	:global(.os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:hover),
-	:global(.os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:active) {
-		background-color: #d2c69c;
-		opacity: 1;
-	}
-
-	:global(.os-theme-light > .os-scrollbar-vertical) {
-		width: 8px;
-	}
-	:global(.os-theme-light > .os-scrollbar-horizontal) {
-		height: 8px;
-	}
-
 	main {
 		display: block;
 		width: 100vw;

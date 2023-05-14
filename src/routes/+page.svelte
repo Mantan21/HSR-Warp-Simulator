@@ -1,7 +1,7 @@
 <script>
 	import { onMount, setContext } from 'svelte';
 	import { activePhase, activeVersion, showStarterBanner } from '$lib/stores/app-store';
-	import { setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
+	import { importLocalBalance, setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 
@@ -28,6 +28,7 @@
 
 	onMount(() => {
 		setBannerVersionAndPhase();
+		importLocalBalance();
 		window.addEventListener('popstate', (e) => {
 			if (e.state.page) return;
 			if (pageActive === 'index') return;

@@ -1,5 +1,6 @@
 <script>
 	import { getContext, onDestroy, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { t } from 'svelte-i18n';
 	import { scale } from '$lib/helpers/transition';
@@ -69,7 +70,7 @@
 	onDestroy(() => stopSfx('warp-backsound'));
 </script>
 
-<div class="warp-result">
+<div class="warp-result" out:fade={{ duration: 200 }}>
 	{#if !skip}
 		<img
 			src={$assets['warp-bg.webp']}

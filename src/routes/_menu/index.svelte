@@ -1,13 +1,19 @@
 <script>
 	import { browser } from '$app/environment';
+	import { setContext } from 'svelte';
 	import { fade } from '$lib/helpers/transition';
-	import { viewportHeight } from '$lib/stores/app-store';
+	import { viewportHeight, warpAmount } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
+	import { playSfx } from '$lib/helpers/audio';
+	import MainMenu from './Menu.svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import { storageReset } from '$lib/helpers/storage-reset';
 
 	const localToggle = cookie.get('menuToggle');
 	let showToggle = localToggle === undefined ? true : localToggle;
 
 	const toggleMenuList = () => {
+		playSfx();
 		showToggle = !showToggle;
 		cookie.set('menuToggle', showToggle);
 	};
@@ -25,13 +31,55 @@
 			if (document.msExitFullscreen) return document?.msExitFullscreen();
 		}
 	};
+
+	// Toggle Show Menu
+	let showMenu = false;
+	const toggleShowMenu = () => {
+		playSfx(showMenu ? 'close' : 'setting-open');
+		showMenu = !showMenu;
+	};
+	setContext('toggleMenu', toggleShowMenu);
+
+	// Modal
+	let isModalOpen = false;
+	let modalTitle = '';
+	const showModal = ({ title }) => {
+		modalTitle = title;
+		isModalOpen = true;
+	};
+	const closeModal = () => {
+		isModalOpen = false;
+		playSfx('close');
+	};
+
+	setContext('showModal', showModal);
+	setContext('closeModal', closeModal);
+
+	const clearStorage = async () => {
+		playSfx();
+		await storageReset();
+		isModalOpen = false;
+		warpAmount.set('default');
+	};
 </script>
+
+{#if isModalOpen}
+	<Modal title={modalTitle} on:cancel={closeModal} on:confirm={clearStorage}>
+		<div class="modal-content">
+			<div class="caption">Are you sure to clear ALL DATA and reset the settings?</div>
+			<small>
+				This action will remove Your History, Pity Calculation, Balance and all items from
+				Collection!
+			</small>
+		</div>
+	</Modal>
+{/if}
 
 <div class="menu" class:hide={!showToggle} transition:fade={{ duration: 250 }}>
 	<div class="wrapper">
-		<!-- <button title="Options">
-			<i class="hsr-settings" />
-		</button> -->
+		<button title="Options" on:click={toggleShowMenu}>
+			<i class="hsr-cog" />
+		</button>
 
 		<button on:click={handleFullscreen} title="Fullscreen">
 			<i class="hsr-{!fullscreen ? 'fullscreen' : 'shrink'}" />
@@ -42,6 +90,10 @@
 		</button>
 	</div>
 </div>
+
+{#if showMenu}
+	<MainMenu />
+{/if}
 
 <style>
 	.menu {
@@ -96,5 +148,9 @@
 		right: 0;
 		opacity: 0.8;
 		background-color: var(--color-second);
+	}
+
+	.modal-content {
+		font-size: 120%;
 	}
 </style>

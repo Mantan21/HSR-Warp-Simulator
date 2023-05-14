@@ -1,6 +1,25 @@
 import { storageVersion, version as siteVersion, warpPhase } from '$lib/data/warp-setup.json';
-import { activePhase, activeVersion, showStarterBanner } from '$lib/stores/app-store';
+import {
+	activePhase,
+	activeVersion,
+	regularPass,
+	showStarterBanner,
+	specialPass,
+	stellarJade,
+	warpAmount
+} from '$lib/stores/app-store';
 import { localConfig, rollCounter } from '$lib/stores/localstorage';
+
+const importLocalBalance = () => {
+	const placeholder = { stellarJade: 0, specialPass: 0, regullarPass: 0 };
+	const lb = localConfig.get('balance') || placeholder;
+	stellarJade.set(lb.stellarJade);
+	specialPass.set(lb.specialPass);
+	regularPass.set(lb.regularPass);
+
+	const lWarpAmount = localConfig.get('warpAmount') || 'default';
+	warpAmount.set(lWarpAmount);
+};
 
 const setBannerVersionAndPhase = () => {
 	let patch, phase;
@@ -27,4 +46,4 @@ const checkStarterBanner = () => {
 	return isShowStarter;
 };
 
-export { setBannerVersionAndPhase, checkStarterBanner };
+export { setBannerVersionAndPhase, checkStarterBanner, importLocalBalance };
