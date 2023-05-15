@@ -5,6 +5,7 @@
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
 	import { getBannerName } from '$lib/helpers/text-proccesor';
 	import { assetPath } from '$lib/helpers/assets';
+	import { bezier } from '$lib/helpers/easing';
 
 	export let item = {};
 
@@ -41,7 +42,14 @@
 					{#each rateup as name, i}
 						<div class="rateup-item">
 							<div class="rateup-content">
-								<picture in:fly={{ x: -20, duration: 1000, delay: 300 + 100 * i }}>
+								<picture
+									in:fly={{
+										x: -30,
+										duration: 3000,
+										easing: bezier(0.13, 0.14, 0, 1),
+										delay: 300 + 100 * i
+									}}
+								>
 									<source
 										srcset={assetPath(`splash-art/4/${name}`, 1280)}
 										media="(min-width: 840px)"

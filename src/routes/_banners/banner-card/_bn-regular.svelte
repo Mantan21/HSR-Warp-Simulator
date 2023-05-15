@@ -1,5 +1,6 @@
 <script>
 	import { assetPath } from '$lib/helpers/assets';
+	import { bezier } from '$lib/helpers/easing';
 	import { fly } from '$lib/helpers/transition';
 	import BannerTpl from './__banner-tpl.svelte';
 </script>
@@ -7,17 +8,41 @@
 <BannerTpl>
 	<div class="featured-bg" />
 	<div class="splash-art himeko">
-		<figure in:fly={{ x: -15, duration: 3000, delay: 250 }}>
+		<figure
+			in:fly={{
+				x: -25,
+				duration: 4000,
+				delay: 250,
+				opacity: 0.8,
+				easing: bezier(0.13, 0.14, 0, 1)
+			}}
+		>
 			<img src={assetPath('banners/regular/himeko.webp')} alt="Himeko" crossorigin="anonymous" />
 		</figure>
 	</div>
 	<div class="splash-art gepard">
-		<figure in:fly={{ x: -15, duration: 3000, delay: 250 }}>
+		<figure
+			in:fly={{
+				x: -25,
+				duration: 4000,
+				delay: 250,
+				opacity: 0.8,
+				easing: bezier(0.13, 0.14, 0, 1)
+			}}
+		>
 			<img src={assetPath('banners/regular/gepard.webp')} alt="Gepard" crossorigin="anonymous" />
 		</figure>
 	</div>
 	<div class="splash-art bronya">
-		<figure in:fly={{ x: -30, duration: 3000, delay: 250 }}>
+		<figure
+			in:fly={{
+				x: -50,
+				delay: 250,
+				duration: 4000,
+				opacity: 0.8,
+				easing: bezier(0.13, 0.14, 0, 1)
+			}}
+		>
 			<img src={assetPath('banners/regular/bronya.webp')} alt="Bronya" crossorigin="anonymous" />
 		</figure>
 	</div>

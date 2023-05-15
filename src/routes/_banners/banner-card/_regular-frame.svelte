@@ -1,5 +1,5 @@
 <script>
-	import { fade, fly } from '$lib/helpers/transition';
+	import { fade } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
 	import { t } from 'svelte-i18n';
 	import RateupLightones from './__rateup-lightcones.svelte';
@@ -41,7 +41,7 @@
 	</div>
 	<div class="character">
 		{#each chars as { combat_type, name }}
-			<div class="char-group {name}" in:fly={{ duration: 1000, delay: 250, x: -20 }}>
+			<div class="char-group {name}" in:fade={{ duration: 500, delay: 250, x: -20 }}>
 				<div class="name">
 					<i class="hsr-{combat_type} icon-gradient {combat_type}" />
 					<span>{$t(name)}</span>

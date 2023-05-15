@@ -6,6 +6,7 @@
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import BannerTpl from './__banner-tpl.svelte';
 	import { assetPath } from '$lib/helpers/assets';
+	import { bezier } from '$lib/helpers/easing';
 
 	export let item = {};
 
@@ -39,7 +40,13 @@
 				alt={$t(item.featured)}
 				src={assetPath(`splash-art/5/${item.featured}`, 640)}
 				style={characterOffset(item.featured, $isMobileLandscape)}
-				in:fly={{ x: -30, duration: 3000, delay: 200 }}
+				in:fly={{
+					x: -40,
+					duration: 4000,
+					delay: 250,
+					opacity: 0.8,
+					easing: bezier(0.13, 0.14, 0, 1)
+				}}
 			/>
 		</picture>
 	</div>

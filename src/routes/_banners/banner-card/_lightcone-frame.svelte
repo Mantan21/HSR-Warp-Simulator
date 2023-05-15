@@ -33,7 +33,7 @@
 
 	<!-- Right Pane -->
 	<div class="item-name">
-		<div class="row" in:fade={{ duration: 1000, delay: 250 }}>
+		<div class="row" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="path">
 				<Path path={item.path} dark />
 			</div>
@@ -45,7 +45,7 @@
 			</span>
 		</div>
 	</div>
-	<div class="featured-lighcone" in:fly={{ duration: 1000, delay: 250, x: -20 }}>
+	<div class="featured-lighcone" in:fly={{ duration: 1500, delay: 250, x: -20 }}>
 		<LightCones item={item.featured} />
 	</div>
 </div>

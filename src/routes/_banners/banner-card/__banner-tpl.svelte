@@ -15,14 +15,7 @@
 		</div>
 	{/if}
 
-	<svg
-		class="banner-corner"
-		xmlns="http://www.w3.org/2000/svg"
-		xml:space="preserve"
-		version="1.1"
-		style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-		viewBox="0 0 68909.65 94154.68"
-	>
+	<svg class="banner-corner" viewBox="0 0 68909.65 94154.68">
 		<g id="Layer_x0020_1">
 			<metadata id="CorelCorpID_0Corel-Layer" />
 			<path
