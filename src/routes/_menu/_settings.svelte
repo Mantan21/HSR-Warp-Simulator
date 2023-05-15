@@ -33,7 +33,7 @@
 
 <div class="settings">
 	<OptionsItem
-		text="Mute Audio & Sound Effects?"
+		text={$t('menu.muted')}
 		showOption={activeOption === 'mute'}
 		optionName="mute"
 		activeIndicator={$muted}
@@ -49,14 +49,18 @@
 	/>
 
 	<OptionsItem
-		text="Auto Skip Express Animation?"
+		text={$t('menu.autoskip')}
 		showOption={activeOption === 'autoskip'}
 		optionName="autoskip"
 		activeIndicator={$autoskip}
 		on:select={handleAutoSkip}
 	/>
 
-	<OptionsItem text="Switch Banner" optionName="switchbanner" on:select={handleSelectAmount} />
+	<OptionsItem
+		text={$t('menu.switchbanner')}
+		optionName="switchbanner"
+		on:select={handleSelectAmount}
+	/>
 
 	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" on:select={handleSelectAmount} />
 </div>

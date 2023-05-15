@@ -5,6 +5,9 @@
 	"new": "New",
 	"converted": "Converted to",
 	"loading": "Loading",
+	"waiting": "Waiting",
+	"version": "Version",
+	"phase": "Phase",
 	"nodata": "No Data",
 	"tip": "Tip",
 	"unlimited": "Unlimited",
@@ -53,6 +56,7 @@
 		"undyingBonus": "{undyingType} ×{qty}"
 	},
 	"banner": {
+		"all": "All Banner",
 		"starter": "Starter Warp",
 		"regular": "Regular Warp",
 		"character-event": "Character Event Warp",
@@ -77,10 +81,16 @@
 	},
 	"menu": {
 		"heading": "Menu",
+		"yes": "Yes",
+		"no": "No",
 		"settings": "Settings",
+		"switchbanner": "Switch Banner",
 		"warpNumber": "Number of Warps",
+		"muted": "Mute Audio & Sound Effects?",
+		"autoskip": "Auto Skip Express Animation?",
 		"clearStorage": "Clear Storage",
 		"clearNow": "Clear Now",
+		"promptTitle": "Clear Data?",
 		"resetPrompt": "Are you sure to clear ALL DATA and reset the settings?",
 		"resetInfo": "This action will remove your Pull History, Pity Calculation, Balance and all items from Collection too!"
 	}

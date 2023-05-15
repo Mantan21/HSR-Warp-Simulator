@@ -38,7 +38,7 @@
 					crossorigin="anonymous"
 				/>
 			</picture>
-			<span> Phase {phase} </span>
+			<span> {$t('phase')} {phase} </span>
 		</div>
 		<caption> {$t(featured)} - {$t(lightcone.featured)} </caption>
 	</button>

@@ -1,12 +1,15 @@
 <script>
 	import { getContext, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
+	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
+
 	import { allPatch } from '$lib/data/warp-setup.json';
+	import { playSfx } from '$lib/helpers/audio';
+	import { assets } from '$lib/stores/app-store';
+
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import { playSfx } from '$lib/helpers/audio';
-	import { fade } from 'svelte/transition';
-	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
-	import { assets } from '$lib/stores/app-store';
 	import VersionItem from './_version-item.svelte';
 
 	const navigate = getContext('navigate');
@@ -41,7 +44,7 @@
 </script>
 
 <section transition:fade={{ duration: 250 }} style="--bg: url({$assets['allbanner-bg.webp']})">
-	<Header relative h1="Version" h2="All Banner" icon="warp">
+	<Header relative h1={$t('version')} h2={$t('banner.all')} icon="warp">
 		<div class="close">
 			<ButtonIcon on:click={closeBannerList} />
 		</div>
@@ -51,12 +54,12 @@
 			<div class="wrapper">
 				{#if allBanners < 1}
 					<div class="wait" out:fade={{ duration: 250 }}>
-						<span> Waiting...</span>
+						<span> {$t('waiting')}...</span>
 					</div>
 				{/if}
 				{#each allBanners as [version, data], i}
 					<div class="group" in:fade={{ duration: 300, delay: Math.sqrt(i * 10000) }}>
-						<h3>Version {version}</h3>
+						<h3>{$t('version')} {version}</h3>
 						<div class="banner">
 							{#each data as { phase, banners }}
 								<VersionItem {phase} {version} data={banners} />

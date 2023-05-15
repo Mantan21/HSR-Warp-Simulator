@@ -30,7 +30,7 @@
 	const showModal = getContext('showModal');
 	const clearStorage = () => {
 		playSfx('setting-item');
-		showModal({ title: 'Clear Storage?' });
+		showModal({ title: $t('menu.promptTitle') });
 	};
 
 	// Switch Banner
@@ -75,16 +75,17 @@
 			<!-- Regular -->
 		{:else}
 			<button class="selected-option" on:click={handleOption}>
-				{activeIndicator ? 'Yes' : 'No'} <i class="hsr-caret-{showOption ? 'up' : 'down'}" />
+				{activeIndicator ? $t('menu.yes') : $t('menu.no')}
+				<i class="hsr-caret-{showOption ? 'up' : 'down'}" />
 			</button>
 
 			{#if showOption}
 				<div class="select-option" transition:fly={{ y: -20, duration: 200 }}>
 					<button class:selected={activeIndicator} on:click={() => select('yes')}>
-						<span> Yes </span>
+						<span> {$t('menu.yes')} </span>
 					</button>
 					<button class:selected={!activeIndicator} on:click={() => select('no')}>
-						<span> No </span>
+						<span> {$t('menu.no')} </span>
 					</button>
 				</div>
 			{/if}
