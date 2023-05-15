@@ -46,21 +46,15 @@
 
 <style>
 	.col {
-		flex-basis: 20%;
+		flex-basis: 25%;
 		padding: 0 0.5%;
 		max-width: 300px;
-	}
-
-	@media screen and (max-width: 1200px) {
-		.col {
-			flex-basis: 25%;
-			max-width: unset;
-		}
 	}
 
 	@media screen and (max-width: 900px) {
 		.col {
 			flex-basis: 33.333333%;
+			max-width: unset;
 		}
 	}
 

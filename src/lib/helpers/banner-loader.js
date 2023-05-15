@@ -7,23 +7,29 @@ import { checkStarterBanner } from '$lib/helpers/readLocalData';
 import { bannerList } from '$lib/stores/app-store';
 
 export const initializeBanner = async (version, phase) => {
-	if (!version || !phase) return;
-	const list = checkStarterBanner() ? [{ type: 'starter', item: starter.characters }] : [];
-	const { data } = await import(`../../lib/data/banners/events/${version}.json`);
-	const { character, lightcone, regularVersion } = data.find((d) => d.phase === phase).banners;
-	const regularChar = regular.find(({ version }) => version === regularVersion)?.characters;
+	try {
+		if (!version || !phase) return {};
+		const list = checkStarterBanner() ? [{ type: 'starter', item: starter.characters }] : [];
+		const { data } = await import(`../../lib/data/banners/events/${version}.json`);
+		const { character, lightcone, regularVersion } = data.find((d) => d.phase === phase).banners;
+		const regularChar = regular.find(({ version }) => version === regularVersion)?.characters;
 
-	const charInfo = charDB.find(({ name }) => name === character.featured);
-	const lcInfo = lcDB.find(({ name }) => name === lightcone.featured);
-	character.path = charInfo.path;
-	character.combat_type = charInfo.combat_type;
-	lightcone.path = lcInfo.path;
+		const charInfo = charDB.find(({ name }) => name === character.featured);
+		const lcInfo = lcDB.find(({ name }) => name === lightcone.featured);
+		character.path = charInfo.path;
+		character.combat_type = charInfo.combat_type;
+		lightcone.path = lcInfo.path;
 
-	list.push({ type: 'character', item: character });
-	list.push({ type: 'lightcone', item: lightcone });
-	list.push({ type: 'regular', item: regularChar });
+		list.push({ type: 'character', item: character });
+		list.push({ type: 'lightcone', item: lightcone });
+		list.push({ type: 'regular', item: regularChar });
 
-	bannerList.set(list);
+		bannerList.set(list);
+		return { status: 'ok' };
+	} catch (e) {
+		console.error(e);
+		return { status: 'error', e };
+	}
 };
 
 export const handleShowStarter = (show) => {

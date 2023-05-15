@@ -3,12 +3,12 @@
 	import { flip } from 'svelte/animate';
 	import { t } from 'svelte-i18n';
 	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
+
 	import { fade } from '$lib/helpers/transition';
 	import { isMobileLandscape } from '$lib/stores/app-store';
 	import IDBManager from '$lib/stores/idbManager';
 	import { data as charDB } from '$lib/data/characters.json';
 	import { data as lcDB } from '$lib/data/light-cones.json';
-
 	import CollectionItem from './_collection-item.svelte';
 
 	export let itemtype = 'character';
@@ -73,6 +73,7 @@
 		showHandle(showAll, path);
 		return;
 	};
+
 	$: proccessData(itemtype);
 	$: showHandle(showAll, path);
 	onMount(getAll);
@@ -137,11 +138,13 @@
 		height: 100%;
 		mask-image: linear-gradient(black 95%, transparent);
 	}
+
 	.list {
 		display: flex;
 		flex-wrap: wrap;
 		padding: 0 2%;
 	}
+
 	.item {
 		flex-basis: var(--itemWidth);
 		width: var(--itemWidth);

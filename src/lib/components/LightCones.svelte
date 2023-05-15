@@ -48,21 +48,22 @@
 		position: absolute;
 		border-radius: 0.4rem;
 		width: 94%;
+		border-color: rgba(255, 255, 255, 0.8);
+		border-right-color: #eee;
+		border-style: solid;
 	}
 
 	.layer-front {
 		height: 99%;
 		width: 99%;
 		background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.6), transparent 50%);
-		box-shadow: 0.2rem 0.2rem 1px #bbb, 0.2rem -0.1rem 1px rgba(255, 255, 255, 0.8),
-			-0.1rem 0px 1px rgba(255, 255, 255, 0.8);
+		border-width: 0.25rem 0.3rem 0.2rem 0.15rem;
 		top: -4%;
 		left: -5.5%;
 	}
 
 	.small .layer-front {
-		box-shadow: 0.1rem 0.1rem 1px #bbb, 0.1rem -0.1rem 1px rgba(255, 255, 255, 0.8),
-			-0.1rem 0px 1px rgba(255, 255, 255, 0.8);
+		border-width: 0.12rem 0.15rem 0.1rem;
 		top: -2%;
 		left: -4%;
 	}
@@ -89,13 +90,7 @@
 		bottom: -3%;
 		right: -5%;
 		background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2), transparent 50%);
-		box-shadow: 0.2rem 0.2rem 1px rgba(255, 255, 255, 0.8),
-			0.2rem -0.1rem 1px rgba(255, 255, 255, 0.8), -0.1rem 0px 1px rgba(255, 255, 255, 0.8);
-	}
-	.small .layer-back {
-		bottom: -1%;
-		right: -2%;
-		box-shadow: 0.2rem 0.2rem 1px rgba(255, 255, 255, 0.8),
-			0.2rem -0.1rem 1px rgba(255, 255, 255, 0.8), -0.1rem 0px 1px rgba(255, 255, 255, 0.8);
+		border-width: 0.25rem 0.35rem 0.2rem 0.15rem;
+		border-radius: 0.5rem;
 	}
 </style>

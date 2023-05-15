@@ -17,15 +17,11 @@ import {
 import { localConfig, rollCounter } from '$lib/stores/localstorage';
 
 const importLocalBalance = () => {
-	const placeholder = {
-		stellarJade: initialAmount.stellarJade,
-		specialPass: initialAmount.ticketPass,
-		regularPass: initialAmount.ticketPass
-	};
-	const lb = localConfig.get('balance') || placeholder;
-	stellarJade.set(lb.stellarJade || 0);
-	specialPass.set(lb.specialPass || 0);
-	regularPass.set(lb.regularPass) || 0;
+	const { stellarJade: isj, ticketPass: pass } = initialAmount;
+	const { stellarJade: sj, specialPass: sp, regularPass: rp } = localConfig.get('balance') || {};
+	stellarJade.set(isNaN(sj) ? isj : sj);
+	specialPass.set(isNaN(sp) ? pass : sp);
+	regularPass.set(isNaN(rp) ? pass : rp);
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);

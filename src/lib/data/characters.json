@@ -94,7 +94,7 @@
 			"path": "nihility",
 			"release": "1.0-0",
 			"splashartOffset": { "l": 58, "t": 45 },
-			"gachaCardOffset": { "t": 140, "w": 480, "l": 85 },
+			"gachaCardOffset": { "t": 135, "w": 480, "l": 100 },
 			"bannerOffset": { "h": 570, "t": -202, "l": -605 }
 		},
 		{

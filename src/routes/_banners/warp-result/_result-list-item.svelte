@@ -126,8 +126,8 @@
 		z-index: +1;
 	}
 
-	.star5.item::after,
-	.star5.item::before {
+	.star5.item.character::after,
+	.star5.item.character::before {
 		background-image: repeating-linear-gradient(
 				90deg,
 				rgba(249, 170, 2, 0.5),
@@ -136,8 +136,8 @@
 			repeating-linear-gradient(0deg, rgba(249, 170, 2, 0.5), rgba(249, 170, 2, 0) 10%);
 	}
 
-	.star4.item::after,
-	.star4.item::before {
+	.star4.item.character::after,
+	.star4.item.character::before {
 		background-image: repeating-linear-gradient(
 				90deg,
 				rgba(254, 175, 254, 0.6),

@@ -1,5 +1,6 @@
 <script>
 	import { getContext, onMount, setContext } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { assets } from '$lib/stores/app-store';
 	import { playSfx } from '$lib/helpers/audio';
 	import { fade } from '$lib/helpers/transition';
@@ -9,7 +10,6 @@
 	import Footer from './_footer.svelte';
 	import CollectionList from './_collection-list.svelte';
 	import { cookie } from '$lib/stores/cookies';
-	import { t } from 'svelte-i18n';
 
 	let footerHeight;
 	let showAll = cookie.get('showAllCollection');
@@ -18,7 +18,7 @@
 	let itemQty = { owned: 0, all: 0 };
 	setContext('setItemQty', (obj) => (itemQty = obj));
 
-	let navigate = getContext('navigate');
+	const navigate = getContext('navigate');
 	const closeCollection = () => {
 		playSfx('collection-close');
 		navigate('index');

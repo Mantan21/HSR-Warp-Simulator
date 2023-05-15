@@ -11,6 +11,7 @@
 	import LoginPage from './_login/index.svelte';
 	import AllBanner from './_allbanner/index.svelte';
 
+	let status;
 	let loggedIn = false;
 	setContext('login', () => (loggedIn = true));
 
@@ -24,7 +25,9 @@
 	};
 	setContext('navigate', navigate);
 
-	$: initializeBanner($activeVersion, $activePhase);
+	const checkBannerStatus = async (initBanner) => ({ status } = await initBanner);
+	$: initBanner = initializeBanner($activeVersion, $activePhase);
+	$: checkBannerStatus(initBanner);
 	$: handleShowStarter($showStarterBanner);
 
 	onMount(() => {
@@ -37,6 +40,10 @@
 		});
 	});
 </script>
+
+{#if status === 'error'}
+	error bos
+{/if}
 
 {#if !loggedIn}
 	<LoginPage />

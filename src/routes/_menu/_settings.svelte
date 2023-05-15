@@ -1,4 +1,5 @@
 <script>
+	import { getContext } from 'svelte';
 	import { warpAmount } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { t } from 'svelte-i18n';
@@ -12,9 +13,33 @@
 		localConfig.set('warpAmount', selected);
 		warpAmount.set(selected);
 	};
+
+	// AutoSkip
+	const autoskip = getContext('autoskip');
+	const handleAutoSkip = ({ detail }) => {
+		const { selected } = detail;
+		autoskip.set(selected === 'yes');
+		localConfig.set('autoskip', selected === 'yes');
+	};
+
+	// Sound & Volume
+	const muted = getContext('muted');
+	const handleSfx = ({ detail }) => {
+		const { selected } = detail;
+		muted.set(selected === 'yes');
+		localConfig.set('muted', selected === 'yes');
+	};
 </script>
 
 <div class="settings">
+	<OptionsItem
+		text="Mute Audio & Sound Effects?"
+		showOption={activeOption === 'mute'}
+		optionName="mute"
+		activeIndicator={$muted}
+		on:select={handleSfx}
+	/>
+
 	<OptionsItem
 		text={$t('menu.warpNumber')}
 		showOption={activeOption === 'warpnumber'}
@@ -22,6 +47,16 @@
 		activeIndicator={$warpAmount}
 		on:select={handleSelectAmount}
 	/>
+
+	<OptionsItem
+		text="Auto Skip Express Animation?"
+		showOption={activeOption === 'autoskip'}
+		optionName="autoskip"
+		activeIndicator={$autoskip}
+		on:select={handleAutoSkip}
+	/>
+
+	<OptionsItem text="Switch Banner" optionName="switchbanner" on:select={handleSelectAmount} />
 
 	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" on:select={handleSelectAmount} />
 </div>

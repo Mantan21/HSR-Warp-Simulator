@@ -1,8 +1,9 @@
 <script>
 	import { createEventDispatcher, getContext } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { fly } from 'svelte/transition';
 	import { playSfx } from '$lib/helpers/audio';
-	import { t } from 'svelte-i18n';
+	import { activePhase, activeVersion } from '$lib/stores/app-store';
 
 	export let showOption = false;
 	export let optionName;
@@ -31,6 +32,13 @@
 		playSfx('setting-item');
 		showModal({ title: 'Clear Storage?' });
 	};
+
+	// Switch Banner
+	const navigate = getContext('navigate');
+	const switchBanner = () => {
+		playSfx();
+		navigate('allbanner');
+	};
 </script>
 
 <div class="setting-item">
@@ -40,6 +48,12 @@
 		{#if optionName === 'reset'}
 			<button class="selected-option" on:click={clearStorage}>
 				{$t('menu.clearNow')} <i class="hsr-trash" />
+			</button>
+
+			<!-- Switch Banner -->
+		{:else if optionName === 'switchbanner'}
+			<button class="selected-option" on:click={switchBanner}>
+				{$activeVersion} - {$activePhase} <i class="hsr-caret-down" />
 			</button>
 
 			<!-- Numeber of Warps -->
@@ -55,6 +69,23 @@
 							<span> {$t(op)} </span>
 						</button>
 					{/each}
+				</div>
+			{/if}
+
+			<!-- Regular -->
+		{:else}
+			<button class="selected-option" on:click={handleOption}>
+				{activeIndicator ? 'Yes' : 'No'} <i class="hsr-caret-{showOption ? 'up' : 'down'}" />
+			</button>
+
+			{#if showOption}
+				<div class="select-option" transition:fly={{ y: -20, duration: 200 }}>
+					<button class:selected={activeIndicator} on:click={() => select('yes')}>
+						<span> Yes </span>
+					</button>
+					<button class:selected={!activeIndicator} on:click={() => select('no')}>
+						<span> No </span>
+					</button>
 				</div>
 			{/if}
 		{/if}

@@ -120,7 +120,6 @@
 	};
 
 	// Astral Express
-	let autoSkip = false;
 	let skipSplashart = false;
 	let showAstralExpress = false;
 	let astralRarity = 3;
@@ -137,6 +136,7 @@
 	setContext('closeResult', closeResult);
 
 	const handleGachaAnimation = () => {
+		const autoSkip = localConfig.get('autoskip');
 		if (autoSkip) return showSplashArt({ skip: true });
 		const star = warpResult.map(({ rarity }) => rarity);
 		if (star.includes(5)) astralRarity = 5;
