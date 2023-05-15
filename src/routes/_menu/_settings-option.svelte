@@ -83,14 +83,24 @@
 		padding: 0.8rem 1.5rem;
 	}
 
-	button {
-		font-size: 100%;
-	}
-
 	.option-select {
 		flex-basis: 25%;
 		background-color: rgba(255, 255, 255, 0.9);
 		position: relative;
+	}
+
+	@media screen and (max-width: 600px) {
+		.caption {
+			flex-basis: 60%;
+		}
+
+		.option-select {
+			flex-basis: 40%;
+		}
+	}
+
+	button {
+		font-size: 100%;
 	}
 
 	.selected-option {

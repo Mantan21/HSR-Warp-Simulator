@@ -94,7 +94,7 @@
 			}, 0);
 
 			const milestone = type === 'embers' ? embers : starlight;
-			const localBalance = localConfig.get('balance');
+			const localBalance = localConfig.get('balance') || {};
 			milestone.update((n) => {
 				const afterUpdate = n + qty;
 				localBalance[type] = afterUpdate;
@@ -112,7 +112,7 @@
 		const currency = isSpecialPass ? specialPass : regularPass;
 		currency.update((n) => {
 			const afterUpdate = n - rollCost;
-			const localBalance = localConfig.get('balance');
+			const localBalance = localConfig.get('balance') || {};
 			localBalance[isSpecialPass ? 'specialPass' : 'regularPass'] = afterUpdate;
 			localConfig.set('balance', localBalance);
 			return afterUpdate;
