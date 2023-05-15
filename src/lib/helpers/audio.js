@@ -2,6 +2,7 @@ import { localConfig } from '$lib/stores/localstorage';
 import { Howl } from 'howler';
 
 const sfxList = [
+	'allbanner',
 	'click',
 	'close',
 	'collection-close',

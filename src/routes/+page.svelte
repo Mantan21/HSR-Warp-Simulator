@@ -9,6 +9,7 @@
 	import Menu from './_menu/index.svelte';
 	import Collection from './_collection/index.svelte';
 	import LoginPage from './_login/index.svelte';
+	import AllBanner from './_allbanner/index.svelte';
 
 	let loggedIn = false;
 	setContext('login', () => (loggedIn = true));
@@ -47,5 +48,9 @@
 
 	{#if pageActive === 'collection'}
 		<Collection />
+	{/if}
+
+	{#if pageActive === 'allbanner'}
+		<AllBanner />
 	{/if}
 {/if}

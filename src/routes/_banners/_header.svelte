@@ -6,6 +6,8 @@
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
 	import Header from '$lib/components/Header.svelte';
+	import { getContext } from 'svelte';
+	import { playSfx } from '$lib/helpers/audio';
 
 	export let bannerType = '';
 	export let bannerName = '';
@@ -19,6 +21,12 @@
 		if (type === 'starter') return $t('banner.departure');
 		return $t('banner.stellar');
 	};
+
+	const navigate = getContext('navigate');
+	const openAllBanners = () => {
+		playSfx();
+		navigate('allbanner');
+	};
 </script>
 
 <Header icon="warp" h1={$t('warp.heading')} h2={nameOfBanner(bannerType)} hideDesktopIcon>
@@ -31,6 +39,6 @@
 		</MyFund>
 	</div>
 	<div class="close">
-		<ButtonIcon />
+		<ButtonIcon on:click={openAllBanners} />
 	</div>
 </Header>

@@ -77,7 +77,13 @@ export const assetPath = (path, size = 0) => {
 const images = [
 	{
 		dir: 'background',
-		paths: ['archive-bg.webp', 'departure-bg.webp', 'stellar-bg.webp', 'warp-bg.webp']
+		paths: [
+			'allbanner-bg.webp',
+			'archive-bg.webp',
+			'departure-bg.webp',
+			'stellar-bg.webp',
+			'warp-bg.webp'
+		]
 	},
 	{
 		dir: 'utils',
