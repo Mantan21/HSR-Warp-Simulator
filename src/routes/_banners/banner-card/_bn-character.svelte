@@ -1,12 +1,12 @@
 <script>
 	import { t } from 'svelte-i18n';
+	import { bezier } from '$lib/helpers/easing';
 	import { fly } from '$lib/helpers/transition';
 	import { data } from '$lib/data/characters.json';
 	import { isMobileLandscape } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/cssPosition';
-	import BannerTpl from './__banner-tpl.svelte';
 	import { assetPath } from '$lib/helpers/assets';
-	import { bezier } from '$lib/helpers/easing';
+	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
 
@@ -16,7 +16,7 @@
 		if (!ismobile) return positionToStyle(bannerOffset);
 
 		const tmp = {};
-		tmp.b = (bannerOffset?.b || 0) - 23;
+		tmp.b = (bannerOffset?.b || 0) + 75;
 		tmp.l = (bannerOffset?.l || 0) + 5;
 
 		return positionToStyle({ ...bannerOffset, ...tmp });
@@ -29,7 +29,7 @@
 		<div class="wrapper">
 			<picture
 				in:fly={{
-					x: -40,
+					x: -30,
 					duration: 4000,
 					delay: 250,
 					opacity: 0.8,
@@ -107,5 +107,6 @@
 	:global(.mobileLandscape) picture {
 		bottom: -80%;
 		left: -3%;
+		transform: scale(0.85);
 	}
 </style>

@@ -84,6 +84,8 @@
 		height: 100%;
 		color: #333;
 		padding: 1.3%;
+		position: relative;
+		z-index: +1;
 	}
 
 	.info-body {
@@ -134,80 +136,6 @@
 		font-size: calc(0.022 * var(--bw));
 		height: calc(0.07 * var(--bw));
 		line-height: 100%;
-	}
-
-	/* Featured Lightcone */
-	.featured-lightcones {
-		width: 100%;
-		height: fit-content;
-		position: relative;
-	}
-
-	.lightcones-info {
-		position: absolute;
-		top: 31%;
-		width: 100%;
-		padding: 0 3%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.lightcones-name {
-		background-color: rgba(0, 0, 0, 0.7);
-		height: calc(0.052 * var(--bw));
-		width: 100%;
-		text-align: center;
-		padding: 0 12% 0 2%;
-		font-size: calc(0.023 * var(--bw));
-		color: var(--color-text);
-		position: relative;
-		z-index: +2;
-	}
-
-	.lightcones-name span {
-		position: absolute;
-		right: 3%;
-		bottom: 5%;
-		font-size: calc(0.013 * var(--bw));
-	}
-
-	.lightcones-info .stars {
-		background-color: rgba(0, 0, 0, 0.7);
-		margin-top: 2%;
-		padding: 0 2%;
-		display: inline-flex;
-		align-items: center;
-		line-height: 0;
-		height: calc(0.023 * var(--bw));
-		font-size: calc(0.014 * var(--bw));
-	}
-
-	.lightcones-list {
-		position: relative;
-		width: 100%;
-		height: 50%;
-	}
-	.lc-item {
-		position: absolute;
-		width: 70%;
-	}
-
-	.lc2 {
-		left: -10%;
-		top: 10%;
-		transform: scale(0.55) rotate(-15deg);
-		z-index: +1;
-	}
-	.lc1 {
-		left: 13%;
-		top: -2%;
-		transform: scale(0.65) rotate(9deg);
-	}
-	.lc3 {
-		left: 35%;
-		top: 20%;
-		transform: scale(0.5) rotate(25deg);
 	}
 
 	/* character name */
@@ -263,8 +191,13 @@
 
 	/* Aditional Rewards */
 	.additional {
+		width: 10%;
 		right: 2%;
 		bottom: 9%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 	}
 
 	.additional button {

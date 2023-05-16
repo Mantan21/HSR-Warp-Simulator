@@ -23,7 +23,7 @@
 	<div class="splash-art gepard">
 		<figure
 			in:fly={{
-				x: -25,
+				x: -20,
 				duration: 4000,
 				delay: 250,
 				opacity: 0.8,
@@ -36,7 +36,7 @@
 	<div class="splash-art bronya">
 		<figure
 			in:fly={{
-				x: -50,
+				x: -40,
 				delay: 250,
 				duration: 4000,
 				opacity: 0.8,
@@ -81,22 +81,29 @@
 		mask-image: linear-gradient(transparent 10%, black 25%, black 60%, transparent 80%);
 	}
 	:global(.mobileLandscape) .gepard {
-		width: 95%;
+		width: 100%;
+		top: -35%;
+		left: -31%;
 	}
 
 	.bronya {
 		top: -14.5%;
-		left: -5.5%;
-		width: 120%;
+		left: -25%;
+		width: 125%;
 		z-index: +1;
+		display: flex;
+		text-align: right;
 		mask-image: linear-gradient(transparent 0, black 15%, black 70%, transparent 85%);
 	}
+
 	:global(.mobileLandscape) .bronya {
-		width: 105%;
-		left: -0.5%;
+		top: -25%;
+		mask-image: linear-gradient(transparent 0, black 15%, black 60%, transparent 80%);
 	}
 
 	.bronya img {
+		width: 95.5%;
+		transform: translateX(12.5%);
 		mask-image: linear-gradient(to right, black 85%, transparent 95%);
 	}
 	.himeko {
@@ -107,7 +114,8 @@
 		mask-image: linear-gradient(transparent 0, black 15%, black 70%, transparent 85%);
 	}
 	:global(.mobileLandscape) .himeko {
-		left: 30%;
-		width: 70%;
+		left: 31%;
+		width: 75%;
+		top: -20%;
 	}
 </style>

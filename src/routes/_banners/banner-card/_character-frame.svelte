@@ -44,8 +44,8 @@
 							<div class="rateup-content">
 								<picture
 									in:fly={{
-										x: -30,
-										duration: 3000,
+										x: -20,
+										duration: 2000,
 										easing: bezier(0.13, 0.14, 0, 1),
 										delay: 300 + 100 * i
 									}}
@@ -223,6 +223,9 @@
 	picture img {
 		position: absolute;
 		height: 200%;
+	}
+	:global(.mobileLandscape) picture img {
+		transform: translateX(-1.3%);
 	}
 
 	/* character name */

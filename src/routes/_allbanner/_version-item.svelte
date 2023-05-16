@@ -40,7 +40,9 @@
 			</picture>
 			<span> {$t('phase')} {phase} </span>
 		</div>
-		<caption> {$t(featured)} - {$t(lightcone.featured)} </caption>
+		<caption>
+			{$t(featured)} & {$t(lightcone.featured)}
+		</caption>
 	</button>
 </div>
 
@@ -54,13 +56,19 @@
 	@media screen and (max-width: 900px) {
 		.col {
 			flex-basis: 33.333333%;
-			max-width: unset;
+			max-width: 33.333333%;
 		}
+	}
+
+	:global(.mobileLandscape) .col {
+		flex-basis: 25%;
+		max-width: 25%;
 	}
 
 	@media screen and (max-width: 570px) {
 		.col {
 			flex-basis: 50%;
+			max-width: 50%;
 		}
 	}
 
@@ -108,22 +116,25 @@
 		right: 0;
 		border-bottom-left-radius: 1.25rem;
 		padding: 0.25rem 0.8rem;
+	}
+
+	caption {
+		display: block;
+		width: 100%;
+		color: var(--color-second);
+		opacity: 0.8;
+		padding: 2% 2% 5%;
+		transition: opacity 0.25s;
+		font-size: 100%;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
 
-	caption {
-		display: block;
-		color: var(--color-second);
-		opacity: 0.8;
-		padding: 2% 2% 5%;
-		transition: opacity 0.25s;
-		font-size: 110%;
-	}
 	button:hover caption {
 		opacity: 1;
 	}
+
 	button:hover {
 		border-color: rgba(255, 255, 255, 0.5);
 	}
