@@ -29,13 +29,13 @@
 		z-index: +2;
 		display: flex;
 		align-items: center;
-		position: relative;
-	}
-
-	header:not(.relative) {
 		position: absolute;
 		top: 0;
 		left: 0;
+	}
+
+	header.relative {
+		position: relative;
 	}
 
 	.row {

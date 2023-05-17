@@ -14,8 +14,8 @@
 	const confirm = () => dispatch('confirm');
 </script>
 
-<div class="modal" on:mousedown={closeModal} transition:fade={{ duration: 200 }}>
-	<div class="container" on:mousedown|stopPropagation>
+<div class="modal" on:mousedown|self={closeModal} transition:fade={{ duration: 200 }}>
+	<div class="container">
 		<div class="header">
 			<h1>{title}</h1>
 			<div class="close">
@@ -62,6 +62,8 @@
 		min-height: 100px;
 		display: flex;
 		align-items: center;
+		position: relative;
+		z-index: +1;
 	}
 
 	.container {
