@@ -74,16 +74,17 @@
 	}
 
 	.gepard {
-		top: -28.5%;
-		left: -34%;
-		width: 112%;
+		top: -46.5%;
+		left: -40%;
+		width: 117%;
 		z-index: -1;
-		mask-image: linear-gradient(transparent 10%, black 25%, black 60%, transparent 80%);
+		mask-image: linear-gradient(transparent 23%, black 38%, black 70%, transparent 85%);
 	}
 	:global(.mobileLandscape) .gepard {
-		width: 100%;
-		top: -35%;
-		left: -31%;
+		width: 120%;
+		top: -70%;
+		left: -41%;
+		mask-image: linear-gradient(transparent 29%, black 40%, black 70%, transparent 85%);
 	}
 
 	.bronya {
@@ -116,6 +117,6 @@
 	:global(.mobileLandscape) .himeko {
 		left: 31%;
 		width: 75%;
-		top: -20%;
+		top: -27%;
 	}
 </style>

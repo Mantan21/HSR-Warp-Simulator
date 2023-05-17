@@ -27,7 +27,8 @@
 	<div class="featured-bg" />
 	<div class="splash-art">
 		<div class="wrapper">
-			<picture
+			<div
+				class="art-pic"
 				in:fly={{
 					x: -30,
 					duration: 4000,
@@ -36,21 +37,22 @@
 					easing: bezier(0.13, 0.14, 0, 1)
 				}}
 			>
-				<source
-					srcset={assetPath(`splash-art/5/${item.featured}`, 2000)}
-					media="(min-width: 1280px)"
-				/>
-				<source
-					srcset={assetPath(`splash-art/5/${item.featured}`, 1280)}
-					media="(min-width: 640px)"
-				/>
-				<img
-					crossorigin="anonymous"
-					alt={$t(item.featured)}
-					src={assetPath(`splash-art/5/${item.featured}`, 640)}
-					style={characterOffset(item.featured, $isMobileLandscape)}
-				/>
-			</picture>
+				<picture style={characterOffset(item.featured, $isMobileLandscape)}>
+					<source
+						srcset={assetPath(`splash-art/5/${item.featured}`, 2000)}
+						media="(min-width: 1280px)"
+					/>
+					<source
+						srcset={assetPath(`splash-art/5/${item.featured}`, 1280)}
+						media="(min-width: 640px)"
+					/>
+					<img
+						crossorigin="anonymous"
+						alt={$t(item.featured)}
+						src={assetPath(`splash-art/5/${item.featured}`, 640)}
+					/>
+				</picture>
+			</div>
 		</div>
 	</div>
 </BannerTpl>
@@ -88,25 +90,27 @@
 		display: block;
 		width: 100%;
 		height: 100%;
-		position: relative;
 		mask-image: linear-gradient(black 65%, transparent 98%);
 	}
 
-	picture {
+	.art-pic {
 		position: relative;
 		display: block;
 		height: 100%;
 		width: 100%;
 	}
-	img {
+
+	picture {
 		position: absolute;
-		left: 0;
+		display: block;
+	}
+	img {
 		width: 100%;
 	}
 
-	:global(.mobileLandscape) picture {
-		bottom: -80%;
-		left: -3%;
-		transform: scale(0.85);
+	:global(.mobileLandscape) .art-pic {
+		bottom: -90%;
+		left: -1.5%;
+		transform: scale(0.9);
 	}
 </style>

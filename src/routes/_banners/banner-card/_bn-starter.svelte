@@ -82,9 +82,9 @@
 	}
 
 	.himeko {
-		width: 71%;
-		top: -3%;
-		left: 38%;
+		width: 58%;
+		top: 3%;
+		left: 42%;
 		mask-image: linear-gradient(black 70%, transparent 90%);
 	}
 	.bronya {
