@@ -46,6 +46,8 @@
 	// Modal
 	let isModalOpen = false;
 	let modalTitle = '';
+	let keepSetting = false;
+
 	const showModal = ({ title }) => {
 		modalTitle = title;
 		isModalOpen = true;
@@ -66,10 +68,12 @@
 
 	const clearStorage = async () => {
 		playSfx();
-		await storageReset();
+		await storageReset({ keepSetting });
+		isModalOpen = false;
+
+		if (keepSetting) return;
 		autoskip.set(false);
 		muted.set(false);
-		isModalOpen = false;
 	};
 </script>
 
@@ -77,7 +81,16 @@
 	<Modal title={modalTitle} on:cancel={closeModal} on:confirm={clearStorage}>
 		<div class="modal-content">
 			<div class="caption">{$t('menu.resetPrompt')}</div>
-			<small> {$t('menu.resetInfo')} </small>
+			<div class="keep-setting">
+				<div class="checkbox">
+					<input type="checkbox" name="keep" id="keepsetting" bind:checked={keepSetting} />
+					<span on:mousedown={() => (keepSetting = !keepSetting)} />
+				</div>
+				<label for="keepsetting">
+					<span> Keep Settings? </span>
+					<small> Current Pity, Balance and Settings will not be deleted. </small>
+				</label>
+			</div>
 		</div>
 	</Modal>
 {/if}
@@ -157,7 +170,47 @@
 		background-color: var(--color-second);
 	}
 
+	/* Modal */
 	.modal-content {
-		font-size: 120%;
+		font-size: 130%;
+		width: 100%;
+	}
+
+	.keep-setting {
+		padding-top: 2%;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		font-size: 85%;
+	}
+
+	.checkbox {
+		margin-right: 2.5%;
+	}
+	.checkbox input {
+		display: none;
+	}
+
+	.checkbox span {
+		display: block;
+		width: 1.2rem;
+		border-radius: 100%;
+		line-height: 0;
+		padding: 0;
+		margin: 0;
+		outline: 0;
+		aspect-ratio: 1/1;
+		border: 0.3rem transparent solid;
+		outline: 0.2rem rgb(255, 183, 49) solid;
+	}
+
+	.checkbox input:checked + span {
+		background-color: orange;
+		outline-color: orange;
+		border-color: #fff;
+	}
+
+	label span {
+		display: block;
 	}
 </style>

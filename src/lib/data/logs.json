@@ -1,0 +1,41 @@
+{
+	"logs": [
+		{
+			"date": "20 Apr 2023",
+			"changes": [
+				"Departure Layout",
+				"Character Events Layout",
+				"Light Cone Event Layout",
+				"Stellar Layout"
+			]
+		},
+		{
+			"date": "27 Apr 2023",
+			"changes": ["Gacha Algorithm", "Add Banner data for Seele (v1.0 phase 1)"]
+		},
+		{
+			"date": "1 May 2023",
+			"changes": ["Add v1.0 phase 2, Jing Yuan Banner"]
+		},
+		{
+			"date": "7 May 2023",
+			"changes": [
+				"Storing data to Browser Storage",
+				"Gacha Splash Art Animation",
+				"Add more light cone and characters"
+			]
+		},
+		{
+			"date": "11 May 2023",
+			"changes": ["Add Collection Section"]
+		},
+		{
+			"date": "14 May 2023",
+			"changes": ["Add Gacha Settings"]
+		},
+		{
+			"date": "16 May 2023",
+			"changes": ["Enable PWA"]
+		}
+	]
+}

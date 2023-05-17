@@ -1,4 +1,4 @@
-const storageLocal = {
+export const storageLocal = {
 	_getData() {
 		const data = localStorage.getItem('WarpSimulator');
 		if (!data) return { data: {} };

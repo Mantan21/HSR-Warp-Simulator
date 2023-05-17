@@ -16,11 +16,24 @@ import {
 	warpAmount
 } from '$lib/stores/app-store';
 import IDBManager from '$lib/stores/idbManager';
-import { localConfig } from '$lib/stores/localstorage';
+import { localConfig, storageLocal } from '$lib/stores/localstorage';
 
 const { clearIDB } = IDBManager;
-export const storageReset = async () => {
+export const storageReset = async ({ keepSetting = false }) => {
 	await clearIDB();
+
+	starterRemaining.set(50);
+	showStarterBanner.set(true);
+	if (keepSetting) {
+		const config = storageLocal.get('config');
+		const pity = storageLocal.get('pity');
+		localStorage.clear();
+
+		storageLocal.set('config', config);
+		storageLocal.set('pity', pity);
+		return;
+	}
+
 	localStorage.clear();
 	stellarJade.set(balance.stellarJade);
 	specialPass.set(balance.ticketPass);
@@ -32,7 +45,4 @@ export const storageReset = async () => {
 	activeVersion.set(version);
 	activePhase.set(warpPhase);
 	activeBanner.set(0);
-
-	showStarterBanner.set(true);
-	starterRemaining.set(50);
 };

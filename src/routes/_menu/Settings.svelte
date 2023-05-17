@@ -4,6 +4,7 @@
 	import { localConfig } from '$lib/stores/localstorage';
 	import { t } from 'svelte-i18n';
 	import OptionsItem from './_settings-option.svelte';
+	import { fade } from 'svelte/transition';
 
 	export let activeOption;
 
@@ -31,7 +32,7 @@
 	};
 </script>
 
-<div class="settings">
+<div class="settings" in:fade={{ duration: 250 }}>
 	<OptionsItem
 		text={$t('menu.muted')}
 		showOption={activeOption === 'mute'}
@@ -64,3 +65,9 @@
 
 	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" on:select={handleSelectAmount} />
 </div>
+
+<style>
+	.settings {
+		width: 100%;
+	}
+</style>

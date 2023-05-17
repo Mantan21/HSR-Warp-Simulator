@@ -4,10 +4,15 @@
 	import { t } from 'svelte-i18n';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import Settings from './_settings.svelte';
+	import Settings from './Settings.svelte';
+	import Navbar from './_navbar.svelte';
+	import { isMobileLandscape } from '$lib/stores/app-store';
+	import UpdateLog from './UpdateLog.svelte';
 
 	const closeMenu = getContext('toggleMenu');
 	let activeMenu = 'settings';
+	const selecMenu = (menu) => (activeMenu = menu);
+	setContext('selectMenu', selecMenu);
 
 	let activeOption = '';
 	const openOption = (option) => (activeOption = option);
@@ -16,13 +21,26 @@
 
 <section transition:fade={{ duration: 200 }} on:mousedown={() => openOption('')}>
 	<Header h1={$t('menu.heading')} h2={$t(`menu.${activeMenu}`)} icon="menu" relative>
-		<div class="close">
+		{#if !$isMobileLandscape}
+			<Navbar horizontal {activeMenu} />
+		{/if}
+		<div class="close" class:right={$isMobileLandscape}>
 			<ButtonIcon on:click={closeMenu} />
 		</div>
 	</Header>
 
 	<div class="container">
-		<Settings {activeOption} />
+		{#if $isMobileLandscape}
+			<Navbar {activeMenu} />
+		{/if}
+
+		{#if activeMenu === 'settings'}
+			<Settings {activeOption} />
+		{/if}
+
+		{#if activeMenu === 'updatelog'}
+			<UpdateLog />
+		{/if}
 	</div>
 </section>
 
@@ -42,5 +60,13 @@
 		padding: 1rem 5%;
 		width: 100%;
 		height: 88%;
+		display: flex;
+	}
+	.right {
+		margin-left: auto;
+	}
+	.close {
+		position: relative;
+		z-index: +1;
 	}
 </style>
