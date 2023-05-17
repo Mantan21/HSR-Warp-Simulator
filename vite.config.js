@@ -1,9 +1,9 @@
 import path from 'path';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from 'vite-imagetools';
-// import { VitePWA } from 'vite-plugin-pwa';
+import { VitePWA } from 'vite-plugin-pwa';
 
-const iconSize = [72, 96, 128, 144, 152, 192, 256, 384, 512];
+const iconSize = [32, 72, 144, 152, 192, 256, 384, 512];
 const icons = iconSize.map((size) => {
 	const iconObj = {
 		src: `./icons/icon-${size}x${size}.png`,
@@ -45,28 +45,28 @@ const screenshots = [
 const manifest = {
 	orientation: 'landscape',
 	name: 'Honkai: Star Rail Warp Simulator',
-	short_name: 'HSR Warp Simulator',
+	short_name: 'HSR Warp Sim',
 	theme_color: '#ffffff',
 	background_color: '#ffffff',
 	display: 'fullscreen',
 	scope: '/',
-	start_url: '/?pwasc=homescreen',
+	start_url: '/?pwasc=hsr-homescreen',
 	categories: ['games', 'utilities'],
-	description: 'Realistic Gacha Simulation for Honkai: Star Rail',
+	description: 'Realistic Gacha Simulator for Honkai: Star Rail',
 	dir: 'auto',
 	icons,
-	screenshots,
+	// screenshots,
 	prefer_related_applications: true,
 	related_applications: [
 		{
 			platform: 'webapp',
 			url: 'https://hsr.wishsimulator.app/appmanifest.json'
-		},
-		{
-			platform: 'play',
-			url: 'https://play.google.com/store/apps/details?id=twa.wishsimulator.app',
-			id: 'twa.wishsimulator.app'
 		}
+		// {
+		// 	platform: 'play',
+		// 	url: 'https://play.google.com/store/apps/details?id=hsr.wishsimulator.app',
+		// 	id: 'hsr.wishsimulator.app'
+		// }
 	]
 };
 
@@ -74,16 +74,15 @@ const manifest = {
 const config = {
 	plugins: [
 		imagetools({}),
-		sveltekit()
-		// VitePWA({
-		// 	strategies: 'injectManifest',
-		// 	srcDir: 'src',
-		// 	outDir: '.vercel/output/static',
-		// 	filename: 'sw.js',
-		// 	registerType: 'prompt',
-		// 	manifestFilename: 'appmanifest.json',
-		// 	manifest
-		// })
+		sveltekit(),
+		VitePWA({
+			strategies: 'injectManifest',
+			srcDir: 'src',
+			filename: 'sw.js',
+			registerType: 'prompt',
+			manifestFilename: 'appmanifest.json',
+			manifest
+		})
 	],
 	resolve: {
 		alias: {

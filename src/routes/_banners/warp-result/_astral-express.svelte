@@ -74,11 +74,41 @@
 	on:mousedown={() => (showSkipButton = true)}
 >
 	<div class="video">
-		<video bind:this={v3star} {muted} src="/videos/3star.mp4" type="video/mp4" />
-		<video bind:this={regular4star} {muted} src="/videos/regular-4star.mp4" type="video/mp4" />
-		<video bind:this={regular5star} {muted} src="/videos/regular-5star.mp4" type="video/mp4" />
-		<video bind:this={event4star} {muted} src="/videos/event-4star.mp4" type="video/mp4" />
-		<video bind:this={event5star} {muted} src="/videos/event-5star.mp4" type="video/mp4" />
+		<video
+			bind:this={v3star}
+			{muted}
+			src="/videos/3star.mp4"
+			type="video/mp4"
+			crossorigin="anonymous"
+		/>
+		<video
+			bind:this={regular4star}
+			{muted}
+			src="/videos/regular-4star.mp4"
+			type="video/mp4"
+			crossorigin="anonymous"
+		/>
+		<video
+			bind:this={regular5star}
+			{muted}
+			src="/videos/regular-5star.mp4"
+			type="video/mp4"
+			crossorigin="anonymous"
+		/>
+		<video
+			bind:this={event4star}
+			{muted}
+			src="/videos/event-4star.mp4"
+			type="video/mp4"
+			crossorigin="anonymous"
+		/>
+		<video
+			bind:this={event5star}
+			{muted}
+			src="/videos/event-5star.mp4"
+			type="video/mp4"
+			crossorigin="anonymous"
+		/>
 
 		{#if showSkipButton}
 			<div class="skip" in:fade={{ duration: 200 }}>

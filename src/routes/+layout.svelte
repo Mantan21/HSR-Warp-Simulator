@@ -1,4 +1,5 @@
 <script>
+	import { registerSW } from 'virtual:pwa-register';
 	import { onMount, setContext } from 'svelte';
 	import { isLoading, locale } from 'svelte-i18n';
 	import { dev } from '$app/environment';
@@ -35,6 +36,7 @@
 
 	mountLocale();
 	onMount(() => {
+		registerSW();
 		isMobile.set(mobileDetect() || innerWidth < 601);
 		if ($isMobile) setMobileMode();
 
@@ -66,6 +68,10 @@
 	<meta name="twitter:title" content={APP_TITLE} />
 	<meta name="twitter:description" content={DESCRIPTION} />
 	<meta name="twitter:image" content="{HOST}/meta-picture.jpg" />
+
+	{#if !dev}
+		<link rel="manifest" href="/appmanifest.json" />
+	{/if}
 
 	<link
 		rel="preload"
