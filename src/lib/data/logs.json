@@ -36,6 +36,14 @@
 		{
 			"date": "16 May 2023",
 			"changes": ["Enable PWA"]
+		},
+		{
+			"date": "19 May 2023",
+			"changes": [
+				"Add Shop Section",
+				"Enable Oneiric Topup",
+				"Add Various Price, automaticaly selected based on browser Language"
+			]
 		}
 	]
 }

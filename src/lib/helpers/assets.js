@@ -94,6 +94,16 @@ const images = [
 			'depature-icon.svg',
 			'eidolon-4star.webp',
 			'eidolon-5star.webp',
+			'method-tears.webp',
+			'method-imaginary-money.webp',
+			'method-empty-wallet.webp',
+			'oneiric-shard.webp',
+			'oneiric-60.webp',
+			'oneiric-300.webp',
+			'oneiric-980.webp',
+			'oneiric-1980.webp',
+			'oneiric-3280.webp',
+			'oneiric-6480.webp',
 			'regular-pass-clean.webp',
 			'regular-pass.webp',
 			'special-pass-clean.webp',
@@ -106,9 +116,17 @@ const images = [
 	}
 ];
 
+const bgList = () => {
+	const paths = [];
+	for (let i = 0; i < 10; i++) {
+		paths.push(`bg${i + 1}.webp`);
+	}
+	return { dir: 'background', paths };
+};
+
 export const listingAssets = () => {
 	const arr = [];
-	const allImg = [...images];
+	const allImg = [...images, bgList()];
 
 	allImg.forEach(({ dir, paths }) => {
 		paths.forEach((path) => {

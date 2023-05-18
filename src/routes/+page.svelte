@@ -5,11 +5,12 @@
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 
+	import LoginPage from './_login/index.svelte';
+	import AllBanner from './_allbanner/index.svelte';
 	import Banners from './_banners/index.svelte';
 	import Menu from './_menu/index.svelte';
 	import Collection from './_collection/index.svelte';
-	import LoginPage from './_login/index.svelte';
-	import AllBanner from './_allbanner/index.svelte';
+	import Shop from './_shop/index.svelte';
 
 	let status;
 	let loggedIn = false;
@@ -53,11 +54,15 @@
 		<Menu />
 	{/if}
 
+	{#if pageActive === 'allbanner'}
+		<AllBanner />
+	{/if}
+
 	{#if pageActive === 'collection'}
 		<Collection />
 	{/if}
 
-	{#if pageActive === 'allbanner'}
-		<AllBanner />
+	{#if pageActive === 'shop'}
+		<Shop />
 	{/if}
 {/if}

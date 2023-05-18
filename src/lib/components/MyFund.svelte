@@ -7,7 +7,8 @@
 	const iconList = {
 		stellarjade: 'stellar-jade.webp',
 		regularpass: 'regular-pass-clean.webp',
-		specialpass: 'special-pass-clean.webp'
+		specialpass: 'special-pass-clean.webp',
+		oneiric: 'oneiric-shard.webp'
 	};
 </script>
 

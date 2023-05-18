@@ -18,6 +18,7 @@
 	import { fade } from '$lib/helpers/transition';
 
 	import InitialLoader from '$lib/components/InitialLoader.svelte';
+	import { userCurrencies } from '$lib/helpers/shop-price';
 
 	let isLoaded = false;
 	setContext('loaded', () => (isLoaded = true));
@@ -43,6 +44,8 @@
 		window.addEventListener('orientationchange', () => {
 			if ($isMobile) setMobileMode();
 		});
+
+		userCurrencies.init();
 		// prevent Righ click (hold on android) on production mode
 		if (!dev) document.addEventListener('contextmenu', (e) => e.preventDefault());
 	});

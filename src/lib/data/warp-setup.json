@@ -5,6 +5,7 @@
 	"allPatch": [1.0],
 	"initialAmount": {
 		"stellarJade": 8000,
-		"ticketPass": 25
+		"ticketPass": 25,
+		"oneiric": 0
 	}
 }

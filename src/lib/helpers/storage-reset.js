@@ -9,6 +9,7 @@ import {
 	activePhase,
 	activeVersion,
 	embers,
+	oneiric,
 	regularPass,
 	showStarterBanner,
 	specialPass,
@@ -42,6 +43,7 @@ export const storageReset = async ({ keepSetting = false }) => {
 	stellarJade.set(balance.stellarJade);
 	specialPass.set(balance.ticketPass);
 	regularPass.set(balance.ticketPass);
+	oneiric.set(balance.oneiric);
 	embers.set(0);
 	starlight.set(0);
 	warpAmount.set('default');
