@@ -7,6 +7,7 @@ import {
 import {
 	activePhase,
 	activeVersion,
+	oneiric,
 	regularPass,
 	showStarterBanner,
 	specialPass,
@@ -14,14 +15,20 @@ import {
 	stellarJade,
 	warpAmount
 } from '$lib/stores/app-store';
-import { localConfig, rollCounter } from '$lib/stores/localstorage';
+import { localBalance, localConfig, rollCounter } from '$lib/stores/localstorage';
 
 const importLocalBalance = () => {
-	const { stellarJade: isj, ticketPass: pass } = initialAmount;
-	const { stellarJade: sj, specialPass: sp, regularPass: rp } = localConfig.get('balance') || {};
+	const { stellarJade: isj, ticketPass: pass, oneiric: ios } = initialAmount;
+	const {
+		stellarJade: sj,
+		specialPass: sp,
+		regularPass: rp,
+		oneiric: os
+	} = localBalance.all() || {};
 	stellarJade.set(isNaN(sj) ? isj : sj);
 	specialPass.set(isNaN(sp) ? pass : sp);
 	regularPass.set(isNaN(rp) ? pass : rp);
+	oneiric.set(isNaN(os) ? ios : os);
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);

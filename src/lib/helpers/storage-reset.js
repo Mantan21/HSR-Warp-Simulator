@@ -8,9 +8,11 @@ import {
 	activeBanner,
 	activePhase,
 	activeVersion,
+	embers,
 	regularPass,
 	showStarterBanner,
 	specialPass,
+	starlight,
 	starterRemaining,
 	stellarJade,
 	warpAmount
@@ -27,10 +29,12 @@ export const storageReset = async ({ keepSetting = false }) => {
 	if (keepSetting) {
 		const config = storageLocal.get('config');
 		const pity = storageLocal.get('pity');
+		const balance = storageLocal.get('balance');
 		localStorage.clear();
 
 		storageLocal.set('config', config);
 		storageLocal.set('pity', pity);
+		storageLocal.set('balance', balance);
 		return;
 	}
 
@@ -38,6 +42,8 @@ export const storageReset = async ({ keepSetting = false }) => {
 	stellarJade.set(balance.stellarJade);
 	specialPass.set(balance.ticketPass);
 	regularPass.set(balance.ticketPass);
+	embers.set(0);
+	starlight.set(0);
 	warpAmount.set('default');
 
 	localConfig.set('version', `${version}-${warpPhase}`);

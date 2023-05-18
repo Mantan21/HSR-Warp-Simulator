@@ -3,7 +3,7 @@
 	import { t } from 'svelte-i18n';
 	import { specialPass, regularPass, stellarJade } from '$lib/stores/app-store';
 	import Modal from '$lib/components/Modal.svelte';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localBalance } from '$lib/stores/localstorage';
 
 	export let isSpecialPass = false;
 	export let rollCost;
@@ -18,18 +18,12 @@
 	const jadeNeeded = ticketNeeded * 160;
 	const insufficientJade = $stellarJade < jadeNeeded;
 
-	const localBalance = localConfig.get('balance');
-	const convert = (currency, val) => {
-		localBalance[currency] = val;
-		localConfig.set('balance', localBalance);
-	};
-
 	const updateBalance = async () => {
 		new Promise((resolve, reject) => {
 			if (insufficientJade) return reject('not enough Stellar Jade');
 			stellarJade.update((n) => {
 				const v = n - jadeNeeded;
-				convert('stellarJade', v);
+				localBalance.set('stellarJade', v);
 				resolve('ok');
 				return v;
 			});
@@ -37,14 +31,14 @@
 			if (isSpecialPass) {
 				specialPass.update((n) => {
 					const v = n + ticketNeeded;
-					convert('specialPass', v);
+					localBalance.set('specialPass', v);
 					resolve('ok');
 					return v;
 				});
 			} else {
 				regularPass.update((n) => {
 					const v = n + ticketNeeded;
-					convert('regularPass', v);
+					localBalance.set('regularPass', v);
 					resolve('ok');
 					return v;
 				});

@@ -31,6 +31,23 @@ export const localPity = {
 	}
 };
 
+export const localBalance = {
+	all() {
+		const balance = storageLocal.get('balance');
+		return balance;
+	},
+	get(currency) {
+		const balance = storageLocal.get('balance');
+		return balance[currency] || 0;
+	},
+
+	set(currency, value) {
+		const balance = storageLocal.get('balance');
+		balance[currency] = value;
+		storageLocal.set('balance', balance);
+	}
+};
+
 export const rollCounter = {
 	get(banner) {
 		const rollCount = storageLocal.get('rollCounter');

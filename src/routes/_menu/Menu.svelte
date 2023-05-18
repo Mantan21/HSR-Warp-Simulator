@@ -11,8 +11,8 @@
 
 	const closeMenu = getContext('toggleMenu');
 	let activeMenu = 'settings';
-	const selecMenu = (menu) => (activeMenu = menu);
-	setContext('selectMenu', selecMenu);
+	const selectMenu = (menu) => (activeMenu = menu);
+	setContext('selectMenu', selectMenu);
 
 	let activeOption = '';
 	const openOption = (option) => (activeOption = option);

@@ -14,7 +14,7 @@
 		embers,
 		starlight
 	} from '$lib/stores/app-store';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localBalance, localConfig } from '$lib/stores/localstorage';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import { playSfx } from '$lib/helpers/audio';
 
@@ -94,11 +94,9 @@
 			}, 0);
 
 			const milestone = type === 'embers' ? embers : starlight;
-			const localBalance = localConfig.get('balance') || {};
 			milestone.update((n) => {
 				const afterUpdate = n + qty;
-				localBalance[type] = afterUpdate;
-				localConfig.set('balance', localBalance);
+				localBalance.set(type, afterUpdate);
 				return afterUpdate;
 			});
 		};
@@ -112,9 +110,7 @@
 		const currency = isSpecialPass ? specialPass : regularPass;
 		currency.update((n) => {
 			const afterUpdate = n - rollCost;
-			const localBalance = localConfig.get('balance') || {};
-			localBalance[isSpecialPass ? 'specialPass' : 'regularPass'] = afterUpdate;
-			localConfig.set('balance', localBalance);
+			localBalance.set(isSpecialPass ? 'specialPass' : 'regularPass', afterUpdate);
 			return afterUpdate;
 		});
 	};
@@ -159,7 +155,7 @@
 	<div class="row">
 		<div class="info-button">
 			<div class="btn">
-				<Button>
+				<Button on:click={() => goto('shop')}>
 					{$t('shop.heading')}
 				</Button>
 			</div>
@@ -168,11 +164,11 @@
 					{$t('collection.button')}
 				</Button>
 			</div>
-			<div class="btn">
+			<!-- <div class="btn">
 				<Button>
 					{$t('details.view')}
 				</Button>
-			</div>
+			</div> -->
 		</div>
 		<div class="warp-button">
 			{#if !isStarter}
