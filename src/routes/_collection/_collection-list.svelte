@@ -152,6 +152,14 @@
 		padding-bottom: 2.5%;
 	}
 
+	@media screen and (min-width: 1440px) {
+		.item {
+			--itemWidth: 190px;
+			flex-basis: unset;
+			width: 190px;
+		}
+	}
+
 	.load {
 		width: 100%;
 		height: 80%;

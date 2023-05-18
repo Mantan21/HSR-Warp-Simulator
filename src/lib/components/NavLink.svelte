@@ -10,7 +10,7 @@
 	export let dynamic = false;
 	export let notext = false;
 
-	$: dynamic = dynamic && $viewportWidth < 700 && !$isMobileLandscape;
+	$: resizeable = dynamic && $viewportWidth < 700 && !$isMobileLandscape;
 
 	const toggle = getContext('navlinkToggle');
 	const toggleShowAside = (sfx) => {
@@ -19,7 +19,7 @@
 	};
 </script>
 
-<aside class:dynamic class:horizontal class:notext class:show={isOpen && dynamic}>
+<aside class:resizeable class:horizontal class:notext class:show={isOpen && dynamic}>
 	<div class="wrapper">
 		<Scrollable options={{ scrollbars: { theme: 'os-theme-light', visibility: 'hidden' } }}>
 			<div class="scroll-content">
@@ -28,7 +28,7 @@
 		</Scrollable>
 	</div>
 
-	{#if dynamic}
+	{#if resizeable}
 		<div class="toggle">
 			<button on:click={() => toggleShowAside()}>
 				<i class="hsr-chevron-right" />
@@ -37,7 +37,7 @@
 	{/if}
 </aside>
 
-{#if isOpen && dynamic}
+{#if isOpen && resizeable}
 	<div
 		class="overlay"
 		transition:fly={{ x: $viewportWidth * -1, duration: 300 }}
@@ -48,18 +48,28 @@
 <style>
 	aside {
 		width: 25%;
-		min-width: 20vh;
+		flex-basis: 25%;
+		min-width: 35vh;
+		max-width: 280px;
 		display: block;
 		height: 100%;
 		position: relative;
 	}
 
+	@media screen and (max-width: 1000px) {
+		aside {
+			width: 30%;
+			flex-basis: 30%;
+		}
+	}
+
 	aside.notext {
 		width: unset;
 		min-width: unset;
+		flex-basis: unset;
 	}
 
-	aside.dynamic {
+	aside.resizeable {
 		background-color: rgba(7, 9, 33, 0.8);
 		backdrop-filter: blur(8px);
 		position: absolute;
@@ -74,7 +84,7 @@
 		transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 	}
 
-	aside.dynamic.show {
+	aside.resizeable.show {
 		transform: translateX(0);
 	}
 
@@ -137,7 +147,7 @@
 		font-size: 130%;
 	}
 
-	.dynamic :global(.item button) {
+	.resizeable :global(.item button) {
 		margin: 0.5vh 0;
 		font-size: 180%;
 		padding-left: 5%;

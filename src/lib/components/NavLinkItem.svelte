@@ -12,9 +12,11 @@
 
 <div class="item">
 	<button class:active on:click={click}>
-		<div class="icon">
-			<div class="ornament"><span /></div>
-			<i class="hsr-{icon}" />
+		<div class="icon-wrapper">
+			<div class="icon">
+				<div class="ornament"><span /></div>
+				<i class="hsr-{icon}" />
+			</div>
 		</div>
 		<span> <slot /> </span>
 	</button>
@@ -30,7 +32,6 @@
 		padding-left: calc(0.005 * var(--screen-width));
 		display: inline-flex;
 		align-items: center;
-		line-height: 0;
 		width: 100%;
 		color: #fff;
 		font-size: 130%;
@@ -41,22 +42,40 @@
 	}
 
 	button span {
-		padding-left: 5%;
+		padding-left: 7.5%;
 		opacity: 0.7;
 		transition: 0.5s all;
+		text-align: left;
+		width: 100%;
 	}
 	button.active span,
 	button:hover span {
 		opacity: 1;
 	}
 
+	.icon-wrapper {
+		width: 25%;
+		max-width: 3.5rem;
+	}
+
+	:global(.notext) .icon-wrapper {
+		width: 25rem;
+		transform: scale(0.9);
+	}
+
 	.icon {
 		font-size: 180%;
-		padding: 0.5rem;
+		width: 100%;
+		aspect-ratio: 1/1;
 		border-radius: 100%;
 		position: relative;
 		transition: all 0.5s;
+		line-height: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
+
 	button.active .icon {
 		background-color: #fff;
 		color: #000;
