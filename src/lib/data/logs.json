@@ -38,11 +38,19 @@
 			"changes": ["Enable PWA"]
 		},
 		{
-			"date": "19 May 2023",
+			"date": "18 May 2023",
 			"changes": [
 				"Add Shop Section",
 				"Enable Oneiric Topup",
 				"Add Various Price, automaticaly selected based on browser Language"
+			]
+		},
+		{
+			"date": "19 May 2023",
+			"changes": [
+				"Add Modal to Convert Oneiric to Stellar Jade",
+				"Add Silver Wolf's banner and her Light cone",
+				"Add New Character: Yukong (4★)"
 			]
 		}
 	]

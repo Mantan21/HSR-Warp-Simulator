@@ -12,10 +12,9 @@
 	let rateup, bannerName, path, combat_type;
 	$: ({ rateup, bannerName, path, combat_type, featured } = item);
 
-	const characterOffset = (characterName) => {
-		const nullValue = { bannerOffset: {} };
-		const { bannerOffset } = data.find(({ name }) => name === characterName) || nullValue;
-		return positionToStyle(bannerOffset);
+	const characterOffset = (characterName, offset = 'bannerOffset') => {
+		const item = data.find(({ name }) => name === characterName) || {};
+		return positionToStyle(item[offset]);
 	};
 </script>
 
@@ -71,7 +70,11 @@
 
 	<!-- Right Pane -->
 	<div class="character">
-		<div class="char-group" in:fade={{ duration: 500, delay: 250 }}>
+		<div
+			class="char-group"
+			in:fade={{ duration: 500, delay: 250 }}
+			style={characterOffset(featured, 'textOffset')}
+		>
 			<div class="name">
 				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
 				<span>{$t(featured)}</span>
@@ -173,7 +176,7 @@
 
 	h1 {
 		margin-top: 5%;
-		font-size: calc(0.041 * var(--bw));
+		font-size: calc(0.035 * var(--bw));
 		height: calc(0.16 * var(--bw));
 		display: flex;
 		align-items: center;

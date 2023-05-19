@@ -16,8 +16,8 @@
 		if (!ismobile) return positionToStyle(bannerOffset);
 
 		const tmp = {};
-		tmp.b = (bannerOffset?.b || 0) + 75;
-		tmp.l = (bannerOffset?.l || 0) + 5;
+		tmp.b = (bannerOffset?.b || 0) + 80;
+		tmp.l = (bannerOffset?.l || 0) + 3;
 
 		return positionToStyle({ ...bannerOffset, ...tmp });
 	};

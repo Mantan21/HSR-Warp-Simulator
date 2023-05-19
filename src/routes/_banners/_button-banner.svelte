@@ -176,7 +176,6 @@
 
 	.overflow img {
 		position: absolute;
-		mask-image: linear-gradient(black 87%, transparent);
 	}
 	.events .overflow img {
 		top: -30%;
@@ -188,6 +187,7 @@
 		width: 44%;
 		right: 17%;
 		bottom: 0;
+		mask-image: linear-gradient(black 87%, transparent);
 	}
 	svg.stellar {
 		width: 180%;

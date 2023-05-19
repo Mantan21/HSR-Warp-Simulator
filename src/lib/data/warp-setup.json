@@ -1,8 +1,8 @@
 {
-	"version": "1.0",
-	"warpPhase": 2,
-	"storageVersion": "1.0.1",
-	"allPatch": [1.0],
+	"version": "1.1",
+	"warpPhase": 1,
+	"storageVersion": "1.1.0",
+	"allPatch": [1.0, 1.1],
 	"initialAmount": {
 		"stellarJade": 8000,
 		"ticketPass": 25,

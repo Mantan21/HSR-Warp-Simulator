@@ -1,0 +1,21 @@
+{
+	"patch": 1.1,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerName": "unreleased-1",
+					"featured": "silver-wolf",
+					"rateup": ["qingque", "yukong", "asta"]
+				},
+				"lightcone": {
+					"bannerName": "brilliant-fixation-2",
+					"featured": "incessant-rain",
+					"rateup": ["good-night-and-sleep-well", "the-moles-welcome-you", "post-op-conversation"]
+				}
+			}
+		}
+	]
+}

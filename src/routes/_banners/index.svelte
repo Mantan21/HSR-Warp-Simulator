@@ -1,6 +1,7 @@
 <script>
 	import { t } from 'svelte-i18n';
 	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
+	import { data } from '$lib/data/characters.json';
 	import { fade, fly } from '$lib/helpers/transition';
 	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets.js';
@@ -23,6 +24,17 @@
 			const { item } = list.find(({ type }) => type === 'character') || { item: null };
 			if (!item) return;
 
+			// Check Manual Color
+			const { colors } = data.find(({ name }) => name === item.featured);
+
+			if (Array.isArray(colors) && colors?.length > 1) {
+				const [cl1, cl2] = colors;
+				color1 = cl1.split(' ').join(',');
+				color2 = cl2.split(' ').join(',');
+				return;
+			}
+
+			// autpic color if no color served
 			const img = new Image();
 			img.crossOrigin = 'anonymous';
 			img.src = assetPath(`splash-art/5/${item.featured}`, 640);
@@ -46,7 +58,7 @@
 
 <div
 	class="banner"
-	style="--bn-color2: rgba({color1}, 0.8); --bn-color1: rgba({color2}, 0.8)"
+	style="--bn-color2: rgba({color2}, .9); --bn-color1: rgba({color1}, .9)"
 	transition:fade={{ duration: 250 }}
 >
 	{#if bannerType === 'starter'}

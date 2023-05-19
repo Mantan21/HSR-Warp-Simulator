@@ -58,6 +58,7 @@
 	},
 	"banner": {
 		"all": "All Banner",
+		"unreleased": "Not Released Yet",
 		"starter": "Starter Warp",
 		"regular": "Regular Warp",
 		"character-event": "Character Event Warp",
