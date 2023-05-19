@@ -1,12 +1,12 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
 	import { logs } from '$lib/data/logs.json';
+	import Scrollable from '$lib/components/Scrollable.svelte';
 </script>
 
 <div class="log-update" in:fade={{ duration: 250 }}>
 	<div class="container">
-		<Scrollable options={{ scrollbars: { theme: 'os-theme-dark' } }}>
+		<Scrollable dark>
 			{#each [...logs].reverse() as { changes, date }, i}
 				<div class="item">
 					<h2>

@@ -37,12 +37,7 @@
 	};
 	setContext('selectShop', selectShop);
 
-	onMount(() => {
-		const x = setTimeout(() => {
-			playSfx('shop-open');
-			clearTimeout(x);
-		}, 150);
-	});
+	onMount(() => playSfx('shop-open'));
 
 	// Modal
 	let showModal = false;

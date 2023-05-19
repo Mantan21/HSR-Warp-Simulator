@@ -3348,11 +3348,6 @@ optionator@^0.9.1:
     type-check "^0.4.0"
     word-wrap "^1.2.3"
 
-overlayscrollbars-svelte@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/overlayscrollbars-svelte/-/overlayscrollbars-svelte-0.4.0.tgz#4663eea1d86612b44d4732b4b4de798f6be432b3"
-  integrity sha512-5liVtMb0WgHu2ngICYS2c5ihEVQ/6rSFCDuymamTO6fS8M1pgfPeUyaQp9dTms+p+yuQmjdNmplR5dGgzgFhkw==
-
 overlayscrollbars@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/overlayscrollbars/-/overlayscrollbars-2.1.1.tgz#a7414fe9c96cf140dbe4975bbe9312861750388d"

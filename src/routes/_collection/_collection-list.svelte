@@ -2,7 +2,6 @@
 	import { getContext, onMount } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import { t } from 'svelte-i18n';
-	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
 
 	import { fade } from '$lib/helpers/transition';
 	import { isMobileLandscape } from '$lib/stores/app-store';
@@ -10,6 +9,7 @@
 	import { data as charDB } from '$lib/data/characters.json';
 	import { data as lcDB } from '$lib/data/light-cones.json';
 	import CollectionItem from './_collection-item.svelte';
+	import Scrollable from '$lib/components/Scrollable.svelte';
 
 	export let itemtype = 'character';
 	export let showAll = false;
@@ -116,7 +116,7 @@
 			<span>{$t('nodata')}</span>
 		</div>
 	{:else}
-		<Scrollable options={{ scrollbars: { theme: 'os-theme-light' } }}>
+		<Scrollable>
 			<div class="list" style="--itemWidth: {itemWidth}%">
 				{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }, i (name)}
 					<div

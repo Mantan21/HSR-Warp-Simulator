@@ -16,7 +16,7 @@
 	let showToggle = localToggle === undefined ? true : localToggle;
 
 	const toggleMenuList = () => {
-		playSfx();
+		playSfx('click2');
 		showToggle = !showToggle;
 		cookie.set('menuToggle', showToggle);
 	};

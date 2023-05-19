@@ -2,12 +2,12 @@
 	import { getContext, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
 
 	import { allPatch } from '$lib/data/warp-setup.json';
 	import { playSfx } from '$lib/helpers/audio';
 	import { assets } from '$lib/stores/app-store';
 
+	import Scrollable from '$lib/components/Scrollable.svelte';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import VersionItem from './_version-item.svelte';
@@ -50,7 +50,7 @@
 		</div>
 	</Header>
 	<div class="container">
-		<Scrollable options={{ scrollbars: { theme: 'os-theme-light' } }}>
+		<Scrollable>
 			<div class="wrapper">
 				{#if allBanners < 1}
 					<div class="wait" out:fade={{ duration: 250 }}>

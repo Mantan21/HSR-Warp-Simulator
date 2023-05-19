@@ -1,9 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
-	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
 	import { isMobileLandscape, viewportWidth } from '$lib/stores/app-store';
 	import { playSfx } from '$lib/helpers/audio';
 	import { fly } from 'svelte/transition';
+	import Scrollable from './Scrollable.svelte';
 
 	export let horizontal = false;
 	export let isOpen = false;
@@ -21,7 +21,7 @@
 
 <aside class:resizeable class:horizontal class:notext class:show={isOpen && dynamic}>
 	<div class="wrapper">
-		<Scrollable options={{ scrollbars: { theme: 'os-theme-light', visibility: 'hidden' } }}>
+		<Scrollable visibility="hidden">
 			<div class="scroll-content">
 				<slot />
 			</div>

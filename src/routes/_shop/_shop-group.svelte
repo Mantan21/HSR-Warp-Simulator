@@ -1,6 +1,6 @@
 <script>
-	import { OverlayScrollbarsComponent as Scrollable } from 'overlayscrollbars-svelte';
 	import { isMobileLandscape } from '$lib/stores/app-store';
+	import Scrollable from '$lib/components/Scrollable.svelte';
 
 	let containerWidth;
 	let itemBasis = 100 / 3;
@@ -40,7 +40,7 @@
 	$: setitemBasis(containerWidth, $isMobileLandscape);
 </script>
 
-<Scrollable options={{ scrollbars: { theme: 'os-theme-light' } }}>
+<Scrollable>
 	<div
 		class="group-content"
 		bind:clientWidth={containerWidth}
