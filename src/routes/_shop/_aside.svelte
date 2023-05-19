@@ -2,6 +2,7 @@
 	import { getContext } from 'svelte';
 	import NavLink from '$lib/components/NavLink.svelte';
 	import NavLinkItem from '$lib/components/NavLinkItem.svelte';
+	import { t } from 'svelte-i18n';
 
 	export let isOpen = false;
 	export let activeShop;
@@ -10,12 +11,12 @@
 </script>
 
 <NavLink dynamic {isOpen}>
-	<!-- <NavLinkItem
+	<NavLinkItem
 		icon="recomended"
 		active={activeShop === 'recomended'}
 		on:click={() => selectShop('recomended')}
 	>
-		Recomended
+		{$t('shop.recomended')}
 	</NavLinkItem>
 
 	<NavLinkItem
@@ -23,22 +24,26 @@
 		active={activeShop === 'starlight'}
 		on:click={() => selectShop('starlight')}
 	>
-		Starlight Exchange
+		{$t('shop.starlight')}
 	</NavLinkItem>
 
 	<NavLinkItem icon="embers" active={activeShop === 'embers'} on:click={() => selectShop('embers')}>
-		Embers Exchange
-	</NavLinkItem> -->
-
-	<NavLinkItem icon="more" active={activeShop === 'oneiric'} on:click={() => selectShop('oneiric')}>
-		Oneiric Pouch
+		{$t('shop.embers')}
 	</NavLinkItem>
 
-	<!-- <NavLinkItem
-		icon="stellar-jade"
-		active={activeShop === 'jade'}
-		on:click={() => selectShop('jade')}
+	<NavLinkItem
+		icon="more"
+		active={activeShop === 'oneiricPouch'}
+		on:click={() => selectShop('oneiricPouch')}
 	>
-		Stellar Trade
-	</NavLinkItem> -->
+		{$t('shop.oneiricPouch')}
+	</NavLinkItem>
+
+	<NavLinkItem
+		icon="stellar-jade"
+		active={activeShop === 'stellarTrade'}
+		on:click={() => selectShop('stellarTrade')}
+	>
+		{$t('shop.stellarTrade')}
+	</NavLinkItem>
 </NavLink>

@@ -1,14 +1,15 @@
 <script>
 	import { getContext, setContext } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { oneiric, stellarJade } from '$lib/stores/app-store';
+	import { localBalance } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/audio';
 
 	import Icon from './Icon.svelte';
 	import Modal from './Modal.svelte';
 	import Range from './Range.svelte';
 	import MyFund from './MyFund.svelte';
-	import { localBalance } from '$lib/stores/localstorage';
 
 	let value = 0;
 	$: value = value > $oneiric ? $oneiric : parseInt(value);
@@ -48,14 +49,14 @@
 </div>
 
 <Modal
-	title="Redeem Stellar Jade"
+	title={$t('shop.stellarReedem')}
 	disabled={value < 1}
 	on:cancel={cancelModal}
 	on:confirm={confirmConvert}
 >
 	<div class="modal-content">
 		<div class="caption">
-			You can reedem Stellar Jade with your Oneiric Shards to continue your purchase:
+			{$t('shop.oneiricConvert')}
 		</div>
 		<div class="row">
 			<div class="oneiric item">
@@ -73,7 +74,7 @@
 			</div>
 		</div>
 		<div class="amount">
-			<span>Amount:</span>
+			<span>{$t('shop.amount')}:</span>
 			<input type="number" bind:value disabled={$oneiric < 1} />
 		</div>
 		<div class="range">

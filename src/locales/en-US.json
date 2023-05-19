@@ -19,7 +19,8 @@
 		"starlight": "Undying Starlight",
 		"stellarJade": "Stellar Jade",
 		"specialPass": "Star Rail Special Pass",
-		"regularPass": "Star Rail Regular Pass"
+		"regularPass": "Star Rail Regular Pass",
+		"oneiric": "Oneiric Shards"
 	},
 	"path": {
 		"all": "All",
@@ -74,16 +75,34 @@
 		"heading": "Bank Data",
 		"button": "Collection",
 		"showAll": "Show All {itemtype}",
-		"notOwned": "Not Owned"
+		"notOwned": "Not Indexed"
 	},
 	"shop": {
-		"heading": "Exchange"
+		"heading": "Exchange",
+		"pay": "Pay",
+		"stellarReedem": "Redeem Stellar Jade",
+		"oneiricConvert": "You can reedem Stellar Jade with your Oneiric Shards to continue your purchase:",
+		"amount": "Amount",
+		"recomended": "Recomended",
+		"starlight": "Starlight Exchange",
+		"embers": "Embers Exchange",
+		"oneiricPouch": "Oneiric Pouch",
+		"stellarTrade": "Stellar Trade",
+		"payment": "Payment",
+		"bonus": "Bonus",
+		"selectMethod": "Select Payment Method",
+		"methodImaginary": "Imaginary Money",
+		"methodWallet": "Empty Wallet",
+		"methodTears": "Tears",
+		"autoConvert": "Auto convert to Stellar Jade",
+		"initialTopup": "Initial Topup Bonus ?"
 	},
 	"menu": {
 		"heading": "Menu",
 		"yes": "Yes",
 		"no": "No",
 		"settings": "Settings",
+		"updatelog": "Change Logs",
 		"switchbanner": "Switch Banner",
 		"warpNumber": "Number of Warps",
 		"muted": "Mute Audio & Sound Effects?",
@@ -91,7 +110,8 @@
 		"clearStorage": "Clear Storage",
 		"clearNow": "Clear Now",
 		"promptTitle": "Clear Data?",
-		"resetPrompt": "Are you sure to clear ALL DATA and reset the settings?",
-		"resetInfo": "This action will remove your Pull History, Pity Calculation, Balance and all items from Collection too!"
+		"resetPrompt": "Are you sure to clear ALL DATA?",
+		"keepSetting": "Keep Settings?",
+		"keepSettingInfo": "Current Pity, Balance and Settings will not be deleted."
 	}
 }

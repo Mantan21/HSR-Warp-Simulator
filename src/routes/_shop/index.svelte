@@ -1,6 +1,7 @@
 <script>
 	import { getContext, onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/audio';
 	import { assets, oneiric, stellarJade } from '$lib/stores/app-store';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
@@ -8,7 +9,7 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
 	import Oneiric from './Oneiric.svelte';
-	// import Embers from './Embers.svelte';
+	import Embers from './Embers.svelte';
 	import Aside from './_aside.svelte';
 
 	const random = (min, max) => {
@@ -23,7 +24,7 @@
 		navigate('index');
 	};
 
-	let activeShop = 'oneiric';
+	let activeShop = 'oneiricPouch';
 	let isOpen = false;
 	const toggle = () => (isOpen = !isOpen);
 	setContext('navlinkToggle', toggle);
@@ -44,7 +45,6 @@
 	});
 
 	// Modal
-
 	let showModal = false;
 	const closeModal = () => {
 		playSfx('modal-close');
@@ -70,9 +70,9 @@
 	<img class="bg" src={$assets[`bg${random(1, 10)}.webp`]} alt="background" />
 
 	<div class="container" in:fade={{ duration: 500 }}>
-		<Header h1="Store" h2={activeShop} icon="shop" relative>
+		<Header h1="Store" h2={$t(`shop.${activeShop}`)} icon="shop" relative>
 			<MyFund type="oneiric">{$oneiric}</MyFund>
-			<MyFund type="stellarjade">{$stellarJade}</MyFund>
+			<MyFund type="stellarjade" plusbutton>{$stellarJade}</MyFund>
 			<div class="close">
 				<ButtonIcon on:click={back} />
 			</div>
@@ -82,13 +82,13 @@
 			<Aside {activeShop} {isOpen} />
 
 			<div class="shop-group">
-				{#if activeShop === 'oneiric'}
+				{#if activeShop === 'oneiricPouch'}
 					<Oneiric />
 				{/if}
 
-				<!-- {#if activeShop === 'embers'}
+				{#if activeShop === 'embers'}
 					<Embers />
-				{/if} -->
+				{/if}
 			</div>
 		</div>
 	</div>

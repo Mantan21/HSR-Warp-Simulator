@@ -11,6 +11,7 @@
 	import ShopGroup from './_shop-group.svelte';
 	import OneiricPaymentModal from './_oneiric-payment-modal.svelte';
 	import { localConfig } from '$lib/stores/localstorage';
+	import { t } from 'svelte-i18n';
 
 	let optionHeight;
 	const checkCookie = cookie.get('initialTopup');
@@ -86,14 +87,16 @@
 
 							{#if initialTopup && doubleBonus}
 								<div class="bonus initial">
-									<Icon type="oneiric" /> Bonus +{qty}
+									<Icon type="oneiric" />
+									{$t('shop.bonus')} +{qty}
 								</div>
 							{:else if qty !== 60}
 								<div class="bonus">
-									<Icon type="oneiric" /> Bonus +{topupBonus[qty]}
+									<Icon type="oneiric" />
+									{$t('shop.bonus')} +{topupBonus[qty]}
 								</div>
 							{/if}
-							<span>Oneiric Shard ×{qty}</span>
+							<span>{$t('item.oneiric')} ×{qty}</span>
 						</div>
 						<div class="price">
 							<span> {price} </span>
@@ -119,7 +122,7 @@
 				}}
 			/>
 		</div>
-		<label for="keepsetting"> Initial Topup Bonus ? </label>
+		<label for="keepsetting"> {$t('shop.initialTopup')} </label>
 	</div>
 </div>
 

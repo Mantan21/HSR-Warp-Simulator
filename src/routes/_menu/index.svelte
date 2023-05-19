@@ -87,8 +87,8 @@
 					<span on:mousedown={() => (keepSetting = !keepSetting)} />
 				</div>
 				<label for="keepsetting">
-					<span> Keep Settings? </span>
-					<small> Current Pity, Balance and Settings will not be deleted. </small>
+					<span> {$t('menu.keepSetting')} </span>
+					<small> {$t('menu.keepSettingInfo')} </small>
 				</label>
 			</div>
 		</div>

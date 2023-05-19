@@ -1,12 +1,15 @@
 <script>
 	import { createEventDispatcher, getContext } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import ButtonGeneral from './ButtonGeneral.svelte';
 	import ButtonIcon from './ButtonIcon.svelte';
 	import { t } from 'svelte-i18n';
+	import { assets } from '$lib/stores/app-store';
 
 	export let title = '';
 	export let disabled = false;
+	export let exchange = false;
+
 	const closeModal = getContext('closeModal');
 
 	const dispatch = createEventDispatcher();
@@ -14,17 +17,36 @@
 	const confirm = () => dispatch('confirm');
 </script>
 
-<div class="modal" on:mousedown|self={closeModal} transition:fade={{ duration: 200 }}>
-	<div class="container">
-		<div class="header">
-			<h1>{title}</h1>
-			<div class="close">
-				<ButtonIcon on:click={closeModal} dark />
-			</div>
-		</div>
+<div
+	class="modal"
+	class:exchange
+	on:mousedown|self={closeModal}
+	transition:fade={{ duration: 200 }}
+>
+	<div class="container" transition:fly={{ y: 20, duration: 250 }}>
+		<div class="row">
+			{#if exchange}
+				<div class="item-picture">
+					<div class="wrapper">
+						<picture>
+							<img src={$assets['special-pass.webp']} alt="Starr Rail" />
+						</picture>
+					</div>
+				</div>
+			{/if}
 
-		<div class="body">
-			<slot />
+			<div class="content">
+				<div class="header">
+					<h1>{title}</h1>
+					<div class="close">
+						<ButtonIcon on:click={closeModal} dark />
+					</div>
+				</div>
+
+				<div class="body">
+					<slot />
+				</div>
+			</div>
 		</div>
 		<div class="footer">
 			<ButtonGeneral icon="times" on:click={cancel}>
@@ -50,6 +72,97 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.row {
+		display: flex;
+		width: 100%;
+	}
+
+	/* Modal Picture */
+	.item-picture {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex-basis: 30%;
+		width: 30%;
+		padding: 7.5% 0;
+	}
+
+	.item-picture .wrapper {
+		width: 60%;
+		margin-right: 12.5%;
+		border-radius: 100%;
+		aspect-ratio: 1/1;
+		background-image: linear-gradient(#a7785e, #cda46e);
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.wrapper::before,
+	.wrapper::after,
+	picture::before {
+		width: 100%;
+		aspect-ratio: 1/1;
+		position: absolute;
+		bottom: -2%;
+		content: '';
+		border-radius: 100%;
+		transform-origin: bottom;
+		border: 0.05rem dashed rgba(160, 97, 19, 0.85);
+		z-index: -1;
+		opacity: 0.6;
+	}
+
+	.wrapper::before {
+		transform: scale(1.065);
+	}
+
+	.wrapper::after {
+		border-style: solid;
+		transform: scale(1.17);
+	}
+
+	picture::before {
+		border-style: solid;
+		transform: scale(1.7);
+		bottom: -15%;
+		opacity: 0.075;
+		border-width: 0.01rem;
+	}
+
+	picture {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+	picture :global(img) {
+		width: 75%;
+	}
+
+	picture::after {
+		content: '';
+		border-radius: 100%;
+		position: absolute;
+		bottom: -120%;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(160, 97, 19, 0.1);
+		mask-image: linear-gradient(black, transparent 30%);
+	}
+
+	/* Modal Content */
+	.content {
+		width: 100%;
+	}
+
+	.exchange .content {
+		flex-basis: 68%;
+		width: 68%;
 	}
 
 	.header {
@@ -100,6 +213,10 @@
 		padding: 0 0 1.5%;
 		border-bottom: 0.1rem solid #aaa;
 		text-align: center;
+	}
+
+	.exchange h1 {
+		text-align: left;
 	}
 
 	.close {

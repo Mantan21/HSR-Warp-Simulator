@@ -1,11 +1,12 @@
 <script>
-	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
+	import { getContext } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/audio';
 	import { assets, oneiric, stellarJade } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
 	import { localBalance } from '$lib/stores/localstorage';
-	import { getContext } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 
 	export let data = { qty: 0, bonus: 0, price: '0' };
 
@@ -46,7 +47,7 @@
 <div class="modal" on:mousedown|self={closeModal} transition:fade={{ duration: 200 }}>
 	<div class="container" transition:fly={{ y: 20, duration: 250 }}>
 		<div class="header">
-			<h1>Payment</h1>
+			<h1>{$t('shop.payment')}</h1>
 			<div class="close">
 				<ButtonIcon on:click={closeModal} icon="times" dark />
 			</div>
@@ -54,15 +55,15 @@
 		<div class="modal-content">
 			<div class="item">
 				<div class="name">
-					Oneiric Shards ×{data.qty}
+					{$t('item.oneiric')} ×{data.qty}
 					{#if data.bonus > 0}
-						<small>+{data.bonus} Bonus</small>
+						<small>+{data.bonus} {$t('shop.bonus')}</small>
 					{/if}
 				</div>
 				<div class="price">{data.price}</div>
 			</div>
 
-			<caption>Select Payment Method</caption>
+			<caption>{$t('shop.selectMethod')}</caption>
 			<div class="payment-method">
 				<div class="method">
 					<button
@@ -70,7 +71,7 @@
 						class:active={activeMethod === 'imaginary-money'}
 					>
 						<img src={$assets['method-imaginary-money.webp']} alt="Imaginary Money" />
-						Imaginary Money
+						{$t('shop.methodImaginary')}
 					</button>
 				</div>
 
@@ -80,13 +81,13 @@
 						class:active={activeMethod === 'empty-wallet'}
 					>
 						<img src={$assets['method-empty-wallet.webp']} alt="Empty Wallet" />
-						Empty Wallet
+						{$t('shop.methodWallet')}
 					</button>
 				</div>
 
 				<div class="method">
 					<button on:click={() => selectMethod('tears')} class:active={activeMethod === 'tears'}>
-						<img src={$assets['method-tears.webp']} alt="Tears" />
+						<img src={$assets['method-tears.webp']} alt={$t('shop.methodTears')} />
 						Tears
 					</button>
 				</div>
@@ -102,12 +103,12 @@
 				/>
 				<label for="autoConvert">
 					<i>✔</i>
-					Auto convert to Stellar Jade
+					{$t('shop.autoConvert')}
 				</label>
 			</div>
 
 			<div class="paybutton">
-				<button on:click={handleBuy}> Pay </button>
+				<button on:click={handleBuy}> {$t('shop.pay')} </button>
 			</div>
 		</div>
 	</div>
