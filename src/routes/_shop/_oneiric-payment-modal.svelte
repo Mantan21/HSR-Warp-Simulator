@@ -20,7 +20,7 @@
 		if (method === activeMethod) return;
 		activeMethod = method;
 		cookie.set('payment-method', method);
-		playSfx();
+		playSfx('click2');
 	};
 
 	const convertBuy = () => {
@@ -98,7 +98,7 @@
 					name="autoConvert"
 					id="autoConvert"
 					bind:checked={autoConvert}
-					on:change={() => playSfx()}
+					on:change={() => playSfx('click2')}
 				/>
 				<label for="autoConvert">
 					<i>✔</i>

@@ -34,7 +34,7 @@
 		<MyFund type={event ? 'specialpass' : 'regularpass'}>
 			{unlimitedWarp ? '∞' : balance}
 		</MyFund>
-		<MyFund type="stellarjade">
+		<MyFund type="stellarjade" plusbutton>
 			{unlimitedWarp ? '∞' : $stellarJade}
 		</MyFund>
 	</div>

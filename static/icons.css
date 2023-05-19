@@ -194,3 +194,9 @@
 .hsr-times:before {
 	content: '\31';
 }
+.hsr-arrow-right:before {
+	content: '\4d';
+}
+.hsr-arrow-left:before {
+	content: '\32';
+}

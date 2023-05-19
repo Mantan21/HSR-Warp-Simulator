@@ -1,8 +1,11 @@
 <script>
+	import { playSfx } from '$lib/helpers/audio';
 	import { assets } from '$lib/stores/app-store';
+	import { getContext } from 'svelte';
 
 	export let type = 'stellarjade';
-	const allowAddition = type === 'stellarjade';
+	export let plusbutton = false;
+	const allowAddition = type === 'stellarjade' && plusbutton;
 
 	const iconList = {
 		stellarjade: 'stellar-jade.webp',
@@ -10,9 +13,16 @@
 		specialpass: 'special-pass-clean.webp',
 		oneiric: 'oneiric-shard.webp'
 	};
+
+	const openConvertModal = getContext('openConvertModal');
+	const openModal = () => {
+		if (!allowAddition) return;
+		openConvertModal();
+		playSfx('balance-click');
+	};
 </script>
 
-<button class={type}>
+<button class={type} on:click={openModal}>
 	<div class="icon">
 		<img src={$assets[iconList[type]]} alt="Icon" crossorigin="anonymous" />
 	</div>

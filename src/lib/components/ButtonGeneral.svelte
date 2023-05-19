@@ -35,6 +35,7 @@
 		transition: all 0.2s;
 		transform: scale(1.000001);
 		margin: 0 2%;
+		border: 1px transparent solid;
 	}
 
 	:global(.mobileLandscape) button {

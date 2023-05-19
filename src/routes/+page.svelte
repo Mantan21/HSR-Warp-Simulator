@@ -5,6 +5,7 @@
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 
+	import ModalConvert from '$lib/components/ModalConvert.svelte';
 	import LoginPage from './_login/index.svelte';
 	import AllBanner from './_allbanner/index.svelte';
 	import Banners from './_banners/index.svelte';
@@ -40,6 +41,11 @@
 			navigate('index');
 		});
 	});
+
+	// Convert Modal
+	let showConvertModal = false;
+	setContext('openConvertModal', () => (showConvertModal = true));
+	setContext('closeConvertModal', () => (showConvertModal = false));
 </script>
 
 {#if status === 'error'}
@@ -49,6 +55,10 @@
 {#if !loggedIn}
 	<LoginPage />
 {:else}
+	{#if showConvertModal}
+		<ModalConvert />
+	{/if}
+
 	{#if pageActive === 'index'}
 		<Banners />
 		<Menu />
