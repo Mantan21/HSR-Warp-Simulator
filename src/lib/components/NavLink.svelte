@@ -49,7 +49,7 @@
 	aside {
 		width: 25%;
 		flex-basis: 25%;
-		min-width: 35vh;
+		min-width: 30vh;
 		max-width: 280px;
 		display: block;
 		height: 100%;

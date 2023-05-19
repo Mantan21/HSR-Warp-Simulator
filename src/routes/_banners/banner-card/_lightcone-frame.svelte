@@ -1,6 +1,7 @@
 <script>
 	import { t } from 'svelte-i18n';
 	import { fade, fly } from '$lib/helpers/transition';
+
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
 	import RateupLightones from './__rateup-lightcones.svelte';
@@ -45,7 +46,7 @@
 			</span>
 		</div>
 	</div>
-	<div class="featured-lighcone" in:fly={{ duration: 1500, delay: 250, x: -20 }}>
+	<div class="featured-lighcone" in:fly={{ duration: 3000, delay: 250, x: -15, opacity: 1 }}>
 		<LightCones item={item.featured} />
 	</div>
 </div>

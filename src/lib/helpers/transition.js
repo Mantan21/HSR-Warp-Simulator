@@ -27,11 +27,10 @@ export const scale = (node, args) => {
 
 export const scaleOrigin = (
 	node,
-	{ duration = 300, delay = 0, origin = null, start = 0.5, disable = false }
+	{ duration = 300, delay = 0, origin = null, start = 0.5, disable = false, easing = null }
 ) => {
 	if (!animate || disable) return;
 	const transformOrigin = origin ? `transform-origin: ${origin}` : '';
-	const o = +getComputedStyle(node).opacity;
 	const m = getComputedStyle(node).transform.match(/scale\(([0-9.]+)\)/);
 	const s = m ? m[1] : 1;
 	const is = 1 - start;
@@ -40,10 +39,8 @@ export const scaleOrigin = (
 		delay,
 		duration,
 		css: (t) => {
-			const eased = cubicOut(t);
-			return `opacity: ${eased * o}; transform: scale(${
-				eased * s * is + start
-			}); ${transformOrigin}`;
+			const eased = easing(t) || cubicOut(t);
+			return `transform: scale(${eased * s * is + start}); ${transformOrigin}`;
 		}
 	};
 };

@@ -47,7 +47,7 @@
 										x: -20,
 										duration: 2000,
 										easing: bezier(0.13, 0.14, 0, 1),
-										delay: 300 + 100 * i
+										delay: 300 + 150 * i
 									}}
 								>
 									<source

@@ -4,6 +4,7 @@
 	import { assets } from '$lib/stores/app-store';
 	import BannerTpl from './__banner-tpl.svelte';
 	import { assetPath } from '$lib/helpers/assets';
+	import { bezier } from '$lib/helpers/easing';
 
 	export let item = {};
 </script>
@@ -16,7 +17,13 @@
 				src={assetPath(`lc/5/${item.featured}`, 890)}
 				alt={$t(item.featured)}
 				crossorigin="anonymous"
-				in:scaleOrigin={{ start: 1.1, duration: 2000, delay: 250, origin: '100% 80%' }}
+				in:scaleOrigin={{
+					start: 1.2,
+					duration: 3500,
+					delay: 250,
+					origin: '100% 80%',
+					easing: bezier(0.13, 0.14, 0, 1)
+				}}
 			/>
 		</picture>
 		<div class="layer-white">
