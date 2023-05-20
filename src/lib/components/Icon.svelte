@@ -5,14 +5,14 @@
 	export let style = '';
 
 	$: pic = {
-		regularpass: $assets['regular-pass.webp'],
-		specialpass: $assets['special-pass.webp'],
+		regularPass: $assets['regular-pass.webp'],
+		specialPass: $assets['special-pass.webp'],
 		eidolon4: $assets['eidolon-4star.webp'],
 		eidolon5: $assets['eidolon-5star.webp'],
 		embers: $assets['undying-embers.webp'],
 		starlight: $assets['undying-starlight.webp'],
 		oneiric: $assets['oneiric-shard.webp'],
-		stellarjade: $assets['stellar-jade.webp']
+		stellarJade: $assets['stellar-jade.webp']
 	};
 </script>
 

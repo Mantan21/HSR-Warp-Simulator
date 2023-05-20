@@ -17,7 +17,6 @@
 
 	<svg class="banner-corner" viewBox="0 0 68909.65 94154.68">
 		<g id="Layer_x0020_1">
-			<metadata id="CorelCorpID_0Corel-Layer" />
 			<path
 				d="M68909.65 94154.68l0 -82480.77 0 -11673.91 -11673.85 0 -57235.8 0c0,6420.78 5253.57,11673.91 11673.91,11673.91l35926.8 0c5385.08,92.08 9635.09,2685.92 9635.09,7115.95l0 63690.91c0,6420.78 5253.07,11673.91 11673.85,11673.91z"
 			/>
@@ -57,7 +56,11 @@
 	.wrapper-info {
 		height: 100%;
 		width: 97.5%;
-		background-image: linear-gradient(135deg, rgba(231, 232, 234, 1) 20%, rgba(231, 232, 234, 0.7));
+		background-image: linear-gradient(
+			135deg,
+			rgba(231, 232, 234, 1) 20%,
+			rgba(231, 232, 234, 0.85)
+		);
 		border-top-right-radius: calc(0.05 * var(--bw));
 		padding: 4.5%;
 	}

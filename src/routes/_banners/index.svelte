@@ -40,8 +40,8 @@
 			img.src = assetPath(`splash-art/5/${item.featured}`, 640);
 			img.addEventListener('load', () => {
 				const [clr1, clr2] = colorthief.getPalette(img, 2);
-				color1 = clr1.join(',');
-				color2 = clr2.join(',');
+				color1 = clr2.join(',');
+				color2 = clr1.join(',');
 			});
 		} catch (e) {
 			console.log(e);

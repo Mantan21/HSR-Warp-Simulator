@@ -57,7 +57,7 @@
 		height: 99%;
 		width: 99%;
 		background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.6), transparent 50%);
-		border-width: 0.25rem 0.3rem 0.2rem 0.15rem;
+		border-width: 0.25rem 0.275rem 0.2rem 0.15rem;
 		top: -4%;
 		left: -5.5%;
 	}
@@ -90,7 +90,7 @@
 		bottom: -3%;
 		right: -5%;
 		background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2), transparent 50%);
-		border-width: 0.25rem 0.35rem 0.2rem 0.15rem;
+		border-width: 0.25rem 0.3rem 0.2rem 0.15rem;
 		border-radius: 0.5rem;
 	}
 </style>

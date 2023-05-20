@@ -45,7 +45,7 @@
 		{$oneiric}
 	</MyFund>
 
-	<MyFund type="stellarjade">{$stellarJade}</MyFund>
+	<MyFund type="stellarJade">{$stellarJade}</MyFund>
 </div>
 
 <Modal
@@ -69,7 +69,7 @@
 			</div>
 			<div class="stellarJade item">
 				<div class="icon">
-					<Icon type="stellarjade" />
+					<Icon type="stellarJade" />
 				</div>
 			</div>
 		</div>

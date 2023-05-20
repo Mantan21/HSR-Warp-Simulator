@@ -158,7 +158,7 @@
 	.featured-lighcone {
 		position: absolute;
 		width: 24%;
-		right: 25%;
+		right: 24%;
 		top: 22%;
 		transform: rotate(7deg);
 	}
@@ -183,7 +183,7 @@
 	}
 
 	.item-name .name {
-		font-size: calc(0.022 * var(--bw));
+		font-size: calc(0.02 * var(--bw));
 		color: #333;
 		font-weight: bold;
 	}

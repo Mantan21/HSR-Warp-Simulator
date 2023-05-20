@@ -31,10 +31,10 @@
 
 <Header icon="warp" h1={$t('warp.heading')} h2={nameOfBanner(bannerType)} hideDesktopIcon>
 	<div class="budget">
-		<MyFund type={event ? 'specialpass' : 'regularpass'}>
+		<MyFund type={event ? 'specialPass' : 'regularPass'}>
 			{unlimitedWarp ? '∞' : balance}
 		</MyFund>
-		<MyFund type="stellarjade" plusbutton>
+		<MyFund type="stellarJade" plusbutton>
 			{unlimitedWarp ? '∞' : $stellarJade}
 		</MyFund>
 	</div>

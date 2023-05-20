@@ -25,7 +25,7 @@
 
 	<button class:starter on:click={handleClick}>
 		<div class="cost">
-			<Icon type={event ? 'specialpass' : 'regularpass'} />
+			<Icon type={event ? 'specialPass' : 'regularPass'} />
 			<span>×{single ? '1 ' : `${cost}`}</span>
 		</div>
 		<span class="text">

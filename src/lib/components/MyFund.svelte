@@ -3,15 +3,17 @@
 	import { assets } from '$lib/stores/app-store';
 	import { getContext } from 'svelte';
 
-	export let type = 'stellarjade';
+	export let type = 'stellarJade';
 	export let plusbutton = false;
-	const allowAddition = type === 'stellarjade' && plusbutton;
+	const allowAddition = type === 'stellarJade' && plusbutton;
 
 	const iconList = {
-		stellarjade: 'stellar-jade.webp',
-		regularpass: 'regular-pass-clean.webp',
-		specialpass: 'special-pass-clean.webp',
-		oneiric: 'oneiric-shard.webp'
+		stellarJade: 'stellar-jade.webp',
+		regularPass: 'regular-pass-clean.webp',
+		specialPass: 'special-pass-clean.webp',
+		oneiric: 'oneiric-shard.webp',
+		embers: 'undying-embers.webp',
+		starlight: 'undying-starlight.webp'
 	};
 
 	const openConvertModal = getContext('openConvertModal');
