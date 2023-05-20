@@ -3,14 +3,14 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/audio';
-	import { assets, oneiric, stellarJade } from '$lib/stores/app-store';
+	import { assets, embers, oneiric, starlight, stellarJade } from '$lib/stores/app-store';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import Modal from '$lib/components/Modal.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
 	import Oneiric from './Oneiric.svelte';
-	import Embers from './Embers.svelte';
+	import ExchangeItem from './ExchangeItem.svelte';
 	import Aside from './_aside.svelte';
+	import ExchangeModal from './_exchange-modal.svelte';
 
 	const random = (min, max) => {
 		min = Math.ceil(min);
@@ -41,24 +41,18 @@
 
 	// Modal
 	let showModal = false;
-	const closeModal = () => {
-		playSfx('modal-close');
-		showModal = false;
-	};
-	setContext('closeModal', closeModal);
+	let exchangeData = {};
 
-	const openModal = () => {
+	setContext('closeExchageModal', () => (showModal = false));
+	const openModal = (data) => {
+		exchangeData = data;
 		showModal = true;
 	};
-	setContext('openModal', openModal);
+	setContext('openExchangeModal', openModal);
 </script>
 
 {#if showModal}
-	<Modal title="Star Rail Special Pass" exchange on:cancel={closeModal}>
-		<div class="picture" slot="picture">image</div>
-
-		<div class="modal-content">iki kontent</div>
-	</Modal>
+	<ExchangeModal data={exchangeData} />
 {/if}
 
 <section in:fade={{ duration: 250 }}>
@@ -66,8 +60,22 @@
 
 	<div class="container" in:fade={{ duration: 500 }}>
 		<Header h1="Store" h2={$t(`shop.${activeShop}`)} icon="shop" relative>
-			<MyFund type="oneiric">{$oneiric}</MyFund>
-			<MyFund type="stellarjade" plusbutton>{$stellarJade}</MyFund>
+			{#if activeShop === 'oneiricPouch'}
+				<MyFund type="oneiric">{$oneiric}</MyFund>
+			{/if}
+
+			{#if ['stellarTrade', 'oneiricPouch'].includes(activeShop)}
+				<MyFund type="stellarJade" plusbutton>{$stellarJade}</MyFund>
+			{/if}
+
+			{#if activeShop === 'embers'}
+				<MyFund type="embers">{$embers}</MyFund>
+			{/if}
+
+			{#if activeShop === 'starlight'}
+				<MyFund type="starlight">{$starlight}</MyFund>
+			{/if}
+
 			<div class="close">
 				<ButtonIcon on:click={back} />
 			</div>
@@ -82,7 +90,15 @@
 				{/if}
 
 				{#if activeShop === 'embers'}
-					<Embers />
+					<ExchangeItem item="embers" />
+				{/if}
+
+				{#if activeShop === 'starlight'}
+					<ExchangeItem item="starlight" />
+				{/if}
+
+				{#if activeShop === 'stellarTrade'}
+					<ExchangeItem item="stellarJade" />
 				{/if}
 			</div>
 		</div>

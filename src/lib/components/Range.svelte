@@ -12,7 +12,7 @@
 	const setValue = getContext('setValue');
 	const changeRange = (e) => {
 		const { value } = e.target;
-		setValue(value);
+		setValue(parseInt(value));
 	};
 
 	let timeout;

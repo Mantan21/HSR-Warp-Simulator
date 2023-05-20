@@ -1,10 +1,9 @@
 <script>
 	import { createEventDispatcher, getContext } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import ButtonGeneral from './ButtonGeneral.svelte';
 	import ButtonIcon from './ButtonIcon.svelte';
-	import { t } from 'svelte-i18n';
-	import { assets } from '$lib/stores/app-store';
 
 	export let title = '';
 	export let disabled = false;
@@ -28,9 +27,7 @@
 			{#if exchange}
 				<div class="item-picture">
 					<div class="wrapper">
-						<picture>
-							<img src={$assets['special-pass.webp']} alt="Starr Rail" />
-						</picture>
+						<slot name="picture" />
 					</div>
 				</div>
 			{/if}
@@ -103,7 +100,7 @@
 
 	.wrapper::before,
 	.wrapper::after,
-	picture::before {
+	.wrapper :global(picture)::before {
 		width: 100%;
 		aspect-ratio: 1/1;
 		position: absolute;
@@ -125,7 +122,7 @@
 		transform: scale(1.17);
 	}
 
-	picture::before {
+	.wrapper :global(picture)::before {
 		border-style: solid;
 		transform: scale(1.7);
 		bottom: -15%;
@@ -133,18 +130,18 @@
 		border-width: 0.01rem;
 	}
 
-	picture {
+	.wrapper :global(picture) {
 		display: flex;
 		width: 100%;
 		justify-content: center;
 		align-items: center;
 		position: relative;
 	}
-	picture :global(img) {
+	.wrapper :global(picture) :global(img) {
 		width: 75%;
 	}
 
-	picture::after {
+	.wrapper :global(picture)::after {
 		content: '';
 		border-radius: 100%;
 		position: absolute;
@@ -188,6 +185,12 @@
 		backdrop-filter: blur(10px);
 		border-top-right-radius: 5vh;
 		z-index: 2;
+	}
+
+	@media screen and (max-width: 700px) {
+		.container {
+			border-top-right-radius: 5vw;
+		}
 	}
 
 	:global(.mobileLandscape) .container {

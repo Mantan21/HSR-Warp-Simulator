@@ -7,10 +7,12 @@ import {
 import {
 	activePhase,
 	activeVersion,
+	embers,
 	oneiric,
 	regularPass,
 	showStarterBanner,
 	specialPass,
+	starlight,
 	starterRemaining,
 	stellarJade,
 	warpAmount
@@ -23,12 +25,16 @@ const importLocalBalance = () => {
 		stellarJade: sj,
 		specialPass: sp,
 		regularPass: rp,
-		oneiric: os
+		oneiric: os,
+		embers: eb,
+		starlight: sl
 	} = localBalance.all() || {};
 	stellarJade.set(isNaN(sj) ? isj : sj);
 	specialPass.set(isNaN(sp) ? pass : sp);
 	regularPass.set(isNaN(rp) ? pass : rp);
 	oneiric.set(isNaN(os) ? ios : os);
+	embers.set(isNaN(eb) ? 0 : eb);
+	starlight.set(isNaN(sl) ? 0 : sl);
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);

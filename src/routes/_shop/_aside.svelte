@@ -11,13 +11,13 @@
 </script>
 
 <NavLink dynamic {isOpen}>
-	<NavLinkItem
+	<!-- <NavLinkItem
 		icon="recomended"
 		active={activeShop === 'recomended'}
 		on:click={() => selectShop('recomended')}
 	>
 		{$t('shop.recomended')}
-	</NavLinkItem>
+	</NavLinkItem> -->
 
 	<NavLinkItem
 		icon="starlight"
