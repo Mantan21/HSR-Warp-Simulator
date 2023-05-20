@@ -3348,11 +3348,6 @@ optionator@^0.9.1:
     type-check "^0.4.0"
     word-wrap "^1.2.3"
 
-overlayscrollbars@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/overlayscrollbars/-/overlayscrollbars-2.1.1.tgz#a7414fe9c96cf140dbe4975bbe9312861750388d"
-  integrity sha512-xvs2g8Tcq9+CZDpLEUchN3YUzjJhnTWw9kwqT/qcC53FIkOyP9mqnRMot5sW16tcsPT1KaMyzF0AMXw/7E4a8g==
-
 p-limit@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-3.1.0.tgz#e1daccbe78d0d1388ca18c64fea38e3e57e3706b"

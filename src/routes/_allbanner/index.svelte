@@ -113,6 +113,7 @@
 		padding: 0.6% 0;
 		display: inline-block;
 		position: relative;
+		z-index: +2;
 	}
 
 	h3::before {

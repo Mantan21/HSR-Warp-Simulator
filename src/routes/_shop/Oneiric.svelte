@@ -71,7 +71,7 @@
 {/if}
 
 <div class="oneiric-section" in:fade={{ duration: 250 }}>
-	<div class="content-group" style="height:calc(100% - {optionHeight}px)">
+	<div class="content-group" style="--option-height:{optionHeight}px">
 		<ShopGroup>
 			{#each oneiricList as { qty, price, doubleBonus }, i}
 				<ShopGroupItem>
@@ -113,11 +113,11 @@
 				name="keep"
 				id="keepsetting"
 				bind:checked={initialTopup}
-				on:change={() => playSfx()}
+				on:change={() => playSfx('click2')}
 			/>
 			<span
 				on:mousedown={() => {
-					playSfx();
+					playSfx('click2');
 					initialTopup = !initialTopup;
 				}}
 			/>
@@ -135,8 +135,12 @@
 	}
 
 	.content-group {
-		height: 100%;
+		height: calc(var(--screen-height) - var(--option-height) - 75px);
 		width: 100%;
+	}
+
+	:global(.mobileLandscape) .content-group {
+		height: calc(var(--screen-height) - var(--option-height) - 35px);
 	}
 
 	.oneiric-item {

@@ -36,7 +36,7 @@
 	.container {
 		width: 100%;
 		height: 100%;
-		mask-image: linear-gradient(to bottom, black 93%, transparent 98%);
+		mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
 	}
 
 	.item {

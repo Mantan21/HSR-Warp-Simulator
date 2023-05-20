@@ -20,9 +20,10 @@
 	class="modal"
 	class:exchange
 	on:mousedown|self={closeModal}
-	transition:fade={{ duration: 200 }}
+	in:fade={{ duration: 200 }}
+	out:fade={{ duration: 80 }}
 >
-	<div class="container" transition:fly={{ y: 20, duration: 250 }}>
+	<div class="container" in:fly={{ y: 20, duration: 250 }} out:fly={{ y: 20, duration: 80 }}>
 		<div class="row">
 			{#if exchange}
 				<div class="item-picture">
