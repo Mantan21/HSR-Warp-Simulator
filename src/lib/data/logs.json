@@ -52,6 +52,14 @@
 				"Add Silver Wolf's banner and her Light cone",
 				"Add New Character: Yukong (4★)"
 			]
+		},
+		{
+			"date": "20 May 2023",
+			"changes": ["Starlight Exchange", "Embers Exchange", "Stellar Trade"]
+		},
+		{
+			"date": "21 May 2023",
+			"changes": ["Add Banner Details"]
 		}
 	]
 }

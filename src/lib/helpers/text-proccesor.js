@@ -1,4 +1,6 @@
 export const getBannerName = (banner) => {
+	if (banner === 'starter') return { name: 'departure' };
+	if (banner === 'regular') return { name: 'stellar' };
 	const split = banner.split('-');
 	return { name: split.slice(0, -1).join('-'), number: split[split.length - 1] };
 };

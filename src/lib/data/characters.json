@@ -6,10 +6,10 @@
 			"combat_type": "quantum",
 			"path": "nihility",
 			"colors": ["42 38 99", "85 101 214"],
-			"splashartOffset": { "t": 51, "w": 95 },
+			"splashartOffset": { "t": 51 },
 			"gachaCardOffset": { "t": 125, "l": 25, "w": 365 },
 			"buttonOffset": { "t": -60, "w": 110 },
-			"bannerOffset": { "b": -45, "l": 7, "w": 112 },
+			"bannerOffset": { "b": -35, "l": 12.5, "w": 100 },
 			"textOffset": { "l": 65 }
 		},
 		{

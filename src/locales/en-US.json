@@ -1,6 +1,13 @@
 {
 	"character": "Character",
 	"lightcone": "Light Cone",
+	"ice": "Ice",
+	"imaginary": "Imaginary",
+	"fire": "Fire",
+	"lightning": "Lightning",
+	"physical": "Physical",
+	"quantum": "Quantum",
+	"wind": "Wind",
 	"etc": "etc.",
 	"new": "New",
 	"converted": "Converted to",
@@ -19,8 +26,10 @@
 		"starlight": "Undying Starlight",
 		"stellarJade": "Stellar Jade",
 		"specialPass": "Star Rail Special Pass",
-		"regularPass": "Star Rail Regular Pass",
-		"oneiric": "Oneiric Shards"
+		"regularPass": "Star Rail Pass",
+		"oneiric": "Oneiric Shards",
+		"specialPassStory": "Direct ticket for the Astral Express with coordinates of specific worlds, suitable for passengers who just want to go from point A to point B.<br/><br/> <i>\"Need to catch up with an old friend? Hop on and see the universe with him/her/it/them!\"</i>",
+		"regularPassStory": "Astral Express Universal Pass. Travel as far as the Star Rail stretches.<br/><br/> <i>\"Map worlds, meet people, make memories.\"</i>"
 	},
 	"path": {
 		"all": "All",
@@ -58,7 +67,7 @@
 	},
 	"banner": {
 		"all": "All Banner",
-		"unreleased": "Not Released Yet",
+		"unreleased": "Stellaron Hunter",
 		"starter": "Starter Warp",
 		"regular": "Regular Warp",
 		"character-event": "Character Event Warp",
@@ -70,7 +79,57 @@
 		"swirl-of-heavenly-spear": "Swirl of Heavenly Spear"
 	},
 	"details": {
-		"view": "View Details"
+		"heading": "Details",
+		"view": "View Details",
+		"entityList": "Entity List",
+		"warpObtain": "What you can obtain from Warp",
+		"dropRateBoost": "Drop Rate Boost Entities",
+		"droprate": "Drop Rate (out of {rarity}-star entities): {rate}",
+		"baseWarpRate": "{rarity}-star entitiy base Warp rate: {rate} (Incl. guarantee: {avgRate})",
+		"warpNote": "While no boosts or guarantees are in effect, the base rate of all characters and Light Cones will be evenly distributed.",
+		"special": "▌ Special Details",
+		"bannerStarted": "<span>{banner}</span> has started",
+		"eventWarpNote": "※ This Warp is counted as a {banner}. The Warp count for the guarantee for any {banner} will always be carried over to other {banner}, but is independent of and unaffected by other types of Warps.",
+		"rateupCharList": "● There is a greatly increased Warp success rate for the limited 5-star character <span>{featuredName} ({featuredPath}: {featuredCombatType})</span>, and 4-star characters <span>{char1} ({path1}: {combatType1})</span>, <span>{char2} ({path2}: {combatType2})</span>, and <span>{char3} ({path3}: {combatType3})</span>",
+		"rateupLCList": "● There is a greatly increased Warp success rate for the limited 5-star light cone <span>{featuredName} ({featuredPath})</span>, and 4-star light cones <span>{char1} ({path1})</span>, <span>{char2} ({path2})</span>, and <span>{char3} ({path3})</span>",
+		"eventDetails": [
+			"▌ Event Details",
+			"During the <span>{banner}</span>, you can use your Star Rail Special Passes for Warps.",
+			"{rateupList}.",
+			"● Among the above {itemType}, the limited {itemType} will not be available in the Stellar Warp event."
+		],
+		"eventWarpRate": [
+			"▌ {banner} Details",
+			"■ Warp Rate",
+			"For this {banner}, the chances of obtaining 5-star {itemType} and 4-star {itemType} are as follows:",
+			"● During the event, the base chance of obtaining 5-star {itemType} is <span>{base5Rate}</span>, and the consolidated chance including the guarantee is <span>{consolidated5Rate}</span>. Every <span>{maxPity}</span> Warps guarantees a 5-star {itemType}.",
+			"● During the event, the base chance of obtaining 4-star entities is <span>{base4Rate}</span>, the base chance of obtaining 4-star  characters is <span>{itemRate}</span>, and the base chance of obtaining 4-star Light Cones is <span>{itemRate}</span>. The consolidated chance of obtaining 4-star rewards including the  guarantee is <span>{consolidated4Rate}</span>. Every <span>10</span> Warps guarantees a 4-star or above character or Light Cone. The chance of obtaining a 4-star character or Light Cone from the guarantee is <span>{guarantee4Rate}</span> and the chance of obtaining a 5-star {itemType} is <span>{base5Rate}</span>"
+		],
+		"boostedRate": [
+			"■ Boosted Rate",
+			"● The first time you obtain a 5-star {itemType} in this Warp event, there is a <span>{winRate}</span> chance it will be the promotional {itemType} <span>{featuredName} ( {featuredPath} {featuredCombatType} )</span>. If the first 5-star {itemType} you obtain in this Warp event is not the  promotional {itemType}, then the next 5-star {itemType} you obtain is guaranteed to be the promotional {itemType}.",
+			"● The first time you obtain a 4-star entity in this Warp event, there is a <span>{winRate}</span> chance it will be one of the promotional {itemType} {rateupList}.",
+			"● If the first4-star entity you obtain in this Warp event is not one of the promotional {itemType}, then the next 4-star {itemType} you obtain is guaranteed to be one of the promotional {itemType}. The rate of obtaining each promotional 4-star {itemType} is equal between all of them."
+		],
+		"starterDescription": "<span>The Departure Warp</span> is a permanent Warp event, you can only make sets of 10 Warps. Every <span>10</span> Warps guarantees a 4-star or above character or Light Cone. <span>Enjoy a 20% discount on the Star Rail Passes for 10-Warp sets.</span><br> You may only Warp up to 50 times for this event. <span>At least one 5-star or above character is guaranteed within 50 Warps.",
+		"starterDetail": [
+			"▌ Warp Details",
+			"■ 5-Star Characters",
+			"● In this event, the base chance of obtaining 5-star characters is <span>0.600%</span>. The consolidated chance of obtaining 5-star characters (including guarantee) is <span>2.080%</span>. Every <span>50</span> Warps guarantees a 5-star character."
+		],
+		"regularDescription": "<span>Stellar Warp </span>is a permanent Warp event, you can use your Star Rail Passes to obtain characters and Light Cones. In this event, every <span>10</span> Warps guarantees at least one 4-star or above character or Light Cone.",
+		"regular5starRate": [
+			"▌ Warp Details",
+			"■ 5-Star Characters and Light Cones",
+			"● In this event, the base chance of obtaining 5-star characters and Light Cones is <span>0.600%</span>, the base chance of obtaining 5-star characters is <span>0.300%</span>, and the base chance of obtaining 5-star Light Cones is <span>0.300%</span>. The consolidated chance of obtaining 5-star characters and Light Cones (including guarantee) is <span>1.600%</span>. Every <span>90</span> Warps guarantees a 5-star character or Light Cone."
+		],
+		"regular4starRate": [
+			"■ 4-Star Characters and Light Cones",
+			"● In this event, the base chance of obtaining 4-star characters and Light Cones is <span>5.100%</span>, the base chance of obtaining 4-star characters is <span>2.550%</span>, and the base chance of obtaining 4-star Light Cones is <span>2.550%</span>. The consolidated chance of obtaining 4-star characters and Light Cones (including guarantee) is <span>12.160%</span>. Every <span>10</span> Warps guarantees a 4-star or above character or Light Cone. The chance of obtaining a 4-star character or Light Cone from the guarantee is <span>99.400%</span>, and the chance of obtaining a 5-star character is <span>0.600%</span>.",
+			"● In most cases, the base rate applies to all characters or Light Cones. If there is a boost or guarantee in effect, please refer to the corresponding rules."
+		],
+		"convertion": "Whenever you obtain a {rarity}-star Light Cone during the Warp, gain {undyingType} ×<span>{undyingBonus}</span>.",
+		"duplicate": "● On obtaining a {rarity}-star character that you already own (whether obtained in a Warp, redeemed at the shop, or redeemed from the system): The 2nd – 7th time you obtain the character, it will be converted into that character's Eidolon ×<span>1</span> and {undyingType} ×<span>{bonusQty}</span>; from the 8th time onwards, it will be converted into {undyingType} ×<span>{fullBonusQty}</span>."
 	},
 	"collection": {
 		"heading": "Bank Data",

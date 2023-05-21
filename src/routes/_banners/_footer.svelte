@@ -164,11 +164,11 @@
 					{$t('collection.button')}
 				</Button>
 			</div>
-			<!-- <div class="btn">
-				<Button>
+			<div class="btn">
+				<Button on:click={() => goto('details')}>
 					{$t('details.view')}
 				</Button>
-			</div> -->
+			</div>
 		</div>
 		<div class="warp-button">
 			{#if !isStarter}

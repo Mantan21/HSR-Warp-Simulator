@@ -81,6 +81,8 @@ const images = [
 			'allbanner-bg.webp',
 			'archive-bg.webp',
 			'departure-bg.webp',
+			'gachainfo-bg.webp',
+			'gachainfo-bg2.webp',
 			'stellar-bg.webp',
 			'warp-bg.webp'
 		]

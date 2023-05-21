@@ -67,7 +67,11 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0));
+		background-image: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0.9) 10%,
+			rgba(255, 255, 255, 0.3)
+		);
 		mask-image: radial-gradient(circle farthest-side at right, transparent 31%, white 31%);
 		mask-position: 74%;
 		mask-size: 200% 100%;

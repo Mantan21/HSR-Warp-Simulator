@@ -3,7 +3,6 @@
 	import { onMount, setContext } from 'svelte';
 	import { isLoading, locale } from 'svelte-i18n';
 	import { dev } from '$app/environment';
-	import 'overlayscrollbars/overlayscrollbars.css';
 	import './styles.css';
 
 	import { APP_TITLE, DESCRIPTION, HOST, KEYWORDS } from '$lib/data/site-setup.json';

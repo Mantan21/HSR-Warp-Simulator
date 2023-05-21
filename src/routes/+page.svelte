@@ -12,6 +12,7 @@
 	import Menu from './_menu/index.svelte';
 	import Collection from './_collection/index.svelte';
 	import Shop from './_shop/index.svelte';
+	import GachaInfo from './_gachainfo/index.svelte';
 
 	let status;
 	let loggedIn = false;
@@ -74,5 +75,9 @@
 
 	{#if pageActive === 'shop'}
 		<Shop />
+	{/if}
+
+	{#if pageActive === 'details'}
+		<GachaInfo />
 	{/if}
 {/if}

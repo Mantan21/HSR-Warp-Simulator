@@ -11,7 +11,7 @@
 	import Range from './Range.svelte';
 	import MyFund from './MyFund.svelte';
 
-	let value = 0;
+	let value = 1;
 	$: value = value > $oneiric ? $oneiric : parseInt(value);
 	setContext('setValue', (val) => (value = val));
 
@@ -50,7 +50,7 @@
 
 <Modal
 	title={$t('shop.stellarReedem')}
-	disabled={value < 1}
+	disabled={isNaN(value) || value < 1}
 	on:cancel={cancelModal}
 	on:confirm={confirmConvert}
 >
@@ -78,7 +78,7 @@
 			<input type="number" bind:value disabled={$oneiric < 1} />
 		</div>
 		<div class="range">
-			<Range max={$oneiric} min={0} {value} disabled={$oneiric < 1} />
+			<Range max={$oneiric || 1} min={1} value={$oneiric < 1 ? 1 : value} disabled={$oneiric < 1} />
 		</div>
 	</div>
 </Modal>
