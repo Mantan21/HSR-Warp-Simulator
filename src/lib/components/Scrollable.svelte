@@ -12,8 +12,7 @@
 		width: 100%;
 		height: 100%;
 		scroll-behavior: smooth;
-		overflow-y: auto;
-		overflow-x: hidden;
+		overflow: auto;
 	}
 
 	.scroll.hidden::-webkit-scrollbar {
@@ -23,6 +22,7 @@
 	.scroll::-webkit-scrollbar {
 		position: absolute;
 		width: 3px;
+		height: 3px;
 		display: block;
 	}
 

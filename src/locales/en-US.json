@@ -109,7 +109,7 @@
 			"■ Boosted Rate",
 			"● The first time you obtain a 5-star {itemType} in this Warp event, there is a <span>{winRate}</span> chance it will be the promotional {itemType} <span>{featuredName} ( {featuredPath} {featuredCombatType} )</span>. If the first 5-star {itemType} you obtain in this Warp event is not the  promotional {itemType}, then the next 5-star {itemType} you obtain is guaranteed to be the promotional {itemType}.",
 			"● The first time you obtain a 4-star entity in this Warp event, there is a <span>{winRate}</span> chance it will be one of the promotional {itemType} {rateupList}.",
-			"● If the first4-star entity you obtain in this Warp event is not one of the promotional {itemType}, then the next 4-star {itemType} you obtain is guaranteed to be one of the promotional {itemType}. The rate of obtaining each promotional 4-star {itemType} is equal between all of them."
+			"● If the first 4-star entity you obtain in this Warp event is not one of the promotional {itemType}, then the next 4-star {itemType} you obtain is guaranteed to be one of the promotional {itemType}. The rate of obtaining each promotional 4-star {itemType} is equal between all of them."
 		],
 		"starterDescription": "<span>The Departure Warp</span> is a permanent Warp event, you can only make sets of 10 Warps. Every <span>10</span> Warps guarantees a 4-star or above character or Light Cone. <span>Enjoy a 20% discount on the Star Rail Passes for 10-Warp sets.</span><br> You may only Warp up to 50 times for this event. <span>At least one 5-star or above character is guaranteed within 50 Warps.",
 		"starterDetail": [
@@ -130,6 +130,25 @@
 		],
 		"convertion": "Whenever you obtain a {rarity}-star Light Cone during the Warp, gain {undyingType} ×<span>{undyingBonus}</span>.",
 		"duplicate": "● On obtaining a {rarity}-star character that you already own (whether obtained in a Warp, redeemed at the shop, or redeemed from the system): The 2nd – 7th time you obtain the character, it will be converted into that character's Eidolon ×<span>1</span> and {undyingType} ×<span>{bonusQty}</span>; from the 8th time onwards, it will be converted into {undyingType} ×<span>{fullBonusQty}</span>."
+	},
+	"history": {
+		"heading": "History",
+		"entityName": "Entity Name",
+		"entityType": "Entity Type",
+		"warpTime": "Warp Time",
+		"warpType": "Warp Type",
+		"pity": "Pity",
+		"currentPity": "Current Pity: ",
+		"totalPull": "Total Pull: ",
+		"totalSpend": "Total Spend: ",
+		"filterTxt": "Filter",
+		"filterAll": "All",
+		"filter": "{rarity}-Star",
+		"win": "Win 50/50",
+		"lose": "Lose 50/50",
+		"guaranteed": "Guaranteed",
+		"untracked": "Untracked",
+		"description": "All data was stored to IndexedDB, it means the data is saved on your browser storage. It will never deleted untill you delete it manualy through delete/reset button or clear the browser data."
 	},
 	"collection": {
 		"heading": "Bank Data",

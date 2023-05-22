@@ -1,6 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { assets } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
 	import { playSfx } from '$lib/helpers/audio';
@@ -36,13 +37,13 @@
 		<div class="header">
 			<div class="nav">
 				<button class:active={activeInfo === 'details'} on:click={() => selectInfo('details')}>
-					Details
+					{$t('details.heading')}
 				</button>
 
 				<div class="divider" />
 
 				<button class:active={activeInfo === 'history'} on:click={() => selectInfo('history')}>
-					History
+					{$t('history.heading')}
 				</button>
 			</div>
 

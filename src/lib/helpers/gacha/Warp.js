@@ -24,12 +24,12 @@ const WARP = {
 
 	_starterWish(rarity) {
 		const result = starterWarp(rarity, this._starter);
-		return result;
+		return { ...result, bannerName: 'departure' };
 	},
 
 	_regularWarp(rarity) {
 		const result = regularWarp(rarity, this._regularBanner);
-		return result;
+		return { ...result, bannerName: 'stellar' };
 	},
 
 	_characterWarp(rarity) {
@@ -51,7 +51,8 @@ const WARP = {
 			version: _version,
 			phase: _phase
 		});
-		return lightconeBannerWarp.get(rarity);
+		const result = lightconeBannerWarp.get(rarity);
+		return { ...result, bannerName: this._lightconeBanner.bannerName };
 	},
 
 	getItem(rarity, banner) {

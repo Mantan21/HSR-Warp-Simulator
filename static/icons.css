@@ -200,3 +200,21 @@
 .hsr-arrow-left:before {
 	content: '\32';
 }
+.hsr-win:before {
+	content: '\33';
+}
+.hsr-lose:before {
+	content: '\34';
+}
+.hsr-selected:before {
+	content: '\35';
+}
+.hsr-guaranteed:before {
+	content: '\36';
+}
+.hsr-left-arrow:before {
+	content: '\37';
+}
+.hsr-right-arrow:before {
+	content: '\38';
+}
