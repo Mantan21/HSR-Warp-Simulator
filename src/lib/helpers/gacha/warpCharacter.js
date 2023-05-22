@@ -36,7 +36,11 @@ const characterWarp = {
 			}
 
 			// Lose rateup
-			const result = get4StarItem(this._version, this._phase, { exclude: this._rateup });
+			const result = get4StarItem({
+				version: this._version,
+				phase: this._phase,
+				exclude: this._rateup
+			});
 			guaranteedStatus.set('character4star', true); // set to guaranteed after loosing
 			return result;
 		}

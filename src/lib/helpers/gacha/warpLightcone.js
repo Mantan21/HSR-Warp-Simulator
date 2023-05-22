@@ -41,7 +41,11 @@ const lightconeWarp = {
 
 			// Lose Rateup
 			const rateupNames = this._rateupLightcones().map(({ name }) => name);
-			const result = get4StarItem(this._version, this._phase, { exclude: [rateupNames] });
+			const result = get4StarItem({
+				version: this._version,
+				phase: this._phase,
+				exclude: [rateupNames]
+			});
 			guaranteedStatus.set('lightcone4star', true);
 			return result;
 		}

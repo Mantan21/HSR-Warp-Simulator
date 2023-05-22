@@ -41,7 +41,7 @@ const filterCharByReleased = (charlist, version = null, phase = null) => {
 
 export const get3StarItem = () => rand(regularLightcones(3));
 
-export const get4StarItem = (version = null, phase = null, { exclude } = { exclude: [] }) => {
+export const get4StarItem = ({ version = null, phase = null, exclude = [] } = {}) => {
 	let charList = getAllChars(4);
 	const itemType = rand(['lc', 'char']);
 	const items = itemType === 'lc' ? regularLightcones(4) : charList;

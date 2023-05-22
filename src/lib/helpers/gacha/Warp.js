@@ -23,12 +23,22 @@ const WARP = {
 	},
 
 	_starterWish(rarity) {
-		const result = starterWarp(rarity, this._starter);
+		const result = starterWarp({
+			data: this._starter,
+			version: this._version,
+			phase: this._phase,
+			rarity
+		});
 		return { ...result, bannerName: 'departure' };
 	},
 
 	_regularWarp(rarity) {
-		const result = regularWarp(rarity, this._regularBanner);
+		const result = regularWarp({
+			rarity,
+			data: this._regularBanner,
+			phase: this._phase,
+			version: this._version
+		});
 		return { ...result, bannerName: 'stellar' };
 	},
 
