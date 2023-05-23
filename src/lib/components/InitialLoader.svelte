@@ -65,16 +65,12 @@
 <section>
 	<div class="wrapper">
 		<div class="ornament ornament1">
-			<img
-				src={assetPath('utils/loading-ornament.svg')}
-				alt="Loader Circle"
-				crossorigin="anonymous"
-			/>
+			<img src={assetPath('utils/loading-ornament.svg')} alt="" crossorigin="anonymous" />
 		</div>
 		<div class="ornament ornament2" />
 		<div class="ornament ornament3" />
 		<div class="text">
-			<div class="loading">{percentage < 1 ? 'WAITING' : 'LOADING'}</div>
+			<div class="loading">{percentage < 1 ? 'CONNECTING' : 'LOADING'}</div>
 			{#if percentage > 0}
 				<div class="percentage">{percentage}</div>
 				<div class="hsr-text">LOADING</div>

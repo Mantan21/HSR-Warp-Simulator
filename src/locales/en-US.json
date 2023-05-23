@@ -191,6 +191,8 @@
 		"promptTitle": "Clear Data?",
 		"resetPrompt": "Are you sure to clear ALL DATA?",
 		"keepSetting": "Keep Settings?",
-		"keepSettingInfo": "Current Pity, Balance and Settings will not be deleted."
+		"keepSettingInfo": "Current Pity, Balance and Settings will not be deleted.",
+		"keyExpired": "The Key Is Expired, please get a new one!",
+		"invalidKey": "Invalid Key!"
 	}
 }

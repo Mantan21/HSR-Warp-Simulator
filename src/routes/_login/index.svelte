@@ -1,6 +1,7 @@
 <script>
 	import { dev } from '$app/environment';
 	import { getContext, onMount } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { fade } from '$lib/helpers/transition';
 	import { assetPath } from '$lib/helpers/assets';
 	import accessKey from '$lib/helpers/access-key';
@@ -12,6 +13,12 @@
 	let isError = false;
 	let onProcess = false;
 	let message = '';
+
+	let showPreview = false;
+	const handlePreview = () => {
+		playSfx(showPreview ? 'modal-close' : 'click2');
+		showPreview = !showPreview;
+	};
 
 	const login = getContext('login');
 	const handleSubmit = async () => {
@@ -35,6 +42,17 @@
 	});
 </script>
 
+{#if showPreview}
+	<div class="preview" on:mousedown|self={handlePreview} transition:fade={{ duration: 250 }}>
+		<iframe
+			src="https://www.youtube.com/embed/vaUGgsqe2c4"
+			title="Pulling at Honkai: Star Rail Warp Simulator"
+			frameborder="0"
+			allowfullscreen
+		/>
+	</div>
+{/if}
+
 <div class="too-early" out:fade>
 	<img
 		src={assetPath('background/Honkai.Star.Rail.webp')}
@@ -49,16 +67,24 @@
 				<div class="header">
 					<h1>Honkai: Star Rail Warp Simulator</h1>
 					<p>
-						Early Access for <a href="https://ko-fi.com/mantan21"> Members</a> Only because it's
-						still
-						<br /> UNDER DEVELOPMENT
+						<b> This Site will be public at Version 1.1 Update! </b> <br />
+						Early Access for <a href="https://ko-fi.com/mantan21"> Members </a> only, because it's
+						still <br />
+						UNDER DEVELOPMENT
 					</p>
+					<a
+						href="https://youtu.be/vaUGgsqe2c4"
+						class="button-watch"
+						on:click|preventDefault={handlePreview}
+					>
+						<span> ▶ </span> Watch Preview
+					</a>
 				</div>
 
 				<div class="input">
 					<input type="text" bind:value={input} placeholder="Input Access Key" />
 					{#if isError && !onProcess}
-						<div class="error" in:fade={{ duration: 200 }}>{message}</div>
+						<div class="error" in:fade={{ duration: 200 }}>{$t(message)}</div>
 					{/if}
 				</div>
 				<div class="footer">
@@ -99,6 +125,40 @@
 	}
 	a:hover {
 		color: orange;
+	}
+
+	a.button-watch {
+		color: rgb(237, 156, 6);
+		border: 0.2rem solid rgb(237, 156, 6);
+		padding: 0.35rem 1.5rem;
+		display: inline-block;
+		border-radius: 2rem;
+		text-decoration: none;
+		margin-top: 1rem;
+		margin-bottom: -1rem;
+	}
+
+	a.button-watch:hover {
+		background-color: rgb(237, 156, 6);
+		color: #fff;
+	}
+
+	.preview {
+		position: fixed;
+		z-index: +100;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.25);
+		backdrop-filter: blur(8px);
+	}
+
+	iframe {
+		width: 90%;
+		max-width: 900px;
+		aspect-ratio: 16/9;
 	}
 
 	img {
