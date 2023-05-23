@@ -49,7 +49,7 @@
 
 	// Warp
 	$: isUnlimited = $warpAmount === 'unlimited';
-	$: isSpecialPass = ['lightcone', 'character'].includes(bannerType);
+	$: isSpecialPass = bannerType.match('event');
 	$: currencyUsed = isSpecialPass ? $specialPass : $regularPass;
 
 	let warpResult;
@@ -106,7 +106,7 @@
 	};
 
 	const updateBalance = (banner) => {
-		const isSpecialPass = ['lightcone', 'character'].includes(banner);
+		const isSpecialPass = banner.match('event');
 		const currency = isSpecialPass ? specialPass : regularPass;
 		currency.update((n) => {
 			const afterUpdate = n - rollCost;

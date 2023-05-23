@@ -1,16 +1,17 @@
 <script>
 	import { t } from 'svelte-i18n';
-	import { data } from '$lib/data/characters.json';
-	import positionToStyle from '$lib/helpers/cssPosition';
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
-	import { getBannerName } from '$lib/helpers/text-proccesor';
-	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
+	import { data } from '$lib/data/characters.json';
+	import { assetPath } from '$lib/helpers/assets';
+	import { removeDash } from '$lib/helpers/text-proccesor';
+	import positionToStyle from '$lib/helpers/cssPosition';
 
 	export let item = {};
 
-	let rateup, bannerName, path, combat_type;
-	$: ({ rateup, bannerName, path, combat_type, featured } = item);
+	let rateup, bannerName, beta, combat_type;
+	$: ({ rateup, bannerName, combat_type, featured, beta } = item);
+	$: bannerTitle = beta ? removeDash(bannerName) : $t(`banner.${bannerName}`);
 
 	const characterOffset = (characterName, offset = 'bannerOffset') => {
 		const item = data.find(({ name }) => name === characterName) || {};
@@ -25,7 +26,7 @@
 	<div class="wrapper-info">
 		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
 			<div class="short-detail">
-				<h1>{$t(`banner.${getBannerName(bannerName).name}`)}</h1>
+				<h1>{bannerTitle}</h1>
 				<div class="time">
 					<i class="hsr-time" />
 					<caption>{$t('warp.duration')}</caption>

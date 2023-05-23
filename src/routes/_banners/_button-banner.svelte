@@ -1,34 +1,34 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import { data } from '$lib/data/characters.json';
+	import { data as charDB } from '$lib/data/characters.json';
 	import { assets } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
 	import positionToStyle from '$lib/helpers/cssPosition';
 	import { playSfx } from '$lib/helpers/audio';
 
 	export let active = false;
-	export let item = {};
-	export let banner = 'starter';
+	export let bannerData = {};
 
-	$: featured = item.featured;
-	$: std = ['starter', 'regular'].includes(banner);
+	let type, featured;
+	$: ({ type, featured } = bannerData);
+	$: std = !type.match('event');
 
 	const buttonOffset = (characterName) => {
 		const nullValue = { buttonOffset: {} };
-		const { buttonOffset } = data.find(({ name }) => name === characterName) || nullValue;
+		const { buttonOffset } = charDB.find(({ name }) => name === characterName) || nullValue;
 		return positionToStyle(buttonOffset);
 	};
 
 	const dispatch = createEventDispatcher();
 	const click = () => {
-		dispatch('select', { selected: banner });
+		dispatch('select', { selected: type });
 		if (active) return;
 		playSfx('switch-banner');
 	};
 </script>
 
-<button class:active class:std class:events={banner === 'character'} on:click={click}>
+<button class:active class:std class:charevents={type === 'character-event'} on:click={click}>
 	<svg
 		class="frame"
 		style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -60,7 +60,7 @@
 					</g>
 				</g>
 			</svg>
-		{:else if banner === 'lightcone'}
+		{:else if type === 'lightcone-event'}
 			<img
 				class="cone-bg"
 				src={assetPath(`lc/5/${featured}`, 150)}
@@ -71,18 +71,18 @@
 	</div>
 	<div class="overflow">
 		<figure>
-			{#if banner === 'character'}
+			{#if type === 'character-event'}
 				<img
 					src={assetPath(`banners/button/${featured}.webp`)}
 					style={buttonOffset(featured)}
 					alt={$t(featured)}
 					crossorigin="anonymous"
 				/>
-			{:else if banner === 'starter'}
+			{:else if type === 'starter'}
 				<img src={$assets['depature-icon.svg']} alt="Depature" />
-			{:else if banner === 'regular'}
+			{:else if type === 'regular'}
 				<img src={$assets['stellar-icon.svg']} alt="Stellar" />
-			{:else if banner === 'lightcone'}
+			{:else if type === 'lightcone-event'}
 				<img
 					class="cone-fg"
 					src={assetPath(`light-cones/icons/${featured}.webp`)}
@@ -177,7 +177,7 @@
 	.overflow img {
 		position: absolute;
 	}
-	.events .overflow img {
+	.charevents .overflow img {
 		top: -30%;
 		width: 110%;
 	}

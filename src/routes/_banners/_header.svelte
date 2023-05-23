@@ -1,26 +1,22 @@
 <script>
-	import { t } from 'svelte-i18n';
-	import { regularPass, specialPass, stellarJade, warpAmount } from '$lib/stores/app-store';
-	import { getBannerName } from '$lib/helpers/text-proccesor';
-
-	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
-	import MyFund from '$lib/components/MyFund.svelte';
-	import Header from '$lib/components/Header.svelte';
 	import { getContext } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/audio';
+	import { regularPass, specialPass, stellarJade, warpAmount } from '$lib/stores/app-store';
+
+	import Header from '$lib/components/Header.svelte';
+	import MyFund from '$lib/components/MyFund.svelte';
+	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
+	import { removeDash } from '$lib/helpers/text-proccesor';
 
 	export let bannerType = '';
 	export let bannerName = '';
+	export let beta = false;
 
-	$: event = ['lightcone', 'character'].includes(bannerType);
+	$: event = bannerType.match('event');
 	$: balance = event ? $specialPass : $regularPass;
 	$: unlimitedWarp = $warpAmount === 'unlimited';
-
-	const nameOfBanner = (type) => {
-		if (event) return $t(`banner.${getBannerName(bannerName).name}`);
-		if (type === 'starter') return $t('banner.departure');
-		return $t('banner.stellar');
-	};
+	$: bannerTitle = beta ? removeDash(bannerName) : $t(`banner.${bannerName}`);
 
 	const navigate = getContext('navigate');
 	const openAllBanners = () => {
@@ -29,7 +25,7 @@
 	};
 </script>
 
-<Header icon="warp" h1={$t('warp.heading')} h2={nameOfBanner(bannerType)} hideDesktopIcon>
+<Header icon="warp" h1={$t('warp.heading')} h2={bannerTitle} hideDesktopIcon>
 	<div class="budget">
 		<MyFund type={event ? 'specialPass' : 'regularPass'}>
 			{unlimitedWarp ? '∞' : balance}

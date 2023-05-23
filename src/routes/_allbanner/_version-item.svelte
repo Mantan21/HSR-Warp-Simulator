@@ -2,17 +2,19 @@
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { assetPath } from '$lib/helpers/assets';
-	import { getBannerName } from '$lib/helpers/text-proccesor';
 	import { activeBanner, activePhase, activeVersion } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/audio';
+	import { identifyBanner } from '$lib/helpers/banners';
 
 	export let phase;
 	export let version;
 	export let data = {};
 
 	const { character, lightcone } = data;
-	const { bannerName, featured } = character;
+	const { bannerID, featured } = character;
+
+	const { runNumber, bannerName, beta } = identifyBanner(bannerID);
 
 	const navigate = getContext('navigate');
 	const selectBanner = () => {
@@ -32,8 +34,8 @@
 		<div class="banner-pic">
 			<picture>
 				<img
-					src={assetPath(`banners/events/${bannerName}.webp`)}
-					alt={$t(`banner.${getBannerName(bannerName).name}`)}
+					src={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
+					alt={$t(`banner.`)}
 					loading="lazy"
 					crossorigin="anonymous"
 				/>

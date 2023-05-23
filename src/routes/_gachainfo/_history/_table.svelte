@@ -2,7 +2,8 @@
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import IDBManager from '$lib/stores/idbManager';
-	import { getBannerName } from '$lib/helpers/text-proccesor';
+	import { identifyBanner } from '$lib/helpers/banners';
+	import { removeDash } from '$lib/helpers/text-proccesor';
 
 	export let banner;
 	export let filter = '';
@@ -41,7 +42,7 @@
 					<div class="cell">{$t('nodata')}</div>
 				</div>
 			{:else}
-				{#each dataToShow as { name, type, rarity, time, pity, bannerName, status }, i}
+				{#each dataToShow as { name, type, rarity, time, pity, bannerID, status }, i}
 					{#if i > (page.activepage - 1) * page.itemPerPage - 1 && i < page.itemPerPage * page.activepage}
 						<div class="row">
 							<div class="cell cell0 star{rarity}">
@@ -56,14 +57,11 @@
 								{#if rarity > 3} ( {rarity}★ ) {/if}
 							</div>
 							<div class="cell cell3">
-								{#if bannerName}
-									{#if ['character', 'lightcone'].includes(banner)}
-										<a href="/" class={banner} on:click|preventDefault>
-											{$t(`banner.${getBannerName(bannerName).name}`)}
-										</a>
-									{:else}
-										{$t(`banner.${bannerName}`)}
-									{/if}
+								{#if bannerID}
+									{@const { bannerName, beta } = identifyBanner(bannerID)}
+									<span class={banner}>
+										{beta ? removeDash(bannerName) : $t(`banner.${bannerName}`)}
+									</span>
 								{:else}
 									{$t('history.untracked')}
 								{/if}
@@ -78,13 +76,14 @@
 </div>
 
 <style>
-	a {
+	.cell span {
 		margin: 5px;
+		color: unset;
 	}
-	a.character {
-		color: #497a7e;
+	span.character-event {
+		color: #077f71;
 	}
-	a.lightcone {
+	span.lightcone-event {
 		color: #3d81ce;
 	}
 

@@ -49,7 +49,7 @@
 		if (rarity !== 3) {
 			if (['starter', 'regular'].includes(type)) {
 				videoContent = rarity === 5 ? regular5star : regular4star;
-			} else if (['character', 'lightcone'].includes(type)) {
+			} else if (type.match('event')) {
 				videoContent = rarity === 5 ? event5star : event4star;
 			}
 		} else videoContent = v3star;

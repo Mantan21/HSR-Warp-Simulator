@@ -29,12 +29,11 @@
 </svg>
 
 <div class="banner-selection">
-	{#each $bannerList as { type, item }, i}
+	{#each $bannerList as banner, i}
 		<div class="item">
 			<ButtonBanner
 				active={i === $activeBanner}
-				banner={type}
-				{item}
+				bannerData={banner}
 				on:select={() => selectBanner(i)}
 			/>
 		</div>

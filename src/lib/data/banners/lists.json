@@ -1,0 +1,35 @@
+{
+	"banners": [
+		{
+			"id": 1,
+			"name": "departure",
+			"type": "starter"
+		},
+		{
+			"id": 2,
+			"name": "stellar",
+			"type": "regular"
+		},
+		{
+			"id": 3,
+			"name": "brilliant-fixation",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 4,
+			"name": "butterfly-on-swordtip",
+			"type": "character-event"
+		},
+		{
+			"id": 5,
+			"name": "swirl-of-heavenly-spear",
+			"type": "character-event"
+		},
+		{
+			"id": 6,
+			"beta": true,
+			"name": "stellaron-hunter",
+			"type": "character-event"
+		}
+	]
+}

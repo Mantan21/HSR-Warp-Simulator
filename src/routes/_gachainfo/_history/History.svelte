@@ -2,7 +2,6 @@
 	import { setContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { activeBanner, bannerList } from '$lib/stores/app-store';
-	import { getBannerName } from '$lib/helpers/text-proccesor';
 
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import Table from './_table.svelte';
@@ -12,10 +11,8 @@
 	import Pagination from './_pagination.svelte';
 	import SelectBanner from './_select-banner.svelte';
 
-	let type, item, bannerName;
-	$: ({ type, item } = $bannerList[$activeBanner]);
-	$: ({ bannerName } = item);
-	$: nameOfbanner = getBannerName(bannerName || type).name;
+	let type;
+	$: ({ type } = $bannerList[$activeBanner]);
 
 	let dataLength = 0;
 	let filteredDataLength = 0;

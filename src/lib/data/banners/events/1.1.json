@@ -6,12 +6,12 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerName": "unreleased-1",
+					"bannerID": "6-1",
 					"featured": "silver-wolf",
 					"rateup": ["qingque", "yukong", "asta"]
 				},
 				"lightcone": {
-					"bannerName": "brilliant-fixation-2",
+					"bannerID": "3-3",
 					"featured": "incessant-rain",
 					"rateup": ["dance-dance-dance", "swordplay", "subscribe-for-more"]
 				}

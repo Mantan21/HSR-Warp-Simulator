@@ -5,14 +5,15 @@ import { data as lcDB } from '$lib/data/light-cones.json';
 
 import { checkStarterBanner } from '$lib/helpers/readLocalData';
 import { bannerList } from '$lib/stores/app-store';
+import { identifyBanner } from './banners';
 
 export const initializeBanner = async (version, phase) => {
 	try {
 		if (!version || !phase) return {};
-		const list = checkStarterBanner() ? [{ type: 'starter', item: starter.characters }] : [];
+		const list = checkStarterBanner() ? [{ ...starter, ...identifyBanner(starter.bannerID) }] : [];
 		const { data } = await import(`../../lib/data/banners/events/${version}.json`);
 		const { character, lightcone, regularVersion } = data.find((d) => d.phase === phase).banners;
-		const regularChar = regular.find(({ version }) => version === regularVersion)?.characters;
+		const regularData = regular.find(({ version }) => version === regularVersion);
 
 		const charInfo = charDB.find(({ name }) => name === character.featured);
 		const lcInfo = lcDB.find(({ name }) => name === lightcone.featured);
@@ -20,9 +21,9 @@ export const initializeBanner = async (version, phase) => {
 		character.combat_type = charInfo.combat_type;
 		lightcone.path = lcInfo.path;
 
-		list.push({ type: 'character', item: character });
-		list.push({ type: 'lightcone', item: lightcone });
-		list.push({ type: 'regular', item: regularChar });
+		list.push({ ...character, ...identifyBanner(character.bannerID) });
+		list.push({ ...lightcone, ...identifyBanner(lightcone.bannerID) });
+		list.push({ ...regularData, ...identifyBanner(regularData.bannerID) });
 
 		bannerList.set(list);
 		return { status: 'ok' };
@@ -46,7 +47,7 @@ export const handleShowStarter = (show) => {
 		});
 	}
 	return bannerList.update((bn) => {
-		bn.unshift({ type: 'starter', item: starter.characters });
+		bn.unshift({ ...starter, ...identifyBanner(starter.bannerID) });
 		return bn;
 	});
 };

@@ -5,6 +5,7 @@
 	import { t } from 'svelte-i18n';
 	import { scale } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
+	import { assetPath } from '$lib/helpers/assets';
 	import { playSfx, stopSfx } from '$lib/helpers/audio';
 	import positionToStyle from '$lib/helpers/cssPosition';
 
@@ -15,7 +16,6 @@
 	import SplashartInfo from './_splashart-info.svelte';
 	import BonusItem from './_bonus-item.svelte';
 	import ResultList from './ResultList.svelte';
-	import { assetPath } from '$lib/helpers/assets';
 
 	export let skip = false;
 	export let list = [];

@@ -11,34 +11,39 @@
 	import BannerItem from './BannerItem.svelte';
 	import BannerSelection from './_banner-selection.svelte';
 
-	let item, type;
-	$: ({ item, type } = $bannerList[$activeBanner]);
+	let type, bannerName;
+	$: ({ bannerName, beta, featured, type } = $bannerList[$activeBanner]);
 	$: bannerType = type;
 
 	let color1 = '0,0,0';
 	let color2 = color1;
 	const colorthief = new ColorThief();
 
+	// Check Manual Color
+	const manualColorPick = (featured) => {
+		const { colors } = data.find(({ name }) => name === featured);
+		if (Array.isArray(colors) && colors?.length > 1) {
+			const [cl1, cl2] = colors;
+			color1 = cl1.split(' ').join(',');
+			color2 = cl2.split(' ').join(',');
+			return true;
+		}
+		return false;
+	};
+
 	const getColor = (list) => {
 		try {
-			const { item } = list.find(({ type }) => type === 'character') || { item: null };
-			if (!item) return;
-
-			// Check Manual Color
-			const { colors } = data.find(({ name }) => name === item.featured);
-
-			if (Array.isArray(colors) && colors?.length > 1) {
-				const [cl1, cl2] = colors;
-				color1 = cl1.split(' ').join(',');
-				color2 = cl2.split(' ').join(',');
-				return;
-			}
+			const { featured } = list.find(({ type }) => {
+				return type === 'character-event';
+			}) || { featured: null };
+			if (!featured) return;
 
 			// autpic color if no color served
 			const img = new Image();
 			img.crossOrigin = 'anonymous';
-			img.src = assetPath(`splash-art/5/${item.featured}`, 640);
+			img.src = assetPath(`splash-art/5/${featured}`, 640);
 			img.addEventListener('load', () => {
+				if (manualColorPick(featured)) return;
 				const [clr1, clr2] = colorthief.getPalette(img, 2);
 				color1 = clr2.join(',');
 				color2 = clr1.join(',');
@@ -69,28 +74,24 @@
 		<div class="bg" transition:fade|local={{ duration: 250 }}>
 			<img src={$assets['stellar-bg.webp']} alt="Background" crossorigin="anonymous" />
 		</div>
-	{:else if bannerType === 'character'}
+	{:else if bannerType === 'character-event'}
 		<div class="bg character" transition:fade|local={{ duration: 250 }}>
 			<img
-				src={assetPath(`splash-art/5/${item.featured}`, 640)}
-				alt={$t(item.featured)}
+				src={assetPath(`splash-art/5/${featured}`, 640)}
+				alt={$t(featured)}
 				crossorigin="anonymous"
 			/>
 		</div>
-	{:else if bannerType === 'lightcone'}
+	{:else if bannerType === 'lightcone-event'}
 		<div class="bg lightcone" transition:fade|local={{ duration: 250 }}>
-			<img
-				src={assetPath(`lc/5/${item.featured}`, 150)}
-				alt={$t(item.featured)}
-				crossorigin="anonymous"
-			/>
+			<img src={assetPath(`lc/5/${featured}`, 150)} alt={$t(featured)} crossorigin="anonymous" />
 		</div>
 	{/if}
 
-	<Header {bannerType} bannerName={item?.bannerName} />
+	<Header {bannerType} {bannerName} {beta} />
 	<BannerSelection />
-	{#each $bannerList as { type, item }}
-		{#if type === bannerType}
+	{#each $bannerList as banner}
+		{#if banner.type === bannerType}
 			<div
 				class="warp-banner"
 				in:bannerTransition|local={{
@@ -101,7 +102,7 @@
 				}}
 				out:bannerTransition|local={{ y: 100, duration: 200 }}
 			>
-				<BannerItem banner={type} {item} />
+				<BannerItem banner={banner.type} item={banner} />
 			</div>
 		{/if}
 	{/each}

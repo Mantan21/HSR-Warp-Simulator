@@ -35,12 +35,12 @@
 			<div class="frame">
 				<RegularFrame />
 			</div>
-		{:else if banner === 'character'}
+		{:else if banner === 'character-event'}
 			<BnCharacter {item} />
 			<div class="frame">
 				<CharacterFrame {item} />
 			</div>
-		{:else if banner === 'lightcone'}
+		{:else if banner === 'lightcone-event'}
 			<BnLightcone {item} />
 			<div class="frame">
 				<LightconeFrame {item} />

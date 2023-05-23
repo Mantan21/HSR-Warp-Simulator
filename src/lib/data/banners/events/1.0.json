@@ -6,12 +6,12 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerName": "butterfly-on-swordtip-1",
+					"bannerID": "4-1",
 					"featured": "seele",
 					"rateup": ["natasha", "hook", "pela"]
 				},
 				"lightcone": {
-					"bannerName": "brilliant-fixation-1",
+					"bannerID": "3-1",
 					"featured": "in-the-night",
 					"rateup": ["good-night-and-sleep-well", "the-moles-welcome-you", "post-op-conversation"]
 				}
@@ -22,12 +22,12 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerName": "swirl-of-heavenly-spear-1",
+					"bannerID": "5-1",
 					"featured": "jing-yuan",
 					"rateup": ["sushang", "march-7th", "tingyun"]
 				},
 				"lightcone": {
-					"bannerName": "brilliant-fixation-2",
+					"bannerID": "3-2",
 					"featured": "before-dawn",
 					"rateup": ["day-one-of-my-new-life", "only-silence-remains", "planetary-rendezvous"]
 				}

@@ -5,9 +5,8 @@
 	export let bannerType;
 	export let data = {};
 
-	const isEventWarp = !['stellar', 'departure'].includes(bannerName);
-	const isCharBanner = bannerType === 'character';
-	const bannerWarp = isEventWarp ? `${bannerType}-event` : bannerName;
+	const isEventWarp = bannerType.match('event');
+	const isCharBanner = bannerType === 'character-event';
 
 	const { drop5char, drop4char, drop5lc, drop4lc } = data;
 	const {
@@ -89,13 +88,13 @@
 <div class="description">
 	{#if isEventWarp}
 		<p>
-			{@html $t('details.bannerStarted', { values: { banner: $t(`banner.${bannerName}`) } })}
+			{@html $t('details.bannerStarted', { values: { banner: bannerName } })}
 		</p>
 		<p>
 			{#each $json('details.eventDetails') as txt}
 				{@html $t(txt, {
 					values: {
-						banner: $t(`banner.${bannerName}`),
+						banner: bannerName,
 						rateupList: rateUpCharList(isCharBanner ? 'rateupCharList' : 'rateupLCList'),
 						itemType: isCharBanner ? $t('character') : $t('lightcone')
 					}
@@ -105,7 +104,7 @@
 		</p>
 
 		<p>
-			{$t('details.eventWarpNote', { values: { banner: $t(`banner.${bannerWarp}`) } })}
+			{$t('details.eventWarpNote', { values: { banner: bannerName } })}
 		</p>
 
 		<p>
@@ -113,7 +112,7 @@
 				{@html $t(txt, {
 					values: {
 						itemType: isCharBanner ? $t('character') : $t('lightcone'),
-						banner: $t(`banner.${bannerWarp}`),
+						banner: bannerName,
 						...rates(isCharBanner)
 					}
 				})}
@@ -159,19 +158,19 @@
 			{/each}
 		</p>
 		<p>
-			{$t('details.eventWarpNote', { values: { banner: $t(`banner.${bannerWarp}`) } })}
+			{$t('details.eventWarpNote', { values: { banner: bannerName } })}
 		</p>
 	{/if}
 
 	<p>
 		{$t('details.special')}
 		<br />
-		● {#if ['regular', 'lightcone'].includes(bannerType)} {@html convertion(5)} {/if}
+		● {#if ['regular', 'lightcone-event'].includes(bannerType)} {@html convertion(5)} {/if}
 		{@html convertion(4)}
 		{@html convertion(3)}
 		<br />
 
-		{#if bannerType !== 'lightcone'}
+		{#if bannerType !== 'lightcone-event'}
 			{@html duplicateDetails(5)} <br />
 		{/if}
 		{@html duplicateDetails(4)}

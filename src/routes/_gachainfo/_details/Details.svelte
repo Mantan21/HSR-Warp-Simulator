@@ -2,24 +2,24 @@
 	import { t } from 'svelte-i18n';
 	import { activeBanner, activePhase, activeVersion, bannerList } from '$lib/stores/app-store';
 	import { InfoData } from '$lib/helpers/gacha/info-details';
-	import { getBannerName } from '$lib/helpers/text-proccesor';
+	import { removeDash } from '$lib/helpers/text-proccesor';
+
 	import Description from './_description.svelte';
 	import ItemCard from './_item-card.svelte';
 	import Table from './_table.svelte';
 
-	let type, item, bannerName;
-	$: ({ type, item } = $bannerList[$activeBanner]);
-	$: ({ bannerName } = item);
-	$: nameOfbanner = getBannerName(bannerName || type).name;
+	let type, bannerName, beta;
+	$: ({ type, bannerName, beta } = $bannerList[$activeBanner]);
+	$: nameOfbanner = beta ? removeDash(bannerName) : $t(`banner.${bannerName}`);
 </script>
 
 <div class="details">
 	{#await InfoData.get($activeVersion, $activePhase, type)}
 		<div class="wait">{$t('waiting')}</div>
 	{:then { drop5char, drop4char, drop5lc, drop4lc, drop3star }}
-		<h1>{$t(`banner.${nameOfbanner}`)}</h1>
+		<h1>{nameOfbanner}</h1>
 
-		{#if ['character', 'lightcone'].includes(type)}
+		{#if type.match('event')}
 			<h2>{$t('details.dropRateBoost')}</h2>
 			<div class="rateInfo">
 				<div class="rarity">
@@ -29,14 +29,14 @@
 				</div>
 				<span>
 					{$t('details.droprate', {
-						values: { rate: type === 'lightcone' ? '75%' : '50%', rarity: 5 }
+						values: { rate: type === 'lightcone-event' ? '75%' : '50%', rarity: 5 }
 					})}
 				</span>
 			</div>
 
 			<div class="item-group">
 				<div class="col">
-					{#if type === 'character'}
+					{#if type === 'character-event'}
 						<ItemCard {...drop5char[0]} rarity={5} />
 					{:else}
 						<ItemCard {...drop5lc[0]} rarity={5} />
@@ -52,13 +52,13 @@
 				</div>
 				<span>
 					{$t('details.droprate', {
-						values: { rate: type === 'lightcone' ? '75%' : '50%', rarity: 4 }
+						values: { rate: type === 'lightcone-event' ? '75%' : '50%', rarity: 4 }
 					})}
 				</span>
 			</div>
 
 			<div class="item-group">
-				{#each type === 'character' ? drop4char : drop4lc as { name, path, combat_type }, i}
+				{#each type === 'character-event' ? drop4char : drop4lc as { name, path, combat_type }, i}
 					{#if i < 3}
 						<div class="col">
 							<ItemCard rarity="4" {name} {path} {combat_type} />
@@ -87,17 +87,17 @@
 			<span>
 				{$t('details.baseWarpRate', {
 					values: {
-						rate: type === 'lightcone' ? '0.800%' : '0.600%',
-						avgRate: type === 'lightcone' ? '1.870%' : '1.600%',
+						rate: type === 'lightcone-event' ? '0.800%' : '0.600%',
+						avgRate: type === 'lightcone-event' ? '1.870%' : '1.600%',
 						rarity: 5
 					}
 				})}
 			</span>
 		</div>
-		{#if type !== 'lightcone'}
+		{#if type !== 'lightcone-event'}
 			<Table data={drop5char} type="character" />
 		{/if}
-		{#if ['lightcone', 'regular'].includes(type)}
+		{#if ['lightcone-event', 'regular'].includes(type)}
 			<Table data={drop5lc} type="lightcone" />
 		{/if}
 
@@ -111,8 +111,8 @@
 			<span>
 				{$t('details.baseWarpRate', {
 					values: {
-						rate: type === 'lightcone' ? '6.600%' : '5.100%',
-						avgRate: type === 'lightcone' ? '14.800%' : '13.000%',
+						rate: type === 'lightcone-event' ? '6.600%' : '5.100%',
+						avgRate: type === 'lightcone-event' ? '14.800%' : '13.000%',
 						rarity: 4
 					}
 				})}

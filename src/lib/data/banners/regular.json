@@ -1,6 +1,7 @@
 {
 	"regular": [
 		{
+			"bannerID": "2-1",
 			"version": 1.0,
 			"characters": ["himeko", "welt", "bailu", "yanqing", "bronya", "gepard", "clara"]
 		}

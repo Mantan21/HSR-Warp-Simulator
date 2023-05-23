@@ -34,8 +34,8 @@ export const InfoData = {
 
 		if (type === 'starter') return this._showStarter();
 		if (type === 'regular') return this._showRegular();
-		if (type === 'character') return this._showCharEvent();
-		if (type === 'lightcone') return this._showLightcone();
+		if (type === 'character-event') return this._showCharEvent();
+		if (type === 'lightcone-event') return this._showLightcone();
 	},
 
 	_getDrop4Star(type) {
