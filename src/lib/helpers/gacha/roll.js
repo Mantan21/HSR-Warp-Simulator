@@ -1,9 +1,9 @@
 import { showStarterBanner, starterRemaining } from '$lib/stores/app-store';
 import IDBManager from '$lib/stores/idbManager';
-import { guaranteedStatus, localPity, rollCounter } from '$lib/stores/localstorage';
+import { guaranteedStatus, localPity, owneditem, rollCounter } from '$lib/stores/localstorage';
 import prob, { base4StarChar, base4StarLC, base5StarChar, base5StarLC } from './probabilities';
 
-const { addHistory, countItem } = IDBManager;
+const { addHistory } = IDBManager;
 
 export const roll = async (banner, WarpInstance) => {
 	const pity5 = localPity.get(`pity5${banner}`);
@@ -49,9 +49,6 @@ export const roll = async (banner, WarpInstance) => {
 		starterRemaining.update((v) => v - 1);
 	}
 
-	// 300th pulls on regular banner, pick a character
-	// if (banner === 'regular' && rollQty >= 299) rarity = 5;
-
 	if (rarity === 5) {
 		localPity.set(`pity4${banner}`, pity4 + 1);
 		localPity.set(`pity5${banner}`, 0);
@@ -71,12 +68,14 @@ export const roll = async (banner, WarpInstance) => {
 
 	// Get Item
 	const randomItem = WarpInstance.getItem(rarity, banner);
+	const { manual, warp } = owneditem.put({ name: randomItem.name });
+	const numberOfOwnedItem = manual + warp;
 
-	const numberOfItemOfHistory = await countItem(randomItem.name);
+	// storing item to storage
 	await saveResult({ pity, ...randomItem });
 
-	const isFullEidolon = numberOfItemOfHistory > 6;
-	const isNew = numberOfItemOfHistory < 1;
+	const isFullEidolon = numberOfOwnedItem > 6;
+	const isNew = numberOfOwnedItem < 1;
 
 	// Undying Counter
 	const undyingType = randomItem.rarity === 3 ? 'embers' : 'starlight';

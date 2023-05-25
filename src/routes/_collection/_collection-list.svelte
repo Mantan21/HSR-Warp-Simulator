@@ -1,13 +1,13 @@
 <script>
 	import { getContext, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 	import { t } from 'svelte-i18n';
-
-	import { fade } from '$lib/helpers/transition';
 	import { isMobileLandscape } from '$lib/stores/app-store';
-	import IDBManager from '$lib/stores/idbManager';
+	import { owneditem } from '$lib/stores/localstorage';
 	import { data as charDB } from '$lib/data/characters.json';
 	import { data as lcDB } from '$lib/data/light-cones.json';
+
 	import CollectionItem from './_collection-item.svelte';
 	import Scrollable from '$lib/components/Scrollable.svelte';
 
@@ -21,36 +21,16 @@
 	let dataToShow = [];
 	let loadedData = [];
 	let isLoaded = false;
+	const itemQty = { lightcone: 0, character: 0 };
 
 	const setItemQty = getContext('setItemQty');
-	const { getAllHistories } = IDBManager;
+	const ownedItems = owneditem.getAll();
 
-	const getAll = async () => {
-		const data = await getAllHistories();
-		const groupByName = data.reduce((prev, current) => {
-			const obj = prev || {};
-			obj[current.name] = obj[current.name] || [];
-			obj[current.name].push(current);
-			return obj;
-		}, {});
-
-		const filtered = Object.values(groupByName)
-			.map((val) => {
-				const { name, path, rarity, type } = val[0];
-				return { name, path, rarity, type };
-			})
-			.map((v) => {
-				v.qty = groupByName[v.name].length;
-				return v;
-			});
-
-		lightcones = filtered.filter(({ type }) => type === 'lightcone');
-		characters = filtered.filter(({ type }) => type === 'character');
-		isLoaded = true;
-		proccessData(itemtype);
+	const filterByPath = (arr, path) => {
+		if (path === 'all') return arr;
+		return arr.filter((v) => v.path === path);
 	};
 
-	const filterByPath = (arr, path) => arr.filter((v) => path === 'all' || v.path === path);
 	const showHandle = (showAll, path) => {
 		if (!isLoaded) return;
 		if (showAll) return (dataToShow = filterByPath(loadedData, path));
@@ -58,18 +38,30 @@
 		dataToShow = filterByPath(data, path);
 	};
 
-	const proccessData = (itemtype) => {
-		if (!isLoaded) return;
-		const dataFromIDB = itemtype === 'character' ? characters : lightcones;
-		const allData = itemtype === 'character' ? charDB : lcDB;
-		loadedData = allData
+	const loadItems = (type) => {
+		const isChar = type === 'character';
+		const data = isChar ? charDB : lcDB;
+		return data
 			.map(({ name, path, rarity, combat_type }) => {
-				const idbData = dataFromIDB.find((v) => name === v.name);
-				const qty = idbData?.qty || 0;
+				const { warp = 0, manual = 0 } = ownedItems[name] || {};
+				const qty = warp + manual;
+				itemQty[type] = qty > 0 ? itemQty[type] + 1 : itemQty[type];
 				return { name, path, rarity, combat_type, qty, isOwned: qty > 0 };
 			})
 			.sort((a, b) => b.rarity - a.rarity);
-		setItemQty({ owned: dataFromIDB.length, all: allData.length });
+	};
+
+	const getAll = () => {
+		characters = loadItems('character');
+		lightcones = loadItems('lightcone');
+		isLoaded = true;
+		proccessData(itemtype);
+	};
+
+	const proccessData = (itemtype) => {
+		if (!isLoaded) return;
+		loadedData = itemtype === 'character' ? characters : lightcones;
+		setItemQty({ owned: itemQty[itemtype], all: loadedData.length });
 		showHandle(showAll, path);
 		return;
 	};
@@ -108,11 +100,11 @@
 
 <div class="collection" bind:clientWidth={containerWidth}>
 	{#if !isLoaded}
-		<div class="load" in:fade|local={{ duration: 250 }}>
+		<div class="load" in:fade={{ duration: 250 }}>
 			<span>{$t('loading')}...</span>
 		</div>
 	{:else if dataToShow.length < 1}
-		<div class="load" in:fade|local={{ duration: 250 }}>
+		<div class="load" in:fade={{ duration: 250 }}>
 			<span>{$t('nodata')}</span>
 		</div>
 	{:else}
@@ -121,7 +113,7 @@
 				{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }, i (name)}
 					<div
 						class="item"
-						in:fade|local={{ duration: 350, delay: i * 25 }}
+						in:fade={{ duration: 350, delay: i * 25 }}
 						animate:flip={{ duration: (i) => 25 * Math.sqrt(i) }}
 					>
 						<CollectionItem {rarity} {name} {path} {isOwned} combatType={combat_type} {qty} />
