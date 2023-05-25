@@ -69,6 +69,7 @@
 			"date": "25 May 2023",
 			"changes": [
 				"Enable Additional Rewards for Regular Banner",
+				"Add Item Obtained Screen",
 				"Change Items Reading Method, All items that obtained before this update will not be displayed in the Inventory"
 			]
 		}

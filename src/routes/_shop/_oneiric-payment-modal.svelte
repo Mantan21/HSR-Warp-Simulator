@@ -12,6 +12,7 @@
 
 	const closeModal = getContext('closeModal');
 	const confirmBuy = getContext('confirmBuy');
+	const openObtained = getContext('openObtained');
 
 	let autoConvert = cookie.get('autoconvert-oneiric');
 	let activeMethod = cookie.get('payment-method') || 'tears';
@@ -33,7 +34,9 @@
 	};
 
 	const handleBuy = () => {
-		confirmBuy({ qty: data.qty, bonus: data.bonus, item: autoConvert ? 'stellarJade' : 'oneiric' });
+		const item = autoConvert ? 'stellarJade' : 'oneiric';
+		confirmBuy({ qty: data.qty, bonus: data.bonus, item });
+		openObtained({ qty: data.qty + data.bonus, item });
 
 		if (autoConvert) return convertBuy();
 		oneiric.update((v) => {

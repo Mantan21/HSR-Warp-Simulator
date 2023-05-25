@@ -12,6 +12,7 @@ const sfxList = [
 	'express-3star',
 	'express-4star',
 	'express-5star',
+	'item-obtained',
 	'modal-close',
 	'reveal-3star',
 	'reveal-4star',

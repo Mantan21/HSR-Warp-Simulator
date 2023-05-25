@@ -99,7 +99,7 @@
 		</div>
 
 		<span class="note" transition:fade>
-			{$t('additionalReward.clickToClose')}
+			{$t('clickToClose')}
 		</span>
 	</div>
 </div>

@@ -15,6 +15,7 @@
 	$: value = value > $oneiric ? $oneiric : parseInt(value);
 	setContext('setValue', (val) => (value = val));
 
+	const openObtained = getContext('openObtained');
 	const closeConvertModal = getContext('closeConvertModal');
 	const cancelModal = () => {
 		closeConvertModal();
@@ -37,6 +38,7 @@
 
 		playSfx();
 		closeConvertModal();
+		openObtained({ qty: value });
 	};
 </script>
 

@@ -13,6 +13,8 @@
 	import Collection from './_collection/index.svelte';
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
+	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
+	import { playSfx } from '$lib/helpers/audio';
 
 	let status;
 	let loggedIn = false;
@@ -47,10 +49,29 @@
 	let showConvertModal = false;
 	setContext('openConvertModal', () => (showConvertModal = true));
 	setContext('closeConvertModal', () => (showConvertModal = false));
+
+	// Obtained
+	let showObtained = false;
+	let obtainedData = {};
+	const openObtained = (data) => {
+		obtainedData = data;
+		showObtained = true;
+	};
+	const closeObtained = () => {
+		showObtained = false;
+		obtainedData = {};
+		playSfx('modal-close');
+	};
+	setContext('openObtained', openObtained);
+	setContext('closeObtained', closeObtained);
 </script>
 
 {#if status === 'error'}
 	error bos
+{/if}
+
+{#if showObtained}
+	<ObtainedItem {...obtainedData} />
 {/if}
 
 {#if !loggedIn}

@@ -22,6 +22,7 @@
 	"default": "Default",
 	"cancel": "Cancel",
 	"confirm": "Confirm",
+	"clickToClose": "Click Anywhere in the blank area to close",
 	"item": {
 		"embers": "Undying Embers",
 		"starlight": "Undying Starlight",
@@ -29,6 +30,7 @@
 		"specialPass": "Star Rail Special Pass",
 		"regularPass": "Star Rail Pass",
 		"oneiric": "Oneiric Shards",
+		"obtained": "Items Obtained",
 		"specialPassStory": "Direct ticket for the Astral Express with coordinates of specific worlds, suitable for passengers who just want to go from point A to point B.<br/><br/> <i>\"Need to catch up with an old friend? Hop on and see the universe with him/her/it/them!\"</i>",
 		"regularPassStory": "Astral Express Universal Pass. Travel as far as the Star Rail stretches.<br/><br/> <i>\"Map worlds, meet people, make memories.\"</i>"
 	},
@@ -139,7 +141,6 @@
 		"selectChar": "Select one Character",
 		"progress": "Progress {rollcount}/300",
 		"selectPrompt": "Confirm to select this character ?",
-		"clickToClose": "Click Anywhere in the blank area to close",
 		"note": "An <span> extra</span> 5-star character will be given when requirements are met.",
 		"detail": "After taking 300 Warps in the Regular Warp event, you can choose one of these characters — {characters} — to join your team. This reward can only be claimed once.",
 		"description": {

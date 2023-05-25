@@ -13,6 +13,7 @@
 	export let data = {};
 	const { itemToExchange, currency, price } = data;
 
+	const openObtained = getContext('openObtained');
 	const closeExchangeModal = getContext('closeExchageModal');
 	const closeModal = () => {
 		playSfx('modal-close');
@@ -44,6 +45,8 @@
 			localBalance.set(itemToExchange, newVal);
 			return newVal;
 		});
+
+		openObtained({ qty: value, item: itemToExchange });
 	};
 </script>
 
