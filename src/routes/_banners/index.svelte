@@ -1,5 +1,6 @@
 <script>
 	import { setContext } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { fade, fly } from '$lib/helpers/transition';
 	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
@@ -67,6 +68,10 @@
 	};
 	setContext('handleGachaAnimation', handleGachaAnimation);
 </script>
+
+<svelte:head>
+	<title>{$t('title')}</title>
+</svelte:head>
 
 {#if showAdditional}
 	<AdditionalReward />

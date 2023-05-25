@@ -51,6 +51,10 @@
 	setContext('openExchangeModal', openModal);
 </script>
 
+<svelte:head>
+	<title>{$t(`shop.${activeShop}`)} | {$t('title')}</title>
+</svelte:head>
+
 {#if showModal}
 	<ExchangeModal data={exchangeData} />
 {/if}

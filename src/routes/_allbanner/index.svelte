@@ -43,6 +43,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{$t('banner.all')} | {$t('title')}</title>
+</svelte:head>
+
 <section transition:fade={{ duration: 250 }} style="--bg: url({$assets['allbanner-bg.webp']})">
 	<Header relative h1={$t('version')} h2={$t('banner.all')} icon="warp">
 		<div class="close">
@@ -52,7 +56,7 @@
 	<div class="container">
 		<Scrollable>
 			<div class="wrapper">
-				{#if allBanners < 1}
+				{#if allBanners.length < 1}
 					<div class="wait" out:fade={{ duration: 250 }}>
 						<span> {$t('waiting')}...</span>
 					</div>

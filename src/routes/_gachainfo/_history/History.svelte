@@ -43,6 +43,10 @@
 	setContext('historyNavigation', navigation);
 </script>
 
+<svelte:head>
+	<title>{$t('history.heading')} | {$t('title')}</title>
+</svelte:head>
+
 <div class="history">
 	<SelectBanner banner={type} />
 	<p>

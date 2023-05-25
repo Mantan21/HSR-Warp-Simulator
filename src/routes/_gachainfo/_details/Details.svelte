@@ -13,6 +13,10 @@
 	$: nameOfbanner = beta ? removeDash(bannerName) : $t(`banner.${bannerName}`);
 </script>
 
+<svelte:head>
+	<title>{nameOfbanner} | {$t('title')}</title>
+</svelte:head>
+
 <div class="details">
 	{#await InfoData.get($activeVersion, $activePhase, type)}
 		<div class="wait">{$t('waiting')}</div>

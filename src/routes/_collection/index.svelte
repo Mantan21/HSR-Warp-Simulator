@@ -45,6 +45,12 @@
 	});
 </script>
 
+<svelte:head>
+	<title>
+		{$t('collection.heading')} | {$t('title')}
+	</title>
+</svelte:head>
+
 <section
 	class="collection"
 	style="--bg: url('{$assets['archive-bg.webp']}')"

@@ -68,8 +68,13 @@
 					<h1>Honkai: Star Rail Warp Simulator</h1>
 					<p>
 						<b> This Site will be public at Version 1.1 Update! </b> <br />
-						Early Access for <a href="https://ko-fi.com/mantan21"> Members </a> only, because it's
-						still <br />
+						Early Access for
+						<a
+							href="https://ko-fi.com/post/AdFree-Wish-Simulator-Enjoy-Simulator-Without-Ads-G2G2DQ57O"
+						>
+							Members
+						</a>
+						only, because it's still <br />
 						UNDER DEVELOPMENT
 					</p>
 					<a
