@@ -1,4 +1,4 @@
-import { showStarterBanner, starterRemaining } from '$lib/stores/app-store';
+import { regReward, showStarterBanner, starterRemaining } from '$lib/stores/app-store';
 import IDBManager from '$lib/stores/idbManager';
 import { guaranteedStatus, localPity, owneditem, rollCounter } from '$lib/stores/localstorage';
 import prob, { base4StarChar, base4StarLC, base5StarChar, base5StarLC } from './probabilities';
@@ -47,6 +47,11 @@ export const roll = async (banner, WarpInstance) => {
 		const isGuaranteed50pull = rollQty === 49 && !isAlreadyGet5star;
 		if (isGuaranteed50pull) rarity = 5;
 		starterRemaining.update((v) => v - 1);
+	}
+
+	// 300th pulls on regular banner, pick a character
+	if (rollQty <= 300 && banner === 'regular') {
+		regReward.update(({ isClaimed }) => ({ rollcount: rollQty + 1, isClaimed }));
 	}
 
 	if (rarity === 5) {

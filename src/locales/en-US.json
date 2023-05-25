@@ -131,6 +131,26 @@
 		"convertion": "Whenever you obtain a {rarity}-star Light Cone during the Warp, gain {undyingType} ×<span>{undyingBonus}</span>.",
 		"duplicate": "● On obtaining a {rarity}-star character that you already own (whether obtained in a Warp, redeemed at the shop, or redeemed from the system): The 2nd – 7th time you obtain the character, it will be converted into that character's Eidolon ×<span>1</span> and {undyingType} ×<span>{bonusQty}</span>; from the 8th time onwards, it will be converted into {undyingType} ×<span>{fullBonusQty}</span>."
 	},
+	"additionalReward": {
+		"hint": "Hint",
+		"viewDetail": "View Details",
+		"select": "Select",
+		"selectChar": "Select one Character",
+		"progress": "Progress {rollcount}/300",
+		"selectPrompt": "Confirm to select this character ?",
+		"clickToClose": "Click Anywhere in the blank area to close",
+		"note": "An <span> extra</span> 5-star character will be given when requirements are met.",
+		"detail": "After taking 300 Warps in the Regular Warp event, you can choose one of these characters — {characters} — to join your team. This reward can only be claimed once.",
+		"description": {
+			"himeko": "An <span>Erudition</span> character who adept at dealing AoE damage. after enemies are Weakness Broken, accumulates Charges to launch follow-up attacks",
+			"bronya": "A <span>Harmony</span> character who can grant extra action to a single ally, whose Ultimate can boost all allies' ATK",
+			"gepard": "A <span>Preservation</span> character who can Shield allies team-wide, and can survive fatal DMG for 1 time",
+			"yanqing": "A character of <span>The Hunt</span> Path who excets at dealing massive damage to a single enemy target instantly. Has and extremely high CRIT Rate and enhanced CRIT DMG, and is adept at attacking Frozen targets.",
+			"bailu": "An <span>Abundance</span> character who excels at team-wide healing and can provide instant healing when allies take fatal damage.",
+			"welt": "A <span>Nihility</span> character who can slowdown enemies' SPD",
+			"clara": "A <span>Destruction</span> character who can reduce DMG taken"
+		}
+	},
 	"history": {
 		"heading": "History",
 		"entityName": "Entity Name",

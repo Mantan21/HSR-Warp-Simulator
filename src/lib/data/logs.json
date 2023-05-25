@@ -64,6 +64,13 @@
 		{
 			"date": "22 May 2023",
 			"changes": ["Add History Record Section"]
+		},
+		{
+			"date": "25 May 2023",
+			"changes": [
+				"Enable Additional Rewards for Regular Banner",
+				"Change Items Reading Method, All items that obtained before this update will not be displayed in the Inventory"
+			]
 		}
 	]
 }

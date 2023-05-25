@@ -10,6 +10,7 @@ import {
 	activeVersion,
 	embers,
 	oneiric,
+	regReward,
 	regularPass,
 	showStarterBanner,
 	specialPass,
@@ -27,11 +28,14 @@ export const storageReset = async ({ keepSetting = false }) => {
 
 	starterRemaining.set(50);
 	showStarterBanner.set(true);
+	regReward.set({ rollcount: 0, isClaimed: false });
+
 	if (keepSetting) {
 		const config = storageLocal.get('config');
 		const pity = storageLocal.get('pity');
 		const balance = storageLocal.get('balance');
 		localStorage.clear();
+		delete config.additionalClaimed;
 
 		storageLocal.set('config', config);
 		storageLocal.set('pity', pity);

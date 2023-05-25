@@ -67,7 +67,10 @@
 		playSfx('warp-backsound');
 	});
 
-	onDestroy(() => stopSfx('warp-backsound'));
+	onDestroy(() => {
+		if (skip) return;
+		stopSfx('warp-backsound');
+	});
 </script>
 
 <div class="warp-result" out:fade={{ duration: 200 }}>

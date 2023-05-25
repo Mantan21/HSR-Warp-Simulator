@@ -9,6 +9,7 @@ export const embers = writable(0);
 export const starlight = writable(0);
 
 export const starterRemaining = writable(50);
+export const regReward = writable({ rollcount: 0, isClaimed: false });
 export const warpAmount = writable('default');
 
 export const activeVersion = writable(null);

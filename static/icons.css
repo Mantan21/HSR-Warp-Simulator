@@ -218,3 +218,9 @@
 .hsr-right-arrow:before {
 	content: '\38';
 }
+.hsr-note:before {
+	content: '\39';
+}
+.hsr-select:before {
+	content: '\21';
+}

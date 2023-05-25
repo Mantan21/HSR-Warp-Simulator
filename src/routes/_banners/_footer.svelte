@@ -7,19 +7,15 @@
 		viewportHeight,
 		isMobileLandscape,
 		viewportWidth,
-		assets,
 		warpAmount,
 		specialPass,
 		regularPass,
 		embers,
 		starlight
 	} from '$lib/stores/app-store';
-	import { localBalance, localConfig } from '$lib/stores/localstorage';
+	import { localBalance } from '$lib/stores/localstorage';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import { playSfx } from '$lib/helpers/audio';
-
-	import AstralExpress from './warp-result/_astral-express.svelte';
-	import WarpResult from './warp-result/WarpResult.svelte';
 	import Button from './_button.svelte';
 	import ButtonWarp from './_button-warp.svelte';
 	import ConvertModal from './_convert-modal.svelte';
@@ -61,6 +57,7 @@
 	};
 	$: initialWarp($activeVersion, $activePhase);
 
+	const handleGachaAnimation = getContext('handleGachaAnimation');
 	const doRoll = async (count, bannerToRoll) => {
 		playSfx();
 		multi = count > 1;
@@ -75,7 +72,7 @@
 		}
 
 		warpResult = tmp;
-		handleGachaAnimation();
+		handleGachaAnimation(warpResult);
 		if (isUnlimited) return;
 		updateMilestones();
 		updateBalance(bannerToRoll);
@@ -113,32 +110,6 @@
 			localBalance.set(isSpecialPass ? 'specialPass' : 'regularPass', afterUpdate);
 			return afterUpdate;
 		});
-	};
-
-	// Astral Express
-	let skipSplashart = false;
-	let showAstralExpress = false;
-	let astralRarity = 3;
-	let showWarpResult = false;
-
-	const showSplashArt = ({ skip } = { skip: false }) => {
-		skipSplashart = skip;
-		showWarpResult = true;
-		showAstralExpress = false;
-	};
-	setContext('showSplashArt', showSplashArt);
-
-	const closeResult = () => (showWarpResult = false);
-	setContext('closeResult', closeResult);
-
-	const handleGachaAnimation = () => {
-		const autoSkip = localConfig.get('autoskip');
-		if (autoSkip) return showSplashArt({ skip: true });
-		const star = warpResult.map(({ rarity }) => rarity);
-		if (star.includes(5)) astralRarity = 5;
-		else if (star.includes(4)) astralRarity = 4;
-		else astralRarity = 3;
-		showAstralExpress = true;
 	};
 </script>
 
@@ -183,35 +154,7 @@
 	</div>
 </div>
 
-<div
-	class="warp-container"
-	class:show={showAstralExpress || showWarpResult}
-	style="--bg:url({$assets['warp-bg.webp']})"
->
-	<AstralExpress show={showAstralExpress} rarity={astralRarity} banner={bannerType} />
-	{#if showWarpResult}
-		<WarpResult list={warpResult} skip={skipSplashart} />
-	{/if}
-</div>
-
 <style>
-	.warp-container {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		z-index: 10;
-		top: 0;
-		left: 0;
-		pointer-events: none;
-	}
-
-	.warp-container.show {
-		background-image: var(--bg);
-		background-size: cover;
-		background-position: center center;
-		pointer-events: unset;
-	}
-
 	.button-container {
 		width: calc(83vw);
 		position: fixed;

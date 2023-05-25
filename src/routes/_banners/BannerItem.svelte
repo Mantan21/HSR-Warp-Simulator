@@ -13,7 +13,6 @@
 	export let item = {};
 
 	let bannerWidth;
-
 	$: fit = $viewportHeight * ($isMobileLandscape ? 1.9 : 1.7) > $viewportWidth;
 </script>
 

@@ -1,7 +1,8 @@
 <script>
-	import { fade } from '$lib/helpers/transition';
-	import { assets } from '$lib/stores/app-store';
+	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
+	import { fade } from '$lib/helpers/transition';
+	import { assets, regReward } from '$lib/stores/app-store';
 	import RateupLightones from './__rateup-lightcones.svelte';
 
 	const lightcones = [
@@ -24,6 +25,11 @@
 			combat_type: 'ice'
 		}
 	];
+
+	let rollcount = 0;
+	let isClaimed = false;
+	const handleModal = getContext('handleShowReward');
+	$: ({ isClaimed, rollcount } = $regReward);
 </script>
 
 <div class="content">
@@ -52,12 +58,19 @@
 			</div>
 		{/each}
 
-		<div class="char-group additional">
-			<button in:fade={{ delay: 250, duration: 500 }}>
-				<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
-			</button>
-			<caption>{$t('warp.additional')}</caption>
-		</div>
+		{#if !isClaimed}
+			<div class="char-group additional">
+				<button
+					class:ready={rollcount >= 300}
+					in:fade={{ delay: 250, duration: 500 }}
+					on:click={handleModal}
+				>
+					<span class="notice">i</span>
+					<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
+				</button>
+				<caption>{$t('warp.additional')}</caption>
+			</div>
+		{/if}
 	</div>
 </div>
 
@@ -214,6 +227,28 @@
 
 	.additional button:active {
 		transform: scale(0.95);
+	}
+
+	.additional button.ready {
+		border: 0.15rem solid #fff;
+		box-shadow: 0 0 0.5rem 0.2rem rgba(255, 206, 99, 1);
+	}
+
+	.additional button .notice {
+		color: #fff;
+		background-color: red;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: calc(0.01 * var(--bw));
+		aspect-ratio: 1/1;
+		border-radius: 1rem;
+		font-size: calc(0.01 * var(--bw));
+		display: none;
+	}
+
+	.additional button.ready .notice {
+		display: unset;
 	}
 
 	.additional img {

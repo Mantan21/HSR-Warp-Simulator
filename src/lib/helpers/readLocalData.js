@@ -9,6 +9,7 @@ import {
 	activeVersion,
 	embers,
 	oneiric,
+	regReward,
 	regularPass,
 	showStarterBanner,
 	specialPass,
@@ -41,6 +42,10 @@ const importLocalBalance = () => {
 
 	const starterRollCount = rollCounter.get('starter') || 0;
 	starterRemaining.set(50 - starterRollCount);
+
+	const regularRollCount = rollCounter.get('regular') || 0;
+	const isRegRewardClaimed = localConfig.get('additionalClaimed');
+	regReward.set({ rollcount: regularRollCount, isClaimed: isRegRewardClaimed });
 };
 
 const setBannerVersionAndPhase = () => {

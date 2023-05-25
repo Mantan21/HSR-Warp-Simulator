@@ -3,6 +3,7 @@
 
 	export let icon = '';
 	export let disabled = false;
+	export let colored = false;
 
 	const dispatch = createEventDispatcher();
 	const handleClick = () => {
@@ -10,7 +11,7 @@
 	};
 </script>
 
-<button on:click={handleClick} {disabled}>
+<button on:click={handleClick} {disabled} class:colored>
 	{#if !!icon}
 		<i class="hsr-{icon}" />
 	{/if}
@@ -36,6 +37,11 @@
 		transform: scale(1.000001);
 		margin: 0 2%;
 		border: 1px transparent solid;
+	}
+
+	button.colored {
+		background-color: #f3b839;
+		color: #000;
 	}
 
 	:global(.mobileLandscape) button {

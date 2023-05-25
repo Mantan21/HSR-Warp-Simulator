@@ -8,7 +8,7 @@
 	export let single = false;
 
 	$: starter = bannerType == 'starter';
-	$: event = ['lightcone', 'character'].includes(bannerType);
+	$: event = bannerType.match('event');
 	$: cost = starter ? 8 : 10;
 
 	const dispatch = createEventDispatcher();

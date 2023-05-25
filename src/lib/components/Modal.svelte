@@ -23,7 +23,11 @@
 	in:fade={{ duration: 200 }}
 	out:fade={{ duration: 80 }}
 >
-	<div class="container" in:fly={{ y: 20, duration: 250 }} out:fly={{ y: 20, duration: 80 }}>
+	<div
+		class="container"
+		in:fly={{ y: 20, duration: 250, opacity: 1 }}
+		out:fly={{ y: 50, duration: 100, opacity: 1 }}
+	>
 		<div class="row">
 			{#if exchange}
 				<div class="item-picture">

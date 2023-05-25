@@ -78,6 +78,7 @@ const images = [
 	{
 		dir: 'background',
 		paths: [
+			'additional-reward-bg.webp',
 			'allbanner-bg.webp',
 			'archive-bg.webp',
 			'departure-bg.webp',
