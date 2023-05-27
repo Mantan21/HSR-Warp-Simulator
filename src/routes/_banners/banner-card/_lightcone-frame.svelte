@@ -186,6 +186,7 @@
 		font-size: calc(0.02 * var(--bw));
 		color: #333;
 		font-weight: bold;
+		width: 80%;
 	}
 
 	.stars {

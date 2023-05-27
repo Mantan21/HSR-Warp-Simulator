@@ -74,7 +74,7 @@ export const roll = async (banner, WarpInstance) => {
 	// Get Item
 	const randomItem = WarpInstance.getItem(rarity, banner);
 	const { manual, warp } = owneditem.put({ name: randomItem.name });
-	const numberOfOwnedItem = manual + warp;
+	const numberOfOwnedItem = manual + warp - 1;
 
 	// storing item to storage
 	await saveResult({ pity, ...randomItem });

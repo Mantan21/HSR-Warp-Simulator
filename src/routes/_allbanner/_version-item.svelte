@@ -35,7 +35,7 @@
 			<picture>
 				<img
 					src={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
-					alt={$t(`banner.`)}
+					alt={$t(`banner.${bannerName}`)}
 					loading="lazy"
 					crossorigin="anonymous"
 				/>
@@ -95,7 +95,7 @@
 		border-top-right-radius: 1.5rem;
 		overflow: hidden;
 		position: relative;
-		aspect-ratio: 250/141;
+		aspect-ratio: 16/9;
 		background-size: 400%;
 		background-image: linear-gradient(90deg, #fbf6ee 30%, #ccc, #fbf6ee);
 		animation: infinite alternate 2s skeleton;

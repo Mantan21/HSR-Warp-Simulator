@@ -18,28 +18,19 @@
 		navigate('index');
 	};
 
-	let allBanners = [];
-
 	const loadAllBanner = async () => {
 		const patchList = [];
-		allPatch.forEach((patch) => {
-			const json = import(`../../lib/data/banners/events/${patch.toFixed(1)}.json`);
-			patchList.push(json);
+		allPatch.forEach((ver) => {
+			const data = import(`../../lib/data/banners/events/${ver.toFixed(1)}.json`);
+			patchList.push(data);
 		});
 
-		const promise = await Promise.all(patchList);
-		const data = promise.map(({ data, patch }) => {
-			patch = patch.toFixed(1);
-			return [patch.toString(), data];
-		});
-
-		allBanners = data.reverse();
-		return data;
+		const result = await Promise.all(patchList);
+		return result.reverse();
 	};
 
 	onMount(() => {
 		playSfx('allbanner');
-		loadAllBanner();
 	});
 </script>
 
@@ -56,21 +47,22 @@
 	<div class="container">
 		<Scrollable>
 			<div class="wrapper">
-				{#if allBanners.length < 1}
+				{#await loadAllBanner()}
 					<div class="wait" out:fade={{ duration: 250 }}>
 						<span> {$t('waiting')}...</span>
 					</div>
-				{/if}
-				{#each allBanners as [version, data], i}
-					<div class="group" in:fade={{ duration: 300, delay: Math.sqrt(i * 10000) }}>
-						<h3>{$t('version')} {version}</h3>
-						<div class="banner">
-							{#each data as { phase, banners }}
-								<VersionItem {phase} {version} data={banners} />
-							{/each}
+				{:then allBanners}
+					{#each allBanners as { patch, data }, i}
+						<div class="group" in:fade={{ duration: 300, delay: Math.sqrt(i * 10000) }}>
+							<h3>{$t('version')} {patch.toFixed(1)}</h3>
+							<div class="banner">
+								{#each data as { phase, banners }}
+									<VersionItem {phase} version={patch.toFixed(1)} data={banners} />
+								{/each}
+							</div>
 						</div>
-					</div>
-				{/each}
+					{/each}
+				{/await}
 			</div>
 		</Scrollable>
 	</div>
@@ -98,12 +90,12 @@
 
 	.wait {
 		width: 100%;
-		height: 20vw;
+		height: 40vw;
 		text-align: center;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 	}
