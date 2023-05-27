@@ -27,8 +27,13 @@
 		},
 		{
 			"id": 6,
+			"name": "contract-zero",
+			"type": "character-event"
+		},
+		{
+			"id": 7,
 			"beta": true,
-			"name": "stellaron-hunter",
+			"name": "laic-pursuit",
 			"type": "character-event"
 		}
 	]

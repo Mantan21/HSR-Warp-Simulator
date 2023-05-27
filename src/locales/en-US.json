@@ -70,7 +70,7 @@
 	},
 	"banner": {
 		"all": "All Banner",
-		"unreleased": "Stellaron Hunter",
+		"unreleased": "Not Released Yet",
 		"starter": "Starter Warp",
 		"regular": "Regular Warp",
 		"character-event": "Character Event Warp",
@@ -79,7 +79,9 @@
 		"stellar": "Stellar Warp",
 		"brilliant-fixation": "Brilliant Fixation",
 		"butterfly-on-swordtip": "Butterfly on Swordtip",
-		"swirl-of-heavenly-spear": "Swirl of Heavenly Spear"
+		"swirl-of-heavenly-spear": "Swirl of Heavenly Spear",
+		"contract-zero": "Contract Zero",
+		"laic-pursuit": "Laic Pursuit"
 	},
 	"details": {
 		"heading": "Details",

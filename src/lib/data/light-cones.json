@@ -1,6 +1,12 @@
 {
 	"data": [
 		{
+			"name": "echoes-of-the-coffin",
+			"rarity": 5,
+			"path": "abundance",
+			"limited": true
+		},
+		{
 			"name": "incessant-rain",
 			"rarity": 5,
 			"path": "nihility",

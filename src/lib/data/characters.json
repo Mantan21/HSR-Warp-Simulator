@@ -1,16 +1,14 @@
 {
 	"data": [
 		{
-			"name": "silver-wolf",
+			"name": "luocha",
 			"rarity": 5,
-			"combat_type": "quantum",
-			"path": "nihility",
-			"colors": ["42 38 99", "85 101 214"],
-			"splashartOffset": { "t": 51 },
-			"gachaCardOffset": { "t": 125, "l": 25, "w": 365 },
-			"buttonOffset": { "t": -60, "w": 110 },
-			"bannerOffset": { "b": -35, "l": 12.5, "w": 100 },
-			"textOffset": { "l": 65 }
+			"combat_type": "imaginary",
+			"path": "abundance",
+			"bannerOffset": { "b": -27, "l": 13.5, "w": 103 },
+			"buttonOffset": { "t": -35, "w": 100 },
+			"splashartOffset": { "t": 55, "w": 90, "l": 54 },
+			"gachaCardOffset": { "l": 45, "t": 200, "w": 450 }
 		},
 		{
 			"name": "yukong",
@@ -21,6 +19,18 @@
 			"splashartOffset": { "t": 45, "w": 90, "l": 54 },
 			"gachaCardOffset": { "l": 65, "t": 150, "w": 450 },
 			"bannerOffset": { "h": 505, "t": -152, "l": -630 }
+		},
+		{
+			"name": "silver-wolf",
+			"rarity": 5,
+			"combat_type": "quantum",
+			"path": "nihility",
+			"colors": ["42 38 99", "85 101 214"],
+			"splashartOffset": { "t": 51 },
+			"gachaCardOffset": { "t": 125, "l": 25, "w": 365 },
+			"buttonOffset": { "t": -60, "w": 110 },
+			"bannerOffset": { "b": -35, "l": 12.5, "w": 100 },
+			"textOffset": { "l": 65 }
 		},
 		{
 			"name": "jing-yuan",
@@ -143,7 +153,8 @@
 			"combat_type": "lightning",
 			"path": "erudition",
 			"release": "1.0-0",
-			"gachaCardOffset": { "l": 25, "t": 125, "w": 575 }
+			"gachaCardOffset": { "l": 25, "t": 125, "w": 575 },
+			"bannerOffset": { "h": 645, "t": -230, "l": -925 }
 		},
 		{
 			"name": "bronya",
@@ -201,7 +212,8 @@
 			"path": "hunt",
 			"release": "1.0-0",
 			"splashartOffset": { "w": 90, "t": 45 },
-			"gachaCardOffset": { "t": 110, "l": 13, "w": 520 }
+			"gachaCardOffset": { "t": 110, "l": 13, "w": 520 },
+			"bannerOffset": { "h": 640, "t": -223, "l": -980 }
 		},
 		{
 			"name": "march-7th",

@@ -8,12 +8,28 @@
 				"character": {
 					"bannerID": "6-1",
 					"featured": "silver-wolf",
-					"rateup": ["qingque", "yukong", "asta"]
+					"rateup": ["dan-heng", "asta", "serval"]
 				},
 				"lightcone": {
 					"bannerID": "3-3",
 					"featured": "incessant-rain",
 					"rateup": ["dance-dance-dance", "swordplay", "subscribe-for-more"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": "7-1",
+					"featured": "luocha",
+					"rateup": ["pela", "qingque", "yukong"]
+				},
+				"lightcone": {
+					"bannerID": "3-4",
+					"featured": "echoes-of-the-coffin",
+					"rateup": ["geniuses-repose", "memories-of-the-past", "shared-feeling"]
 				}
 			}
 		}
