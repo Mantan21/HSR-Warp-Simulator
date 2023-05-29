@@ -84,6 +84,7 @@ const images = [
 			'departure-bg.webp',
 			'gachainfo-bg.webp',
 			'gachainfo-bg2.webp',
+			'phonograph-bg.webp',
 			'stellar-bg.webp',
 			'warp-bg.webp'
 		]
@@ -92,6 +93,8 @@ const images = [
 		dir: 'utils',
 		paths: [
 			'additional-reward.svg',
+			'album_of-snow-and-ember.webp',
+			'album_out-of-control.webp',
 			'circle-ornament1.svg',
 			'circle-ornament2.svg',
 			'depature-icon.svg',
@@ -100,6 +103,8 @@ const images = [
 			'method-tears.webp',
 			'method-imaginary-money.webp',
 			'method-empty-wallet.webp',
+			'music.svg',
+			'music-disc.webp',
 			'oneiric-shard.webp',
 			'oneiric-60.webp',
 			'oneiric-300.webp',
@@ -118,6 +123,8 @@ const images = [
 		]
 	}
 ];
+
+const videos = ['phonograph1.mp4', 'phonograph2.mp4'];
 
 const bgList = () => {
 	const paths = [];
@@ -139,11 +146,11 @@ export const listingAssets = () => {
 		});
 	});
 
-	// videos.forEach((v) => {
-	//   const pathdir = `/videos/${v}`;
-	//   const item = { path: pathdir, asset: v };
-	//   arr.push(item);
-	// });
+	videos.forEach((v) => {
+		const pathdir = `/videos/${v}`;
+		const item = { path: pathdir, asset: v };
+		arr.push(item);
+	});
 
 	return arr;
 };

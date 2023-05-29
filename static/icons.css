@@ -224,3 +224,33 @@
 .hsr-select:before {
 	content: '\21';
 }
+.hsr-phonograph:before {
+	content: '\22';
+}
+.hsr-play:before {
+	content: '\23';
+}
+.hsr-pause:before {
+	content: '\24';
+}
+.hsr-music:before {
+	content: '\25';
+}
+.hsr-volume-up:before {
+	content: '\26';
+}
+.hsr-volume-off:before {
+	content: '\27';
+}
+.hsr-volume-down:before {
+	content: '\28';
+}
+.hsr-suffle:before {
+	content: '\29';
+}
+.hsr-loop:before {
+	content: '\2a';
+}
+.hsr-spinner:before {
+	content: '\2b';
+}

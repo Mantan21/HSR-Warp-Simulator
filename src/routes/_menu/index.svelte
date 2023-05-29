@@ -1,16 +1,18 @@
 <script>
 	import { browser } from '$app/environment';
-	import { setContext } from 'svelte';
-	import { fade } from '$lib/helpers/transition';
+	import { getContext, setContext } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { writable } from 'svelte/store';
+	import { t } from 'svelte-i18n';
+
 	import { viewportHeight } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
-	import { playSfx } from '$lib/helpers/audio';
-	import MainMenu from './Menu.svelte';
-	import Modal from '$lib/components/Modal.svelte';
-	import { storageReset } from '$lib/helpers/storage-reset';
-	import { t } from 'svelte-i18n';
-	import { writable } from 'svelte/store';
 	import { localConfig } from '$lib/stores/localstorage';
+	import { storageReset } from '$lib/helpers/storage-reset';
+	import { playSfx } from '$lib/helpers/audio';
+
+	import Modal from '$lib/components/Modal.svelte';
+	import MainMenu from './Menu.svelte';
 
 	const localToggle = cookie.get('menuToggle');
 	let showToggle = localToggle === undefined ? true : localToggle;
@@ -38,10 +40,17 @@
 	// Toggle Show Menu
 	let showMenu = false;
 	const toggleShowMenu = () => {
-		playSfx(showMenu ? 'close' : 'setting-open');
+		playSfx(showMenu ? 'setting-close' : 'setting-click');
 		showMenu = !showMenu;
 	};
 	setContext('toggleMenu', toggleShowMenu);
+
+	// Show Modal
+	const navigate = getContext('navigate');
+	const openPhonograph = () => {
+		playSfx();
+		navigate('phonograph');
+	};
 
 	// Modal
 	let isModalOpen = false;
@@ -104,6 +113,10 @@
 	<div class="wrapper">
 		<button title="Options" on:click={toggleShowMenu}>
 			<i class="hsr-cog" />
+		</button>
+
+		<button title="PhonoGraph" on:click={openPhonograph}>
+			<i class="hsr-phonograph" />
 		</button>
 
 		<button on:click={handleFullscreen} title="Fullscreen">

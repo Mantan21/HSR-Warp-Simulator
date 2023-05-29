@@ -4,7 +4,9 @@
 	import { importLocalBalance, setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
+	import { playSfx } from '$lib/helpers/audio';
 
+	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
 	import ModalConvert from '$lib/components/ModalConvert.svelte';
 	import LoginPage from './_login/index.svelte';
 	import AllBanner from './_allbanner/index.svelte';
@@ -13,8 +15,7 @@
 	import Collection from './_collection/index.svelte';
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
-	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
-	import { playSfx } from '$lib/helpers/audio';
+	import Phonograph from './_phonograph/index.svelte';
 
 	let status;
 	let loggedIn = false;
@@ -84,21 +85,15 @@
 	{#if pageActive === 'index'}
 		<Banners />
 		<Menu />
-	{/if}
-
-	{#if pageActive === 'allbanner'}
+	{:else if pageActive === 'allbanner'}
 		<AllBanner />
-	{/if}
-
-	{#if pageActive === 'collection'}
+	{:else if pageActive === 'collection'}
 		<Collection />
-	{/if}
-
-	{#if pageActive === 'shop'}
+	{:else if pageActive === 'shop'}
 		<Shop />
-	{/if}
-
-	{#if pageActive === 'details'}
+	{:else if pageActive === 'details'}
 		<GachaInfo />
+	{:else if pageActive === 'phonograph'}
+		<Phonograph />
 	{/if}
 {/if}

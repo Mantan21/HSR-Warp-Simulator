@@ -1,0 +1,66 @@
+{
+	"data": [
+		{
+			"album": "out-of-control",
+			"tracks": [
+				{
+					"title": "Space Walk",
+					"sourceID": "CEASuVxGfZQ"
+				},
+				{
+					"title": "The Game Is On",
+					"sourceID": "KhpUvvxzAl4"
+				},
+				{
+					"title": "Science Fiction",
+					"sourceID": "NJ09F8a2kZ4"
+				},
+				{
+					"title": "Drift",
+					"sourceID": "Li_oM7D8qug"
+				},
+				{
+					"title": "Deep Within",
+					"sourceID": "6Q5BnlE0nys"
+				},
+				{
+					"title": "Flow Experience",
+					"sourceID": "9iA94LVbbP8"
+				},
+				{
+					"title": "Mystery",
+					"sourceID": "eCaMQU6pXjo"
+				}
+			]
+		},
+		{
+			"album": "of-snow-and-ember",
+			"tracks": [
+				{
+					"title": "Embers",
+					"sourceID": "3WI-Gl1gGxA"
+				},
+				{
+					"title": "Fade Sun",
+					"sourceID": "dyt2lMcsbnc"
+				},
+				{
+					"title": "Ghost from the Past",
+					"sourceID": "uoEfNYm0P6c"
+				},
+				{
+					"title": "Warm Sun",
+					"sourceID": "FzEX8AZYuoY"
+				},
+				{
+					"title": "Order",
+					"sourceID": "Lpo6JXLlMDs"
+				},
+				{
+					"title": "Kindling",
+					"sourceID": "ImxoiCdcHus"
+				}
+			]
+		}
+	]
+}
