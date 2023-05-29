@@ -1,5 +1,5 @@
 <script>
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { assets } from '$lib/stores/app-store';
@@ -18,8 +18,8 @@
 		playSfx('close');
 	};
 
+	onMount(() => playSfx('paper-flip'));
 	let activeInfo = cookie.get('activeInfo') || 'details';
-
 	const selectInfo = (info) => {
 		playSfx();
 		activeInfo = info;

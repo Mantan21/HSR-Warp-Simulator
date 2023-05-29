@@ -1,13 +1,15 @@
 <script>
-	import { getContext, setContext } from 'svelte';
+	import { getContext, onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
-	import Header from '$lib/components/Header.svelte';
-	import Settings from './Settings.svelte';
-	import Navbar from './_navbar.svelte';
+	import { playSfx } from '$lib/helpers/audio';
 	import { isMobileLandscape } from '$lib/stores/app-store';
+	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
+
+	import Header from '$lib/components/Header.svelte';
+	import Navbar from './_navbar.svelte';
 	import UpdateLog from './UpdateLog.svelte';
+	import Settings from './Settings.svelte';
 
 	const closeMenu = getContext('toggleMenu');
 	let activeMenu = 'settings';
@@ -17,6 +19,7 @@
 	let activeOption = '';
 	const openOption = (option) => (activeOption = option);
 	setContext('openOption', openOption);
+	onMount(() => playSfx('setting-loaded'));
 </script>
 
 <section transition:fade={{ duration: 200 }} on:mousedown={() => openOption('')}>

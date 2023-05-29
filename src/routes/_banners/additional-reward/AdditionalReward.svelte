@@ -1,5 +1,5 @@
 <script>
-	import { getContext, setContext } from 'svelte';
+	import { getContext, onMount, setContext } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { assets, regReward } from '$lib/stores/app-store';
@@ -51,6 +51,7 @@
 		regReward.update(({ rollcount }) => ({ rollcount, isClaimed: true }));
 		localConfig.set('additionalClaimed', true);
 	};
+	onMount(() => playSfx('paper-flip'));
 </script>
 
 {#if showModal}
