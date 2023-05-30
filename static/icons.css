@@ -254,3 +254,6 @@
 .hsr-spinner:before {
 	content: '\2b';
 }
+.hsr-server:before {
+	content: '\2c';
+}

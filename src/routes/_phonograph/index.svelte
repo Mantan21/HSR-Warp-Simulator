@@ -2,8 +2,9 @@
 	import { getContext, onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { data as musics } from '$lib/data/tracks.json';
+	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/audio';
+	import { pauseTrack, playTrack } from '$lib/helpers/sounds/phonograph';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
@@ -14,19 +15,32 @@
 
 	onMount(() => playSfx('music-loaded'));
 
+	$: bgm = $activeBacksound;
+	$: activeTrack = bgm.sourceID;
+	$: playedTrack = activeTrack;
+
+	$: activeAlbum = bgm.album;
+	$: playedAlbum = activeAlbum;
+	$: tracks = $musics.filter(({ album }) => album === playedAlbum);
+
+	setContext('pickAlbum', (selected) => (playedAlbum = selected));
+	setContext('pickTrack', (selected) => (playedTrack = selected));
+
+	const setMusic = (sid) => {
+		playSfx('item-obtained');
+		const trackData = $musics.find(({ sourceID }) => sourceID === sid);
+		activeBacksound.set(trackData);
+	};
+	setContext('setMusic', setMusic);
+
 	const navigate = getContext('navigate');
 	const back = () => {
 		playSfx('music-close');
 		navigate('index');
+		if (playedTrack === activeTrack) return;
+		pauseTrack(playedTrack);
+		playTrack(activeTrack);
 	};
-
-	let tracks = [];
-	let activeAlbum = 'out-of-control';
-	let playedAlbum = activeAlbum;
-	const albumList = musics.map(({ album }) => album);
-
-	setContext('pickAlbum', (selected) => (playedAlbum = selected));
-	$: ({ tracks } = musics.find(({ album }) => album === playedAlbum));
 </script>
 
 <svelte:head>
@@ -42,13 +56,13 @@
 	</Header>
 	<div class="container">
 		<div class="album-list">
-			<Albums {activeAlbum} {albumList} {playedAlbum} />
+			<Albums {activeAlbum} {playedAlbum} />
 		</div>
 		<div class="playlist">
-			<Tracks {activeAlbum} trackList={tracks} />
+			<Tracks {activeAlbum} {activeTrack} {playedTrack} trackList={tracks} />
 		</div>
 		<div class="controller">
-			<Controller />
+			<Controller playedSID={playedTrack} />
 		</div>
 	</div>
 </section>

@@ -13,6 +13,7 @@
 
 	import Modal from '$lib/components/Modal.svelte';
 	import MainMenu from './Menu.svelte';
+	import { randomTrack } from '$lib/helpers/sounds/phonograph';
 
 	const localToggle = cookie.get('menuToggle');
 	let showToggle = localToggle === undefined ? true : localToggle;
@@ -88,6 +89,7 @@
 		if (keepSetting) return;
 		autoskip.set(false);
 		muted.set(false);
+		randomTrack('init');
 	};
 </script>
 
@@ -115,9 +117,11 @@
 			<i class="hsr-cog" />
 		</button>
 
-		<button title="PhonoGraph" on:click={openPhonograph}>
-			<i class="hsr-phonograph" />
-		</button>
+		{#if !$muted}
+			<button title="PhonoGraph" on:click={openPhonograph}>
+				<i class="hsr-phonograph" />
+			</button>
+		{/if}
 
 		<button on:click={handleFullscreen} title="Fullscreen">
 			<i class="hsr-{!fullscreen ? 'fullscreen' : 'shrink'}" />

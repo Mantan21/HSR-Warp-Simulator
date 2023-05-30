@@ -1,10 +1,12 @@
 <script>
 	import { getContext } from 'svelte';
 	import { warpAmount } from '$lib/stores/app-store';
+	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { t } from 'svelte-i18n';
 	import OptionsItem from './_settings-option.svelte';
 	import { fade } from 'svelte/transition';
+	import { pauseTrack, randomTrack } from '$lib/helpers/sounds/phonograph';
 
 	export let activeOption;
 
@@ -27,8 +29,16 @@
 	const muted = getContext('muted');
 	const handleSfx = ({ detail }) => {
 		const { selected } = detail;
+
+		// stop bgm before saving config
+		if (selected === 'yes') pauseTrack($activeBacksound.sourceID);
+
+		// saving config
 		muted.set(selected === 'yes');
 		localConfig.set('muted', selected === 'yes');
+
+		// Play audio after saving config
+		if (selected !== 'yes') randomTrack('init');
 	};
 </script>
 

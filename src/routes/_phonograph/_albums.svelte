@@ -1,11 +1,11 @@
 <script>
 	import { getContext } from 'svelte';
 	import { assets } from '$lib/stores/app-store';
+	import { albumList } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/audio';
 
 	export let activeAlbum = '';
 	export let playedAlbum = '';
-	export let albumList = [];
 
 	const pickAlbum = getContext('pickAlbum');
 	const selectAlbum = (name) => {
@@ -16,7 +16,7 @@
 </script>
 
 <div class="album-list">
-	{#each albumList as name}
+	{#each $albumList as name}
 		<div class="album-item">
 			<button
 				class="wrapper"

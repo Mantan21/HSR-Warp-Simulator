@@ -1,21 +1,57 @@
 <script>
 	import { getContext } from 'svelte';
 	import { assets } from '$lib/stores/app-store';
+	import { activeBacksound, currentTime } from '$lib/stores/phonograph-store';
+	import { formatTime, pauseTrack, playTrack } from '$lib/helpers/sounds/phonograph';
 
-	export let active;
-	export let isPlayed;
 	export let title = '';
 	export let sourceID = '';
+	export let isWaiting = false;
+	export let playedTrack;
+	export let duration;
 
 	let isloaded = true;
+	let current = '0:00';
+	let percentage = 0;
 
+	$: bgm = $activeBacksound;
+	$: isPlayed = playedTrack === sourceID;
+	$: if (isPlayed && isloaded) {
+		current = formatTime($currentTime);
+		percentage = ($currentTime / duration) * 100 || 0;
+	} else {
+		current = '0:00';
+		percentage = 0;
+	}
+
+	const wait = getContext('wait');
+	const songReady = getContext('songReady');
 	const selectTrack = getContext('selectTrack');
-	const playTrack = (sourceID) => {
-		selectTrack(sourceID);
+
+	const previewTrack = async (sID) => {
+		if (sID === playedTrack) return;
+		try {
+			isloaded = false;
+			wait(true);
+			songReady(false);
+
+			selectTrack(sID);
+			pauseTrack(playedTrack || bgm.sourceID);
+			const { status } = await playTrack(sID);
+			if (status === 'error') throw new Error('Server Error');
+			playedTrack = sID;
+
+			isloaded = true;
+			wait(false);
+			songReady(true);
+		} catch (e) {
+			console.error(e);
+			wait(false);
+		}
 	};
 </script>
 
-<button id={sourceID} class:isPlayed on:click={() => playTrack(sourceID)}>
+<button id={sourceID} class:isPlayed on:click={() => previewTrack(sourceID)} disabled={isWaiting}>
 	<i class="hsr-right-arrow" />
 	<div class="track-wrapper">
 		<div class="icon">
@@ -38,13 +74,19 @@
 			<div class="track-title">
 				<span class="title"> "{title}" </span>
 
-				{#if active}
+				{#if sourceID === bgm.sourceID}
 					<span class="note">
 						<i class="hsr-music" />
 					</span>
 				{/if}
 			</div>
-			<div class="duration">1:02</div>
+			<div class="progress">
+				<span style="--per:{percentage}%" />
+			</div>
+			<div class="duration">
+				{isPlayed ? `${current} /` : ''}
+				{duration ? formatTime(duration) : 'not yet loaded'}
+			</div>
 
 			<picture class="track-bg">
 				<img src={$assets['music.svg']} alt="" />
@@ -191,7 +233,26 @@
 		font-size: calc(0.05 * var(--wd));
 		padding: 4% 0;
 		position: relative;
-		border-bottom: rgba(255, 255, 255, 0.5) calc(0.005 * var(--wd)) solid;
+	}
+	.progress {
+		background-color: rgba(174, 167, 167, 0.5);
+		width: 100%;
+		height: calc(0.005 * var(--wd));
+		position: relative;
+		border-radius: 1rem;
+	}
+
+	.progress span {
+		display: block;
+		height: 125%;
+		width: var(--per);
+		background-color: #000;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		border-radius: 1rem;
+		transform: translateY(-50%);
+		transition: width 0.1s;
 	}
 
 	.duration {
@@ -219,7 +280,7 @@
 		aspect-ratio: 100%;
 		width: 10%;
 		aspect-ratio: 1/1;
-		font-size: 120%;
+		font-size: 100%;
 		transition: 0.25s all;
 	}
 

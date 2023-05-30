@@ -1,10 +1,43 @@
 <script>
 	import Scrollable from '$lib/components/Scrollable.svelte';
+	import { playSfx } from '$lib/helpers/audio';
+	import { musics } from '$lib/stores/phonograph-store';
+	import { cookie } from '$lib/stores/cookies';
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+
+	export let playedSID;
+
+	let online;
+	let isLoop = cookie.get('loopTrack');
+	let isSuffle = cookie.get('suffleTrack');
+	$: playedTrack = $musics.find(({ sourceID }) => sourceID === playedSID);
+
+	const handleLoop = () => {
+		playSfx();
+		isLoop = !isLoop;
+		cookie.set('loopTrack', isLoop);
+	};
+	const handleSuffle = () => {
+		playSfx();
+		isSuffle = isSuffle === undefined ? false : !isSuffle;
+		cookie.set('suffleTrack', isSuffle);
+	};
+
+	onMount(() => {
+		online = window.navigator.onLine;
+		window.addEventListener('online', () => {
+			online = true;
+		});
+		window.addEventListener('offline', () => {
+			online = false;
+		});
+	});
 </script>
 
 <div class="controller">
 	<div class="information">
-		<span class="onplay">"Embers"</span>
+		<span class="onplay">"{playedTrack.title}"</span>
 		<div class="description">
 			<Scrollable>
 				<p>
@@ -16,8 +49,26 @@
 		</div>
 	</div>
 	<div class="controls">
-		<button class="active"> <i class="hsr-loop" /> Loop </button>
-		<button> <i class="hsr-suffle" /> Suffle </button>
+		<button class:active={isLoop} on:click={handleLoop} title="Loop This Music">
+			<i class="hsr-loop" /> Loop
+		</button>
+		{#if !isLoop}
+			<button
+				title="Suffle Playlist"
+				class:active={isSuffle === undefined || isSuffle}
+				on:click={handleSuffle}
+				transition:fade={{ duration: 250 }}
+			>
+				<i class="hsr-suffle" /> Suffle
+			</button>
+		{/if}
+		{#if online}
+			<button title="Choose Musics' Server"> <i class="hsr-server" /> Google </button>
+		{:else}
+			<button title="Cant't connect to Server" disabled>
+				<i class="hsr-server" /> No Internet
+			</button>
+		{/if}
 	</div>
 </div>
 
@@ -78,10 +129,10 @@
 		transform: translate(-50%, -50%);
 	}
 
-	button:hover {
+	button:not(:disabled):hover {
 		opacity: 1;
 	}
-	button:active {
+	button:not(:disabled):active {
 		transform: scale(0.95);
 		filter: brightness(0.5);
 	}

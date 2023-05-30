@@ -1,22 +1,28 @@
 <script>
+	import { getContext, setContext } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { playSfx } from '$lib/helpers/audio';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import Scrollable from '$lib/components/Scrollable.svelte';
-	import { fade } from 'svelte/transition';
 	import TrackItem from './_track-item.svelte';
-	import { playSfx } from '$lib/helpers/audio';
-	import { setContext } from 'svelte';
 
 	export let activeAlbum = '';
 	export let trackList = [];
+	export let playedTrack;
+	export let activeTrack;
 
 	let width;
 	let sfx = 1;
-	let activeTrack = 'NJ09F8a2kZ4';
-	let playedTrack = activeTrack;
+	let songReady = false;
+	let isWaiting = false;
+	setContext('wait', (val) => (isWaiting = val));
+	setContext('songReady', (val) => (songReady = val));
 
+	const setMusic = getContext('setMusic');
+	const pickTrack = getContext('pickTrack');
 	const selectTrack = (trackID) => {
 		if (playedTrack === trackID) return;
-		playedTrack = trackID;
+		pickTrack(trackID);
 		if (sfx === 1) {
 			sfx = 2;
 			return playSfx('music-select1');
@@ -33,12 +39,9 @@
 		<Scrollable visibility="hidden">
 			<div class="list-wrapper">
 				{#each trackList as track, i (track)}
+					{@const { title, sourceID, duration } = track}
 					<div class="track-item" in:fade={{ duration: 250, delay: Math.sqrt(i * 15000) }}>
-						<TrackItem
-							active={track.sourceID === activeTrack}
-							isPlayed={track.sourceID === playedTrack}
-							{...track}
-						/>
+						<TrackItem {playedTrack} {title} {sourceID} {isWaiting} {duration} />
 					</div>
 				{/each}
 			</div>
@@ -46,7 +49,11 @@
 	</div>
 	<div class="divider" />
 	<div class="set-bgm">
-		<ButtonGeneral icon="music" disabled={activeTrack === playedTrack}>
+		<ButtonGeneral
+			icon="music"
+			disabled={!songReady || activeTrack === playedTrack}
+			on:click={() => setMusic(playedTrack)}
+		>
 			{activeTrack === playedTrack ? 'Current Song' : 'Set Song'}
 		</ButtonGeneral>
 	</div>

@@ -15,6 +15,7 @@
 	import { mobileDetect } from '$lib/helpers/mobile-detect';
 	import { mountLocale } from '$lib/helpers/i18n';
 	import { fade } from '$lib/helpers/transition';
+	import { randomTrack } from '$lib/helpers/sounds/phonograph';
 
 	import InitialLoader from '$lib/components/InitialLoader.svelte';
 	import { userCurrencies } from '$lib/helpers/shop-price';
@@ -45,6 +46,10 @@
 		});
 
 		userCurrencies.init();
+
+		// Play Random music
+		randomTrack('init');
+
 		// prevent Righ click (hold on android) on production mode
 		if (!dev) document.addEventListener('contextmenu', (e) => e.preventDefault());
 	});

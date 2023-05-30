@@ -3,6 +3,7 @@
 	import { t } from 'svelte-i18n';
 	import { fade, fly } from '$lib/helpers/transition';
 	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
+	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/audio.js';
 
@@ -14,6 +15,7 @@
 	import Background from './_background.svelte';
 	import AstralExpress from './warp-result/_astral-express.svelte';
 	import WarpResult from './warp-result/WarpResult.svelte';
+	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 
 	let type, bannerName;
 	$: ({ bannerName, beta, featured, type } = $bannerList[$activeBanner]);
@@ -45,6 +47,7 @@
 	let astralRarity = 3;
 	let showWarpResult = false;
 	let warpResult = [];
+	$: bgm = $activeBacksound;
 
 	const showSplashArt = ({ skip } = { skip: false }) => {
 		skipSplashart = skip;
@@ -53,10 +56,14 @@
 	};
 	setContext('showSplashArt', showSplashArt);
 
-	const closeResult = () => (showWarpResult = false);
+	const closeResult = () => {
+		showWarpResult = false;
+		resumeTrack(bgm.sourceID);
+	};
 	setContext('closeResult', closeResult);
 
 	const handleGachaAnimation = (result, source = 'warp') => {
+		pauseTrack(bgm.sourceID, false);
 		warpResult = result;
 		const autoSkip = source !== 'warp' || localConfig.get('autoskip');
 		if (autoSkip) return showSplashArt({ skip: true });
