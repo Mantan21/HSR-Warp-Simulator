@@ -9,7 +9,7 @@
 	import { cookie } from '$lib/stores/cookies';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { storageReset } from '$lib/helpers/storage-reset';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	import Modal from '$lib/components/Modal.svelte';
 	import MainMenu from './Menu.svelte';

@@ -4,7 +4,7 @@
 	import { t } from 'svelte-i18n';
 
 	import { allPatch } from '$lib/data/warp-setup.json';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { assets } from '$lib/stores/app-store';
 
 	import Scrollable from '$lib/components/Scrollable.svelte';

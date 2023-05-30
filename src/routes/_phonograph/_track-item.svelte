@@ -52,7 +52,13 @@
 	};
 </script>
 
-<button id={sourceID} class:isPlayed on:click={() => previewTrack(sourceID)} disabled={isWaiting}>
+<button
+	id={sourceID}
+	class:isPlayed
+	on:click={() => previewTrack(sourceID)}
+	disabled={isWaiting}
+	{title}
+>
 	<i class="hsr-right-arrow" />
 	<div class="track-wrapper">
 		<div class="icon">
@@ -160,6 +166,7 @@
 	.icon {
 		font-size: calc(0.08 * var(--wd));
 		flex-basis: 15%;
+		min-width: 15%;
 		position: relative;
 		z-index: +1;
 		display: flex;
@@ -205,6 +212,7 @@
 		display: flex;
 		flex-direction: column;
 		flex-basis: 85%;
+		max-width: 85%;
 		height: 100%;
 		padding: 0 2%;
 		position: relative;
@@ -234,7 +242,12 @@
 		font-size: calc(0.05 * var(--wd));
 		padding: 4% 0;
 		position: relative;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 100%;
 	}
+
 	.progress {
 		background-color: rgba(174, 167, 167, 0.5);
 		width: 100%;

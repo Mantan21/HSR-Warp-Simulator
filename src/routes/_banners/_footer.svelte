@@ -15,7 +15,7 @@
 	} from '$lib/stores/app-store';
 	import { localBalance } from '$lib/stores/localstorage';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import Button from './_button.svelte';
 	import ButtonWarp from './_button-warp.svelte';
 	import ConvertModal from './_convert-modal.svelte';

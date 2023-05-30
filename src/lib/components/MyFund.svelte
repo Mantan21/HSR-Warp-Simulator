@@ -1,5 +1,5 @@
 <script>
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { assets } from '$lib/stores/app-store';
 	import { getContext } from 'svelte';
 

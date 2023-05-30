@@ -2,7 +2,7 @@
 	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import TrackItem from './_track-item.svelte';

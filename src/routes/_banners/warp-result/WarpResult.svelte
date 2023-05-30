@@ -6,7 +6,7 @@
 	import { scale } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
-	import { playSfx, stopSfx } from '$lib/helpers/audio';
+	import { playSfx, stopSfx } from '$lib/helpers/sounds/audiofx';
 	import positionToStyle from '$lib/helpers/cssPosition';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';

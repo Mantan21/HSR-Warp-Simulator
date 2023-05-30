@@ -4,7 +4,7 @@
 	import { t } from 'svelte-i18n';
 	import { assets } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Scrollable from '$lib/components/Scrollable.svelte';

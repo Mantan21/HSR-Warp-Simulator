@@ -3,7 +3,7 @@
 	import { fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { embers, regularPass, specialPass, starlight, stellarJade } from '$lib/stores/app-store';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import Modal from '$lib/components/Modal.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 	import Range from '$lib/components/Range.svelte';

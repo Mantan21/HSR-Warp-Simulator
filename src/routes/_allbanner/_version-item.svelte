@@ -4,7 +4,7 @@
 	import { assetPath } from '$lib/helpers/assets';
 	import { activeBanner, activePhase, activeVersion } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { identifyBanner } from '$lib/helpers/banners';
 
 	export let phase;

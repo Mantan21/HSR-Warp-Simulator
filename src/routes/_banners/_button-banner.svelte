@@ -5,7 +5,7 @@
 	import { assets } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
 	import positionToStyle from '$lib/helpers/cssPosition';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	export let active = false;
 	export let bannerData = {};

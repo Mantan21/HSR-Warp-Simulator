@@ -1,7 +1,7 @@
 <script>
 	import NavLink from '$lib/components/NavLink.svelte';
 	import NavLinkItem from '$lib/components/NavLinkItem.svelte';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { getContext } from 'svelte';
 
 	export let horizontal = false;

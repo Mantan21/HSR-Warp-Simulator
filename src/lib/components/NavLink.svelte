@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { isMobileLandscape, viewportWidth } from '$lib/stores/app-store';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { fly } from 'svelte/transition';
 	import Scrollable from './Scrollable.svelte';
 

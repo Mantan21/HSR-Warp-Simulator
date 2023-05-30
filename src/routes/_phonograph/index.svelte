@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { pauseTrack, playTrack } from '$lib/helpers/sounds/phonograph';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';

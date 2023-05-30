@@ -4,7 +4,7 @@
 	import { t } from 'svelte-i18n';
 	import { oneiric, stellarJade } from '$lib/stores/app-store';
 	import { localBalance } from '$lib/stores/localstorage';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	import Icon from './Icon.svelte';
 	import Modal from './Modal.svelte';

@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { fly, scale } from '$lib/helpers/transition';
 	import ResultListItem from './_result-list-item.svelte';
 

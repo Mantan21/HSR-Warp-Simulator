@@ -2,7 +2,7 @@
 	import { getContext, onMount, setContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { assets } from '$lib/stores/app-store';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { fade } from '$lib/helpers/transition';
 	import Header from '$lib/components/Header.svelte';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';

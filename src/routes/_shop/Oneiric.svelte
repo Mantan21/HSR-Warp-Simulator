@@ -4,7 +4,7 @@
 	import { activeVersion, assets, priceList } from '$lib/stores/app-store';
 	import { oneiricBonus } from '$lib/data/pricelist.json';
 	import { cookie } from '$lib/stores/cookies';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	import Icon from '$lib/components/Icon.svelte';
 	import ShopGroupItem from './_shop-group-item.svelte';

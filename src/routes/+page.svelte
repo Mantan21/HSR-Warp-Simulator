@@ -4,7 +4,7 @@
 	import { importLocalBalance, setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
 	import ModalConvert from '$lib/components/ModalConvert.svelte';

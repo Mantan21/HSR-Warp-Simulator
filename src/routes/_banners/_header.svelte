@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { regularPass, specialPass, stellarJade, warpAmount } from '$lib/stores/app-store';
 
 	import Header from '$lib/components/Header.svelte';

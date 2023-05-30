@@ -5,7 +5,7 @@
 	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/stores/localstorage';
-	import { playSfx } from '$lib/helpers/audio.js';
+	import { playSfx } from '$lib/helpers/sounds/audiofx.js';
 
 	import AdditionalReward from './additional-reward/AdditionalReward.svelte';
 	import Footer from './_footer.svelte';

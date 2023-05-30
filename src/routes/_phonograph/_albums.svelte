@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import { assets } from '$lib/stores/app-store';
 	import { albumList } from '$lib/stores/phonograph-store';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	export let activeAlbum = '';
 	export let playedAlbum = '';

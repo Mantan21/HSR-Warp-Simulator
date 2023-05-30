@@ -5,7 +5,7 @@
 	import { fade } from '$lib/helpers/transition';
 	import { assetPath } from '$lib/helpers/assets';
 	import accessKey from '$lib/helpers/access-key';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import LoadingIcon from '$lib/components/LoadingIcon.svelte';
 
 	let input = '';

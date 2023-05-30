@@ -2,7 +2,7 @@
 	import { createEventDispatcher, getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { fly } from 'svelte/transition';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { activePhase, activeVersion } from '$lib/stores/app-store';
 
 	export let showOption = false;

@@ -4,7 +4,7 @@
 	import { t } from 'svelte-i18n';
 	import { musics } from '$lib/stores/phonograph-store';
 	import { cookie } from '$lib/stores/cookies';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import Scrollable from '$lib/components/Scrollable.svelte';
 
 	export let playedSID;

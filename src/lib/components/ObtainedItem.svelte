@@ -2,7 +2,7 @@
 	import { getContext, onMount } from 'svelte';
 	import { fade, fly, scale } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { playSfx } from '$lib/helpers/audio';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import Icon from './Icon.svelte';
 	import { bezier } from '$lib/helpers/easing';
 
