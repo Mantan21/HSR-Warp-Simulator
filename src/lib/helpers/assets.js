@@ -95,6 +95,7 @@ const images = [
 			'additional-reward.svg',
 			'album_of-snow-and-ember.webp',
 			'album_out-of-control.webp',
+			'album_svah-sanishyu.webp',
 			'circle-ornament1.svg',
 			'circle-ornament2.svg',
 			'depature-icon.svg',

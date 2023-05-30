@@ -5,15 +5,53 @@
 			"tracks": [
 				{
 					"title": "Space Walk",
-					"sourceID": "CEASuVxGfZQ"
+					"sourceID": "CEASuVxGfZQ",
+					"description": "Step outside and enter the sky, transcend the light years, and roam the stars."
 				},
 				{
 					"title": "The Game Is On",
-					"sourceID": "KhpUvvxzAl4"
+					"sourceID": "KhpUvvxzAl4",
+					"description": "Bubble gum, potato chips, and iced soda. All is ready and Silver Wolf's favorite show is about to start."
 				},
 				{
 					"title": "Science Fiction",
-					"sourceID": "NJ09F8a2kZ4"
+					"sourceID": "NJ09F8a2kZ4",
+					"description": "While fantasy longs to lead the world astray, science had steadily and soberly chosen its path."
+				},
+				{
+					"title": "Timeline",
+					"sourceID": "OlJbpM8G5Qw",
+					"description": "Once upon a time, you set foot on your journey from here."
+				},
+				{
+					"title": "Dawn of Disaster",
+					"sourceID": "vPQUH9eYSiM",
+					"description": "After the disaster, very few people were willing to investigate whether it was an accidental calamity or a calculated plot."
+				},
+				{
+					"title": "Take the Journey",
+					"sourceID": "I9Z2nafspDQ",
+					"description": "No one knows what awaits them ahead on the journey, so just taking this first step can be daunting."
+				},
+				{
+					"title": "Weightless",
+					"sourceID": "uSxqCX-1lUE",
+					"description": "The moment when gravity changed, I forgot to even breathe."
+				},
+				{
+					"title": "Crises",
+					"sourceID": "ZGTcN-87vyQ",
+					"description": "If one can predict future crises and dangers... Pity there is no \"if only.\""
+				},
+				{
+					"title": "fReeStyLE",
+					"sourceID": "T6yR37QQSbA",
+					"description": "Life is like a play, and everyone lives by their ability to perform. Even the most honest person will have days when they need to improv."
+				},
+				{
+					"title": "Salty Moon",
+					"sourceID": "ZCTo0g3b-Gg",
+					"description": "Recipe: Wildfire-soaked maguey, a lemon slice charged with murder, and a handful of salt fermented from the tears of stars."
 				},
 				{
 					"title": "Drift",
@@ -30,6 +68,18 @@
 				{
 					"title": "Mystery",
 					"sourceID": "eCaMQU6pXjo"
+				},
+				{
+					"title": "Alternative Rock",
+					"sourceID": "IT_RwWUPtqU"
+				},
+				{
+					"title": "Dire Straits",
+					"sourceID": "MS4gtbF1Nwo"
+				},
+				{
+					"title": "Awake the Trailblazer",
+					"sourceID": "gtV-t1RjzqM"
 				}
 			]
 		},
@@ -38,27 +88,200 @@
 			"tracks": [
 				{
 					"title": "Embers",
-					"sourceID": "3WI-Gl1gGxA"
+					"sourceID": "3WI-Gl1gGxA",
+					"description": "It is even a luxury for some people to pass a peaceful day before warm embers."
 				},
 				{
 					"title": "Fade Sun",
-					"sourceID": "dyt2lMcsbnc"
+					"sourceID": "dyt2lMcsbnc",
+					"description": "There are no major differences between the Belobog of today and the past. The only difference might be the ever-colder nights."
 				},
 				{
 					"title": "Ghost from the Past",
-					"sourceID": "uoEfNYm0P6c"
+					"sourceID": "uoEfNYm0P6c",
+					"description": "The shadow of destruction still wanders outside Belobog."
 				},
 				{
 					"title": "Warm Sun",
-					"sourceID": "FzEX8AZYuoY"
+					"sourceID": "FzEX8AZYuoY",
+					"description": "Enjoyable moments are like the warm winter sun. They are fragile and brief, but their momentary warmth soothes the difficulty of the long years."
 				},
 				{
 					"title": "Order",
-					"sourceID": "Lpo6JXLlMDs"
+					"sourceID": "Lpo6JXLlMDs",
+					"description": "Like the tall walls blocking the blizzard, an order was erected by the Architects themselves."
 				},
 				{
 					"title": "Kindling",
-					"sourceID": "ImxoiCdcHus"
+					"sourceID": "ImxoiCdcHus",
+					"description": "The blizzard cannot put out all warmth. The final kindling rises from below the earth."
+				},
+				{
+					"title": "Underground",
+					"sourceID": "BY2NRkMzjbY",
+					"description": "People are still defending their homes even in the underground world."
+				},
+				{
+					"title": "Godfather",
+					"sourceID": "5tsmuyegi-k",
+					"description": "Everything he did using his power was to protect his family."
+				},
+				{
+					"title": "Frozen March",
+					"sourceID": "SaAgnLpOngg",
+					"description": "Why, when faced with irrefutable strength, is our first thought always to resist, to cover our ears, instead of hearing the call?"
+				},
+				{
+					"title": "A Trap With No Return",
+					"sourceID": "KYPjJARF7HQ",
+					"description": "Their power is with me... You are but cinders of the Old World soon to become ashes!"
+				},
+				{
+					"title": "Wildfire",
+					"sourceID": "PVqezHKDPC4",
+					"description": "You must break the old to build the new."
+				},
+				{
+					"title": "Everwinter",
+					"sourceID": "5SzOfEF_h4A",
+					"description": "Humanity's living space grows ever smaller in the ceaseless Eternal Freeze."
+				},
+				{
+					"title": "Fate",
+					"sourceID": "9DzPuG0emsE",
+					"description": "The moment of choice is here. The road to the future is so near yet so far."
+				},
+				{
+					"title": "HeartFire",
+					"sourceID": "ZBYf1Yy15kQ",
+					"description": "Happiness is just having a crackling fire and friends and family by one's side."
+				},
+				{
+					"title": "Street Abuzz",
+					"sourceID": "uAMmrT64v7k",
+					"description": "Only by igniting the dancing bonfire can these people not be forgotten by this frigid planet."
+				},
+				{
+					"title": "Conflict Undraped",
+					"sourceID": "oZc11fXIFxo"
+				},
+				{
+					"title": "Sleep Tight",
+					"sourceID": "iv0HVTjur2w"
+				},
+				{
+					"title": "Cutting Mistral",
+					"sourceID": "RIykQOHsCDI"
+				},
+				{
+					"title": "Frosty Trail",
+					"sourceID": "4NKBnbM19i8"
+				},
+				{
+					"title": "Thick Haze",
+					"sourceID": "GUN_9iKGpuw"
+				},
+				{
+					"title": "Traceless Drift",
+					"sourceID": "gpkgPldRn4g"
+				},
+				{
+					"title": "Shinking Hoarfrost",
+					"sourceID": "XrxrHCTUE3c"
+				},
+				{
+					"title": "Lingering Heat",
+					"sourceID": "hYSmFRGMRak"
+				},
+				{
+					"title": "Tempered Cord",
+					"sourceID": "kOzqgSrp8YM"
+				},
+				{
+					"title": "Belobog March \"For Belobog\"",
+					"sourceID": "46IsugxUhJI"
+				},
+				{
+					"title": "Dense Floe",
+					"sourceID": "UX_fJbXlfwY"
+				},
+				{
+					"title": "Crystal Tears",
+					"sourceID": "oOmuKu7jOrE"
+				},
+				{
+					"title": "Silent",
+					"sourceID": "BAJXO0oVqIM"
+				},
+				{
+					"title": "The Cusp of Ignition",
+					"sourceID": "Axm06DDSLm8"
+				}
+			]
+		},
+		{
+			"album": "svah-sanishyu",
+			"tracks": [
+				{
+					"title": "Cumulus Formations",
+					"sourceID": "u8BLrbsbNzE",
+					"description": "Clear skies, soothed darkness, yet a quick shower followed by sun. Appearing clouds, fading clouds, enigmatic as life itself."
+				},
+				{
+					"title": "Ave Astra et Viator",
+					"sourceID": "J-MDo1PmIC0",
+					"description": "The traveler's spirit wanders on, showered in starlight evermore."
+				},
+				{
+					"title": "Lustrous Moonlight",
+					"sourceID": "3H5HUkW1_xw",
+					"description": "Stainless is the clear night. The moon is silver bright. Fill my cup, and make sure it brims up."
+				},
+				{
+					"title": "Fabulous Foresight",
+					"sourceID": "fBzgfwmZ5x4",
+					"description": "Though everything may change in a flash, my strategies can keep things under control."
+				},
+				{
+					"title": "Upon the Firmament",
+					"sourceID": "J83VAXHJ4GA",
+					"description": "Gaze up, and study the laws of astronomy. Look down, and observe the features of geography. Only then would the formation of night and day be clear in your mind."
+				},
+				{
+					"title": "Exquisite Ingenuity",
+					"sourceID": "fqCfqRwVsLY",
+					"description": "By measuring, the load-bearing of starskiffs derived. By examination, the quality of material determined. Meticulously, detailed blueprints drafted. Meticulously followed, exquisite delves constructed."
+				},
+				{
+					"title": "Deerstalker",
+					"sourceID": "DHw5h02QyLI",
+					"description": "A desperate deer will resort to any means to escape."
+				},
+				{
+					"title": "Anthropic Domain",
+					"sourceID": "4mJfZLa49ik",
+					"description": "The sun rises and sets, the moon waxes and wanes. The days turn, the seasons pass. The land thrives, the people prosper. As the galaxy stretches overhead."
+				},
+				{
+					"title": "Thundering Chariot",
+					"sourceID": "NugKwBuQLAk",
+					"description": "Thunder roars and rumbles, after lightning flashes and tears the skyfall."
+				},
+				{
+					"title": "Palace of Astrum",
+					"sourceID": "qQT7dW6Kwqk"
+				},
+				{
+					"title": "The Hound Chases the Fox",
+					"sourceID": "bDVCppIBqT4"
+				},
+				{
+					"title": "Stroll Around the Exalting Sanctum",
+					"sourceID": "2PEmueuG1h8"
+				},
+				{
+					"title": "Divination Commission",
+					"sourceID": "CcKkZKdxCJM"
 				}
 			]
 		}

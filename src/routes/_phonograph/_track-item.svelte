@@ -1,5 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { assets } from '$lib/stores/app-store';
 	import { activeBacksound, currentTime } from '$lib/stores/phonograph-store';
 	import { formatTime, pauseTrack, playTrack } from '$lib/helpers/sounds/phonograph';
@@ -56,7 +57,7 @@
 	<div class="track-wrapper">
 		<div class="icon">
 			{#if isPlayed}
-				{#if isloaded}
+				{#if isloaded && duration > 0}
 					<div class="play-icon">
 						<span />
 						<span />
@@ -85,7 +86,7 @@
 			</div>
 			<div class="duration">
 				{isPlayed ? `${current} /` : ''}
-				{duration ? formatTime(duration) : 'not yet loaded'}
+				{duration ? formatTime(duration) : $t('phonograph.notLoaded')}
 			</div>
 
 			<picture class="track-bg">

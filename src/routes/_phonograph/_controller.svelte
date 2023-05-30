@@ -1,10 +1,11 @@
 <script>
-	import Scrollable from '$lib/components/Scrollable.svelte';
-	import { playSfx } from '$lib/helpers/audio';
-	import { musics } from '$lib/stores/phonograph-store';
-	import { cookie } from '$lib/stores/cookies';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
+	import { musics } from '$lib/stores/phonograph-store';
+	import { cookie } from '$lib/stores/cookies';
+	import { playSfx } from '$lib/helpers/audio';
+	import Scrollable from '$lib/components/Scrollable.svelte';
 
 	export let playedSID;
 
@@ -41,16 +42,15 @@
 		<div class="description">
 			<Scrollable>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nesciunt sunt earum
-					fugiat tenetur sequi voluptatem quam. Quidem odit atque, molestias dolore consectetur
-					tempora beatae qui, ducimus, veritatis earum voluptatibus!
+					{playedTrack.description || ''}
 				</p>
 			</Scrollable>
 		</div>
 	</div>
 	<div class="controls">
 		<button class:active={isLoop} on:click={handleLoop} title="Loop This Music">
-			<i class="hsr-loop" /> Loop
+			<i class="hsr-loop" />
+			{$t('phonograph.loop')}
 		</button>
 		{#if !isLoop}
 			<button
@@ -59,14 +59,16 @@
 				on:click={handleSuffle}
 				transition:fade={{ duration: 250 }}
 			>
-				<i class="hsr-suffle" /> Suffle
+				<i class="hsr-suffle" />
+				{$t('phonograph.suffle')}
 			</button>
 		{/if}
 		{#if online}
 			<button title="Choose Musics' Server"> <i class="hsr-server" /> Google </button>
 		{:else}
 			<button title="Cant't connect to Server" disabled>
-				<i class="hsr-server" /> No Internet
+				<i class="hsr-server" />
+				{$t('noInternet')}
 			</button>
 		{/if}
 	</div>

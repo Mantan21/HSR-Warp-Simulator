@@ -1,12 +1,13 @@
 <script>
 	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/audio';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import TrackItem from './_track-item.svelte';
 
-	export let activeAlbum = '';
+	export let playedAlbum = '';
 	export let trackList = [];
 	export let playedTrack;
 	export let activeTrack;
@@ -34,7 +35,7 @@
 </script>
 
 <div class="tracks" bind:clientWidth={width} style="--wd:{width}px">
-	<div class="album-name"><i> {activeAlbum}</i></div>
+	<div class="album-name"><i> {$t(`phonograph.${playedAlbum}`)}</i></div>
 	<div class="track-list">
 		<Scrollable visibility="hidden">
 			<div class="list-wrapper">
@@ -54,7 +55,7 @@
 			disabled={!songReady || activeTrack === playedTrack}
 			on:click={() => setMusic(playedTrack)}
 		>
-			{activeTrack === playedTrack ? 'Current Song' : 'Set Song'}
+			{activeTrack === playedTrack ? $t('phonograph.currentSong') : $t('phonograph.setSong')}
 		</ButtonGeneral>
 	</div>
 </div>

@@ -12,6 +12,7 @@
 	"etc": "etc.",
 	"new": "New",
 	"converted": "Converted to",
+	"noInternet": "No Internet",
 	"loading": "Loading",
 	"waiting": "Waiting",
 	"version": "Version",
@@ -218,5 +219,16 @@
 		"keepSettingInfo": "Current Pity, Balance and Settings will not be deleted.",
 		"keyExpired": "The Key Is Expired, please get a new one!",
 		"invalidKey": "Invalid Key!"
+	},
+	"phonograph": {
+		"heading": "Phonograph",
+		"out-of-control": "Out of Control",
+		"svah-sanishyu": "Svah Sanishyu",
+		"of-snow-and-ember": "Of Snow and Ember",
+		"currentSong": "Current Song",
+		"setSong": "Set Song",
+		"notLoaded": "Not yet loaded",
+		"suffle": "Suffle",
+		"loop": "Loop"
 	}
 }

@@ -44,12 +44,12 @@
 </script>
 
 <svelte:head>
-	<title>Phonograph | {$t('title')}</title>
+	<title>{$t('phonograph.heading')} | {$t('title')}</title>
 </svelte:head>
 
 <section transition:fade={{ duration: 250 }}>
 	<Background />
-	<Header icon="phonograph" h2="Phonograph" relative>
+	<Header icon="phonograph" h2={$t('phonograph.heading')} relative>
 		<div class="close">
 			<ButtonIcon on:click={back} />
 		</div>
@@ -59,7 +59,7 @@
 			<Albums {activeAlbum} {playedAlbum} />
 		</div>
 		<div class="playlist">
-			<Tracks {activeAlbum} {activeTrack} {playedTrack} trackList={tracks} />
+			<Tracks {playedAlbum} {activeTrack} {playedTrack} trackList={tracks} />
 		</div>
 		<div class="controller">
 			<Controller playedSID={playedTrack} />

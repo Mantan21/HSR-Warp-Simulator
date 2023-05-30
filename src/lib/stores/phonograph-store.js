@@ -4,7 +4,9 @@ import { writable } from 'svelte/store';
 const tracks = [];
 
 data.forEach(({ album, tracks: tr }) => {
-	tr.forEach(({ sourceID, title }) => tracks.push({ album, sourceID, title }));
+	tr.forEach(({ sourceID, title, description }) =>
+		tracks.push({ album, sourceID, title, description })
+	);
 });
 
 export const activeBacksound = writable({});
