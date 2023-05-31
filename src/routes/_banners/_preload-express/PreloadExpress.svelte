@@ -5,6 +5,7 @@
 	import { assets, autoskip } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { getContext, onMount } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { fade } from 'svelte/transition';
 
 	let onProgress = false;
@@ -49,7 +50,7 @@
 		{#if onProgress}
 			<div class="loader">
 				<caption class="load-text" style="position: relative;">
-					Load <span> {warpType} </span> Animation
+					{@html $t('warp.loadExpressMsg', { values: { item: `<span> ${warpType} </span>` } })}
 				</caption>
 				<div class="progress-bar" style="--per:{percentage}%">
 					<span />
@@ -60,17 +61,18 @@
 			</div>
 		{:else}
 			<div class="prompt-text">
-				Can't find Astral Express Animation in your storage, <span> Load the Astral Express</span>
-				first before warping, or <span> Turn ON </span>
-				the option to skip Astral Express!
+				{@html $t('warp.expressNotLoaded')}
 				<small>
-					* Loaded files will be stored to Browser Storage, so you don't need to load them again
-					until the site update.
+					{$t('warp.preloadFilesMsg')}
 				</small>
 			</div>
 			<div class="options">
-				<ButtonGeneral icon="refresh" on:click={preloadExpress}>Load Express</ButtonGeneral>
-				<ButtonGeneral icon="skip" on:click={skipExpress}>Skip Express</ButtonGeneral>
+				<ButtonGeneral icon="refresh" on:click={preloadExpress}>
+					{$t('warp.loadExpress')}
+				</ButtonGeneral>
+				<ButtonGeneral icon="skip" on:click={skipExpress}>
+					{$t('warp.skipExpress')}
+				</ButtonGeneral>
 			</div>
 		{/if}
 	</div>
@@ -94,7 +96,8 @@
 		font-size: 120%;
 	}
 
-	span {
+	.prompt-text :global(span),
+	.loader :global(span) {
 		color: var(--color-second);
 		position: relative;
 	}

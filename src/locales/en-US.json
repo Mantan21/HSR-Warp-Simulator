@@ -67,7 +67,12 @@
 		"convertModal": "Insufficient {ticket}. Consume {jadeNeeded} Stellar Jade to purchase {ticketNeeded} {ticket}?",
 		"bonusdrop": "Bonus drop:",
 		"eidolonBonus": "{charName}'s Eidolon ×1",
-		"undyingBonus": "{undyingType} ×{qty}"
+		"undyingBonus": "{undyingType} ×{qty}",
+		"loadExpress": "Load Express",
+		"skipExpress": "Skip Express",
+		"loadExpressMsg": "Load {item} Animation",
+		"expressNotLoaded": "Can't find Astral Express Animation in your storage, <span> Load the Astral Express</span> first before warping, or <span> Turn ON </span> the option to skip Astral Express!",
+		"preloadFilesMsg": "* Loaded files will be stored to Browser Storage, so you don't need to load them again until the site update."
 	},
 	"banner": {
 		"all": "All Banner",
@@ -221,6 +226,7 @@
 		"invalidKey": "Invalid Key!"
 	},
 	"phonograph": {
+		"choosebgm": "Choose Backsound",
 		"heading": "Phonograph",
 		"out-of-control": "Out of Control",
 		"svah-sanishyu": "Svah Sanishyu",
