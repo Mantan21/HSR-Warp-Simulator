@@ -57,7 +57,7 @@
 {#if showModal}
 	<Modal title={$t('additionalReward.hint')} on:cancel={closeModal} on:confirm={claimCharacter}>
 		<div class="modal-content" style="text-align: center; width: 100%;">
-			{$t('additonalReward.selectPrompt')}
+			{$t('additionalReward.selectPrompt')}
 		</div>
 	</Modal>
 {/if}

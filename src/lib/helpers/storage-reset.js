@@ -19,10 +19,10 @@ import {
 	stellarJade,
 	warpAmount
 } from '$lib/stores/app-store';
-import IDBManager from '$lib/stores/idbManager';
+import { HistoryManager } from '$lib/stores/idbManager';
 import { localConfig, storageLocal } from '$lib/stores/localstorage';
 
-const { clearIDB } = IDBManager;
+const { clearIDB } = HistoryManager;
 export const storageReset = async ({ keepSetting = false }) => {
 	await clearIDB();
 

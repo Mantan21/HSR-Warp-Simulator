@@ -80,6 +80,10 @@
 		{
 			"date": "30 May 2023",
 			"changes": ["Add Phonograph and the Tracks"]
+		},
+		{
+			"date": "31 May 2023",
+			"changes": ["Preload Astral Express Animation to reduce the chance of getting error"]
 		}
 	]
 }

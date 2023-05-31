@@ -36,6 +36,9 @@
 		playSfx('click');
 	};
 
+	// Ready To Pull ?
+	const readyToPull = getContext('readyToPull');
+
 	// Convert Modal
 	const closeModal = ({ confirm = false }) => {
 		playSfx(confirm ? 'click' : 'close');
@@ -144,11 +147,16 @@
 		<div class="warp-button">
 			{#if !isStarter}
 				<div class="btn">
-					<ButtonWarp single {bannerType} on:click={() => doRoll(1, bannerType)} />
+					<ButtonWarp
+						disabled={!$readyToPull}
+						single
+						{bannerType}
+						on:click={() => doRoll(1, bannerType)}
+					/>
 				</div>
 			{/if}
 			<div class="btn">
-				<ButtonWarp {bannerType} on:click={() => doRoll(10, bannerType)} />
+				<ButtonWarp disabled={!$readyToPull} {bannerType} on:click={() => doRoll(10, bannerType)} />
 			</div>
 		</div>
 	</div>

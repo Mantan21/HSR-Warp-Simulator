@@ -1,9 +1,9 @@
 import { regReward, showStarterBanner, starterRemaining } from '$lib/stores/app-store';
-import IDBManager from '$lib/stores/idbManager';
+import { HistoryManager } from '$lib/stores/idbManager';
 import { guaranteedStatus, localPity, owneditem, rollCounter } from '$lib/stores/localstorage';
 import prob, { base4StarChar, base4StarLC, base5StarChar, base5StarLC } from './probabilities';
 
-const { addHistory } = IDBManager;
+const { addHistory } = HistoryManager;
 
 export const roll = async (banner, WarpInstance) => {
 	const pity5 = localPity.get(`pity5${banner}`);

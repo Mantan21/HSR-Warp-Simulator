@@ -1,12 +1,13 @@
 <script>
 	import { getContext } from 'svelte';
-	import { warpAmount } from '$lib/stores/app-store';
+	import { warpAmount, autoskip } from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { t } from 'svelte-i18n';
 	import OptionsItem from './_settings-option.svelte';
 	import { fade } from 'svelte/transition';
 	import { pauseTrack, randomTrack } from '$lib/helpers/sounds/phonograph';
+	import { check as expressChecker } from '$lib/helpers/express-loader';
 
 	export let activeOption;
 
@@ -18,11 +19,15 @@
 	};
 
 	// AutoSkip
-	const autoskip = getContext('autoskip');
-	const handleAutoSkip = ({ detail }) => {
+	const readyToPull = getContext('readyToPull');
+	const handleAutoSkip = async ({ detail }) => {
 		const { selected } = detail;
-		autoskip.set(selected === 'yes');
-		localConfig.set('autoskip', selected === 'yes');
+		const isAutoSkip = selected === 'yes';
+		autoskip.set(isAutoSkip);
+		localConfig.set('autoskip', isAutoSkip);
+		if (isAutoSkip) return readyToPull.set(true);
+		const cekExpress = await expressChecker();
+		readyToPull.set(cekExpress);
 	};
 
 	// Sound & Volume

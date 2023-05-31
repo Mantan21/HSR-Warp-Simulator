@@ -8,14 +8,16 @@
 
 	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
 	import ModalConvert from '$lib/components/ModalConvert.svelte';
+	import PreloadExpress from './_banners/_preload-express/PreloadExpress.svelte';
+	import Banners from './_banners/index.svelte';
 	import LoginPage from './_login/index.svelte';
 	import AllBanner from './_allbanner/index.svelte';
-	import Banners from './_banners/index.svelte';
 	import Menu from './_menu/index.svelte';
 	import Collection from './_collection/index.svelte';
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
 	import Phonograph from './_phonograph/index.svelte';
+	import { writable } from 'svelte/store';
 
 	let status;
 	let loggedIn = false;
@@ -65,6 +67,10 @@
 	};
 	setContext('openObtained', openObtained);
 	setContext('closeObtained', closeObtained);
+
+	// Express Loader
+	const readyToPull = writable(true);
+	setContext('readyToPull', readyToPull);
 </script>
 
 {#if status === 'error'}
@@ -96,4 +102,6 @@
 	{:else if pageActive === 'phonograph'}
 		<Phonograph />
 	{/if}
+
+	<PreloadExpress />
 {/if}

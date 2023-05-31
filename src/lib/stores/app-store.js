@@ -10,7 +10,7 @@ export const starlight = writable(0);
 
 export const starterRemaining = writable(50);
 export const regReward = writable({ rollcount: 0, isClaimed: false });
-export const warpAmount = writable('default');
+export const priceList = writable({ oneiric: {}, supplyPass: null });
 
 export const activeVersion = writable(null);
 export const activePhase = writable(null);
@@ -23,6 +23,8 @@ export const isMobile = writable(false);
 export const viewportWidth = writable(0);
 export const viewportHeight = writable(0);
 
-export const priceList = writable({ oneiric: {}, supplyPass: null });
-
 export const assets = writable([]);
+
+// Settings
+export const warpAmount = writable('default');
+export const autoskip = writable(false);

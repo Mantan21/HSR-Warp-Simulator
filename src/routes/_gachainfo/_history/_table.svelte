@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import IDBManager from '$lib/stores/idbManager';
+	import { HistoryManager } from '$lib/stores/idbManager';
 	import { identifyBanner } from '$lib/helpers/banners';
 	import { removeDash } from '$lib/helpers/text-proccesor';
 
@@ -11,7 +11,7 @@
 	let data = [];
 	let dataToShow = [];
 
-	const { getList } = IDBManager;
+	const { getList } = HistoryManager;
 	const setDataLength = getContext('setDataLength');
 
 	const filterData = (filterBy) => data.filter(({ rarity }) => rarity === filterBy);

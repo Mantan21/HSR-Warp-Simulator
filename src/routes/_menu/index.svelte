@@ -5,15 +5,17 @@
 	import { writable } from 'svelte/store';
 	import { t } from 'svelte-i18n';
 
-	import { viewportHeight } from '$lib/stores/app-store';
+	import { viewportHeight, autoskip } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { storageReset } from '$lib/helpers/storage-reset';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { isPlaying, randomTrack } from '$lib/helpers/sounds/phonograph';
+	import { activeBacksound } from '$lib/stores/phonograph-store';
+	import { check as checkExpress } from '$lib/helpers/express-loader';
 
 	import Modal from '$lib/components/Modal.svelte';
 	import MainMenu from './Menu.svelte';
-	import { randomTrack } from '$lib/helpers/sounds/phonograph';
 
 	const localToggle = cookie.get('menuToggle');
 	let showToggle = localToggle === undefined ? true : localToggle;
@@ -75,21 +77,24 @@
 	setContext('showModal', showModal);
 	setContext('closeModal', closeModal);
 
-	// Clear Storage
-	const autoskip = writable(localConfig.get('autoskip') || false);
-	setContext('autoskip', autoskip);
 	const muted = writable(localConfig.get('muted') || false);
 	setContext('muted', muted);
 
+	// Clear Storage
+	const readyToPull = getContext('readyToPull');
 	const clearStorage = async () => {
 		playSfx();
 		await storageReset({ keepSetting });
 		isModalOpen = false;
 
 		if (keepSetting) return;
-		autoskip.set(false);
 		muted.set(false);
-		randomTrack('init');
+
+		const soundOn = isPlaying($activeBacksound.sourceID);
+		if (!soundOn) randomTrack('init');
+
+		autoskip.set(false);
+		readyToPull.set(await checkExpress());
 	};
 </script>
 

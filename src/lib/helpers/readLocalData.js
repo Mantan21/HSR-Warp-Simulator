@@ -7,6 +7,7 @@ import {
 import {
 	activePhase,
 	activeVersion,
+	autoskip,
 	embers,
 	oneiric,
 	regReward,
@@ -36,6 +37,9 @@ const importLocalBalance = () => {
 	oneiric.set(isNaN(os) ? ios : os);
 	embers.set(isNaN(eb) ? 0 : eb);
 	starlight.set(isNaN(sl) ? 0 : sl);
+
+	const lAutoSkip = localConfig.get('autoskip') || false;
+	autoskip.set(lAutoSkip);
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);

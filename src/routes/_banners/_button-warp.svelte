@@ -6,6 +6,7 @@
 
 	export let bannerType = '';
 	export let single = false;
+	export let disabled = false;
 
 	$: starter = bannerType == 'starter';
 	$: event = bannerType.match('event');
@@ -23,7 +24,7 @@
 		<span class="discount">-20%</span>
 	{/if}
 
-	<button class:starter on:click={handleClick}>
+	<button class:starter on:click={handleClick} {disabled}>
 		<div class="cost">
 			<Icon type={event ? 'specialPass' : 'regularPass'} />
 			<span>×{single ? '1 ' : `${cost}`}</span>
@@ -53,8 +54,11 @@
 		margin-left: 0.2rem;
 		transition: filter 0.2s, transform 0.2s;
 	}
+	button:disabled {
+		filter: brightness(50%);
+	}
 
-	button:active {
+	button:not(:disabled):active {
 		filter: brightness(85%);
 		transform: scale(0.95);
 	}
