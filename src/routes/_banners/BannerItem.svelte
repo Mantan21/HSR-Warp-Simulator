@@ -1,5 +1,13 @@
 <script>
-	import { isMobileLandscape, viewportHeight, viewportWidth } from '$lib/stores/app-store';
+	import { getContext } from 'svelte';
+	import { fade, fly } from '$lib/helpers/transition';
+	import {
+		activeBanner,
+		isMobileLandscape,
+		viewportHeight,
+		viewportWidth
+	} from '$lib/stores/app-store';
+
 	import BnCharacter from './banner-card/_bn-character.svelte';
 	import BnStarter from './banner-card/_bn-starter.svelte';
 	import BnLightcone from './banner-card/_bn-lightcone.svelte';
@@ -10,19 +18,37 @@
 	import StarterFrame from './banner-card/_starter-frame.svelte';
 
 	export let banner = 'starter';
+	export let bannerIndex;
 	export let item = {};
 
 	let bannerWidth;
 	$: fit = $viewportHeight * ($isMobileLandscape ? 1.9 : 1.7) > $viewportWidth;
+	const beforeMoving = getContext('beforeMoving');
+
+	const slideOut = (node) => {
+		beforeMoving.set(bannerIndex);
+		const animate = bannerIndex < $activeBanner;
+		const y = animate ? -500 : 500;
+		return fly(node, { y, duration: 500 });
+	};
+
+	const slideIn = (node, args) => {
+		if (args.fade) return fade(node, {});
+		const animate = bannerIndex < $beforeMoving;
+		const y = animate ? -500 : 500;
+		return fly(node, { y, duration: 500 });
+	};
 </script>
 
 <section class={banner}>
 	<div
 		class="wrap"
-		class:shadow={banner !== 'starter'}
 		class:fit
-		bind:clientWidth={bannerWidth}
 		style="--bw:{bannerWidth}px"
+		class:shadow={banner !== 'starter'}
+		bind:clientWidth={bannerWidth}
+		in:slideIn|local={{ fade: banner === 'starter' }}
+		out:slideOut|local
 	>
 		{#if banner === 'starter'}
 			<BnStarter />
@@ -76,7 +102,7 @@
 		position: relative;
 		z-index: -1;
 	}
-	.wrap.shadow {
+	.shadow {
 		box-shadow: 0.2rem -0.2rem 0.2rem rgba(0, 0, 0, 0.2), -0.2rem -0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 	}
 
@@ -89,6 +115,14 @@
 	.wrap.fit {
 		width: 75%;
 		transform: translate(10%, 3.4%);
+	}
+
+	.transition-wrapper {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 
 	.detail-btn {

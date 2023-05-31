@@ -1,7 +1,7 @@
 <script>
-	import { fly } from '$lib/helpers/transition';
-	import Path from '$lib/components/Path.svelte';
+	import { fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
+	import Path from '$lib/components/Path.svelte';
 
 	export let name;
 	export let path;

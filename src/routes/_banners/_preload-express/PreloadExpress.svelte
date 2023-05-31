@@ -1,12 +1,12 @@
 <script>
-	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
+	import { getContext, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { check, loadAnimation, loadProggress } from '$lib/helpers/express-loader';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { assets, autoskip } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
-	import { getContext, onMount } from 'svelte';
-	import { t } from 'svelte-i18n';
-	import { fade } from 'svelte/transition';
+	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 
 	let onProgress = false;
 	let item = '';

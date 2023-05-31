@@ -216,6 +216,7 @@
 		"warpNumber": "Number of Warps",
 		"muted": "Mute Audio & Sound Effects?",
 		"autoskip": "Auto Skip Express Animation?",
+		"litemode": "Reduce Animation & Heavy Effects",
 		"clearStorage": "Clear Storage",
 		"clearNow": "Clear Now",
 		"promptTitle": "Clear Data?",

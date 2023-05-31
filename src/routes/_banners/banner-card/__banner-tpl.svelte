@@ -1,8 +1,10 @@
 <script>
+	import { liteMode } from '$lib/stores/app-store';
+
 	export let blank = false;
 </script>
 
-<div class="container">
+<div class="container" class:lite={$liteMode}>
 	{#if blank}
 		<slot />
 	{:else}
@@ -53,6 +55,11 @@
 		border-right: calc(0.009 * var(--bw)) solid #020410;
 	}
 
+	.lite .info,
+	.lite .info-border {
+		mask-image: unset;
+	}
+
 	.wrapper-info {
 		height: 100%;
 		width: 97.5%;
@@ -63,6 +70,11 @@
 		);
 		border-top-right-radius: calc(0.05 * var(--bw));
 		padding: 4.5%;
+	}
+
+	.lite .wrapper-info {
+		background-image: unset;
+		background-color: #fff;
 	}
 
 	.featured {

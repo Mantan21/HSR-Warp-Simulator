@@ -1,7 +1,7 @@
 <script>
 	import { setContext } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { fade, fly } from '$lib/helpers/transition';
 	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/stores/localstorage';
@@ -16,15 +16,11 @@
 	import AstralExpress from './warp-result/_astral-express.svelte';
 	import WarpResult from './warp-result/WarpResult.svelte';
 	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
+	import { writable } from 'svelte/store';
 
 	let type, bannerName;
 	$: ({ bannerName, beta, featured, type } = $bannerList[$activeBanner]);
 	$: bannerType = type;
-
-	const bannerTransition = (node, args) => {
-		if (args.fade) return fade(node, args);
-		return fly(node, args);
-	};
 
 	let color1 = '0,0,0';
 	let color2 = color1;
@@ -32,6 +28,9 @@
 		color1 = clr1;
 		color2 = clr2;
 	});
+
+	// Banner Index to adjust Transition
+	setContext('beforeMoving', writable(0));
 
 	// Additional Reward Handle
 	let showAdditional = false;
@@ -100,23 +99,14 @@
 	style="--bn-color2: rgba({color2}, .9); --bn-color1: rgba({color1}, .9)"
 	transition:fade={{ duration: 250 }}
 >
-	<Background bannerList={$bannerList} {bannerType} {featured} />
+	<Background activeType={bannerType} />
 	<Header {bannerType} {bannerName} {beta} />
 	<BannerSelection />
 
-	{#each $bannerList as banner}
+	{#each $bannerList as banner, i}
 		{#if banner.type === bannerType}
-			<div
-				class="warp-banner"
-				in:bannerTransition|local={{
-					y: -100,
-					duration: 200,
-					delay: 200,
-					fade: bannerType === 'starter'
-				}}
-				out:bannerTransition|local={{ y: 100, duration: 200 }}
-			>
-				<BannerItem banner={banner.type} item={banner} />
+			<div class="warp-banner">
+				<BannerItem banner={banner.type} item={banner} bannerIndex={i} />
 			</div>
 		{/if}
 	{/each}
@@ -128,7 +118,6 @@
 	.warp-banner {
 		width: 100%;
 		height: 100%;
-		position: relative;
 	}
 
 	.banner {
@@ -136,6 +125,9 @@
 	}
 	.warp-banner {
 		z-index: +1;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 
 	/* Warp Result */

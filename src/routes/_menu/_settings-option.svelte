@@ -50,7 +50,7 @@
 </script>
 
 <div class="setting-item" class:sub>
-	<div class="caption">{text}</div>
+	<div class="caption">{@html text}</div>
 	<div class="option-select" on:mousedown|stopPropagation>
 		<!-- Clear Storage -->
 		{#if optionName === 'reset'}
@@ -135,6 +135,12 @@
 		flex-basis: 75%;
 		background-color: rgba(255, 255, 255, 0.8);
 		padding: 0.8rem 1.5rem;
+	}
+
+	.caption :global(small) {
+		opacity: 0.8;
+		font-size: x-small;
+		font-style: italic;
 	}
 
 	.option-select {

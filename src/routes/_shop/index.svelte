@@ -4,6 +4,7 @@
 	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { assets, embers, oneiric, starlight, stellarJade } from '$lib/stores/app-store';
+
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';

@@ -1,3 +1,4 @@
+import { localConfig } from '$lib/stores/localstorage';
 import { cubicOut } from 'svelte/easing';
 import {
 	fade as fadeTransition,
@@ -5,23 +6,23 @@ import {
 	scale as scaleTransition
 } from 'svelte/transition';
 
-const animate = true;
+const animate = () => !localConfig.get('litemode');
 
 /** @type {import('svelte/types/runtime/transition').FadeParams} */
 export const fade = (node, args) => {
-	if (!animate || args?.disable) return;
+	if (!animate() || args?.disable) return;
 	return fadeTransition(node, args);
 };
 
 /** @type {import('svelte/types/runtime/transition').FlyParams} */
 export const fly = (node, args) => {
-	if (!animate || args?.disable) return;
+	if (!animate() || args?.disable) return;
 	return flyTransition(node, args);
 };
 
 /** @type {import('svelte/types/runtime/transition').ScaleParams} */
 export const scale = (node, args) => {
-	if (!animate || args?.disable) return;
+	if (!animate() || args?.disable) return;
 	return scaleTransition(node, args);
 };
 
@@ -29,7 +30,7 @@ export const scaleOrigin = (
 	node,
 	{ duration = 300, delay = 0, origin = null, start = 0.5, disable = false, easing = null }
 ) => {
-	if (!animate || disable) return;
+	if (!animate() || disable) return;
 	const transformOrigin = origin ? `transform-origin: ${origin}` : '';
 	const m = getComputedStyle(node).transform.match(/scale\(([0-9.]+)\)/);
 	const s = m ? m[1] : 1;
@@ -46,7 +47,7 @@ export const scaleOrigin = (
 };
 
 export const diagonalSlide = (node, { duration = 300, delay = 0, disable = false }) => {
-	if (!animate || disable) return;
+	if (!animate() || disable) return;
 	return {
 		duration,
 		delay,

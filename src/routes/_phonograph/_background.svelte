@@ -1,6 +1,6 @@
 <script>
 	import { bezier } from '$lib/helpers/easing';
-	import { assets, viewportHeight, viewportWidth } from '$lib/stores/app-store';
+	import { assets, liteMode, viewportHeight, viewportWidth } from '$lib/stores/app-store';
 	import { scale } from '$lib/helpers/transition';
 
 	$: portrait = $viewportHeight > (9 / 16) * $viewportWidth;
@@ -12,17 +12,19 @@
 	style="--bg:url('{$assets['phonograph-bg.webp']}');"
 	in:scale={{ start: 1.2, opacity: 1, duration: 1500, easing: bezier(0.2, 0.5, 0, 1) }}
 >
-	<div class="video-wrapper">
-		<video class="phonograph-top" autoplay loop muted>
-			<source src={$assets['phonograph1.mp4']} />
-			<track kind="captions" />
-		</video>
+	{#if !$liteMode}
+		<div class="video-wrapper">
+			<video class="phonograph-top" autoplay loop muted>
+				<source src={$assets['phonograph1.mp4']} />
+				<track kind="captions" />
+			</video>
 
-		<video class="phonograph-bottom" autoplay loop muted>
-			<source src={$assets['phonograph2.mp4']} />
-			<track kind="captions" />
-		</video>
-	</div>
+			<video class="phonograph-bottom" autoplay loop muted>
+				<source src={$assets['phonograph2.mp4']} />
+				<track kind="captions" />
+			</video>
+		</div>
+	{/if}
 </div>
 
 <style>

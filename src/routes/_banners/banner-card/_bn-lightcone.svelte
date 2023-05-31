@@ -1,7 +1,7 @@
 <script>
 	import { t } from 'svelte-i18n';
 	import { scaleOrigin } from '$lib/helpers/transition';
-	import { assets } from '$lib/stores/app-store';
+	import { assets, liteMode } from '$lib/stores/app-store';
 	import BannerTpl from './__banner-tpl.svelte';
 	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
@@ -10,7 +10,7 @@
 </script>
 
 <BannerTpl blank>
-	<div class="wrapper">
+	<div class="wrapper" class:lite={$liteMode}>
 		<picture class="layer-bg">
 			<source srcset={assetPath(`lc/5/${item.featured}`, 450)} media="(max-width: 640px)" />
 			<img
@@ -42,7 +42,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		background-image: linear-gradient(170deg, rgb(255, 255, 255, 0.5), rgb(255, 255, 255, 0));
+		background-image: linear-gradient(170deg, #fff, transparent);
 	}
 
 	.layer-bg {
@@ -75,6 +75,21 @@
 		mask-image: radial-gradient(circle farthest-side at right, transparent 31%, white 31%);
 		mask-position: 74%;
 		mask-size: 200% 100%;
+	}
+
+	.wrapper.lite,
+	.lite .layer-bg,
+	.lite .layer-bg img {
+		mask-image: unset;
+	}
+
+	.lite.wrapper {
+		overflow: hidden;
+		background-image: unset;
+	}
+	.lite .layer-white {
+		background-image: unset;
+		background-color: rgba(255, 255, 255, 0.95);
 	}
 
 	/* ornament */

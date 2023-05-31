@@ -2,53 +2,62 @@
 	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
 	import { fly } from '$lib/helpers/transition';
+	import { liteMode } from '$lib/stores/app-store';
 	import BannerTpl from './__banner-tpl.svelte';
 </script>
 
 <BannerTpl>
-	<div class="featured-bg" />
-	<div class="splash-art himeko">
-		<figure
-			in:fly={{
-				x: -25,
-				duration: 4000,
-				delay: 250,
-				opacity: 0.8,
-				easing: bezier(0.13, 0.14, 0, 1)
-			}}
-		>
-			<img src={assetPath('banners/regular/himeko.webp')} alt="Himeko" crossorigin="anonymous" />
-		</figure>
-	</div>
-	<div class="splash-art gepard">
-		<figure
-			in:fly={{
-				x: -20,
-				duration: 4000,
-				delay: 250,
-				opacity: 0.8,
-				easing: bezier(0.13, 0.14, 0, 1)
-			}}
-		>
-			<img src={assetPath('banners/regular/gepard.webp')} alt="Gepard" crossorigin="anonymous" />
-		</figure>
-	</div>
-	<div class="splash-art bronya">
-		<figure
-			in:fly={{
-				x: -40,
-				delay: 250,
-				duration: 4000,
-				opacity: 0.8,
-				easing: bezier(0.13, 0.14, 0, 1)
-			}}
-		>
-			<img src={assetPath('banners/regular/bronya.webp')} alt="Bronya" crossorigin="anonymous" />
-		</figure>
+	<div class="wrapper" class:lite={$liteMode}>
+		<div class="featured-bg" />
+		<div class="splash-art himeko">
+			<figure
+				in:fly={{
+					x: -25,
+					duration: 4000,
+					delay: 250,
+					opacity: 0.8,
+					easing: bezier(0.13, 0.14, 0, 1)
+				}}
+			>
+				<img src={assetPath('banners/regular/himeko.webp')} alt="Himeko" crossorigin="anonymous" />
+			</figure>
+		</div>
+		<div class="splash-art gepard">
+			<figure
+				in:fly={{
+					x: -20,
+					duration: 4000,
+					delay: 250,
+					opacity: 0.8,
+					easing: bezier(0.13, 0.14, 0, 1)
+				}}
+			>
+				<img src={assetPath('banners/regular/gepard.webp')} alt="Gepard" crossorigin="anonymous" />
+			</figure>
+		</div>
+		<div class="splash-art bronya">
+			<figure
+				in:fly={{
+					x: -40,
+					delay: 250,
+					duration: 4000,
+					opacity: 0.8,
+					easing: bezier(0.13, 0.14, 0, 1)
+				}}
+			>
+				<img src={assetPath('banners/regular/bronya.webp')} alt="Bronya" crossorigin="anonymous" />
+			</figure>
+		</div>
 	</div>
 </BannerTpl>
 
 <style>
+	.wrapper {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+
 	.featured-bg {
 		width: 100%;
 		height: 100%;
@@ -118,5 +127,18 @@
 		left: 31%;
 		width: 75%;
 		top: -27%;
+	}
+
+	.lite .splash-art,
+	.lite .featured-bg,
+	.lite .bronya img {
+		mask-image: unset !important;
+	}
+	.lite {
+		overflow: hidden;
+	}
+	.lite .featured-bg {
+		background-image: unset;
+		background-color: #272d5f;
 	}
 </style>

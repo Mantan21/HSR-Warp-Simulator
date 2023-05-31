@@ -75,7 +75,8 @@ export const guaranteedStatus = {
 export const localConfig = {
 	get(key) {
 		const config = storageLocal.get('config');
-		return config[key] || null;
+		const isValue = config[key] !== null;
+		return isValue ? config[key] : null;
 	},
 	set(key, value) {
 		const config = storageLocal.get('config');

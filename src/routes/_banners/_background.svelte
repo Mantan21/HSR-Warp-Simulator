@@ -1,15 +1,16 @@
 <script>
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import { fade } from 'svelte/transition';
 	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
 	import { data } from '$lib/data/characters.json';
 	import { assetPath } from '$lib/helpers/assets.js';
-	import { assets } from '$lib/stores/app-store.js';
+	import { assets, bannerList, liteMode } from '$lib/stores/app-store.js';
 
-	export let bannerList;
-	export let bannerType;
-	export let featured;
+	export let activeType;
+
+	$: charData = $bannerList.find(({ type }) => type === 'character-event') || {};
+	$: lcData = $bannerList.find(({ type }) => type === 'lightcone-event') || {};
+	$: getColor(charData);
 
 	const setColor = getContext('setColor');
 	const colorthief = new ColorThief();
@@ -27,13 +28,10 @@
 		return false;
 	};
 
-	const getColor = (list) => {
+	const getColor = (charData) => {
 		try {
-			const { featured } = list.find(({ type }) => {
-				return type === 'character-event';
-			}) || { featured: null };
+			const { featured } = charData;
 			if (!featured) return;
-
 			// autpic color if no color served
 			const img = new Image();
 			img.crossOrigin = 'anonymous';
@@ -49,28 +47,37 @@
 			console.log(e);
 		}
 	};
-	$: getColor(bannerList);
 </script>
 
-{#if bannerType === 'starter'}
-	<div class="bg" transition:fade|local={{ duration: 250 }}>
-		<img src={$assets['departure-bg.webp']} alt="Background" crossorigin="anonymous" />
-	</div>
-{:else if bannerType === 'regular'}
-	<div class="bg" transition:fade|local={{ duration: 250 }}>
-		<img src={$assets['stellar-bg.webp']} alt="Background" crossorigin="anonymous" />
-	</div>
-{:else if bannerType === 'character-event'}
-	<div class="bg character" transition:fade|local={{ duration: 250 }}>
+<!-- Starter Banner -->
+<div class="bg" class:active={activeType === 'starter'}>
+	<img src={$assets['departure-bg.webp']} alt="Background" crossorigin="anonymous" />
+</div>
+
+<!-- Regular Banner -->
+<div class="bg" class:active={activeType === 'regular'}>
+	<img src={$assets['stellar-bg.webp']} alt="Background" crossorigin="anonymous" />
+</div>
+
+<!-- Character Event -->
+{#if charData.featured}
+	<div class="bg character" class:lite={$liteMode} class:active={activeType === 'character-event'}>
 		<img
-			src={assetPath(`splash-art/5/${featured}`, 640)}
-			alt={$t(featured)}
+			src={assetPath(`splash-art/5/${charData.featured}`, 640)}
+			alt={$t(charData.featured)}
 			crossorigin="anonymous"
 		/>
 	</div>
-{:else if bannerType === 'lightcone-event'}
-	<div class="bg lightcone" transition:fade|local={{ duration: 250 }}>
-		<img src={assetPath(`lc/5/${featured}`, 150)} alt={$t(featured)} crossorigin="anonymous" />
+{/if}
+
+<!-- LightCone Event -->
+{#if lcData.featured}
+	<div class="bg lightcone" class:lite={$liteMode} class:active={activeType === 'lightcone-event'}>
+		<img
+			src={assetPath(`lc/5/${lcData.featured}`, 150)}
+			alt={$t(lcData.featured)}
+			crossorigin="anonymous"
+		/>
 	</div>
 {/if}
 
@@ -83,7 +90,13 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%) scale(1.1);
-		filter: blur(10px);
+		filter: blur(20px);
+		opacity: 0;
+		transition: 0.25s opacity;
+	}
+
+	.bg.active {
+		opacity: 1;
 	}
 
 	img {
@@ -100,7 +113,6 @@
 		);
 		background-size: 200%;
 		background-position: top left;
-		filter: blur(15px);
 		background-color: #fff;
 	}
 
@@ -113,7 +125,6 @@
 	}
 
 	.bg.lightcone {
-		filter: blur(15px);
 		background-image: linear-gradient(
 			170deg,
 			rgb(0, 0, 0, 1),
@@ -133,5 +144,13 @@
 		min-height: 100vh;
 		min-width: 100vw;
 		opacity: 0.8;
+	}
+
+	.lite img {
+		mask-image: unset;
+	}
+	.bg.lite {
+		background-image: unset;
+		background-color: var(--bn-color1);
 	}
 </style>

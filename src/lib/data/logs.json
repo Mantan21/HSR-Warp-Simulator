@@ -83,7 +83,10 @@
 		},
 		{
 			"date": "31 May 2023",
-			"changes": ["Preload Astral Express Animation to reduce the chance of getting error"]
+			"changes": [
+				"Preload Astral Express Animation to reduce the chance of getting error",
+				"Add option to reduce animation, turned on automatically on mobile device"
+			]
 		}
 	]
 }

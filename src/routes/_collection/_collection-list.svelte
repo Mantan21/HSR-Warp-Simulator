@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 	import { t } from 'svelte-i18n';
-	import { isMobileLandscape } from '$lib/stores/app-store';
+	import { isMobileLandscape, liteMode } from '$lib/stores/app-store';
 	import { owneditem } from '$lib/stores/localstorage';
 	import { data as charDB } from '$lib/data/characters.json';
 	import { data as lcDB } from '$lib/data/light-cones.json';
@@ -110,15 +110,23 @@
 	{:else}
 		<Scrollable>
 			<div class="list" style="--itemWidth: {itemWidth}%">
-				{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }, i (name)}
-					<div
-						class="item"
-						in:fade={{ duration: 350, delay: i * 25 }}
-						animate:flip={{ duration: (i) => 25 * Math.sqrt(i) }}
-					>
-						<CollectionItem {rarity} {name} {path} {isOwned} combatType={combat_type} {qty} />
-					</div>
-				{/each}
+				{#if $liteMode}
+					{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }}
+						<div class="item">
+							<CollectionItem {rarity} {name} {path} {isOwned} combatType={combat_type} {qty} />
+						</div>
+					{/each}
+				{:else}
+					{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }, i (name)}
+						<div
+							class="item"
+							in:fade={{ duration: 350, delay: i * 25 }}
+							animate:flip={{ duration: (i) => 25 * Math.sqrt(i) }}
+						>
+							<CollectionItem {rarity} {name} {path} {isOwned} combatType={combat_type} {qty} />
+						</div>
+					{/each}
+				{/if}
 			</div>
 		</Scrollable>
 	{/if}

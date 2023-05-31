@@ -1,7 +1,7 @@
 <script>
-	import Icon from '$lib/components/Icon.svelte';
-	import { fly } from '$lib/helpers/transition';
+	import { fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
+	import Icon from '$lib/components/Icon.svelte';
 
 	export let name = '';
 	export let eidolon = false;

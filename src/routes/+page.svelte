@@ -1,10 +1,19 @@
 <script>
 	import { onMount, setContext } from 'svelte';
-	import { activePhase, activeVersion, showStarterBanner } from '$lib/stores/app-store';
-	import { importLocalBalance, setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
+	import { writable } from 'svelte/store';
+	import {
+		activePhase,
+		activeVersion,
+		isMobile,
+		liteMode,
+		showStarterBanner
+	} from '$lib/stores/app-store';
+	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { randomTrack } from '$lib/helpers/sounds/phonograph';
+	import { userCurrencies } from '$lib/helpers/shop-price';
 
 	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
 	import ModalConvert from '$lib/components/ModalConvert.svelte';
@@ -17,7 +26,7 @@
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
 	import Phonograph from './_phonograph/index.svelte';
-	import { writable } from 'svelte/store';
+	import { localConfig } from '$lib/stores/localstorage';
 
 	let status;
 	let loggedIn = false;
@@ -38,9 +47,27 @@
 	$: checkBannerStatus(initBanner);
 	$: handleShowStarter($showStarterBanner);
 
+	const handleLiteMode = () => {
+		const lLitemode = localConfig.get('litemode');
+		if (typeof lLitemode !== 'boolean') {
+			liteMode.set(true);
+			localConfig.set('litemode', true);
+		}
+	};
+
 	onMount(() => {
 		setBannerVersionAndPhase();
-		importLocalBalance();
+		importLocalConfig();
+
+		// litemode
+		if ($isMobile) handleLiteMode();
+
+		// Detect Currencies
+		userCurrencies.init();
+
+		// Play Random music
+		randomTrack('init');
+
 		window.addEventListener('popstate', (e) => {
 			if (e.state.page) return;
 			if (pageActive === 'index') return;

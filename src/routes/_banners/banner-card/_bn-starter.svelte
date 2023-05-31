@@ -2,9 +2,10 @@
 	import { fly } from '$lib/helpers/transition';
 	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
+	import { liteMode } from '$lib/stores/app-store';
 </script>
 
-<div class="character-group">
+<div class="character-group" class:lite={$liteMode}>
 	<div
 		class="gepard character"
 		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1), delay: 250 }}
@@ -66,6 +67,9 @@
 
 	.character-group .character {
 		position: absolute;
+	}
+	.lite .character {
+		mask-image: unset !important;
 	}
 
 	.character-group img {

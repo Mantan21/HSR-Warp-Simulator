@@ -1,17 +1,17 @@
 <script>
 	import { setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { activeVersion, assets, priceList } from '$lib/stores/app-store';
 	import { oneiricBonus } from '$lib/data/pricelist.json';
 	import { cookie } from '$lib/stores/cookies';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { localConfig } from '$lib/stores/localstorage';
 
 	import Icon from '$lib/components/Icon.svelte';
 	import ShopGroupItem from './_shop-group-item.svelte';
 	import ShopGroup from './_shop-group.svelte';
 	import OneiricPaymentModal from './_oneiric-payment-modal.svelte';
-	import { localConfig } from '$lib/stores/localstorage';
-	import { t } from 'svelte-i18n';
 
 	let optionHeight;
 	const checkCookie = cookie.get('initialTopup');

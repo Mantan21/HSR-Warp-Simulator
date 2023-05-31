@@ -1,5 +1,6 @@
 <script>
 	import { assetPath } from '$lib/helpers/assets';
+	import { liteMode } from '$lib/stores/app-store';
 	import { t } from 'svelte-i18n';
 	import { fly } from 'svelte/transition';
 
@@ -14,7 +15,12 @@
 	};
 </script>
 
-<div class="light-cone" class:small in:transitionFly={{ y: -300, x: -30, duration: 500 }}>
+<div
+	class="light-cone"
+	class:lite={$liteMode}
+	class:small
+	in:transitionFly={{ y: -300, x: -30, duration: 500 }}
+>
 	{#if !small}
 		<div class="layer layer-back" in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }} />
 	{/if}
@@ -92,5 +98,10 @@
 		background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2), transparent 50%);
 		border-width: 0.25rem 0.3rem 0.2rem 0.15rem;
 		border-radius: 0.5rem;
+	}
+
+	.lite .layer-back,
+	.lite .layer-front {
+		background-image: unset;
 	}
 </style>

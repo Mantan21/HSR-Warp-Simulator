@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import { warpAmount, autoskip } from '$lib/stores/app-store';
+	import { warpAmount, autoskip, liteMode } from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { t } from 'svelte-i18n';
@@ -10,6 +10,14 @@
 	import { check as expressChecker } from '$lib/helpers/express-loader';
 
 	export let activeOption;
+
+	// Lite Mode
+	const handleLiteMode = ({ detail }) => {
+		const { selected } = detail;
+		const isLitemode = selected === 'yes';
+		liteMode.set(isLitemode);
+		localConfig.set('litemode', isLitemode);
+	};
 
 	// Warp Number
 	const handleSelectAmount = ({ detail }) => {
@@ -54,6 +62,14 @@
 		optionName="warpnumber"
 		activeIndicator={$warpAmount}
 		on:select={handleSelectAmount}
+	/>
+
+	<OptionsItem
+		text={$t('menu.litemode')}
+		showOption={activeOption === 'litemode'}
+		optionName="litemode"
+		activeIndicator={$liteMode}
+		on:select={handleLiteMode}
 	/>
 
 	<OptionsItem

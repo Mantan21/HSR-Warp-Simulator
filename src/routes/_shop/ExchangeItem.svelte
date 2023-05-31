@@ -27,11 +27,7 @@
 <ShopGroup>
 	{#each ['specialPass', 'regularPass'] as pass}
 		<ShopGroupItem>
-			<button
-				class="oneiric-item"
-				in:fade={{ duration: 250, delay: Math.sqrt(1 * 5000) }}
-				on:click={() => selectItem(pass)}
-			>
+			<button class="oneiric-item" in:fade={{ duration: 250 }} on:click={() => selectItem(pass)}>
 				<div class="item-pic">
 					<picture>
 						<Icon type={pass} />

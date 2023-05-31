@@ -9,6 +9,7 @@ import {
 	activeVersion,
 	autoskip,
 	embers,
+	liteMode,
 	oneiric,
 	regReward,
 	regularPass,
@@ -21,7 +22,7 @@ import {
 } from '$lib/stores/app-store';
 import { localBalance, localConfig, rollCounter } from '$lib/stores/localstorage';
 
-const importLocalBalance = () => {
+const importLocalConfig = () => {
 	const { stellarJade: isj, ticketPass: pass, oneiric: ios } = initialAmount;
 	const {
 		stellarJade: sj,
@@ -40,6 +41,9 @@ const importLocalBalance = () => {
 
 	const lAutoSkip = localConfig.get('autoskip') || false;
 	autoskip.set(lAutoSkip);
+
+	const llitemode = localConfig.get('litemode') || false;
+	liteMode.set(llitemode);
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);
@@ -77,4 +81,4 @@ const checkStarterBanner = () => {
 	return isShowStarter;
 };
 
-export { setBannerVersionAndPhase, checkStarterBanner, importLocalBalance };
+export { setBannerVersionAndPhase, checkStarterBanner, importLocalConfig };

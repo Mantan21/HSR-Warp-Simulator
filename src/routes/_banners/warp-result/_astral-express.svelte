@@ -1,7 +1,7 @@
 <script>
 	import { getContext, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { assets, viewportHeight } from '$lib/stores/app-store';
-	import { fade } from '$lib/helpers/transition';
 	import { playSfx, stopSfx } from '$lib/helpers/sounds/audiofx';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 

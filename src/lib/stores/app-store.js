@@ -28,3 +28,4 @@ export const assets = writable([]);
 // Settings
 export const warpAmount = writable('default');
 export const autoskip = writable(false);
+export const liteMode = writable(false);

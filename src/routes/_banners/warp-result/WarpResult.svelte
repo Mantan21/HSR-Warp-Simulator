@@ -1,9 +1,8 @@
 <script>
 	import { getContext, onDestroy, onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { t } from 'svelte-i18n';
-	import { scale } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
 	import { playSfx, stopSfx } from '$lib/helpers/sounds/audiofx';
@@ -104,6 +103,7 @@
 					{:else}
 						<div class="wrapper" on:mousedown={showItem}>
 							<SplashLight {rarity} />
+
 							{#if type === 'lightcone'}
 								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
 									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
