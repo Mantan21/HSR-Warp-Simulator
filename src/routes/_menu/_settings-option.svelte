@@ -4,11 +4,13 @@
 	import { fly } from 'svelte/transition';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { activePhase, activeVersion } from '$lib/stores/app-store';
+	import { activeBacksound } from '$lib/stores/phonograph-store';
 
 	export let showOption = false;
 	export let optionName;
 	export let text;
 	export let activeIndicator = null;
+	export let sub = false;
 
 	const openOption = getContext('openOption');
 	const dispatch = createEventDispatcher();
@@ -33,21 +35,41 @@
 		showModal({ title: $t('menu.promptTitle') });
 	};
 
-	// Switch Banner
 	const navigate = getContext('navigate');
+	// Switch Banner
 	const switchBanner = () => {
 		playSfx();
 		navigate('allbanner');
 	};
+
+	// Phonograph
+	const openPhonograph = () => {
+		playSfx();
+		navigate('phonograph');
+	};
 </script>
 
-<div class="setting-item">
+<div class="setting-item" class:sub>
 	<div class="caption">{text}</div>
 	<div class="option-select" on:mousedown|stopPropagation>
 		<!-- Clear Storage -->
 		{#if optionName === 'reset'}
 			<button class="selected-option" on:click={clearStorage}>
 				{$t('menu.clearNow')} <i class="hsr-trash" />
+			</button>
+
+			<!-- Choose Backsound -->
+		{:else if optionName === 'backsound'}
+			<button
+				class="selected-option"
+				on:click={openPhonograph}
+				style="text-align: left; padding-left: 5%"
+			>
+				<!-- svelte-ignore a11y-distracting-elements -->
+				<marquee style="width: 75%;">
+					{$activeBacksound.title} - {$t(`phonograph.${$activeBacksound.album}`)}
+				</marquee>
+				<i class="hsr-music" />
 			</button>
 
 			<!-- Switch Banner -->
@@ -121,6 +143,32 @@
 		position: relative;
 	}
 
+	.sub {
+		width: 95%;
+		transform: translateX(5.25%);
+		position: relative;
+	}
+
+	.sub::before {
+		content: '';
+		position: absolute;
+		left: -3%;
+		width: 3%;
+		height: 148%;
+		z-index: -1;
+		bottom: 50%;
+		border-bottom: #dcd4c2 dashed 0.12rem;
+		border-left: #dcd4c2 dashed 0.12rem;
+		opacity: 0.5;
+	}
+
+	.sub .caption {
+		flex-basis: 74%;
+	}
+	.sub .option-select {
+		flex-basis: 26.5%;
+	}
+
 	@media screen and (max-width: 600px) {
 		.caption {
 			flex-basis: 60%;
@@ -128,6 +176,13 @@
 
 		.option-select {
 			flex-basis: 40%;
+		}
+
+		.sub .caption {
+			flex-basis: 58%;
+		}
+		.sub .option-select {
+			flex-basis: 42%;
 		}
 	}
 

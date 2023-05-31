@@ -5,7 +5,7 @@
 	import { localConfig } from '$lib/stores/localstorage';
 	import { t } from 'svelte-i18n';
 	import OptionsItem from './_settings-option.svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import { pauseTrack, randomTrack } from '$lib/helpers/sounds/phonograph';
 	import { check as expressChecker } from '$lib/helpers/express-loader';
 
@@ -49,14 +49,6 @@
 
 <div class="settings" in:fade={{ duration: 250 }}>
 	<OptionsItem
-		text={$t('menu.muted')}
-		showOption={activeOption === 'mute'}
-		optionName="mute"
-		activeIndicator={$muted}
-		on:select={handleSfx}
-	/>
-
-	<OptionsItem
 		text={$t('menu.warpNumber')}
 		showOption={activeOption === 'warpnumber'}
 		optionName="warpnumber"
@@ -73,12 +65,22 @@
 	/>
 
 	<OptionsItem
-		text={$t('menu.switchbanner')}
-		optionName="switchbanner"
-		on:select={handleSelectAmount}
+		text={$t('menu.muted')}
+		showOption={activeOption === 'mute'}
+		optionName="mute"
+		activeIndicator={$muted}
+		on:select={handleSfx}
 	/>
 
-	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" on:select={handleSelectAmount} />
+	{#if !$muted}
+		<div transition:fly|local={{ y: -10 }}>
+			<OptionsItem sub text={$t('phonograph.choosebgm')} optionName="backsound" />
+		</div>
+	{/if}
+
+	<OptionsItem text={$t('menu.switchbanner')} optionName="switchbanner" />
+
+	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" />
 </div>
 
 <style>
