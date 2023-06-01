@@ -1,6 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { assetPath } from '$lib/helpers/assets';
+	import { lazyLoad } from '$lib/helpers/lazyload';
 
 	export let charList = [];
 	export let selected;
@@ -17,7 +18,7 @@
 				on:click={() => select(name, combat_type)}
 			>
 				<picture>
-					<img src={assetPath(`closeup/5/${name}`)} alt={name} />
+					<img use:lazyLoad={assetPath(`closeup/5/${name}`)} alt={name} />
 				</picture>
 			</button>
 		</div>

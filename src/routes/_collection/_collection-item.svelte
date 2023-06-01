@@ -2,6 +2,7 @@
 	import { t } from 'svelte-i18n';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import { assetPath } from '$lib/helpers/assets';
+	import { lazyLoad } from '$lib/helpers/lazyload';
 
 	export let rarity = 3;
 	export let name = '';
@@ -25,11 +26,9 @@
 		</div>
 	{:else}
 		<img
-			src={assetPath(`closeup/${rarity}/${name}`)}
+			use:lazyLoad={assetPath(`closeup/${rarity}/${name}`)}
 			alt={$t(name)}
 			crossorigin="anonymous"
-			loading="lazy"
-			on:error={(e) => e.target.remove()}
 		/>
 	{/if}
 

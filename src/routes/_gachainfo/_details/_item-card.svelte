@@ -1,8 +1,8 @@
 <script>
+	import { t } from 'svelte-i18n';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
 	import { assetPath } from '$lib/helpers/assets';
-	import { t } from 'svelte-i18n';
 
 	export let rarity;
 	export let name;

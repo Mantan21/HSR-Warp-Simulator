@@ -55,6 +55,7 @@
 
 	.lite .info-border {
 		background-image: unset;
+		background-color: black;
 	}
 
 	.wrapper-info {
@@ -67,7 +68,7 @@
 
 	.lite .wrapper-info {
 		background-image: unset;
-		background-color: #fff;
+		background-color: rgb(240, 240, 240);
 	}
 
 	.featured {

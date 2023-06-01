@@ -1,8 +1,9 @@
 <script>
-	import { assetPath } from '$lib/helpers/assets';
-	import { liteMode } from '$lib/stores/app-store';
 	import { t } from 'svelte-i18n';
 	import { fly } from 'svelte/transition';
+	import { liteMode } from '$lib/stores/app-store';
+	import { assetPath } from '$lib/helpers/assets';
+	import { lazyLoad } from '$lib/helpers/lazyload';
 
 	export let item = '';
 	export let small = false;
@@ -25,10 +26,9 @@
 		<div class="layer layer-back" in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }} />
 	{/if}
 	<img
-		src={assetPath(`lc/${rarity}/${item}`, small ? 150 : 450)}
+		use:lazyLoad={assetPath(`lc/${rarity}/${item}`, small ? 150 : 450)}
 		crossorigin="anonymous"
 		alt={$t(item)}
-		loading="lazy"
 		on:error={(e) => e.target.remove()}
 	/>
 	<div

@@ -6,6 +6,7 @@
 	import { localConfig } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { identifyBanner } from '$lib/helpers/banners';
+	import { lazyLoad } from '$lib/helpers/lazyload';
 
 	export let phase;
 	export let version;
@@ -34,7 +35,7 @@
 		<div class="banner-pic">
 			<picture>
 				<img
-					src={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
+					use:lazyLoad={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
 					alt={$t(`banner.${bannerName}`)}
 					loading="lazy"
 					crossorigin="anonymous"

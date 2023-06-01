@@ -80,6 +80,7 @@ img {
 	-o-user-drag: none;
 	user-drag: none;
 	height: auto;
+	transition: opacity 0.5s;
 }
 
 input,

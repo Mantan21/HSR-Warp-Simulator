@@ -2,9 +2,9 @@
 	import { t } from 'svelte-i18n';
 	import { scaleOrigin } from '$lib/helpers/transition';
 	import { assets, liteMode } from '$lib/stores/app-store';
-	import BannerTpl from './__banner-tpl.svelte';
 	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
+	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
 </script>
