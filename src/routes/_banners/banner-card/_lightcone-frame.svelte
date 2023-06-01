@@ -16,7 +16,7 @@
 
 	<!-- Left Pane -->
 	<div class="wrapper-info">
-		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
+		<div class="info-body" in:fade={{ duration: 1000 }}>
 			<div class="short-detail">
 				<h1>{$t('banner.brilliant-fixation')}</h1>
 				<div class="time">
@@ -34,7 +34,7 @@
 
 	<!-- Right Pane -->
 	<div class="item-name">
-		<div class="row" in:fade={{ duration: 500, delay: 250 }}>
+		<div class="row" in:fade={{ duration: 1000 }}>
 			<div class="path">
 				<Path path={item.path} dark />
 			</div>

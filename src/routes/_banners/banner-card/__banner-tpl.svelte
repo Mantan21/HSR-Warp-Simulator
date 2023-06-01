@@ -41,33 +41,26 @@
 		width: 30%;
 		height: 100%;
 		position: relative;
-		mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, transparent);
 	}
 
 	.info-border {
-		width: 30.1%;
+		width: calc(0.009 * var(--bw));
 		height: 100%;
 		position: absolute;
 		z-index: -1;
 		top: 0;
-		left: 0;
-		mask-image: linear-gradient(rgba(0, 0, 0, 1) 80%, transparent);
-		border-right: calc(0.009 * var(--bw)) solid #020410;
+		left: calc(30% - calc(0.009 * var(--bw)));
+		background-image: linear-gradient(black 80%, transparent);
 	}
 
-	.lite .info,
 	.lite .info-border {
-		mask-image: unset;
+		background-image: unset;
 	}
 
 	.wrapper-info {
 		height: 100%;
 		width: 97.5%;
-		background-image: linear-gradient(
-			135deg,
-			rgba(231, 232, 234, 1) 20%,
-			rgba(231, 232, 234, 0.85)
-		);
+		background-image: linear-gradient(rgba(255, 255, 255, 0.9) 85%, transparent);
 		border-top-right-radius: calc(0.05 * var(--bw));
 		padding: 4.5%;
 	}

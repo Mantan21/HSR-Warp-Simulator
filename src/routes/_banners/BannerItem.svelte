@@ -28,14 +28,14 @@
 	const slideOut = (node) => {
 		beforeMoving.set(bannerIndex);
 		const animate = bannerIndex < $activeBanner;
-		const y = animate ? -500 : 500;
+		const y = animate ? -300 : 300;
 		return fly(node, { y, duration: 500 });
 	};
 
 	const slideIn = (node, args) => {
 		if (args.fade) return fade(node, {});
 		const animate = bannerIndex < $beforeMoving;
-		const y = animate ? -500 : 500;
+		const y = animate ? -300 : 300;
 		return fly(node, { y, duration: 500 });
 	};
 </script>

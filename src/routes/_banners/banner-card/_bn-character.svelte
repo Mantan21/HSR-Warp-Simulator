@@ -70,7 +70,7 @@
 		width: 100%;
 		height: 100%;
 		z-index: -1;
-		mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, transparent);
+		mask-image: linear-gradient(black 85%, transparent);
 		background-image: linear-gradient(
 			170deg,
 			rgb(0, 0, 0, 1),
@@ -88,10 +88,9 @@
 		top: 0;
 		right: 0;
 		z-index: -1;
-		width: 150%;
+		width: 143%;
 		height: 110%;
 		overflow: hidden;
-		mask-image: linear-gradient(to right, transparent 20%, black 27%);
 	}
 
 	.wrapper {
@@ -102,7 +101,6 @@
 	}
 
 	.lite .featured-bg,
-	.lite .splash-art,
 	.lite .wrapper {
 		mask-image: unset;
 	}

@@ -20,7 +20,6 @@
 				in:scaleOrigin={{
 					start: 1.2,
 					duration: 3500,
-					delay: 250,
 					origin: '100% 80%',
 					easing: bezier(0.13, 0.14, 0, 1)
 				}}
@@ -40,6 +39,7 @@
 		width: 100%;
 		height: 100%;
 		position: absolute;
+		overflow: hidden;
 		top: 0;
 		right: 0;
 		background-image: linear-gradient(170deg, #fff, transparent);
@@ -50,7 +50,6 @@
 		width: 100%;
 		height: 100%;
 		position: relative;
-		mask-image: linear-gradient(105deg, transparent 40%, black 70%);
 	}
 
 	.layer-bg img {
@@ -69,8 +68,10 @@
 		height: 100%;
 		background-image: linear-gradient(
 			90deg,
-			rgba(255, 255, 255, 0.9) 10%,
-			rgba(255, 255, 255, 0.3)
+			rgb(240, 240, 240),
+			rgb(240, 240, 240) 40%,
+			rgba(240, 240, 240, 0.95) 45%,
+			rgba(240, 240, 240, 0.3)
 		);
 		mask-image: radial-gradient(circle farthest-side at right, transparent 31%, white 31%);
 		mask-position: 74%;

@@ -8,19 +8,19 @@
 <div class="character-group" class:lite={$liteMode}>
 	<div
 		class="gepard character"
-		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1), delay: 250 }}
+		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={assetPath('banners/starter/1.0/gepard.webp')} alt="gepard" crossorigin="anonymous" />
 	</div>
 	<div
 		class="bailu character"
-		in:fly={{ y: 25, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1), delay: 250 }}
+		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={assetPath('banners/starter/1.0/bailu.webp')} alt="bailu" crossorigin="anonymous" />
 	</div>
 	<div
 		class="yanqing character"
-		in:fly={{ y: 25, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1), delay: 250 }}
+		in:fly={{ y: 100, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img
 			src={assetPath('banners/starter/1.0/yanqing.webp')}
@@ -30,25 +30,25 @@
 	</div>
 	<div
 		class="clara character"
-		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1), delay: 250 }}
+		in:fly={{ y: 100, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={assetPath('banners/starter/1.0/clara.webp')} alt="clara" crossorigin="anonymous" />
 	</div>
 	<div
 		class="bronya character"
-		in:fly={{ y: 25, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1), delay: 250 }}
+		in:fly={{ y: 125, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={assetPath('banners/starter/1.0/bronya.webp')} alt="bronya" crossorigin="anonymous" />
 	</div>
 	<div
 		class="himeko character"
-		in:fly={{ y: 25, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1), delay: 250 }}
+		in:fly={{ y: 125, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={assetPath('banners/starter/1.0/himeko.webp')} alt="Himeko" crossorigin="anonymous" />
 	</div>
 	<div
 		class="welt character"
-		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1), delay: 250 }}
+		in:fly={{ y: 200, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={assetPath('banners/starter/1.0/welt.webp')} alt="Welt" crossorigin="anonymous" />
 	</div>

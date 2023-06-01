@@ -114,7 +114,6 @@
 	.bronya img {
 		width: 95.5%;
 		transform: translateX(12.5%);
-		mask-image: linear-gradient(to right, black 85%, transparent 95%);
 	}
 	.himeko {
 		top: -14.5%;

@@ -92,7 +92,7 @@
 		transform: translate(-50%, -50%) scale(1.1);
 		filter: blur(20px);
 		opacity: 0;
-		transition: 0.25s opacity;
+		transition: 0.5s opacity;
 	}
 
 	.bg.active {
