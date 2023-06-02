@@ -15,7 +15,7 @@
 	import { mobileDetect } from '$lib/helpers/mobile-detect';
 	import { mountLocale } from '$lib/helpers/i18n';
 	import { fade } from '$lib/helpers/transition';
-	import InitialLoader from '$lib/components/InitialLoader.svelte';
+	import InitialLoader from './_index/InitialLoader.svelte';
 
 	let isLoaded = false;
 	setContext('loaded', () => (isLoaded = true));

@@ -14,10 +14,11 @@
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { randomTrack } from '$lib/helpers/sounds/phonograph';
 	import { userCurrencies } from '$lib/helpers/shop-price';
+	import { localConfig } from '$lib/stores/localstorage';
 
 	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
 	import ModalConvert from '$lib/components/ModalConvert.svelte';
-	import PreloadExpress from './_banners/_preload-express/PreloadExpress.svelte';
+	import PreloadExpress from './_index/PreloadExpress.svelte';
 	import Banners from './_banners/index.svelte';
 	import LoginPage from './_login/index.svelte';
 	import AllBanner from './_allbanner/index.svelte';
@@ -26,7 +27,6 @@
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
 	import Phonograph from './_phonograph/index.svelte';
-	import { localConfig } from '$lib/stores/localstorage';
 
 	let status;
 	let loggedIn = false;

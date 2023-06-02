@@ -1,7 +1,7 @@
 <script>
 	import { getContext, onMount } from 'svelte';
-	import { assetPath, blobAssets, listingAssets } from '$lib/helpers/assets';
 	import { assets } from '$lib/stores/app-store';
+	import { assetPath, blobAssets, listingAssets } from '$lib/helpers/assets';
 
 	let anyError = false;
 	let current = 0;
