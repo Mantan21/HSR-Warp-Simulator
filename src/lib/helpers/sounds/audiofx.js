@@ -19,6 +19,7 @@ const sfxList = [
 	'music-loaded',
 	'music-select1',
 	'music-select2',
+	'music-set',
 	'paper-flip',
 	'reveal-3star',
 	'reveal-4star',

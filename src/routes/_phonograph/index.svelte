@@ -27,7 +27,7 @@
 	setContext('pickTrack', (selected) => (playedTrack = selected));
 
 	const setMusic = (sid) => {
-		playSfx('item-obtained');
+		playSfx('music-set');
 		const trackData = $musics.find(({ sourceID }) => sourceID === sid);
 		activeBacksound.set(trackData);
 	};

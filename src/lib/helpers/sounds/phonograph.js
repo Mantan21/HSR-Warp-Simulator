@@ -149,7 +149,7 @@ export const resumeTrack = (sourceID) => {
 export const isPlaying = (sourceID) => {
 	const sound = loadedTracks[sourceID];
 	if (!sound) return false;
-	sound.playing(trackIDs[sourceID]);
+	return sound.playing(trackIDs[sourceID]);
 };
 
 export const formatTime = (secs) => {
