@@ -1,32 +1,28 @@
 <script>
-	import { onMount } from 'svelte';
-
 	export let rarity = 3;
 
-	onMount(() => {
-		document.querySelectorAll('.anim').forEach((el) => {
-			el.addEventListener('animationend', () => el.remove());
-		});
-	});
+	const removeAfterComplete = (el) => {
+		el.addEventListener('animationend', () => el.remove());
+	};
 </script>
 
-<div class="light anim star{rarity}">
-	<div class="border anim" />
+<div class="light anim star{rarity}" use:removeAfterComplete>
+	<div class="border anim" use:removeAfterComplete />
 </div>
 <div class="light anim star{rarity}">
-	<div class="donut donut1 anim" />
-</div>
-
-<div class="light anim star{rarity}">
-	<div class="donut donut2 anim" />
+	<div class="donut donut1 anim" use:removeAfterComplete />
 </div>
 
-<div class="light anim star{rarity}">
-	<div class="dotted-border anim" />
+<div class="light anim star{rarity}" use:removeAfterComplete>
+	<div class="donut donut2 anim" use:removeAfterComplete />
 </div>
 
-<div class="anim overlay star{rarity}" />
-<div class="anim shadow" />
+<div class="light anim star{rarity}" use:removeAfterComplete>
+	<div class="dotted-border anim" use:removeAfterComplete />
+</div>
+
+<div class="anim overlay star{rarity}" use:removeAfterComplete />
+<div class="anim shadow" use:removeAfterComplete />
 
 <style>
 	.light {

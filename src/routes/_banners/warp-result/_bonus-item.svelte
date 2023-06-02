@@ -11,7 +11,7 @@
 	export let qty = 0;
 </script>
 
-<div class="bonus" in:fly={{ x: 100, duration: 400, delay: 700 }}>
+<div class="bonus hideOnShot" in:fly={{ x: 100, duration: 400, delay: 700 }}>
 	{#if eidolon}
 		<div class="convert">{$t('converted')}</div>
 		<div class="item eidolon star{rarity}">

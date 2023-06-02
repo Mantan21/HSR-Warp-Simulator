@@ -6,6 +6,7 @@
 	import ResultListItem from './_result-list-item.svelte';
 
 	export let list = [];
+	export let standalone = false;
 
 	let width;
 	let groupedList = {};
@@ -16,24 +17,38 @@
 		bottom: list.filter((v, i) => i > 6)
 	};
 
-	onMount(() => playSfx('warpresult-list'));
+	onMount(() => {
+		if (standalone) return;
+		playSfx('warpresult-list');
+	});
+
+	const customScale = (node, args) => {
+		if (standalone) return;
+		return scale(node, args);
+	};
+	const customfly = (node, args) => {
+		if (standalone) return;
+		return fly(node, args);
+	};
 </script>
 
 <div class="result-list">
 	<div class="header">
-		<div class="logo">
-			<i class="hsr-warp" />
-		</div>
-		<div class="title">
-			<h1>{$t('warp.result')}</h1>
-		</div>
+		{#if !standalone}
+			<div class="logo">
+				<i class="hsr-warp" />
+			</div>
+			<div class="title">
+				<h1>{$t('warp.result')}</h1>
+			</div>
+		{/if}
 	</div>
 
-	<div class="list-wrapper" in:scale={{ start: 1.3, duration: 400 }}>
+	<div class="list-wrapper" in:customScale={{ start: 1.3, duration: 400 }}>
 		<div class="list" bind:clientWidth={width} style="--item-width:{width}px">
 			{#if Object.keys(groupedList).length > 0}
 				{#each Object.keys(groupedList) as key, layer}
-					<div class="{key} row" in:fly={{ x: layer === 1 ? 200 : -200, duration: 600 }}>
+					<div class="{key} row" in:customfly={{ x: layer === 1 ? 200 : -200, duration: 600 }}>
 						{#each groupedList[key] as { name, rarity, combat_type, type, path, gachaCardOffset, isNew, eidolon, undyingType, undyingQty }, i}
 							<div class=" item item{i}">
 								<ResultListItem

@@ -1,6 +1,8 @@
 <script>
 	import { registerSW } from 'virtual:pwa-register';
+	import { page } from '$app/stores';
 	import { onMount, setContext } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { isLoading, locale } from 'svelte-i18n';
 	import { dev } from '$app/environment';
 	import './styles.css';
@@ -14,7 +16,6 @@
 	} from '$lib/stores/app-store';
 	import { mobileDetect } from '$lib/helpers/mobile-detect';
 	import { mountLocale } from '$lib/helpers/i18n';
-	import { fade } from '$lib/helpers/transition';
 	import InitialLoader from './_index/InitialLoader.svelte';
 
 	let isLoaded = false;
@@ -24,6 +25,7 @@
 	let innerWidth;
 	$: viewportWidth.set(innerWidth);
 	$: viewportHeight.set(innerHeight);
+	$: previewScreen = $page.url.pathname.includes('screen');
 
 	const setMobileMode = () => {
 		// if ($isPWA) return isMobileLandscape.set(true);
@@ -106,14 +108,10 @@
 			<InitialLoader />
 		</div>
 	{/if}
-	<a
-		href="/"
-		on:click|preventDefault={() => window.location.replace('/')}
-		class="uid"
-		title="Try Your Luck by this Simulator"
-	>
-		HSR.WishSimulator.App
-	</a>
+
+	{#if !previewScreen}
+		<span class="uid"> HSR.WishSimulator.App </span>
+	{/if}
 </main>
 
 <style>

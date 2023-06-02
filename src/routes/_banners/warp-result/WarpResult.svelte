@@ -8,6 +8,7 @@
 	import { playSfx, stopSfx } from '$lib/helpers/sounds/audiofx';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 	import positionToStyle from '$lib/helpers/cssPosition';
+	import { createLink } from '$lib/helpers/shareable-link';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
@@ -20,13 +21,20 @@
 
 	export let skip = false;
 	export let list = [];
+	export let standalone = false;
 
 	let intro5star = false;
 	let showResultList = false;
-	let preview = false;
+	let preview = standalone || false;
 	setContext('preview', (val) => (preview = val));
 
 	let activeIndex = 0;
+
+	const createShareableLink = (activeIndex, showResultList) => {
+		const isMulti = showResultList && list.length > 1;
+		return isMulti ? createLink(list) : createLink([list[activeIndex]]);
+	};
+
 	const closeResult = getContext('closeResult');
 	const close = () => {
 		playSfx('warpresult-close');
@@ -43,6 +51,7 @@
 			}, 700);
 		}
 
+		if (standalone) return;
 		playSfx(`reveal-${star}star`);
 	};
 
@@ -68,14 +77,15 @@
 		if (!args.animate) return;
 		return scale(node, args);
 	};
+
 	onMount(() => {
 		showItem('start');
-		if (skip) return (showResultList = true);
+		if (skip || standalone) return (showResultList = true);
 		playSfx('warp-backsound');
 	});
 
 	onDestroy(() => {
-		if (skip) return;
+		if (skip || standalone) return;
 		stopSfx('warp-backsound');
 	});
 </script>
@@ -85,42 +95,56 @@
 		src={$assets['warp-bg.webp']}
 		alt="bg"
 		crossorigin="anonymous"
-		in:scaleIn={{ animate: !skip, start: 1.3, opacity: 1, duration: 1000, easing: cubicOut }}
+		in:scaleIn={{
+			animate: !skip,
+			start: 1.3,
+			opacity: 1,
+			duration: 1000,
+			easing: cubicOut
+		}}
 	/>
 
 	<!-- Show on Shareable screen -->
 	<img class="starrail-logo" src={$assets['starrail-logo.webp']} alt="star rail logo" />
 	<div class="tanda-air">
-		<div class="via">WARP VIA</div>
-		<div class="site">HSR.WISHSIMULATOR.APP</div>
+		{#if standalone}
+			<div class="get-yours">Get Yours!!!</div>
+		{:else}
+			<div class="via">WARPVIA</div>
+		{/if}
+		<div class="site">
+			<a href="/" title="Try Your Luck by this Simulator"> HSR.WISHSIMULATOR.APP </a>
+		</div>
 	</div>
 	<!-- End Show on Shareable screen -->
 
-	{#if list.length > 1 && !showResultList}
-		<div class="skip">
-			<ButtonIcon icon="skip" on:click={() => (showResultList = true)} />
-		</div>
-	{:else}
-		<div class="close">
-			<ButtonIcon on:click={close} />
-		</div>
+	{#if !standalone}
+		{#if list.length > 1 && !showResultList}
+			<div class="skip">
+				<ButtonIcon icon="skip" on:click={() => (showResultList = true)} />
+			</div>
+		{:else}
+			<div class="close">
+				<ButtonIcon on:click={close} />
+			</div>
+		{/if}
 	{/if}
 
 	{#if showResultList && list.length > 1}
-		<ResultList {list} />
+		<ResultList {list} {standalone} />
 	{:else}
 		<div class="container">
-			{#each list as { name, path, rarity, combat_type, type, splashartOffset, eidolon, undyingType, undyingQty, isNew }, i}
+			{#each list as { name, path, rarity, combat_type, splashartOffset, eidolon, undyingType, undyingQty, isNew }, i}
 				{#if activeIndex === i}
 					{#if intro5star && !$liteMode}
 						<SsrScreen {path} />
 					{:else}
 						<div class="wrapper" on:mousedown={showItem}>
-							{#if !$liteMode}
+							{#if !$liteMode || !standalone}
 								<SplashLight {rarity} />
 							{/if}
 
-							{#if type === 'lightcone'}
+							{#if !combat_type}
 								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
 									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
 										<div class="lightcone-item">
@@ -159,8 +183,10 @@
 		</div>
 	{/if}
 
-	{#if list[activeIndex].rarity > 3 || (showResultList && list.length > 1)}
-		<ScreenshotShare />
+	{#if !standalone}
+		{#if list[activeIndex].rarity > 3 || (showResultList && list.length > 1)}
+			<ScreenshotShare shareURL={createShareableLink(activeIndex, showResultList)} />
+		{/if}
 	{/if}
 </div>
 
@@ -262,8 +288,14 @@
 		font-size: 90%;
 		font-family: var(--hsr-neue);
 	}
+	.get-yours {
+		font-size: 80%;
+	}
 	.site {
 		text-shadow: 0 0 0.15rem #000;
+	}
+	.site a:hover {
+		text-decoration: underline;
 	}
 
 	.preview .starrail-logo,

@@ -11,6 +11,7 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import ScreenshotResult from './_screenshot-result.svelte';
 
+	export let shareURL = '';
 	let blob;
 	let showResult = false;
 	let loading = false;
@@ -31,9 +32,8 @@
 	});
 
 	const preview = getContext('preview');
-
 	const filterShot = (node) => {
-		const notIncluded = ['close', 'skip', 'share', 'logo', 'title', 'bonus'];
+		const notIncluded = ['close', 'skip', 'share', 'logo', 'title', 'hideOnShot'];
 		if (node.classList) return !notIncluded.some((cl) => node.classList.contains(cl));
 		return true;
 	};
@@ -85,7 +85,7 @@
 		</div>
 	{/if}
 
-	<ScreenshotResult {blob} isFirstTIme={isFirstTimeShare} />
+	<ScreenshotResult {blob} isFirstTIme={isFirstTimeShare} {shareURL} />
 {/if}
 
 {#if loading}
