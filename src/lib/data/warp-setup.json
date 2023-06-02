@@ -6,6 +6,7 @@
 	"initialAmount": {
 		"stellarJade": 8000,
 		"ticketPass": 25,
-		"oneiric": 0
+		"oneiric": 0,
+		"shareReward": 16000
 	}
 }

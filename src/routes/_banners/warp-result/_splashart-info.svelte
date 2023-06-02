@@ -1,6 +1,7 @@
 <script>
-	import { fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
+	import { fly } from '$lib/helpers/transition';
+	import { assets } from '$lib/stores/app-store';
 	import Path from '$lib/components/Path.svelte';
 
 	export let name;
@@ -19,7 +20,7 @@
 						<Path {path} />
 					</span>
 				{:else}
-					<i class="hsr-{combatType} icon-gradient {combatType}" />
+					<img src={$assets[`combat-${combatType}.webp`]} alt={combatType} />
 				{/if}
 			</div>
 			<div class="right">
@@ -78,17 +79,26 @@
 	}
 
 	.row .left {
-		font-size: calc(0.045 * var(--screen-width));
+		min-width: calc(0.055 * var(--screen-width));
+		/* font-size: calc(0.045 * var(--screen-width)); */
 		line-height: 0;
 		padding: 2% 0;
 		position: relative;
+	}
+
+	.row .left img {
+		width: 90%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	.lightcone {
 		width: calc(0.055 * var(--screen-width));
 	}
 	.lightcone-path {
-		width: calc(0.05 * var(--screen-width));
+		width: 100%;
 		display: block;
 		position: absolute;
 		top: 50%;

@@ -257,3 +257,27 @@
 .hsr-server:before {
 	content: '\2c';
 }
+.hsr-facebook:before {
+	content: '\2d';
+}
+.hsr-twitter:before {
+	content: '\2e';
+}
+.hsr-dot-3:before {
+	content: '\2f';
+}
+.hsr-clone:before {
+	content: '\3a';
+}
+.hsr-link:before {
+	content: '\3b';
+}
+.hsr-save:before {
+	content: '\3c';
+}
+.hsr-instagram:before {
+	content: '\3d';
+}
+.hsr-pinterest:before {
+	content: '\3e';
+}

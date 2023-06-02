@@ -4,6 +4,7 @@ import { Howl } from 'howler';
 const sfxList = [
 	'allbanner',
 	'balance-click',
+	'camera',
 	'click',
 	'click2',
 	'close',

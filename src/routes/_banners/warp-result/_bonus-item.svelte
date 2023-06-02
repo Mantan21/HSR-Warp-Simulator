@@ -1,6 +1,6 @@
 <script>
-	import { fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
+	import { fly } from '$lib/helpers/transition';
 	import Icon from '$lib/components/Icon.svelte';
 
 	export let name = '';
@@ -50,7 +50,7 @@
 	.bonus {
 		position: absolute;
 		right: 0;
-		bottom: 0;
+		bottom: 10%;
 	}
 
 	.convert {

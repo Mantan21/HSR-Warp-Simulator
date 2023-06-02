@@ -7,6 +7,7 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
+	import { assets, viewportWidth } from '$lib/stores/app-store';
 
 	export let isNew = false;
 	export let rarity = 3;
@@ -72,7 +73,8 @@
 			{#if isNew}
 				<div class="info">
 					<div class="combat-type">
-						<i class="hsr-{combatType} icon-gradient {combatType}" />
+						<img src={$assets[`combat-${combatType}.webp`]} alt={combatType} />
+						<!-- <i class="hsr-{combatType} icon-gradient {combatType}" /> -->
 					</div>
 
 					<div class="rarity">
@@ -83,12 +85,8 @@
 				</div>
 			{/if}
 			<picture>
-				<source
-					srcset={assetPath(`splash-art/${rarity}/${itemName}`, 1280)}
-					media="(min-width: 840px)"
-				/>
 				<img
-					src={assetPath(`splash-art/${rarity}/${itemName}`, 640)}
+					src={assetPath(`splash-art/${rarity}/${itemName}`, $viewportWidth > 840 ? 1280 : 640)}
 					alt={$t(itemName)}
 					style={positionToStyle(cardOffset)}
 					crossorigin="anonymous"
@@ -295,9 +293,17 @@
 		padding: 2% 2%;
 	}
 
-	.info .icon-gradient {
+	/* .info .icon-gradient {
 		font-size: calc(0.027 * var(--item-width));
 		line-height: 130%;
+	} */
+
+	.combat-type {
+		width: calc(0.04 * var(--item-width));
+		transform: translate(-15%, 15%);
+	}
+	.combat-type img {
+		width: 100%;
 	}
 
 	picture {
@@ -308,7 +314,7 @@
 		mask-image: linear-gradient(60deg, rgba(0, 0, 0, 0.1), black 40%);
 	}
 
-	img {
+	picture img {
 		width: 400%;
 		position: absolute;
 		top: 185%;

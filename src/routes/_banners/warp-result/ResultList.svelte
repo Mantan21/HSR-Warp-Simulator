@@ -89,6 +89,7 @@
 		display: flex;
 		align-items: center;
 		padding: 3.7vh 2% 0;
+		height: 8vh;
 		font-size: 110%;
 	}
 	.title {

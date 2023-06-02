@@ -1,16 +1,18 @@
 <script>
-	import { getContext, onDestroy, onMount } from 'svelte';
+	import { getContext, onDestroy, onMount, setContext } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { t } from 'svelte-i18n';
-	import { assets } from '$lib/stores/app-store';
+	import { assets, liteMode, viewportWidth } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
 	import { playSfx, stopSfx } from '$lib/helpers/sounds/audiofx';
+	import { lazyLoad } from '$lib/helpers/lazyload';
 	import positionToStyle from '$lib/helpers/cssPosition';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
-	import SplashLight from './_splash-light.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
+	import ScreenshotShare from '../../_index/ScreenshotShare.svelte';
+	import SplashLight from './_splash-light.svelte';
 	import SsrScreen from './_ssr-screen.svelte';
 	import SplashartInfo from './_splashart-info.svelte';
 	import BonusItem from './_bonus-item.svelte';
@@ -21,6 +23,8 @@
 
 	let intro5star = false;
 	let showResultList = false;
+	let preview = false;
+	setContext('preview', (val) => (preview = val));
 
 	let activeIndex = 0;
 	const closeResult = getContext('closeResult');
@@ -60,6 +64,10 @@
 		playRevealAudio();
 	};
 
+	const scaleIn = (node, args) => {
+		if (!args.animate) return;
+		return scale(node, args);
+	};
 	onMount(() => {
 		showItem('start');
 		if (skip) return (showResultList = true);
@@ -72,15 +80,21 @@
 	});
 </script>
 
-<div class="warp-result" out:fade={{ duration: 200 }}>
-	{#if !skip}
-		<img
-			src={$assets['warp-bg.webp']}
-			alt="bg"
-			crossorigin="anonymous"
-			in:scale={{ start: 1.3, opacity: 1, duration: 1000, easing: cubicOut }}
-		/>
-	{/if}
+<div class="warp-result" class:preview out:fade={{ duration: 200 }}>
+	<img
+		src={$assets['warp-bg.webp']}
+		alt="bg"
+		crossorigin="anonymous"
+		in:scaleIn={{ animate: !skip, start: 1.3, opacity: 1, duration: 1000, easing: cubicOut }}
+	/>
+
+	<!-- Show on Shareable screen -->
+	<img class="starrail-logo" src={$assets['starrail-logo.webp']} alt="star rail logo" />
+	<div class="tanda-air">
+		<div class="via">WARP VIA</div>
+		<div class="site">HSR.WISHSIMULATOR.APP</div>
+	</div>
+	<!-- End Show on Shareable screen -->
 
 	{#if list.length > 1 && !showResultList}
 		<div class="skip">
@@ -98,17 +112,19 @@
 		<div class="container">
 			{#each list as { name, path, rarity, combat_type, type, splashartOffset, eidolon, undyingType, undyingQty, isNew }, i}
 				{#if activeIndex === i}
-					{#if intro5star}
+					{#if intro5star && !$liteMode}
 						<SsrScreen {path} />
 					{:else}
 						<div class="wrapper" on:mousedown={showItem}>
-							<SplashLight {rarity} />
+							{#if !$liteMode}
+								<SplashLight {rarity} />
+							{/if}
 
 							{#if type === 'lightcone'}
 								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
 									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
 										<div class="lightcone-item">
-											<LightCones item={name} {rarity} animate />
+											<LightCones item={name} {rarity} animate={!$liteMode} />
 										</div>
 									</div>
 								</div>
@@ -121,12 +137,11 @@
 										class="item-content"
 										in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}
 									>
-										<source
-											srcset={assetPath(`splash-art/${rarity}/${name}`, 1280)}
-											media="(min-width: 840px)"
-										/>
 										<img
-											src={assetPath(`splash-art/${rarity}/${name}`, 640)}
+											use:lazyLoad={assetPath(
+												`splash-art/${rarity}/${name}`,
+												$viewportWidth > 840 ? 1280 : 640
+											)}
 											style={positionToStyle(splashartOffset)}
 											crossorigin="anonymous"
 											alt={$t(name)}
@@ -142,6 +157,10 @@
 				{/if}
 			{/each}
 		</div>
+	{/if}
+
+	{#if list[activeIndex].rarity > 3 || (showResultList && list.length > 1)}
+		<ScreenshotShare />
 	{/if}
 </div>
 
@@ -166,7 +185,8 @@
 	}
 
 	.close,
-	.skip {
+	.skip,
+	.tanda-air {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -210,5 +230,44 @@
 		width: 35vh;
 		max-width: 35%;
 		transform: rotate(8deg);
+	}
+
+	/* Preview  */
+	.starrail-logo {
+		width: 400px;
+		height: unset;
+		max-width: 70%;
+		z-index: +10;
+		display: none;
+		transform: translate(-5%, -20%);
+	}
+
+	:global(.mobileLandscape) .starrail-logo {
+		width: 22.5%;
+	}
+
+	:global(.mobileLandscape) .tanda-air {
+		font-size: 150%;
+	}
+	.tanda-air {
+		top: unset;
+		text-align: right;
+		bottom: 0;
+		font-size: 200%;
+		z-index: +1;
+		color: #fff;
+		display: none;
+	}
+	.via {
+		font-size: 90%;
+		font-family: var(--hsr-neue);
+	}
+	.site {
+		text-shadow: 0 0 0.15rem #000;
+	}
+
+	.preview .starrail-logo,
+	.preview .tanda-air {
+		display: unset;
 	}
 </style>
