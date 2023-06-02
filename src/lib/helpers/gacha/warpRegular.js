@@ -1,4 +1,4 @@
-import { get3StarItem, get4StarItem, getAllChars, rand, regularLightcones } from './gachaBase';
+import { get3StarItem, get4StarItem, getAllChars, rand, regularLightcones } from './gacha-base';
 
 const regularWarp = ({ rarity, data, version, phase }) => {
 	const { characters } = data;

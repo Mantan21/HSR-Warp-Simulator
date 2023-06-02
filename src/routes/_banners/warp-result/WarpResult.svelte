@@ -7,7 +7,7 @@
 	import { assetPath } from '$lib/helpers/assets';
 	import { playSfx, stopSfx } from '$lib/helpers/sounds/audiofx';
 	import { lazyLoad } from '$lib/helpers/lazyload';
-	import positionToStyle from '$lib/helpers/cssPosition';
+	import positionToStyle from '$lib/helpers/css-transformer';
 	import { createLink } from '$lib/helpers/shareable-link';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';

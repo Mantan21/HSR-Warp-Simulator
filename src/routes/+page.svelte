@@ -8,7 +8,7 @@
 		liteMode,
 		showStarterBanner
 	} from '$lib/stores/app-store';
-	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/readLocalData';
+	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/localdata-reader';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';

@@ -1,5 +1,5 @@
 import { Howl } from 'howler';
-import { fetchAudio } from './audioFetcher';
+import { fetchAudio } from './audio-fetcher';
 import { activeBacksound, currentTime, musics } from '$lib/stores/phonograph-store';
 import { cookie } from '$lib/stores/cookies';
 import { localConfig } from '$lib/stores/localstorage';

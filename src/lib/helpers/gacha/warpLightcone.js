@@ -1,5 +1,11 @@
 import { guaranteedStatus } from '$lib/stores/localstorage';
-import { get3StarItem, get4StarItem, getAllLightCones, rand, regularLightcones } from './gachaBase';
+import {
+	get3StarItem,
+	get4StarItem,
+	getAllLightCones,
+	rand,
+	regularLightcones
+} from './gacha-base';
 import prob from './probabilities';
 
 const lightconeWarp = {

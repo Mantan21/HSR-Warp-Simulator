@@ -4,7 +4,7 @@
 	import { fly } from '$lib/helpers/transition';
 	import { data } from '$lib/data/characters.json';
 	import { isMobileLandscape, liteMode } from '$lib/stores/app-store';
-	import positionToStyle from '$lib/helpers/cssPosition';
+	import positionToStyle from '$lib/helpers/css-transformer';
 	import { assetPath } from '$lib/helpers/assets';
 	import BannerTpl from './__banner-tpl.svelte';
 

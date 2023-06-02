@@ -1,5 +1,5 @@
 import { guaranteedStatus } from '$lib/stores/localstorage';
-import { get3StarItem, get4StarItem, getAllChars, rand } from './gachaBase';
+import { get3StarItem, get4StarItem, getAllChars, rand } from './gacha-base';
 
 const starterWarp = ({ rarity, data, phase, version }) => {
 	const { characters } = data;

@@ -4,7 +4,7 @@
 	import { t } from 'svelte-i18n';
 	import { assets, regReward } from '$lib/stores/app-store';
 	import { regular } from '$lib/data/banners/regular.json';
-	import { regularChars5Star } from '$lib/helpers/gacha/gachaBase';
+	import { regularChars5Star } from '$lib/helpers/gacha/gacha-base';
 	import { localConfig, owneditem } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 

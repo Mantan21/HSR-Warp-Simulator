@@ -4,7 +4,7 @@
 	import { data as charDB } from '$lib/data/characters.json';
 	import { assets } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
-	import positionToStyle from '$lib/helpers/cssPosition';
+	import positionToStyle from '$lib/helpers/css-transformer';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	export let active = false;

@@ -1,5 +1,5 @@
 import { regular as regularDB } from '$lib/data/banners/regular.json';
-import { getAllChars, getAllLightCones } from './gachaBase';
+import { getAllChars, getAllLightCones } from './gacha-base';
 
 const filterRelease = (releaseVersion, pathcNow, phaseNow) => {
 	if (!releaseVersion) return true;

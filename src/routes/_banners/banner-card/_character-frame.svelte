@@ -5,7 +5,7 @@
 	import { data } from '$lib/data/characters.json';
 	import { assetPath } from '$lib/helpers/assets';
 	import { removeDash } from '$lib/helpers/text-proccesor';
-	import positionToStyle from '$lib/helpers/cssPosition';
+	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let item = {};
 

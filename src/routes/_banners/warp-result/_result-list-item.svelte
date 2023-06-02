@@ -1,6 +1,6 @@
 <script>
 	import { t } from 'svelte-i18n';
-	import positionToStyle from '$lib/helpers/cssPosition';
+	import positionToStyle from '$lib/helpers/css-transformer';
 	import { fade } from '$lib/helpers/transition';
 	import { assetPath } from '$lib/helpers/assets';
 
