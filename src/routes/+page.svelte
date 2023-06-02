@@ -12,7 +12,7 @@
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { randomTrack } from '$lib/helpers/sounds/phonograph';
+	import { isPlaying, pauseTrack, randomTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { userCurrencies } from '$lib/helpers/shop-price';
 	import { localConfig } from '$lib/stores/localstorage';
 
@@ -27,6 +27,7 @@
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
 	import Phonograph from './_phonograph/index.svelte';
+	import { activeBacksound } from '$lib/stores/phonograph-store';
 
 	let status;
 	let loggedIn = false;
@@ -55,6 +56,21 @@
 		}
 	};
 
+	const handleTrack = () => {
+		randomTrack('init');
+		window.addEventListener('blur', () => {
+			const { sourceID } = $activeBacksound;
+			if (!isPlaying(sourceID) || pageActive === 'phonograph') return;
+			pauseTrack(sourceID, false);
+		});
+
+		window.addEventListener('focus', () => {
+			const { sourceID } = $activeBacksound;
+			if (isPlaying(sourceID) || pageActive === 'phonograph') return;
+			resumeTrack(sourceID);
+		});
+	};
+
 	onMount(() => {
 		setBannerVersionAndPhase();
 		importLocalConfig();
@@ -65,8 +81,8 @@
 		// Detect Currencies
 		userCurrencies.init();
 
-		// Play Random music
-		randomTrack('init');
+		// Play track
+		handleTrack();
 
 		window.addEventListener('popstate', (e) => {
 			if (e.state.page) return;

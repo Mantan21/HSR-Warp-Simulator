@@ -143,7 +143,7 @@ export const resumeTrack = (sourceID) => {
 
 	const sound = loadedTracks[sourceID];
 	if (!sound) return;
-	sound.fade(0, volume, 1000, trackIDs[sourceID]);
+	sound.fade(0, volume, 10, trackIDs[sourceID]);
 };
 
 export const isPlaying = (sourceID) => {
