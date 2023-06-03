@@ -212,6 +212,7 @@
 		"no": "No",
 		"settings": "Settings",
 		"updatelog": "Change Logs",
+		"prouser": "Pro Access",
 		"switchbanner": "Switch Banner",
 		"warpNumber": "Number of Warps",
 		"muted": "Mute Audio & Sound Effects?",
@@ -223,8 +224,18 @@
 		"resetPrompt": "Are you sure to clear ALL DATA?",
 		"keepSetting": "Keep Settings?",
 		"keepSettingInfo": "Current Pity, Balance and Settings will not be deleted.",
-		"keyExpired": "The Key Is Expired, please get a new one!",
-		"invalidKey": "Invalid Key!"
+		"prouservalid": "You already have pro access",
+		"prouserHeading": "Input a Key to get Special Benefits !",
+		"inputKeyPlaceholder": "Input Access Key",
+		"checkingKey": "Verifying Stored AdKey",
+		"verifyFail": "Failed to verifying AdKey, Check your Connection !",
+		"keyExpired": "The Key Is Expired",
+		"invalidKey": "Invalid Key!",
+		"noKey": "Don't have a key?",
+		"getNewKey": "Get a new one Here!",
+		"getProAccess": "Get Pro Access",
+		"removeKey": "Remove Key",
+		"removeKeyConfirm": "Are you sure to delete the current Key? You will lose all of these benefits until you re-enter the new key"
 	},
 	"phonograph": {
 		"choosebgm": "Choose Backsound",

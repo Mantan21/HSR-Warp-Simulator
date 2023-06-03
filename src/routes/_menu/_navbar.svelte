@@ -27,11 +27,11 @@
 			active={activeMenu === 'updatelog'}
 			on:click={() => select('updatelog')}
 		/>
-		<!-- <NavLinkItem
+		<NavLinkItem
 			icon="honor"
-			active={activeMenu === 'removeads'}
-			on:click={() => select('removeads')}
-		/> -->
+			active={activeMenu === 'prouser'}
+			on:click={() => select('prouser')}
+		/>
 	</NavLink>
 </div>
 

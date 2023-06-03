@@ -281,3 +281,9 @@
 .hsr-pinterest:before {
 	content: '\3e';
 }
+.hsr-eye:before {
+	content: '\3f';
+}
+.hsr-eye-slash:before {
+	content: '\40';
+}

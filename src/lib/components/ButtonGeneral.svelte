@@ -4,6 +4,7 @@
 	export let icon = '';
 	export let disabled = false;
 	export let colored = false;
+	export let dark = false;
 
 	const dispatch = createEventDispatcher();
 	const handleClick = () => {
@@ -11,7 +12,7 @@
 	};
 </script>
 
-<button on:click={handleClick} {disabled} class:colored>
+<button on:click={handleClick} {disabled} class:colored class:dark>
 	{#if !!icon}
 		<i class="hsr-{icon}" />
 	{/if}
@@ -44,6 +45,11 @@
 		color: #000;
 	}
 
+	button.dark {
+		background-color: rgba(0, 0, 0, 0.85);
+		color: #fff;
+	}
+
 	:global(.mobileLandscape) button {
 		width: 125px;
 	}
@@ -66,7 +72,15 @@
 		border: 1px solid #eee;
 		opacity: 0.6;
 	}
-	button:disabled::after {
+
+	button.dark:disabled {
+		border-color: #000;
+		color: #000;
+		opacity: 0.5;
+	}
+
+	button:disabled::after,
+	button.dark::after {
 		border: none;
 	}
 
