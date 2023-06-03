@@ -50,7 +50,7 @@
 	<div class="btn">
 		<button
 			disabled={isNaN(value) || value <= 1}
-			on:touchstart|preventDefault={() => rangeControl('min')}
+			on:touchstart|preventDefault|nonpassive={() => rangeControl('min')}
 			on:mousedown|preventDefault={() => rangeControl('min')}
 			on:mouseleave={clearTimers}
 			on:mouseup={clearTimers}
@@ -75,7 +75,7 @@
 	<span>{max}</span>
 	<div class="btn">
 		<button
-			on:touchstart|preventDefault={() => rangeControl('plus')}
+			on:touchstart|preventDefault|nonpassive={() => rangeControl('plus')}
 			on:mousedown|preventDefault={() => rangeControl('plus')}
 			on:mouseleave={clearTimers}
 			on:mouseup={clearTimers}
