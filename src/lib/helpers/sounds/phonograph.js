@@ -44,11 +44,11 @@ const fadeTrack = (sourceID) => {
 			stopAfterFade = null;
 			return;
 		}
-		return loadedTracks[sourceID].pause();
+		return loadedTracks[sourceID].pause(trackIDs[sourceID]);
 	}
 
 	// play sound if fade in
-	loadedTracks[sourceID].play();
+	trackIDs[sourceID] = loadedTracks[sourceID].play();
 };
 
 const trackError = (sourceID) => {

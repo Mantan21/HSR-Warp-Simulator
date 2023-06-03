@@ -1,5 +1,5 @@
 <script>
-	import { setContext } from 'svelte';
+	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
@@ -55,21 +55,28 @@
 	};
 	setContext('showSplashArt', showSplashArt);
 
+	// Prevent phonograph playing when warping
+	const onWarp = getContext('onWarp');
 	const closeResult = () => {
 		showWarpResult = false;
+		onWarp.set(false);
 		if (!isPlaying(bgm.sourceID)) resumeTrack(bgm.sourceID);
 	};
 	setContext('closeResult', closeResult);
 
 	const handleGachaAnimation = (result, source = 'warp') => {
+		onWarp.set(true);
 		if (isPlaying(bgm.sourceID)) pauseTrack(bgm.sourceID, false);
+
 		warpResult = result;
 		const autoSkip = source !== 'warp' || localConfig.get('autoskip');
 		if (autoSkip) return showSplashArt({ skip: true });
+
 		const star = result.map(({ rarity }) => rarity);
 		if (star.includes(5)) astralRarity = 5;
 		else if (star.includes(4)) astralRarity = 4;
 		else astralRarity = 3;
+
 		showAstralExpress = true;
 	};
 	setContext('handleGachaAnimation', handleGachaAnimation);

@@ -8,11 +8,12 @@
 		liteMode,
 		showStarterBanner
 	} from '$lib/stores/app-store';
+	import { activeBacksound } from '$lib/stores/phonograph-store';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { isPlaying, pauseTrack, randomTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/localdata-reader';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
-	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { isPlaying, pauseTrack, randomTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { userCurrencies } from '$lib/helpers/shop-price';
 	import { localConfig } from '$lib/stores/localstorage';
 
@@ -27,7 +28,6 @@
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
 	import Phonograph from './_phonograph/index.svelte';
-	import { activeBacksound } from '$lib/stores/phonograph-store';
 
 	let status;
 	let loggedIn = false;
@@ -56,16 +56,21 @@
 		}
 	};
 
+	const onWarp = writable(false);
+	setContext('onWarp', onWarp);
+
 	const handleTrack = () => {
 		randomTrack('init');
 		window.addEventListener('blur', () => {
 			const { sourceID } = $activeBacksound;
+			if ($onWarp) return;
 			if (!isPlaying(sourceID) || pageActive === 'phonograph') return;
 			pauseTrack(sourceID, false);
 		});
 
 		window.addEventListener('focus', () => {
 			const { sourceID } = $activeBacksound;
+			if ($onWarp) return;
 			if (isPlaying(sourceID) || pageActive === 'phonograph') return;
 			resumeTrack(sourceID);
 		});

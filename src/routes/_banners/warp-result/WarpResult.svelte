@@ -80,12 +80,12 @@
 
 	onMount(() => {
 		showItem('start');
+		if (!standalone) playSfx('warp-backsound');
 		if (skip || standalone) return (showResultList = true);
-		playSfx('warp-backsound');
 	});
 
 	onDestroy(() => {
-		if (skip || standalone) return;
+		if (standalone) return;
 		stopSfx('warp-backsound');
 	});
 </script>
