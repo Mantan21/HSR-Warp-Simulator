@@ -19,6 +19,7 @@
 		},
 		{
 			"phase": 2,
+			"pro": true,
 			"banners": {
 				"regularVersion": 1,
 				"character": {

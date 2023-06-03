@@ -1,8 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { assetPath } from '$lib/helpers/assets';
-	import { activeBanner, activePhase, activeVersion } from '$lib/stores/app-store';
+	import { activeBanner, activePhase, activeVersion, proUser } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { identifyBanner } from '$lib/helpers/banners';
@@ -11,14 +12,18 @@
 	export let phase;
 	export let version;
 	export let data = {};
+	export let pro = false;
 
-	const { character, lightcone } = data;
-	const { bannerID, featured } = character;
+	let character, lightcone, bannerID, featured, runNumber, bannerName;
 
-	const { runNumber, bannerName, beta } = identifyBanner(bannerID);
+	$: locked = pro && !$proUser;
+	$: ({ character, lightcone } = data);
+	$: ({ bannerID, featured } = character);
+	$: ({ runNumber, bannerName } = identifyBanner(bannerID));
 
 	const navigate = getContext('navigate');
 	const selectBanner = () => {
+		if (locked) return;
 		playSfx();
 		if ($activePhase === phase && $activeVersion === version) return navigate('index');
 
@@ -30,24 +35,41 @@
 	};
 </script>
 
-<div class="col">
-	<button on:click={selectBanner}>
-		<div class="banner-pic">
-			<picture>
-				<img
-					use:lazyLoad={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
-					alt={$t(`banner.${bannerName}`)}
-					loading="lazy"
-					crossorigin="anonymous"
-				/>
-			</picture>
-			<span> {$t('phase')} {phase} </span>
-		</div>
-		<caption>
-			{$t(featured)} & {$t(lightcone.featured)}
-		</caption>
-	</button>
-</div>
+{#key bannerName}
+	<div class="col" class:locked in:fade={{ duration: 300 }}>
+		<button on:click={selectBanner} disabled={locked}>
+			<div class="banner-pic">
+				<picture>
+					<img
+						use:lazyLoad={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
+						alt={$t(`banner.${bannerName}`)}
+						crossorigin="anonymous"
+					/>
+				</picture>
+				{#if pro}
+					<span class="phase">
+						<i class="hsr-star" />
+						<i class="hsr-star" />
+						<i class="hsr-star" />
+					</span>
+				{:else}
+					<span class="phase"> {$t('phase')} {phase} </span>
+				{/if}
+
+				{#if locked}
+					<div class="lock">
+						<span>
+							<i class="hsr-lock" style="transform:translateY(15%); display:inline-block" /> Locked
+						</span>
+					</div>
+				{/if}
+			</div>
+			<caption>
+				{$t(featured)} & {$t(lightcone.featured)}
+			</caption>
+		</button>
+	</div>
+{/key}
 
 <style>
 	.col {
@@ -102,6 +124,20 @@
 		animation: infinite alternate 2s skeleton;
 	}
 
+	.banner-pic .lock {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+		color: var(--color-second);
+		opacity: 0.7;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
 	@keyframes skeleton {
 		0% {
 			background-position: 0 0;
@@ -111,7 +147,7 @@
 		}
 	}
 
-	.banner-pic span {
+	.banner-pic span.phase {
 		background-color: rgba(163, 107, 94, 0.95);
 		color: #f6d8a0;
 		position: absolute;

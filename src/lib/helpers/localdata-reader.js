@@ -56,22 +56,31 @@ const importLocalConfig = () => {
 	regReward.set({ rollcount: regularRollCount, isClaimed: isRegRewardClaimed });
 };
 
-const setBannerVersionAndPhase = () => {
-	let patch, phase;
+const setBannerVersionAndPhase = (isPro = false) => {
 	const localstoreVersion = localConfig.get('storageVersion');
 	const localVersion = localConfig.get('version');
-	if (localstoreVersion !== storageVersion || !localVersion) {
+	let [patch, phase] = localVersion.split('-');
+	const cancelPro = parseInt(patch) === 1000000 && !isPro;
+
+	if (cancelPro || localstoreVersion !== storageVersion || !localVersion) {
 		localConfig.set('version', `${siteVersion}-${warpPhase}`);
 		localConfig.set('storageVersion', storageVersion);
 		[patch, phase] = [siteVersion, warpPhase];
-	} else {
-		[patch, phase] = localVersion.split('-');
 	}
 
 	activePhase.set(parseInt(phase));
 	activeVersion.set(patch);
 
 	console.log(`Banner version set to ${patch} phase ${phase}`);
+};
+
+const restartBannerVersion = () => {
+	localConfig.set('version', `${siteVersion}-${warpPhase}`);
+	localConfig.set('storageVersion', storageVersion);
+	let [patch, phase] = [siteVersion, warpPhase];
+
+	activePhase.set(parseInt(phase));
+	activeVersion.set(patch);
 };
 
 const checkStarterBanner = () => {
@@ -81,4 +90,4 @@ const checkStarterBanner = () => {
 	return isShowStarter;
 };
 
-export { setBannerVersionAndPhase, checkStarterBanner, importLocalConfig };
+export { setBannerVersionAndPhase, restartBannerVersion, checkStarterBanner, importLocalConfig };

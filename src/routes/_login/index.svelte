@@ -1,8 +1,8 @@
 <script>
 	import { dev } from '$app/environment';
 	import { getContext, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { fade } from '$lib/helpers/transition';
 	import { assetPath } from '$lib/helpers/assets';
 	import accessKey from '$lib/helpers/access-key';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';

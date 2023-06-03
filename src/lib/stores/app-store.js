@@ -26,6 +26,7 @@ export const viewportHeight = writable(0);
 export const assets = writable([]);
 
 // Settings
+export const proUser = writable(false);
 export const warpAmount = writable('default');
 export const autoskip = writable(false);
 export const liteMode = writable(false);

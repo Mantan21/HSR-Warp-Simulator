@@ -32,7 +32,6 @@
 		},
 		{
 			"id": 7,
-			"beta": true,
 			"name": "laic-pursuit",
 			"type": "character-event"
 		}

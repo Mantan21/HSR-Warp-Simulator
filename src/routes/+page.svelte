@@ -6,6 +6,7 @@
 		activeVersion,
 		isMobile,
 		liteMode,
+		proUser,
 		showStarterBanner
 	} from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
@@ -31,7 +32,10 @@
 
 	let status;
 	let loggedIn = false;
-	setContext('login', () => (loggedIn = true));
+	setContext('login', () => {
+		proUser.set(true);
+		loggedIn = true;
+	});
 
 	let pageActive = 'index';
 	const navigate = (page) => {
@@ -77,7 +81,7 @@
 	};
 
 	onMount(() => {
-		setBannerVersionAndPhase();
+		setBannerVersionAndPhase($proUser);
 		importLocalConfig();
 
 		// litemode

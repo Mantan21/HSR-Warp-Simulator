@@ -287,3 +287,6 @@
 .hsr-eye-slash:before {
 	content: '\40';
 }
+.hsr-lock:before {
+	content: '\5b';
+}

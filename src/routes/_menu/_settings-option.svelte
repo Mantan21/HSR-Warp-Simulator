@@ -75,7 +75,8 @@
 			<!-- Switch Banner -->
 		{:else if optionName === 'switchbanner'}
 			<button class="selected-option" on:click={switchBanner}>
-				{$activeVersion} - {$activePhase} <i class="hsr-caret-down" />
+				{$activeVersion === '1000000.0' ? 'Pro' : $activeVersion} - {$activePhase}
+				<i class="hsr-caret-down" />
 			</button>
 
 			<!-- Numeber of Warps -->

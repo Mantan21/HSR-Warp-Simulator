@@ -1,15 +1,21 @@
 <script>
 	import { onMount, setContext } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
+	import { proUser } from '$lib/stores/app-store';
 	import accessKey from '$lib/helpers/access-key';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import LoadingIcon from '$lib/components/LoadingIcon.svelte';
-	import { fade } from 'svelte/transition';
-	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import Modal from '$lib/components/Modal.svelte';
 	import Toast from '$lib/components/Toast.svelte';
+	import { restartBannerVersion } from '$lib/helpers/localdata-reader';
 
+	let input;
+	let checkingLocal = false;
+	let onProcess = false;
 	let message = '';
+
 	let showToast = false;
 	let showModal = false;
 
@@ -18,6 +24,8 @@
 		playSfx();
 		accessKey.clear();
 		checkLocal();
+		proUser.set(false);
+		restartBannerVersion();
 		showModal = false;
 		input = '';
 	};
@@ -26,13 +34,7 @@
 		playSfx('modal-close');
 	};
 	setContext('closeModal', cancelModal);
-
-	// Toast
 	setContext('closeToast', () => (showToast = false));
-
-	let input;
-	let checkingLocal = false;
-	let onProcess = false;
 
 	let isOffline = false;
 	let isUserKeyValid = false;
