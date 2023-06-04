@@ -16,16 +16,19 @@ export const initializeBanner = async (version, phase) => {
 		const regularData = regular.find(({ version }) => version === regularVersion);
 
 		const charInfo = charDB.find(({ name }) => name === character.featured);
-		const lcInfo = lcDB.find(({ name }) => name === lightcone.featured);
 		character.path = charInfo.path;
 		character.combat_type = charInfo.combat_type;
-		lightcone.path = lcInfo.path;
-
 		list.push({ ...character, ...identifyBanner(character.bannerID) });
-		list.push({ ...lightcone, ...identifyBanner(lightcone.bannerID) });
-		list.push({ ...regularData, ...identifyBanner(regularData.bannerID) });
 
+		if (lightcone) {
+			const lcInfo = lcDB.find(({ name }) => name === lightcone.featured);
+			lightcone.path = lcInfo.path;
+			list.push({ ...lightcone, ...identifyBanner(lightcone.bannerID) });
+		}
+
+		list.push({ ...regularData, ...identifyBanner(regularData.bannerID) });
 		bannerList.set(list);
+
 		return { status: 'ok' };
 	} catch (e) {
 		console.error(e);

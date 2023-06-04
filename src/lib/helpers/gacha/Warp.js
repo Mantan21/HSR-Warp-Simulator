@@ -24,17 +24,19 @@ const WARP = {
 			phase
 		});
 
-		this._lightconeBannerWarp = lightconeWarp.init({
-			data: lightcone,
-			version,
-			phase
-		});
+		if (lightcone) {
+			this._lightconeBannerWarp = lightconeWarp.init({
+				data: lightcone,
+				version,
+				phase
+			});
+		}
 
 		this._bannerIDList = {
 			starter: starter.bannerID,
 			regular: regularBanner.bannerID,
 			character: character.bannerID,
-			lightcone: lightcone.bannerID
+			lightcone: lightcone?.bannerID
 		};
 
 		return this;

@@ -40,7 +40,9 @@
 			const data = import(`../../lib/data/banners/events/${ver.toFixed(1)}.json`);
 			patchList.push(data);
 		});
-		patchList.push(unknownBanner);
+		if (unknownBanner.data.length > 0) {
+			patchList.push(unknownBanner);
+		}
 
 		const list = await Promise.all(patchList);
 		return list.reverse();

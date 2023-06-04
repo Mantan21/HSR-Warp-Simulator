@@ -91,6 +91,14 @@
 		{
 			"date": "2 Jun 2023",
 			"changes": ["Screenshot Generator and Shareable links", "Add First Time Sharing Rewards"]
+		},
+		{
+			"date": "3 Mar 2023",
+			"changes": [
+				"Add Kafka Banner",
+				"Add form for Pro User Special Access",
+				"Lock Future Banner from Common User"
+			]
 		}
 	]
 }

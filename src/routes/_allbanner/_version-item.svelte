@@ -47,11 +47,7 @@
 					/>
 				</picture>
 				{#if pro}
-					<span class="phase">
-						<i class="hsr-star" />
-						<i class="hsr-star" />
-						<i class="hsr-star" />
-					</span>
+					<span class="phase"> STC </span>
 				{:else}
 					<span class="phase"> {$t('phase')} {phase} </span>
 				{/if}
@@ -65,7 +61,8 @@
 				{/if}
 			</div>
 			<caption>
-				{$t(featured)} & {$t(lightcone.featured)}
+				{$t(featured)}
+				{lightcone ? ' & ' + $t(lightcone.featured) : ''}
 			</caption>
 		</button>
 	</div>
