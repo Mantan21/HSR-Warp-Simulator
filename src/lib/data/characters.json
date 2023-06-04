@@ -1,6 +1,16 @@
 {
 	"data": [
 		{
+			"name": "kafka",
+			"rarity": 5,
+			"combat_type": "lightning",
+			"path": "nihility",
+			"bannerOffset": { "b": -45, "l": 9.5, "w": 115 },
+			"buttonOffset": { "t": -69, "l": -10, "w": 115 },
+			"splashartOffset": { "t": 55, "w": 85, "l": 52 },
+			"gachaCardOffset": { "l": 48, "t": 203, "w": 510 }
+		},
+		{
 			"name": "luocha",
 			"rarity": 5,
 			"combat_type": "imaginary",
@@ -29,7 +39,7 @@
 			"splashartOffset": { "t": 51 },
 			"gachaCardOffset": { "t": 125, "l": 25, "w": 365 },
 			"buttonOffset": { "t": -60, "w": 110 },
-			"bannerOffset": { "b": -35, "l": 12.5, "w": 100 },
+			"bannerOffset": { "b": -30, "l": 10.5, "w": 100 },
 			"textOffset": { "l": 65 }
 		},
 		{
@@ -110,7 +120,8 @@
 			"rarity": 4,
 			"combat_type": "wind",
 			"path": "nihility",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": { "l": -570, "h": 425, "t": -91 }
 		},
 		{
 			"name": "clara",
@@ -188,7 +199,8 @@
 			"combat_type": "lightning",
 			"path": "destruction",
 			"release": "1.0-0",
-			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 }
+			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 },
+			"bannerOffset": { "h": 460, "t": -145, "l": -840 }
 		},
 		{
 			"name": "welt",

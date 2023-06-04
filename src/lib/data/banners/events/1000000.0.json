@@ -1,4 +1,17 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"phase": 1,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": "8-1",
+					"featured": "kafka",
+					"rateup": ["sampo", "arlan", "sushang"]
+				}
+			}
+		}
+	]
 }
