@@ -1,18 +1,21 @@
 import { t } from 'svelte-i18n';
-import { assets } from '$lib/stores/app-store';
 
 const albumCover = (album, images) => {
-	const albumList = ['out-of-control', 'svah-sanishyu', 'of-snow-and-ember'];
-	if (albumList.includes(album)) {
-		let cover;
-		assets.subscribe((a) => (cover = a[`album_${album}.webp`]));
-		return [
-			{
-				src: cover,
-				sizes: '227x227',
-				type: 'image/webp'
-			}
-		];
+	const albumList = {
+		'out-of-control': 'sb2cKHM',
+		'of-snow-and-ember': 'n8RfDth',
+		'svah-sanishyu': '5WVTv6m'
+	};
+
+	if (Object.keys(albumList).includes(album)) {
+		const sizes = [192, 256, 384, 512, 1024];
+		const artwork = sizes.map((size) => {
+			const src = `https://imagecdn.app/v1/images/https://i.ibb.co/${albumList[album]}/${album}.webp?width=${size}`;
+			const type = 'image/webp';
+			const sizes = `${size}x${size}`;
+			return { src, type, sizes };
+		});
+		return artwork;
 	}
 
 	// Use YT Thumbnail as Album Cover
