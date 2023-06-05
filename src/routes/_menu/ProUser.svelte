@@ -102,7 +102,7 @@
 				<span class="verify">{$t('menu.checkingKey')}</span>
 			</div>
 		{:else}
-			<form class="form" in:fade>
+			<div class="form" in:fade>
 				<h1 class="heading">{$t('menu.prouserHeading')}</h1>
 				<div class="input-wrapper">
 					<div class="input">
@@ -159,7 +159,7 @@
 						</ButtonGeneral>
 					{/if}
 				</div>
-			</form>
+			</div>
 		{/if}
 
 		<div class="benefits">
@@ -201,7 +201,7 @@
 		font-size: 200%;
 	}
 
-	form {
+	.form {
 		max-width: 90%;
 		width: 600px;
 		position: relative;
