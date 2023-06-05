@@ -11,7 +11,7 @@
 	} from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { isPlaying, pauseTrack, randomTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
+	import { isPlaying, pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/localdata-reader';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
@@ -22,20 +22,17 @@
 	import ModalConvert from '$lib/components/ModalConvert.svelte';
 	import PreloadExpress from './_index/PreloadExpress.svelte';
 	import Banners from './_banners/index.svelte';
-	import LoginPage from './_login/index.svelte';
 	import AllBanner from './_allbanner/index.svelte';
 	import Menu from './_menu/index.svelte';
 	import Collection from './_collection/index.svelte';
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
 	import Phonograph from './_phonograph/index.svelte';
+	import Welcome from './_index/Welcome.svelte';
 
 	let status;
-	let loggedIn = false;
-	setContext('login', () => {
-		proUser.set(true);
-		loggedIn = true;
-	});
+	let welcomeScreen = true;
+	setContext('closeGreeting', () => (welcomeScreen = false));
 
 	let pageActive = 'index';
 	const navigate = (page) => {
@@ -64,7 +61,6 @@
 	setContext('onWarp', onWarp);
 
 	const handleTrack = () => {
-		randomTrack('init');
 		window.addEventListener('blur', () => {
 			const { sourceID } = $activeBacksound;
 			if ($onWarp) return;
@@ -133,27 +129,26 @@
 	<ObtainedItem {...obtainedData} />
 {/if}
 
-{#if !loggedIn}
-	<LoginPage />
-{:else}
-	{#if showConvertModal}
-		<ModalConvert />
-	{/if}
-
-	{#if pageActive === 'index'}
-		<Banners />
-		<Menu />
-	{:else if pageActive === 'allbanner'}
-		<AllBanner />
-	{:else if pageActive === 'collection'}
-		<Collection />
-	{:else if pageActive === 'shop'}
-		<Shop />
-	{:else if pageActive === 'details'}
-		<GachaInfo />
-	{:else if pageActive === 'phonograph'}
-		<Phonograph />
-	{/if}
-
-	<PreloadExpress />
+{#if showConvertModal}
+	<ModalConvert />
 {/if}
+
+{#if pageActive === 'index'}
+	<Banners />
+	<Menu />
+{:else if pageActive === 'allbanner'}
+	<AllBanner />
+{:else if pageActive === 'collection'}
+	<Collection />
+{:else if pageActive === 'shop'}
+	<Shop />
+{:else if pageActive === 'details'}
+	<GachaInfo />
+{:else if pageActive === 'phonograph'}
+	<Phonograph />
+{/if}
+
+{#if welcomeScreen}
+	<Welcome />
+{/if}
+<PreloadExpress />
