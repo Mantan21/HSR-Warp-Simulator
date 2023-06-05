@@ -16,7 +16,7 @@
 						{/if}
 					</h2>
 					{#each changes as change}
-						<p>{change}</p>
+						<p>{@html change}</p>
 					{/each}
 				</div>
 			{/each}
