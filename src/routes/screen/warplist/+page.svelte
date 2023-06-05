@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
 	import { data as charDB } from '$lib/data/characters.json';
@@ -28,13 +29,22 @@
 			list = completeMissingData(parsed) || [];
 		} catch (e) {
 			console.error('something Wrong', e);
-			window.location.replace('/');
+			goto('/');
 		}
 	};
 
 	onMount(resolveData);
 </script>
 
-{#if list.length > 1}
-	<WarpResult {list} skip standalone />
-{/if}
+<section>
+	{#if list.length > 1}
+		<WarpResult {list} skip standalone />
+	{/if}
+</section>
+
+<style>
+	section {
+		width: 100%;
+		height: var(--screen-height);
+	}
+</style>

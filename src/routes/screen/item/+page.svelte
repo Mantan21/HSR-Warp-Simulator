@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { t } from 'svelte-i18n';
 
@@ -31,7 +32,7 @@
 			list = [data];
 		} catch (e) {
 			console.error('something Wrong');
-			window.location.replace('/');
+			goto('/');
 		}
 	};
 
@@ -48,6 +49,15 @@
 	<meta property="twitter:title" content={APP_TITLE} />
 </svelte:head>
 
-{#if list.length > 0}
-	<WarpResult {list} skip standalone />
-{/if}
+<section>
+	{#if list.length > 0}
+		<WarpResult {list} skip standalone />
+	{/if}
+</section>
+
+<style>
+	section {
+		width: 100%;
+		height: var(--screen-height);
+	}
+</style>
