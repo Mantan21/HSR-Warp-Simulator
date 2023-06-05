@@ -200,7 +200,7 @@
 	}
 
 	.shot-result img {
-		max-height: 50vh;
+		max-height: calc(0.5 * var(--screen-height));
 		max-width: 70vw;
 	}
 
@@ -221,7 +221,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		padding: 0.5rem;
-		margin-top: 2%;
+		margin-top: 1%;
 	}
 
 	.shareableLink .icon {
@@ -261,14 +261,13 @@
 	.first-time span {
 		width: 100%;
 		text-align: center;
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translate(-50%, 120%);
 		display: block;
 	}
 	.first-time :global(img) {
 		transform: translateY(30%);
+	}
+	:global(.mobileLandscape) .first-time :global(img) {
+		width: 20px;
 	}
 
 	.social-button {
@@ -278,7 +277,6 @@
 		border-radius: 5rem;
 		text-align: center;
 		padding: 2% 5%;
-		margin-top: 1%;
 	}
 
 	.social-button button {
@@ -316,7 +314,7 @@
 	}
 
 	:global(.mobileLandscape) .social-button {
-		padding: 2%;
+		padding: 1%;
 	}
 	:global(.mobileLandscape) .social-button button {
 		width: 25px;
@@ -330,13 +328,6 @@
 			width: 80%;
 			height: 80%;
 		}
-		.shot-result img {
-			max-height: 70vh;
-		}
-		picture {
-			max-width: 90vw;
-			max-height: 90vh;
-		}
 		.social-button {
 			padding: 1rem;
 		}
@@ -346,10 +337,6 @@
 		.shot-wrapper {
 			width: 100%;
 			height: 100%;
-		}
-		picture {
-			max-width: 80vw;
-			max-height: 80vh;
 		}
 		.social-button {
 			padding: 4%;

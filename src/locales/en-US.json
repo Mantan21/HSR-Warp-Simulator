@@ -231,6 +231,7 @@
 		"checkingKey": "Verifying Stored AdKey",
 		"verifyFail": "Failed to verifying AdKey, Check your Connection !",
 		"keyExpired": "The Key Is Expired",
+		"keyExpiredNotice": "Your key: \"{key}\" has expired since {date}.",
 		"invalidKey": "Invalid Key!",
 		"noKey": "Don't have a key?",
 		"getNewKey": "Get a new one Here!",
