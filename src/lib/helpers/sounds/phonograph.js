@@ -3,6 +3,7 @@ import { fetchAudio } from './audio-fetcher';
 import { activeBacksound, currentTime, musics } from '$lib/stores/phonograph-store';
 import { cookie } from '$lib/stores/cookies';
 import { localConfig } from '$lib/stores/localstorage';
+import { mediaSessionHandler } from './media-session';
 
 let tracks = [];
 musics.subscribe((val) => (tracks = val));
@@ -79,6 +80,7 @@ const seekTrack = (sourceID) => {
 	}
 };
 
+const musicMediaSession = {};
 export const playTrack = async (sourceID) => {
 	const muted = localConfig.get('muted');
 	if (muted) return { status: 'muted' };
@@ -87,14 +89,18 @@ export const playTrack = async (sourceID) => {
 	cookie.set('trackID', sourceID);
 	if (sourceID in loadedTracks) {
 		trackIDs[sourceID] = loadedTracks[sourceID].play();
+		mediaSessionHandler(musicMediaSession[sourceID]);
 		return { status: 'ok' };
 	}
 
 	try {
-		const trackURL = await fetchAudio(sourceID);
+		const { download, images } = await fetchAudio(sourceID);
+		const { album, title } = tracks.find((v) => v.sourceID === sourceID);
+		musicMediaSession[sourceID] = { images, album, title };
+
 		let volume = cookie.get('trackVolume') || 0.2;
 		loadedTracks[sourceID] = new Howl({
-			src: [trackURL],
+			src: [download],
 			html5: true,
 			volume,
 			onplayerror: () => trackError(sourceID),
@@ -102,9 +108,12 @@ export const playTrack = async (sourceID) => {
 			onend: () => nextTrack(sourceID),
 			onfade: () => fadeTrack(sourceID)
 		});
+
 		trackIDs[sourceID] = loadedTracks[sourceID].play();
+		mediaSessionHandler(musicMediaSession[sourceID]);
 		return { status: 'ok' };
 	} catch (e) {
+		console.error(e);
 		return { status: 'error' };
 	}
 };
