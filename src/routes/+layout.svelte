@@ -1,5 +1,6 @@
 <script>
 	import { registerSW } from 'virtual:pwa-register';
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
@@ -27,6 +28,14 @@
 	$: viewportHeight.set(innerHeight);
 	$: previewScreen = $page.url.pathname.includes('screen');
 
+	const redirectIfNotValidPath = () => {
+		const allowedPath = ['screen'];
+		const { pathname } = $page.url;
+		const pathNow = pathname.split('/')[1];
+		if (allowedPath.includes(pathNow)) return;
+		return goto('/');
+	};
+
 	const setMobileMode = () => {
 		// if ($isPWA) return isMobileLandscape.set(true);
 		const angle = screen.orientation?.angle || 0;
@@ -46,6 +55,7 @@
 
 		// prevent Righ click (hold on android) on production mode
 		if (!dev) document.addEventListener('contextmenu', (e) => e.preventDefault());
+		redirectIfNotValidPath();
 	});
 </script>
 
