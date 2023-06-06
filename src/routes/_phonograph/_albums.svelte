@@ -3,7 +3,6 @@
 	import { assets } from '$lib/stores/app-store';
 	import { albumList } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-
 	export let activeAlbum = '';
 	export let playedAlbum = '';
 
@@ -48,6 +47,8 @@
 		margin-top: 2rem;
 		display: flex;
 		flex-direction: column;
+		width: fit-content;
+		padding-left: 5%;
 	}
 
 	.album-item {
@@ -191,8 +192,9 @@
 		.album-list {
 			flex-direction: row;
 			margin-top: 1em;
-			width: 100%;
+			width: fit-content;
 			justify-content: center;
+			padding-left: unset;
 		}
 		.album-item {
 			padding-bottom: 0;

@@ -128,7 +128,7 @@
 			font-size: calc(0.05 * var(--wd));
 		}
 		.track-list {
-			height: calc((0.7 * var(--screen-height) - (0.38 * var(--wd))));
+			height: calc((0.7 * var(--screen-height) - (0.25 * var(--wd))));
 		}
 		.track-item {
 			height: calc(0.175 * var(--wd));

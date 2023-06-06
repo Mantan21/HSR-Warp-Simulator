@@ -75,15 +75,6 @@
 </div>
 
 <style>
-	.controller {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		width: 45%;
-		font-size: 150%;
-		padding: 0 0 0 2.75%;
-	}
-
 	.onplay {
 		display: block;
 		font-size: 120%;
@@ -94,10 +85,6 @@
 	}
 
 	/* Mobile Landscape */
-	.controller {
-		font-size: 120%;
-	}
-
 	.controls {
 		padding: 1rem 0;
 	}
@@ -150,12 +137,6 @@
 
 	/* Mobile Portrait */
 	@media screen and (max-width: 620px) {
-		.controller {
-			position: relative;
-			width: 100%;
-			font-size: 120%;
-		}
-
 		.description {
 			height: 5vh;
 		}

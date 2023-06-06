@@ -76,10 +76,6 @@
 				{
 					"title": "Dire Straits",
 					"sourceID": "MS4gtbF1Nwo"
-				},
-				{
-					"title": "Awake the Trailblazer",
-					"sourceID": "gtV-t1RjzqM"
 				}
 			]
 		},
@@ -214,8 +210,8 @@
 					"sourceID": "BAJXO0oVqIM"
 				},
 				{
-					"title": "The Cusp of Ignition",
-					"sourceID": "Axm06DDSLm8"
+					"title": "Blaze",
+					"sourceID": "Ug9xKs4VyyM"
 				}
 			]
 		},
@@ -284,6 +280,83 @@
 					"sourceID": "CcKkZKdxCJM"
 				}
 			]
+		},
+		{
+			"album": "more-ost",
+			"tracks": [
+				{
+					"title": "Intermission (1.1 Special Program)",
+					"sourceID": "N7dUziUUpKM"
+				},
+				{
+					"title": "Galactic Roaming (Silver Wolf)",
+					"sourceID": "0qJFe97dOrM"
+				},
+				{
+					"title": "Heaven and Earth as a Chessboard (Jing Yuan)",
+					"sourceID": "kTNKN4BDcy8"
+				},
+				{
+					"title": "Uneventful Night (Seele)",
+					"sourceID": "kG8xE2O3_gs"
+				},
+				{
+					"title": "Tempered Chill (Yanqing)",
+					"sourceID": "fqvQqG245QI"
+				},
+				{
+					"title": "In Torrid Heat (Bailu)",
+					"sourceID": "_eA_Q30lhfw"
+				},
+				{
+					"title": "Star Chaser (Himeko)",
+					"sourceID": "HhoHxC0W8fo"
+				},
+				{
+					"title": "Let's Take a Photo! (March 7th)",
+					"sourceID": "jcQAWk8sYWY"
+				},
+				{
+					"title": "The Cusp of Ignition (Serval)",
+					"sourceID": "Axm06DDSLm8"
+				},
+				{
+					"title": "[Meeting Qingque]",
+					"sourceID": "iyhPKC7W7uI"
+				},
+				{
+					"title": "[Meeting Tingyun]",
+					"sourceID": "0VRblo24hEI"
+				},
+				{
+					"title": "Space Comedy",
+					"sourceID": "DxOBqiePZ2U"
+				},
+				{
+					"title": "Awake the Trailblazer",
+					"sourceID": "gtV-t1RjzqM"
+				},
+				{
+					"title": "Kafka · Boss Theme",
+					"sourceID": "CSTjzWJlEH8"
+				},
+				{
+					"title": "It's Kafka",
+					"sourceID": "o1JZbjULhMY"
+				},
+				{
+					"title": "Canon in D (HSR Departure Festival)",
+					"sourceID": "DUt82ZsrjH0"
+				},
+				{
+					"title": "Next Stop, The Stars!",
+					"sourceID": "_e2K2rpyX34"
+				}
+			]
+		},
+		{
+			"album": "custom-musics",
+			"tracks": []
 		}
 	]
 }
