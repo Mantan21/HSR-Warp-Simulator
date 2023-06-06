@@ -47,6 +47,10 @@
 		playSfx();
 		navigate('phonograph');
 	};
+
+	const dontShowAlbum = ['more-ost', 'custom-musics'];
+	$: dontShow = dontShowAlbum.includes($activeBacksound.album);
+	$: activeAlbum = dontShow ? '' : ' - ' + $t(`phonograph.${$activeBacksound.album}`);
 </script>
 
 <div class="setting-item" class:sub>
@@ -67,7 +71,7 @@
 			>
 				<!-- svelte-ignore a11y-distracting-elements -->
 				<marquee style="width: 75%;">
-					{$activeBacksound.title} - {$t(`phonograph.${$activeBacksound.album}`)}
+					{$activeBacksound.title}{activeAlbum}
 				</marquee>
 				<i class="hsr-music" />
 			</button>

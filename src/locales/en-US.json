@@ -245,11 +245,18 @@
 		"svah-sanishyu": "Svah Sanishyu",
 		"of-snow-and-ember": "Of Snow and Ember",
 		"more-ost": "More Music and OST",
-		"custom-musics": "Custom Addition",
+		"custom-musics": "Custom Musics",
 		"currentSong": "Current Song",
 		"setSong": "Set Song",
 		"notLoaded": "Not yet loaded",
 		"suffle": "Suffle",
-		"loop": "Loop"
+		"loop": "Loop",
+		"inputURL": "Please Enter Youtube URL:",
+		"check": "Check",
+		"deleteTrack": "Are you sure to delete this Track?",
+		"notrackAdded": "You haven't added a track",
+		"addCustom": "Add Custom Track",
+		"addTrack": "Add Track",
+		"removeTrack": "Remove Track"
 	}
 }

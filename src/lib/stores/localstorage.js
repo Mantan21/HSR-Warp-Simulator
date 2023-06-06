@@ -102,3 +102,30 @@ export const owneditem = {
 		return allItems[name];
 	}
 };
+
+export const customTracks = {
+	getAll() {
+		const tracks = storageLocal.get('customTracks');
+		if (Array.isArray(tracks)) return tracks;
+		return [];
+	},
+	put({ sourceID, title, description } = {}) {
+		const allTracks = this.getAll();
+
+		// update track if already in list
+		const findTrack = allTracks.findIndex((t) => t.sourceID === sourceID);
+		if (findTrack > -1) {
+			allTracks[findTrack] = { sourceID, title, description };
+		} else {
+			// add if not on the list yet
+			allTracks.push({ title, description, sourceID });
+		}
+
+		storageLocal.set('customTracks', allTracks);
+	},
+	delete(sourceID) {
+		const allTracks = this.getAll();
+		const newVal = allTracks.filter((t) => t.sourceID !== sourceID);
+		storageLocal.set('customTracks', newVal);
+	}
+};

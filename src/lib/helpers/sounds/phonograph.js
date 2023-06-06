@@ -17,7 +17,7 @@ const loadedTracks = {};
 const trackIDs = {};
 let playedIndex = 0;
 
-const nextTrack = (sourceID) => {
+export const nextTrack = (sourceID) => {
 	loadedTracks[sourceID].stop();
 
 	const isLoop = cookie.get('loopTrack');
@@ -55,6 +55,7 @@ const fadeTrack = (sourceID) => {
 const trackError = (sourceID) => {
 	delete loadedTracks[sourceID];
 	delete trackIDs[sourceID];
+	nextTrack(sourceID);
 };
 
 const afterPLay = (sourceID) => {

@@ -1,15 +1,12 @@
 <script>
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { musics } from '$lib/stores/phonograph-store';
 	import { cookie } from '$lib/stores/cookies';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import Scrollable from '$lib/components/Scrollable.svelte';
 
 	export let playedSID;
 
-	let online;
 	let isLoop = cookie.get('loopTrack');
 	let isSuffle = cookie.get('suffleTrack');
 	$: playedTrack = $musics.find(({ sourceID }) => sourceID === playedSID);
@@ -24,28 +21,18 @@
 		isSuffle = isSuffle === undefined ? false : !isSuffle;
 		cookie.set('suffleTrack', isSuffle);
 	};
-
-	onMount(() => {
-		online = window.navigator.onLine;
-		window.addEventListener('online', () => {
-			online = true;
-		});
-		window.addEventListener('offline', () => {
-			online = false;
-		});
-	});
 </script>
 
 <div class="controller">
 	<div class="information">
 		<span class="onplay">"{playedTrack.title}"</span>
-		<div class="description">
-			<Scrollable>
+		{#if playedTrack.description}
+			<div class="description">
 				<p>
-					{playedTrack.description || ''}
+					{@html (playedTrack.description || '')?.replace(/\n/g, '<br/>')}
 				</p>
-			</Scrollable>
-		</div>
+			</div>
+		{/if}
 	</div>
 	<div class="controls">
 		<button class:active={isLoop} on:click={handleLoop} title="Loop This Music">
@@ -63,14 +50,6 @@
 				{$t('phonograph.suffle')}
 			</button>
 		{/if}
-		{#if online}
-			<button title="Choose Musics' Server"> <i class="hsr-server" /> Google </button>
-		{:else}
-			<button title="Cant't connect to Server" disabled>
-				<i class="hsr-server" />
-				{$t('noInternet')}
-			</button>
-		{/if}
 	</div>
 </div>
 
@@ -80,6 +59,15 @@
 		font-size: 120%;
 		color: var(--color-second);
 	}
+	.description {
+		max-height: 15vh;
+		overflow-y: auto;
+	}
+
+	.description::-webkit-scrollbar {
+		display: none;
+	}
+
 	p {
 		line-height: 120%;
 	}

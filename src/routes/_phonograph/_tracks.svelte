@@ -6,6 +6,11 @@
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import TrackItem from './_track-item.svelte';
+	import ModalTrack from './_modal-track.svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import { musics } from '$lib/stores/phonograph-store';
+	import { customTracks } from '$lib/stores/localstorage';
+	import { isPlaying, nextTrack } from '$lib/helpers/sounds/phonograph';
 
 	export let playedAlbum = '';
 	export let trackList = [];
@@ -32,19 +37,80 @@
 		return playSfx('music-select2');
 	};
 	setContext('selectTrack', selectTrack);
+
+	// Modal to mange Track
+	let showModalAdd = false;
+	const handleModal = (val) => (showModalAdd = val);
+	setContext('handleModal', handleModal);
+
+	let showModalDelete = false;
+	let musicIDToDelete = '';
+	const closeModalDelete = () => {
+		playSfx('modal-close');
+		showModalDelete = false;
+	};
+	setContext('closeModal', closeModalDelete);
+
+	setContext('deletePrompt', (id) => {
+		musicIDToDelete = id;
+		showModalDelete = true;
+	});
+
+	const confirmDelete = () => {
+		playSfx();
+		if (isPlaying(musicIDToDelete)) nextTrack(musicIDToDelete);
+		musics.update((m) => m.filter((m) => m.sourceID !== musicIDToDelete));
+		customTracks.delete(musicIDToDelete);
+		musicIDToDelete = '';
+		showModalDelete = false;
+	};
 </script>
+
+<ModalTrack show={showModalAdd} />
+
+{#if showModalDelete}
+	<Modal
+		title={$t('phonograph.removeTrack')}
+		on:confirm={confirmDelete}
+		on:cancel={closeModalDelete}
+	>
+		<div class="deleteTrack">{$t('phonograph.deleteTrack')}</div>
+	</Modal>
+{/if}
 
 <div class="tracks" bind:clientWidth={width} style="--wd:{width}px">
 	<div class="album-name"><i> {$t(`phonograph.${playedAlbum}`)}</i></div>
 	<div class="track-list">
 		<Scrollable visibility="hidden">
 			<div class="list-wrapper">
+				{#if playedAlbum === 'custom-musics' && trackList.length < 1}
+					<div class="track-item custom no-track">
+						<div class="title">
+							<span>{$t('phonograph.notrackAdded')}</span>
+						</div>
+					</div>
+				{/if}
+
 				{#each trackList as track, i (track)}
-					{@const { title, sourceID, duration } = track}
+					{@const { title, sourceID, duration, album } = track}
 					<div class="track-item" in:fade={{ duration: 250, delay: Math.sqrt(i * 15000) }}>
-						<TrackItem {playedTrack} {title} {sourceID} {isWaiting} {duration} />
+						<TrackItem {playedTrack} {title} {sourceID} {isWaiting} {duration} {album} />
 					</div>
 				{/each}
+
+				{#if playedAlbum === 'custom-musics'}
+					<div class="track-item custom">
+						<ButtonGeneral
+							icon="music"
+							on:click={() => {
+								handleModal(true);
+								playSfx();
+							}}
+						>
+							{$t('phonograph.addCustom')}
+						</ButtonGeneral>
+					</div>
+				{/if}
 			</div>
 		</Scrollable>
 	</div>
@@ -108,6 +174,21 @@
 	.track-item {
 		height: calc(0.25 * var(--wd));
 		margin-bottom: calc(0.03 * var(--wd));
+		position: relative;
+	}
+
+	.track-item.custom {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.no-track {
+		opacity: 0.8;
+		justify-content: center;
+	}
+
+	.custom :global(button) {
+		padding: 4% 10%;
 	}
 
 	/* Mobile Landscape */

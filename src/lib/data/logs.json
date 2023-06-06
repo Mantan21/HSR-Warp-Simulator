@@ -106,6 +106,10 @@
 				"Make The Site Public",
 				"Unlock banner for <b>Silver Wolf</b> and <b>Incessant Rain</b>"
 			]
+		},
+		{
+			"date": "6 Jun 2023",
+			"changes": ["Add More Tracks", "Now you can import any musics from Youtube to the Phonograph"]
 		}
 	]
 }
