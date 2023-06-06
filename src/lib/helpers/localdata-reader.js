@@ -58,7 +58,7 @@ const importLocalConfig = () => {
 
 const setBannerVersionAndPhase = (isPro = false) => {
 	const localstoreVersion = localConfig.get('storageVersion');
-	const localVersion = localConfig.get('version');
+	const localVersion = localConfig.get('version') || '';
 	let [patch, phase] = localVersion.split('-');
 	const cancelPro = parseInt(patch) === 1000000 && !isPro;
 
