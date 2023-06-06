@@ -4,9 +4,11 @@
 	import { assets } from '$lib/stores/app-store';
 	import { activeBacksound, currentTime } from '$lib/stores/phonograph-store';
 	import { formatTime, pauseTrack, playTrack } from '$lib/helpers/sounds/phonograph';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	export let title = '';
 	export let sourceID = '';
+	export let album = '';
 	export let isWaiting = false;
 	export let playedTrack;
 	export let duration;
@@ -50,14 +52,21 @@
 			wait(false);
 		}
 	};
+
+	const deletePrompt = getContext('deletePrompt');
+	const deleteMusic = () => {
+		playSfx();
+		deletePrompt(sourceID);
+	};
 </script>
 
 <button
+	{title}
 	id={sourceID}
 	class:isPlayed
-	on:click={() => previewTrack(sourceID)}
 	disabled={isWaiting}
-	{title}
+	class:custom={album === 'custom-musics'}
+	on:click={() => previewTrack(sourceID)}
 >
 	<i class="hsr-right-arrow" />
 	<div class="track-wrapper">
@@ -101,6 +110,12 @@
 		</div>
 	</div>
 </button>
+
+{#if album === 'custom-musics'}
+	<button class="delete" on:click={deleteMusic}>
+		<i class="hsr-trash" />
+	</button>
+{/if}
 
 <style>
 	button {
@@ -296,6 +311,26 @@
 		aspect-ratio: 1/1;
 		font-size: 100%;
 		transition: 0.25s all;
+	}
+
+	button.delete {
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: #fff;
+		background-color: #c33535;
+		width: 15%;
+		font-size: calc(0.07 * var(--wd));
+		opacity: 0;
+		z-index: +1;
+		pointer-events: none;
+		transition: 0.25s opacity;
+	}
+
+	:global(.track-item):hover .delete {
+		display: unset;
+		opacity: 1;
+		pointer-events: unset;
 	}
 
 	@media screen and (max-width: 620px) {

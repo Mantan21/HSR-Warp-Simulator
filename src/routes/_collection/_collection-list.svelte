@@ -4,6 +4,7 @@
 	import { flip } from 'svelte/animate';
 	import { t } from 'svelte-i18n';
 	import { isMobileLandscape, liteMode } from '$lib/stores/app-store';
+	import { cookie } from '$lib/stores/cookies';
 	import { owneditem } from '$lib/stores/localstorage';
 	import { data as charDB } from '$lib/data/characters.json';
 	import { data as lcDB } from '$lib/data/light-cones.json';
@@ -39,9 +40,11 @@
 	};
 
 	const loadItems = (type) => {
+		const showHidden = cookie.get('showHiddenBanner');
 		const isChar = type === 'character';
 		const data = isChar ? charDB : lcDB;
 		return data
+			.filter(({ pro }) => showHidden || !pro)
 			.map(({ name, path, rarity, combat_type }) => {
 				const { warp = 0, manual = 0 } = ownedItems[name] || {};
 				const qty = warp + manual;
@@ -112,9 +115,11 @@
 			<div class="list" style="--itemWidth: {itemWidth}%">
 				{#if $liteMode}
 					{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }}
-						<div class="item">
-							<CollectionItem {rarity} {name} {path} {isOwned} combatType={combat_type} {qty} />
-						</div>
+						{#key name}
+							<div class="item">
+								<CollectionItem {rarity} {name} {path} {isOwned} combatType={combat_type} {qty} />
+							</div>
+						{/key}
 					{/each}
 				{:else}
 					{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }, i (name)}

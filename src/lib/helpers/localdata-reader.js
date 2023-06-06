@@ -20,7 +20,8 @@ import {
 	stellarJade,
 	warpAmount
 } from '$lib/stores/app-store';
-import { localBalance, localConfig, rollCounter } from '$lib/stores/localstorage';
+import { customTracks, localBalance, localConfig, rollCounter } from '$lib/stores/localstorage';
+import { musics } from '$lib/stores/phonograph-store';
 
 const importLocalConfig = () => {
 	const { stellarJade: isj, ticketPass: pass, oneiric: ios } = initialAmount;
@@ -54,11 +55,20 @@ const importLocalConfig = () => {
 	const regularRollCount = rollCounter.get('regular') || 0;
 	const isRegRewardClaimed = localConfig.get('additionalClaimed');
 	regReward.set({ rollcount: regularRollCount, isClaimed: isRegRewardClaimed });
+
+	// Custom Music
+	const customBGM = customTracks.getAll();
+	musics.update((m) => {
+		customBGM.forEach(({ sourceID, title, description }) => {
+			m.push({ album: 'custom-musics', sourceID, title, description });
+		});
+		return m;
+	});
 };
 
 const setBannerVersionAndPhase = (isPro = false) => {
 	const localstoreVersion = localConfig.get('storageVersion');
-	const localVersion = localConfig.get('version');
+	const localVersion = localConfig.get('version') || '';
 	let [patch, phase] = localVersion.split('-');
 	const cancelPro = parseInt(patch) === 1000000 && !isPro;
 

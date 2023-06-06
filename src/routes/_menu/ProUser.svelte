@@ -10,8 +10,9 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import Toast from '$lib/components/Toast.svelte';
 	import { restartBannerVersion } from '$lib/helpers/localdata-reader';
+	import Input from '$lib/components/Input.svelte';
 
-	let input;
+	let value;
 	let checkingLocal = false;
 	let onProcess = false;
 	let message = '';
@@ -27,7 +28,7 @@
 		proUser.set(false);
 		restartBannerVersion();
 		showModal = false;
-		input = '';
+		value = '';
 	};
 	const cancelModal = () => {
 		showModal = false;
@@ -49,7 +50,7 @@
 		userKey = storedKey;
 		isUserKeyValid = validity;
 		dateExpired = expiryDate;
-		if (userKey) input = userKey;
+		if (userKey) value = userKey;
 		checkingLocal = false;
 	};
 
@@ -61,7 +62,7 @@
 	const getProAccount = async () => {
 		playSfx();
 		onProcess = true;
-		const { msg, validity } = await accessKey.verify(input);
+		const { msg, validity } = await accessKey.verify(value);
 		isError = !validity;
 		if (validity) return window.location.reload();
 		message = msg;
@@ -106,14 +107,14 @@
 				<h1 class="heading">{$t('menu.prouserHeading')}</h1>
 				<div class="input-wrapper">
 					<div class="input">
-						<input
-							type="text"
-							class:show={showKey}
-							id="key"
-							bind:value={input}
+						<Input
+							{value}
+							hideValue={!showKey}
 							placeholder={$t('menu.inputKeyPlaceholder')}
-							class:error={isError || (!isUserKeyValid && userKey)}
+							error={isError || (!isUserKeyValid && userKey)}
 							disabled={!!userKey}
+							proInput
+							on:input={(e) => ({ value } = e.detail.target)}
 						/>
 						{#if userKey}
 							<button class="toggle-visible" on:click|preventDefault={showKeyHandle}>
@@ -153,7 +154,7 @@
 							dark
 							icon="honor"
 							on:click={getProAccount}
-							disabled={!input || onProcess}
+							disabled={!value || onProcess}
 						>
 							{onProcess ? $t('waiting') : $t('menu.getProAccess')}
 						</ButtonGeneral>
@@ -249,45 +250,6 @@
 		aspect-ratio: 1/1;
 		font-size: 150%;
 		color: rgba(0, 0, 0, 0.5);
-	}
-
-	input:not(.show) {
-		font-family: var(--hsr-neue);
-		text-transform: uppercase;
-		font-weight: bolder;
-	}
-	input:not(:disabled) {
-		padding: 2% 6%;
-	}
-	input {
-		padding: 2% 10% 2% 6%;
-		border-radius: 2rem;
-		outline: unset;
-		border-color: rgba(0, 0, 0, 0.8);
-		border-style: dotted dashed solid;
-		border-width: 2px;
-		font-size: 180%;
-		width: 100%;
-		text-align: center;
-		background-color: transparent;
-		transition: all 0.25s;
-		letter-spacing: 0.5vw;
-	}
-
-	input:disabled {
-		opacity: 0.5;
-	}
-
-	input:focus {
-		background-color: rgba(255, 255, 255, 0.5);
-		border-color: orange;
-	}
-
-	input::placeholder {
-		font-family: var(--hsr-font);
-		transform: scale(0.75);
-		text-transform: capitalize;
-		letter-spacing: 0;
 	}
 
 	/* Benefit */

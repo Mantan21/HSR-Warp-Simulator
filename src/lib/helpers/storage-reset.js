@@ -29,6 +29,7 @@ export const storageReset = async ({ keepSetting = false }) => {
 	starterRemaining.set(50);
 	showStarterBanner.set(true);
 	regReward.set({ rollcount: 0, isClaimed: false });
+	const customTracks = storageLocal.get('customTracks');
 
 	if (keepSetting) {
 		const config = storageLocal.get('config');
@@ -40,10 +41,13 @@ export const storageReset = async ({ keepSetting = false }) => {
 		storageLocal.set('config', config);
 		storageLocal.set('pity', pity);
 		storageLocal.set('balance', balance);
+		storageLocal.set('customTracks', customTracks);
 		return;
 	}
 
 	localStorage.clear();
+	storageLocal.set('customTracks', customTracks);
+
 	stellarJade.set(balance.stellarJade);
 	specialPass.set(balance.ticketPass);
 	regularPass.set(balance.ticketPass);
