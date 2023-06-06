@@ -1,6 +1,7 @@
 {
 	"data": [
 		{
+			"pro": true,
 			"name": "kafka",
 			"rarity": 5,
 			"combat_type": "lightning",
@@ -11,6 +12,7 @@
 			"gachaCardOffset": { "l": 48, "t": 203, "w": 510 }
 		},
 		{
+			"pro": true,
 			"name": "luocha",
 			"rarity": 5,
 			"combat_type": "imaginary",
