@@ -97,6 +97,8 @@
 	<OptionsItem text={$t('menu.switchbanner')} optionName="switchbanner" />
 
 	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" />
+
+	<OptionsItem text="Give a Comment" optionName="feedback" />
 </div>
 
 <style>

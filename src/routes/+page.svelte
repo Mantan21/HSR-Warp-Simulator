@@ -20,6 +20,7 @@
 
 	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
 	import ModalConvert from '$lib/components/ModalConvert.svelte';
+	import Welcome from './_index/Welcome.svelte';
 	import PreloadExpress from './_index/PreloadExpress.svelte';
 	import Banners from './_banners/index.svelte';
 	import AllBanner from './_allbanner/index.svelte';
@@ -28,7 +29,6 @@
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
 	import Phonograph from './_phonograph/index.svelte';
-	import Welcome from './_index/Welcome.svelte';
 
 	let status;
 	let welcomeScreen = true;

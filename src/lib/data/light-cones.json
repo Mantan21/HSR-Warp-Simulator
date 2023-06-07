@@ -4,19 +4,22 @@
 			"name": "echoes-of-the-coffin",
 			"rarity": 5,
 			"path": "abundance",
-			"limited": true
+			"limited": true,
+			"bannerOffset": { "b": -127, "r": -53 }
 		},
 		{
 			"name": "incessant-rain",
 			"rarity": 5,
 			"path": "nihility",
-			"limited": true
+			"limited": true,
+			"bannerOffset": { "b": -112, "r": -18, "xOrigin": "0%" }
 		},
 		{
 			"name": "before-dawn",
 			"rarity": 5,
 			"path": "erudition",
-			"limited": true
+			"limited": true,
+			"bannerOffset": { "b": -120, "r": -60, "w": 105, "xOrigin": "20%" }
 		},
 		{
 			"name": "in-the-night",

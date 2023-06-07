@@ -42,6 +42,12 @@
 		navigate('allbanner');
 	};
 
+	// feedback
+	const feedback = () => {
+		playSfx();
+		window.open('/feedback', '_blank');
+	};
+
 	// Phonograph
 	const openPhonograph = () => {
 		playSfx();
@@ -83,7 +89,14 @@
 				<i class="hsr-caret-down" />
 			</button>
 
-			<!-- Numeber of Warps -->
+			<!-- Feedback -->
+		{:else if optionName === 'feedback'}
+			<button class="selected-option" on:click={feedback}>
+				Feedback
+				<i class="hsr-bug" />
+			</button>
+
+			<!-- Number of Warps -->
 		{:else if optionName === 'warpnumber'}
 			<button class="selected-option" on:click={handleOption}>
 				{$t(activeIndicator)} <i class="hsr-caret-{showOption ? 'up' : 'down'}" />

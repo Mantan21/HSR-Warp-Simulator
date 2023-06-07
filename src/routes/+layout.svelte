@@ -29,7 +29,7 @@
 	$: previewScreen = $page.url.pathname.includes('screen');
 
 	const redirectIfNotValidPath = () => {
-		const allowedPath = ['screen'];
+		const allowedPath = ['screen', 'feedback'];
 		const { pathname } = $page.url;
 		const pathNow = pathname.split('/')[1];
 		if (allowedPath.includes(pathNow)) return;
