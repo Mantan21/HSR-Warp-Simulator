@@ -29,7 +29,7 @@
 			"splashartOffset": { "t": 51 },
 			"gachaCardOffset": { "t": 125, "l": 25, "w": 365 },
 			"buttonOffset": { "t": -60, "w": 110 },
-			"bannerOffset": { "b": -35, "l": 12.5, "w": 100 },
+			"bannerOffset": { "b": -21, "l": 20.5, "w": 86 },
 			"textOffset": { "l": 65 }
 		},
 		{
@@ -48,7 +48,7 @@
 			"combat_type": "quantum",
 			"path": "hunt",
 			"buttonOffset": { "t": -30, "w": 110 },
-			"bannerOffset": { "b": -57, "l": -8, "w": 160 },
+			"bannerOffset": { "b": -55, "l": -6, "w": 163, "o": "hide" },
 			"gachaCardOffset": { "t": 20, "l": 120, "w": 570 },
 			"splashartOffset": { "t": 35, "l": 60, "w": 130 }
 		},

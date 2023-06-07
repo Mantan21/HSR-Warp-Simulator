@@ -1,30 +1,46 @@
 <script>
 	import { t } from 'svelte-i18n';
+	import { data } from '$lib/data/light-cones.json';
 	import { scaleOrigin } from '$lib/helpers/transition';
 	import { assets, liteMode } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
 	import BannerTpl from './__banner-tpl.svelte';
+	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let item = {};
+	let xorigin = '100%';
+	let yorigin = '100%';
+	const lcOffset = (lightconeName) => {
+		const { bannerOffset = {} } = data.find(({ name }) => name === lightconeName) || {};
+		xorigin = 'xOrigin' in bannerOffset ? bannerOffset.xOrigin : '100%';
+		yorigin = 'yOrigin' in bannerOffset ? bannerOffset.yOrigin : '100%';
+		return positionToStyle(bannerOffset);
+	};
+
+	const picturePosition = lcOffset(item.featured);
 </script>
 
 <BannerTpl blank>
 	<div class="wrapper" class:lite={$liteMode}>
-		<picture class="layer-bg">
-			<source srcset={assetPath(`lc/5/${item.featured}`, 450)} media="(max-width: 640px)" />
-			<img
-				src={assetPath(`lc/5/${item.featured}`, 890)}
-				alt={$t(item.featured)}
-				crossorigin="anonymous"
-				in:scaleOrigin={{
-					start: 1.2,
-					duration: 3500,
-					origin: '100% 80%',
-					easing: bezier(0.13, 0.14, 0, 1)
-				}}
-			/>
-		</picture>
+		<div
+			class="layer-bg"
+			in:scaleOrigin={{
+				start: 1.2,
+				duration: 3500,
+				origin: `${xorigin} ${yorigin}`,
+				easing: bezier(0.13, 0.14, 0, 1)
+			}}
+		>
+			<picture style={picturePosition}>
+				<source srcset={assetPath(`lc/5/${item.featured}`, 450)} media="(max-width: 640px)" />
+				<img
+					src={assetPath(`lc/5/${item.featured}`, 890)}
+					alt={$t(item.featured)}
+					crossorigin="anonymous"
+				/>
+			</picture>
+		</div>
 		<div class="layer-white">
 			<img src={$assets['circle-ornament1.svg']} alt="Circle" class="ornament ornament1" />
 			<img src={$assets['circle-ornament2.svg']} alt="Circle" class="ornament ornament2" />
@@ -54,6 +70,9 @@
 
 	.layer-bg img {
 		width: 100%;
+	}
+	.layer-bg picture {
+		width: 100%;
 		position: absolute;
 		bottom: 0;
 		right: -2%;
@@ -70,7 +89,7 @@
 			90deg,
 			rgb(240, 240, 240),
 			rgb(240, 240, 240) 40%,
-			rgba(240, 240, 240, 0.95) 45%,
+			rgba(240, 240, 240, 1) 55%,
 			rgba(240, 240, 240, 0.3)
 		);
 		mask-image: radial-gradient(circle farthest-side at right, transparent 31%, white 31%);
@@ -90,7 +109,7 @@
 	}
 	.lite .layer-white {
 		background-image: unset;
-		background-color: rgba(255, 255, 255, 0.95);
+		background-color: rgba(255, 255, 255, 1);
 	}
 
 	/* ornament */
