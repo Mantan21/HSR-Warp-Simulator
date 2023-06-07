@@ -2,23 +2,21 @@
 	import { t } from 'svelte-i18n';
 	import { data } from '$lib/data/light-cones.json';
 	import { scaleOrigin } from '$lib/helpers/transition';
-	import { assets, liteMode } from '$lib/stores/app-store';
+	import { assets, isMobileLandscape, liteMode } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
 	import BannerTpl from './__banner-tpl.svelte';
 	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let item = {};
-	let xorigin = '100%';
-	let yorigin = '100%';
-	const lcOffset = (lightconeName) => {
+	const lcOffset = (lightconeName, isMobile) => {
 		const { bannerOffset = {} } = data.find(({ name }) => name === lightconeName) || {};
-		xorigin = 'xOrigin' in bannerOffset ? bannerOffset.xOrigin : '100%';
-		yorigin = 'yOrigin' in bannerOffset ? bannerOffset.yOrigin : '100%';
-		return positionToStyle(bannerOffset);
-	};
+		if (!isMobile) return positionToStyle(bannerOffset);
 
-	const picturePosition = lcOffset(item.featured);
+		const tmp = {};
+		tmp.b = (bannerOffset?.b || 0) - 20;
+		return positionToStyle({ ...bannerOffset, ...tmp });
+	};
 </script>
 
 <BannerTpl blank>
@@ -28,11 +26,11 @@
 			in:scaleOrigin={{
 				start: 1.2,
 				duration: 3500,
-				origin: `${xorigin} ${yorigin}`,
+				origin: '100% 100%',
 				easing: bezier(0.13, 0.14, 0, 1)
 			}}
 		>
-			<picture style={picturePosition}>
+			<picture style={lcOffset(item.featured, $isMobileLandscape)}>
 				<source srcset={assetPath(`lc/5/${item.featured}`, 450)} media="(max-width: 640px)" />
 				<img
 					src={assetPath(`lc/5/${item.featured}`, 890)}

@@ -29,6 +29,7 @@
 	import Shop from './_shop/index.svelte';
 	import GachaInfo from './_gachainfo/index.svelte';
 	import Phonograph from './_phonograph/index.svelte';
+	import { wakeLock } from '$lib/helpers/wakelock';
 
 	let status;
 	let welcomeScreen = true;
@@ -82,6 +83,7 @@
 
 		// litemode
 		if ($isMobile) handleLiteMode();
+		wakeLock();
 
 		// Detect Currencies
 		userCurrencies.init();
