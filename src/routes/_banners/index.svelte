@@ -2,9 +2,9 @@
 	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { activeBanner, assets, bannerList } from '$lib/stores/app-store';
+	import { activeBanner, assets, bannerList, showStarterBanner } from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localConfig, rollCounter } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx.js';
 
 	import AdditionalReward from './additional-reward/AdditionalReward.svelte';
@@ -52,6 +52,10 @@
 		skipSplashart = skip;
 		showWarpResult = true;
 		showAstralExpress = false;
+		if (bannerType !== 'starter') return;
+
+		const starterCount = rollCounter.get('starter');
+		if (starterCount > 49) return showStarterBanner.set(false);
 	};
 	setContext('showSplashArt', showSplashArt);
 

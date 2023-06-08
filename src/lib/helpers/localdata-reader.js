@@ -66,11 +66,11 @@ const importLocalConfig = () => {
 	});
 };
 
-const setBannerVersionAndPhase = (isPro = false) => {
+const setBannerVersionAndPhase = () => {
 	const localstoreVersion = localConfig.get('storageVersion');
 	const localVersion = localConfig.get('version') || '';
 	let [patch, phase] = localVersion.split('-');
-	const cancelPro = parseInt(patch) === 1000000 && !isPro;
+	const cancelPro = parseInt(patch) === 1000000;
 
 	if (cancelPro || localstoreVersion !== storageVersion || !localVersion) {
 		localConfig.set('version', `${siteVersion}-${warpPhase}`);

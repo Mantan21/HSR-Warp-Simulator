@@ -16,7 +16,6 @@
 	let event4star;
 	let event5star;
 	let showSkipButton = false;
-	const muted = true;
 
 	const showSplashArt = getContext('showSplashArt');
 	const onExpressArrived = ({ skip } = { skip: false }) => {
@@ -45,9 +44,7 @@
 		});
 	});
 
-	const showVideoHandle = (rarity, type) => {
-		playSfx(`express-${rarity}star`);
-
+	const showVideoHandle = async (rarity, type) => {
 		let videoContent;
 		if (['starter', 'regular'].includes(type)) {
 			switch (rarity) {
@@ -77,12 +74,12 @@
 
 		if (!videoContent || videoContent.error || isNaN(videoContent.duration)) {
 			// showToast = true;
-			stopSfx(`express-${rarity}star`);
 			console.error('Failed to call Astral Express!', videoContent.error);
 			return onExpressArrived();
 		}
 		videoContent.style.display = 'unset';
-		videoContent.play();
+		await videoContent.play();
+		playSfx(`express-${rarity}star`);
 		return;
 	};
 
@@ -99,21 +96,21 @@
 	<div class="video">
 		<video
 			bind:this={regular3star}
-			{muted}
+			muted
 			src={$assets['regular-3star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
 		/>
 		<video
 			bind:this={regular4star}
-			{muted}
+			muted
 			src={$assets['regular-4star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
 		/>
 		<video
 			bind:this={regular5star}
-			{muted}
+			muted
 			src={$assets['regular-5star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
@@ -122,21 +119,21 @@
 		<!-- Event Warp -->
 		<video
 			bind:this={event3star}
-			{muted}
+			muted
 			src={$assets['event-3star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
 		/>
 		<video
 			bind:this={event4star}
-			{muted}
+			muted
 			src={$assets['event-4star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
 		/>
 		<video
 			bind:this={event5star}
-			{muted}
+			muted
 			src={$assets['event-5star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"

@@ -109,6 +109,7 @@
 		},
 		{
 			"date": "6 Jun 2023",
+			"featured": true,
 			"changes": ["Add More Tracks", "Now you can import any musics from Youtube to the Phonograph"]
 		},
 		{

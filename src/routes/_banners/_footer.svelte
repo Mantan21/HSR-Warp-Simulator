@@ -60,8 +60,12 @@
 	};
 	$: initialWarp($activeVersion, $activePhase);
 
+	const onWarp = getContext('onWarp');
+	$: warpProgress = $onWarp;
+
 	const handleGachaAnimation = getContext('handleGachaAnimation');
 	const doRoll = async (count, bannerToRoll) => {
+		warpProgress = true;
 		playSfx();
 		multi = count > 1;
 		const tmp = [];
@@ -148,7 +152,7 @@
 			{#if !isStarter}
 				<div class="btn">
 					<ButtonWarp
-						disabled={!$readyToPull}
+						disabled={!$readyToPull || warpProgress}
 						single
 						{bannerType}
 						on:click={() => doRoll(1, bannerType)}
@@ -156,7 +160,11 @@
 				</div>
 			{/if}
 			<div class="btn">
-				<ButtonWarp disabled={!$readyToPull} {bannerType} on:click={() => doRoll(10, bannerType)} />
+				<ButtonWarp
+					disabled={!$readyToPull || warpProgress}
+					{bannerType}
+					on:click={() => doRoll(10, bannerType)}
+				/>
 			</div>
 		</div>
 	</div>
