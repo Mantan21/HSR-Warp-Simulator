@@ -6,7 +6,6 @@
 		activeVersion,
 		isMobile,
 		liteMode,
-		proUser,
 		showStarterBanner
 	} from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
@@ -78,7 +77,7 @@
 	};
 
 	onMount(() => {
-		setBannerVersionAndPhase($proUser);
+		setBannerVersionAndPhase();
 		importLocalConfig();
 
 		// litemode

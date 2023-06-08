@@ -61,7 +61,7 @@
 						</div>
 					</div>
 				{:else}
-					{@const { changes, date } = logs[logs.length - 1]}
+					{@const { changes, date } = logs.find(({ featured }) => featured)}
 					<div class="updates">
 						<span>
 							<i class="tgl"> {date} </i>
