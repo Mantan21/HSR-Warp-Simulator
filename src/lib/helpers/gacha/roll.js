@@ -9,7 +9,7 @@ export const roll = async (banner, WarpInstance) => {
 	const pity5 = localPity.get(`pity5${banner}`);
 	const pity4 = localPity.get(`pity4${banner}`);
 
-	const isLC = banner === 'lightcone';
+	const isLC = banner === 'lightcone-event';
 	const maxPity = (isLC ? 80 : 90) - 1; // Minus 1 to match with index of base pity
 
 	const chance5star = isLC ? base5StarLC[pity5] || 100 : base5StarChar[pity5] || 100;
