@@ -39,6 +39,11 @@
 			"id": 8,
 			"name": "trailblazers-mother",
 			"type": "character-event"
+		},
+		{
+			"id": 9,
+			"name": "stellaron-hunters",
+			"type": "character-event"
 		}
 	]
 }
