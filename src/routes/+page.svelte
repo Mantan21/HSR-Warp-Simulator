@@ -16,19 +16,12 @@
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 	import { userCurrencies } from '$lib/helpers/shop-price';
 	import { localConfig } from '$lib/stores/localstorage';
+	import { wakeLock } from '$lib/helpers/wakelock';
 
-	import ObtainedItem from '$lib/components/ObtainedItem.svelte';
-	import ModalConvert from '$lib/components/ModalConvert.svelte';
 	import Welcome from './_index/Welcome.svelte';
 	import PreloadExpress from './_index/PreloadExpress.svelte';
 	import Banners from './_banners/index.svelte';
-	import AllBanner from './_allbanner/index.svelte';
 	import Menu from './_menu/index.svelte';
-	import Collection from './_collection/index.svelte';
-	import Shop from './_shop/index.svelte';
-	import GachaInfo from './_gachainfo/index.svelte';
-	import Phonograph from './_phonograph/index.svelte';
-	import { wakeLock } from '$lib/helpers/wakelock';
 
 	let status;
 	let welcomeScreen = true;
@@ -76,9 +69,24 @@
 		});
 	};
 
+	let AllBanner, Collection, Shop, GachaInfo, Phonograph, ObtainedItem, ModalConvert;
+	const asyncLoadComponent = async () => {
+		ObtainedItem = (await import('$lib/components/ObtainedItem.svelte')).default;
+		ModalConvert = (await import('$lib/components/ModalConvert.svelte')).default;
+
+		AllBanner = (await import('./_allbanner/index.svelte')).default;
+		Collection = (await import('./_collection/index.svelte')).default;
+		Shop = (await import('./_shop/index.svelte')).default;
+		GachaInfo = (await import('./_gachainfo/index.svelte')).default;
+		Phonograph = (await import('./_phonograph/index.svelte')).default;
+	};
+
 	onMount(() => {
 		setBannerVersionAndPhase();
 		importLocalConfig();
+
+		// Load Component
+		asyncLoadComponent();
 
 		// litemode
 		if ($isMobile) handleLiteMode();
@@ -127,26 +135,26 @@
 {/if}
 
 {#if showObtained}
-	<ObtainedItem {...obtainedData} />
+	<svelte:component this={ObtainedItem} {...obtainedData} />
 {/if}
 
 {#if showConvertModal}
-	<ModalConvert />
+	<svelte:component this={ModalConvert} />
 {/if}
 
 {#if pageActive === 'index'}
 	<Banners />
 	<Menu />
 {:else if pageActive === 'allbanner'}
-	<AllBanner />
+	<svelte:component this={AllBanner} />
 {:else if pageActive === 'collection'}
-	<Collection />
+	<svelte:component this={Collection} />
 {:else if pageActive === 'shop'}
-	<Shop />
+	<svelte:component this={Shop} />
 {:else if pageActive === 'details'}
-	<GachaInfo />
+	<svelte:component this={GachaInfo} />
 {:else if pageActive === 'phonograph'}
-	<Phonograph />
+	<svelte:component this={Phonograph} />
 {/if}
 
 {#if welcomeScreen}
