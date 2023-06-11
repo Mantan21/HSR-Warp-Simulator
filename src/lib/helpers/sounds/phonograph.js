@@ -49,6 +49,7 @@ const fadeTrack = (sourceID) => {
 		if (stopAfterFade) {
 			loadedTracks[sourceID].stop();
 			stopAfterFade = null;
+			mediaSessionHandler();
 			return;
 		}
 		return loadedTracks[sourceID].pause(trackIDs[sourceID]);
@@ -146,6 +147,7 @@ export const pauseTrack = (sourceID, stop = true) => {
 
 	const sound = loadedTracks[sourceID];
 	if (!sound) return;
+	if (!sound.playing(trackIDs[sourceID])) return;
 	sound.fade(volume, 0, 300, trackIDs[sourceID]);
 };
 
@@ -156,6 +158,7 @@ export const resumeTrack = (sourceID) => {
 
 	const sound = loadedTracks[sourceID];
 	if (!sound) return;
+	if (sound.playing(trackIDs[sourceID])) return;
 	sound.fade(0, volume, 10, trackIDs[sourceID]);
 };
 
