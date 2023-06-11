@@ -10,7 +10,7 @@
 	} from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { isPlaying, pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
+	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/storage-reader';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
@@ -64,14 +64,14 @@
 		window.addEventListener('blur', () => {
 			const { sourceID } = $activeBacksound;
 			if ($onWarp) return;
-			if (!isPlaying(sourceID) || pageActive === 'phonograph') return;
+			if (pageActive === 'phonograph') return;
 			pauseTrack(sourceID, false);
 		});
 
 		window.addEventListener('focus', () => {
 			const { sourceID } = $activeBacksound;
 			if ($onWarp) return;
-			if (isPlaying(sourceID) || pageActive === 'phonograph') return;
+			if (pageActive === 'phonograph') return;
 			resumeTrack(sourceID);
 		});
 	};

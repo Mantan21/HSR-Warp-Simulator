@@ -6,7 +6,7 @@ import {
 	rand,
 	regularLightcones
 } from './gacha-base';
-import prob from './probabilities';
+import { prob } from './probabilities';
 
 const lightconeWarp = {
 	init(opt) {
