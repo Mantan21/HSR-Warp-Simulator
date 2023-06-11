@@ -37,7 +37,7 @@
 							x: -30,
 							duration: 4000,
 							delay: 250,
-							opacity: 0.8,
+							opacity: 1,
 							easing: bezier(0.13, 0.14, 0, 1)
 						}}
 					>

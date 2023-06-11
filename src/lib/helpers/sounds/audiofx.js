@@ -38,6 +38,12 @@ const sfxList = [
 	'warpresult-list'
 ];
 
+const isMuted = () => {
+	let sounds = localConfig.get('mutedSounds');
+	const { sfx = false } = typeof sounds === 'object' ? sounds : {};
+	return sfx;
+};
+
 const sounds = sfxList.reduce((prev, current) => {
 	const sfx = prev || {};
 	sfx[current] = new Howl({
@@ -51,7 +57,7 @@ const sfxids = {};
 export const playSfx = (nameOfSoundfx = 'click') => {
 	try {
 		if (!sounds[nameOfSoundfx]) throw new Error('No Sound effect for ' + nameOfSoundfx);
-		if (localConfig.get('muted')) return;
+		if (isMuted()) return;
 		sfxids[nameOfSoundfx] = sounds[nameOfSoundfx].play();
 
 		if (nameOfSoundfx === 'warp-backsound') {
@@ -64,7 +70,7 @@ export const playSfx = (nameOfSoundfx = 'click') => {
 
 export const stopSfx = (nameOfSoundfx = 'click') => {
 	try {
-		if (localConfig.get('muted')) return;
+		if (isMuted()) return;
 		if (!sounds[nameOfSoundfx]) throw new Error('No Sound effect for ' + nameOfSoundfx);
 
 		sounds[nameOfSoundfx].fade(1, 0, 1000, sfxids[nameOfSoundfx]);

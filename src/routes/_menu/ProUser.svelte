@@ -5,11 +5,12 @@
 	import { proUser } from '$lib/stores/app-store';
 	import accessKey from '$lib/helpers/access-key';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { restartBannerVersion } from '$lib/helpers/storage-reader';
+
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import LoadingIcon from '$lib/components/LoadingIcon.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import Toast from '$lib/components/Toast.svelte';
-	import { restartBannerVersion } from '$lib/helpers/localdata-reader';
 	import Input from '$lib/components/Input.svelte';
 
 	let value;

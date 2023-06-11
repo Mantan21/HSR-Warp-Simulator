@@ -21,7 +21,7 @@ import {
 	warpAmount
 } from '$lib/stores/app-store';
 import { customTracks, localBalance, localConfig, rollCounter } from '$lib/stores/localstorage';
-import { musics } from '$lib/stores/phonograph-store';
+import { musics, muted } from '$lib/stores/phonograph-store';
 
 const importLocalConfig = () => {
 	const { stellarJade: isj, ticketPass: pass, oneiric: ios } = initialAmount;
@@ -55,6 +55,10 @@ const importLocalConfig = () => {
 	const regularRollCount = rollCounter.get('regular') || 0;
 	const isRegRewardClaimed = localConfig.get('additionalClaimed');
 	regReward.set({ rollcount: regularRollCount, isClaimed: isRegRewardClaimed });
+
+	// Sounds
+	const { sfx = false, bgm = false } = localConfig.get('mutedSounds') || {};
+	muted.set({ bgm, sfx });
 
 	// Custom Music
 	const customBGM = customTracks.getAll();

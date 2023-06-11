@@ -4,14 +4,13 @@
 	import { bezier } from '$lib/helpers/easing';
 	import { data } from '$lib/data/characters.json';
 	import { assetPath } from '$lib/helpers/assets';
-	import { removeDash } from '$lib/helpers/text-proccesor';
 	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let item = {};
 
-	let rateup, bannerName, beta, combat_type;
-	$: ({ rateup, bannerName, combat_type, featured, beta } = item);
-	$: bannerTitle = beta ? removeDash(bannerName) : $t(`banner.${bannerName}`);
+	let rateup, bannerName, combat_type;
+	$: ({ rateup, bannerName, combat_type, featured } = item);
+	$: bannerTitle = $t(`banner.${bannerName}`);
 
 	const characterOffset = (characterName, offset = 'bannerOffset') => {
 		const item = data.find(({ name }) => name === characterName) || {};

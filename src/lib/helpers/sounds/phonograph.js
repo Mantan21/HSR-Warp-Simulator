@@ -13,6 +13,12 @@ const rand = (array) => {
 	return { selected: array[index], index };
 };
 
+const isMuted = () => {
+	let sounds = localConfig.get('mutedSounds');
+	const { bgm = false } = typeof sounds === 'object' ? sounds : {};
+	return bgm;
+};
+
 const loadedTracks = {};
 const trackIDs = {};
 let playedIndex = 0;
@@ -83,8 +89,7 @@ const seekTrack = (sourceID) => {
 
 const musicMediaSession = {};
 export const playTrack = async (sourceID) => {
-	const muted = localConfig.get('muted');
-	if (muted) return { status: 'muted' };
+	if (isMuted()) return { status: 'muted' };
 	if (!sourceID) return { status: 'error' };
 
 	cookie.set('trackID', sourceID);
@@ -134,20 +139,18 @@ export const randomTrack = (mode = 'nav') => {
 };
 
 export const pauseTrack = (sourceID, stop = true) => {
-	const muted = localConfig.get('muted');
-	if (muted) return;
+	if (isMuted()) return;
 
 	stopAfterFade = stop;
 	let volume = cookie.get('trackVolume') || 0.2;
 
 	const sound = loadedTracks[sourceID];
 	if (!sound) return;
-	sound.fade(volume, 0, 1000, trackIDs[sourceID]);
+	sound.fade(volume, 0, 300, trackIDs[sourceID]);
 };
 
 export const resumeTrack = (sourceID) => {
-	const muted = localConfig.get('muted');
-	if (muted) return;
+	if (isMuted()) return;
 
 	let volume = cookie.get('trackVolume') || 0.2;
 

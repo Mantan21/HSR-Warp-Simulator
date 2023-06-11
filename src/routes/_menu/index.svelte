@@ -2,16 +2,14 @@
 	import { browser } from '$app/environment';
 	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { writable } from 'svelte/store';
 	import { t } from 'svelte-i18n';
 
-	import { viewportHeight, autoskip } from '$lib/stores/app-store';
+	import { viewportHeight } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
-	import { localConfig } from '$lib/stores/localstorage';
 	import { storageReset } from '$lib/helpers/storage-reset';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { isPlaying, randomTrack } from '$lib/helpers/sounds/phonograph';
-	import { activeBacksound } from '$lib/stores/phonograph-store';
+	import { activeBacksound, muted } from '$lib/stores/phonograph-store';
 	import { check as checkExpress } from '$lib/helpers/express-loader';
 
 	import Modal from '$lib/components/Modal.svelte';
@@ -77,9 +75,6 @@
 	setContext('showModal', showModal);
 	setContext('closeModal', closeModal);
 
-	const muted = writable(localConfig.get('muted') || false);
-	setContext('muted', muted);
-
 	// Clear Storage
 	const readyToPull = getContext('readyToPull');
 	const clearStorage = async () => {
@@ -88,12 +83,9 @@
 		isModalOpen = false;
 
 		if (keepSetting) return;
-		muted.set(false);
 
 		const soundOn = isPlaying($activeBacksound.sourceID);
 		if (!soundOn) randomTrack('init');
-
-		autoskip.set(false);
 		readyToPull.set(await checkExpress());
 	};
 </script>
@@ -122,7 +114,7 @@
 			<i class="hsr-cog" />
 		</button>
 
-		{#if !$muted}
+		{#if !$muted.bgm}
 			<button title="PhonoGraph" on:click={openPhonograph}>
 				<i class="hsr-phonograph" />
 			</button>

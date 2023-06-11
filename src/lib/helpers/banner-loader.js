@@ -3,7 +3,7 @@ import { regular } from '$lib/data/banners/regular.json';
 import { data as charDB } from '$lib/data/characters.json';
 import { data as lcDB } from '$lib/data/light-cones.json';
 
-import { checkStarterBanner } from '$lib/helpers/localdata-reader';
+import { checkStarterBanner } from '$lib/helpers/storage-reader';
 import { bannerList } from '$lib/stores/app-store';
 import { identifyBanner } from './banners';
 

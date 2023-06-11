@@ -11,7 +11,7 @@
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { isPlaying, pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
-	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/localdata-reader';
+	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/storage-reader';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 	import { userCurrencies } from '$lib/helpers/shop-price';

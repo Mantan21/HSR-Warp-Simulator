@@ -18,7 +18,7 @@
 		playSfx('setting-item-option');
 		showOption = !showOption;
 		if (!selected) return;
-		dispatch('select', { selected });
+		dispatch('select', { selected, optionName });
 		openOption();
 	};
 
