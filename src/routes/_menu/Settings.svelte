@@ -60,21 +60,6 @@
 </script>
 
 <div class="settings" in:fade={{ duration: 250 }}>
-	<h2>General</h2>
-	<OptionsItem
-		text={$t('menu.warpNumber')}
-		showOption={activeOption === 'warpnumber'}
-		optionName="warpnumber"
-		activeIndicator={$warpAmount}
-		on:select={handleSelectAmount}
-	/>
-
-	<OptionsItem text={$t('menu.switchbanner')} optionName="switchbanner" />
-
-	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" />
-
-	<OptionsItem text="Give a Comment" optionName="feedback" />
-
 	<h2>Visual</h2>
 	<OptionsItem
 		text={$t('menu.litemode')}
@@ -114,6 +99,20 @@
 			<OptionsItem sub text={$t('phonograph.choosebgm')} optionName="backsound" />
 		</div>
 	{/if}
+
+	<h2>Other</h2>
+	<OptionsItem
+		text={$t('menu.warpNumber')}
+		showOption={activeOption === 'warpnumber'}
+		optionName="warpnumber"
+		activeIndicator={$warpAmount}
+		on:select={handleSelectAmount}
+	/>
+
+	<OptionsItem text={$t('menu.switchbanner')} optionName="switchbanner" />
+
+	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" />
+	<OptionsItem text="Give a Comment" optionName="feedback" />
 </div>
 
 <style>
