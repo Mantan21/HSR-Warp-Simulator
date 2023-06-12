@@ -35,7 +35,8 @@ const sfxList = [
 	'sidebar-click',
 	'warp-backsound',
 	'warpresult-close',
-	'warpresult-list'
+	'warpresult-list-4',
+	'warpresult-list-5'
 ];
 
 const isMuted = () => {

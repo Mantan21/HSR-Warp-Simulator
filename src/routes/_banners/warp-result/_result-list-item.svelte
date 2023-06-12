@@ -1,5 +1,7 @@
 <script>
 	import { t } from 'svelte-i18n';
+	import { onMount } from 'svelte';
+	import { assets, viewportWidth } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/css-transformer';
 	import { fade } from '$lib/helpers/transition';
 	import { assetPath } from '$lib/helpers/assets';
@@ -7,7 +9,6 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
-	import { assets, viewportWidth } from '$lib/stores/app-store';
 
 	export let isNew = false;
 	export let rarity = 3;
@@ -20,80 +21,99 @@
 	export let undyingType = 'embers';
 	export let undyingQty = 0;
 	export let eidolon = false;
+
+	let flip = rarity === 5;
+	let loaded = false;
+	onMount(() => {
+		if (rarity === 3) return;
+		const t = setTimeout(() => {
+			clearTimeout(t);
+			loaded = true;
+			if (rarity !== 5) return;
+			flip = false;
+		}, 750);
+	});
 </script>
 
-<div class="item star{rarity} {type}">
-	{#if isNew}
-		<div class="new">{$t('new')}</div>
-	{/if}
-	{#if type === 'lightcone'}
-		<div class="content">
-			<div class="col lc-left">
-				<div class="path">
-					<Path {path} />
-				</div>
-				<div class="rarity">
-					{#each Array(parseInt(rarity)) as _}
-						<i class="hsr-star" />
-					{/each}
-				</div>
-				<div class="caption">
-					<span>LIGHTCONE</span>
-				</div>
-			</div>
-			<div class="col lc-right">
-				<div class="lc-picture">
-					<LightCones item={itemName} {rarity} small />
-				</div>
-			</div>
+<div class="item star{rarity} {type}" class:flip class:loaded>
+	{#if rarity === 5}
+		<div class="card-back">
+			<img src={$assets['item-card-back.webp']} alt="card-back" />
 		</div>
-	{:else}
-		<span> TICKET </span>
+	{/if}
 
-		{#if undyingQty > 0}
-			<div class="bonus" in:fade={{ delay: 700, duration: 200 }}>
-				<div class="bonus-item undying star{undyingType === 'embers' ? 4 : 5}">
-					<div class="icon">
-						<Icon type={undyingType} style="width:70%" />
-						<caption> ×{undyingQty}</caption>
-					</div>
-				</div>
-				{#if eidolon}
-					<div class="bonus-item eidolon star{rarity}">
-						<div class="icon">
-							<Icon type="eidolon{rarity}" style="width:70%" />
-							<caption> ×1</caption>
-						</div>
-					</div>
-				{/if}
-			</div>
+	<div class="item-wrapper">
+		{#if isNew}
+			<div class="new">{$t('new')}</div>
 		{/if}
-
-		<div class="content">
-			{#if isNew}
-				<div class="info">
-					<div class="combat-type">
-						<img src={$assets[`combat-${combatType}.webp`]} alt={combatType} />
-						<!-- <i class="hsr-{combatType} icon-gradient {combatType}" /> -->
+		{#if type === 'lightcone'}
+			<div class="content">
+				<div class="col lc-left">
+					<div class="path">
+						<Path {path} />
 					</div>
-
 					<div class="rarity">
 						{#each Array(parseInt(rarity)) as _}
 							<i class="hsr-star" />
 						{/each}
 					</div>
+					<div class="caption">
+						<span>LIGHTCONE</span>
+					</div>
+				</div>
+				<div class="col lc-right">
+					<div class="lc-picture">
+						<LightCones item={itemName} {rarity} small />
+					</div>
+				</div>
+			</div>
+		{:else}
+			<span> TICKET </span>
+
+			{#if undyingQty > 0}
+				<div class="bonus" in:fade={{ delay: 700, duration: 200 }}>
+					<div class="bonus-item undying star{undyingType === 'embers' ? 4 : 5}">
+						<div class="icon">
+							<Icon type={undyingType} style="width:70%" />
+							<caption> ×{undyingQty}</caption>
+						</div>
+					</div>
+					{#if eidolon}
+						<div class="bonus-item eidolon star{rarity}">
+							<div class="icon">
+								<Icon type="eidolon{rarity}" style="width:70%" />
+								<caption> ×1</caption>
+							</div>
+						</div>
+					{/if}
 				</div>
 			{/if}
-			<picture>
-				<img
-					src={assetPath(`splash-art/${rarity}/${itemName}`, $viewportWidth > 840 ? 1280 : 640)}
-					alt={$t(itemName)}
-					style={positionToStyle(cardOffset)}
-					crossorigin="anonymous"
-				/>
-			</picture>
-		</div>
-	{/if}
+
+			<div class="content">
+				{#if isNew}
+					<div class="info">
+						<div class="combat-type">
+							<img src={$assets[`combat-${combatType}.webp`]} alt={combatType} />
+						</div>
+
+						<div class="rarity">
+							{#each Array(parseInt(rarity)) as _}
+								<i class="hsr-star" />
+							{/each}
+						</div>
+					</div>
+				{/if}
+				<picture>
+					<img
+						src={assetPath(`splash-art/${rarity}/${itemName}`, $viewportWidth > 840 ? 1280 : 640)}
+						alt={$t(itemName)}
+						style={positionToStyle(cardOffset)}
+						crossorigin="anonymous"
+					/>
+				</picture>
+			</div>
+		{/if}
+	</div>
 </div>
 
 <style>
@@ -101,10 +121,12 @@
 		position: relative;
 		width: 100%;
 		aspect-ratio: 2/1.1;
-		padding-bottom: calc(0.0035 * var(--item-width));
+		transition: transform 0.2s, box-shadow 0.3s;
+		transform-style: preserve-3d;
+	}
+
+	.item.loaded {
 		overflow: hidden;
-		transform: scale(1.001);
-		transition: transform 0.5s, box-shadow 0.3s;
 	}
 
 	.item:hover {
@@ -122,6 +144,15 @@
 		aspect-ratio: 1/1;
 		transform: rotate(-45deg) translate(-50%, -50%) scale(2);
 		z-index: +1;
+		opacity: 0;
+		transition: opacity 0.25s;
+	}
+
+	.star4.item.loaded::after,
+	.star4.item.loaded::before,
+	.star5.item.loaded::after,
+	.star5.item.loaded::before {
+		opacity: 1;
 	}
 
 	.star5.item.character::after,
@@ -165,42 +196,90 @@
 		mask-image: linear-gradient(170deg, transparent 15%, black 50%);
 	}
 
-	.star4.item {
+	.star4.item.loaded {
 		/* prettier-ignore */
 		box-shadow: 0 0 calc(0.04 * var(--item-width)) rgba(255, 255, 255, 0.5),
       0 0 calc(0.005 * var(--item-width)) rgba(138, 3, 161, 1),
 			0 0 calc(0.015 * var(--item-width)) rgba(217, 0, 255, 1),
       0 0 calc(0.01 * var(--item-width)) rgba(29, 4, 255, 1);
+		animation: flash forwards 1s;
 	}
 
-	.star5.item {
+	.star5.item.loaded {
 		/* prettier-ignore */
 		box-shadow: 0 0 calc(0.04 * var(--item-width)) rgba(255, 255, 255, 0.5),
       0 0 calc(0.008 * var(--item-width)) rgba(249, 170, 2, .7),
 			0 0 calc(0.015 * var(--item-width)) rgba(249, 170, 2, 1),
       0 0 calc(0.01 * var(--item-width)) rgba(249, 121, 2, .7);
+		animation: flash forwards 1s;
 	}
 
-	.star3.item {
-		background-image: linear-gradient(to top, #619df5 9%, rgba(0, 0, 0, 0) 10%);
+	.star3 .item-wrapper {
+		border-bottom: solid #619df5 calc(0.004 * var(--item-width));
 	}
-	.star4.item.lightcone {
-		background-image: linear-gradient(to top, #c18dfc 9%, rgba(0, 0, 0, 0) 10%);
+	.star4.lightcone .item-wrapper {
+		border-bottom: solid #c18dfc calc(0.004 * var(--item-width));
 	}
-	.star4.item.character {
+	.star4.character .item-wrapper {
 		background-color: #9c4adc;
 	}
-	.star5.item.lightcone {
-		background-image: linear-gradient(to top, #fdd170 9%, rgba(0, 0, 0, 0) 10%);
+	.star5.lightcone.loaded .item-wrapper {
+		border-bottom: solid #fdd170 calc(0.004 * var(--item-width));
 	}
-	.star5.item.character {
+	.star5.character.loaded .item-wrapper {
 		background-color: #fdd170;
 	}
 
-	.content {
+	.content,
+	.item-wrapper {
 		width: 100%;
 		height: 100%;
 		display: flex;
+	}
+
+	.card-back {
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		position: absolute;
+		z-index: 10;
+		opacity: 0;
+	}
+
+	.item-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: scale(1.001);
+	}
+
+	.character .item-wrapper {
+		padding-bottom: calc(0.004 * var(--item-width));
+	}
+
+	.flip {
+		transform: rotateX(180deg);
+		pointer-events: none;
+	}
+	.flip .card-back {
+		opacity: 1;
+		animation: shake 0.5s;
+		animation-iteration-count: infinite;
+	}
+
+	.card-back img {
+		width: 100%;
+		height: 100%;
+		object-fit: fill;
+		transform: rotateX(180deg);
+		transition: opacity 0.25s;
+	}
+	.flip .card-back img {
+		opacity: 1;
+	}
+
+	.content {
 		overflow: hidden;
 		position: relative;
 	}
@@ -272,7 +351,7 @@
 	}
 
 	/* Character */
-	.item.character {
+	.character .item-wrapper {
 		padding-right: calc(0.004 * var(--item-width));
 		padding-top: calc(0.004 * var(--item-width));
 		padding-left: calc(0.02 * var(--item-width));
@@ -293,11 +372,6 @@
 		padding: 2% 2%;
 	}
 
-	/* .info .icon-gradient {
-		font-size: calc(0.027 * var(--item-width));
-		line-height: 130%;
-	} */
-
 	.combat-type {
 		width: calc(0.04 * var(--item-width));
 		transform: translate(-15%, 15%);
@@ -311,7 +385,7 @@
 		width: 100%;
 		position: relative;
 		height: 100%;
-		mask-image: linear-gradient(60deg, rgba(0, 0, 0, 0.1), black 40%);
+		mask-image: linear-gradient(75deg, rgba(0, 0, 0, 0.1), black 40%);
 	}
 
 	picture img {
@@ -437,5 +511,53 @@
 		border-right: calc(0.00125 * var(--item-width)) dashed #ffd34f;
 		border-left: calc(0.00125 * var(--item-width)) dashed #ffd34f;
 		padding: calc(0.002 * var(--item-width)) calc(0.0085 * var(--item-width));
+	}
+
+	@keyframes flash {
+		0% {
+			filter: brightness(100%);
+		}
+		50% {
+			filter: brightness(150%);
+		}
+		100% {
+			filter: brightness(100%);
+		}
+	}
+
+	@keyframes shake {
+		0% {
+			transform: translate(1px, 1px) rotate(0deg);
+		}
+		10% {
+			transform: translate(-1px, -2px) rotate(-1deg);
+		}
+		20% {
+			transform: translate(-3px, 0px) rotate(1deg);
+		}
+		30% {
+			transform: translate(3px, 2px) rotate(0deg);
+		}
+		40% {
+			transform: translate(1px, -1px) rotate(1deg);
+		}
+		50% {
+			transform: translate(-1px, 2px) rotate(-1deg);
+		}
+		60% {
+			transform: translate(-3px, 1px) rotate(0deg);
+		}
+		70% {
+			transform: translate(3px, 1px) rotate(-1deg);
+		}
+		80% {
+			transform: translate(-1px, -1px) rotate(1deg);
+		}
+		90% {
+			transform: translate(1px, 2px) rotate(0deg);
+		}
+		100% {
+			transform: translate(1px, -2px) rotate(-1deg);
+		}
 	}
 </style>

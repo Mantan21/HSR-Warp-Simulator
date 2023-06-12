@@ -9,17 +9,21 @@
 	export let standalone = false;
 
 	let width;
-	let groupedList = {};
 
-	$: groupedList = {
+	const groupedList = {
 		top: list.filter((v, i) => i < 3),
 		middle: list.filter((v, i) => i > 2 && i < 7),
 		bottom: list.filter((v, i) => i > 6)
 	};
 
+	const rarities = list.map(({ rarity }) => rarity);
+
 	onMount(() => {
 		if (standalone) return;
-		playSfx('warpresult-list');
+
+		const isContain5 = rarities.includes(5);
+		if (isContain5) return playSfx('warpresult-list-5');
+		playSfx('warpresult-list-4');
 	});
 
 	const customScale = (node, args) => {
@@ -162,6 +166,7 @@
 		width: 25%;
 		padding: 0 calc(0.008 * var(--item-width));
 		transition: transform 0.5s;
+		perspective: 2000px;
 	}
 
 	.top .item1 {
