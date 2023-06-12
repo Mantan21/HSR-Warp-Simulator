@@ -1,6 +1,7 @@
 import { localConfig } from '$lib/stores/localstorage';
 import { cubicOut } from 'svelte/easing';
 import {
+	crossfade,
 	fade as fadeTransition,
 	fly as flyTransition,
 	scale as scaleTransition
@@ -62,3 +63,8 @@ export const diagonalSlide = (node, { duration = 300, delay = 0, disable = false
 		}
 	};
 };
+
+export const [morphOut, morphIn] = crossfade({
+	duration: 750,
+	easing: cubicOut
+});

@@ -13,3 +13,4 @@ export const activeBacksound = writable({});
 export const musics = writable(tracks);
 export const albumList = writable(data.map(({ album }) => album));
 export const currentTime = writable(0);
+export const muted = writable({ sfx: false, bgm: false });

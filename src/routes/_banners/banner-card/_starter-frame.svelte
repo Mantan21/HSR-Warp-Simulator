@@ -1,6 +1,6 @@
 <script>
 	import { t } from 'svelte-i18n';
-	import { fade, fly } from '$lib/helpers/transition';
+	import { fade } from '$lib/helpers/transition';
 
 	const chars = [
 		{
@@ -34,9 +34,9 @@
 	];
 </script>
 
-<div class="content">
+<div class="content" in:fade={{ duration: 500, delay: 250 }}>
 	{#each chars as { combat_type, name }}
-		<div class="char-group {name}" in:fade={{ duration: 500, delay: 250 }}>
+		<div class="char-group {name}">
 			<div class="name">
 				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
 				<span>{$t(name)}</span>
@@ -47,7 +47,7 @@
 		</div>
 	{/each}
 
-	<div class="info" in:fly={{ duration: 1000, y: 20, delay: 250 }}>
+	<div class="info">
 		<span class="banner-name"> {$t('banner.starter')} </span>
 		<h1 class="banner-title">{$t('banner.departure')}</h1>
 		<div class="description">

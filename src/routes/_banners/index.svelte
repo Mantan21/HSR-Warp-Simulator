@@ -15,7 +15,7 @@
 	import Background from './_background.svelte';
 	import AstralExpress from './warp-result/_astral-express.svelte';
 	import WarpResult from './warp-result/WarpResult.svelte';
-	import { isPlaying, pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
+	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { writable } from 'svelte/store';
 
 	let type, bannerName;
@@ -64,13 +64,13 @@
 	const closeResult = () => {
 		showWarpResult = false;
 		onWarp.set(false);
-		if (!isPlaying(bgm.sourceID)) resumeTrack(bgm.sourceID);
+		resumeTrack(bgm.sourceID);
 	};
 	setContext('closeResult', closeResult);
 
 	const handleGachaAnimation = (result, source = 'warp') => {
 		onWarp.set(true);
-		if (isPlaying(bgm.sourceID)) pauseTrack(bgm.sourceID, false);
+		pauseTrack(bgm.sourceID, false);
 
 		warpResult = result;
 		const autoSkip = source !== 'warp' || localConfig.get('autoskip');

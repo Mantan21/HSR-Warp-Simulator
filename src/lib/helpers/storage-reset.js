@@ -8,6 +8,7 @@ import {
 	activeBanner,
 	activePhase,
 	activeVersion,
+	autoskip,
 	embers,
 	oneiric,
 	regReward,
@@ -19,6 +20,7 @@ import {
 	stellarJade,
 	warpAmount
 } from '$lib/stores/app-store';
+import { muted } from '$lib/stores/phonograph-store';
 import { HistoryManager } from '$lib/stores/idbManager';
 import { localConfig, storageLocal } from '$lib/stores/localstorage';
 
@@ -54,11 +56,14 @@ export const storageReset = async ({ keepSetting = false }) => {
 	oneiric.set(balance.oneiric);
 	embers.set(0);
 	starlight.set(0);
-	warpAmount.set('default');
 
 	localConfig.set('version', `${version}-${warpPhase}`);
 	localConfig.set('storageVersion', storageVersion);
 	activeVersion.set(version);
 	activePhase.set(warpPhase);
 	activeBanner.set(0);
+
+	warpAmount.set('default');
+	autoskip.set(false);
+	muted.set({ bgm: false, sfx: false });
 };

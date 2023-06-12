@@ -110,6 +110,7 @@ const images = [
 			'depature-icon.svg',
 			'eidolon-4star.webp',
 			'eidolon-5star.webp',
+			'item-card-back.webp',
 			'method-tears.webp',
 			'method-imaginary-money.webp',
 			'method-empty-wallet.webp',

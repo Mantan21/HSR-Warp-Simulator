@@ -1,22 +1,28 @@
 <script>
+	import { cubicOut } from 'svelte/easing';
 	import { t } from 'svelte-i18n';
 	import { data } from '$lib/data/light-cones.json';
 	import { scaleOrigin } from '$lib/helpers/transition';
 	import { assets, isMobileLandscape, liteMode } from '$lib/stores/app-store';
 	import { assetPath } from '$lib/helpers/assets';
-	import { bezier } from '$lib/helpers/easing';
-	import BannerTpl from './__banner-tpl.svelte';
 	import positionToStyle from '$lib/helpers/css-transformer';
+	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
+
+	let xOrigin = 100;
+	let yOrigin = 100;
 	const lcOffset = (lightconeName, isMobile) => {
 		const { bannerOffset = {} } = data.find(({ name }) => name === lightconeName) || {};
+		({ xOrigin = 100, yOrigin = 100 } = bannerOffset);
 		if (!isMobile) return positionToStyle(bannerOffset);
 
 		const tmp = {};
 		tmp.b = (bannerOffset?.b || 0) - 20;
 		return positionToStyle({ ...bannerOffset, ...tmp });
 	};
+
+	const offset = lcOffset(item.featured, $isMobileLandscape);
 </script>
 
 <BannerTpl blank>
@@ -24,13 +30,13 @@
 		<div
 			class="layer-bg"
 			in:scaleOrigin={{
-				start: 1.2,
-				duration: 3500,
-				origin: '100% 100%',
-				easing: bezier(0.13, 0.14, 0, 1)
+				start: 1.15,
+				duration: 3000,
+				origin: `${xOrigin}% ${yOrigin}%`,
+				easing: cubicOut
 			}}
 		>
-			<picture style={lcOffset(item.featured, $isMobileLandscape)}>
+			<picture style={offset}>
 				<source srcset={assetPath(`lc/5/${item.featured}`, 450)} media="(max-width: 640px)" />
 				<img
 					src={assetPath(`lc/5/${item.featured}`, 890)}
@@ -63,7 +69,7 @@
 		display: block;
 		width: 100%;
 		height: 100%;
-		position: relative;
+		transform: scale(1.0001);
 	}
 
 	.layer-bg img {
@@ -88,7 +94,7 @@
 			rgb(240, 240, 240),
 			rgb(240, 240, 240) 40%,
 			rgba(240, 240, 240, 1) 55%,
-			rgba(240, 240, 240, 0.3)
+			rgba(240, 240, 240, 0) 90%
 		);
 		mask-image: radial-gradient(circle farthest-side at right, transparent 31%, white 31%);
 		mask-position: 74%;
@@ -130,7 +136,7 @@
 		top: 50%;
 		left: 47.5%;
 		transform: translateY(-50%);
-		animation: rotate linear infinite 60s;
+		animation: rotate linear reverse infinite 60s;
 		opacity: 0.3;
 	}
 	.ornament3 {

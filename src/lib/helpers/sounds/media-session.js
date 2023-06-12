@@ -37,7 +37,7 @@ const albumTitle = (album) => {
 };
 
 export const mediaSessionHandler = (args) => {
-	if (!args) return;
+	if (!args) return new MediaMetadata(null);
 	const { title, album, artist = 'Hoyo-MiX', images = [] } = args;
 
 	if ('mediaSession' in navigator) {
