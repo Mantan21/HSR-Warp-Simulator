@@ -12,14 +12,14 @@
 			"rarity": 5,
 			"path": "nihility",
 			"limited": true,
-			"bannerOffset": { "b": -112, "r": -18, "xOrigin": "0%" }
+			"bannerOffset": { "b": -110, "r": -22, "xOrigin": 50, "yOrigin": 0 }
 		},
 		{
 			"name": "before-dawn",
 			"rarity": 5,
 			"path": "erudition",
 			"limited": true,
-			"bannerOffset": { "b": -120, "r": -60, "w": 105, "xOrigin": "20%" }
+			"bannerOffset": { "b": -120, "r": -60, "w": 105, "xOrigin": 60 }
 		},
 		{
 			"name": "in-the-night",

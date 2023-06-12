@@ -39,10 +39,16 @@
 	// Ready To Pull ?
 	const readyToPull = getContext('readyToPull');
 
+	const onWarp = getContext('onWarp');
+	$: warpProgress = $onWarp;
+
 	// Convert Modal
 	const closeModal = ({ confirm = false }) => {
 		playSfx(confirm ? 'click' : 'close');
 		showConverModal = false;
+
+		if (confirm) return;
+		warpProgress = false;
 	};
 	setContext('closeModal', closeModal);
 
@@ -59,9 +65,6 @@
 		WarpInstance = await WARP.init(version, phase);
 	};
 	$: initialWarp($activeVersion, $activePhase);
-
-	const onWarp = getContext('onWarp');
-	$: warpProgress = $onWarp;
 
 	const handleGachaAnimation = getContext('handleGachaAnimation');
 	const doRoll = async (count, bannerToRoll) => {

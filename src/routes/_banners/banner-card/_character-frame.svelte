@@ -70,11 +70,7 @@
 
 	<!-- Right Pane -->
 	<div class="character">
-		<div
-			class="char-group"
-			in:fade={{ duration: 500, delay: 250 }}
-			style={characterOffset(featured, 'textOffset')}
-		>
+		<div class="char-group" style={characterOffset(featured, 'textOffset')}>
 			<div class="name">
 				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
 				<span>{$t(featured)}</span>

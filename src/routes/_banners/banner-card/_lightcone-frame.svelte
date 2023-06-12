@@ -1,6 +1,6 @@
 <script>
 	import { t } from 'svelte-i18n';
-	import { fade, fly } from '$lib/helpers/transition';
+	import { fade } from '$lib/helpers/transition';
 
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
@@ -8,7 +8,7 @@
 
 	export let item = {};
 
-	$: lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
+	let lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
 </script>
 
 <div class="content">
@@ -16,7 +16,7 @@
 
 	<!-- Left Pane -->
 	<div class="wrapper-info">
-		<div class="info-body" in:fade={{ duration: 1000 }}>
+		<div class="info-body" in:fade={{ delay: 250, duration: 1000 }}>
 			<div class="short-detail">
 				<h1>{$t('banner.brilliant-fixation')}</h1>
 				<div class="time">
@@ -34,7 +34,7 @@
 
 	<!-- Right Pane -->
 	<div class="item-name">
-		<div class="row" in:fade={{ duration: 1000 }}>
+		<div class="row" in:fade={{ delay: 250, duration: 1000 }}>
 			<div class="path">
 				<Path path={item.path} dark />
 			</div>
@@ -46,7 +46,7 @@
 			</span>
 		</div>
 	</div>
-	<div class="featured-lighcone" in:fly={{ duration: 3000, delay: 250, x: -15, opacity: 1 }}>
+	<div class="featured-lighcone">
 		<LightCones item={item.featured} />
 	</div>
 </div>

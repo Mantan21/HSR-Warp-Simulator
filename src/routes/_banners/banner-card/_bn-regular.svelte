@@ -13,9 +13,9 @@
 			<figure
 				in:fly={{
 					x: -25,
-					duration: 4000,
+					duration: 3000,
 					delay: 250,
-					opacity: 0.8,
+					opacity: 1,
 					easing: bezier(0.13, 0.14, 0, 1)
 				}}
 			>
@@ -26,9 +26,9 @@
 			<figure
 				in:fly={{
 					x: -20,
-					duration: 4000,
+					duration: 3000,
 					delay: 250,
-					opacity: 0.8,
+					opacity: 1,
 					easing: bezier(0.13, 0.14, 0, 1)
 				}}
 			>
@@ -40,8 +40,8 @@
 				in:fly={{
 					x: -40,
 					delay: 250,
-					duration: 4000,
-					opacity: 0.8,
+					duration: 3000,
+					opacity: 1,
 					easing: bezier(0.13, 0.14, 0, 1)
 				}}
 			>

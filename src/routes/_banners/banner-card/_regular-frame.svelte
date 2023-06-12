@@ -32,9 +32,9 @@
 	$: ({ isClaimed, rollcount } = $regReward);
 </script>
 
-<div class="content">
+<div class="content" in:fade={{ duration: 500, delay: 250 }}>
 	<div class="banner-name">{$t('banner.regular')}</div>
-	<div class="wrapper-info" in:fade={{ duration: 500, delay: 250 }}>
+	<div class="wrapper-info">
 		<div class="info-body">
 			<h1>{$t('banner.stellar')}</h1>
 			<div class="description">
@@ -47,7 +47,7 @@
 	</div>
 	<div class="character">
 		{#each chars as { combat_type, name }}
-			<div class="char-group {name}" in:fade={{ duration: 500, delay: 250, x: -20 }}>
+			<div class="char-group {name}">
 				<div class="name">
 					<i class="hsr-{combat_type} icon-gradient {combat_type}" />
 					<span>{$t(name)}</span>
@@ -60,11 +60,7 @@
 
 		{#if !isClaimed}
 			<div class="char-group additional">
-				<button
-					class:ready={rollcount >= 300}
-					in:fade={{ delay: 250, duration: 500 }}
-					on:click={handleModal}
-				>
+				<button class:ready={rollcount >= 300} on:click={handleModal}>
 					<span class="notice">i</span>
 					<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
 				</button>
@@ -80,6 +76,7 @@
 		height: 100%;
 		position: relative;
 		display: flex;
+		z-index: +1;
 	}
 	.banner-name {
 		position: absolute;

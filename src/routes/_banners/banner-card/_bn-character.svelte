@@ -23,6 +23,8 @@
 
 		return positionToStyle({ ...bannerOffset, ...tmp });
 	};
+
+	$: offset = characterOffset(item.featured, $isMobileLandscape);
 </script>
 
 <BannerTpl>
@@ -34,14 +36,14 @@
 					<div
 						class="art-pic"
 						in:fly={{
-							x: -30,
+							x: -40,
 							duration: 4000,
 							delay: 250,
 							opacity: 1,
 							easing: bezier(0.13, 0.14, 0, 1)
 						}}
 					>
-						<picture style={characterOffset(item.featured, $isMobileLandscape)}>
+						<picture style={offset}>
 							<source
 								srcset={assetPath(`splash-art/5/${item.featured}`, 2000)}
 								media="(min-width: 1280px)"

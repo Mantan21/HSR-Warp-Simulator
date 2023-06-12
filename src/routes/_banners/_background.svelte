@@ -5,6 +5,7 @@
 	import { data } from '$lib/data/characters.json';
 	import { assetPath } from '$lib/helpers/assets.js';
 	import { assets, bannerList, liteMode } from '$lib/stores/app-store.js';
+	import { morphIn, morphOut } from '$lib/helpers/transition.js';
 
 	export let activeType;
 
@@ -50,29 +51,37 @@
 </script>
 
 <!-- Starter Banner -->
-<div class="bg" class:active={activeType === 'starter'}>
-	<img src={$assets['departure-bg.webp']} alt="Background" crossorigin="anonymous" />
-</div>
-
-<!-- Regular Banner -->
-<div class="bg" class:active={activeType === 'regular'}>
-	<img src={$assets['stellar-bg.webp']} alt="Background" crossorigin="anonymous" />
-</div>
-
-<!-- Character Event -->
-{#if charData.featured}
-	<div class="bg character" class:lite={$liteMode} class:active={activeType === 'character-event'}>
+{#if activeType === 'starter'}
+	<div class="bg" in:morphIn={{ key: 'morph' }} out:morphOut={{ key: 'morph' }}>
+		<img src={$assets['departure-bg.webp']} alt="Background" crossorigin="anonymous" />
+	</div>
+{:else if activeType === 'regular'}
+	<!-- Regular Banner -->
+	<div class="bg" in:morphIn={{ key: 'morph' }} out:morphOut={{ key: 'morph' }}>
+		<img src={$assets['stellar-bg.webp']} alt="Background" crossorigin="anonymous" />
+	</div>
+{:else if activeType === 'character-event'}
+	<!-- Character Event -->
+	<div
+		class="bg character"
+		class:lite={$liteMode}
+		in:morphIn={{ key: 'morph' }}
+		out:morphOut={{ key: 'morph' }}
+	>
 		<img
 			src={assetPath(`splash-art/5/${charData.featured}`, 640)}
 			alt={$t(charData.featured)}
 			crossorigin="anonymous"
 		/>
 	</div>
-{/if}
-
-<!-- LightCone Event -->
-{#if lcData.featured}
-	<div class="bg lightcone" class:lite={$liteMode} class:active={activeType === 'lightcone-event'}>
+{:else if activeType === 'lightcone-event'}
+	<!-- LightCone Event -->
+	<div
+		class="bg lightcone"
+		class:lite={$liteMode}
+		in:morphIn={{ key: 'morph' }}
+		out:morphOut={{ key: 'morph' }}
+	>
 		<img
 			src={assetPath(`lc/5/${lcData.featured}`, 150)}
 			alt={$t(lcData.featured)}
@@ -89,19 +98,14 @@
 		z-index: 0;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%) scale(1.1);
+		transform: translate(-50%, -50%);
 		filter: blur(20px);
-		opacity: 0;
-		transition: 0.5s opacity;
-	}
-
-	.bg.active {
-		opacity: 1;
 	}
 
 	img {
 		width: 100%;
 		height: 100%;
+		transform: scale(1.1);
 	}
 
 	.bg.character {
