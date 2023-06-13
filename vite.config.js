@@ -17,27 +17,45 @@ const icons = iconSize.map((size) => {
 
 const screenshots = [
 	{
-		sizes: '591x1280',
-		src: 'https://user-images.githubusercontent.com/13815468/200561929-52a32a57-bd2c-473c-b25d-dcd8877ce253.jpg',
+		sizes: '1280x720',
+		src: 'https://i.ibb.co/7NF6qNp/sc1.jpg',
 		label: 'Section 1',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '591x1280',
-		src: 'https://user-images.githubusercontent.com/13815468/200561938-c8429695-d7fe-4cf2-8391-d3e78daa789c.jpg',
+		sizes: '1280x720',
+		src: 'https://i.ibb.co/n3hN3w3/sc2.jpg',
 		label: 'Section 2',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '591x1280',
-		src: 'https://user-images.githubusercontent.com/13815468/200561909-2f965a06-6cdb-45a3-92c9-646546d514f8.jpg',
+		sizes: '1280x720',
+		src: 'https://i.ibb.co/VMrtX8v/sc3.jpg',
 		label: 'Section 3',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '591x1280',
-		src: 'https://user-images.githubusercontent.com/13815468/200561919-b76b11e2-dbda-4534-845e-48714f60fc40.jpg',
+		sizes: '1280x720',
+		src: 'https://i.ibb.co/fX29p3X/sc4.jpg',
 		label: 'Section 4',
+		type: 'image/jpg'
+	},
+	{
+		sizes: '1280x720',
+		src: 'https://i.ibb.co/ZH8y8N5/sc5.jpg',
+		label: 'Section 5',
+		type: 'image/jpg'
+	},
+	{
+		sizes: '1280x720',
+		src: 'https://i.ibb.co/128RLT1/sc6.jpg',
+		label: 'Section 6',
+		type: 'image/jpg'
+	},
+	{
+		sizes: '1280x720',
+		src: 'https://i.ibb.co/p4Yfkdh/sc7.jpg',
+		label: 'Section 7',
 		type: 'image/jpg'
 	}
 ];
@@ -46,17 +64,43 @@ const manifest = {
 	orientation: 'landscape',
 	name: 'Honkai: Star Rail Warp Simulator',
 	short_name: 'HSR Warp Sim',
-	theme_color: '#ffffff',
-	background_color: '#ffffff',
-	display: 'fullscreen',
+	description:
+		"Just a Realistic Gacha Simulator for Honkai: Star Rail. Let's Simulate your luck unlimited times!",
+	theme_color: '#000000',
+	background_color: '#000000',
 	scope: '/',
 	start_url: '/?pwasc=hsr-homescreen',
 	categories: ['games', 'utilities'],
-	description: 'Realistic Gacha Simulator for Honkai: Star Rail',
 	dir: 'auto',
+	display: 'fullscreen',
+	handle_links: 'preferred',
 	icons,
-	// screenshots,
+	screenshots,
 	prefer_related_applications: true,
+	launch_handler: {
+		client_mode: ['focus-existing, auto']
+	},
+	scope_extensions: [
+		{ origin: 'hsr.wishsimulator.app' },
+		{ origin: 'hsr-warp-simulator.pages.dev' }
+	],
+	display_override: [
+		'fullscreen',
+		'window-controls-overlay',
+		'standalone',
+		'minimal-ui',
+		'browser'
+	],
+	shortcuts: [
+		{
+			name: 'Feedback',
+			url: '/feedback',
+			description: 'Give a Comment about the Simulator.'
+		}
+	],
+	edge_side_panel: {
+		preferred_width: 412
+	},
 	related_applications: [
 		{
 			platform: 'webapp',
