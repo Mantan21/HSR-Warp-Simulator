@@ -2,6 +2,7 @@ import path from 'path';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from 'vite-imagetools';
 import { VitePWA } from 'vite-plugin-pwa';
+import { plugin as MdPlugin } from 'vite-plugin-markdown';
 
 const iconSize = [32, 72, 144, 152, 192, 256, 384, 512];
 const icons = iconSize.map((size) => {
@@ -119,6 +120,7 @@ const config = {
 	plugins: [
 		imagetools({}),
 		sveltekit(),
+		MdPlugin({ mode: 'html' }),
 		VitePWA({
 			strategies: 'injectManifest',
 			srcDir: 'src',
@@ -130,6 +132,7 @@ const config = {
 	],
 	resolve: {
 		alias: {
+			$post: path.resolve(__dirname, './src/post'),
 			'@images': path.resolve(__dirname, './src/images')
 		}
 	},
