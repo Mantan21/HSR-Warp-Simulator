@@ -5,6 +5,8 @@
 		"paths": {
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
+			"$post": ["src/post"],
+			"$post/*": ["src/post/*"],
 			"@images/*": ["src/images/*"]
 		},
 		"preserveValueImports": false,

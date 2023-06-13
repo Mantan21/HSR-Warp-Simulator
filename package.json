@@ -38,6 +38,7 @@
 		"svelte-preprocess": "^5.0.3",
 		"vite": "^4.2.0",
 		"vite-imagetools": "^5.0.3",
+		"vite-plugin-markdown": "^2.1.0",
 		"vite-plugin-pwa": "^0.14.7",
 		"workbox-cacheable-response": "^6.5.4",
 		"workbox-core": "^6.5.4",
