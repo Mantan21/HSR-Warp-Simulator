@@ -1,0 +1,13 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "hsr.wishsimulator.app",
+			"sha256_cert_fingerprints": [
+				"0B:1C:FC:86:63:94:1A:00:FB:82:74:BD:95:2C:66:0F:A6:25:22:DA:98:DF:86:09:47:90:2F:37:3B:E3:EE:7C",
+				"08:8E:14:7E:DE:60:D8:88:A4:E9:C9:26:0A:7D:4F:E0:98:74:FE:1B:6F:35:3D:CF:C0:34:21:5A:5E:B8:99:B1"
+			]
+		}
+	}
+]
