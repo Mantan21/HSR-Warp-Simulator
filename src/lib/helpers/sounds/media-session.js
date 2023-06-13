@@ -2,9 +2,9 @@ import { t } from 'svelte-i18n';
 
 const albumCover = (album, images) => {
 	const albumList = {
-		'out-of-control': 'sb2cKHM',
-		'of-snow-and-ember': 'n8RfDth',
-		'svah-sanishyu': '5WVTv6m'
+		'out-of-control': 'ygKTfYj',
+		'of-snow-and-ember': 'wR0Nj7h',
+		'svah-sanishyu': 'vqbQ66N'
 	};
 
 	if (Object.keys(albumList).includes(album)) {

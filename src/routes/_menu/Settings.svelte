@@ -8,6 +8,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { pauseTrack, randomTrack } from '$lib/helpers/sounds/phonograph';
 	import { check as expressChecker } from '$lib/helpers/express-loader';
+	import Scrollable from '$lib/components/Scrollable.svelte';
 
 	export let activeOption;
 
@@ -60,59 +61,61 @@
 </script>
 
 <div class="settings" in:fade={{ duration: 250 }}>
-	<h2>Visual</h2>
-	<OptionsItem
-		text={$t('menu.litemode')}
-		showOption={activeOption === 'litemode'}
-		optionName="litemode"
-		activeIndicator={$liteMode}
-		on:select={handleLiteMode}
-	/>
+	<Scrollable>
+		<h2>Visual</h2>
+		<OptionsItem
+			text={$t('menu.litemode')}
+			showOption={activeOption === 'litemode'}
+			optionName="litemode"
+			activeIndicator={$liteMode}
+			on:select={handleLiteMode}
+		/>
 
-	<OptionsItem
-		text={$t('menu.autoskip')}
-		showOption={activeOption === 'autoskip'}
-		optionName="autoskip"
-		activeIndicator={$autoskip}
-		on:select={handleAutoSkip}
-	/>
+		<OptionsItem
+			text={$t('menu.autoskip')}
+			showOption={activeOption === 'autoskip'}
+			optionName="autoskip"
+			activeIndicator={$autoskip}
+			on:select={handleAutoSkip}
+		/>
 
-	<h2>Sounds</h2>
-	<OptionsItem
-		text={$t('menu.mutedSFX')}
-		showOption={activeOption === 'muteSFX'}
-		optionName="muteSFX"
-		activeIndicator={$muted.sfx}
-		on:select={handleSound}
-	/>
+		<h2>Sounds</h2>
+		<OptionsItem
+			text={$t('menu.mutedSFX')}
+			showOption={activeOption === 'muteSFX'}
+			optionName="muteSFX"
+			activeIndicator={$muted.sfx}
+			on:select={handleSound}
+		/>
 
-	<OptionsItem
-		text={$t('menu.mutedBGM')}
-		showOption={activeOption === 'muteBGM'}
-		optionName="muteBGM"
-		activeIndicator={$muted.bgm}
-		on:select={handleSound}
-	/>
+		<OptionsItem
+			text={$t('menu.mutedBGM')}
+			showOption={activeOption === 'muteBGM'}
+			optionName="muteBGM"
+			activeIndicator={$muted.bgm}
+			on:select={handleSound}
+		/>
 
-	{#if !$muted.bgm}
-		<div transition:fly|local={{ y: -10 }}>
-			<OptionsItem sub text={$t('phonograph.choosebgm')} optionName="backsound" />
-		</div>
-	{/if}
+		{#if !$muted.bgm}
+			<div transition:fly|local={{ y: -10 }}>
+				<OptionsItem sub text={$t('phonograph.choosebgm')} optionName="backsound" />
+			</div>
+		{/if}
 
-	<h2>Other</h2>
-	<OptionsItem
-		text={$t('menu.warpNumber')}
-		showOption={activeOption === 'warpnumber'}
-		optionName="warpnumber"
-		activeIndicator={$warpAmount}
-		on:select={handleSelectAmount}
-	/>
+		<h2>Other</h2>
+		<OptionsItem
+			text={$t('menu.warpNumber')}
+			showOption={activeOption === 'warpnumber'}
+			optionName="warpnumber"
+			activeIndicator={$warpAmount}
+			on:select={handleSelectAmount}
+		/>
 
-	<OptionsItem text={$t('menu.switchbanner')} optionName="switchbanner" />
+		<OptionsItem text={$t('menu.switchbanner')} optionName="switchbanner" />
 
-	<OptionsItem text={$t('menu.clearStorage')} optionName="reset" />
-	<OptionsItem text="Give a Comment" optionName="feedback" />
+		<OptionsItem text={$t('menu.clearStorage')} optionName="reset" />
+		<OptionsItem text="Give a Comment" optionName="feedback" />
+	</Scrollable>
 </div>
 
 <style>
