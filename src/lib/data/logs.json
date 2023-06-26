@@ -109,7 +109,6 @@
 		},
 		{
 			"date": "6 Jun 2023",
-			"featured": true,
 			"changes": ["Add More Tracks", "Now you can import any musics from Youtube to the Phonograph"]
 		},
 		{
@@ -119,6 +118,13 @@
 				"Add New Character: Luka (4★)",
 				"Add Kafka's Light Cone - Patience Is All You Need",
 				"Add Blade's Light Cone - The Unreachable Side"
+			]
+		},
+		{
+			"date": "26 Jun 2023",
+			"featured": true,
+			"changes": [
+				"Unlock Content For the 2nd phase of 1.1 - <b>Luocha, Yukong, Echoes of The Coffin</b>"
 			]
 		}
 	]

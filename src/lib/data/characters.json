@@ -34,7 +34,6 @@
 			"gachaCardOffset": { "l": 70, "w": 450, "t": 230 }
 		},
 		{
-			"pro": true,
 			"name": "luocha",
 			"rarity": 5,
 			"combat_type": "imaginary",
@@ -45,7 +44,6 @@
 			"gachaCardOffset": { "l": 45, "t": 200, "w": 450 }
 		},
 		{
-			"pro": true,
 			"name": "yukong",
 			"rarity": 4,
 			"combat_type": "imaginary",
