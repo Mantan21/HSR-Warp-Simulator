@@ -1,6 +1,22 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"name": "the-unreachable-side",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -135, "r": -10 }
+		},
+		{
+			"pro": true,
+			"name": "patience-is-all-you-need",
+			"rarity": 5,
+			"path": "nihility",
+			"limited": true,
+			"bannerOffset": { "b": -113, "r": -37.5 }
+		},
+		{
 			"name": "echoes-of-the-coffin",
 			"rarity": 5,
 			"path": "abundance",

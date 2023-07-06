@@ -34,6 +34,16 @@
 			"id": 7,
 			"name": "laic-pursuit",
 			"type": "character-event"
+		},
+		{
+			"id": 8,
+			"name": "trailblazers-mother",
+			"type": "character-event"
+		},
+		{
+			"id": 9,
+			"name": "stellaron-hunters",
+			"type": "character-event"
 		}
 	]
 }

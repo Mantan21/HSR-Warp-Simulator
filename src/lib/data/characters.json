@@ -1,6 +1,39 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"name": "kafka",
+			"rarity": 5,
+			"combat_type": "lightning",
+			"path": "nihility",
+			"bannerOffset": { "b": -45, "l": 9.5, "w": 115 },
+			"buttonOffset": { "t": -69, "l": -10, "w": 115 },
+			"splashartOffset": { "t": 55, "w": 85, "l": 52 },
+			"gachaCardOffset": { "l": 48, "t": 203, "w": 510 }
+		},
+		{
+			"pro": true,
+			"name": "blade",
+			"rarity": 5,
+			"combat_type": "wind",
+			"path": "destruction",
+			"buttonOffset": { "w": 100, "t": -44.5 },
+			"bannerOffset": { "b": -33, "l": 18, "w": 93 },
+			"splashartOffset": { "t": 60, "w": 75 },
+			"gachaCardOffset": { "t": 340, "l": 33, "w": 475 }
+		},
+		{
+			"pro": true,
+			"name": "luka",
+			"rarity": 4,
+			"combat_type": "physical",
+			"path": "nihility",
+			"release": "1000000.0-2",
+			"bannerOffset": { "h": 530, "t": -113, "l": -625 },
+			"splashartOffset": { "w": 80 },
+			"gachaCardOffset": { "l": 70, "w": 450, "t": 230 }
+		},
+		{
 			"name": "luocha",
 			"rarity": 5,
 			"combat_type": "imaginary",
@@ -15,7 +48,7 @@
 			"rarity": 4,
 			"combat_type": "imaginary",
 			"path": "harmony",
-			"release": "1.1-1",
+			"release": "1.1-2",
 			"splashartOffset": { "t": 45, "w": 90, "l": 54 },
 			"gachaCardOffset": { "l": 65, "t": 150, "w": 450 },
 			"bannerOffset": { "h": 505, "t": -152, "l": -630 }
@@ -110,7 +143,8 @@
 			"rarity": 4,
 			"combat_type": "wind",
 			"path": "nihility",
-			"release": "1.0-0"
+			"release": "1.0-0",
+			"bannerOffset": { "l": -570, "h": 425, "t": -91 }
 		},
 		{
 			"name": "clara",
@@ -171,7 +205,8 @@
 			"path": "erudition",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 60, "l": 55 },
-			"gachaCardOffset": { "w": 350, "t": 195, "l": 45 }
+			"gachaCardOffset": { "w": 350, "t": 195, "l": 45 },
+			"bannerOffset": { "h": 370, "t": -60, "l": -465 }
 		},
 		{
 			"name": "asta",
@@ -188,7 +223,8 @@
 			"combat_type": "lightning",
 			"path": "destruction",
 			"release": "1.0-0",
-			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 }
+			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 },
+			"bannerOffset": { "h": 460, "t": -145, "l": -840 }
 		},
 		{
 			"name": "welt",
@@ -222,7 +258,7 @@
 			"path": "preservation",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 45, "w": 100 },
-			"gachaCardOffset": { "t": 160, "l": 40 },
+			"gachaCardOffset": { "t": 160 },
 			"bannerOffset": { "h": 410, "t": -105, "l": -530 }
 		}
 	]

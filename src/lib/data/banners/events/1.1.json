@@ -19,7 +19,6 @@
 		},
 		{
 			"phase": 2,
-			"pro": true,
 			"banners": {
 				"regularVersion": 1,
 				"character": {
@@ -30,7 +29,7 @@
 				"lightcone": {
 					"bannerID": "3-4",
 					"featured": "echoes-of-the-coffin",
-					"rateup": ["geniuses-repose", "memories-of-the-past", "shared-feeling"]
+					"rateup": ["good-night-and-sleep-well", "geniuses-repose", "dance-dance-dance"]
 				}
 			}
 		}
