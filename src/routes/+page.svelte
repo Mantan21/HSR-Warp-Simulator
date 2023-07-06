@@ -20,7 +20,7 @@
 
 	import Welcome from './_index/Welcome.svelte';
 	import PreloadExpress from './_index/PreloadExpress.svelte';
-	import Banners from './_banners/index.svelte';
+	import Banners from './_warp/index.svelte';
 	import Menu from './_menu/index.svelte';
 
 	let status;
@@ -134,27 +134,39 @@
 	error bos
 {/if}
 
+<!-- Warp Section -->
+{#if pageActive === 'index'}
+	<Banners />
+	<Menu />
+
+	<!-- Banner List -->
+{:else if pageActive === 'allbanner'}
+	<svelte:component this={AllBanner} />
+
+	<!-- Inventory -->
+{:else if pageActive === 'collection'}
+	<svelte:component this={Collection} />
+
+	<!-- Shop -->
+{:else if pageActive === 'shop'}
+	<svelte:component this={Shop} />
+
+	<!-- Wrap Details -->
+{:else if pageActive === 'details'}
+	<svelte:component this={GachaInfo} />
+
+	<!-- Phonograph -->
+{:else if pageActive === 'phonograph'}
+	<svelte:component this={Phonograph} />
+{/if}
+
+<!-- Utils -->
 {#if showObtained}
 	<svelte:component this={ObtainedItem} {...obtainedData} />
 {/if}
 
 {#if showConvertModal}
 	<svelte:component this={ModalConvert} />
-{/if}
-
-{#if pageActive === 'index'}
-	<Banners />
-	<Menu />
-{:else if pageActive === 'allbanner'}
-	<svelte:component this={AllBanner} />
-{:else if pageActive === 'collection'}
-	<svelte:component this={Collection} />
-{:else if pageActive === 'shop'}
-	<svelte:component this={Shop} />
-{:else if pageActive === 'details'}
-	<svelte:component this={GachaInfo} />
-{:else if pageActive === 'phonograph'}
-	<svelte:component this={Phonograph} />
 {/if}
 
 {#if welcomeScreen}
