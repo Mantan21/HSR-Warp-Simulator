@@ -33,12 +33,7 @@
 		localConfig.set('firstTimeShare', true);
 	});
 
-	const preparPreview = getContext('preview');
-	const preview = (val) => {
-		if (!preparPreview) return;
-		preparPreview(val);
-	};
-
+	const preview = getContext('preview');
 	const filterShot = (node) => {
 		const notIncluded = ['close', 'skip', 'share', 'logo', 'title', 'hideOnShot'];
 		if (node.classList) return !notIncluded.some((cl) => node.classList.contains(cl));

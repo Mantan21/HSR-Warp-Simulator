@@ -1,9 +1,10 @@
 <script>
-	import { getContext } from 'svelte';
+	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { HistoryManager } from '$lib/stores/idbManager';
+
 	import { assets, viewportWidth } from '$lib/stores/app-store';
+	import { HistoryManager } from '$lib/stores/idbManager';
 	import { assetPath } from '$lib/helpers/assets';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 	import { getCharDetails, getLCDetails } from '$lib/helpers/gacha/gacha-base';
@@ -16,6 +17,9 @@
 
 	export let name = '';
 	export let type = 'character';
+
+	let preview = false;
+	setContext('preview', (val) => (preview = val));
 
 	const getQtyInfo = (type, qty) => {
 		if (type === 'lightcone') {
@@ -50,13 +54,23 @@
 
 <section>
 	<div
-		class="warp-result"
-		transition:fade={{ duration: 200 }}
 		style="--bg:url('{$assets['warp-bg.webp']}')"
+		class="warp-result"
+		class:preview
+		transition:fade={{ duration: 200 }}
 	>
 		<div class="close">
 			<ButtonIcon on:click={close} />
 		</div>
+
+		<!-- Show on Shareable screen -->
+		<div class="tanda-air">
+			<div class="via">WARPVIA</div>
+			<div class="site">
+				<span> HSR.WISHSIMULATOR.APP </span>
+			</div>
+		</div>
+		<!-- End Show on Shareable screen -->
 
 		<div class="container">
 			{#await loadItem(name) then { path, rarity, combat_type, splashartOffset, qty, type, time }}
@@ -141,7 +155,8 @@
 		object-position: center;
 	}
 
-	.close {
+	.close,
+	.tanda-air {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -199,6 +214,30 @@
 		width: 35vh;
 		max-width: 35%;
 		transform: rotate(8deg);
+	}
+
+	:global(.mobileLandscape) .tanda-air {
+		font-size: 150%;
+	}
+	.tanda-air {
+		top: unset;
+		text-align: right;
+		bottom: 0;
+		font-size: 200%;
+		z-index: +1;
+		color: #fff;
+		display: none;
+	}
+	.via {
+		font-size: 90%;
+		font-family: var(--hsr-neue);
+	}
+	.site {
+		text-shadow: 0 0 0.15rem #000;
+	}
+
+	.preview .tanda-air {
+		display: unset;
 	}
 
 	.detail {
