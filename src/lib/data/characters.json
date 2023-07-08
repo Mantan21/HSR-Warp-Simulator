@@ -18,7 +18,7 @@
 			"combat_type": "wind",
 			"path": "destruction",
 			"buttonOffset": { "w": 100, "t": -44.5 },
-			"bannerOffset": { "b": -33, "l": 18, "w": 93 },
+			"bannerOffset": { "b": -35, "l": 16, "w": 100 },
 			"splashartOffset": { "t": 60, "w": 75 },
 			"gachaCardOffset": { "t": 340, "l": 33, "w": 475 }
 		},
@@ -108,7 +108,7 @@
 			"release": "1.0-0",
 			"splashartOffset": { "t": 45 },
 			"gachaCardOffset": { "t": 145, "w": 470, "l": 40 },
-			"bannerOffset": { "l": -643, "h": 470, "t": -145 }
+			"bannerOffset": { "l": -720, "h": 520, "t": -160 }
 		},
 		{
 			"name": "tingyun",
@@ -224,7 +224,7 @@
 			"path": "destruction",
 			"release": "1.0-0",
 			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 },
-			"bannerOffset": { "h": 460, "t": -145, "l": -840 }
+			"bannerOffset": { "h": 495, "t": -155, "l": -910 }
 		},
 		{
 			"name": "welt",

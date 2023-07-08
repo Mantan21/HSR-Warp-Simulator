@@ -2,19 +2,19 @@
 	"data": [
 		{
 			"pro": true,
-			"name": "the-unreachable-side",
-			"rarity": 5,
-			"path": "destruction",
-			"limited": true,
-			"bannerOffset": { "b": -135, "r": -10 }
-		},
-		{
-			"pro": true,
 			"name": "patience-is-all-you-need",
 			"rarity": 5,
 			"path": "nihility",
 			"limited": true,
-			"bannerOffset": { "b": -113, "r": -37.5 }
+			"bannerOffset": { "b": -75, "r": -32.5, "w": 90 }
+		},
+		{
+			"pro": true,
+			"name": "the-unreachable-side",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -135, "r": -10, "xOrigin": 50, "yOrigin": 100 }
 		},
 		{
 			"name": "echoes-of-the-coffin",
