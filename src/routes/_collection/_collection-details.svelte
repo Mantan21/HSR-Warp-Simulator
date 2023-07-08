@@ -18,7 +18,7 @@
 	export let type = 'character';
 
 	const getQtyInfo = (type, qty) => {
-		if (type === 'weapon') {
+		if (type === 'lightcone') {
 			const refineExtra = $t(`collection.extra`, { values: { count: `5 + ${qty - 5}` } });
 			const info = $t(`collection.superimpose`, {
 				values: { count: qty > 5 ? refineExtra : qty }
@@ -42,81 +42,91 @@
 	const loadItem = async () => {
 		if (!name) return;
 		const dt = await HistoryManager.getByName(name);
-		const result = dt[0] ? dt[0] : getItemDetail(name);
+		const result = { ...(dt[0] || {}), ...getItemDetail(name) };
 		result.qty = dt.length;
 		return result;
 	};
 </script>
 
-<div
-	class="warp-result"
-	transition:fade={{ duration: 200 }}
-	style="--bg:url('{$assets['warp-bg.webp']}')"
->
-	<div class="close">
-		<ButtonIcon on:click={close} />
-	</div>
+<section>
+	<div
+		class="warp-result"
+		transition:fade={{ duration: 200 }}
+		style="--bg:url('{$assets['warp-bg.webp']}')"
+	>
+		<div class="close">
+			<ButtonIcon on:click={close} />
+		</div>
 
-	<div class="container">
-		{#await loadItem(name) then { path, rarity, combat_type, splashartOffset, qty, type, time }}
-			{#if qty < 1}
-				<div class="not-indexed">
-					<span>NOT INDEXED</span>
-				</div>
-			{/if}
-
-			<div class="wrapper" class:notowned={qty < 1}>
-				{#if !combat_type}
-					<div class="item-art lightcone">
-						<div class="item-content">
-							<div class="lightcone-item">
-								<LightCones item={name} {rarity} />
-							</div>
-						</div>
-					</div>
-				{:else}
-					<div class="item-art character">
-						<picture class="item-content">
-							<img
-								use:lazyLoad={assetPath(
-									`splash-art/${rarity}/${name}`,
-									$viewportWidth > 840 ? 1280 : 640
-								)}
-								style={positionToStyle(splashartOffset)}
-								crossorigin="anonymous"
-								alt={$t(name)}
-							/>
-						</picture>
+		<div class="container">
+			{#await loadItem(name) then { path, rarity, combat_type, splashartOffset, qty, type, time }}
+				{#if qty < 1}
+					<div class="not-indexed">
+						<span>NOT INDEXED</span>
 					</div>
 				{/if}
 
-				<SplashartInfo combatType={combat_type} {path} {rarity} {name} />
-			</div>
+				<div class="wrapper" class:notowned={qty < 1}>
+					{#if !combat_type}
+						<div class="item-art lightcone">
+							<div class="item-content">
+								<div class="lightcone-item">
+									<LightCones item={name} {rarity} />
+								</div>
+							</div>
+						</div>
+					{:else}
+						<div class="item-art character">
+							<picture class="item-content">
+								<img
+									use:lazyLoad={assetPath(
+										`splash-art/${rarity}/${name}`,
+										$viewportWidth > 840 ? 1280 : 640
+									)}
+									style={positionToStyle(splashartOffset)}
+									crossorigin="anonymous"
+									alt={$t(name)}
+								/>
+							</picture>
+						</div>
+					{/if}
 
-			{#if qty > 0}
-				<div class="detail">
-					<span class="qty"> {getQtyInfo(type, qty)} </span>
-					<small> {$t('collection.firstSummon', { values: { date: time } })} </small>
+					<SplashartInfo combatType={combat_type} {path} {rarity} {name} />
 				</div>
-			{/if}
 
-			{#if qty > 0}
-				<ScreenshotShare />
-			{/if}
-		{/await}
+				{#if qty > 0}
+					<div class="detail">
+						<span class="qty"> {getQtyInfo(type, qty)} </span>
+						<small> {$t('collection.firstSummon', { values: { date: time } })} </small>
+					</div>
+				{/if}
+
+				{#if qty > 0}
+					<ScreenshotShare />
+				{/if}
+			{/await}
+		</div>
 	</div>
-</div>
+</section>
 
 <style>
+	section {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: +11;
+	}
+
 	.warp-result {
 		width: 100%;
 		height: 100%;
-		position: fixed;
+		position: relative;
 		width: var(--screen-width);
 		height: var(--screen-height);
 		top: 0;
 		left: 0;
-		z-index: +11;
 		background-image: var(--bg);
 		background-size: cover;
 	}
