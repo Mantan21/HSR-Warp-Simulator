@@ -37,7 +37,7 @@ export const storageReset = async ({ keepSetting = false }) => {
 		const config = storageLocal.get('config');
 		const pity = storageLocal.get('pity');
 		const balance = storageLocal.get('balance');
-		localStorage.clear();
+		localStorage.removeItem('WarpSimulator');
 		delete config.additionalClaimed;
 
 		storageLocal.set('config', config);
