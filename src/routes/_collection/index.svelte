@@ -10,6 +10,7 @@
 	import Footer from './_footer.svelte';
 	import CollectionList from './_collection-list.svelte';
 	import { cookie } from '$lib/stores/cookies';
+	import CollectionDetails from './_collection-details.svelte';
 
 	let footerHeight;
 	let showAll = cookie.get('showAllCollection');
@@ -43,6 +44,22 @@
 	onMount(() => {
 		playSfx('collection-open');
 	});
+
+	// Show Detail Handle
+	let detailItem = {};
+	let isDetailOpen = false;
+	const openDetails = (detail) => {
+		playSfx('click2');
+		detailItem = detail;
+		isDetailOpen = true;
+	};
+	setContext('openDetails', openDetails);
+
+	const closeDetail = () => {
+		playSfx('warpresult-close');
+		isDetailOpen = false;
+	};
+	setContext('closeDetail', closeDetail);
 </script>
 
 <svelte:head>
@@ -86,6 +103,10 @@
 		<Footer {itemtype} />
 	</div>
 </section>
+
+{#if isDetailOpen}
+	<CollectionDetails {...detailItem} />
+{/if}
 
 <style>
 	section {

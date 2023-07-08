@@ -186,7 +186,11 @@
 		"heading": "Bank Data",
 		"button": "Collection",
 		"showAll": "Show All {itemtype}",
-		"notOwned": "Not Indexed"
+		"notOwned": "Not Indexed",
+		"superimpose": "Superimpose {count}",
+		"eidolon": "Eidolon {count}",
+		"extra": "{count} Extra",
+		"firstSummon": "First Summoned at : {date}"
 	},
 	"shop": {
 		"heading": "Exchange",

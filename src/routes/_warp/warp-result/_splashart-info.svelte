@@ -8,11 +8,17 @@
 	export let path;
 	export let combatType;
 	export let rarity;
-	export let isNew;
+	export let isNew = false;
+	export let animate = false;
+
+	const customFly = (node, args) => {
+		if (!args?.animate) return;
+		return fly(node, args);
+	};
 </script>
 
 <div class="info">
-	<div class="info-wrapper" in:fly={{ x: 70, delay: 600, duration: 400 }}>
+	<div class="info-wrapper" in:customFly={{ animate, x: 70, delay: 600, duration: 400 }}>
 		<div class="row">
 			<div class="left" class:lightcone={!combatType}>
 				{#if !combatType}

@@ -1,10 +1,13 @@
 <script>
 	import { getContext, setContext } from 'svelte';
+	import { writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
+
 	import { activeBanner, assets, bannerList, showStarterBanner } from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { localConfig, rollCounter } from '$lib/stores/localstorage';
+	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { playSfx } from '$lib/helpers/sounds/audiofx.js';
 
 	import AdditionalReward from './additional-reward/AdditionalReward.svelte';
@@ -15,8 +18,6 @@
 	import Background from './_background.svelte';
 	import AstralExpress from './warp-result/_astral-express.svelte';
 	import WarpResult from './warp-result/WarpResult.svelte';
-	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
-	import { writable } from 'svelte/store';
 
 	let type, bannerName;
 	$: ({ bannerName, beta, featured, type } = $bannerList[$activeBanner]);

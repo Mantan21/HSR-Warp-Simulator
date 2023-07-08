@@ -11,7 +11,9 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import ScreenshotResult from './_screenshot-result.svelte';
 
+	export let animate = false;
 	export let shareURL = '';
+
 	let blob;
 	let showResult = false;
 	let loading = false;
@@ -31,7 +33,12 @@
 		localConfig.set('firstTimeShare', true);
 	});
 
-	const preview = getContext('preview');
+	const preparPreview = getContext('preview');
+	const preview = (val) => {
+		if (!preparPreview) return;
+		preparPreview(val);
+	};
+
 	const filterShot = (node) => {
 		const notIncluded = ['close', 'skip', 'share', 'logo', 'title', 'hideOnShot'];
 		if (node.classList) return !notIncluded.some((cl) => node.classList.contains(cl));
@@ -75,6 +82,11 @@
 			lid.remove();
 		});
 	};
+
+	const animateFade = (node, args) => {
+		if (!args.animate) return;
+		return customFade(node, args);
+	};
 </script>
 
 {#if showResult}
@@ -94,8 +106,8 @@
 	</div>
 {/if}
 
-<div class="share" in:customFade={{ delay: 1000 }}>
-	{#if isFirstTimeShare}
+<div class="share" in:animateFade={{ animate, delay: 1000 }}>
+	{#if isFirstTimeShare && shareURL}
 		<div class="text">
 			First-time Share Rewards: <Icon type="stellarJade" /> × {initialAmount.shareReward}
 		</div>

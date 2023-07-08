@@ -1,10 +1,10 @@
-import lcDB from '$lib/data/light-cones.json';
-import charsDB from '$lib/data/characters.json';
+import { data as lcDB } from '$lib/data/light-cones.json';
+import { data as charsDB } from '$lib/data/characters.json';
 
 export const rand = (array) => array[Math.floor(Math.random() * array.length)];
 
 export const getAllChars = (star) =>
-	charsDB.data
+	charsDB
 		.filter(({ rarity }) => rarity === star)
 		.map((arr) => {
 			arr.type = 'character';
@@ -12,12 +12,24 @@ export const getAllChars = (star) =>
 		});
 
 export const getAllLightCones = (star) =>
-	lcDB.data
+	lcDB
 		.filter(({ rarity }) => rarity === star)
 		.map((arr) => {
 			arr.type = 'lightcone';
 			return arr;
 		});
+
+export const getCharDetails = (charName) => {
+	if (!charName) return {};
+	const findChar = charsDB.find(({ name }) => charName === name);
+	return findChar || {};
+};
+
+export const getLCDetails = (lcName) => {
+	if (!lcName) return {};
+	const findLC = lcDB.find(({ name }) => lcName === name);
+	return findLC || {};
+};
 
 export const regularChars5Star = (nameList) => {
 	return getAllChars(5).filter(({ name }) => nameList.includes(name));

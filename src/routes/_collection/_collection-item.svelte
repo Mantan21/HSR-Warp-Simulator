@@ -1,8 +1,9 @@
 <script>
+	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import LightCones from '$lib/components/LightCones.svelte';
 	import { assetPath } from '$lib/helpers/assets';
 	import { lazyLoad } from '$lib/helpers/lazyload';
+	import LightCones from '$lib/components/LightCones.svelte';
 
 	export let rarity = 3;
 	export let name = '';
@@ -17,9 +18,14 @@
 		}
 		return `S${qty > 5 ? `5 + ${qty - 5}` : qty}`;
 	};
+
+	const openDetails = getContext('openDetails');
+	const handleClik = () => {
+		openDetails({ name, type: combatType ? 'character' : 'lightcone' });
+	};
 </script>
 
-<div class="item-container star{rarity}">
+<div class="item-container star{rarity}" on:mousedown={handleClik}>
 	{#if !combatType}
 		<div class="lightcone">
 			<LightCones item={name} {rarity} small="tiny" />

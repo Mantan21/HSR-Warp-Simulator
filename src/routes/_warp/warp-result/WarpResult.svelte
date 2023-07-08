@@ -174,7 +174,14 @@
 								</div>
 							{/if}
 
-							<SplashartInfo {name} combatType={combat_type} {path} {rarity} {isNew} />
+							<SplashartInfo
+								animate={!$liteMode}
+								combatType={combat_type}
+								{name}
+								{path}
+								{rarity}
+								{isNew}
+							/>
 							<BonusItem {rarity} type={undyingType} qty={undyingQty} {eidolon} {name} />
 						</div>
 					{/if}
@@ -185,7 +192,7 @@
 
 	{#if !standalone}
 		{#if list[activeIndex].rarity > 3 || (showResultList && list.length > 1)}
-			<ScreenshotShare shareURL={createShareableLink(activeIndex, showResultList)} />
+			<ScreenshotShare animate shareURL={createShareableLink(activeIndex, showResultList)} />
 		{/if}
 	{/if}
 </div>

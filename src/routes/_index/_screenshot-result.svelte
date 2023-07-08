@@ -12,8 +12,8 @@
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 
 	export let blob;
-	export let isFirstTIme;
-	export let shareURL;
+	export let isFirstTIme = false;
+	export let shareURL = '';
 
 	$: shareLink = shareURL || window.location.origin;
 	let shareText = 'Come and try this Honkai: Star Rail Warp Simulator!';
@@ -23,7 +23,7 @@
 	const firstTime = getContext('firsTimeShare');
 
 	const addFunds = () => {
-		if (!isFirstTIme) return;
+		if (!isFirstTIme || !shareURL) return;
 		firstTime();
 	};
 
@@ -102,24 +102,28 @@
 			<img src={screenshotURL} alt="screenshot" on:contextmenu|stopPropagation />
 		</picture>
 
-		<button class="shareableLink" title="Copy Link" on:click={copyHandle}>
-			<span class="link"> {shareLink} </span>
-			<span class="icon">
-				<i class="hsr-clone" />
-			</span>
-		</button>
+		{#if shareURL}
+			<button class="shareableLink" title="Copy Link" on:click={copyHandle}>
+				<span class="link"> {shareLink} </span>
+				<span class="icon">
+					<i class="hsr-clone" />
+				</span>
+			</button>
+		{/if}
 
 		<div class="social-button" transition:fade>
-			<button on:click={facebookHandle}> <i class="hsr-facebook" /> </button>
-			<button on:click={twitterHandle}> <i class="hsr-twitter" /> </button>
-			<!-- <button on:click={pinterestHandle}> <i class="hsr-pinterest" /> </button> -->
-			{#if navigator.share}
-				<button on:click={webShareHandle}> <i class="hsr-dot-3" /> </button>
+			{#if shareURL}
+				<button on:click={facebookHandle}> <i class="hsr-facebook" /> </button>
+				<button on:click={twitterHandle}> <i class="hsr-twitter" /> </button>
+				<!-- <button on:click={pinterestHandle}> <i class="hsr-pinterest" /> </button> -->
+				{#if navigator.share}
+					<button on:click={webShareHandle}> <i class="hsr-dot-3" /> </button>
+				{/if}
 			{/if}
 			<button on:click={saveHandler}> <i class="hsr-save" /> </button>
 		</div>
 
-		{#if isFirstTIme}
+		{#if isFirstTIme && shareURL}
 			<div class="first-time">
 				<span>
 					First-time Sharing will Obtain {initialAmount.shareReward}
