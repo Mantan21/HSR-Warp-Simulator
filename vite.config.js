@@ -106,12 +106,12 @@ const manifest = {
 		{
 			platform: 'webapp',
 			url: 'https://hsr.wishsimulator.app/appmanifest.json'
+		},
+		{
+			platform: 'play',
+			url: 'https://play.google.com/store/apps/details?id=hsr.wishsimulator.app',
+			id: 'hsr.wishsimulator.app'
 		}
-		// {
-		// 	platform: 'play',
-		// 	url: 'https://play.google.com/store/apps/details?id=hsr.wishsimulator.app',
-		// 	id: 'hsr.wishsimulator.app'
-		// }
 	]
 };
 
