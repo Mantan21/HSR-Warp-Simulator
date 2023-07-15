@@ -13,17 +13,6 @@
 		},
 		{
 			"pro": true,
-			"name": "blade",
-			"rarity": 5,
-			"combat_type": "wind",
-			"path": "destruction",
-			"buttonOffset": { "w": 100, "t": -44.5 },
-			"bannerOffset": { "b": -35, "l": 16, "w": 100 },
-			"splashartOffset": { "t": 60, "w": 75 },
-			"gachaCardOffset": { "t": 340, "l": 33, "w": 475 }
-		},
-		{
-			"pro": true,
 			"name": "luka",
 			"rarity": 4,
 			"combat_type": "physical",
@@ -32,6 +21,17 @@
 			"bannerOffset": { "h": 530, "t": -113, "l": -625 },
 			"splashartOffset": { "w": 80 },
 			"gachaCardOffset": { "l": 70, "w": 450, "t": 230 }
+		},
+		{
+			"name": "blade",
+			"rarity": 5,
+			"combat_type": "wind",
+			"path": "destruction",
+			"colors": ["51 64 102", "74 83 121"],
+			"buttonOffset": { "w": 100, "t": -44.5 },
+			"bannerOffset": { "b": -40, "l": 18, "w": 98 },
+			"splashartOffset": { "t": 60, "w": 75 },
+			"gachaCardOffset": { "t": 340, "l": 33, "w": 475 }
 		},
 		{
 			"name": "luocha",

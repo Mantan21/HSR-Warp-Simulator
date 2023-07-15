@@ -9,7 +9,6 @@
 			"bannerOffset": { "b": -75, "r": -32.5, "w": 90 }
 		},
 		{
-			"pro": true,
 			"name": "the-unreachable-side",
 			"rarity": 5,
 			"path": "destruction",

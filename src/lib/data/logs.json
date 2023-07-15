@@ -122,10 +122,14 @@
 		},
 		{
 			"date": "26 Jun 2023",
-			"featured": true,
 			"changes": [
 				"Unlock Content For the 2nd phase of 1.1 - <b>Luocha, Yukong, Echoes of The Coffin</b>"
 			]
+		},
+		{
+			"date": "15 Jul 2023",
+			"featured": true,
+			"changes": ["Unlock Content For the 1st phase of 1.2 - <b>Blade & The Unreachable Side</b>"]
 		}
 	]
 }
