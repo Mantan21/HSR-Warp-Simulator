@@ -240,6 +240,12 @@
 		display: unset;
 	}
 
+	@media screen and (max-width: 600px) {
+		.tanda-air {
+			bottom: 7.5%;
+		}
+	}
+
 	.detail {
 		position: absolute;
 		left: 0;

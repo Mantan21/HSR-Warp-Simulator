@@ -95,10 +95,11 @@
 		top: 2%;
 		left: -1.1%;
 		font-size: calc(0.015 * var(--bw));
-		padding: 0.45% 1.5%;
+		padding: 0.45% 1.5% 0.5%;
 		border-top-right-radius: 2rem;
 		border-bottom-right-radius: 2rem;
-		background-color: #3d81ce;
+		background-color: var(--bn-color2);
+		z-index: +1;
 	}
 
 	.wrapper-info {
