@@ -2,6 +2,22 @@
 	"data": [
 		{
 			"pro": true,
+			"name": "she-already-shut-her-eyes",
+			"rarity": 5,
+			"path": "preservation",
+			"limited": true,
+			"bannerOffset": { "b": -40, "r": -13, "w": 60 }
+		},
+		{
+			"pro": true,
+			"name": "brighter-than-the-sun",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -80, "r": -33, "w": 80 }
+		},
+		{
+			"pro": true,
 			"name": "patience-is-all-you-need",
 			"rarity": 5,
 			"path": "nihility",

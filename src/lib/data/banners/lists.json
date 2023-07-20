@@ -44,6 +44,16 @@
 			"id": 9,
 			"name": "a-lost-soul",
 			"type": "character-event"
+		},
+		{
+			"id": 10,
+			"name": "imbibitor-lunae",
+			"type": "character-event"
+		},
+		{
+			"id": 11,
+			"name": "fu-xuan",
+			"type": "character-event"
 		}
 	]
 }

@@ -61,13 +61,14 @@
 						</div>
 					</div>
 				{:else}
-					{@const { changes, date } = logs.find(({ featured }) => featured)}
 					<div class="updates">
-						<span>
-							<i class="tgl"> {date} </i>
-						</span>
-						{#each changes as txt} <p>{@html txt}</p> {/each}
-						<div style="height: .5rem" />
+						{#each [...logs.filter(({ featured }) => featured)].reverse() as { date, changes }}
+							<span>
+								<i class="tgl"> {date} </i>
+							</span>
+							{#each changes as txt} <p>{@html txt}</p> {/each}
+							<div style="height: .5rem" />
+						{/each}
 					</div>
 				{/if}
 
@@ -224,10 +225,10 @@
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		background-color: #fff;
 		font-size: 0.97rem;
-		height: calc(0.7 * var(--modalHeight));
+		max-height: calc(0.15 * var(--screen-height));
 		padding: 0 1rem;
 		display: block;
-		overflow: hidden;
+		overflow: auto;
 	}
 	.updates span {
 		font-weight: bold;
