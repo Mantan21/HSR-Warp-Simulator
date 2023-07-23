@@ -1,14 +1,16 @@
 <script>
 	import { getContext } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
+	import { locale, t } from 'svelte-i18n';
+
 	import { warpAmount, autoskip, liteMode } from '$lib/stores/app-store';
 	import { activeBacksound, muted } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/stores/localstorage';
-	import { t } from 'svelte-i18n';
-	import OptionsItem from './_settings-option.svelte';
-	import { fade, fly } from 'svelte/transition';
 	import { pauseTrack, randomTrack } from '$lib/helpers/sounds/phonograph';
 	import { check as expressChecker } from '$lib/helpers/express-loader';
+
 	import Scrollable from '$lib/components/Scrollable.svelte';
+	import OptionsItem from './_settings-option.svelte';
 
 	export let activeOption;
 
@@ -64,57 +66,73 @@
 	<Scrollable>
 		<h2>Visual</h2>
 		<OptionsItem
-			text={$t('menu.litemode')}
 			showOption={activeOption === 'litemode'}
 			optionName="litemode"
 			activeIndicator={$liteMode}
 			on:select={handleLiteMode}
-		/>
+		>
+			{$t('menu.litemode')}
+		</OptionsItem>
 
 		<OptionsItem
-			text={$t('menu.autoskip')}
 			showOption={activeOption === 'autoskip'}
 			optionName="autoskip"
 			activeIndicator={$autoskip}
 			on:select={handleAutoSkip}
-		/>
+		>
+			{$t('menu.autoskip')}
+		</OptionsItem>
 
 		<h2>Sounds</h2>
 		<OptionsItem
-			text={$t('menu.mutedSFX')}
 			showOption={activeOption === 'muteSFX'}
 			optionName="muteSFX"
 			activeIndicator={$muted.sfx}
 			on:select={handleSound}
-		/>
+			>{$t('menu.mutedSFX')}
+		</OptionsItem>
 
 		<OptionsItem
-			text={$t('menu.mutedBGM')}
 			showOption={activeOption === 'muteBGM'}
 			optionName="muteBGM"
 			activeIndicator={$muted.bgm}
 			on:select={handleSound}
-		/>
+		>
+			{$t('menu.mutedBGM')}
+		</OptionsItem>
 
 		{#if !$muted.bgm}
 			<div transition:fly|local={{ y: -10 }}>
-				<OptionsItem sub text={$t('phonograph.choosebgm')} optionName="backsound" />
+				<OptionsItem sub optionName="backsound">
+					{$t('phonograph.choosebgm')}
+				</OptionsItem>
 			</div>
 		{/if}
 
 		<h2>Other</h2>
 		<OptionsItem
-			text={$t('menu.warpNumber')}
+			optionName="locale"
+			activeIndicator={$locale}
+			showOption={activeOption === 'locale'}
+		>
+			{$t('menu.language')}
+		</OptionsItem>
+
+		<OptionsItem
 			showOption={activeOption === 'warpnumber'}
 			optionName="warpnumber"
 			activeIndicator={$warpAmount}
 			on:select={handleSelectAmount}
-		/>
+		>
+			{$t('menu.warpNumber')}
+		</OptionsItem>
 
-		<OptionsItem text={$t('menu.switchbanner')} optionName="switchbanner" />
+		<OptionsItem optionName="switchbanner">
+			{$t('menu.switchbanner')}
+		</OptionsItem>
 
-		<OptionsItem text={$t('menu.clearStorage')} optionName="reset" />
-		<OptionsItem text="Give a Comment" optionName="feedback" />
+		<OptionsItem optionName="reset">{$t('menu.clearStorage')}</OptionsItem>
+		<OptionsItem optionName="feedback">{$t('menu.giveComment')}</OptionsItem>
 	</Scrollable>
 </div>
 
