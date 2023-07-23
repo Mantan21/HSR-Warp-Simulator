@@ -16,27 +16,6 @@
 					"rateup": ["swordplay", "a-secret-vow", "shared-feeling"]
 				}
 			}
-		},
-		{
-			"phase": 2,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": "8-1",
-					"featured": "kafka",
-					"rateup": ["luka", "sampo", "serval"]
-				},
-				"lightcone": {
-					"bannerID": "3-6",
-					"featured": "patience-is-all-you-need",
-					"rateup": [
-						"eyes-of-the-prey",
-						"resolution-shines-as-pearls-of-sweat",
-						"the-birth-of-the-self"
-					]
-				}
-			}
 		}
 	]
 }

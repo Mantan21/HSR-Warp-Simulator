@@ -1,28 +1,6 @@
 {
 	"data": [
 		{
-			"pro": true,
-			"name": "kafka",
-			"rarity": 5,
-			"combat_type": "lightning",
-			"path": "nihility",
-			"bannerOffset": { "b": -45, "l": 9.5, "w": 115 },
-			"buttonOffset": { "t": -69, "l": -10, "w": 115 },
-			"splashartOffset": { "t": 55, "w": 85, "l": 52 },
-			"gachaCardOffset": { "l": 48, "t": 203, "w": 510 }
-		},
-		{
-			"pro": true,
-			"name": "luka",
-			"rarity": 4,
-			"combat_type": "physical",
-			"path": "nihility",
-			"release": "1000000.0-2",
-			"bannerOffset": { "h": 530, "t": -113, "l": -625 },
-			"splashartOffset": { "w": 80 },
-			"gachaCardOffset": { "l": 70, "w": 450, "t": 230 }
-		},
-		{
 			"name": "blade",
 			"rarity": 5,
 			"combat_type": "wind",
