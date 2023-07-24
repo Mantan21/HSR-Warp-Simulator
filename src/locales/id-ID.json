@@ -212,7 +212,8 @@
 		"methodWallet": "Empty Wallet",
 		"methodTears": "Tears",
 		"autoConvert": "Ubah ke Stellar Jade secara otomatis?",
-		"initialTopup": "Bonus Topup Perdana?"
+		"initialTopup": "Bonus Topup Perdana?",
+		"donate": "Donasi"
 	},
 	"menu": {
 		"heading": "Menu",

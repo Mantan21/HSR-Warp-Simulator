@@ -212,7 +212,8 @@
 		"methodWallet": "Empty Wallet",
 		"methodTears": "Tears",
 		"autoConvert": "Auto convert to Stellar Jade",
-		"initialTopup": "Initial Topup Bonus ?"
+		"initialTopup": "Initial Topup Bonus ?",
+		"donate": "Donate"
 	},
 	"menu": {
 		"heading": "Menu",
