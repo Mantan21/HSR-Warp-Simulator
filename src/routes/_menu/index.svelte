@@ -1,6 +1,6 @@
 <script>
 	import { browser } from '$app/environment';
-	import { getContext, setContext } from 'svelte';
+	import { getContext, onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 
@@ -57,9 +57,15 @@
 	let isModalOpen = false;
 	let modalTitle = '';
 	let keepSetting = false;
+	let clearCache = false;
+	let storageSize = '..B';
 
-	const toggleKeepSetting = () => {
+	const toggleResetOption = (opt) => {
 		playSfx('click2');
+		if (opt === 'cache') {
+			clearCache = !clearCache;
+			return;
+		}
 		keepSetting = !keepSetting;
 	};
 
@@ -79,7 +85,7 @@
 	const readyToPull = getContext('readyToPull');
 	const clearStorage = async () => {
 		playSfx();
-		await storageReset({ keepSetting });
+		await storageReset({ clearCache, keepSetting });
 		isModalOpen = false;
 
 		if (keepSetting) return;
@@ -88,6 +94,14 @@
 		if (!soundOn) randomTrack('init');
 		readyToPull.set(await checkExpress());
 	};
+
+	// Storage Size
+	const getSize = async () => {
+		const { usage } = await navigator.storage.estimate();
+		const size = (usage / 1000000).toFixed(2);
+		storageSize = `${size}MB`;
+	};
+	onMount(getSize);
 </script>
 
 {#if isModalOpen}
@@ -97,11 +111,20 @@
 			<div class="keep-setting">
 				<div class="checkbox">
 					<input type="checkbox" name="keep" id="keepsetting" bind:checked={keepSetting} />
-					<span on:mousedown={toggleKeepSetting} aria-label="toggle" />
+					<span role="button" tabindex="-1" on:mousedown={toggleResetOption} />
 				</div>
-				<label aria-label="" for="keepsetting" on:mousedown={() => playSfx('click2')}>
-					<span> {$t('menu.keepSetting')} </span>
-					<small> {$t('menu.keepSettingInfo')} </small>
+				<label role="" for="keepsetting" on:mousedown={() => playSfx('click2')}>
+					<span> {@html $t('menu.keepSetting')} </span>
+				</label>
+			</div>
+
+			<div class="clear-cache">
+				<div class="checkbox">
+					<input type="checkbox" name="cache" id="clearCache" bind:checked={clearCache} />
+					<span role="button" tabindex="-1" on:mousedown={() => toggleResetOption('cache')} />
+				</div>
+				<label role="" for="clearCache" on:mousedown={() => playSfx('click2')}>
+					<span>{@html $t('menu.clearCache', { values: { size: storageSize } })} </span>
 				</label>
 			</div>
 		</div>
@@ -195,7 +218,8 @@
 		width: 100%;
 	}
 
-	.keep-setting {
+	.keep-setting,
+	.clear-cache {
 		padding-top: 2%;
 		display: flex;
 		align-items: center;
@@ -229,7 +253,7 @@
 		border-color: #fff;
 	}
 
-	label span {
+	label span :global(small) {
 		display: block;
 	}
 </style>
