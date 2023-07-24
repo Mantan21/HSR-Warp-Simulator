@@ -25,8 +25,16 @@ import { HistoryManager } from '$lib/stores/idbManager';
 import { localConfig, storageLocal } from '$lib/stores/localstorage';
 
 const { clearIDB } = HistoryManager;
-export const storageReset = async ({ keepSetting = false }) => {
+
+const clearCacheStorage = async () => {
+	const keys = await caches.keys();
+	for (const key of keys) await caches.delete(key);
+	return true;
+};
+
+export const storageReset = async ({ keepSetting = false, clearCache = false } = {}) => {
 	await clearIDB();
+	if (clearCache) await clearCacheStorage();
 
 	starterRemaining.set(50);
 	showStarterBanner.set(true);

@@ -76,7 +76,7 @@
 			{#await loadItem(name) then { path, rarity, combat_type, splashartOffset, qty, type, time }}
 				{#if qty < 1}
 					<div class="not-indexed">
-						<span>NOT INDEXED</span>
+						<span>{$t('collection.notOwned')}</span>
 					</div>
 				{/if}
 

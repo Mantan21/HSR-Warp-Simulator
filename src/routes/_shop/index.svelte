@@ -8,10 +8,11 @@
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
-	import Oneiric from './Oneiric.svelte';
-	import ExchangeItem from './ExchangeItem.svelte';
 	import Aside from './_aside.svelte';
 	import ExchangeModal from './_exchange-modal.svelte';
+	import Oneiric from './Oneiric.svelte';
+	import ExchangeItem from './ExchangeItem.svelte';
+	import Donate from './Donate.svelte';
 
 	const random = (min, max) => {
 		min = Math.ceil(min);
@@ -104,6 +105,10 @@
 
 				{#if activeShop === 'stellarTrade'}
 					<ExchangeItem item="stellarJade" />
+				{/if}
+
+				{#if activeShop === 'donate'}
+					<Donate />
 				{/if}
 			</div>
 		</div>

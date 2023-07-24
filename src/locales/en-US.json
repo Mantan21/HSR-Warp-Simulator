@@ -214,7 +214,8 @@
 		"methodWallet": "Empty Wallet",
 		"methodTears": "Tears",
 		"autoConvert": "Auto convert to Stellar Jade",
-		"initialTopup": "Initial Topup Bonus ?"
+		"initialTopup": "Initial Topup Bonus ?",
+		"donate": "Donate"
 	},
 	"menu": {
 		"heading": "Menu",
@@ -239,8 +240,8 @@
 		"clearNow": "Clear Now",
 		"promptTitle": "Clear Data?",
 		"resetPrompt": "Are you sure to clear ALL DATA?",
-		"keepSetting": "Keep Settings?",
-		"keepSettingInfo": "Current Pity, Balance and Settings will not be deleted.",
+		"keepSetting": "Keep Settings? <small>Current Pity, Balance and Settings will not be deleted.</small>",
+		"clearCache": "Clear Caches ( {size} ) ? <small> You will re-load the cached assets after this action</small>",
 		"prouservalid": "You already have pro access",
 		"prouserHeading": "Input a Key to get Special Benefits !",
 		"inputKeyPlaceholder": "Input Access Key",
@@ -257,7 +258,7 @@
 		"benefit": "Benefits",
 		"benefitList": [
 			"Ads Removed",
-			"Unlock the Future Character Banner",
+			"Unlock Future Banner",
 			"You can use the same key for {GIWishSim} to get the same benefit with this site"
 		]
 	},
