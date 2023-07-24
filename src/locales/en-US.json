@@ -1,5 +1,8 @@
 {
 	"title": "Honkai: Star Rail Warp Simulator",
+	"welcomeMsg": "Welcome and Good Luck! 🙂",
+	"loadSimulator": "Load Simulator",
+	"disclaimer": "This Website is not affiliated with HoYoverse, all assets files are property of their original owners",
 	"character": "Character",
 	"lightcone": "Light Cone",
 	"ice": "Ice",
@@ -18,7 +21,7 @@
 	"version": "Version",
 	"phase": "Phase",
 	"nodata": "No Data",
-	"tip": "Tip",
+	"tip": "Tips",
 	"unlimited": "Unlimited",
 	"default": "Default",
 	"cancel": "Cancel",
@@ -61,8 +64,7 @@
 		"permanent": "Permanent",
 		"starterRemaining": "Remaining Warps: {remaining}/50",
 		"starterDescription": "20% off for set of 10 Warps, and a <span>5</span>-star character is guaranteed within <span>50</span> Warps",
-		"regularDescription": "Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity",
-		"eventDescription": "Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity",
+		"warpDescription": "Every <span>10</span> Warps guarantees a <span>4</span>-star or above entity",
 		"itemRateBoost": "Featured {itemtype} receives a drop rate boost ",
 		"convertModal": "Insufficient {ticket}. Consume {jadeNeeded} Stellar Jade to purchase {ticketNeeded} {ticket}?",
 		"bonusdrop": "Bonus drop:",
@@ -71,12 +73,12 @@
 		"loadExpress": "Load Express",
 		"skipExpress": "Skip Express",
 		"loadExpressMsg": "Load {item} Animation",
-		"expressNotLoaded": "Can't find Astral Express Animation in your storage, <span> Load the Astral Express</span> first before warping, or <span> Turn ON </span> the option to skip Astral Express!",
+		"expressNotLoaded": "Cannot find Astral Express Animations in your storage, <span> Load the Astral Express</span> first, or <span> Turn ON </span> the option to skip Astral Express!",
 		"preloadFilesMsg": "* Loaded files will be stored to Browser Storage, so you don't need to load them again until the site update."
 	},
 	"banner": {
 		"all": "All Banner",
-		"unreleased": "Not Released Yet",
+		"undefined": "Unkown",
 		"starter": "Starter Warp",
 		"regular": "Regular Warp",
 		"character-event": "Character Event Warp",
@@ -106,7 +108,7 @@
 		"bannerStarted": "<span>{banner}</span> has started",
 		"eventWarpNote": "※ This Warp is counted as a {banner}. The Warp count for the guarantee for any {banner} will always be carried over to other {banner}, but is independent of and unaffected by other types of Warps.",
 		"rateupCharList": "● There is a greatly increased Warp success rate for the limited 5-star character <span>{featuredName} ({featuredPath}: {featuredCombatType})</span>, and 4-star characters <span>{char1} ({path1}: {combatType1})</span>, <span>{char2} ({path2}: {combatType2})</span>, and <span>{char3} ({path3}: {combatType3})</span>",
-		"rateupLCList": "● There is a greatly increased Warp success rate for the limited 5-star light cone <span>{featuredName} ({featuredPath})</span>, and 4-star light cones <span>{char1} ({path1})</span>, <span>{char2} ({path2})</span>, and <span>{char3} ({path3})</span>",
+		"rateupLCList": "● There is a greatly increased Warp success rate for the limited 5-star light cone <span>{featuredName} ({featuredPath})</span>, and 4-star light cones <span>{lc1} ({path1})</span>, <span>{lc2} ({path2})</span>, and <span>{lc3} ({path3})</span>",
 		"eventDetails": [
 			"▌ Event Details",
 			"During the <span>{banner}</span>, you can use your Star Rail Special Passes for Warps.",
@@ -126,7 +128,7 @@
 			"● The first time you obtain a 4-star entity in this Warp event, there is a <span>{winRate}</span> chance it will be one of the promotional {itemType} {rateupList}.",
 			"● If the first 4-star entity you obtain in this Warp event is not one of the promotional {itemType}, then the next 4-star {itemType} you obtain is guaranteed to be one of the promotional {itemType}. The rate of obtaining each promotional 4-star {itemType} is equal between all of them."
 		],
-		"starterDescription": "<span>The Departure Warp</span> is a permanent Warp event, you can only make sets of 10 Warps. Every <span>10</span> Warps guarantees a 4-star or above character or Light Cone. <span>Enjoy a 20% discount on the Star Rail Passes for 10-Warp sets.</span><br> You may only Warp up to 50 times for this event. <span>At least one 5-star or above character is guaranteed within 50 Warps.",
+		"starterDescription": "<span>The Departure Warp</span> is a permanent Warp event, you can only make sets of 10 Warps. Every <span>10</span> Warps guarantees a 4-star or above character or Light Cone. <span>Enjoy a 20% discount on the Star Rail Passes for 10-Warp sets.</span><br> You may only Warp up to 50 times for this event. <span>At least one 5-star or above character is guaranteed within 50 Warps.</span>",
 		"starterDetail": [
 			"▌ Warp Details",
 			"■ 5-Star Characters",
@@ -218,9 +220,15 @@
 		"heading": "Menu",
 		"yes": "Yes",
 		"no": "No",
+		"visual": "Visual",
+		"sound": "Sounds",
+		"other": "Others",
 		"settings": "Settings",
 		"updatelog": "Change Logs",
 		"prouser": "Pro Access",
+		"language": "Language",
+		"feedback": "Feedback",
+		"giveComment": "Give a Comment",
 		"switchbanner": "Switch Banner",
 		"warpNumber": "Number of Warps",
 		"mutedSFX": "Mute Sound Effects?",
@@ -245,7 +253,13 @@
 		"getNewKey": "Get a new one Here!",
 		"getProAccess": "Get Pro Access",
 		"removeKey": "Remove Key",
-		"removeKeyConfirm": "Are you sure to delete the current Key? You will lose all of these benefits until you re-enter the new key"
+		"removeKeyConfirm": "Are you sure to delete the current Key? You will lose all of these benefits until you re-enter the new key",
+		"benefit": "Benefits",
+		"benefitList": [
+			"Ads Removed",
+			"Unlock the Future Character Banner",
+			"You can use the same key for {GIWishSim} to get the same benefit with this site"
+		]
 	},
 	"phonograph": {
 		"choosebgm": "Choose Backsound",
