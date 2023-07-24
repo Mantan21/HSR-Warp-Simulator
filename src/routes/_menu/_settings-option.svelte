@@ -83,7 +83,7 @@
 		<slot />
 	</div>
 
-	<div class="option-select" on:mousedown|stopPropagation>
+	<div class="option-select" on:mousedown|stopPropagation aria-label="">
 		<!-- Locales -->
 		{#if optionName === 'locale'}
 			<button class="selected-option locale" on:click={handleOption}>

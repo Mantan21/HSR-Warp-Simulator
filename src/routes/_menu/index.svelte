@@ -97,9 +97,9 @@
 			<div class="keep-setting">
 				<div class="checkbox">
 					<input type="checkbox" name="keep" id="keepsetting" bind:checked={keepSetting} />
-					<span on:mousedown={toggleKeepSetting} />
+					<span on:mousedown={toggleKeepSetting} aria-label="toggle" />
 				</div>
-				<label for="keepsetting" on:mousedown={() => playSfx('click2')}>
+				<label aria-label="" for="keepsetting" on:mousedown={() => playSfx('click2')}>
 					<span> {$t('menu.keepSetting')} </span>
 					<small> {$t('menu.keepSettingInfo')} </small>
 				</label>
