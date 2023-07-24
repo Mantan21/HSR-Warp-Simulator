@@ -1,8 +1,8 @@
 # Honkai: Star Rail Warp Simulator
 
-![License](https://badgen.net/github/license/AguzzTN54/HSR-Warp-Simulator?icon:github) ![Repo Size](https://img.shields.io/github/repo-size/AguzzTN54/HSR-Warp-Simulator?color=fa0) [![CodeFactor](https://www.codefactor.io/repository/github/aguzztn54/HSR-Warp-Simulator-simulator/badge)](https://www.codefactor.io/repository/github/aguzztn54/HSR-Warp-Simulator-simulator) ![Status](https://badgen.net/github/checks/AguzzTN54/HSR-Warp-Simulator) ![Code Standard](https://badgen.net/badge/code%20style/standard/f2a) [![Saweria](https://badgen.net/badge/Saweria/AguzzTN54/F96854)](https://saweria.co/AguzzTN54)
+![License](https://badgen.net/github/license/AguzzTN54/HSR-Warp-Simulator?icon:github) ![Repo Size](https://img.shields.io/github/repo-size/AguzzTN54/HSR-Warp-Simulator?color=fa0) [![CodeFactor](https://www.codefactor.io/repository/github/aguzztn54/HSR-Warp-Simulator/badge)](https://www.codefactor.io/repository/github/aguzztn54/HSR-Warp-Simulator) ![Status](https://badgen.net/github/checks/AguzzTN54/HSR-Warp-Simulator) ![Code Standard](https://badgen.net/badge/code%20style/standard/f2a) [![Saweria](https://badgen.net/badge/Saweria/AguzzTN54/F96854)](https://saweria.co/AguzzTN54)
 
-This project is similar to the [Gesthin Impact Wish Simulator](https://github.com/AguzzTN54/Genshin-Impact-Wish-Simulator), I use the same algorithm and most of the code here I copy from there.
+This project is similar to the [Genshin Impact Wish Simulator](https://github.com/AguzzTN54/Genshin-Impact-Wish-Simulator), I use the same algorithm and most of the code here I copy from there.
 
 ## Screenshots
 
@@ -11,10 +11,6 @@ This project is similar to the [Gesthin Impact Wish Simulator](https://github.co
 ![Main Banner](static/meta-picture.jpg)
 
 ![Light Cone Banner](screenshots/light-cone.jpg)
-
-#### Layout on Mobile Device
-
-![Mobile](screenshots/mobile.jpg)
 
 #### Inventory
 
@@ -44,7 +40,7 @@ This project is similar to the [Gesthin Impact Wish Simulator](https://github.co
 4. **Shop** section, Serving Gacha Currencies, Top Up function and More,
 5. **Bank Data** to show all items ( Characters and Light Cones ) that obtained from gacha or purchasement
 6. Different banner type has different **Gacha History**
-7. Phonograph to select and play musics.
+7. **Phonograph** to select and play musics.
 8. Gacha Milestone Bonus, exchangable to Star Rail Pass at the Shop section.
 9. Shared Pity to the same banner type, User can continuously gacha on different patch without resetting pity.
 10. Pity Counter, User can track their current information of their pity
@@ -105,7 +101,7 @@ Based on the formula above, it can be concluded that the probability table is as
 
 5. When you guaranteed for 5★ and 4★ item at the same time, your next pull priority is 5★ item and 4★ item will appear next at pity 11. For example: On Character Event Banner, you doesn't get 5★ item until pity 89 and your 4★ pity is 9, So your next pull will looks like screenshot below.
 
-   ![double guaranteed](screenshot/double-guaranteed.jpg)
+   ![double guaranteed](screenshots/double-guaranteed.jpg)
 
 ## Development
 
