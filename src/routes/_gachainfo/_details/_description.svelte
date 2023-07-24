@@ -17,19 +17,22 @@
 	const [item1, item2, item3] =
 		(isCharBanner ? drop4char : drop4lc).filter(({ rateup }) => rateup) || {};
 
-	const rateUpCharList = (key) => {
+	const rateUpList = (key) => {
 		return $t(`details.${key}`, {
 			values: {
 				featuredName: $t(itemName),
 				featuredPath: $t(`path.${path}`),
 				featuredCombatType: $t(combat_type),
 				char1: $t(item1.name),
+				lc1: $t(item1.name),
 				path1: $t(`path.${item1.path}`),
 				combatType1: $t(item1.combat_type),
 				char2: $t(item2.name),
+				lc2: $t(item2.name),
 				path2: $t(`path.${item2.path}`),
 				combatType2: $t(item2.combat_type),
 				char3: $t(item3.name),
+				lc3: $t(item3.name),
 				path3: $t(`path.${item3.path}`),
 				combatType3: $t(item3.combat_type)
 			}
@@ -95,7 +98,7 @@
 				{@html $t(txt, {
 					values: {
 						banner: bannerName,
-						rateupList: rateUpCharList(isCharBanner ? 'rateupCharList' : 'rateupLCList'),
+						rateupList: rateUpList(isCharBanner ? 'rateupCharList' : 'rateupLCList'),
 						itemType: isCharBanner ? $t('character') : $t('lightcone')
 					}
 				})}
@@ -124,7 +127,7 @@
 			{#each $json('details.boostedRate') as txt}
 				{@html $t(txt, {
 					values: {
-						rateupList: rateUpCharList(isCharBanner ? 'rateupCharList' : 'rateupLCList'),
+						rateupList: rateUpList(isCharBanner ? 'rateupCharList' : 'rateupLCList'),
 						featuredName: $t(itemName),
 						featuredPath: $t(`path.${path}`),
 						featuredCombatType: $t(combat_type),

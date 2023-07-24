@@ -33,9 +33,8 @@
 	<div class="container">
 		<div class="wrapper" out:fly={{ y: 25 }}>
 			<div class="header">
-				<h1>Honkai: Star Rail Warp Simulator</h1>
-
-				<h2>Welcome and Good Luck! 🙂</h2>
+				<h1>{$t('title')}</h1>
+				<h2>{$t('welcomeMsg')}</h2>
 
 				{#if !browserDetect().isSupported}
 					<div class="updates adExpired">
@@ -72,15 +71,14 @@
 				{/if}
 
 				<h3 class="disclaimer">
-					This Website is not affiliated with HoYoverse, all assets files are property of their
-					original owners
+					{$t('disclaimer')}
 				</h3>
 			</div>
 
 			<div class="footer">
 				<button on:click={handleSubmit}>
 					<i class="hsr-bulb" />
-					<span> Load Simulator </span>
+					<span> {$t('loadSimulator')} </span>
 				</button>
 			</div>
 		</div>

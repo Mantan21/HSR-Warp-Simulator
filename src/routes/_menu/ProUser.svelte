@@ -1,7 +1,7 @@
 <script>
 	import { onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { t } from 'svelte-i18n';
+	import { json, t } from 'svelte-i18n';
 	import { proUser } from '$lib/stores/app-store';
 	import accessKey from '$lib/helpers/access-key';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
@@ -165,16 +165,19 @@
 		{/if}
 
 		<div class="benefits">
-			<h2>Benefits</h2>
+			<h2>{$t('menu.benefit')}</h2>
 			<div class="row">
 				<ol>
-					<li>Ads Removed</li>
-					<li>Unlock the Future Character Banner</li>
-					<li>
-						You can use the same key for <a href="https://wishsimulator.app" target="_blank">
-							Genshin Impact Wish Simulator
-						</a> and this Honkai: Star Rail Warp Simulator
-					</li>
+					{#each $json('menu.benefitList') as benefit}
+						<li>
+							{@html $t(benefit, {
+								values: {
+									GIWishSim:
+										'<a href="https://wishsimulator.app" target="_blank"> Genshin Impact Wish Simulator </a>'
+								}
+							})}
+						</li>
+					{/each}
 				</ol>
 			</div>
 		</div>
@@ -269,10 +272,12 @@
 	.benefits ol {
 		transform: translateX(15px);
 	}
-	a {
+	a,
+	li :global(a) {
 		color: #c58105;
 	}
-	a:hover {
+	a:hover,
+	li :global(a):hover {
 		text-decoration: underline;
 	}
 </style>

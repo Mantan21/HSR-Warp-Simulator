@@ -81,8 +81,8 @@
 	h1.banner-title {
 		font-size: calc(0.032 * var(--bw));
 		padding: 2.5%;
-		width: 75%;
 		filter: drop-shadow(0.1rem 0.1rem 0.5rem #000);
+		color: rgba(255, 255, 255, 0.9);
 	}
 
 	.description {
@@ -93,6 +93,7 @@
 		display: flex;
 		align-items: center;
 		overflow-y: auto;
+		color: rgba(255, 255, 255, 0.85);
 	}
 
 	.description::-webkit-scrollbar {

@@ -31,7 +31,7 @@
 					<caption>{$t('warp.duration')}</caption>
 				</div>
 				<div class="description">
-					<p>{@html $t('warp.eventDescription')}</p>
+					<p>{@html $t('warp.warpDescription')}</p>
 					<p>{$t('warp.itemRateBoost', { values: { itemtype: $t('character') } })}</p>
 				</div>
 			</div>

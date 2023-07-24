@@ -38,7 +38,7 @@
 		<div class="info-body">
 			<h1>{$t('banner.stellar')}</h1>
 			<div class="description">
-				<p>{@html $t('warp.regularDescription')}</p>
+				<p>{@html $t('warp.warpDescription')}</p>
 				<p>{@html $t('warp.permanent')}</p>
 			</div>
 

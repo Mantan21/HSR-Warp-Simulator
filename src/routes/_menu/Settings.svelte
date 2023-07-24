@@ -64,7 +64,7 @@
 
 <div class="settings" in:fade={{ duration: 250 }}>
 	<Scrollable>
-		<h2>Visual</h2>
+		<h2>{$t('menu.visual')}</h2>
 		<OptionsItem
 			showOption={activeOption === 'litemode'}
 			optionName="litemode"
@@ -83,7 +83,7 @@
 			{$t('menu.autoskip')}
 		</OptionsItem>
 
-		<h2>Sounds</h2>
+		<h2>{$t('menu.sound')}</h2>
 		<OptionsItem
 			showOption={activeOption === 'muteSFX'}
 			optionName="muteSFX"
@@ -109,7 +109,7 @@
 			</div>
 		{/if}
 
-		<h2>Other</h2>
+		<h2>{$t('menu.other')}</h2>
 		<OptionsItem
 			optionName="locale"
 			activeIndicator={$locale}
