@@ -194,10 +194,6 @@
 					"sourceID": "kOzqgSrp8YM"
 				},
 				{
-					"title": "Belobog March \"For Belobog\"",
-					"sourceID": "46IsugxUhJI"
-				},
-				{
 					"title": "Dense Floe",
 					"sourceID": "UX_fJbXlfwY"
 				},
@@ -268,12 +264,124 @@
 					"description": "Thunder roars and rumbles, after lightning flashes and tears the skyfall."
 				},
 				{
-					"title": "Palace of Astrum",
-					"sourceID": "qQT7dW6Kwqk"
+					"title": "Warden of Jade",
+					"sourceID": "qQT7dW6Kwqk",
+					"description": ""
 				},
 				{
-					"title": "The Hound Chases the Fox",
-					"sourceID": "bDVCppIBqT4"
+					"title": "Into the Breach",
+					"sourceID": "6TdbUrV9zM8",
+					"description": ""
+				},
+				{
+					"title": "Hunter's Intuition",
+					"sourceID": "CSTjzWJlEH8",
+					"description": ""
+				},
+				{
+					"title": "Transient Jubilation",
+					"sourceID": "iyhPKC7W7uI",
+					"description": ""
+				},
+				{
+					"title": "Divine Camaraderie",
+					"sourceID": "pqyvKCbhMvA",
+					"description": ""
+				},
+				{
+					"title": "Blade Abracadabra",
+					"sourceID": "dtP08Ly_h5Y",
+					"description": "Blade dancing amongst the willow, light streaking out of the sheath."
+				},
+				{
+					"title": "Into the Desolate",
+					"sourceID": "-IuA9sRce5c",
+					"description": ""
+				},
+				{
+					"title": "Skyedge Voyage",
+					"sourceID": "bDVCppIBqT4",
+					"description": ""
+				},
+				{
+					"title": "Severed Harmony",
+					"sourceID": "_Ejav24ozq8",
+					"description": ""
+				},
+				{
+					"title": "Terrene Deliverance",
+					"sourceID": "CcKkZKdxCJM",
+					"description": ""
+				},
+				{
+					"title": "Serene Stroll",
+					"sourceID": "0VRblo24hEI",
+					"description": ""
+				},
+				{
+					"title": "Evanescent Dreams",
+					"sourceID": "wp2kUy903cI",
+					"description": ""
+				},
+				{
+					"title": "Mokshasatya",
+					"sourceID": "WXzaCEkXwBI",
+					"description": ""
+				},
+				{
+					"title": "Sanctus Medicus Dharani",
+					"sourceID": "ammJgT3lY9Q",
+					"description": ""
+				},
+				{
+					"title": "A Brew of Storm",
+					"sourceID": "iJbIGZV0f6c",
+					"description": ""
+				},
+				{
+					"title": "Gleaming Clash",
+					"sourceID": "SJkNWsVEiJY",
+					"description": ""
+				},
+				{
+					"title": "Erstwhile Resonance",
+					"sourceID": "0swA6liJaSs",
+					"description": ""
+				},
+				{
+					"title": "Obscured Pearls",
+					"sourceID": "sNqtapM-Bg0",
+					"description": ""
+				},
+				{
+					"title": "Arteria Inceptionis",
+					"sourceID": "aDcCoovgNjk",
+					"description": ""
+				},
+				{
+					"title": "Pedujara: Ephemeral Cycle",
+					"sourceID": "NOF8NK41nOw",
+					"description": ""
+				},
+				{
+					"title": "Pedujara: Even Immortality Ends",
+					"sourceID": "EckeiGxSDm8",
+					"description": ""
+				},
+				{
+					"title": "Pedujara: Demiseless Existence",
+					"sourceID": "NN59l-Q7gco",
+					"description": ""
+				},
+				{
+					"title": "Samudrartha",
+					"sourceID": "UYe_vYD0MDM",
+					"description": ""
+				},
+				{
+					"title": "Thundering Chariot",
+					"sourceID": "NugKwBuQLAk",
+					"description": "Thunder roars and rumbles, after lightning flashes and tears the skyfall."
 				},
 				{
 					"title": "Stroll Around the Exalting Sanctum",
@@ -282,16 +390,20 @@
 				{
 					"title": "Divination Commission",
 					"sourceID": "_IfVJuUZ3J8"
-				},
-				{
-					"title": "[Xianzhou Luofu Main Theme]",
-					"sourceID": "ttB2FQUzQoQ"
 				}
 			]
 		},
 		{
 			"album": "more-ost",
 			"tracks": [
+				{
+					"title": "Death Approaches (Blade)",
+					"sourceID": "6uhMuvy2Af4"
+				},
+				{
+					"title": "The Traveler And His Oath (Luocha)",
+					"sourceID": "VfydH5LO3f4"
+				},
 				{
 					"title": "Intermission (1.1 Special Program)",
 					"sourceID": "N7dUziUUpKM"
@@ -325,28 +437,8 @@
 					"sourceID": "Axm06DDSLm8"
 				},
 				{
-					"title": "[Meeting Qingque]",
-					"sourceID": "iyhPKC7W7uI"
-				},
-				{
-					"title": "[Meeting Tingyun]",
-					"sourceID": "0VRblo24hEI"
-				},
-				{
 					"title": "Space Comedy",
 					"sourceID": "DxOBqiePZ2U"
-				},
-				{
-					"title": "Awake the Trailblazer",
-					"sourceID": "gtV-t1RjzqM"
-				},
-				{
-					"title": "Kafka · Boss Theme",
-					"sourceID": "CSTjzWJlEH8"
-				},
-				{
-					"title": "It's Kafka",
-					"sourceID": "o1JZbjULhMY"
 				},
 				{
 					"title": "Canon in D (HSR Departure Festival)",
