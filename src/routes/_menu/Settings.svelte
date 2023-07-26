@@ -34,11 +34,20 @@
 	const handleAutoSkip = async ({ detail }) => {
 		const { selected } = detail;
 		const isAutoSkip = selected === 'yes';
-		autoskip.set(isAutoSkip);
-		localConfig.set('autoskip', isAutoSkip);
+		autoskip.update((v) => ({ ...v, express: isAutoSkip }));
+		localConfig.set('autoskip', { express: isAutoSkip });
 		if (isAutoSkip) return readyToPull.set(true);
+
+		// Check express animation if animation turned ON
 		const cekExpress = await expressChecker();
 		readyToPull.set(cekExpress);
+	};
+
+	const handleAutoSkipArt = ({ detail }) => {
+		const { selected } = detail;
+		const isAutoSkip = selected === 'yes';
+		autoskip.set({ art: isAutoSkip, express: true });
+		localConfig.set('autoskip', { express: true, art: isAutoSkip });
 	};
 
 	// Sound & Volume
@@ -77,11 +86,25 @@
 		<OptionsItem
 			showOption={activeOption === 'autoskip'}
 			optionName="autoskip"
-			activeIndicator={$autoskip}
+			activeIndicator={$autoskip.express}
 			on:select={handleAutoSkip}
 		>
 			{$t('menu.autoskip')}
 		</OptionsItem>
+
+		{#if $autoskip.express}
+			<div transition:fly|local={{ y: -10 }}>
+				<OptionsItem
+					sub
+					optionName="skipSplashArt"
+					showOption={activeOption === 'skipSplashArt'}
+					activeIndicator={$autoskip.art}
+					on:select={handleAutoSkipArt}
+				>
+					{$t('menu.skipSplashArt')}
+				</OptionsItem>
+			</div>
+		{/if}
 
 		<h2>{$t('menu.sound')}</h2>
 		<OptionsItem

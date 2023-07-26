@@ -40,8 +40,9 @@ const importLocalConfig = () => {
 	embers.set(isNaN(eb) ? 0 : eb);
 	starlight.set(isNaN(sl) ? 0 : sl);
 
-	const lAutoSkip = localConfig.get('autoskip') || false;
-	autoskip.set(lAutoSkip);
+	const lSkipConfig = localConfig.get('autoskip') || {};
+	const { express = false, art = true } = lSkipConfig === true ? { express: true } : lSkipConfig;
+	autoskip.set({ express, art });
 
 	const llitemode = localConfig.get('litemode') || false;
 	liteMode.set(llitemode);

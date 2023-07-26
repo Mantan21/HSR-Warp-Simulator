@@ -18,7 +18,7 @@
 	let showSkipButton = false;
 
 	const showSplashArt = getContext('showSplashArt');
-	const onExpressArrived = ({ skip } = { skip: false }) => {
+	const onExpressArrived = ({ skip = false } = {}) => {
 		showSplashArt({ skip });
 		showSkipButton = false;
 	};

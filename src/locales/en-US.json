@@ -233,6 +233,7 @@
 		"mutedSFX": "Mute Sound Effects?",
 		"mutedBGM": "Mute Background Musics?",
 		"autoskip": "Auto Skip Express Animation?",
+		"skipSplashArt": "Auto Skip Splash Art as well?",
 		"litemode": "Reduce Animation & Heavy Effects",
 		"clearStorage": "Clear Storage",
 		"clearNow": "Clear Now",

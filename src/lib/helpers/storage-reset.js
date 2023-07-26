@@ -72,6 +72,6 @@ export const storageReset = async ({ keepSetting = false, clearCache = false } =
 	activeBanner.set(0);
 
 	warpAmount.set('default');
-	autoskip.set(false);
+	autoskip.set({ express: false, art: true });
 	muted.set({ bgm: false, sfx: false });
 };

@@ -4,9 +4,15 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 
-	import { activeBanner, assets, bannerList, showStarterBanner } from '$lib/stores/app-store';
+	import {
+		activeBanner,
+		assets,
+		autoskip,
+		bannerList,
+		showStarterBanner
+	} from '$lib/stores/app-store';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
-	import { localConfig, rollCounter } from '$lib/stores/localstorage';
+	import { rollCounter } from '$lib/stores/localstorage';
 	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { playSfx } from '$lib/helpers/sounds/audiofx.js';
 
@@ -49,7 +55,7 @@
 	let warpResult = [];
 	$: bgm = $activeBacksound;
 
-	const showSplashArt = ({ skip } = { skip: false }) => {
+	const showSplashArt = ({ skip = false } = {}) => {
 		skipSplashart = skip;
 		showWarpResult = true;
 		showAstralExpress = false;
@@ -74,8 +80,10 @@
 		pauseTrack(bgm.sourceID, false);
 
 		warpResult = result;
-		const autoSkip = source !== 'warp' || localConfig.get('autoskip');
-		if (autoSkip) return showSplashArt({ skip: true });
+		const { express: skipExpress, art: skipArt } = $autoskip;
+		const skipAll = skipExpress && skipArt;
+		const skipAnimation = source !== 'warp' || skipExpress;
+		if (skipAnimation) return showSplashArt({ skip: skipAll });
 
 		const star = result.map(({ rarity }) => rarity);
 		if (star.includes(5)) astralRarity = 5;
