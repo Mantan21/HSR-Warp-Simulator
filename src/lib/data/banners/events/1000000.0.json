@@ -9,12 +9,12 @@
 				"character": {
 					"bannerID": "10-1",
 					"featured": "imbibitor-lunae",
-					"rateup": ["tingyun", "hook", "asta"]
+					"rateup": ["yukong", "asta", "march-7th"]
 				},
 				"lightcone": {
 					"bannerID": "3-7",
 					"featured": "brighter-than-the-sun",
-					"rateup": ["planetary-rendezvous", "good-night-and-sleep-well", "dance-dance-dance"]
+					"rateup": ["planetary-rendezvous", "memories-of-the-past", "day-one-of-my-new-life"]
 				}
 			}
 		},
@@ -26,12 +26,12 @@
 				"character": {
 					"bannerID": "11-1",
 					"featured": "fu-xuan",
-					"rateup": ["lynx", "qingque", "march-7th"]
+					"rateup": ["lynx", "hook", "pela"]
 				},
 				"lightcone": {
 					"bannerID": "3-8",
 					"featured": "she-already-shut-her-eyes",
-					"rateup": ["perfect-timing", "trend-of-the-universal-market", "the-birth-of-the-self"]
+					"rateup": ["perfect-timing", "good-night-and-sleep-well", "the-moles-welcome-you"]
 				}
 			}
 		}
