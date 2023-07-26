@@ -221,8 +221,7 @@
 
 	.sub {
 		width: 95%;
-		transform: translateX(5.25%);
-		position: relative;
+		margin-left: 5%;
 	}
 
 	.sub::before {
