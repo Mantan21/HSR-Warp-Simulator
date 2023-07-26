@@ -21,15 +21,17 @@
 	$: ready = $readyToPull;
 
 	onMount(async () => {
-		const isReady = localConfig.get('autoskip') || (await check());
+		const lskipConfig = localConfig.get('autoskip') || {};
+		const { express: skipExpress = false } = lskipConfig === true ? { express: true } : lskipConfig;
+		const isReady = skipExpress || (await check());
 		readyToPull.set(isReady);
 	});
 
 	const skipExpress = () => {
 		playSfx();
-		autoskip.set(true);
+		autoskip.set({ express: true, art: true });
 		readyToPull.set(true);
-		localConfig.set('autoskip', true);
+		localConfig.set('autoskip', { express: true, art: true });
 	};
 
 	const preloadExpress = async () => {
