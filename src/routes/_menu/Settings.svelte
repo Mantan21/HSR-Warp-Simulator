@@ -34,8 +34,8 @@
 	const handleAutoSkip = async ({ detail }) => {
 		const { selected } = detail;
 		const isAutoSkip = selected === 'yes';
+		localConfig.set('autoskip', { express: isAutoSkip, art: $autoskip.art });
 		autoskip.update((v) => ({ ...v, express: isAutoSkip }));
-		localConfig.set('autoskip', { express: isAutoSkip });
 		if (isAutoSkip) return readyToPull.set(true);
 
 		// Check express animation if animation turned ON
