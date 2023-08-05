@@ -17,7 +17,6 @@
 			"bannerOffset": { "b": -80, "r": -33, "w": 80 }
 		},
 		{
-			"pro": true,
 			"name": "patience-is-all-you-need",
 			"rarity": 5,
 			"path": "nihility",

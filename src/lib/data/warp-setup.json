@@ -1,7 +1,7 @@
 {
 	"version": "1.2",
-	"warpPhase": 1,
-	"storageVersion": "1.2",
+	"warpPhase": 2,
+	"storageVersion": "1.2.2",
 	"allPatch": [1.0, 1.1, 1.2],
 	"initialAmount": {
 		"stellarJade": 8000,

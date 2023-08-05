@@ -35,7 +35,6 @@
 			"gachaCardOffset": { "l": 15, "t": 205, "w": 520 }
 		},
 		{
-			"pro": true,
 			"name": "kafka",
 			"rarity": 5,
 			"combat_type": "lightning",
@@ -46,7 +45,6 @@
 			"gachaCardOffset": { "l": 48, "t": 203, "w": 510 }
 		},
 		{
-			"pro": true,
 			"name": "luka",
 			"rarity": 4,
 			"combat_type": "physical",
