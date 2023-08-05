@@ -1,7 +1,8 @@
 <script>
-	import { getContext, onMount } from 'svelte';
+	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { fade, fly } from 'svelte/transition';
+
 	import { logs } from '$lib/data/logs.json';
 	import { proUser } from '$lib/stores/app-store';
 	import accessKey from '$lib/helpers/access-key';
@@ -13,20 +14,33 @@
 	let savedKey = '';
 	let dateExpired = '';
 
-	onMount(async () => {
-		const { validity, expiryDate, storedKey } = await accessKey.initialLoad();
+	const retry = () => {
+		console.log('reconecting...');
+		const timer = setTimeout(() => {
+			clearTimeout(timer);
+			verifyKey();
+		}, 5000);
+	};
+
+	const verifyKey = async () => {
+		const { validity, expiryDate, storedKey, status } = await accessKey.initialLoad();
+		if (status === 'offline') return retry();
 		adKeyValid = validity;
 		savedKey = storedKey;
 		dateExpired = expiryDate;
-	});
+	};
 
 	const closeWelcomeScreen = getContext('closeGreeting');
 	const handleSubmit = () => {
 		playSfx();
 		randomTrack('init');
-		proUser.set(adKeyValid);
 		closeWelcomeScreen();
+		verifyKey();
 	};
+
+	const showAd = getContext('showAd');
+	$: proUser.set(adKeyValid);
+	$: showAd.set(!adKeyValid);
 </script>
 
 <div class="welcome" out:fade>
@@ -60,13 +74,14 @@
 						</div>
 					</div>
 				{:else}
-					{@const { changes, date } = logs.find(({ featured }) => featured)}
 					<div class="updates">
-						<span>
-							<i class="tgl"> {date} </i>
-						</span>
-						{#each changes as txt} <p>{@html txt}</p> {/each}
-						<div style="height: .5rem" />
+						{#each [...logs.filter(({ featured }) => featured)].reverse() as { date, changes }}
+							<span>
+								<i class="tgl"> {date} </i>
+							</span>
+							{#each changes as txt} <p>{@html txt}</p> {/each}
+							<div style="height: .5rem" />
+						{/each}
 					</div>
 				{/if}
 
@@ -222,10 +237,10 @@
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		background-color: #fff;
 		font-size: 0.97rem;
-		height: calc(0.7 * var(--modalHeight));
+		max-height: calc(0.15 * var(--screen-height));
 		padding: 0 1rem;
 		display: block;
-		overflow: hidden;
+		overflow: auto;
 	}
 	.updates span {
 		font-weight: bold;

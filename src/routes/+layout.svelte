@@ -4,7 +4,8 @@
 	import { page } from '$app/stores';
 	import { onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { isLoading, locale } from 'svelte-i18n';
+	import { writable } from 'svelte/store';
+	import { isLoading } from 'svelte-i18n';
 	import { dev } from '$app/environment';
 	import './styles.css';
 
@@ -17,10 +18,13 @@
 	} from '$lib/stores/app-store';
 	import { mobileDetect } from '$lib/helpers/mobile-detect';
 	import { mountLocale } from '$lib/helpers/i18n';
+	import Iklan from '$lib/components/Iklan.svelte';
 	import InitialLoader from './_index/InitialLoader.svelte';
 
 	let isLoaded = false;
+	const showAd = writable(false);
 	setContext('loaded', () => (isLoaded = true));
+	setContext('showAd', showAd);
 
 	let innerHeight;
 	let innerWidth;
@@ -105,18 +109,24 @@
 		type="font/woff2"
 		crossorigin
 	/>
+
+	{#if isLoaded && $showAd}
+		<Iklan head />
+	{/if}
 </svelte:head>
 
 <main
 	style="--screen-width:{innerWidth}px; --screen-height:{innerHeight}px"
 	class:mobileLandscape={$isMobileLandscape}
 >
-	{#if !$isLoading && isLoaded}
-		<slot />
-	{:else}
+	{#if !isLoaded}
 		<div class="loading" transition:fade={{ duration: 250 }}>
 			<InitialLoader />
 		</div>
+	{/if}
+
+	{#if !$isLoading && isLoaded}
+		<slot />
 	{/if}
 
 	{#if !previewScreen}

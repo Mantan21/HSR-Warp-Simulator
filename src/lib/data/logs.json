@@ -132,6 +132,7 @@
 		},
 		{
 			"date": "20 Jul 2023",
+			"featured": true,
 			"changes": [
 				"Add New Character: <b>Imbibitor Lunae (5★)</b> & <b>Fu Xuan (5★)</b>",
 				"Add New Character: <b>Lynx (4★)</b>",
