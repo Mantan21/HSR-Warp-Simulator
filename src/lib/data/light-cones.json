@@ -1,6 +1,13 @@
 {
 	"data": [
 		{
+			"name": "patience-is-all-you-need",
+			"rarity": 5,
+			"path": "nihility",
+			"limited": true,
+			"bannerOffset": { "b": -75, "r": -32.5, "w": 90 }
+		},
+		{
 			"name": "the-unreachable-side",
 			"rarity": 5,
 			"path": "destruction",

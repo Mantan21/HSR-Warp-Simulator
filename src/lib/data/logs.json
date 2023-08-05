@@ -128,8 +128,22 @@
 		},
 		{
 			"date": "15 Jul 2023",
-			"featured": true,
 			"changes": ["Unlock Content For the 1st phase of 1.2 - <b>Blade & The Unreachable Side</b>"]
+		},
+		{
+			"date": "20 Jul 2023",
+			"changes": [
+				"Add New Character: <b>Imbibitor Lunae (5★)</b> & <b>Fu Xuan (5★)</b>",
+				"Add New Character: <b>Lynx (4★)</b>",
+				"Add New Light Cones: <b>Brighter Than the Sun</b> & <b>She Already Shut Her Eyes</b>"
+			]
+		},
+		{
+			"date": "05 Aug 2023",
+			"featured": true,
+			"changes": [
+				"Unlock Content For the 2nd phase of 1.2 - <b>Kafka & Patience is All You Need</b>"
+			]
 		}
 	]
 }

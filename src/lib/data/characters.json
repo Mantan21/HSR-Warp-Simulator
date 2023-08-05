@@ -1,6 +1,26 @@
 {
 	"data": [
 		{
+			"name": "kafka",
+			"rarity": 5,
+			"combat_type": "lightning",
+			"path": "nihility",
+			"bannerOffset": { "b": -45, "l": 9.5, "w": 115 },
+			"buttonOffset": { "t": -69, "l": -10, "w": 115 },
+			"splashartOffset": { "t": 55, "w": 110, "l": 52 },
+			"gachaCardOffset": { "l": 48, "t": 203, "w": 510 }
+		},
+		{
+			"name": "luka",
+			"rarity": 4,
+			"combat_type": "physical",
+			"path": "nihility",
+			"release": "1.2-2",
+			"bannerOffset": { "h": 530, "t": -113, "l": -625 },
+			"splashartOffset": { "w": 80 },
+			"gachaCardOffset": { "l": 70, "w": 450, "t": 230 }
+		},
+		{
 			"name": "blade",
 			"rarity": 5,
 			"combat_type": "wind",
@@ -104,7 +124,7 @@
 			"combat_type": "quantum",
 			"path": "erudition",
 			"release": "1.0-0",
-			"bannerOffset": { "h": 410, "t": -108, "l": -520 },
+			"bannerOffset": { "h": 395, "t": -105, "l": -497 },
 			"gachaCardOffset": { "w": 350, "t": 140 }
 		},
 		{
@@ -237,7 +257,7 @@
 			"release": "1.0-0",
 			"splashartOffset": { "t": 45, "w": 100 },
 			"gachaCardOffset": { "t": 160 },
-			"bannerOffset": { "h": 410, "t": -105, "l": -530 }
+			"bannerOffset": { "h": 425, "t": -108, "l": -555 }
 		}
 	]
 }
