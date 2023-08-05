@@ -1,7 +1,8 @@
 <script>
-	import { getContext, onMount } from 'svelte';
+	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { fade, fly } from 'svelte/transition';
+
 	import { logs } from '$lib/data/logs.json';
 	import { proUser } from '$lib/stores/app-store';
 	import accessKey from '$lib/helpers/access-key';
@@ -9,23 +10,34 @@
 	import { browserDetect } from '$lib/helpers/mobile-detect';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
-	let adKeyValid = false;
 	let savedKey = '';
 	let dateExpired = '';
 
-	onMount(async () => {
-		const { validity, expiryDate, storedKey } = await accessKey.initialLoad();
-		adKeyValid = validity;
+	const retry = () => {
+		console.log('reconecting...');
+		const timer = setTimeout(() => {
+			clearTimeout(timer);
+			verifyKey();
+		}, 5000);
+	};
+
+	const verifyKey = async () => {
+		const { validity, expiryDate, storedKey, status } = await accessKey.initialLoad();
+		if (status === 'offline') return retry();
 		savedKey = storedKey;
 		dateExpired = expiryDate;
-	});
 
+		showAd.set(!validity);
+		proUser.set(!!validity);
+	};
+
+	const showAd = getContext('showAd');
 	const closeWelcomeScreen = getContext('closeGreeting');
 	const handleSubmit = () => {
 		playSfx();
 		randomTrack('init');
-		proUser.set(adKeyValid);
 		closeWelcomeScreen();
+		verifyKey();
 	};
 </script>
 
