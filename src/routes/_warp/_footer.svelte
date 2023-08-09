@@ -19,6 +19,7 @@
 	import Button from './_button.svelte';
 	import ButtonWarp from './_button-warp.svelte';
 	import ConvertModal from './_convert-modal.svelte';
+	import ButtonShop from './_button-shop.svelte';
 
 	export let bannerType = 'starter';
 
@@ -127,6 +128,8 @@
 	<ConvertModal {rollCost} {isSpecialPass} />
 {/if}
 
+<ButtonShop />
+
 <div
 	class="button-container"
 	class:fit
@@ -135,11 +138,6 @@
 >
 	<div class="row">
 		<div class="info-button">
-			<div class="btn">
-				<Button on:click={() => goto('shop')}>
-					{$t('shop.heading')}
-				</Button>
-			</div>
 			<div class="btn">
 				<Button on:click={() => goto('collection')}>
 					{$t('collection.button')}
@@ -209,6 +207,11 @@
 
 	.btn {
 		padding: 0.5%;
+	}
+
+	.info-button :global(button) {
+		min-width: 7.75rem;
+		max-width: 15.5rem;
 	}
 
 	/* Mobile Landscape */

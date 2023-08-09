@@ -50,7 +50,7 @@
 	.bonus {
 		position: absolute;
 		right: 0;
-		bottom: 10%;
+		bottom: 16%;
 	}
 
 	.convert {
