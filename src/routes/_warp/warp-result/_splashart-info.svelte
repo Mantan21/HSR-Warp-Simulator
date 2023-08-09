@@ -30,6 +30,13 @@
 				{/if}
 			</div>
 			<div class="right">
+				<div class="item-type">
+					{#if !combatType}
+						<span>{$t('lightcone')} </span> <small>Lightcone</small>
+					{:else}
+						<span>{$t('character')} </span> <small>Character</small>
+					{/if}
+				</div>
 				<div class="name">{$t(name)}</div>
 				<div class="rarity">
 					{#each Array(rarity) as _}
@@ -120,6 +127,22 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+	}
+
+	.item-type {
+		position: absolute;
+		left: 5%;
+		top: 0;
+		transform: translateY(-125%);
+		background-color: rgba(255, 255, 255, 0.9);
+		color: #1b1b1b;
+		padding: calc(0.0015 * var(--screen-width)) calc(0.005 * var(--screen-width));
+		white-space: nowrap;
+		font-size: calc(0.01 * var(--screen-width));
+	}
+	.item-type small {
+		font-family: var(--hsr-neue);
+		font-size: x-small;
 	}
 
 	.name {
