@@ -136,11 +136,6 @@
 	<div class="row">
 		<div class="info-button">
 			<div class="btn">
-				<Button on:click={() => goto('shop')}>
-					{$t('shop.heading')}
-				</Button>
-			</div>
-			<div class="btn">
 				<Button on:click={() => goto('collection')}>
 					{$t('collection.button')}
 				</Button>
@@ -209,6 +204,11 @@
 
 	.btn {
 		padding: 0.5%;
+	}
+
+	.info-button :global(button) {
+		min-width: 7.75rem;
+		max-width: 15.5rem;
 	}
 
 	/* Mobile Landscape */

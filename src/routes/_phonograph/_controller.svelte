@@ -9,7 +9,7 @@
 
 	let isLoop = cookie.get('loopTrack');
 	let isSuffle = cookie.get('suffleTrack');
-	$: playedTrack = $musics.find(({ sourceID }) => sourceID === playedSID);
+	$: playedTrack = $musics.find(({ sourceID }) => sourceID === playedSID) || {};
 
 	const handleLoop = () => {
 		playSfx();
