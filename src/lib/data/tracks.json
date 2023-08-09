@@ -212,6 +212,10 @@
 				{
 					"title": "[Belobog Culture Museum]",
 					"sourceID": "TVOT4EqxIWM"
+				},
+				{
+					"title": "[Underground Treasure Hunt]",
+					"sourceID": "2MOboX1svMc"
 				}
 			]
 		},
@@ -396,6 +400,10 @@
 		{
 			"album": "more-ost",
 			"tracks": [
+				{
+					"title": "A Dramatic Irony (Kafka)",
+					"sourceID": "Ud0HqvSid5g"
+				},
 				{
 					"title": "Death Approaches (Blade)",
 					"sourceID": "6uhMuvy2Af4"
