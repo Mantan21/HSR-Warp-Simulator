@@ -80,7 +80,12 @@
 			<input type="number" bind:value disabled={$oneiric < 1} />
 		</div>
 		<div class="range">
-			<Range max={$oneiric || 1} min={1} value={$oneiric < 1 ? 1 : value} disabled={$oneiric < 1} />
+			<Range
+				max={$oneiric || 1}
+				min={$oneiric < 2 ? 0 : 1}
+				value={$oneiric < 1 ? 1 : value}
+				disabled={$oneiric < 1}
+			/>
 		</div>
 	</div>
 </Modal>

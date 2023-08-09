@@ -5,6 +5,7 @@
 	export let disabled = false;
 	export let colored = false;
 	export let dark = false;
+	export let notAllowed = false;
 
 	const dispatch = createEventDispatcher();
 	const handleClick = () => {
@@ -12,7 +13,7 @@
 	};
 </script>
 
-<button on:click={handleClick} {disabled} class:colored class:dark>
+<button on:click={handleClick} {disabled} class:notAllowed class:colored class:dark>
 	{#if !!icon}
 		<i class="hsr-{icon}" />
 	{/if}
@@ -50,6 +51,10 @@
 		color: #fff;
 	}
 
+	button.notAllowed {
+		cursor: not-allowed;
+	}
+
 	:global(.mobileLandscape) button {
 		width: 125px;
 	}
@@ -84,7 +89,7 @@
 		border: none;
 	}
 
-	button:not(:disabled):active {
+	button:not(:disabled, .notAllowed):active {
 		opacity: 0.5;
 		transform: scale(0.95);
 	}

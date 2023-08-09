@@ -16,7 +16,7 @@
 	import MainMenu from './Menu.svelte';
 
 	const localToggle = cookie.get('menuToggle');
-	let showToggle = localToggle === undefined ? true : localToggle;
+	let showToggle = !!localToggle;
 
 	const toggleMenuList = () => {
 		playSfx('click2');
@@ -169,6 +169,7 @@
 		padding: 0.5% calc(1% + 1.2rem) 0.5% 1%;
 		overflow: hidden;
 		transition: all 0.2s;
+		backdrop-filter: blur(8px);
 	}
 	.menu.hide {
 		transform: translateX(calc(-100% + 1.2rem));
@@ -176,7 +177,7 @@
 
 	@media screen and (max-width: 750px) {
 		.menu {
-			bottom: 13%;
+			bottom: 20%;
 		}
 	}
 

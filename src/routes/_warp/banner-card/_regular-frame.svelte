@@ -60,7 +60,11 @@
 
 		{#if !isClaimed}
 			<div class="char-group additional">
-				<button class:ready={rollcount >= 300} on:click={handleModal}>
+				<button
+					class:ready={rollcount >= 300}
+					class:halfReady={rollcount >= 150 && rollcount < 300}
+					on:click={handleModal}
+				>
 					<span class="notice">i</span>
 					<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
 				</button>
@@ -229,6 +233,10 @@
 	.additional button.ready {
 		border: 0.15rem solid #fff;
 		box-shadow: 0 0 0.5rem 0.2rem rgba(255, 206, 99, 1);
+	}
+	.additional button.halfReady {
+		border: 0.15rem solid #abd7f2;
+		box-shadow: 0 0 0.5rem 0.2rem rgb(200, 227, 255);
 	}
 
 	.additional button .notice {

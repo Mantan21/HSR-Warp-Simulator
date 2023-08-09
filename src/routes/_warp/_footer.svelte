@@ -19,6 +19,7 @@
 	import Button from './_button.svelte';
 	import ButtonWarp from './_button-warp.svelte';
 	import ConvertModal from './_convert-modal.svelte';
+	import ButtonShop from './_button-shop.svelte';
 
 	export let bannerType = 'starter';
 
@@ -126,6 +127,8 @@
 {#if showConverModal}
 	<ConvertModal {rollCost} {isSpecialPass} />
 {/if}
+
+<ButtonShop />
 
 <div
 	class="button-container"
