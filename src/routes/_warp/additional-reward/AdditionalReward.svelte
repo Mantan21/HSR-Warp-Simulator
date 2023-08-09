@@ -85,7 +85,9 @@
 				{#if readyToPick && !selected}
 					<caption> {$t('additionalReward.selectChar')} </caption>
 				{:else}
-					<ButtonGeneral icon="note">{$t('additionalReward.viewDetail')}</ButtonGeneral>
+					<ButtonGeneral icon="note" notAllowed>
+						{$t('additionalReward.viewDetail')}
+					</ButtonGeneral>
 					{#if readyToPick}
 						<ButtonGeneral colored icon="select" on:click={openModal}>
 							{$t('additionalReward.select')}
