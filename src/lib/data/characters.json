@@ -5,7 +5,7 @@
 			"rarity": 5,
 			"combat_type": "lightning",
 			"path": "nihility",
-			"bannerOffset": { "b": -45, "l": 9.5, "w": 115 },
+			"bannerOffset": { "b": -52, "l": 3.5, "w": 124 },
 			"buttonOffset": { "t": -69, "l": -10, "w": 115 },
 			"splashartOffset": { "t": 55, "w": 110, "l": 52 },
 			"gachaCardOffset": { "l": 48, "t": 203, "w": 510 }
