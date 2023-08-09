@@ -130,13 +130,13 @@ export const randomTrack = (mode = 'nav') => {
 	if (unfinisedTrack && mode === 'init') {
 		playedIndex = tracks.findIndex(({ sourceID }) => unfinisedTrack === sourceID);
 		playTrack(unfinisedTrack);
-		activeBacksound.set(tracks[playedIndex]);
+		activeBacksound.set(tracks[playedIndex] || {});
 		return;
 	}
 	const { selected, index } = rand(tracks);
 	playedIndex = index;
 	playTrack(selected.sourceID);
-	activeBacksound.set(selected);
+	activeBacksound.set(selected || {});
 };
 
 export const pauseTrack = (sourceID, stop = true) => {

@@ -10,7 +10,6 @@
 	import { browserDetect } from '$lib/helpers/mobile-detect';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
-	let adKeyValid = false;
 	let savedKey = '';
 	let dateExpired = '';
 
@@ -25,11 +24,14 @@
 	const verifyKey = async () => {
 		const { validity, expiryDate, storedKey, status } = await accessKey.initialLoad();
 		if (status === 'offline') return retry();
-		adKeyValid = validity;
 		savedKey = storedKey;
 		dateExpired = expiryDate;
+
+		showAd.set(!validity);
+		proUser.set(!!validity);
 	};
 
+	const showAd = getContext('showAd');
 	const closeWelcomeScreen = getContext('closeGreeting');
 	const handleSubmit = () => {
 		playSfx();
@@ -37,10 +39,6 @@
 		closeWelcomeScreen();
 		verifyKey();
 	};
-
-	const showAd = getContext('showAd');
-	$: proUser.set(adKeyValid);
-	$: showAd.set(!adKeyValid);
 </script>
 
 <div class="welcome" out:fade>
