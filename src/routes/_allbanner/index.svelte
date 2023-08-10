@@ -67,7 +67,7 @@
 			/>
 			<label for="showAll">
 				<i>✔</i>
-				Show Hidden Banner
+				{$t('banner.showHidden')}
 			</label>
 		</div>
 		<div class="close">
@@ -145,6 +145,7 @@
 		display: inline-block;
 		position: relative;
 		z-index: +2;
+		font-weight: normal;
 	}
 
 	h3::before {

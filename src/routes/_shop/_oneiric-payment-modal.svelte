@@ -91,7 +91,7 @@
 				<div class="method">
 					<button on:click={() => selectMethod('tears')} class:active={activeMethod === 'tears'}>
 						<img src={$assets['method-tears.webp']} alt={$t('shop.methodTears')} />
-						Tears
+						{$t('shop.methodTears')}
 					</button>
 				</div>
 			</div>
