@@ -61,7 +61,7 @@
 			if (isDuplicate) {
 				showToast = true;
 				const albumName = $t(`phonograph.${isDuplicate.album}`);
-				message = `"${isDuplicate.title}" already listed in "${albumName}" album`;
+				message = $t('duplicatedTrack', { values: { trackTitle: isDuplicate.title, albumName } });
 			} else {
 				// Fetch Audio
 				data = await fetchAudio(videoID);
@@ -72,7 +72,7 @@
 			console.error(e);
 			onCheckProgress = false;
 			showToast = true;
-			message = 'Failed to Fetch Video Information';
+			message = $t('failedToFetch');
 		}
 	};
 

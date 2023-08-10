@@ -15,7 +15,6 @@
 	button {
 		background-color: var(--color-text);
 		color: #222;
-		font-weight: bold;
 		padding: 0.55rem 0;
 		font-size: 120%;
 		border-radius: 10rem;
@@ -23,8 +22,8 @@
 		position: relative;
 		margin: 0 0.2rem;
 		width: calc(0.138 * var(--width));
-		max-width: 10rem;
-		min-width: 7rem;
+		min-width: 7.75rem;
+		max-width: 15.5rem;
 		transition: all 0.2s;
 	}
 

@@ -147,6 +147,10 @@
 		align-items: center;
 	}
 
+	:global(.ja-JP) h1 {
+		font-size: calc(0.035 * var(--bw));
+	}
+
 	:global(.mobileLandscape) h1 {
 		margin-top: 13%;
 		font-size: calc(0.022 * var(--bw));
@@ -185,7 +189,6 @@
 	.item-name .name {
 		font-size: calc(0.02 * var(--bw));
 		color: #333;
-		font-weight: bold;
 		width: 80%;
 	}
 

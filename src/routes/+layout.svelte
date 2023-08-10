@@ -5,7 +5,7 @@
 	import { onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { writable } from 'svelte/store';
-	import { isLoading } from 'svelte-i18n';
+	import { isLoading, locale } from 'svelte-i18n';
 	import { dev } from '$app/environment';
 	import './styles.css';
 
@@ -31,6 +31,13 @@
 	$: viewportWidth.set(innerWidth);
 	$: viewportHeight.set(innerHeight);
 	$: previewScreen = $page.url.pathname.includes('screen');
+
+	let font = '';
+	$: {
+		const lc = $locale?.toLowerCase() || '';
+		const cnLogo = lc.match(/(cn|ja)/);
+		font = cnLogo || lc.includes('th') ? lc.split('-')[0] : 'os';
+	}
 
 	const redirectIfNotValidPath = () => {
 		const allowedPath = ['screen', 'feedback', 'privacy-policy'];
@@ -97,6 +104,13 @@
 	/>
 	<link
 		rel="preload"
+		href="/fonts/StarRailNeue-Regular.woff2"
+		as="font"
+		type="font/woff2"
+		crossorigin
+	/>
+	<link
+		rel="preload"
 		href="/fonts/optimized_global_web.woff2"
 		as="font"
 		type="font/woff2"
@@ -104,7 +118,7 @@
 	/>
 	<link
 		rel="preload"
-		href="/fonts/StarRailNeue-Regular.woff2"
+		href="/fonts/optimized_ja_web.woff2"
 		as="font"
 		type="font/woff2"
 		crossorigin
@@ -116,8 +130,9 @@
 </svelte:head>
 
 <main
-	style="--screen-width:{innerWidth}px; --screen-height:{innerHeight}px"
+	style="--screen-width:{innerWidth}px; --screen-height:{innerHeight}px; --hsr-font:var(--hsr-{font}-font)"
 	class:mobileLandscape={$isMobileLandscape}
+	class={$locale}
 >
 	{#if !isLoaded}
 		<div class="loading" transition:fade={{ duration: 250 }}>
@@ -136,8 +151,15 @@
 
 <style>
 	@font-face {
-		font-family: 'StarRail GLobal';
+		font-family: 'StarRail_Global_Web';
 		src: url('/fonts/optimized_global_web.woff2') format('woff2');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'StarRail_JA_Web';
+		src: url('/fonts/optimized_ja_web.woff2') format('woff2');
 		font-weight: normal;
 		font-style: normal;
 	}

@@ -74,7 +74,10 @@
 		"skipExpress": "Skip Express",
 		"loadExpressMsg": "Load {item} Animation",
 		"expressNotLoaded": "Astral Express Animations belum dimuat di browser kamu, <span> Muat Astral Express</span> terlebih dahulu, atau <span> Aktifkan </span> opsi untuk skip Astral Express secara otomatis!",
-		"preloadFilesMsg": "* File yang dimuat akan disimpan ke dalam penyimpanan broser, kamu tidak perlu memuatnya kembali sampai situs memerlukan update."
+		"preloadFilesMsg": "* File yang dimuat akan disimpan ke dalam penyimpanan broser, kamu tidak perlu memuatnya kembali sampai situs memerlukan update.",
+		"firstTimeShare": "Hadiah membagikan pertama kali:",
+		"firstShareObtain": "Membagikan pertama kali akan mendapatkan {reward}",
+		"sharingTxt": "Come and try this Honkai: Star Rail Warp Simulator!"
 	},
 	"banner": {
 		"all": "Semua Banner",
@@ -280,6 +283,8 @@
 		"notrackAdded": "Kamu belum menambahkan musik",
 		"addCustom": "Tambahkan Musik",
 		"addTrack": "Tambah",
-		"removeTrack": "Hapus Track"
+		"removeTrack": "Hapus Track",
+		"duplicatedTrack": "\"{trackTitle}\" sudah ada pada album \"{albumName}\"",
+		"failedToFetch": "Gagal memuat informasi Track"
 	}
 }

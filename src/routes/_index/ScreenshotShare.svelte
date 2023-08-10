@@ -10,6 +10,7 @@
 
 	import Icon from '$lib/components/Icon.svelte';
 	import ScreenshotResult from './_screenshot-result.svelte';
+	import { t } from 'svelte-i18n';
 
 	export let animate = false;
 	export let shareURL = '';
@@ -104,7 +105,8 @@
 <div class="share" in:animateFade={{ animate, delay: 1000 }}>
 	{#if isFirstTimeShare && shareURL}
 		<div class="text">
-			First-time Share Rewards: <Icon type="stellarJade" /> × {initialAmount.shareReward}
+			{$t('warp.firstTimeShare')}
+			<Icon type="stellarJade" /> × {initialAmount.shareReward}
 		</div>
 	{/if}
 	<button class="btn-berbagi" on:click={takeShot} disabled={loading}><i class="hsr-share" /></button

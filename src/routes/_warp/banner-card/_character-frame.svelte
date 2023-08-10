@@ -179,6 +179,10 @@
 		align-items: center;
 	}
 
+	:global(.ja-JP) h1 {
+		font-size: calc(0.04 * var(--bw));
+	}
+
 	:global(.mobileLandscape) h1 {
 		margin-top: 13%;
 		font-size: calc(0.022 * var(--bw));

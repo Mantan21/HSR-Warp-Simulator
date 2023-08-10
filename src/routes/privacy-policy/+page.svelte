@@ -79,7 +79,7 @@
 	}
 
 	article :global(h2) {
-		font-family: var(--hsr-font);
+		font-family: var(--hsr-os-font);
 		padding: 1.5rem 0 0.5rem;
 	}
 

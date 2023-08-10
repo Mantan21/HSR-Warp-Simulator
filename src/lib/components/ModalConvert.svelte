@@ -91,6 +91,9 @@
 </Modal>
 
 <style>
+	.modal-content {
+		width: 100%;
+	}
 	.top {
 		width: 100%;
 		position: fixed;
