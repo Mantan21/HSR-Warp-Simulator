@@ -144,6 +144,9 @@
 		display: flex;
 		align-items: center;
 	}
+	:global(.ja-JP) h1 {
+		font-size: calc(0.055 * var(--bw));
+	}
 
 	:global(.mobileLandscape) h1 {
 		margin-top: 13%;

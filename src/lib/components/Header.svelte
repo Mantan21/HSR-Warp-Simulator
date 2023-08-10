@@ -74,6 +74,7 @@
 	.heading h1 {
 		color: var(--color-second);
 		font-size: 110%;
+		font-weight: normal;
 	}
 
 	:global(.mobileLandscape) .heading h1 {
@@ -84,6 +85,7 @@
 		margin-top: calc(0.001 * var(--screen-width));
 		white-space: nowrap;
 		font-size: 140%;
+		font-weight: normal;
 	}
 	:global(.mobileLandscape) .heading h2 {
 		font-size: 110%;

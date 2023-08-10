@@ -5,7 +5,7 @@
 			"rarity": 5,
 			"path": "nihility",
 			"limited": true,
-			"bannerOffset": { "b": -15, "r": -1.5, "w": 80 }
+			"bannerOffset": { "b": -5, "r": -3.5, "w": 85, "yOrigin": 10 }
 		},
 		{
 			"name": "the-unreachable-side",

@@ -209,11 +209,6 @@
 		padding: 0.5%;
 	}
 
-	.info-button :global(button) {
-		min-width: 7.75rem;
-		max-width: 15.5rem;
-	}
-
 	/* Mobile Landscape */
 	:global(.mobileLandscape) .button-container {
 		bottom: 4.5%;

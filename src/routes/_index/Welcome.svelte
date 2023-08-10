@@ -166,6 +166,7 @@
 	h2 {
 		font-size: 120%;
 		padding: 2%;
+		font-weight: normal;
 	}
 
 	.footer {
