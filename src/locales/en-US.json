@@ -81,6 +81,7 @@
 	},
 	"banner": {
 		"all": "All Banner",
+		"stc": "Subject To Change",
 		"showHidden": "Show Hidden Banner",
 		"undefined": "Unkown",
 		"starter": "Starter Warp",

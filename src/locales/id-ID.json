@@ -81,6 +81,7 @@
 	},
 	"banner": {
 		"all": "Semua Banner",
+		"stc": "Bisa Berubah Sampai Rilis Official",
 		"showHidden": "Tampilkan Banner Tersembunyi",
 		"undefined": "Tidak Diketahui",
 		"starter": "Warp Pemula",
