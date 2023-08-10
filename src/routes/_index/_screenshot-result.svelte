@@ -1,7 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { saveAs } from 'file-saver';
+
 	import { APP_TITLE } from '$lib/data/site-setup.json';
 	import { initialAmount } from '$lib/data/warp-setup.json';
 	import { isMobile } from '$lib/stores/app-store';
@@ -16,7 +18,7 @@
 	export let shareURL = '';
 
 	$: shareLink = shareURL || window.location.origin;
-	let shareText = 'Come and try this Honkai: Star Rail Warp Simulator!';
+	let shareText = $t('warp.sharingTxt');
 	let showToast = false;
 
 	const closeShot = getContext('closeShot');
@@ -126,7 +128,7 @@
 		{#if isFirstTIme && shareURL}
 			<div class="first-time">
 				<span>
-					First-time Sharing will Obtain {initialAmount.shareReward}
+					{$t('warp.firstShareObtain', { values: { reward: initialAmount.shareReward } })}
 					<Icon type="stellarJade" />
 				</span>
 			</div>
