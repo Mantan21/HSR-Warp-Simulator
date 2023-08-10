@@ -2,13 +2,13 @@
 	import { getContext, setContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
+	import { localBalance } from '$lib/stores/localstorage';
 	import { embers, regularPass, specialPass, starlight, stellarJade } from '$lib/stores/app-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import Modal from '$lib/components/Modal.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 	import Range from '$lib/components/Range.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
-	import { localBalance } from '$lib/stores/localstorage';
 
 	export let data = {};
 	const { itemToExchange, currency, price } = data;

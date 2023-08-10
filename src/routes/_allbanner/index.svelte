@@ -67,7 +67,7 @@
 			/>
 			<label for="showAll">
 				<i>✔</i>
-				Show Hidden Banner
+				{$t('banner.showHidden')}
 			</label>
 		</div>
 		<div class="close">
@@ -86,7 +86,7 @@
 					{#each allBanners as { patch, data }, i}
 						<div class="group" in:fade={{ duration: 300, delay: Math.sqrt(i * 10000) }}>
 							{#if patch === 1000000}
-								<h3>Subject To Change</h3>
+								<h3>{$t('banner.stc')}</h3>
 							{:else}
 								<h3>{$t('version')} {patch.toFixed(1)}</h3>
 							{/if}
@@ -145,6 +145,7 @@
 		display: inline-block;
 		position: relative;
 		z-index: +2;
+		font-weight: normal;
 	}
 
 	h3::before {

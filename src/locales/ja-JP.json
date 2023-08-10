@@ -74,10 +74,15 @@
 		"skipExpress": "スキップ",
 		"loadExpressMsg": "{item}アニメーションをダウンロード中",
 		"expressNotLoaded": "跳躍アニメーションがストレージに見つかりません。スムーズな跳躍のために、事前に<span>ダウンロード</span>するか、<span>跳躍アニメーションのスキップをオン</span>にします",
-		"preloadFilesMsg": "*読み込まれたファイルはブラウザストレージに保存されるため、サイトが更新されるまで再度読み込む必要はありません。"
+		"preloadFilesMsg": "*読み込まれたファイルはブラウザストレージに保存されるため、サイトが更新されるまで再度読み込む必要はありません。",
+		"firstTimeShare": "First-time Share Rewards:",
+		"firstShareObtain": "First-time Sharing will Obtain {reward}",
+		"sharingTxt": "Come and try this Honkai: Star Rail Warp Simulator!"
 	},
 	"banner": {
 		"all": "すべて",
+		"stc": "Subject To Change",
+		"showHidden": "Show Hidden Banner",
 		"undefined": "未定義",
 		"starter": "初心者跳躍",
 		"regular": "恒常跳躍",
@@ -280,6 +285,8 @@
 		"notrackAdded": "何もありません",
 		"addCustom": "曲の追加",
 		"addTrack": "曲の追加",
-		"removeTrack": "曲の削除"
+		"removeTrack": "曲の削除",
+		"duplicatedTrack": "\"{trackTitle}\" is already listed in \"{albumName}\" album",
+		"failedToFetch": "Failed to Fetch Track Information"
 	}
 }
