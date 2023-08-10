@@ -81,6 +81,7 @@
 	},
 	"banner": {
 		"all": "すべて",
+		"showHidden": "Show Hidden Banner",
 		"undefined": "未定義",
 		"starter": "初心者跳躍",
 		"regular": "恒常跳躍",
