@@ -129,6 +129,7 @@
 	h1 {
 		font-size: 130%;
 		width: 100%;
+		font-weight: normal;
 	}
 
 	.list-wrapper {
