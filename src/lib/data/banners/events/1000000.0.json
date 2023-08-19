@@ -1,39 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"phase": 1,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": "10-1",
-					"featured": "imbibitor-lunae",
-					"rateup": ["yukong", "asta", "march-7th"]
-				},
-				"lightcone": {
-					"bannerID": "3-7",
-					"featured": "brighter-than-the-sun",
-					"rateup": ["planetary-rendezvous", "memories-of-the-past", "day-one-of-my-new-life"]
-				}
-			}
-		},
-		{
-			"phase": 2,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": "11-1",
-					"featured": "fu-xuan",
-					"rateup": ["lynx", "hook", "pela"]
-				},
-				"lightcone": {
-					"bannerID": "3-8",
-					"featured": "she-already-shut-her-eyes",
-					"rateup": ["perfect-timing", "good-night-and-sleep-well", "the-moles-welcome-you"]
-				}
-			}
-		}
-	]
+	"data": []
 }

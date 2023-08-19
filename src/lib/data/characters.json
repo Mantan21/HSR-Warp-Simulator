@@ -18,7 +18,7 @@
 			"rarity": 5,
 			"combat_type": "quantum",
 			"path": "preservation",
-			"bannerOffset": { "b": -43, "l": 12, "w": 115 },
+			"bannerOffset": { "b": -50, "l": 4.5, "w": 130 },
 			"buttonOffset": { "t": -30, "l": 0, "w": 100 },
 			"splashartOffset": { "t": 55, "w": 100, "l": 54.5 },
 			"gachaCardOffset": { "l": 60, "t": 200, "w": 500 }
@@ -29,7 +29,7 @@
 			"rarity": 5,
 			"combat_type": "imaginary",
 			"path": "destruction",
-			"bannerOffset": { "b": -40, "l": 10, "w": 115 },
+			"bannerOffset": { "b": -50, "l": 3, "w": 125 },
 			"buttonOffset": { "t": -48.5, "l": -5, "w": 110 },
 			"splashartOffset": { "t": 55, "w": 110, "l": 52 },
 			"gachaCardOffset": { "l": 15, "t": 205, "w": 520 }
