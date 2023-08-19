@@ -8,7 +8,7 @@
 	import { cookie } from '$lib/stores/cookies';
 	import { storageReset } from '$lib/helpers/storage-reset';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { isPlaying, randomTrack } from '$lib/helpers/sounds/phonograph';
+	import { initTrack, isPlaying } from '$lib/helpers/sounds/phonograph';
 	import { activeBacksound, muted } from '$lib/stores/phonograph-store';
 	import { check as checkExpress } from '$lib/helpers/express-loader';
 
@@ -91,7 +91,7 @@
 		if (keepSetting) return;
 
 		const soundOn = isPlaying($activeBacksound.sourceID);
-		if (!soundOn) randomTrack('init');
+		if (!soundOn) initTrack();
 		readyToPull.set(await checkExpress());
 	};
 

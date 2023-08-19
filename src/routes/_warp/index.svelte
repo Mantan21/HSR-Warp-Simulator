@@ -11,7 +11,6 @@
 		bannerList,
 		showStarterBanner
 	} from '$lib/stores/app-store';
-	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { rollCounter } from '$lib/stores/localstorage';
 	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { playSfx } from '$lib/helpers/sounds/audiofx.js';
@@ -53,7 +52,6 @@
 	let astralRarity = 3;
 	let showWarpResult = false;
 	let warpResult = [];
-	$: bgm = $activeBacksound;
 
 	const showSplashArt = ({ skip = false } = {}) => {
 		skipSplashart = skip;
@@ -71,13 +69,13 @@
 	const closeResult = () => {
 		showWarpResult = false;
 		onWarp.set(false);
-		resumeTrack(bgm.sourceID);
+		resumeTrack();
 	};
 	setContext('closeResult', closeResult);
 
 	const handleGachaAnimation = (result, source = 'warp') => {
 		onWarp.set(true);
-		pauseTrack(bgm.sourceID, false);
+		pauseTrack({ stop: false });
 
 		warpResult = result;
 		const { express: skipExpress, art: skipArt } = $autoskip;

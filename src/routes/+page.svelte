@@ -8,7 +8,6 @@
 		liteMode,
 		showStarterBanner
 	} from '$lib/stores/app-store';
-	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/storage-reader';
@@ -22,6 +21,18 @@
 	import PreloadExpress from './_index/PreloadExpress.svelte';
 	import Banners from './_warp/index.svelte';
 	import Menu from './_menu/index.svelte';
+
+	let AllBanner, Collection, Shop, GachaInfo, Phonograph, ObtainedItem, ModalConvert;
+	const asyncLoadComponent = async () => {
+		ObtainedItem = (await import('$lib/components/ObtainedItem.svelte')).default;
+		ModalConvert = (await import('$lib/components/ModalConvert.svelte')).default;
+
+		AllBanner = (await import('./_allbanner/index.svelte')).default;
+		Collection = (await import('./_collection/index.svelte')).default;
+		Shop = (await import('./_shop/index.svelte')).default;
+		GachaInfo = (await import('./_gachainfo/index.svelte')).default;
+		Phonograph = (await import('./_phonograph/index.svelte')).default;
+	};
 
 	let status;
 	let welcomeScreen = true;
@@ -54,31 +65,12 @@
 	setContext('onWarp', onWarp);
 
 	const handleTrack = () => {
-		window.addEventListener('blur', () => {
-			const { sourceID } = $activeBacksound;
-			if ($onWarp) return;
-			if (pageActive === 'phonograph') return;
-			pauseTrack(sourceID, false);
-		});
+		if (welcomeScreen) return;
+		if ($onWarp) return;
 
-		window.addEventListener('focus', () => {
-			const { sourceID } = $activeBacksound;
-			if ($onWarp) return;
-			if (pageActive === 'phonograph') return;
-			resumeTrack(sourceID);
-		});
-	};
-
-	let AllBanner, Collection, Shop, GachaInfo, Phonograph, ObtainedItem, ModalConvert;
-	const asyncLoadComponent = async () => {
-		ObtainedItem = (await import('$lib/components/ObtainedItem.svelte')).default;
-		ModalConvert = (await import('$lib/components/ModalConvert.svelte')).default;
-
-		AllBanner = (await import('./_allbanner/index.svelte')).default;
-		Collection = (await import('./_collection/index.svelte')).default;
-		Shop = (await import('./_shop/index.svelte')).default;
-		GachaInfo = (await import('./_gachainfo/index.svelte')).default;
-		Phonograph = (await import('./_phonograph/index.svelte')).default;
+		const mode = document.visibilityState;
+		if (mode === 'visible') return resumeTrack();
+		pauseTrack({ stop: false });
 	};
 
 	onMount(() => {
@@ -103,6 +95,7 @@
 			if (pageActive === 'index') return;
 			navigate('index');
 		});
+		document.addEventListener('visibilitychange', handleTrack);
 	});
 
 	// Convert Modal

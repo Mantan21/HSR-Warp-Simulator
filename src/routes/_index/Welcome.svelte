@@ -6,7 +6,7 @@
 	import { logs } from '$lib/data/logs.json';
 	import { proUser } from '$lib/stores/app-store';
 	import accessKey from '$lib/helpers/access-key';
-	import { randomTrack } from '$lib/helpers/sounds/phonograph';
+	import { initTrack } from '$lib/helpers/sounds/phonograph';
 	import { browserDetect } from '$lib/helpers/mobile-detect';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
@@ -35,7 +35,7 @@
 	const closeWelcomeScreen = getContext('closeGreeting');
 	const handleSubmit = () => {
 		playSfx();
-		randomTrack('init');
+		initTrack();
 		closeWelcomeScreen();
 		verifyKey();
 	};
