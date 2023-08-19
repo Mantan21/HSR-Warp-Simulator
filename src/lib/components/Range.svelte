@@ -1,17 +1,21 @@
 <script>
+	import { getContext, createEventDispatcher } from 'svelte';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { getContext } from 'svelte';
 
 	export let max;
 	export let min;
 	export let value;
 	export let disabled = false;
+	export let controller = false;
+	export let dark = false;
 
 	$: rangeStyle = `--min: ${min || 0}; --max: ${max || 0}; --val: ${value || 0}`;
 
+	const dispatch = createEventDispatcher();
 	const setValue = getContext('setValue');
 	const changeRange = (e) => {
 		const { value } = e.target;
+		dispatch('input', { value });
 		setValue(parseInt(value));
 	};
 
@@ -46,19 +50,21 @@
 	};
 </script>
 
-<div class="range">
-	<div class="btn">
-		<button
-			disabled={isNaN(value) || value <= 1}
-			on:touchstart|preventDefault|nonpassive={() => rangeControl('min')}
-			on:mousedown|preventDefault={() => rangeControl('min')}
-			on:mouseleave={clearTimers}
-			on:mouseup={clearTimers}
-			on:touchend={clearTimers}
-		>
-			<i class="hsr-minus" />
-		</button>
-	</div>
+<div class="range" class:dark>
+	{#if controller}
+		<div class="btn">
+			<button
+				disabled={isNaN(value) || value <= 1}
+				on:touchstart|preventDefault|nonpassive={() => rangeControl('min')}
+				on:mousedown|preventDefault={() => rangeControl('min')}
+				on:mouseleave={clearTimers}
+				on:mouseup={clearTimers}
+				on:touchend={clearTimers}
+			>
+				<i class="hsr-minus" />
+			</button>
+		</div>
+	{/if}
 	<span>{min}</span>
 
 	<input
@@ -73,18 +79,21 @@
 	/>
 
 	<span>{max}</span>
-	<div class="btn">
-		<button
-			on:touchstart|preventDefault|nonpassive={() => rangeControl('plus')}
-			on:mousedown|preventDefault={() => rangeControl('plus')}
-			on:mouseleave={clearTimers}
-			on:mouseup={clearTimers}
-			on:touchend={clearTimers}
-			disabled={isNaN(value) || value >= max}
-		>
-			<i class="hsr-plus" />
-		</button>
-	</div>
+
+	{#if controller}
+		<div class="btn">
+			<button
+				on:touchstart|preventDefault|nonpassive={() => rangeControl('plus')}
+				on:mousedown|preventDefault={() => rangeControl('plus')}
+				on:mouseleave={clearTimers}
+				on:mouseup={clearTimers}
+				on:touchend={clearTimers}
+				disabled={isNaN(value) || value >= max}
+			>
+				<i class="hsr-plus" />
+			</button>
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -100,9 +109,9 @@
 		--sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
 		margin: 0;
 		padding: 0;
-		height: 1.5em;
+		height: 1.5rem;
 		background: transparent;
-		font: 1em/1 arial, sans-serif;
+		font: 1rem/1 arial, sans-serif;
 	}
 
 	[type='range'],
@@ -114,21 +123,31 @@
 		box-sizing: border-box;
 		border: none;
 		width: 100%;
-		height: 0.4em;
+		height: 0.4rem;
 		background: linear-gradient(to right, #a7785e, #cda46e) 0 / var(--sx) 100% no-repeat #bcbcbc;
 		border-radius: 10px;
+	}
+
+	.dark [type='range']::-webkit-slider-runnable-track {
+		background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)) 0 / var(--sx) 100%
+			no-repeat #bcbcbc;
 	}
 
 	[type='range']::-webkit-slider-thumb {
 		box-sizing: border-box;
 		border: none;
 		border-radius: 0;
-		width: 1.35em;
-		height: 1.35em;
+		width: 1.2rem;
+		height: 1.2rem;
 		background: #fff;
 		margin-top: -0.45rem;
-		border: 0.2em solid #cda46e;
+		border: 0.2rem solid #cda46e;
 		border-radius: 100%;
+	}
+
+	.dark [type='range']::-webkit-slider-thumb {
+		border: none;
+		background-color: #000;
 	}
 
 	.range span {

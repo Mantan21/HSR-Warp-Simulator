@@ -130,6 +130,9 @@
 					{$t('phonograph.choosebgm')}
 				</OptionsItem>
 			</div>
+			<div transition:fly|local={{ y: -10 }}>
+				<OptionsItem sub optionName="phonoVolume" mode="slider">Music Volume</OptionsItem>
+			</div>
 		{/if}
 
 		<h2>{$t('menu.other')}</h2>

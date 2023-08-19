@@ -85,6 +85,7 @@
 				min={$oneiric < 2 ? 0 : 1}
 				value={$oneiric < 1 ? 1 : value}
 				disabled={$oneiric < 1}
+				controller
 			/>
 		</div>
 	</div>

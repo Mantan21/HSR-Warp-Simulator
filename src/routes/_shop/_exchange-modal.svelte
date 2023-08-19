@@ -73,7 +73,7 @@
 		</div>
 		<div class="range">
 			<div class="amount">{$t('shop.amount')}: {value}</div>
-			<Range {value} min={1} max={max || 1} disabled={max < 1} />
+			<Range {value} min={1} max={max || 1} disabled={max < 1} controller />
 			<div class="price">
 				<Icon type={currency} /> <span> {price * value} </span>
 			</div>

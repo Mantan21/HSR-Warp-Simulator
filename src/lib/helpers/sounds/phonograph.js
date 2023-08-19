@@ -179,6 +179,12 @@ export const resumeTrack = async () => {
 	sound.fade(0, volume, 10, playID);
 };
 
+export const setVolume = (val) => {
+	const volumeVal = val / 100;
+	cookie.set('trackVolume', volumeVal);
+	Object.keys(loadedTracks).forEach((key) => loadedTracks[key]?.volume(volumeVal));
+};
+
 const randomTrack = () => {
 	const { selected } = rand(tracks);
 	playTrack(selected.sourceID);
