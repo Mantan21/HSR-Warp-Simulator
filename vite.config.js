@@ -4,7 +4,7 @@ import { imagetools } from 'vite-imagetools';
 import { VitePWA } from 'vite-plugin-pwa';
 import { plugin as MdPlugin } from 'vite-plugin-markdown';
 
-const iconSize = [32, 72, 144, 152, 192, 256, 384, 512];
+const iconSize = [32, 72, 96, 128, 144, 152, 192, 256, 384, 512];
 const icons = iconSize.map((size) => {
 	const iconObj = {
 		src: `./icons/icon-${size}x${size}.png`,
@@ -71,6 +71,7 @@ const manifest = {
 	background_color: '#000000',
 	scope: '/',
 	start_url: '/?pwasc=hsr-homescreen',
+	id: 'hsr.wishsimulator.app',
 	categories: ['games', 'utilities'],
 	dir: 'auto',
 	display: 'fullscreen',
