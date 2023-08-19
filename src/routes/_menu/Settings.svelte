@@ -4,9 +4,9 @@
 	import { locale, t } from 'svelte-i18n';
 
 	import { warpAmount, autoskip, liteMode } from '$lib/stores/app-store';
-	import { activeBacksound, muted } from '$lib/stores/phonograph-store';
+	import { muted } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/stores/localstorage';
-	import { pauseTrack, randomTrack } from '$lib/helpers/sounds/phonograph';
+	import { initTrack, pauseTrack } from '$lib/helpers/sounds/phonograph';
 	import { check as expressChecker } from '$lib/helpers/express-loader';
 
 	import Scrollable from '$lib/components/Scrollable.svelte';
@@ -56,7 +56,7 @@
 
 		const isBGM = optionName === 'muteBGM';
 		// stop bgm before saving config
-		if (selected === 'yes' && isBGM) pauseTrack($activeBacksound.sourceID);
+		if (selected === 'yes' && isBGM) pauseTrack();
 
 		// saving config
 		const key = isBGM ? 'bgm' : 'sfx';
@@ -67,7 +67,7 @@
 		localConfig.set('mutedSounds', $muted);
 
 		// Play audio after saving config
-		if (selected !== 'yes' && isBGM) randomTrack('init');
+		if (selected !== 'yes' && isBGM) initTrack();
 	};
 </script>
 

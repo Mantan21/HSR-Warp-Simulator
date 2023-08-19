@@ -1,5 +1,5 @@
-import { localConfig } from '$lib/stores/localstorage';
 import { Howl } from 'howler';
+import { localConfig } from '$lib/stores/localstorage';
 
 const sfxList = [
 	'allbanner',

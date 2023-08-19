@@ -8,9 +8,9 @@
 	import TrackItem from './_track-item.svelte';
 	import ModalTrack from './_modal-track.svelte';
 	import Modal from '$lib/components/Modal.svelte';
-	import { musics } from '$lib/stores/phonograph-store';
+	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
 	import { customTracks } from '$lib/stores/localstorage';
-	import { isPlaying, nextTrack } from '$lib/helpers/sounds/phonograph';
+	import { nextTrack } from '$lib/helpers/sounds/phonograph';
 
 	export let playedAlbum = '';
 	export let trackList = [];
@@ -58,7 +58,7 @@
 
 	const confirmDelete = () => {
 		playSfx();
-		if (isPlaying(musicIDToDelete)) nextTrack(musicIDToDelete);
+		if ($activeBacksound.sourceID === musicIDToDelete) nextTrack();
 		musics.update((m) => m.filter((m) => m.sourceID !== musicIDToDelete));
 		customTracks.delete(musicIDToDelete);
 		musicIDToDelete = '';

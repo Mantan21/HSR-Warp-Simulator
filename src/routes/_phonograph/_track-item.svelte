@@ -39,7 +39,7 @@
 			songReady(false);
 
 			selectTrack(sID);
-			pauseTrack(playedTrack || bgm.sourceID);
+			await pauseTrack();
 			const { status } = await playTrack(sID);
 			if (status === 'error') throw new Error('Server Error');
 			playedTrack = sID;

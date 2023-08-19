@@ -1,14 +1,20 @@
 export const fetchAudio = async (sourceID) => {
-	const dataToPost = { videoID: sourceID };
-	const headers = new Headers();
-	headers.append('Content-Type', 'text/plain');
+	try {
+		const dataToPost = { videoID: sourceID };
+		const headers = new Headers();
+		headers.append('Content-Type', 'text/plain');
 
-	const data = await fetch('https://phonograph.wishsimulator.app/track', {
-		method: 'POST',
-		body: JSON.stringify(dataToPost),
-		headers
-	});
+		const data = await fetch('https://phonograph.wishsimulator.app/track', {
+			method: 'POST',
+			body: JSON.stringify(dataToPost),
+			headers
+		});
 
-	const result = await data.json();
-	return result;
+		if (data.status !== 200) return { status: 'error' };
+		const result = await data.json();
+		return result;
+	} catch (e) {
+		console.error(e);
+		return { status: 'error' };
+	}
 };

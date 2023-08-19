@@ -1,5 +1,5 @@
 <script>
-	import { getContext, onMount, setContext } from 'svelte';
+	import { getContext, onDestroy, onMount, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { liteMode } from '$lib/stores/app-store';
@@ -40,10 +40,13 @@
 	const back = () => {
 		playSfx('music-close');
 		navigate('index');
-		if (playedTrack === activeTrack) return;
-		pauseTrack(playedTrack);
-		playTrack(activeTrack);
 	};
+
+	onDestroy(async () => {
+		if (playedTrack === activeTrack) return;
+		await pauseTrack();
+		playTrack(activeTrack);
+	});
 </script>
 
 <svelte:head>
