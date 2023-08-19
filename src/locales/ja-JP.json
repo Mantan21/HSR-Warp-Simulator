@@ -279,6 +279,7 @@
 		"notLoaded": "読み込み中",
 		"suffle": "シャッフル",
 		"loop": "Loop",
+		"volume": "Music Volume",
 		"inputURL": "Youtube URLを入力:",
 		"check": "検証",
 		"deleteTrack": "この曲を消去しますか？",

@@ -1,5 +1,5 @@
 <script>
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { createEventDispatcher, getContext, setContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { locale, locales, t } from 'svelte-i18n';
 
@@ -9,11 +9,15 @@
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { userCurrencies } from '$lib/helpers/shop-price';
 	import { flags, localeName } from '$lib/data/country.json';
+	import Range from '$lib/components/Range.svelte';
+	import { cookie } from '$lib/stores/cookies';
+	import { setVolume } from '$lib/helpers/sounds/phonograph';
 
 	export let showOption = false;
 	export let optionName;
 	export let activeIndicator = null;
 	export let sub = false;
+	export let mode = 'option';
 
 	const openOption = getContext('openOption');
 	const dispatch = createEventDispatcher();
@@ -29,6 +33,16 @@
 		if (showOption) return openOption('');
 		playSfx('setting-item');
 		openOption(optionName);
+	};
+
+	// Range Input
+	let rangeVal = cookie.get('trackVolume') * 100 || 20;
+	const setValue = (val) => (rangeVal = val);
+	setContext('setValue', setValue);
+
+	const changeValue = (e) => {
+		const { value } = e.detail;
+		setVolume(value);
 	};
 
 	// Language
@@ -164,6 +178,12 @@
 				</div>
 			{/if}
 
+			<!-- Slider -->
+		{:else if mode === 'slider'}
+			<div class="selected-option slider">
+				<Range value={rangeVal} max={100} min={1} dark on:input={changeValue} />
+			</div>
+
 			<!-- Regular -->
 		{:else}
 			<button class="selected-option" on:click={handleOption}>
@@ -270,6 +290,14 @@
 		width: 100%;
 		height: 100%;
 		position: relative;
+	}
+
+	.selected-option.slider {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
 	}
 
 	img.flag {
