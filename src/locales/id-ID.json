@@ -187,7 +187,11 @@
 		"lose": "Kalah 50/50",
 		"guaranteed": "Dijamin",
 		"untracked": "Tidak Terdeteksi",
-		"description": "Semua data akan riwayat disimpan ke dalam IndexedDB, penyimpanan ini ada di browser kamu dan tidak akan dihapus pada beberapa kondisi tertentu sampai kamu menghapusnya secara manual melalui tombol reset atau menghapus data browser."
+		"description": "Semua data akan riwayat disimpan ke dalam IndexedDB, penyimpanan ini ada di browser kamu dan tidak akan dihapus pada beberapa kondisi tertentu sampai kamu menghapusnya secara manual melalui tombol reset atau menghapus data browser.",
+		"resetButton": "Bersihkan",
+		"resetPromptTitle": "Bersihkan Riwayat?",
+		"resetPrompt": "Tindakan ini akan menghapus semua Karakter dan Senjata dimiliki yang berasal dari banner \"{bannerName}\". <br /> Yakin untuk me-Reset ?",
+		"resetSuccess": "Berhasil me-Reset"
 	},
 	"collection": {
 		"heading": "Arsip",

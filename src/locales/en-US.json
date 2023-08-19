@@ -187,7 +187,11 @@
 		"lose": "Lose 50/50",
 		"guaranteed": "Guaranteed",
 		"untracked": "Untracked",
-		"description": "All data was stored to IndexedDB, it means the data is saved on your browser storage. It will never deleted untill you delete it manualy through delete/reset button or clear the browser data."
+		"description": "All data was stored to IndexedDB, it means the data is saved on your browser storage. It will never deleted untill you delete it manualy through delete/reset button or clear the browser data.",
+		"resetButton": "Clear",
+		"resetPromptTitle": "Clear History?",
+		"resetPrompt": "It's also remove all Characters and Weapons related to \"{bannerName}\" Banner from your Inventory. <br /> Are You Sure to Reset ?",
+		"resetSuccess": "Reset Successful!"
 	},
 	"collection": {
 		"heading": "Bank Data",
