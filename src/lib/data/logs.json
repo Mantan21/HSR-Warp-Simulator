@@ -132,7 +132,6 @@
 		},
 		{
 			"date": "20 Jul 2023",
-			"featured": true,
 			"changes": [
 				"Add New Character: <b>Imbibitor Lunae (5★)</b> & <b>Fu Xuan (5★)</b>",
 				"Add New Character: <b>Lynx (4★)</b>",
@@ -141,9 +140,15 @@
 		},
 		{
 			"date": "05 Aug 2023",
-			"featured": true,
 			"changes": [
 				"Unlock Content For the 2nd phase of 1.2 - <b>Kafka & Patience is All You Need</b>"
+			]
+		},
+		{
+			"date": "25 Aug 2023",
+			"featured": true,
+			"changes": [
+				"Unlock Content: The 1st phase of 1.3 - <b>Dan Heng • Imbibitor Lunae & Brighter Than the Sun</b>"
 			]
 		}
 	]

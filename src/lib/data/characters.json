@@ -24,7 +24,6 @@
 			"gachaCardOffset": { "l": 60, "t": 200, "w": 500 }
 		},
 		{
-			"pro": true,
 			"name": "imbibitor-lunae",
 			"rarity": 5,
 			"combat_type": "imaginary",
