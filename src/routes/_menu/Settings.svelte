@@ -131,9 +131,7 @@
 				</OptionsItem>
 			</div>
 			<div transition:fly|local={{ y: -10 }}>
-				<OptionsItem sub optionName="phonoVolume" mode="slider">
-					{$t('phonograph.volume')}
-				</OptionsItem>
+				<OptionsItem sub optionName="phonoVolume" mode="slider">Music Volume</OptionsItem>
 			</div>
 		{/if}
 

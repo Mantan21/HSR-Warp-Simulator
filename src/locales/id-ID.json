@@ -95,8 +95,10 @@
 		"swirl-of-heavenly-spear": "Pusaran Tombak Langit",
 		"contract-zero": "Kontrak No. 0",
 		"laic-pursuit": "Mengejar Kefanaaan",
-		"nessun-dorma": "Nessun Dorma",
-		"a-lost-soul": "Jiwa dalam Kesesatan"
+		"nessun-dorma": "Malam Tanpa Mimpi",
+		"a-lost-soul": "Jiwa dalam Kesesatan",
+		"epochal-spectrum": "Epochal Spectrum",
+		"foreseen-foreknown-foretold": "Foreseen, Foreknown, Foretold"
 	},
 	"details": {
 		"heading": "Detail",
@@ -187,11 +189,7 @@
 		"lose": "Kalah 50/50",
 		"guaranteed": "Dijamin",
 		"untracked": "Tidak Terdeteksi",
-		"description": "Semua data akan riwayat disimpan ke dalam IndexedDB, penyimpanan ini ada di browser kamu dan tidak akan dihapus pada beberapa kondisi tertentu sampai kamu menghapusnya secara manual melalui tombol reset atau menghapus data browser.",
-		"resetButton": "Bersihkan",
-		"resetPromptTitle": "Bersihkan Riwayat?",
-		"resetPrompt": "Tindakan ini akan menghapus semua Karakter dan Senjata dimiliki yang berasal dari banner \"{bannerName}\". <br /> Yakin untuk me-Reset ?",
-		"resetSuccess": "Berhasil me-Reset"
+		"description": "Semua data akan riwayat disimpan ke dalam IndexedDB, penyimpanan ini ada di browser kamu dan tidak akan dihapus pada beberapa kondisi tertentu sampai kamu menghapusnya secara manual melalui tombol reset atau menghapus data browser."
 	},
 	"collection": {
 		"heading": "Arsip",
@@ -283,7 +281,6 @@
 		"notLoaded": "Belum dimuat",
 		"suffle": "Acak",
 		"loop": "Loop",
-		"volume": "Volume Musik Latar Belakang",
 		"inputURL": "Masukkan Youtube URL:",
 		"check": "Cek",
 		"deleteTrack": "Apakah kamu yakin menghapus track ini?",

@@ -96,7 +96,9 @@
 		"contract-zero": "零号協定",
 		"laic-pursuit": "世界を探して",
 		"nessun-dorma": "夜は眠らぬ",
-		"a-lost-soul": "業途を彷徨う魂"
+		"a-lost-soul": "業途を彷徨う魂",
+		"epochal-spectrum": "Epochal Spectrum",
+		"foreseen-foreknown-foretold": "Foreseen, Foreknown, Foretold"
 	},
 	"details": {
 		"heading": "詳細",
@@ -187,11 +189,7 @@
 		"lose": "50%に敗北",
 		"guaranteed": "確定獲得",
 		"untracked": "記録なし",
-		"description": "祈願データをインターネット上に保存することはありません。IndexedDBを利用するため、データはすべてブラウザのキャッシュに保存されることになります。ユーザー自身が削除/リセットボタンで削除するか、ブラウザのデータを消去しない限り削除されません。",
-		"resetButton": "Clear",
-		"resetPromptTitle": "Clear History ?",
-		"resetPrompt": "It's also remove all Characters and Light Cones related to \"{bannerName}\" Banner from your Inventory. <br /> Are You Sure to Reset ?",
-		"resetSuccess": "Reset Successful !"
+		"description": "祈願データをインターネット上に保存することはありません。IndexedDBを利用するため、データはすべてブラウザのキャッシュに保存されることになります。ユーザー自身が削除/リセットボタンで削除するか、ブラウザのデータを消去しない限り削除されません。"
 	},
 	"collection": {
 		"heading": "コレクション",
@@ -283,7 +281,6 @@
 		"notLoaded": "読み込み中",
 		"suffle": "シャッフル",
 		"loop": "Loop",
-		"volume": "Music Volume",
 		"inputURL": "Youtube URLを入力:",
 		"check": "検証",
 		"deleteTrack": "この曲を消去しますか？",

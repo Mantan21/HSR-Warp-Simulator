@@ -98,7 +98,6 @@
 		transition: all 0.2s;
 	}
 	.options span {
-		color: #dd7a00;
 		padding: 0.8rem 1.5rem 0.8rem 0.5rem;
 		display: block;
 		width: 100%;

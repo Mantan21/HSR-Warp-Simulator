@@ -1,6 +1,13 @@
 {
 	"data": [
 		{
+			"name": "brighter-than-the-sun",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -80, "r": -33, "w": 80 }
+		},
+		{
 			"name": "patience-is-all-you-need",
 			"rarity": 5,
 			"path": "nihility",

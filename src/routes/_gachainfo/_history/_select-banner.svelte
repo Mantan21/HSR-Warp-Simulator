@@ -1,13 +1,9 @@
 <script>
-	import { getContext, setContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { bannerList, showStarterBanner, starterRemaining } from '$lib/stores/app-store';
+	import { bannerList } from '$lib/stores/app-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import Modal from '$lib/components/Modal.svelte';
-	import Toast from '$lib/components/Toast.svelte';
-	import { HistoryManager } from '$lib/stores/idbManager';
-	import { guaranteedStatus, localPity, rollCounter } from '$lib/stores/localstorage';
 
 	export let banner;
 
@@ -29,64 +25,7 @@
 	const bn = (type) => {
 		return ['lightcone', 'character'].includes(type) ? `${type}-event` : type;
 	};
-
-	// Modal Reset
-	let showToast = false;
-	let modalReset = false;
-	const showModalReset = () => {
-		playSfx();
-		modalReset = true;
-	};
-	const closeModal = () => {
-		modalReset = false;
-		playSfx('close');
-	};
-	setContext('closeModal', closeModal);
-
-	const { clearHistory } = HistoryManager;
-	const clear = getContext('clearHistory');
-
-	const confirmReset = async () => {
-		await clearHistory(banner);
-		localPity.set(`pity5${banner}`, 0);
-		localPity.set(`pity4${banner}`, 0);
-		if (banner.match('event')) {
-			guaranteedStatus.set(`${banner}-4star`, false);
-			guaranteedStatus.set(`${banner}-5star`, false);
-		} else guaranteedStatus.set(banner, false);
-
-		if (banner === 'beginner') {
-			rollCounter.set('beginner', 0);
-			showStarterBanner.set(true);
-			starterRemaining.set(50);
-		}
-		clear();
-		playSfx();
-
-		modalReset = false;
-		showToast = true;
-	};
-
-	setContext('closeToast', () => (showToast = false));
 </script>
-
-<!-- Modal Reset -->
-{#if modalReset}
-	<Modal title={$t('history.resetPromptTitle')} on:cancel={closeModal} on:confirm={confirmReset}>
-		<div class="confirmation">
-			<p>
-				{@html $t('history.resetPrompt', {
-					values: { bannerName: `<u>${$t(`banner.${banner}`)}</u>` }
-				})}
-			</p>
-		</div>
-	</Modal>
-{/if}
-
-{#if showToast}
-	<Toast>{$t('history.resetSuccess')}</Toast>
-{/if}
-<!-- End Modal Reset -->
 
 <div class="selectType">
 	<button
@@ -99,10 +38,6 @@
 		{@html $t(`banner.${bn(banner)}`)}
 		<i class="hsr-caret-{showSelectList ? 'up' : 'down'}" />
 	</button>
-
-	<button class="clear" on:click={showModalReset}>
-		<i class="hsr-trash" /> {$t('history.resetButton')}</button
-	>
 
 	{#if showSelectList}
 		<div class="select-list" transition:fade={{ duration: 200 }}>
@@ -122,59 +57,18 @@
 </div>
 
 <style>
-	.confirmation {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	.selected {
 		width: 100%;
-		height: 100%;
-		padding: 3%;
-		text-align: center;
+		padding: 0.8% 0;
+		font-size: calc(0.02 * var(--width));
+		border-bottom: 0.15rem solid #ddd;
+		text-align: left;
 	}
-
 	.selectType {
 		width: 100%;
 		display: flex;
 		align-items: center;
 		position: relative;
-		border-bottom: 0.15rem solid #ddd;
-	}
-
-	.selected {
-		width: 100%;
-		padding: 0.8% 0;
-		font-size: calc(0.02 * var(--width));
-		text-align: left;
-		position: relative;
-	}
-
-	.selectType .clear {
-		font-size: calc(0.0125 * var(--width));
-		min-width: fit-content;
-		border: 2px solid #888;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: calc(0.005 * var(--width)) calc(0.015 * var(--width));
-		border-radius: 3rem;
-		transform: scale(1.0001);
-		transition: all 0.25s;
-	}
-
-	.clear:hover {
-		background-color: #d32525;
-		color: #fff;
-		border-color: transparent;
-	}
-	.clear:active {
-		transform: scale(0.95);
-	}
-
-	.clear i {
-		font-size: calc(0.015 * var(--width));
-		line-height: 0;
-		display: inline-block;
 	}
 
 	button span {

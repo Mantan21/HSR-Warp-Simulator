@@ -31,7 +31,7 @@ const lightconeWarp = {
 		if (rarity === 3) return get3StarItem();
 		if (rarity === 4) {
 			// guaranteed after lost 75:25
-			const isGuaranteed = guaranteedStatus.get('lightcone-event-4star');
+			const isGuaranteed = guaranteedStatus.get('lightcone4star');
 			const item = [
 				{ type: 'rateup', chance: 75 },
 				{ type: 'regular', chance: 25 }
@@ -41,7 +41,7 @@ const lightconeWarp = {
 			// win or guaranteed to get rateup one
 			if (type === 'rateup' || isGuaranteed) {
 				const result = rand(this._rateupLightcones());
-				guaranteedStatus.set('lightcone-event-4star', false);
+				guaranteedStatus.set('lightcone4star', false);
 				return result;
 			}
 
@@ -52,7 +52,7 @@ const lightconeWarp = {
 				phase: this._phase,
 				exclude: [rateupNames]
 			});
-			guaranteedStatus.set('lightcone-event-4star', true);
+			guaranteedStatus.set('lightcone4star', true);
 			return result;
 		}
 
@@ -63,19 +63,19 @@ const lightconeWarp = {
 			];
 
 			const { type } = prob(item);
-			const isGuaranteed = guaranteedStatus.get('lightcone-event-5star');
+			const isGuaranteed = guaranteedStatus.get('lightcone5star');
 
 			// Win or Guaranteed
 			if (type === 'featured' || isGuaranteed) {
 				const lightconeResult = this._featuredLightcones();
-				guaranteedStatus.set('lightcone-event-5star', false);
+				guaranteedStatus.set('lightcone5star', false);
 				lightconeResult.status = isGuaranteed ? 'guaranteed' : 'win';
 				return lightconeResult;
 			}
 
 			// Lose rateoff
 			const result = rand(regularLightcones(5, [this._featured]));
-			guaranteedStatus.set('lightcone-event-5star', true);
+			guaranteedStatus.set('lightcone5star', true);
 			result.status = 'lose';
 			return result;
 		}

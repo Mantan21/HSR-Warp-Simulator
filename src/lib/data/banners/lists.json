@@ -44,6 +44,16 @@
 			"id": 9,
 			"name": "a-lost-soul",
 			"type": "character-event"
+		},
+		{
+			"id": 10,
+			"name": "epochal-spectrum",
+			"type": "character-event"
+		},
+		{
+			"id": 11,
+			"name": "foreseen-foreknown-foretold",
+			"type": "character-event"
 		}
 	]
 }

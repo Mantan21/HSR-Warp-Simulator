@@ -96,7 +96,9 @@
 		"contract-zero": "Contract Zero",
 		"laic-pursuit": "Laic Pursuit",
 		"nessun-dorma": "Nessun Dorma",
-		"a-lost-soul": "A Lost Soul"
+		"a-lost-soul": "A Lost Soul",
+		"epochal-spectrum": "Epochal Spectrum",
+		"foreseen-foreknown-foretold": "Foreseen, Foreknown, Foretold"
 	},
 	"details": {
 		"heading": "Details",
@@ -187,11 +189,7 @@
 		"lose": "Lose 50/50",
 		"guaranteed": "Guaranteed",
 		"untracked": "Untracked",
-		"description": "All data was stored to IndexedDB, it means the data is saved on your browser storage. It will never deleted untill you delete it manualy through delete/reset button or clear the browser data.",
-		"resetButton": "Clear",
-		"resetPromptTitle": "Clear History?",
-		"resetPrompt": "It's also remove all Characters and Weapons related to \"{bannerName}\" Banner from your Inventory. <br /> Are You Sure to Reset ?",
-		"resetSuccess": "Reset Successful!"
+		"description": "All data was stored to IndexedDB, it means the data is saved on your browser storage. It will never deleted untill you delete it manualy through delete/reset button or clear the browser data."
 	},
 	"collection": {
 		"heading": "Bank Data",
@@ -283,7 +281,6 @@
 		"notLoaded": "Not yet loaded",
 		"suffle": "Suffle",
 		"loop": "Loop",
-		"volume": "Music Volume",
 		"inputURL": "Please Enter Youtube URL:",
 		"check": "Check",
 		"deleteTrack": "Are you sure to delete this Track?",

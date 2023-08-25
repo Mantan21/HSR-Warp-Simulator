@@ -1,6 +1,16 @@
 {
 	"data": [
 		{
+			"name": "imbibitor-lunae",
+			"rarity": 5,
+			"combat_type": "imaginary",
+			"path": "destruction",
+			"bannerOffset": { "b": -62, "l": -12, "w": 142 },
+			"buttonOffset": { "t": -48.5, "l": -5, "w": 110 },
+			"splashartOffset": { "t": 55, "w": 110, "l": 52 },
+			"gachaCardOffset": { "l": 15, "t": 205, "w": 520 }
+		},
+		{
 			"name": "kafka",
 			"rarity": 5,
 			"combat_type": "lightning",

@@ -20,18 +20,18 @@
 
 <style>
 	.toast {
-		padding: 0.5% 2%;
+		padding: 1% 4%;
 		text-align: center;
 		border-radius: 0.3rem;
 		min-width: 10rem;
 		max-width: 20rem;
-		color: #fff;
+		color: var(--tertiary-color);
 		background-color: #4a5265;
 		position: fixed;
 		z-index: 999;
 		left: 50%;
 		top: 20%;
 		transform: translate(-50%, -50%);
-		font-size: 0.9rem;
+		font-size: 100%;
 	}
 </style>
