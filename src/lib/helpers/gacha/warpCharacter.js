@@ -29,9 +29,9 @@ const characterWarp = {
 			const resultType = rand(['rateup', 'regular']);
 
 			// win or guaranteed
-			if (resultType === 'rateup' || guaranteedStatus.get('character4star')) {
+			if (resultType === 'rateup' || guaranteedStatus.get('character-event-4star')) {
 				const result = rand(this._rateupChars());
-				guaranteedStatus.set('character4star', false);
+				guaranteedStatus.set('character-event-4star', false);
 				return result;
 			}
 
@@ -41,25 +41,25 @@ const characterWarp = {
 				phase: this._phase,
 				exclude: this._rateup
 			});
-			guaranteedStatus.set('character4star', true); // set to guaranteed after loosing
+			guaranteedStatus.set('character-event-4star', true); // set to guaranteed after loosing
 			return result;
 		}
 
 		if (rarity === 5) {
 			const resultType = rand(['featured', 'regular']);
-			const isGuaranteed = guaranteedStatus.get('character5star');
+			const isGuaranteed = guaranteedStatus.get('character-event-5star');
 
 			// Guaranteed
 			if (resultType === 'featured' || isGuaranteed) {
 				const characterResult = this._featuredChars();
-				guaranteedStatus.set('character5star', false);
+				guaranteedStatus.set('character-event-5star', false);
 				characterResult.status = isGuaranteed ? 'guaranteed' : 'win';
 				return characterResult;
 			}
 
 			// Lose 50/50
 			const result = rand(regularChars5Star(this._regularList));
-			guaranteedStatus.set('character5star', true);
+			guaranteedStatus.set('character-event-5star', true);
 			result.status = 'lose';
 			return result;
 		}
