@@ -41,6 +41,12 @@
 
 	const navigation = (page) => (activepage = page);
 	setContext('historyNavigation', navigation);
+
+	const clearHistory = () => {
+		filterBy = 'clear';
+		activepage = 1;
+	};
+	setContext('clearHistory', clearHistory);
 </script>
 
 <svelte:head>
@@ -67,7 +73,7 @@
 </div>
 
 <style>
-	.history :global(span) {
+	.history p :global(span) {
 		color: #dd7a00;
 	}
 	p {
