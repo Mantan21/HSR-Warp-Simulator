@@ -47,6 +47,10 @@
 		color: #bd6932;
 	}
 
+	span {
+		color: #dd7a00;
+	}
+
 	.jadeSpend strong {
 		background-image: linear-gradient(#9160d9, #4b90ff);
 		background-clip: text;

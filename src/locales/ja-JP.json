@@ -189,7 +189,11 @@
 		"lose": "50%に敗北",
 		"guaranteed": "確定獲得",
 		"untracked": "記録なし",
-		"description": "祈願データをインターネット上に保存することはありません。IndexedDBを利用するため、データはすべてブラウザのキャッシュに保存されることになります。ユーザー自身が削除/リセットボタンで削除するか、ブラウザのデータを消去しない限り削除されません。"
+		"description": "祈願データをインターネット上に保存することはありません。IndexedDBを利用するため、データはすべてブラウザのキャッシュに保存されることになります。ユーザー自身が削除/リセットボタンで削除するか、ブラウザのデータを消去しない限り削除されません。",
+		"resetButton": "Clear",
+		"resetPromptTitle": "Clear History ?",
+		"resetPrompt": "It's also remove all Characters and Light Cones related to \"{bannerName}\" Banner from your Inventory. <br /> Are You Sure to Reset ?",
+		"resetSuccess": "Reset Successful !"
 	},
 	"collection": {
 		"heading": "コレクション",

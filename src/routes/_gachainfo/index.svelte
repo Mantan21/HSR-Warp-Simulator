@@ -151,7 +151,17 @@
 		padding-bottom: calc(0.005 * var(--width));
 		padding-left: calc(0.007 * var(--width));
 		padding-right: calc(0.025 * var(--width));
-		mask-image: linear-gradient(black 95%, transparent 100%);
+		position: relative;
+	}
+
+	.info-content::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 6%;
+		background-image: linear-gradient(to top, rgba(246, 246, 246, 1) 10%, transparent);
 	}
 
 	.content {
