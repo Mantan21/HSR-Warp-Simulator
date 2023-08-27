@@ -2,6 +2,22 @@
 	"data": [
 		{
 			"pro": true,
+			"name": "worrisome-blissful",
+			"rarity": 5,
+			"path": "hunt",
+			"limited": true,
+			"bannerOffset": { "b": -80, "r": -6, "w": 110 }
+		},
+		{
+			"pro": true,
+			"name": "i-shall-be-my-own-sword",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -193, "r": -52, "w": 130 }
+		},
+		{
+			"pro": true,
 			"name": "she-already-shut-her-eyes",
 			"rarity": 5,
 			"path": "preservation",

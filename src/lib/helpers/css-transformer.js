@@ -6,8 +6,9 @@ const positionToStyle = (position) => {
 	const style = Object.keys(position).map((key) => {
 		const index = keyToChange.findIndex((v) => v === key);
 		if (index < 0) return '';
-		const css = key.replace(key, cssProps[index]);
-		return `${css}:${position[key]}%`;
+		const props = key.replace(key, cssProps[index]);
+		const value = position[key] === 'auto' ? 'auto' : `${position[key]}%`;
+		return `${props}:${value}`;
 	});
 	return style.join(';');
 };

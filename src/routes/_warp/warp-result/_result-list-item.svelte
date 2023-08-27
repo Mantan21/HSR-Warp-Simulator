@@ -121,6 +121,7 @@
 		position: relative;
 		width: 100%;
 		aspect-ratio: 2/1.1;
+		transform: scale(0.9998);
 		transition: transform 0.2s, box-shadow 0.3s;
 		transform-style: preserve-3d;
 	}

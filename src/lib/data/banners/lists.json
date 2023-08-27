@@ -54,6 +54,16 @@
 			"id": 11,
 			"name": "foreseen-foreknown-foretold",
 			"type": "character-event"
+		},
+		{
+			"id": 12,
+			"name": "jingliu",
+			"type": "character-event"
+		},
+		{
+			"id": 13,
+			"name": "topaz",
+			"type": "character-event"
 		}
 	]
 }

@@ -1,4 +1,39 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"phase": 1,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": "12-1",
+					"featured": "jingliu",
+					"rateup": ["tingyun", "qingque", "sampo"]
+				},
+				"lightcone": {
+					"bannerID": "3-9",
+					"featured": "i-shall-be-my-own-sword",
+					"rateup": ["memories-of-the-past", "geniuses-repose", "eyes-of-the-prey"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": "13-1",
+					"featured": "topaz",
+					"rateup": ["guinaifen", "luka", "sushang"]
+				},
+				"lightcone": {
+					"bannerID": "3-10",
+					"featured": "worrisome-blissful",
+					"rateup": ["subscribe-for-more", "resolution-shines-as-pearls-of-sweat", "swordplay"]
+				}
+			}
+		}
+	]
 }

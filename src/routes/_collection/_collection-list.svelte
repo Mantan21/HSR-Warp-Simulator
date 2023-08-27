@@ -147,7 +147,7 @@
 	.list {
 		display: flex;
 		flex-wrap: wrap;
-		padding: 0 2%;
+		padding: 0 1.5%;
 	}
 
 	.item {
