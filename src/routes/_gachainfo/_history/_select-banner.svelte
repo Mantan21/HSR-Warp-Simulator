@@ -55,8 +55,13 @@
 			guaranteedStatus.set(`${banner}-5star`, false);
 		} else guaranteedStatus.set(banner, false);
 
+<<<<<<< HEAD
 		if (banner === 'beginner') {
 			rollCounter.set('beginner', 0);
+=======
+		if (banner === 'starter') {
+			rollCounter.set('starter', 0);
+>>>>>>> master
 			showStarterBanner.set(true);
 			starterRemaining.set(50);
 		}
