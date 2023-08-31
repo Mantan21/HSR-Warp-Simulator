@@ -25,7 +25,7 @@
 	import WarpResult from './warp-result/WarpResult.svelte';
 
 	let type, bannerName;
-	$: ({ bannerName, beta, featured, type } = $bannerList[$activeBanner]);
+	$: ({ bannerName, featured, type } = $bannerList[$activeBanner]);
 	$: bannerType = type;
 
 	let color1 = '0,0,0';
@@ -117,12 +117,12 @@
 	style="--bn-color2: rgba({color2}, .9); --bn-color1: rgba({color1}, .9)"
 	transition:fade={{ duration: 250 }}
 >
-	<Background activeType={bannerType} />
-	<Header {bannerType} {bannerName} {beta} />
+	<Background />
+	<Header {bannerType} {bannerName} />
 	<BannerSelection />
 
 	{#each $bannerList as banner, i}
-		{#if banner.type === bannerType}
+		{#if i === $activeBanner}
 			<div class="warp-banner">
 				<BannerItem banner={banner.type} item={banner} bannerIndex={i} />
 			</div>

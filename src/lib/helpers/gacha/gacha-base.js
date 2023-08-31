@@ -1,7 +1,22 @@
 import { data as lcDB } from '$lib/data/light-cones.json';
 import { data as charsDB } from '$lib/data/characters.json';
+import { getRate, prob } from './probabilities';
 
-export const rand = (array) => array[Math.floor(Math.random() * array.length)];
+export const rand = (array) => {
+	if (!Array.isArray(array)) return array;
+	if (array.length < 2) return array[0];
+	return array[Math.floor(Math.random() * array.length)];
+};
+
+const filterByRelease = (charlist, version = null, phase = null) => {
+	return charlist.filter(({ release }) => {
+		if (!release) return true;
+		const [v, phs] = release.split('-');
+		if (parseFloat(version) < parseFloat(v)) return false;
+		if (parseFloat(version) === parseFloat(v) && phase <= parseInt(phs)) return false;
+		return true;
+	});
+};
 
 export const getAllChars = (star) =>
 	charsDB
@@ -41,27 +56,125 @@ export const regularLightcones = (star, exclude = []) => {
 		.filter(({ name }) => !exclude.includes(name));
 };
 
-const filterCharByReleased = (charlist, version = null, phase = null) => {
-	return charlist.filter(({ release }) => {
-		if (!release) return true;
-		const [v, phs] = release.split('-');
-		if (parseFloat(version) < parseFloat(v)) return false;
-		if (parseFloat(version) === parseFloat(v) && phase <= parseInt(phs)) return false;
-		return true;
-	});
-};
+export const get3StarItem = () => regularLightcones(3);
 
-export const get3StarItem = () => rand(regularLightcones(3));
-
-export const get4StarItem = ({ version = null, phase = null, exclude = [] } = {}) => {
-	let charList = getAllChars(4);
-	const itemType = rand(['lc', 'char']);
-	const items = itemType === 'lc' ? regularLightcones(4) : charList;
-
-	let filtered = filterCharByReleased(items, version, phase);
-	if (exclude.length > 0) {
-		filtered = filtered.filter(({ name }) => !exclude.includes(name));
+export const get4StarItem = ({
+	banner = 'regular',
+	version = null,
+	phase = null,
+	type = null,
+	useRateup = false,
+	rateupNamelist = []
+} = {}) => {
+	// Rateup Item
+	if (useRateup) {
+		const isChar = banner === 'character-event';
+		const DBList = isChar ? getAllChars(4) : regularLightcones(4);
+		const rateupList = DBList.filter(({ name }) => rateupNamelist.includes(name));
+		return rateupList;
 	}
 
-	return rand(filtered);
+	// Beginner droplist
+	if (banner === 'starter') {
+		const charList = getAllChars(4).filter(({ release }) => release === '1.0-0');
+		const lcList = getAllLightCones(4);
+
+		if (type == 'all') return [...charList, ...lcList];
+		else if (type === 'character') return charList;
+		else if (type === 'lightcone') return lcList;
+		else {
+			const { itemType } = prob([
+				{ itemType: 'char', chance: 50 },
+				{ itemType: 'lc', chance: 50 }
+			]);
+
+			return itemType === 'lc' ? lcList : charList;
+		}
+	}
+
+	// General droplist
+	let items;
+	if (type == 'all') {
+		items = [...getAllChars(4), ...regularLightcones(4)];
+	} else if (type === 'character') {
+		items = getAllChars(4);
+	} else if (type === 'lightcone') {
+		items = regularLightcones(4);
+	} else {
+		const charRate = getRate(banner, 'charRate');
+		const { itemType } = prob([
+			{ itemType: 'char', chance: charRate },
+			{ itemType: 'lc', chance: 100 - charRate }
+		]);
+		items = itemType === 'lc' ? regularLightcones(4) : getAllChars(4);
+	}
+
+	const filtered = filterByRelease(items, version, phase);
+	const itemList = filtered.filter(({ name }) => !rateupNamelist.includes(name));
+	return itemList;
+};
+
+export const get5StarItem = ({
+	banner = 'starter',
+	stdList = [],
+	type = null,
+	useRateup = false,
+	rateupItem = []
+} = {}) => {
+	// Featured Char Result
+	if (useRateup && banner === 'character-event') {
+		const featured = getAllChars(5).find(({ name }) => name === rateupItem[0]);
+		return featured;
+	}
+
+	// Featured Weapon Result
+	if (useRateup && banner === 'lightcone-event') {
+		const featured = getAllLightCones(5).filter(({ name }) => rateupItem.includes(name));
+		return featured;
+	}
+
+	// Standard Weapon result
+	if (banner === 'lightcone-event') {
+		const rateupRemoved = regularLightcones(5).filter(({ name }) => !rateupItem.includes(name));
+		return rateupRemoved;
+	}
+
+	// Beginner Result
+	if (banner === 'starter') {
+		const result = regularChars5Star(stdList);
+		return result;
+	}
+
+	// Standard Result
+	if (banner === 'regular' || !banner) {
+		let resultList;
+		if (type === 'all') {
+			resultList = [...regularChars5Star(stdList), ...regularLightcones(5)];
+		} else if (type === 'character') {
+			resultList = regularChars5Star(stdList);
+		} else if (type === 'lightcone') {
+			resultList = regularLightcones(5);
+		} else {
+			const charRate = getRate(banner, 'charRate');
+			const { itemType } = prob([
+				{ itemType: 'char', chance: charRate },
+				{ itemType: 'lc', chance: 100 - charRate }
+			]);
+			resultList = itemType === 'lc' ? regularLightcones(5) : regularChars5Star(stdList);
+		}
+		return resultList;
+	}
+
+	// Character List while lose on character banner
+	return regularChars5Star(stdList).filter(({ name }) => !rateupItem.includes(name));
+};
+
+export const isRateup = (banner) => {
+	const winRate = getRate(banner, 'winRate');
+	const { item } = prob([
+		{ item: 'rateup', chance: winRate },
+		{ item: 'std', chance: 100 - winRate }
+	]);
+
+	return item === 'rateup';
 };

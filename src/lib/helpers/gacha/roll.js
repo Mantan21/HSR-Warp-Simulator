@@ -1,21 +1,19 @@
 import { regReward, starterRemaining } from '$lib/stores/app-store';
 import { HistoryManager } from '$lib/stores/idbManager';
 import { guaranteedStatus, localPity, owneditem, rollCounter } from '$lib/stores/localstorage';
-import { rates, prob } from './probabilities';
+import { rates, prob, getRate } from './probabilities';
 
 const { addHistory } = HistoryManager;
 
-export const roll = async (banner, WarpInstance) => {
+export const roll = async (banner, WarpInstance, indexOfBanner) => {
 	const pity5 = localPity.get(`pity5${banner}`) + 1;
 	const pity4 = localPity.get(`pity4${banner}`) + 1;
-
-	const isLC = banner === 'lightcone-event';
-	const maxPity = isLC ? 80 : 90;
+	const maxPity = getRate(banner, 'max5');
 
 	const rate5star = () => {
 		return rates({
-			baseRate: isLC ? 0.8 : 0.6,
-			rateIncreasedAt: isLC ? 63 : 74,
+			baseRate: getRate(banner, 'baseRate5'),
+			rateIncreasedAt: getRate(banner, 'hard5'),
 			currentPity: pity5,
 			maxPity
 		});
@@ -23,10 +21,10 @@ export const roll = async (banner, WarpInstance) => {
 
 	const rate4star = () => {
 		return rates({
-			baseRate: isLC ? 6.6 : 5.1,
+			baseRate: getRate(banner, 'baseRate4'),
 			currentPity: pity4,
-			maxPity: 10,
-			rateIncreasedAt: 9
+			rateIncreasedAt: getRate(banner, 'hard4'),
+			maxPity: getRate(banner, 'max4')
 		});
 	};
 
@@ -34,7 +32,7 @@ export const roll = async (banner, WarpInstance) => {
 	let chance4star = rate4star();
 	let chance3star = 100 - chance4star - chance5star;
 
-	if (chance3star < 0 && pity5 >= maxPity) chance4star = 0;
+	if ((chance3star < 0 && pity5 >= maxPity) || chance5star === 100) chance4star = 0;
 	if (chance3star < 0) chance3star = 0;
 	if (chance4star === 100) chance5star = 0;
 
@@ -90,24 +88,23 @@ export const roll = async (banner, WarpInstance) => {
 	}
 
 	// Get Item
-	const randomItem = WarpInstance.getItem(rarity, banner);
+	const randomItem = WarpInstance.getItem(rarity, banner, indexOfBanner);
 	const { manual, warp } = owneditem.put({ name: randomItem.name });
 	const numberOfOwnedItem = manual + warp - 1;
+	const isNew = numberOfOwnedItem < 1;
 
 	// storing item to storage
 	await saveResult({ pity, ...randomItem });
 
+	// Set Eidolon
 	const isFullEidolon = numberOfOwnedItem > 6;
-	const isNew = numberOfOwnedItem < 1;
+	if (randomItem.type === 'character' && !isNew) {
+		randomItem.eidolon = !isFullEidolon;
+	}
 
 	// Undying Counter
 	const undyingType = randomItem.rarity === 3 ? 'embers' : 'starlight';
 	const undyingQty = getMilestoneQty(randomItem.rarity, randomItem.type, isFullEidolon, isNew);
-
-	// Set Eidolon
-	if (randomItem.type === 'character' && !isNew) {
-		randomItem.eidolon = !isFullEidolon;
-	}
 
 	const result = { pity, isNew, undyingQty, undyingType, ...randomItem };
 	return result;

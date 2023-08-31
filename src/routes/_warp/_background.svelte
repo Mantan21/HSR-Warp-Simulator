@@ -3,92 +3,111 @@
 	import { t } from 'svelte-i18n';
 	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
 	import { data } from '$lib/data/characters.json';
-	import { assetPath } from '$lib/helpers/assets.js';
-	import { assets, bannerList, liteMode } from '$lib/stores/app-store.js';
-	import { morphIn, morphOut } from '$lib/helpers/transition.js';
+	import { assetPath } from '$lib/helpers/assets';
+	import { activeBanner, assets, bannerList, liteMode } from '$lib/stores/app-store';
+	import { morphIn, morphOut } from '$lib/helpers/transition';
 
-	export let activeType;
+	let featured, activeType;
+	$: ({ featured, type: activeType } = $bannerList[$activeBanner]);
 
-	$: charData = $bannerList.find(({ type }) => type === 'character-event') || {};
-	$: lcData = $bannerList.find(({ type }) => type === 'lightcone-event') || {};
-	$: getColor(charData);
-
+	// Fetch Colors
+	let colorList = {};
 	const setColor = getContext('setColor');
 	const colorthief = new ColorThief();
 
-	// Check Manual Color
-	const manualColorPick = (featured) => {
-		const { colors } = data.find(({ name }) => name === featured);
-		if (Array.isArray(colors) && colors?.length > 1) {
-			const [cl1, cl2] = colors;
-			const color1 = cl1.split(' ').join(',');
-			const color2 = cl2.split(' ').join(',');
-			setColor(color1, color2);
-			return true;
+	$: fetchAllColor($bannerList);
+	$: changeColor(featured);
+
+	const fetchAllColor = async (list) => {
+		const charBanner = list.filter(({ type }) => type.match('character')) || [];
+		if (charBanner.length < 1) return;
+		for (let i = 0; i < charBanner.length; i++) {
+			const { featured: charName } = charBanner[i];
+			colorList[charName] = await getColor(charName);
 		}
-		return false;
+
+		const activeChar = featured || charBanner[0].featured;
+		changeColor(activeChar);
 	};
 
-	const getColor = (charData) => {
+	const changeColor = (charName) => {
+		if (!activeType.match('character')) return;
+		const [color1, color2] = colorList[charName] || [];
+		if (!color1) return;
+		setColor(color1, color2);
+	};
+
+	// Get Dominant Color
+	const getColor = (charName) => {
 		try {
-			const { featured } = charData;
-			if (!featured) return;
-			// autpic color if no color served
-			const img = new Image();
-			img.crossOrigin = 'anonymous';
-			img.src = assetPath(`splash-art/5/${featured}`, 640);
-			img.addEventListener('load', () => {
-				if (manualColorPick(featured)) return;
-				const [clr1, clr2] = colorthief.getPalette(img, 2);
-				const color1 = clr2.join(',');
-				const color2 = clr1.join(',');
-				setColor(color1, color2);
+			return new Promise((resolve) => {
+				if (!charName) return;
+				// autpic color if no color served
+				const img = new Image();
+				img.crossOrigin = 'anonymous';
+				img.src = assetPath(`splash-art/5/${charName}`, 640);
+				img.addEventListener('load', () => {
+					const palette = manualColorPick(charName);
+					if (palette) resolve(palette);
+					const [clr1, clr2] = colorthief.getPalette(img, 2);
+					const color1 = clr2.join(',');
+					const color2 = clr1.join(',');
+					resolve([color1, color2]);
+				});
 			});
 		} catch (e) {
 			console.log(e);
 		}
 	};
+
+	// Check Manual Color
+	const manualColorPick = (charName) => {
+		const { colors } = data.find(({ name }) => name === charName);
+		if (Array.isArray(colors) && colors?.length > 1) {
+			const [cl1, cl2] = colors;
+			const color1 = cl1.split(' ').join(',');
+			const color2 = cl2.split(' ').join(',');
+			return [color1, color2];
+		}
+		return null;
+	};
 </script>
 
-<!-- Starter Banner -->
-{#if activeType === 'starter'}
-	<div class="bg" in:morphIn={{ key: 'morph' }} out:morphOut={{ key: 'morph' }}>
-		<img src={$assets['departure-bg.webp']} alt="Background" crossorigin="anonymous" />
-	</div>
-{:else if activeType === 'regular'}
-	<!-- Regular Banner -->
-	<div class="bg" in:morphIn={{ key: 'morph' }} out:morphOut={{ key: 'morph' }}>
-		<img src={$assets['stellar-bg.webp']} alt="Background" crossorigin="anonymous" />
-	</div>
-{:else if activeType === 'character-event'}
-	<!-- Character Event -->
-	<div
-		class="bg character"
-		class:lite={$liteMode}
-		in:morphIn={{ key: 'morph' }}
-		out:morphOut={{ key: 'morph' }}
-	>
-		<img
-			src={assetPath(`splash-art/5/${charData.featured}`, 640)}
-			alt={$t(charData.featured)}
-			crossorigin="anonymous"
-		/>
-	</div>
-{:else if activeType === 'lightcone-event'}
-	<!-- LightCone Event -->
-	<div
-		class="bg lightcone"
-		class:lite={$liteMode}
-		in:morphIn={{ key: 'morph' }}
-		out:morphOut={{ key: 'morph' }}
-	>
-		<img
-			src={assetPath(`lc/5/${lcData.featured}`, 150)}
-			alt={$t(lcData.featured)}
-			crossorigin="anonymous"
-		/>
-	</div>
-{/if}
+{#each $bannerList as { type }, i}
+	{#if i === $activeBanner}
+		<!-- Character Event -->
+		{#if type === 'character-event'}
+			<div
+				class="bg character"
+				class:lite={$liteMode}
+				in:morphIn={{ key: 'morph' }}
+				out:morphOut={{ key: 'morph' }}
+			>
+				<img
+					src={assetPath(`splash-art/5/${featured}`, 640)}
+					alt={$t(featured)}
+					crossorigin="anonymous"
+				/>
+			</div>
+
+			<!-- LightCone Event -->
+		{:else if type === 'lightcone-event'}
+			<div
+				class="bg lightcone"
+				class:lite={$liteMode}
+				in:morphIn={{ key: 'morph' }}
+				out:morphOut={{ key: 'morph' }}
+			>
+				<img src={assetPath(`lc/5/${featured}`, 150)} alt={$t(featured)} crossorigin="anonymous" />
+			</div>
+		{:else}
+			{@const bg = type === 'starter' ? 'departure-bg.webp' : 'stellar-bg.webp'}
+			<div class="bg" in:morphIn={{ key: 'morph' }} out:morphOut={{ key: 'morph' }}>
+				<img src={$assets[bg]} alt="Background" crossorigin="anonymous" />
+			</div>
+		{/if}
+	{/if}
+{/each}
 
 <style>
 	.bg {

@@ -222,7 +222,7 @@
 		display: inline-block;
 		transform: scale(0.9) translateX(-1%);
 		transform-origin: left;
-		padding-top: 0.7rem;
+		padding-top: 3%;
 		filter: brightness(50%);
 		transition: transform 0.2s linear 0.23s, filter 0.5s;
 	}

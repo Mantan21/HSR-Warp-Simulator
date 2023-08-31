@@ -11,7 +11,9 @@
 		specialPass,
 		regularPass,
 		embers,
-		starlight
+		starlight,
+		bannerList,
+		activeBanner
 	} from '$lib/stores/app-store';
 	import { localBalance } from '$lib/stores/localstorage';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
@@ -67,6 +69,14 @@
 	};
 	$: initialWarp($activeVersion, $activePhase);
 
+	const getIndexOfBanner = (bannerToRoll) => {
+		if (!bannerToRoll.match('event')) return 0;
+		const nowBanner = $bannerList[$activeBanner];
+		const events = $bannerList.filter(({ type }) => type === bannerToRoll);
+		const index = events.findIndex(({ featured }) => featured === nowBanner.featured);
+		return index;
+	};
+
 	const handleGachaAnimation = getContext('handleGachaAnimation');
 	const doRoll = async (count, bannerToRoll) => {
 		warpProgress = true;
@@ -76,9 +86,10 @@
 
 		rollCost = bannerToRoll === 'starter' ? 8 : count;
 		if (!isUnlimited && rollCost > currencyUsed) return (showConverModal = true);
+		const indexOfBanner = getIndexOfBanner(bannerToRoll);
 
 		for (let i = 0; i < count; i++) {
-			const result = await roll(bannerToRoll, WarpInstance);
+			const result = await roll(bannerToRoll, WarpInstance, indexOfBanner);
 			tmp.push(result);
 		}
 

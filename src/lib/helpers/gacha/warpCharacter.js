@@ -1,67 +1,65 @@
 import { guaranteedStatus } from '$lib/stores/localstorage';
-import { get3StarItem, get4StarItem, getAllChars, rand, regularChars5Star } from './gacha-base';
+import { get3StarItem, get4StarItem, get5StarItem, isRateup, rand } from './gacha-base';
+import { getRate } from './probabilities';
+import { identifyBanner } from '../banner-loader';
 
 const characterWarp = {
 	init(opt) {
-		const { data, version, phase, regularList } = opt;
-		const { featured, rateup } = data;
+		const { data, version, phase, regularList, indexOfBanner } = opt;
+		const { rateup } = data;
+		const { featured } = identifyBanner(data.bannerID[indexOfBanner]);
+
 		this._featured = featured;
 		this._rateup = rateup;
 		this._version = version;
 		this._phase = phase;
 		this._regularList = regularList;
+
 		return this;
 	},
 
-	_rateupChars() {
-		return getAllChars(4).filter(({ name }) => this._rateup.includes(name));
-	},
-
-	_featuredChars() {
-		const characterName = this._featured;
-		const result = getAllChars(5).find(({ name }) => name === characterName);
-		return result;
-	},
-
 	get(rarity) {
-		if (rarity === 3) return get3StarItem();
+		if (rarity === 3) {
+			const droplist = get3StarItem();
+			return rand(droplist);
+		}
+
 		if (rarity === 4) {
-			const resultType = rand(['rateup', 'regular']);
+			const { _version: version, _phase: phase, _rateup: rateup } = this;
+			const isGuaranteed = guaranteedStatus.get('character-event-4star');
+			const turnOffGuaranteed = getRate('character-event', 'disGuaranteed');
+			const useRateup = (isGuaranteed && !turnOffGuaranteed) || isRateup('character-event');
 
-			// win or guaranteed
-			if (resultType === 'rateup' || guaranteedStatus.get('character-event-4star')) {
-				const result = rand(this._rateupChars());
-				guaranteedStatus.set('character-event-4star', false);
-				return result;
-			}
-
-			// Lose rateup
-			const result = get4StarItem({
-				version: this._version,
-				phase: this._phase,
-				exclude: this._rateup
+			const droplist = get4StarItem({
+				banner: 'character-event',
+				rateupNamelist: rateup,
+				useRateup,
+				version,
+				phase
 			});
-			guaranteedStatus.set('character-event-4star', true); // set to guaranteed after loosing
-			return result;
+
+			guaranteedStatus.set('character-event-4star', !useRateup);
+			return rand(droplist);
 		}
 
 		if (rarity === 5) {
-			const resultType = rand(['featured', 'regular']);
+			const { _featured, _regularList } = this;
 			const isGuaranteed = guaranteedStatus.get('character-event-5star');
+			const turnOffGuaranteed = getRate('character-event', 'disGuaranteed');
+			const useRateup = (isGuaranteed && !turnOffGuaranteed) || isRateup('character-event');
 
-			// Guaranteed
-			if (resultType === 'featured' || isGuaranteed) {
-				const characterResult = this._featuredChars();
-				guaranteedStatus.set('character-event-5star', false);
-				characterResult.status = isGuaranteed ? 'guaranteed' : 'win';
-				return characterResult;
-			}
+			const droplist = get5StarItem({
+				banner: 'character-event',
+				stdList: _regularList,
+				rateupItem: [_featured],
+				useRateup
+			});
+			const result = rand(droplist);
 
-			// Lose 50/50
-			const result = rand(regularChars5Star(this._regularList));
-			guaranteedStatus.set('character-event-5star', true);
-			result.status = 'lose';
-			return result;
+			const rateUpStatus = isGuaranteed ? 'guaranteed' : 'win';
+			const status = useRateup ? rateUpStatus : 'lose';
+			guaranteedStatus.set('character-event-5star', !useRateup);
+			return { ...result, status };
 		}
 	}
 };

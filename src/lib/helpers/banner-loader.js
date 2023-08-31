@@ -1,11 +1,16 @@
 import { starter } from '$lib/data/banners/starter.json';
 import { regular } from '$lib/data/banners/regular.json';
-import { data as charDB } from '$lib/data/characters.json';
-import { data as lcDB } from '$lib/data/light-cones.json';
+import { banners } from '$lib/data/banners/lists.json';
 
 import { checkStarterBanner } from '$lib/helpers/storage-reader';
 import { bannerList } from '$lib/stores/app-store';
-import { identifyBanner } from './banners';
+import { getCharDetails, getLCDetails } from './gacha/gacha-base';
+
+export const identifyBanner = (bnid = '0-0') => {
+	const [id, runNumber] = bnid.split('-');
+	const { name, type, featured } = banners.find((b) => b.id === parseInt(id)) || {};
+	return { type, bannerName: name, featured, runNumber: parseInt(runNumber) };
+};
 
 export const initializeBanner = async (version, phase) => {
 	try {
@@ -15,16 +20,16 @@ export const initializeBanner = async (version, phase) => {
 		const { character, lightcone, regularVersion } = data.find((d) => d.phase === phase).banners;
 		const regularData = regular.find(({ version }) => version === regularVersion);
 
-		const charInfo = charDB.find(({ name }) => name === character.featured);
-		character.path = charInfo.path;
-		character.combat_type = charInfo.combat_type;
-		list.push({ ...character, ...identifyBanner(character.bannerID) });
+		[character, lightcone].forEach(({ bannerID, rateup }) => {
+			bannerID.forEach((id) => {
+				const { bannerName, featured, runNumber, type } = identifyBanner(id);
+				const cek = type.match('character') ? getCharDetails : getLCDetails;
+				const { path, combat_type } = cek(featured);
 
-		if (lightcone) {
-			const lcInfo = lcDB.find(({ name }) => name === lightcone.featured);
-			lightcone.path = lcInfo.path;
-			list.push({ ...lightcone, ...identifyBanner(lightcone.bannerID) });
-		}
+				// prettier-ignore
+				list.push({ bannerName, featured, runNumber, type, path, combat_type, rateup,bannerID: id });
+			});
+		});
 
 		list.push({ ...regularData, ...identifyBanner(regularData.bannerID) });
 		bannerList.set(list);

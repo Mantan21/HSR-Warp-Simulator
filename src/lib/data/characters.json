@@ -145,7 +145,7 @@
 			"path": "hunt",
 			"buttonOffset": { "t": -30, "w": 110 },
 			"bannerOffset": { "b": -55, "l": -6, "w": 163, "o": "hide" },
-			"gachaCardOffset": { "t": 20, "l": 120, "w": 570 },
+			"gachaCardOffset": { "t": 15, "l": 140, "w": 585 },
 			"splashartOffset": { "t": 35, "l": 60, "w": 130 }
 		},
 		{

@@ -129,3 +129,21 @@ export const customTracks = {
 		storageLocal.set('customTracks', newVal);
 	}
 };
+
+export const localrate = {
+	get(key) {
+		const rates = storageLocal.get('probabilityRates');
+		const isValue = rates[key] && rates[key] !== null && rates[key] !== undefined;
+		return isValue ? rates[key] : {};
+	},
+	set(key, value) {
+		const rates = storageLocal.get('probabilityRates');
+		rates[key] = value;
+		storageLocal.set('probabilityRates', rates);
+	},
+	reset(key) {
+		const rates = storageLocal.get('probabilityRates');
+		delete rates[key];
+		storageLocal.set('probabilityRates', rates);
+	}
+};

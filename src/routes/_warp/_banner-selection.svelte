@@ -42,12 +42,18 @@
 
 <style>
 	.banner-selection {
+		padding-top: 1%;
 		position: absolute;
 		left: 0;
 		top: 13.5%;
 		z-index: +3;
 		display: flex;
 		flex-direction: column;
+		max-height: 60vh;
+		overflow-y: auto;
+	}
+	.banner-selection::-webkit-scrollbar {
+		display: none;
 	}
 
 	:global(.mobileLandscape) .banner-selection {
@@ -63,6 +69,7 @@
 			top: 10%;
 			left: 50%;
 			transform: translateX(-50%);
+			flex-wrap: wrap;
 		}
 		.item {
 			padding: 0 1%;

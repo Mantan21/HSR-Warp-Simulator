@@ -6,13 +6,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": "10-1",
-					"featured": "imbibitor-lunae",
+					"bannerID": ["10-1"],
 					"rateup": ["yukong", "asta", "march-7th"]
 				},
 				"lightcone": {
-					"bannerID": "3-7",
-					"featured": "brighter-than-the-sun",
+					"bannerID": ["21-1"],
 					"rateup": ["dance-dance-dance", "planetary-rendezvous", "landaus-choice"]
 				}
 			}
@@ -23,13 +21,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": "11-1",
-					"featured": "fu-xuan",
+					"bannerID": ["11-1"],
 					"rateup": ["lynx", "hook", "pela"]
 				},
 				"lightcone": {
-					"bannerID": "3-8",
-					"featured": "she-already-shut-her-eyes",
+					"bannerID": ["22-1"],
 					"rateup": ["perfect-timing", "trend-of-the-universal-market", "under-the-blue-sky"]
 				}
 			}

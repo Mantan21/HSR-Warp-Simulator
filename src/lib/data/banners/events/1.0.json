@@ -6,13 +6,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": "4-1",
-					"featured": "seele",
+					"bannerID": ["4-1"],
 					"rateup": ["natasha", "hook", "pela"]
 				},
 				"lightcone": {
-					"bannerID": "3-1",
-					"featured": "in-the-night",
+					"bannerID": ["3-1"],
 					"rateup": ["good-night-and-sleep-well", "the-moles-welcome-you", "post-op-conversation"]
 				}
 			}
@@ -22,13 +20,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": "5-1",
-					"featured": "jing-yuan",
+					"bannerID": ["5-1"],
 					"rateup": ["sushang", "march-7th", "tingyun"]
 				},
 				"lightcone": {
-					"bannerID": "3-2",
-					"featured": "before-dawn",
+					"bannerID": ["16-1"],
 					"rateup": ["day-one-of-my-new-life", "only-silence-remains", "planetary-rendezvous"]
 				}
 			}

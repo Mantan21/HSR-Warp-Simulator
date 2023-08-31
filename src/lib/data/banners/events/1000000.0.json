@@ -7,13 +7,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": "12-1",
-					"featured": "jingliu",
+					"bannerID": ["12-1", "4-2"],
 					"rateup": ["tingyun", "qingque", "sampo"]
 				},
 				"lightcone": {
-					"bannerID": "3-9",
-					"featured": "i-shall-be-my-own-sword",
+					"bannerID": ["14-1", "3-2"],
 					"rateup": ["eyes-of-the-prey", "memories-of-the-past", "make-the-world-clamor"]
 				}
 			}
@@ -24,13 +22,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": "13-1",
-					"featured": "topaz",
+					"bannerID": ["13-1"],
 					"rateup": ["guinaifen", "luka", "sushang"]
 				},
 				"lightcone": {
-					"bannerID": "3-10",
-					"featured": "worrisome-blissful",
+					"bannerID": ["15-1"],
 					"rateup": ["the-moles-welcome-you", "swordplay", "resolution-shines-as-pearls-of-sweat"]
 				}
 			}

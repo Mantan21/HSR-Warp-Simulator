@@ -13,57 +13,122 @@
 		{
 			"id": 3,
 			"name": "brilliant-fixation",
+			"featured": "in-the-night",
 			"type": "lightcone-event"
 		},
 		{
 			"id": 4,
 			"name": "butterfly-on-swordtip",
+			"featured": "seele",
 			"type": "character-event"
 		},
 		{
 			"id": 5,
 			"name": "swirl-of-heavenly-spear",
+			"featured": "jing-yuan",
 			"type": "character-event"
 		},
 		{
 			"id": 6,
 			"name": "contract-zero",
+			"featured": "silver-wolf",
 			"type": "character-event"
 		},
 		{
 			"id": 7,
 			"name": "laic-pursuit",
+			"featured": "luocha",
 			"type": "character-event"
 		},
 		{
 			"id": 8,
 			"name": "nessun-dorma",
+			"featured": "kafka",
 			"type": "character-event"
 		},
 		{
 			"id": 9,
 			"name": "a-lost-soul",
+			"featured": "blade",
 			"type": "character-event"
 		},
 		{
 			"id": 10,
 			"name": "epochal-spectrum",
+			"featured": "imbibitor-lunae",
 			"type": "character-event"
 		},
 		{
 			"id": 11,
 			"name": "foreseen-foreknown-foretold",
+			"featured": "fu-xuan",
 			"type": "character-event"
 		},
 		{
 			"id": 12,
 			"name": "jingliu",
+			"featured": "jingliu",
 			"type": "character-event"
 		},
 		{
 			"id": 13,
 			"name": "topaz",
+			"featured": "topaz",
 			"type": "character-event"
+		},
+		{
+			"id": 14,
+			"name": "brilliant-fixation",
+			"featured": "i-shall-be-my-own-sword",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 15,
+			"name": "brilliant-fixation",
+			"featured": "worrisome-blissful",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 16,
+			"name": "brilliant-fixation",
+			"featured": "before-dawn",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 17,
+			"name": "brilliant-fixation",
+			"featured": "incessant-rain",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 18,
+			"name": "brilliant-fixation",
+			"featured": "echoes-of-the-coffin",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 19,
+			"name": "brilliant-fixation",
+			"featured": "the-unreachable-side",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 20,
+			"name": "brilliant-fixation",
+			"featured": "patience-is-all-you-need",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 21,
+			"name": "brilliant-fixation",
+			"featured": "brighter-than-the-sun",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 22,
+			"name": "brilliant-fixation",
+			"featured": "she-already-shut-her-eyes",
+			"type": "lightcone-event"
 		}
 	]
 }
