@@ -1,16 +1,65 @@
 <script>
 	import { t } from 'svelte-i18n';
 	import { activeBanner, activePhase, activeVersion, bannerList } from '$lib/stores/app-store';
-	import { InfoData } from '$lib/helpers/gacha/info-details';
-	import { removeDash } from '$lib/helpers/text-proccesor';
+	import { identifyBanner } from '$lib/helpers/banner-loader';
+	import {
+		get3StarItem,
+		get4StarItem,
+		get5StarItem,
+		getCharDetails,
+		getLCDetails
+	} from '$lib/helpers/gacha/gacha-base';
 
 	import Description from './_description.svelte';
 	import ItemCard from './_item-card.svelte';
 	import Table from './_table.svelte';
 
-	let type, bannerName, beta;
-	$: ({ type, bannerName, beta } = $bannerList[$activeBanner]);
-	$: nameOfbanner = beta ? removeDash(bannerName) : $t(`banner.${bannerName}`);
+	let { type, bannerName, bannerID, rateup = [] } = $bannerList[$activeBanner];
+	const { featured } = identifyBanner(bannerID);
+	$: nameOfbanner = $t(`banner.${bannerName}`);
+
+	// Drop 3 Star
+	const drop3star = get3StarItem();
+
+	// Drop 4 star
+	const list4star = (itemType) =>
+		get4StarItem({
+			phase: $activePhase,
+			version: $activeVersion,
+			banner: type,
+			type: itemType,
+			rateupNamelist: rateup
+		});
+
+	const rateupItem = (itemType) => {
+		if (!type.match(itemType)) return [];
+		return rateup
+			.map((name) => (type.match('lightcone') ? getLCDetails(name) : getCharDetails(name)))
+			.map((val) => ({ ...val, rateup: true }));
+	};
+
+	const drop4char = [...rateupItem('character'), ...list4star('character')];
+	const drop4lc = [...rateupItem('lightcone'), ...list4star('lightcone')];
+
+	// Drop 5star
+
+	const { characters: stdList = [] } = $bannerList.find(({ type: t }) => {
+		const usedList = type === 'starter' ? 'starter' : 'regular';
+		return t === usedList;
+	});
+
+	const list5star = (itemType) =>
+		get5StarItem({
+			phase: $activePhase,
+			version: $activeVersion,
+			stdList,
+			type: itemType,
+			banner: type,
+			rateupItem: [featured]
+		});
+
+	const drop5char = [{ ...getCharDetails(featured), rateup: true }, ...list5star('character')];
+	const drop5lc = [{ ...getLCDetails(featured), rateup: true }, ...list5star('lightcone')];
 </script>
 
 <svelte:head>
@@ -18,70 +67,11 @@
 </svelte:head>
 
 <div class="details">
-	{#await InfoData.get($activeVersion, $activePhase, type)}
-		<div class="wait">{$t('waiting')}</div>
-	{:then { drop5char, drop4char, drop5lc, drop4lc, drop3star }}
-		<h1>{nameOfbanner}</h1>
+	<h1>{nameOfbanner}</h1>
 
-		{#if type.match('event')}
-			<h2>{$t('details.dropRateBoost')}</h2>
-			<div class="rateInfo">
-				<div class="rarity">
-					{#each Array(5) as _}
-						<i class="hsr-star" />
-					{/each}
-				</div>
-				<span>
-					{$t('details.droprate', {
-						values: { rate: type === 'lightcone-event' ? '75%' : '50%', rarity: 5 }
-					})}
-				</span>
-			</div>
-
-			<div class="item-group">
-				<div class="col">
-					{#if type === 'character-event'}
-						<ItemCard {...drop5char[0]} rarity={5} />
-					{:else}
-						<ItemCard {...drop5lc[0]} rarity={5} />
-					{/if}
-				</div>
-			</div>
-
-			<div class="rateInfo">
-				<div class="rarity">
-					{#each Array(5) as _, i}
-						<i class="hsr-star" class:hidden={i > 3} />
-					{/each}
-				</div>
-				<span>
-					{$t('details.droprate', {
-						values: { rate: type === 'lightcone-event' ? '75%' : '50%', rarity: 4 }
-					})}
-				</span>
-			</div>
-
-			<div class="item-group">
-				{#each type === 'character-event' ? drop4char : drop4lc as { name, path, combat_type }, i}
-					{#if i < 3}
-						<div class="col">
-							<ItemCard rarity="4" {name} {path} {combat_type} />
-						</div>
-					{/if}
-				{/each}
-			</div>
-		{/if}
-
-		<h2>{$t('details.heading')}</h2>
-		<Description
-			bannerName={nameOfbanner}
-			bannerType={type}
-			data={{ drop5char, drop4char, drop5lc, drop4lc }}
-		/>
-
-		<h2>{$t('details.entityList')}</h2>
-		<p>{$t('details.warpObtain')}</p>
-
+	{#if type.match('event')}
+		{@const { combat_type, rateup, path, name } = type.match('char') ? drop5char[0] : drop5lc[0]}
+		<h2>{$t('details.dropRateBoost')}</h2>
 		<div class="rateInfo">
 			<div class="rarity">
 				{#each Array(5) as _}
@@ -89,23 +79,18 @@
 				{/each}
 			</div>
 			<span>
-				{$t('details.baseWarpRate', {
-					values: {
-						rate: type === 'lightcone-event' ? '0.800%' : '0.600%',
-						avgRate: type === 'lightcone-event' ? '1.870%' : '1.600%',
-						rarity: 5
-					}
+				{$t('details.droprate', {
+					values: { rate: type === 'lightcone-event' ? '75%' : '50%', rarity: 5 }
 				})}
 			</span>
 		</div>
-		{#if type !== 'lightcone-event'}
-			<Table data={drop5char} type="character" />
-		{/if}
-		{#if ['lightcone-event', 'regular'].includes(type)}
-			<Table data={drop5lc} type="lightcone" />
-		{/if}
 
-		<br />
+		<div class="item-group">
+			<div class="col">
+				<ItemCard {name} {path} {combat_type} {rateup} rarity={5} />
+			</div>
+		</div>
+
 		<div class="rateInfo">
 			<div class="rarity">
 				{#each Array(5) as _, i}
@@ -113,36 +98,93 @@
 				{/each}
 			</div>
 			<span>
-				{$t('details.baseWarpRate', {
-					values: {
-						rate: type === 'lightcone-event' ? '6.600%' : '5.100%',
-						avgRate: type === 'lightcone-event' ? '14.800%' : '13.000%',
-						rarity: 4
-					}
+				{$t('details.droprate', {
+					values: { rate: type === 'lightcone-event' ? '75%' : '50%', rarity: 4 }
 				})}
 			</span>
 		</div>
-		<Table data={drop4char} type="character" />
-		<Table data={drop4lc} type="lightcone" />
 
-		<small> {$t('details.warpNote')} </small>
-
-		<div class="rateInfo">
-			<div class="rarity">
-				{#each Array(5) as _, i}
-					<i class="hsr-star" class:hidden={i > 2} />
-				{/each}
-			</div>
-			<span>
-				{$t('details.baseWarpRate', {
-					values: { rate: '94.300%', avgRate: '85.400%', rarity: 3 }
-				})}
-			</span>
+		<div class="item-group">
+			{#each type === 'character-event' ? drop4char : drop4lc as { name, path, combat_type }, i}
+				{#if i < 3}
+					<div class="col">
+						<ItemCard rarity="4" {name} {path} {combat_type} />
+					</div>
+				{/if}
+			{/each}
 		</div>
-		<Table data={drop3star} type="lightcone" />
+	{/if}
 
-		<small> {$t('details.warpNote')} </small>
-	{/await}
+	<h2>{$t('details.heading')}</h2>
+	<Description
+		bannerName={nameOfbanner}
+		bannerType={type}
+		data={{ drop5char, drop4char, drop5lc, drop4lc }}
+	/>
+
+	<h2>{$t('details.entityList')}</h2>
+	<p>{$t('details.warpObtain')}</p>
+
+	<div class="rateInfo">
+		<div class="rarity">
+			{#each Array(5) as _}
+				<i class="hsr-star" />
+			{/each}
+		</div>
+		<span>
+			{$t('details.baseWarpRate', {
+				values: {
+					rate: type === 'lightcone-event' ? '0.800%' : '0.600%',
+					avgRate: type === 'lightcone-event' ? '1.870%' : '1.600%',
+					rarity: 5
+				}
+			})}
+		</span>
+	</div>
+	{#if type !== 'lightcone-event'}
+		<Table data={drop5char} type="character" />
+	{/if}
+	{#if ['lightcone-event', 'regular'].includes(type)}
+		<Table data={drop5lc} type="lightcone" />
+	{/if}
+
+	<br />
+	<div class="rateInfo">
+		<div class="rarity">
+			{#each Array(5) as _, i}
+				<i class="hsr-star" class:hidden={i > 3} />
+			{/each}
+		</div>
+		<span>
+			{$t('details.baseWarpRate', {
+				values: {
+					rate: type === 'lightcone-event' ? '6.600%' : '5.100%',
+					avgRate: type === 'lightcone-event' ? '14.800%' : '13.000%',
+					rarity: 4
+				}
+			})}
+		</span>
+	</div>
+	<Table data={drop4char} type="character" />
+	<Table data={drop4lc} type="lightcone" />
+
+	<small> {$t('details.warpNote')} </small>
+
+	<div class="rateInfo">
+		<div class="rarity">
+			{#each Array(5) as _, i}
+				<i class="hsr-star" class:hidden={i > 2} />
+			{/each}
+		</div>
+		<span>
+			{$t('details.baseWarpRate', {
+				values: { rate: '94.300%', avgRate: '85.400%', rarity: 3 }
+			})}
+		</span>
+	</div>
+	<Table data={drop3star} type="lightcone" />
+
+	<small> {$t('details.warpNote')} </small>
 </div>
 
 <style>

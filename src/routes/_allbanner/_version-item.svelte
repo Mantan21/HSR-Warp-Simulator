@@ -6,20 +6,29 @@
 	import { activeBanner, activePhase, activeVersion, proUser } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { identifyBanner } from '$lib/helpers/banners';
 	import { lazyLoad } from '$lib/helpers/lazyload';
+	import { identifyBanner } from '$lib/helpers/banner-loader';
 
 	export let phase;
 	export let version;
 	export let data = {};
 	export let pro = false;
 
-	let character, lightcone, bannerID, featured, runNumber, bannerName;
+	let character, bannerID;
+	let charData = [];
 
 	$: locked = pro && !$proUser;
-	$: ({ character, lightcone } = data);
-	$: ({ bannerID, featured } = character);
-	$: ({ runNumber, bannerName } = identifyBanner(bannerID));
+	$: ({ character } = data);
+	$: ({ bannerID } = character);
+	$: getInfo(bannerID);
+	$: featuredChar = charData.map(({ featured }) => $t(featured)).join(' || ');
+
+	const getInfo = (ids) => {
+		charData = ids.map((id) => {
+			const { bannerName, featured, runNumber } = identifyBanner(id);
+			return { bannerName, featured, runNumber };
+		});
+	};
 
 	const navigate = getContext('navigate');
 	const selectBanner = () => {
@@ -35,17 +44,32 @@
 	};
 </script>
 
-{#key bannerName}
+{#key charData}
 	<div class="col" class:locked in:fade={{ duration: 300 }}>
-		<button on:click={selectBanner} disabled={locked}>
+		<button on:click={selectBanner} disabled={locked} title={featuredChar}>
 			<div class="banner-pic">
-				<picture>
-					<img
-						use:lazyLoad={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
-						alt={$t(`banner.${bannerName}`)}
-						crossorigin="anonymous"
-					/>
-				</picture>
+				<div class="wrapper" class:dual={bannerID.length > 1}>
+					{#if bannerID.length > 1}
+						{@const { bannerName, runNumber } = charData[0]}
+						<div class="rateup4">
+							<img
+								use:lazyLoad={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
+								alt={$t(`banner.${bannerName}`)}
+								crossorigin="anonymous"
+							/>
+						</div>
+					{/if}
+
+					{#each charData as { bannerName, runNumber }}
+						<picture>
+							<img
+								use:lazyLoad={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
+								alt={$t(`banner.${bannerName}`)}
+								crossorigin="anonymous"
+							/>
+						</picture>
+					{/each}
+				</div>
 				{#if pro}
 					<span class="phase"> STC </span>
 				{:else}
@@ -61,8 +85,7 @@
 				{/if}
 			</div>
 			<caption>
-				{$t(featured)}
-				{lightcone ? ' & ' + $t(lightcone.featured) : ''}
+				{featuredChar}
 			</caption>
 		</button>
 	</div>
@@ -105,9 +128,43 @@
 		width: 100%;
 	}
 
-	img,
-	picture {
+	picture img {
 		width: 100%;
+	}
+
+	.wrapper.dual {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	.dual picture,
+	.dual picture img {
+		height: 100%;
+		object-position: 80%;
+	}
+
+	.rateup4 {
+		width: 30%;
+		height: 40%;
+		overflow: hidden;
+		z-index: +1;
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		transform: translateX(-50%);
+		border-top-left-radius: 10%;
+		border-top-right-radius: 10%;
+	}
+
+	.rateup4 img {
+		position: absolute;
+		left: -2.2%;
+		bottom: -15%;
+		height: 260%;
 	}
 
 	.banner-pic {

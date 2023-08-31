@@ -15,29 +15,9 @@ const WARP = {
 		this._version = version;
 		this._phase = phase;
 		this._starter = starter;
-		this._regularBanner = regularBanner;
-
-		this._characterBannerWarp = characterWarp.init({
-			regularList: regularBanner.characters,
-			data: character,
-			version,
-			phase
-		});
-
-		if (lightcone) {
-			this._lightconeBannerWarp = lightconeWarp.init({
-				data: lightcone,
-				version,
-				phase
-			});
-		}
-
-		this._bannerIDList = {
-			starter: starter.bannerID,
-			regular: regularBanner.bannerID,
-			character: character.bannerID,
-			lightcone: lightcone?.bannerID
-		};
+		this._character = character;
+		this._lightcone = lightcone;
+		this._regular = regularBanner;
 
 		return this;
 	},
@@ -49,47 +29,60 @@ const WARP = {
 			phase: this._phase,
 			rarity
 		});
-		const { starter } = this._bannerIDList;
-		result.bannerID = starter;
+		result.bannerID = this._starter.bannerID;
 		return result;
 	},
 
 	_regularWarp(rarity) {
-		const result = regularWarp({
-			rarity,
-			data: this._regularBanner,
-			phase: this._phase,
-			version: this._version
+		const { _regular, _phase: phase, _version: version } = this;
+		const { characters: regularList } = _regular;
+		const standardBanner = regularWarp.init({ regularList, phase, version });
+		const result = standardBanner.get(rarity);
+
+		result.bannerID = this._regular.bannerID;
+		return result;
+	},
+
+	_characterWarp(rarity, indexOfBanner) {
+		const { _regular, _character, _version, _phase } = this;
+		const eventBanner = characterWarp.init({
+			regularList: _regular.characters,
+			data: _character,
+			version: _version,
+			phase: _phase,
+			indexOfBanner
 		});
-		const { regular } = this._bannerIDList;
-		result.bannerID = regular;
+
+		const result = eventBanner.get(rarity);
+		result.bannerID = _character.bannerID[indexOfBanner];
 		return result;
 	},
 
-	_characterWarp(rarity) {
-		const result = this._characterBannerWarp.get(rarity);
-		const { character } = this._bannerIDList;
-		result.bannerID = character;
+	_lightconeWarp(rarity, indexOfBanner) {
+		const { _lightcone, _version, _phase } = this;
+		const eventBanner = lightconeWarp.init({
+			data: _lightcone,
+			version: _version,
+			phase: _phase,
+			indexOfBanner
+		});
+
+		const result = eventBanner.get(rarity);
+		result.bannerID = _lightcone.bannerID[indexOfBanner];
 		return result;
 	},
 
-	_lightconeWarp(rarity) {
-		const result = this._lightconeBannerWarp.get(rarity);
-		const { lightcone } = this._bannerIDList;
-		result.bannerID = lightcone;
-		return result;
-	},
-
-	getItem(rarity, banner) {
+	getItem(rarity, banner, indexOfBanner) {
 		const date = new Date();
 		const time = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-		const resultObj = { time, banner };
 
-		if (banner === 'starter') return { ...resultObj, ...this._starterWish(rarity) };
-		if (banner === 'character-event') return { ...resultObj, ...this._characterWarp(rarity) };
-		if (banner === 'lightcone-event') return { ...resultObj, ...this._lightconeWarp(rarity) };
-		if (banner === 'regular') return { ...resultObj, ...this._regularWarp(rarity) };
-		return { type: null, rarity: 0, name: null };
+		let warpResult = {};
+		if (banner === 'starter') warpResult = this._starterWish(rarity);
+		if (banner === 'regular') warpResult = this._regularWarp(rarity);
+		if (banner.match('character')) warpResult = this._characterWarp(rarity, indexOfBanner);
+		if (banner.match('lightcone')) warpResult = this._lightconeWarp(rarity, indexOfBanner);
+
+		return { time, banner, ...warpResult };
 	}
 };
 

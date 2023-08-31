@@ -2,8 +2,7 @@
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { HistoryManager } from '$lib/stores/idbManager';
-	import { identifyBanner } from '$lib/helpers/banners';
-	import { removeDash } from '$lib/helpers/text-proccesor';
+	import { identifyBanner } from '$lib/helpers/banner-loader';
 
 	export let banner;
 	export let filter = '';
@@ -58,9 +57,9 @@
 							</div>
 							<div class="cell cell3">
 								{#if bannerID}
-									{@const { bannerName, beta } = identifyBanner(bannerID)}
+									{@const { bannerName } = identifyBanner(bannerID)}
 									<span class={banner}>
-										{beta ? removeDash(bannerName) : $t(`banner.${bannerName}`)}
+										{$t(`banner.${bannerName}`)}
 									</span>
 								{:else}
 									{$t('history.untracked')}

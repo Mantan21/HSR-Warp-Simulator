@@ -1,17 +1,38 @@
-import { get3StarItem, get4StarItem, getAllChars, rand, regularLightcones } from './gacha-base';
+import { get3StarItem, get4StarItem, get5StarItem, rand } from './gacha-base';
 
-const regularWarp = ({ rarity, data, version, phase }) => {
-	const { characters } = data;
+const regularWarp = {
+	init({ regularList, version, phase }) {
+		this._regularList = regularList;
+		this._version = version;
+		this._phase = phase;
+		return this;
+	},
 
-	if (rarity === 5) {
-		const type = rand(['lc', 'char']);
-		if (type === 'lc') return rand(regularLightcones(5));
-		const result = getAllChars(5).filter(({ name }) => characters.includes(name));
-		return rand(result);
+	get(rarity) {
+		if (rarity === 3) {
+			const droplist = get3StarItem();
+			return rand(droplist);
+		}
+
+		if (rarity === 4) {
+			const droplist = get4StarItem({
+				banner: 'regular',
+				version: this._version,
+				phase: this._phase
+			});
+
+			return rand(droplist);
+		}
+
+		if (rarity === 5) {
+			const droplist = get5StarItem({
+				banner: 'regular',
+				stdList: this._regularList
+			});
+
+			return rand(droplist);
+		}
 	}
-
-	if (rarity === 3) return get3StarItem();
-	if (rarity === 4) return get4StarItem({ version, phase });
 };
 
 export default regularWarp;

@@ -6,13 +6,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": "6-1",
-					"featured": "silver-wolf",
+					"bannerID": ["6-1"],
 					"rateup": ["dan-heng", "asta", "serval"]
 				},
 				"lightcone": {
-					"bannerID": "3-3",
-					"featured": "incessant-rain",
+					"bannerID": ["17-1"],
 					"rateup": ["memories-of-the-past", "subscribe-for-more", "make-the-world-clamor"]
 				}
 			}
@@ -22,13 +20,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": "7-1",
-					"featured": "luocha",
+					"bannerID": ["7-1"],
 					"rateup": ["pela", "qingque", "yukong"]
 				},
 				"lightcone": {
-					"bannerID": "3-4",
-					"featured": "echoes-of-the-coffin",
+					"bannerID": ["18-1"],
 					"rateup": ["good-night-and-sleep-well", "geniuses-repose", "dance-dance-dance"]
 				}
 			}

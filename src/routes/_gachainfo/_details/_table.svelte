@@ -13,7 +13,7 @@
 
 		<div class="body">
 			<div class="row">
-				{#each data as { name, rateup }}
+				{#each data.filter(({ name }) => name) as { name, rateup }}
 					<div class="cell">
 						{#if rateup}
 							<span class="up" />

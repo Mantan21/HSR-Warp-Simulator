@@ -7,16 +7,13 @@
 	import Header from '$lib/components/Header.svelte';
 	import MyFund from '$lib/components/MyFund.svelte';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
-	import { removeDash } from '$lib/helpers/text-proccesor';
 
 	export let bannerType = '';
 	export let bannerName = '';
-	export let beta = false;
 
 	$: event = bannerType.match('event');
 	$: balance = event ? $specialPass : $regularPass;
 	$: unlimitedWarp = $warpAmount === 'unlimited';
-	$: bannerTitle = beta ? removeDash(bannerName) : $t(`banner.${bannerName}`);
 
 	const navigate = getContext('navigate');
 	const openAllBanners = () => {
@@ -25,7 +22,7 @@
 	};
 </script>
 
-<Header icon="warp" h1={$t('warp.heading')} h2={bannerTitle} hideDesktopIcon>
+<Header icon="warp" h1={$t('warp.heading')} h2={$t(`banner.${bannerName}`)} hideDesktopIcon>
 	<div class="budget">
 		<MyFund type={event ? 'specialPass' : 'regularPass'}>
 			{unlimitedWarp ? '∞' : balance}

@@ -1,83 +1,65 @@
 import { guaranteedStatus } from '$lib/stores/localstorage';
-import {
-	get3StarItem,
-	get4StarItem,
-	getAllLightCones,
-	rand,
-	regularLightcones
-} from './gacha-base';
-import { prob } from './probabilities';
+import { get3StarItem, get4StarItem, get5StarItem, isRateup, rand } from './gacha-base';
+import { getRate } from './probabilities';
+import { identifyBanner } from '../banner-loader';
 
 const lightconeWarp = {
 	init(opt) {
-		const { data, version, phase } = opt;
-		const { featured, rateup } = data;
+		const { data, version, phase, regularList, indexOfBanner } = opt;
+		const { rateup } = data;
+		const { featured } = identifyBanner(data.bannerID[indexOfBanner]);
+
 		this._featured = featured;
 		this._rateup = rateup;
 		this._version = version;
 		this._phase = phase;
+		this._regularList = regularList;
+
 		return this;
 	},
 
-	_rateupLightcones() {
-		return getAllLightCones(4).filter(({ name }) => this._rateup.includes(name));
-	},
-
-	_featuredLightcones() {
-		return getAllLightCones(5).find(({ name }) => name === this._featured);
-	},
-
 	get(rarity) {
-		if (rarity === 3) return get3StarItem();
+		if (rarity === 3) {
+			const droplist = get3StarItem();
+			return rand(droplist);
+		}
+
 		if (rarity === 4) {
-			// guaranteed after lost 75:25
+			const { _version: version, _phase: phase, _rateup: rateup } = this;
 			const isGuaranteed = guaranteedStatus.get('lightcone-event-4star');
-			const item = [
-				{ type: 'rateup', chance: 75 },
-				{ type: 'regular', chance: 25 }
-			];
-			const { type } = prob(item);
+			const turnOffGuaranteed = getRate('lightcone-event', 'disGuaranteed');
+			const useRateup = (isGuaranteed && !turnOffGuaranteed) || isRateup('lightcone-event');
 
-			// win or guaranteed to get rateup one
-			if (type === 'rateup' || isGuaranteed) {
-				const result = rand(this._rateupLightcones());
-				guaranteedStatus.set('lightcone-event-4star', false);
-				return result;
-			}
-
-			// Lose Rateup
-			const rateupNames = this._rateupLightcones().map(({ name }) => name);
-			const result = get4StarItem({
-				version: this._version,
-				phase: this._phase,
-				exclude: [rateupNames]
+			const droplist = get4StarItem({
+				banner: 'lightcone-event',
+				rateupNamelist: rateup,
+				useRateup,
+				version,
+				phase
 			});
-			guaranteedStatus.set('lightcone-event-4star', true);
-			return result;
+
+			guaranteedStatus.set('lightcone-event-4star', !useRateup);
+			return rand(droplist);
 		}
 
 		if (rarity === 5) {
-			const item = [
-				{ type: 'featured', chance: 75 },
-				{ type: 'regular', chance: 25 }
-			];
-
-			const { type } = prob(item);
+			const { _featured, _regularList } = this;
 			const isGuaranteed = guaranteedStatus.get('lightcone-event-5star');
+			const turnOffGuaranteed = getRate('lightcone-event', 'disGuaranteed');
+			const useRateup = (isGuaranteed && !turnOffGuaranteed) || isRateup('lightcone-event');
 
-			// Win or Guaranteed
-			if (type === 'featured' || isGuaranteed) {
-				const lightconeResult = this._featuredLightcones();
-				guaranteedStatus.set('lightcone-event-5star', false);
-				lightconeResult.status = isGuaranteed ? 'guaranteed' : 'win';
-				return lightconeResult;
-			}
+			const droplist = get5StarItem({
+				banner: 'lightcone-event',
+				stdList: _regularList,
+				rateupItem: [_featured],
+				useRateup
+			});
+			const result = rand(droplist);
 
-			// Lose rateoff
-			const result = rand(regularLightcones(5, [this._featured]));
-			guaranteedStatus.set('lightcone-event-5star', true);
-			result.status = 'lose';
-			return result;
+			const rateUpStatus = isGuaranteed ? 'guaranteed' : 'win';
+			const status = useRateup ? rateUpStatus : 'lose';
+			guaranteedStatus.set('lightcone-event-5star', !useRateup);
+			return { ...result, status };
 		}
 	}
 };
