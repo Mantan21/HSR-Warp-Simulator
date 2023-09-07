@@ -13,6 +13,7 @@
 	import {
 		isMobile,
 		isMobileLandscape,
+		isPWA,
 		viewportWidth,
 		viewportHeight
 	} from '$lib/stores/app-store';
@@ -43,12 +44,12 @@
 		const allowedPath = ['screen', 'feedback', 'privacy-policy'];
 		const { pathname } = $page.url;
 		const pathNow = pathname.split('/')[1];
-		if (allowedPath.includes(pathNow)) return;
+		if (!pathNow || allowedPath.includes(pathNow)) return;
 		return goto('/');
 	};
 
 	const setMobileMode = () => {
-		// if ($isPWA) return isMobileLandscape.set(true);
+		if ($isPWA) return isMobileLandscape.set(true);
 		const angle = screen.orientation?.angle || 0;
 		const rotate = angle === 90 || angle === 270;
 		isMobileLandscape.set(rotate);
@@ -56,6 +57,12 @@
 
 	mountLocale();
 	onMount(() => {
+		redirectIfNotValidPath();
+
+		const url = new URL(window.location.href);
+		const searchParams = new URLSearchParams(url.search);
+		isPWA.set(!!searchParams.get('pwasc'));
+
 		registerSW();
 		isMobile.set(mobileDetect() || innerWidth < 601);
 		if ($isMobile) setMobileMode();
@@ -66,7 +73,6 @@
 
 		// prevent Righ click (hold on android) on production mode
 		if (!dev) document.addEventListener('contextmenu', (e) => e.preventDefault());
-		redirectIfNotValidPath();
 	});
 </script>
 
@@ -93,6 +99,10 @@
 
 	{#if !dev}
 		<link rel="manifest" href="/appmanifest.json" />
+	{/if}
+
+	{#if $page.url.pathname !== '/'}
+		<link rel="canonical" href={HOST} />
 	{/if}
 
 	<link

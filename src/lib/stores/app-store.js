@@ -30,3 +30,4 @@ export const proUser = writable(false);
 export const warpAmount = writable('default');
 export const autoskip = writable({ express: false, art: true });
 export const liteMode = writable(false);
+export const isPWA = writable(false);
