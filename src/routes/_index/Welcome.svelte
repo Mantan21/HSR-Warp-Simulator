@@ -4,7 +4,7 @@
 	import { fade, fly } from 'svelte/transition';
 
 	import { logs } from '$lib/data/logs.json';
-	import { proUser } from '$lib/stores/app-store';
+	import { isPWA, proUser } from '$lib/stores/app-store';
 	import accessKey from '$lib/helpers/access-key';
 	import { initTrack } from '$lib/helpers/sounds/phonograph';
 	import { browserDetect } from '$lib/helpers/mobile-detect';
@@ -27,8 +27,9 @@
 		savedKey = storedKey;
 		dateExpired = expiryDate;
 
-		showAd.set(!validity);
 		proUser.set(!!validity);
+		if ($isPWA) return showAd.set(false);
+		showAd.set(!validity);
 	};
 
 	const showAd = getContext('showAd');
@@ -48,7 +49,7 @@
 				<h1>{$t('title')}</h1>
 				<h2>{$t('welcomeMsg')}</h2>
 
-				{#if !browserDetect().isSupported}
+				{#if !browserDetect().isSupported && $isPWA}
 					<div class="updates adExpired">
 						<strong>
 							We highly recommend you to install
