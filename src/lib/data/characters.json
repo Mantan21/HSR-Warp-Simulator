@@ -34,7 +34,6 @@
 			"gachaCardOffset": { "l": 37, "t": 230, "w": 425 }
 		},
 		{
-			"pro": true,
 			"name": "lynx",
 			"rarity": 4,
 			"combat_type": "quantum",
@@ -45,7 +44,6 @@
 			"gachaCardOffset": { "l": 20, "t": 115, "w": 400 }
 		},
 		{
-			"pro": true,
 			"name": "fu-xuan",
 			"rarity": 5,
 			"combat_type": "quantum",

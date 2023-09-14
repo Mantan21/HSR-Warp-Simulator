@@ -17,12 +17,11 @@
 			"bannerOffset": { "b": -193, "r": -52, "w": 130 }
 		},
 		{
-			"pro": true,
 			"name": "she-already-shut-her-eyes",
 			"rarity": 5,
 			"path": "preservation",
 			"limited": true,
-			"bannerOffset": { "b": -40, "r": -13, "w": 60 }
+			"bannerOffset": { "b": -65, "r": -18, "w": 70 }
 		},
 		{
 			"name": "brighter-than-the-sun",
