@@ -180,13 +180,13 @@
 
 	.banner-pic .lock {
 		position: absolute;
+		z-index: +2;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.9);
+		background-color: rgba(0, 0, 0, 0.6);
 		color: var(--color-second);
-		opacity: 0.7;
 		display: flex;
 		justify-content: center;
 		align-items: center;
