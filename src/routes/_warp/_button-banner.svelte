@@ -222,7 +222,7 @@
 		display: inline-block;
 		transform: scale(0.9) translateX(-1%);
 		transform-origin: left;
-		padding-top: 3%;
+		padding-top: 2%;
 		filter: brightness(50%);
 		transition: transform 0.2s linear 0.23s, filter 0.5s;
 	}
@@ -254,7 +254,7 @@
 	button.active::after {
 		content: '';
 		position: absolute;
-		bottom: -5%;
+		bottom: -3%;
 		right: -4%;
 		border: 0.1rem solid var(--color-second);
 		width: 120%;

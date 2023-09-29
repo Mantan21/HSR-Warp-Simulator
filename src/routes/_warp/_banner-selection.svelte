@@ -45,13 +45,17 @@
 		padding-top: 1%;
 		position: absolute;
 		left: 0;
-		top: 13.5%;
+		top: 13%;
 		z-index: +3;
 		display: flex;
 		flex-direction: column;
-		max-height: 60vh;
+		max-height: 62.5vh;
 		overflow-y: auto;
 	}
+	.item {
+		padding-bottom: 1%;
+	}
+
 	.banner-selection::-webkit-scrollbar {
 		display: none;
 	}
@@ -69,10 +73,26 @@
 			top: 10%;
 			left: 50%;
 			transform: translateX(-50%);
-			flex-wrap: wrap;
 		}
 		.item {
 			padding: 0 1%;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		:global(main):not(.mobileLandscape) .banner-selection {
+			flex-wrap: wrap;
+			width: 60%;
+		}
+		.item {
+			flex-basis: 30%;
+		}
+	}
+
+	@media screen and (max-width: 375px) {
+		:global(main):not(.mobileLandscape) .banner-selection {
+			width: 100%;
+			top: 12.5%;
 		}
 	}
 </style>

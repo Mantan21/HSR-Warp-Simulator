@@ -150,13 +150,13 @@
 	<div class="row">
 		<div class="info-button">
 			<div class="btn">
-				<Button on:click={() => goto('collection')}>
-					{$t('collection.button')}
+				<Button on:click={() => goto('details')}>
+					{$t('details.view')}
 				</Button>
 			</div>
 			<div class="btn">
-				<Button on:click={() => goto('details')}>
-					{$t('details.view')}
+				<Button on:click={() => goto('collection')}>
+					{$t('collection.button')}
 				</Button>
 			</div>
 		</div>

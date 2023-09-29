@@ -4,6 +4,7 @@
 	import {
 		activeBanner,
 		isMobileLandscape,
+		showStarterBanner,
 		viewportHeight,
 		viewportWidth
 	} from '$lib/stores/app-store';
@@ -63,7 +64,10 @@
 		{:else if banner === 'character-event'}
 			<BnCharacter {item} />
 			<div class="frame">
-				<CharacterFrame {item} />
+				<CharacterFrame
+					event2={bannerIndex === 2 || (!$showStarterBanner && bannerIndex > 0)}
+					{item}
+				/>
 			</div>
 		{:else if banner === 'lightcone-event'}
 			<BnLightcone {item} />

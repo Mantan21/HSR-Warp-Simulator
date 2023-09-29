@@ -1,5 +1,5 @@
 <script>
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
 	import { bezier } from '$lib/helpers/easing';
 	import { data } from '$lib/data/characters.json';
@@ -7,6 +7,7 @@
 	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let item = {};
+	export let event2 = false;
 
 	let rateup, bannerName, combat_type;
 	$: ({ rateup, bannerName, combat_type, featured } = item);
@@ -19,7 +20,10 @@
 </script>
 
 <div class="content">
-	<div class="banner-name">{$t('banner.character-event')}</div>
+	<div class="banner-name">
+		{$t('banner.character-event')}
+		{event2 ? ($locale === 'ja-JP' ? '2' : '— 2') : ''}
+	</div>
 
 	<!-- Left Pane -->
 	<div class="wrapper-info">
