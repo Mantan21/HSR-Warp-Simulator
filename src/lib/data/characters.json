@@ -1,39 +1,6 @@
 {
 	"data": [
 		{
-			"pro": true,
-			"name": "guinaifen",
-			"rarity": 4,
-			"combat_type": "fire",
-			"path": "nihility",
-			"release": "1000000.0-2",
-			"bannerOffset": { "b": -233, "l": -595, "w": 1330, "h": "auto" },
-			"splashartOffset": { "w": 100, "l": 52 },
-			"gachaCardOffset": { "l": 50, "t": 155, "w": 430 }
-		},
-		{
-			"pro": true,
-			"name": "topaz",
-			"rarity": 5,
-			"combat_type": "fire",
-			"path": "hunt",
-			"bannerOffset": { "b": -58, "l": -1.5, "w": 120 },
-			"buttonOffset": { "t": -40, "l": -5, "w": 115 },
-			"splashartOffset": { "t": 65, "w": 100 },
-			"gachaCardOffset": { "l": 20, "t": 225, "w": 410 }
-		},
-		{
-			"pro": true,
-			"name": "jingliu",
-			"rarity": 5,
-			"combat_type": "ice",
-			"path": "destruction",
-			"bannerOffset": { "b": -44, "l": 8.5, "w": 110 },
-			"buttonOffset": { "t": -34, "l": 0, "w": 100 },
-			"splashartOffset": { "t": 58, "w": 90, "l": 52 },
-			"gachaCardOffset": { "l": 37, "t": 230, "w": 425 }
-		},
-		{
 			"name": "lynx",
 			"rarity": 4,
 			"combat_type": "quantum",
