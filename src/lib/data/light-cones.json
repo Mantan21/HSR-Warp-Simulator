@@ -14,14 +14,14 @@
 			"rarity": 5,
 			"path": "destruction",
 			"limited": true,
-			"bannerOffset": { "b": -193, "r": -52, "w": 130 }
+			"bannerOffset": { "b": -170, "r": -45, "w": 120 }
 		},
 		{
 			"name": "she-already-shut-her-eyes",
 			"rarity": 5,
 			"path": "preservation",
 			"limited": true,
-			"bannerOffset": { "b": -65, "r": -18, "w": 70 }
+			"bannerOffset": { "b": -110, "r": -11, "w": 100, "yOrigin": 75 }
 		},
 		{
 			"name": "brighter-than-the-sun",

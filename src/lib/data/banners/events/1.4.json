@@ -1,0 +1,39 @@
+{
+	"patch": 1.4,
+	"data": [
+		{
+			"phase": 1,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["12-1"],
+					"rateup": ["tingyun", "qingque", "sampo"]
+				},
+				"lightcone": {
+					"bannerID": ["14-1"],
+					"rateup": ["eyes-of-the-prey", "memories-of-the-past", "make-the-world-clamor"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["13-1", "4-2"],
+					"rateup": ["guinaifen", "luka", "sushang"]
+				},
+				"lightcone": {
+					"bannerID": ["15-1", "3-2"],
+					"rateup": [
+						"the-moles-welcome-you",
+						"only-silence-remains",
+						"resolution-shines-as-pearls-of-sweat"
+					]
+				}
+			}
+		}
+	]
+}
