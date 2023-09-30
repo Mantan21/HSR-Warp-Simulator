@@ -60,6 +60,9 @@
 									{@const { bannerName } = identifyBanner(bannerID)}
 									<span class={banner}>
 										{$t(`banner.${bannerName}`)}
+										{#if bannerName.match('brilliant')}
+											& {$t(`banner.bygone-reminiscence`)}
+										{/if}
 									</span>
 								{:else}
 									{$t('history.untracked')}

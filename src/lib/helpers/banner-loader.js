@@ -22,9 +22,11 @@ export const initializeBanner = async (version, phase) => {
 
 		[character, lightcone].forEach(({ bannerID, rateup }) => {
 			bannerID.forEach((id) => {
-				const { bannerName, featured, runNumber, type } = identifyBanner(id);
+				const { bannerName: banner, featured, runNumber, type } = identifyBanner(id);
 				const cek = type.match('character') ? getCharDetails : getLCDetails;
 				const { path, combat_type } = cek(featured);
+
+				const bannerName = type.match('cone') && runNumber > 1 ? 'bygone-reminiscence' : banner;
 
 				// prettier-ignore
 				list.push({ bannerName, featured, runNumber, type, path, combat_type, rateup,bannerID: id });

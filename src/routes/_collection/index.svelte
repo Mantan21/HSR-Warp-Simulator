@@ -25,11 +25,13 @@
 		navigate('index');
 	};
 
-	let itemtype = 'character';
+	let itemtype = cookie.get('collectionType') || 'character';
+
 	const showItem = (type) => {
 		if (itemtype === type) return;
 		playSfx();
 		itemtype = type;
+		cookie.set('collectionType', type);
 	};
 	setContext('showItem', showItem);
 
