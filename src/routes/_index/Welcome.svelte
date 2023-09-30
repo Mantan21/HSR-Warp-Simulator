@@ -18,7 +18,7 @@
 		const timer = setTimeout(() => {
 			clearTimeout(timer);
 			verifyKey();
-		}, 5000);
+		}, 10000);
 	};
 
 	const verifyKey = async () => {
