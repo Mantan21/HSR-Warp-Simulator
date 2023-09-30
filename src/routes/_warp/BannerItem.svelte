@@ -72,7 +72,10 @@
 		{:else if banner === 'lightcone-event'}
 			<BnLightcone {item} />
 			<div class="frame">
-				<LightconeFrame {item} />
+				<LightconeFrame
+					{item}
+					event2={bannerIndex > 3 || (!$showStarterBanner && bannerIndex > 2)}
+				/>
 			</div>
 		{/if}
 	</div>

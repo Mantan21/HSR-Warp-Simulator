@@ -1,24 +1,34 @@
 <script>
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 	import { fade } from '$lib/helpers/transition';
 
+	import { identifyBanner } from '$lib/helpers/banner-loader';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
 	import RateupLightones from './__rateup-lightcones.svelte';
 
 	export let item = {};
+	export let event2 = false;
 
-	let lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
+	const lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
+	const { runNumber = 1 } = identifyBanner(item.bannerID);
 </script>
 
 <div class="content">
-	<div class="banner-name">{$t('banner.lightcone-event')}</div>
+	<div class="banner-name">
+		{$t('banner.lightcone-event')}
+		{event2 ? ($locale === 'ja-JP' ? '2' : '— 2') : ''}
+	</div>
 
 	<!-- Left Pane -->
 	<div class="wrapper-info">
 		<div class="info-body" in:fade={{ delay: 250, duration: 1000 }}>
 			<div class="short-detail">
-				<h1>{$t('banner.brilliant-fixation')}</h1>
+				{#if runNumber < 2}
+					<h1>{$t('banner.brilliant-fixation')}</h1>
+				{:else}
+					<h1>{$t('banner.bygone-reminiscence')}</h1>
+				{/if}
 				<div class="time">
 					<i class="hsr-time" />
 					<caption> {$t('warp.duration')}</caption>
@@ -141,7 +151,7 @@
 
 	h1 {
 		margin-top: 5%;
-		font-size: calc(0.041 * var(--bw));
+		font-size: calc(0.03 * var(--bw));
 		height: calc(0.16 * var(--bw));
 		display: flex;
 		align-items: center;

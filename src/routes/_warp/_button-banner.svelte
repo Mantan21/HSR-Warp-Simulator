@@ -113,7 +113,7 @@
 
 	.svgFill {
 		background-color: #40453f;
-		aspect-ratio: 160/60;
+		aspect-ratio: 160/60.5;
 	}
 
 	.svgFill,
@@ -121,7 +121,7 @@
 		clip-path: url(#buttonFrame);
 		position: absolute;
 		left: 1%;
-		bottom: 8%;
+		bottom: 9%;
 		width: 97.5%;
 		overflow: hidden;
 		pointer-events: none;
