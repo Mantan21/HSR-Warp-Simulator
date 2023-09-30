@@ -6,7 +6,7 @@
 			"rarity": 4,
 			"combat_type": "fire",
 			"path": "nihility",
-			"release": "1000000.0-2",
+			"release": "1.4-2",
 			"bannerOffset": { "b": -233, "l": -595, "w": 1330, "h": "auto" },
 			"splashartOffset": { "w": 100, "l": 52 },
 			"gachaCardOffset": { "l": 50, "t": 155, "w": 430 }
