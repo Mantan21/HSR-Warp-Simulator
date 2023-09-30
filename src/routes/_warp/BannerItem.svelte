@@ -65,7 +65,7 @@
 			<BnCharacter {item} />
 			<div class="frame">
 				<CharacterFrame
-					event2={bannerIndex === 2 || (!$showStarterBanner && bannerIndex > 0)}
+					event2={bannerIndex > 1 || (!$showStarterBanner && bannerIndex > 0)}
 					{item}
 				/>
 			</div>

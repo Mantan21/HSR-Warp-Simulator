@@ -2,7 +2,6 @@
 	import { t, locale } from 'svelte-i18n';
 	import { fade } from '$lib/helpers/transition';
 
-	import { identifyBanner } from '$lib/helpers/banner-loader';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
 	import RateupLightones from './__rateup-lightcones.svelte';
@@ -11,7 +10,6 @@
 	export let event2 = false;
 
 	const lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
-	const { runNumber = 1 } = identifyBanner(item.bannerID);
 </script>
 
 <div class="content">
@@ -24,11 +22,7 @@
 	<div class="wrapper-info">
 		<div class="info-body" in:fade={{ delay: 250, duration: 1000 }}>
 			<div class="short-detail">
-				{#if runNumber < 2}
-					<h1>{$t('banner.brilliant-fixation')}</h1>
-				{:else}
-					<h1>{$t('banner.bygone-reminiscence')}</h1>
-				{/if}
+				<h1>{$t(`banner.${item.bannerName}`)}</h1>
 				<div class="time">
 					<i class="hsr-time" />
 					<caption> {$t('warp.duration')}</caption>
