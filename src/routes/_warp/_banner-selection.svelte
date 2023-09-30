@@ -49,7 +49,7 @@
 		z-index: +3;
 		display: flex;
 		flex-direction: column;
-		max-height: 62.5vh;
+		max-height: calc(62.5 / 100 * var(--screen-height));
 		overflow-y: auto;
 	}
 	.item {
@@ -89,7 +89,7 @@
 		}
 	}
 
-	@media screen and (max-width: 375px) {
+	@media screen and (max-width: 400px) {
 		:global(main):not(.mobileLandscape) .banner-selection {
 			width: 100%;
 			top: 12.5%;
