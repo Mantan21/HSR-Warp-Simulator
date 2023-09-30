@@ -417,16 +417,20 @@
 			"album": "more-ost",
 			"tracks": [
 				{
+					"title": "Jolted Awake From a Winter Dream (v1.4 Trailer OST)",
+					"sourceID": "J0EODUCoK30"
+				},
+				{
 					"title": "Omniscia Spares None (Fu Xuan)",
 					"sourceID": "OCuI1KiTkuc"
 				},
 				{
-					"title": "Celestial Eyes Above Mortal Ruins - Version 1.3 Trailer OST",
-					"sourceID": "juHC2Ontj2o"
-				},
-				{
 					"title": "The Prodigal's Return (Imbibitor Lunae)",
 					"sourceID": "vfapJ2_9DhY"
+				},
+				{
+					"title": "Celestial Eyes Above Mortal Ruins (v1.3 Trailer OST)",
+					"sourceID": "juHC2Ontj2o"
 				},
 				{
 					"title": "A Dramatic Irony (Kafka)",
@@ -441,7 +445,7 @@
 					"sourceID": "VfydH5LO3f4"
 				},
 				{
-					"title": "Intermission (1.1 Special Program)",
+					"title": "Intermission (v1.1 Special Program)",
 					"sourceID": "N7dUziUUpKM"
 				},
 				{
