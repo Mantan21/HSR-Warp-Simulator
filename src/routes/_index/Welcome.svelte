@@ -1,5 +1,5 @@
 <script>
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { fade, fly } from 'svelte/transition';
 
@@ -22,15 +22,19 @@
 	};
 
 	const verifyKey = async () => {
-		const { validity, expiryDate, storedKey, status } = await accessKey.initialLoad();
+		const { validity, status } = await accessKey.initialLoad();
 		if (status === 'offline') return retry();
-		savedKey = storedKey;
-		dateExpired = expiryDate;
 
 		proUser.set(!!validity);
 		if ($isPWA) return showAd.set(false);
 		showAd.set(!validity);
 	};
+
+	onMount(async () => {
+		const { expiryDate, storedKey } = await accessKey.initialLoad();
+		dateExpired = expiryDate;
+		savedKey = storedKey;
+	});
 
 	const showAd = getContext('showAd');
 	const closeWelcomeScreen = getContext('closeGreeting');
@@ -38,7 +42,6 @@
 		playSfx();
 		initTrack();
 		closeWelcomeScreen();
-		verifyKey();
 	};
 </script>
 
