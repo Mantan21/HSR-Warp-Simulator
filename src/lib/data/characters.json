@@ -23,7 +23,6 @@
 			"gachaCardOffset": { "l": 20, "t": 225, "w": 410 }
 		},
 		{
-			"pro": true,
 			"name": "jingliu",
 			"rarity": 5,
 			"combat_type": "ice",
