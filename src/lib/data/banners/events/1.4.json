@@ -1,0 +1,19 @@
+{
+	"patch": 1.4,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["12-1"],
+					"rateup": ["tingyun", "qingque", "sampo"]
+				},
+				"lightcone": {
+					"bannerID": ["14-1"],
+					"rateup": ["memories-of-the-past", "make-the-world-clamor", "eyes-of-the-prey"]
+				}
+			}
+		}
+	]
+}
