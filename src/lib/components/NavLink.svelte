@@ -58,8 +58,8 @@
 
 	@media screen and (max-width: 1000px) {
 		aside {
-			width: 30%;
-			flex-basis: 30%;
+			width: 25%;
+			flex-basis: 25%;
 		}
 	}
 

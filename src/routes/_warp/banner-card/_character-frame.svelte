@@ -43,6 +43,7 @@
 			<div class="rateup-characters">
 				<div class="rateup-row" in:diagonalSlide={{ delay: 300, duration: 350 }}>
 					{#each rateup as name, i}
+						{@const offset = characterOffset(name)}
 						<div class="rateup-item">
 							<div class="rateup-content">
 								<picture
@@ -53,16 +54,25 @@
 										delay: 300 + 150 * i
 									}}
 								>
-									<source
-										srcset={assetPath(`splash-art/4/${name}`, 1280)}
-										media="(min-width: 840px)"
-									/>
-									<img
-										src={assetPath(`splash-art/4/${name}`, 640)}
-										alt={$t(name)}
-										style={characterOffset(name)}
-										crossorigin="anonymous"
-									/>
+									{#if offset}
+										<source
+											srcset={assetPath(`splash-art/4/${name}`, 1280)}
+											media="(min-width: 840px)"
+										/>
+										<img
+											src={assetPath(`splash-art/4/${name}`, 640)}
+											alt={$t(name)}
+											class:fullArt={offset}
+											style={offset}
+											crossorigin="anonymous"
+										/>
+									{:else}
+										<img
+											src={assetPath(`closeup-bg/4/${name}`)}
+											alt={$t(name)}
+											crossorigin="anonymous"
+										/>
+									{/if}
 								</picture>
 							</div>
 						</div>
@@ -231,8 +241,16 @@
 	picture img {
 		position: absolute;
 		height: 200%;
+		top: -7.5%;
 	}
-	:global(.mobileLandscape) picture img {
+
+	img:not(.fullArt) {
+		height: 125%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	:global(.mobileLandscape) picture img.fullArt {
 		transform: translateX(-1.3%);
 	}
 

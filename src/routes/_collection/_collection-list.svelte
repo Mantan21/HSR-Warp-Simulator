@@ -153,7 +153,7 @@
 	.item {
 		flex-basis: var(--itemWidth);
 		width: var(--itemWidth);
-		padding: 0.8%;
+		padding: 0.65%;
 		padding-bottom: 2.5%;
 	}
 
