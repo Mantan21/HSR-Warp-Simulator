@@ -7,7 +7,6 @@
 			"combat_type": "fire",
 			"path": "nihility",
 			"release": "1.4-2",
-			"bannerOffset": { "b": -233, "l": -595, "w": 1330, "h": "auto" },
 			"splashartOffset": { "w": 100, "l": 52 },
 			"gachaCardOffset": { "l": 50, "t": 155, "w": 430 }
 		},
@@ -38,7 +37,6 @@
 			"combat_type": "quantum",
 			"path": "abundance",
 			"release": "1.3-2",
-			"bannerOffset": { "b": -82, "l": -720, "w": 1300 },
 			"splashartOffset": { "t": 52, "w": 75, "l": 50 },
 			"gachaCardOffset": { "l": 20, "t": 115, "w": 400 }
 		},
@@ -78,7 +76,6 @@
 			"combat_type": "physical",
 			"path": "nihility",
 			"release": "1.2-2",
-			"bannerOffset": { "h": 530, "t": -113, "l": -625 },
 			"splashartOffset": { "w": 80 },
 			"gachaCardOffset": { "l": 70, "w": 450, "t": 230 }
 		},
@@ -110,8 +107,7 @@
 			"path": "harmony",
 			"release": "1.1-2",
 			"splashartOffset": { "t": 45, "w": 90, "l": 54 },
-			"gachaCardOffset": { "l": 65, "t": 150, "w": 450 },
-			"bannerOffset": { "h": 505, "t": -152, "l": -630 }
+			"gachaCardOffset": { "l": 65, "t": 150, "w": 450 }
 		},
 		{
 			"name": "silver-wolf",
@@ -167,8 +163,7 @@
 			"path": "hunt",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 45 },
-			"gachaCardOffset": { "t": 145, "w": 470, "l": 40 },
-			"bannerOffset": { "l": -720, "h": 520, "t": -160 }
+			"gachaCardOffset": { "t": 145, "w": 470, "l": 40 }
 		},
 		{
 			"name": "tingyun",
@@ -177,8 +172,7 @@
 			"path": "harmony",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 55 },
-			"gachaCardOffset": { "l": 30, "t": 200 },
-			"bannerOffset": { "h": 455, "t": -95, "l": -645 }
+			"gachaCardOffset": { "l": 30, "t": 200 }
 		},
 		{
 			"name": "qingque",
@@ -186,7 +180,6 @@
 			"combat_type": "quantum",
 			"path": "erudition",
 			"release": "1.0-0",
-			"bannerOffset": { "h": 395, "t": -105, "l": -497 },
 			"gachaCardOffset": { "w": 350, "t": 140 }
 		},
 		{
@@ -195,16 +188,14 @@
 			"combat_type": "fire",
 			"path": "destruction",
 			"release": "1.0-0",
-			"gachaCardOffset": { "l": 50, "t": 65, "w": 460 },
-			"bannerOffset": { "h": 520, "l": -700, "t": -215 }
+			"gachaCardOffset": { "l": 50, "t": 65, "w": 460 }
 		},
 		{
 			"name": "sampo",
 			"rarity": 4,
 			"combat_type": "wind",
 			"path": "nihility",
-			"release": "1.0-0",
-			"bannerOffset": { "l": -570, "h": 425, "t": -91 }
+			"release": "1.0-0"
 		},
 		{
 			"name": "clara",
@@ -220,8 +211,7 @@
 			"path": "nihility",
 			"release": "1.0-0",
 			"splashartOffset": { "l": 58, "t": 45 },
-			"gachaCardOffset": { "t": 135, "w": 480, "l": 100 },
-			"bannerOffset": { "h": 570, "t": -202, "l": -605 }
+			"gachaCardOffset": { "t": 135, "w": 480, "l": 100 }
 		},
 		{
 			"name": "natasha",
@@ -230,8 +220,7 @@
 			"path": "abundance",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 50, "w": 80 },
-			"gachaCardOffset": { "l": 30, "t": 215 },
-			"bannerOffset": { "h": 440, "l": -600, "t": -72 }
+			"gachaCardOffset": { "l": 30, "t": 215 }
 		},
 		{
 			"name": "gepard",
@@ -247,8 +236,7 @@
 			"combat_type": "lightning",
 			"path": "erudition",
 			"release": "1.0-0",
-			"gachaCardOffset": { "l": 25, "t": 125, "w": 575 },
-			"bannerOffset": { "h": 645, "t": -230, "l": -925 }
+			"gachaCardOffset": { "l": 25, "t": 125, "w": 575 }
 		},
 		{
 			"name": "bronya",
@@ -265,8 +253,7 @@
 			"path": "erudition",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 60, "l": 55 },
-			"gachaCardOffset": { "w": 350, "t": 195, "l": 45 },
-			"bannerOffset": { "h": 370, "t": -60, "l": -465 }
+			"gachaCardOffset": { "w": 350, "t": 195, "l": 45 }
 		},
 		{
 			"name": "asta",
@@ -274,7 +261,6 @@
 			"combat_type": "fire",
 			"path": "harmony",
 			"release": "1.0-0",
-			"bannerOffset": { "h": 495, "t": -140, "l": -620 },
 			"gachaCardOffset": { "t": 145 }
 		},
 		{
@@ -283,8 +269,7 @@
 			"combat_type": "lightning",
 			"path": "destruction",
 			"release": "1.0-0",
-			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 },
-			"bannerOffset": { "h": 495, "t": -155, "l": -910 }
+			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 }
 		},
 		{
 			"name": "welt",
@@ -308,8 +293,7 @@
 			"path": "hunt",
 			"release": "1.0-0",
 			"splashartOffset": { "w": 90, "t": 45 },
-			"gachaCardOffset": { "t": 110, "l": 13, "w": 520 },
-			"bannerOffset": { "h": 640, "t": -223, "l": -980 }
+			"gachaCardOffset": { "t": 110, "l": 13, "w": 520 }
 		},
 		{
 			"name": "march-7th",
@@ -318,8 +302,7 @@
 			"path": "preservation",
 			"release": "1.0-0",
 			"splashartOffset": { "t": 45, "w": 100 },
-			"gachaCardOffset": { "t": 160 },
-			"bannerOffset": { "h": 425, "t": -108, "l": -555 }
+			"gachaCardOffset": { "t": 160 }
 		}
 	]
 }

@@ -27,7 +27,8 @@ const utils = import.meta.glob(
 		'@images/banners/**/*',
 		'@images/background/**/*',
 		'@images/light-cones/icons/*.webp',
-		'@images/characters/closeup/**/*.webp'
+		'@images/characters/closeup/**/*.webp',
+		'@images/characters/closeup-bg/**/*.webp'
 	],
 	{ query: { as: 'picture' }, import: 'default', eager: true }
 );
@@ -39,7 +40,7 @@ const generateFullPath = (path) => {
 		return `/src/images/light-cones/full-art/${rarity}star/${name}.webp`;
 	}
 
-	if (['splash-art', 'closeup'].includes(type)) {
+	if (['splash-art', 'closeup', 'closeup-bg'].includes(type)) {
 		return `/src/images/characters/${type}/${rarity}star/${name}.webp`;
 	}
 	const fullpath = `/src/images/${path}`;
