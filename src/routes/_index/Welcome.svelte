@@ -42,6 +42,7 @@
 		playSfx();
 		initTrack();
 		closeWelcomeScreen();
+		verifyKey();
 	};
 </script>
 

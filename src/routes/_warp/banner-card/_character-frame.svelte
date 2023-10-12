@@ -187,7 +187,7 @@
 
 	h1 {
 		margin-top: 5%;
-		font-size: calc(0.0335 * var(--bw));
+		font-size: calc(0.032 * var(--bw));
 		height: calc(0.16 * var(--bw));
 		display: flex;
 		align-items: center;

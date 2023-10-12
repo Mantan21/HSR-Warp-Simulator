@@ -129,6 +129,30 @@
 			"name": "brilliant-fixation",
 			"featured": "she-already-shut-her-eyes",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 23,
+			"name": "bloom-in-gloom",
+			"featured": "huohuo",
+			"type": "character-event"
+		},
+		{
+			"id": 24,
+			"name": "brilliant-fixation",
+			"featured": "night-of-fright",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 25,
+			"name": "thorns-of-scented-crown",
+			"featured": "argenti",
+			"type": "character-event"
+		},
+		{
+			"id": 26,
+			"name": "brilliant-fixation",
+			"featured": "an-instance-before-a-gaze",
+			"type": "lightcone-event"
 		}
 	]
 }

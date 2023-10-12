@@ -2,6 +2,39 @@
 	"data": [
 		{
 			"pro": true,
+			"name": "hanya",
+			"rarity": 4,
+			"combat_type": "physical",
+			"path": "nihility",
+			"release": "1000000.0-2",
+			"splashartOffset": { "w": 90, "l": 52, "t": 55 },
+			"gachaCardOffset": { "l": 45, "t": 150, "w": 400 }
+		},
+		{
+			"pro": true,
+			"name": "argenti",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "erudition",
+			"bannerOffset": { "b": -48, "l": 19.5, "w": 135 },
+			"buttonOffset": { "t": -45, "l": 0, "w": 100 },
+			"splashartOffset": { "t": 57, "l": 66, "w": 105 },
+			"gachaCardOffset": { "l": 118, "t": 250, "w": 525 }
+		},
+		{
+			"pro": true,
+			"name": "huohuo",
+			"rarity": 5,
+			"combat_type": "wind",
+			"path": "abundance",
+			"colors": ["42 102 122", "97 161 160"],
+			"bannerOffset": { "b": -45, "l": 7.5, "w": 120 },
+			"buttonOffset": { "t": -34, "l": -1, "w": 105 },
+			"splashartOffset": { "t": 58, "w": 90, "l": 52 },
+			"gachaCardOffset": { "l": 60, "t": 160, "w": 400 }
+		},
+		{
+			"pro": true,
 			"name": "guinaifen",
 			"rarity": 4,
 			"combat_type": "fire",
