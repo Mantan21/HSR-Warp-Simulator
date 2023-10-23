@@ -106,6 +106,7 @@
 			</div>
 		{/if}
 
+		<!-- AUDIO -->
 		<h2>{$t('menu.sound')}</h2>
 		<OptionsItem
 			showOption={activeOption === 'muteSFX'}
@@ -114,6 +115,12 @@
 			on:select={handleSound}
 			>{$t('menu.mutedSFX')}
 		</OptionsItem>
+
+		{#if !$muted.sfx}
+			<div transition:fly|local={{ y: -10 }}>
+				<OptionsItem sub optionName="sfxVolume" mode="slider">SFX Volume</OptionsItem>
+			</div>
+		{/if}
 
 		<OptionsItem
 			showOption={activeOption === 'muteBGM'}
@@ -135,6 +142,7 @@
 			</div>
 		{/if}
 
+		<!-- OTHERS -->
 		<h2>{$t('menu.other')}</h2>
 		<OptionsItem
 			optionName="locale"

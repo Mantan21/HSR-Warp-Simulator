@@ -1,5 +1,6 @@
 import { Howl } from 'howler';
 import { localConfig } from '$lib/stores/localstorage';
+import { cookie } from '$lib/stores/cookies';
 
 const sfxList = [
 	'allbanner',
@@ -50,6 +51,7 @@ const sounds = sfxList.reduce((prev, current) => {
 	sfx[current] = new Howl({
 		src: [`/audiofx/${current}.mp3`],
 		loop: current === 'warp-backsound'
+		// onfade: fadeTrack
 	});
 	return sfx;
 }, {});
@@ -62,7 +64,8 @@ export const playSfx = (nameOfSoundfx = 'click') => {
 		sfxids[nameOfSoundfx] = sounds[nameOfSoundfx].play();
 
 		if (nameOfSoundfx === 'warp-backsound') {
-			sounds[nameOfSoundfx].fade(0, 1, 1000, sfxids[nameOfSoundfx]);
+			const volume = cookie.get('sfxVolume') || 1;
+			sounds[nameOfSoundfx].fade(0, volume, 1000, sfxids[nameOfSoundfx]);
 		}
 	} catch (e) {
 		console.error('Unable to Play Sfx : ', e.message);
@@ -74,8 +77,16 @@ export const stopSfx = (nameOfSoundfx = 'click') => {
 		if (isMuted()) return;
 		if (!sounds[nameOfSoundfx]) throw new Error('No Sound effect for ' + nameOfSoundfx);
 
-		sounds[nameOfSoundfx].fade(1, 0, 1000, sfxids[nameOfSoundfx]);
+		// const volume = cookie.get('sfxVolume') || 1;
+		// sounds[nameOfSoundfx].fade(volume, 0, 1000, sfxids[nameOfSoundfx]);
+		sounds[nameOfSoundfx].stop();
 	} catch (e) {
 		console.error('Unable to Stop Sfx : ', e.message);
 	}
+};
+
+export const setSfxVolume = (val) => {
+	const volumeVal = val / 100;
+	cookie.set('sfxVolume', volumeVal);
+	Object.keys(sounds).forEach((key) => sounds[key]?.volume(volumeVal));
 };

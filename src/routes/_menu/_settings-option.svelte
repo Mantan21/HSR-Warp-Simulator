@@ -4,14 +4,14 @@
 	import { locale, locales, t } from 'svelte-i18n';
 
 	import { activePhase, activeVersion } from '$lib/stores/app-store';
+	import { cookie } from '$lib/stores/cookies';
+	import { flags, localeName } from '$lib/data/country.json';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
-	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { playSfx, setSfxVolume } from '$lib/helpers/sounds/audiofx';
 	import { userCurrencies } from '$lib/helpers/shop-price';
-	import { flags, localeName } from '$lib/data/country.json';
+	import { setTrackVolume } from '$lib/helpers/sounds/phonograph';
 	import Range from '$lib/components/Range.svelte';
-	import { cookie } from '$lib/stores/cookies';
-	import { setVolume } from '$lib/helpers/sounds/phonograph';
 
 	export let showOption = false;
 	export let optionName;
@@ -36,13 +36,16 @@
 	};
 
 	// Range Input
-	let rangeVal = cookie.get('trackVolume') * 100 || 20;
+	const phonoVal = cookie.get('trackVolume') * 100 || 20;
+	const sfxVal = cookie.get('sfxVolume') * 100 || 100;
+	let rangeVal = optionName === 'phonoVolume' ? phonoVal : sfxVal;
 	const setValue = (val) => (rangeVal = val);
 	setContext('setValue', setValue);
 
 	const changeValue = (e) => {
 		const { value } = e.detail;
-		setVolume(value);
+		if (optionName === 'phonoVolume') return setTrackVolume(value);
+		setSfxVolume(value);
 	};
 
 	// Language
