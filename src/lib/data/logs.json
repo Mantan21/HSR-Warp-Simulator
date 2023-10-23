@@ -161,7 +161,6 @@
 		},
 		{
 			"date": "01 Oct 2023",
-			"featured": true,
 			"changes": ["Unlock Content: The 1st phase of 1.4 - <b>Jingliu & I Shall be My Own Sword</b>"]
 		},
 		{
@@ -171,6 +170,15 @@
 				"Add New Character: <b>Huohuo (5★)</b> & <b>Argenti (5★)</b>",
 				"Add New Character: <b>Hanya (4★)</b>",
 				"Add New Light Cones: <b>Night of Fright</b> & <b>An Instance Before a Gaze</b>"
+			]
+		},
+		{
+			"date": "23 Oct 2023",
+			"featured": true,
+			"changes": [
+				"Unlock Content: The 2nd phase of 1.4",
+				"<b>Topaz</b> & <b>Worrisome Blissful</b>",
+				"<b>Seele</b> & <b>In the Night</b>"
 			]
 		}
 	]

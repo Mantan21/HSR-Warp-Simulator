@@ -34,7 +34,6 @@
 			"gachaCardOffset": { "l": 60, "t": 160, "w": 400 }
 		},
 		{
-			"pro": true,
 			"name": "guinaifen",
 			"rarity": 4,
 			"combat_type": "fire",
@@ -44,7 +43,6 @@
 			"gachaCardOffset": { "l": 50, "t": 155, "w": 430 }
 		},
 		{
-			"pro": true,
 			"name": "topaz",
 			"rarity": 5,
 			"combat_type": "fire",
