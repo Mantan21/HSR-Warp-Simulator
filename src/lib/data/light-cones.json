@@ -6,15 +6,14 @@
 			"rarity": 5,
 			"path": "erudition",
 			"limited": true,
-			"bannerOffset": { "b": -25, "r": -22, "w": 100 }
+			"bannerOffset": { "b": -100, "r": -21, "w": 90, "xOrigin": 60 }
 		},
 		{
-			"pro": true,
 			"name": "night-of-fright",
 			"rarity": 5,
 			"path": "abundance",
 			"limited": true,
-			"bannerOffset": { "b": 0, "r": -63, "w": 110, "xOrigin": 50, "yOrigin": 90 }
+			"bannerOffset": { "b": -85, "r": -30, "w": 85, "xOrigin": 60 }
 		},
 		{
 			"name": "worrisome-blissful",

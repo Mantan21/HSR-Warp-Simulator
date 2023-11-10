@@ -22,13 +22,12 @@
 			"gachaCardOffset": { "l": 118, "t": 250, "w": 525 }
 		},
 		{
-			"pro": true,
 			"name": "huohuo",
 			"rarity": 5,
 			"combat_type": "wind",
 			"path": "abundance",
 			"colors": ["42 102 122", "97 161 160"],
-			"bannerOffset": { "b": -45, "l": 7.5, "w": 120 },
+			"bannerOffset": { "b": -40, "l": 7.5, "w": 120 },
 			"buttonOffset": { "t": -34, "l": -1, "w": 105 },
 			"splashartOffset": { "t": 58, "w": 90, "l": 52 },
 			"gachaCardOffset": { "l": 60, "t": 160, "w": 400 }
@@ -47,7 +46,7 @@
 			"rarity": 5,
 			"combat_type": "fire",
 			"path": "hunt",
-			"bannerOffset": { "b": -58, "l": -1.5, "w": 120 },
+			"bannerOffset": { "b": -53, "l": -2.5, "w": 115 },
 			"buttonOffset": { "t": -40, "l": -5, "w": 115 },
 			"splashartOffset": { "t": 65, "w": 100 },
 			"gachaCardOffset": { "l": 20, "t": 225, "w": 410 }

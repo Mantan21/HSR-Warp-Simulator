@@ -165,7 +165,6 @@
 		},
 		{
 			"date": "10 Oct 2023",
-			"featured": true,
 			"changes": [
 				"Add New Character: <b>Huohuo (5★)</b> & <b>Argenti (5★)</b>",
 				"Add New Character: <b>Hanya (4★)</b>",
@@ -180,6 +179,11 @@
 				"<b>Topaz</b> & <b>Worrisome Blissful</b>",
 				"<b>Seele</b> & <b>In the Night</b>"
 			]
+		},
+		{
+			"date": "10 Nov 2023",
+			"featured": true,
+			"changes": ["Unlock Content: The 1st phase of 1.5 - <b>Huohuo & Night of Fright</b>"]
 		}
 	]
 }
