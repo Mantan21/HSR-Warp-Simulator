@@ -4,13 +4,14 @@ const albumCover = (album, images) => {
 	const albumList = {
 		'out-of-control': 'ygKTfYj',
 		'of-snow-and-ember': 'wR0Nj7h',
-		'svah-sanishyu': 'vqbQ66N'
+		'svah-sanishyu': 'vqbQ66N',
+		'experience-the-paths': 'Y2wRLPx'
 	};
 
 	if (Object.keys(albumList).includes(album)) {
 		const sizes = [192, 256, 384, 512, 1024];
 		const artwork = sizes.map((size) => {
-			const src = `https://imagecdn.app/v1/images/https://i.ibb.co/${albumList[album]}/${album}.webp?width=${size}`;
+			const src = `https://imagecdn.app/v2/image/https://i.ibb.co/${albumList[album]}/${album}.webp?width=${size}`;
 			const type = 'image/webp';
 			const sizes = `${size}x${size}`;
 			return { src, type, sizes };

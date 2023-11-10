@@ -97,6 +97,7 @@ const images = [
 			'album_of-snow-and-ember.webp',
 			'album_out-of-control.webp',
 			'album_svah-sanishyu.webp',
+			'album_experience-the-paths.webp',
 			'album_more-ost.webp',
 			'album_custom-musics.webp',
 			'circle-ornament1.svg',

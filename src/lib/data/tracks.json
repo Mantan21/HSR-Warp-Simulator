@@ -426,8 +426,145 @@
 			]
 		},
 		{
+			"album": "experience-the-paths",
+			"tracks": [
+				{
+					"title": "Topaz - Expert Tutorial",
+					"sourceID": "HvMrYtLxfuk"
+				},
+				{
+					"title": "Jingliu - Swordward",
+					"sourceID": "pukaVJ0SFy4"
+				},
+				{
+					"title": "Fu Xuan - Omniscia Spares None",
+					"sourceID": "6dW77L2YtUA"
+				},
+				{
+					"title": "Imbibitor Lunae - The Prodigal's Return",
+					"sourceID": "EfOvq88Dwr0"
+				},
+				{
+					"title": "Kafka - A Dramatic Irony",
+					"sourceID": "DZznLG8UsSY"
+				},
+				{
+					"title": "Blade - Death Approaches",
+					"sourceID": "JI7hGRN-ytg"
+				},
+				{
+					"title": "Luocha - The Traveler And His Oath",
+					"sourceID": "SLamtqavQJ8"
+				},
+				{
+					"title": "Silver Wolf - Got a Date",
+					"sourceID": "7vfOoi-lRX4"
+				},
+				{
+					"title": "Silver Wolf - Galactic Roaming",
+					"sourceID": "Cme2yTwV8xY"
+				},
+				{
+					"title": "Jing Yuan - Heaven and Earth as a Chessboard",
+					"sourceID": "yMtfMLB3Kzw"
+				},
+				{
+					"title": "Seele - Uneventful Night",
+					"sourceID": "Wq_avU8LITk"
+				},
+				{
+					"title": "Gepard - In the Name of Landau",
+					"sourceID": "E-1akwtM9H4"
+				},
+				{
+					"title": "Himeko - Star Chaser",
+					"sourceID": "QpcHyzFIV58"
+				},
+				{
+					"title": "Yanqing - Tempered Chill",
+					"sourceID": "R4gyZOwlwl0"
+				},
+				{
+					"title": "Bailu - In Torrid Heat",
+					"sourceID": "qR4n9LDb-C0"
+				},
+				{
+					"title": "Serval - The Cusp of Ignition",
+					"sourceID": "xnD_Mkh3wHc"
+				},
+				{
+					"title": "March 7th - Let's Take a Photo!",
+					"sourceID": "oHia45jIRrw"
+				},
+				{
+					"title": "Selection, Planning, and Opportunity",
+					"sourceID": "jDVJ7kBoXxE"
+				},
+				{
+					"title": "Grasp the Stars",
+					"sourceID": "EKqBecWAh0Q"
+				},
+				{
+					"title": "Ichor of Two Dragons",
+					"sourceID": "0RmhyMFGDBs"
+				},
+				{
+					"title": "Exodus of the Five Dragons",
+					"sourceID": "_iUmrosQ5v0"
+				},
+				{
+					"title": "General of All Affairs at the Seat of Divine Foresight",
+					"sourceID": "1a4jt3IN5jo"
+				},
+				{
+					"title": "The Jepella Rebellion",
+					"sourceID": "nLdTcnQf9Ys"
+				},
+				{
+					"title": "Fables About the Stars",
+					"sourceID": "Ni5-7B8iL7g"
+				},
+				{
+					"title": "A Flash",
+					"sourceID": "snonjRk38mQ"
+				},
+				{
+					"title": "Space Comedy",
+					"sourceID": "SSsBYhM11Wg"
+				},
+				{
+					"title": "Your Choice",
+					"sourceID": "5SRu1LmFpVE"
+				},
+				{
+					"title": "To You Who Will Soon Depart",
+					"sourceID": "MoAS0EgCABU"
+				},
+				{
+					"title": "Next Stop, The Stars!",
+					"sourceID": "MTfV_EfpLeg"
+				}
+			]
+		},
+		{
 			"album": "more-ost",
 			"tracks": [
+				{
+					"title": "The Crepuscule Zone (v1.5 Trailer OST)",
+					"sourceID": "fenn3zue5lM"
+				},
+				{
+					"title": "Jolted Awake From a Winter Dream (v1.4 Trailer OST)",
+					"sourceID": "K4iFFb-lhxA"
+				},
+				{
+					"title": "Celestial Eyes Above Mortal Ruins (v1.3 Trailer OST)",
+					"sourceID": "OBda9z-zQ_U"
+				},
+				{
+					"title": "Intermission (v1.1 Special Program)",
+					"sourceID": "N7dUziUUpKM"
+				},
 				{
 					"title": "Aetherium Wars: Topaz Fight",
 					"sourceID": "43ZNO8zCKPM"
@@ -449,80 +586,8 @@
 					"sourceID": "fvkkT25EoNI"
 				},
 				{
-					"title": "Swordward (Jingliu)",
-					"sourceID": "2uOzYyQKcrk"
-				},
-				{
-					"title": "Jolted Awake From a Winter Dream (v1.4 Trailer OST)",
-					"sourceID": "J0EODUCoK30"
-				},
-				{
-					"title": "Omniscia Spares None (Fu Xuan)",
-					"sourceID": "OCuI1KiTkuc"
-				},
-				{
-					"title": "The Prodigal's Return (Imbibitor Lunae)",
-					"sourceID": "vfapJ2_9DhY"
-				},
-				{
-					"title": "Celestial Eyes Above Mortal Ruins (v1.3 Trailer OST)",
-					"sourceID": "juHC2Ontj2o"
-				},
-				{
-					"title": "A Dramatic Irony (Kafka)",
-					"sourceID": "Ud0HqvSid5g"
-				},
-				{
-					"title": "Death Approaches (Blade)",
-					"sourceID": "6uhMuvy2Af4"
-				},
-				{
-					"title": "The Traveler And His Oath (Luocha)",
-					"sourceID": "VfydH5LO3f4"
-				},
-				{
-					"title": "Intermission (v1.1 Special Program)",
-					"sourceID": "N7dUziUUpKM"
-				},
-				{
-					"title": "Galactic Roaming (Silver Wolf)",
-					"sourceID": "0qJFe97dOrM"
-				},
-				{
-					"title": "Heaven and Earth as a Chessboard (Jing Yuan)",
-					"sourceID": "kTNKN4BDcy8"
-				},
-				{
-					"title": "Uneventful Night (Seele)",
-					"sourceID": "kG8xE2O3_gs"
-				},
-				{
-					"title": "Tempered Chill (Yanqing)",
-					"sourceID": "fqvQqG245QI"
-				},
-				{
-					"title": "In Torrid Heat (Bailu)",
-					"sourceID": "_eA_Q30lhfw"
-				},
-				{
-					"title": "Let's Take a Photo! (March 7th)",
-					"sourceID": "jcQAWk8sYWY"
-				},
-				{
-					"title": "The Cusp of Ignition (Serval)",
-					"sourceID": "Axm06DDSLm8"
-				},
-				{
-					"title": "Space Comedy",
-					"sourceID": "DxOBqiePZ2U"
-				},
-				{
 					"title": "Canon in D (HSR Departure Festival)",
 					"sourceID": "DUt82ZsrjH0"
-				},
-				{
-					"title": "Next Stop, The Stars!",
-					"sourceID": "_e2K2rpyX34"
 				},
 				{
 					"title": "Star Rail Login Screen",
