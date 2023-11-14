@@ -153,6 +153,30 @@
 			"name": "brilliant-fixation",
 			"featured": "an-instance-before-a-gaze",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 27,
+			"name": "ruanmei",
+			"featured": "ruan-mei",
+			"type": "character-event"
+		},
+		{
+			"id": 28,
+			"name": "brilliant-fixation",
+			"featured": "past-self-in-mirror",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 29,
+			"name": "ratio",
+			"featured": "dr-ratio",
+			"type": "character-event"
+		},
+		{
+			"id": 30,
+			"name": "brilliant-fixation",
+			"featured": "baptism-of-pure-thought",
+			"type": "lightcone-event"
 		}
 	]
 }

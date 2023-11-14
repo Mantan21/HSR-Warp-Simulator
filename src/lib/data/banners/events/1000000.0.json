@@ -1,4 +1,39 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"phase": 1,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["27-1"],
+					"rateup": ["dan-heng", "arlan", "serval"]
+				},
+				"lightcone": {
+					"bannerID": ["28-1"],
+					"rateup": ["subscribe-for-more", "shared-feeling", "trend-of-the-universal-market"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["29-1"],
+					"rateup": ["xueyi", "lynx", "asta"]
+				},
+				"lightcone": {
+					"bannerID": ["30-1"],
+					"rateup": [
+						"resolution-shines-as-pearls-of-sweat",
+						"the-moles-welcome-you",
+						"only-silence-remains"
+					]
+				}
+			}
+		}
+	]
 }

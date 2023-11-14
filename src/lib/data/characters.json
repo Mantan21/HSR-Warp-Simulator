@@ -2,11 +2,43 @@
 	"data": [
 		{
 			"pro": true,
+			"name": "xueyi",
+			"rarity": 4,
+			"combat_type": "quantum",
+			"path": "destruction",
+			"release": "1000000.0-2",
+			"splashartOffset": { "w": 80, "l": 52, "t": 55 },
+			"gachaCardOffset": { "l": 40, "t": 235, "w": 445 }
+		},
+		{
+			"pro": true,
+			"name": "dr-ratio",
+			"rarity": 5,
+			"combat_type": "imaginary",
+			"path": "hunt",
+			"bannerOffset": { "b": -65, "l": 12.5, "w": 120 },
+			"buttonOffset": { "t": -36, "l": 0, "w": 100 },
+			"splashartOffset": { "t": 65, "l": 57.5, "w": 100 },
+			"gachaCardOffset": { "l": 45, "t": 330, "w": 570 }
+		},
+		{
+			"pro": true,
+			"name": "ruan-mei",
+			"rarity": 5,
+			"combat_type": "ice",
+			"path": "harmony",
+			"bannerOffset": { "b": -20, "l": 10.5, "w": 100 },
+			"buttonOffset": { "t": -31.5, "l": -2, "w": 105 },
+			"splashartOffset": { "t": 50, "w": 90, "l": 52 },
+			"gachaCardOffset": { "l": 35, "t": 145, "w": 410 }
+		},
+		{
+			"pro": true,
 			"name": "hanya",
 			"rarity": 4,
 			"combat_type": "physical",
 			"path": "nihility",
-			"release": "1000000.0-2",
+			"release": "1.4-2",
 			"splashartOffset": { "w": 90, "l": 52, "t": 55 },
 			"gachaCardOffset": { "l": 45, "t": 150, "w": 400 }
 		},
