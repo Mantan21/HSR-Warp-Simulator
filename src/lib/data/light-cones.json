@@ -17,7 +17,6 @@
 			"bannerOffset": { "b": -48, "r": -30, "w": 80 }
 		},
 		{
-			"pro": true,
 			"name": "an-instance-before-a-gaze",
 			"rarity": 5,
 			"path": "erudition",

@@ -33,7 +33,6 @@
 			"gachaCardOffset": { "l": 35, "t": 145, "w": 410 }
 		},
 		{
-			"pro": true,
 			"name": "hanya",
 			"rarity": 4,
 			"combat_type": "physical",
@@ -43,7 +42,6 @@
 			"gachaCardOffset": { "l": 45, "t": 150, "w": 400 }
 		},
 		{
-			"pro": true,
 			"name": "argenti",
 			"rarity": 5,
 			"combat_type": "physical",
