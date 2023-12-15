@@ -6,7 +6,7 @@
 			"rarity": 4,
 			"combat_type": "quantum",
 			"path": "destruction",
-			"release": "1000000.0-2",
+			"release": "1.6-1",
 			"splashartOffset": { "w": 80, "l": 52, "t": 55 },
 			"gachaCardOffset": { "l": 40, "t": 235, "w": 445 }
 		},
