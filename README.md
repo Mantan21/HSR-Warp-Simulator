@@ -1,8 +1,8 @@
 # Honkai: Star Rail Warp Simulator
 
-![License](https://badgen.net/github/license/AguzzTN54/HSR-Warp-Simulator?icon:github) ![Repo Size](https://img.shields.io/github/repo-size/AguzzTN54/HSR-Warp-Simulator?color=fa0) [![CodeFactor](https://www.codefactor.io/repository/github/aguzztn54/HSR-Warp-Simulator/badge)](https://www.codefactor.io/repository/github/aguzztn54/HSR-Warp-Simulator) ![Status](https://badgen.net/github/checks/AguzzTN54/HSR-Warp-Simulator) ![Code Standard](https://badgen.net/badge/code%20style/standard/f2a) [![Saweria](https://badgen.net/badge/Saweria/AguzzTN54/F96854)](https://saweria.co/AguzzTN54)
+![License](https://badgen.net/github/license/Mantan21/HSR-Warp-Simulator?icon:github) ![Repo Size](https://img.shields.io/github/repo-size/Mantan21/HSR-Warp-Simulator?color=fa0) [![CodeFactor](https://www.codefactor.io/repository/github/mantan21/hsr-warp-simulator/badge)](https://www.codefactor.io/repository/github/mantan21/hsr-warp-simulator) ![Status](https://badgen.net/github/checks/Mantan21/HSR-Warp-Simulator) ![Code Standard](https://badgen.net/badge/code%20style/standard/f2a) [![Saweria](https://badgen.net/badge/Saweria/Mantan21/F96854)](https://saweria.co/Mantan21)
 
-This project is similar to the [Genshin Impact Wish Simulator](https://github.com/AguzzTN54/Genshin-Impact-Wish-Simulator), I use the same algorithm and most of the code here I copy from there.
+This project is similar to the [Genshin Impact Wish Simulator](https://github.com/Mantan21/Genshin-Impact-Wish-Simulator), I use the same algorithm and most of the code here I copy from there.
 
 ## Screenshots
 
@@ -59,7 +59,7 @@ I don't know how HoyoVerse's algorithm is, so I tried to create mine as realisti
 > `baseRate + ((CurrentPity - HardPity) * additionalRate)`
 >
 > To get the number of `additionalRate`, I calculated `100% - baseRate` and divide it by the difference between `HardPity` to `MaxPity`.
-> [Check here](https://github.com/AguzzTN54/HSR-Warp-Simulator/blob/master/src/lib/helpers/gacha/probabilities.js#L1-L15) to see how I implemented it as code
+> [Check here](https://github.com/Mantan21/HSR-Warp-Simulator/blob/master/src/lib/helpers/gacha/probabilities.js#L1-L15) to see how I implemented it as code
 
 Based on the formula above, it can be concluded that the probability table is as follows:
 
@@ -120,7 +120,7 @@ npm run dev -- --open
 
 <!-- ### How to Update new banner
 
-- The guide to Add New Banner are moved to Wiki, [Read Here](https://github.com/AguzzTN54/HSR-Warp-Simulator/wiki/How-to-Add-more-Banner) -->
+- The guide to Add New Banner are moved to Wiki, [Read Here](https://github.com/Mantan21/HSR-Warp-Simulator/wiki/How-to-Add-more-Banner) -->
 
 ## Building
 
@@ -132,11 +132,11 @@ npm run build
 
 ## Contributing
 
-I'm welcome to all contributors! Feel free to [Open New Issue](https://github.com/AguzzTN54/HSR-Warp-Simulator/issues/new) if you find any problem or just want to give any suggestions.
+I'm welcome to all contributors! Feel free to [Open New Issue](https://github.com/Mantan21/HSR-Warp-Simulator/issues/new) if you find any problem or just want to give any suggestions.
 
 <!-- ### Thank You to all Contributors
 
-[![Contributor](https://contrib.rocks/image?repo=AguzzTN54/HSR-Warp-Simulator)](https://github.com/AguzzTN54/HSR-Warp-Simulator/graphs/contributors) -->
+[![Contributor](https://contrib.rocks/image?repo=Mantan21/HSR-Warp-Simulator)](https://github.com/Mantan21/HSR-Warp-Simulator/graphs/contributors) -->
 
 > **Notes :**
 >
