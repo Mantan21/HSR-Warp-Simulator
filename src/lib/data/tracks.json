@@ -422,12 +422,40 @@
 				{
 					"title": "Aurum Alley: Logistics Planning",
 					"sourceID": "ZkVvJaI3td4"
+				},
+				{
+					"title": "Fyxestroll Garden: Nesting Avians",
+					"sourceID": "iFrOSbJHYYc"
+				},
+				{
+					"title": "Swallowsong Pavilion: Guqin Recording",
+					"sourceID": "Prsq6ALt3ag"
+				},
+				{
+					"title": "Wedding Wine (Vocal)",
+					"sourceID": "iQycrVRCMRo"
+				},
+				{
+					"title": "Wedding Wine (Instrumental)",
+					"sourceID": "EWfSlWa51GA"
+				},
+				{
+					"title": "Dancing Fantasms",
+					"sourceID": "kaQKKcy19is"
 				}
 			]
 		},
 		{
 			"album": "experience-the-paths",
 			"tracks": [
+				{
+					"title": "Argenti - Chivalric Romances",
+					"sourceID": "zL1pursSH8c"
+				},
+				{
+					"title": "Huohuo - Night of Thrills",
+					"sourceID": "_CNpOc2sQFA"
+				},
 				{
 					"title": "Topaz - Expert Tutorial",
 					"sourceID": "HvMrYtLxfuk"
@@ -564,6 +592,22 @@
 				{
 					"title": "Intermission (v1.1 Special Program)",
 					"sourceID": "N7dUziUUpKM"
+				},
+				{
+					"title": "Argenti: Knights of Beauty",
+					"sourceID": "yrt7WrwofCw"
+				},
+				{
+					"title": "Argenti: Code of Chivalry",
+					"sourceID": "SktO9pe4Yys"
+				},
+				{
+					"title": "Argenti: A Gentleman's Fantasy",
+					"sourceID": "LoM9t3wcNVg"
+				},
+				{
+					"title": "Cosmic Sacrifice for Love",
+					"sourceID": "yAE7Lc-J39k"
 				},
 				{
 					"title": "Aetherium Wars: Topaz Fight",
