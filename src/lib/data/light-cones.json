@@ -2,6 +2,21 @@
 	"data": [
 		{
 			"pro": true,
+			"name": "baptism-of-pure-thought",
+			"rarity": 5,
+			"path": "hunt",
+			"limited": true,
+			"bannerOffset": { "t": -15, "l": 45, "w": 75 }
+		},
+		{
+			"pro": true,
+			"name": "past-self-in-mirror",
+			"rarity": 5,
+			"path": "harmony",
+			"limited": true,
+			"bannerOffset": { "b": -48, "r": -30, "w": 80 }
+		},
+		{
 			"name": "an-instance-before-a-gaze",
 			"rarity": 5,
 			"path": "erudition",

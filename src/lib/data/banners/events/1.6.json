@@ -1,0 +1,35 @@
+{
+	"patch": 1.6,
+	"data": [
+		{
+			"phase": 1,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["27-1", "9-1"],
+					"rateup": ["xueyi", "march-7th", "tingyun"]
+				},
+				"lightcone": {
+					"bannerID": ["28-1", "19-1"],
+					"rateup": ["day-one-of-my-new-life", "planetary-rendezvous", "a-secret-vow"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["29-1", "8-1"],
+					"rateup": ["sushang", "natasha", "hook"]
+				},
+				"lightcone": {
+					"bannerID": ["30-1", "20-1"],
+					"rateup": ["only-silence-remains", "perfect-timing", "landaus-choice"]
+				}
+			}
+		}
+	]
+}

@@ -173,7 +173,6 @@
 		},
 		{
 			"date": "23 Oct 2023",
-			"featured": true,
 			"changes": [
 				"Unlock Content: The 2nd phase of 1.4",
 				"<b>Topaz</b> & <b>Worrisome Blissful</b>",
@@ -182,8 +181,33 @@
 		},
 		{
 			"date": "10 Nov 2023",
-			"featured": true,
 			"changes": ["Unlock Content: The 1st phase of 1.5 - <b>Huohuo & Night of Fright</b>"]
+		},
+		{
+			"date": "14 Nov 2023",
+			"featured": true,
+			"changes": [
+				"Add New Character: <b>Ruan Mei (5★)</b> & <b>Dr. Ratio (5★)</b>",
+				"Add New Character: <b>Xueyi (4★)</b>",
+				"Add New Light Cones: <b>Past Self in Mirror</b> & <b>Baptism of Pure Thought</b>"
+			]
+		},
+		{
+			"date": "10 Nov 2023",
+			"featured": true,
+			"changes": [
+				"Unlock Content: The 2nd phase of 1.5",
+				"- <b>Argenti & An Instance Before a Gaze</b>",
+				"- <b>Silver Wolf & Incessant Rain</b>"
+			]
+		},
+		{
+			"date": "16 Dec 2023",
+			"changes": [
+				"Unlock Content: The 1st phase of v1.6",
+				"- <b>Ruan Mei & Past Self in Mirror</b>",
+				"- <b>Blade & The Unreachable Side</b>"
+			]
 		}
 	]
 }

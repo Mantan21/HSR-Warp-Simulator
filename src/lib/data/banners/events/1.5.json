@@ -17,7 +17,6 @@
 		},
 		{
 			"phase": 2,
-			"pro": true,
 			"banners": {
 				"regularVersion": 1,
 				"character": {
@@ -26,11 +25,7 @@
 				},
 				"lightcone": {
 					"bannerID": ["26-1", "17-2"],
-					"rateup": [
-						"resolution-shines-as-pearls-of-sweat",
-						"the-moles-welcome-you",
-						"only-silence-remains"
-					]
+					"rateup": ["post-op-conversation", "under-the-blue-sky", "the-birth-of-the-self"]
 				}
 			}
 		}

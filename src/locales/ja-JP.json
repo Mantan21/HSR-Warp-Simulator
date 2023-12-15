@@ -102,8 +102,10 @@
 		"foreseen-foreknown-foretold": "窮観妙算",
 		"gentle-eclipse-of-the-moon": "淡く月欠けて",
 		"sunset-clause": "サンセット条項",
-		"bloom-in-gloom": "Bloom in Gloom",
-		"thorns-of-scented-crown": "Thorns of Scented Crown"
+		"bloom-in-gloom": "貞凶の令を承りて",
+		"thorns-of-scented-crown": "荊冠と勲章",
+		"floral-triptych": "疎影三迭",
+		"panta-rhei": "パンタ・レイ"
 	},
 	"details": {
 		"heading": "詳細",
@@ -283,6 +285,7 @@
 		"out-of-control": "制御不能",
 		"svah-sanishyu": "長き生の短き夢",
 		"of-snow-and-ember": "雪は灰燼に融ける",
+		"experience-the-paths": "Experience the Paths",
 		"more-ost": "その他の曲",
 		"custom-musics": "追加曲",
 		"currentSong": "Now Playing",
