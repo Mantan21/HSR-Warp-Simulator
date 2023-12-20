@@ -1,7 +1,6 @@
 {
 	"data": [
 		{
-			"pro": true,
 			"name": "xueyi",
 			"rarity": 4,
 			"combat_type": "quantum",
@@ -22,7 +21,6 @@
 			"gachaCardOffset": { "l": 45, "t": 330, "w": 570 }
 		},
 		{
-			"pro": true,
 			"name": "ruan-mei",
 			"rarity": 5,
 			"combat_type": "ice",
@@ -36,7 +34,7 @@
 			"name": "hanya",
 			"rarity": 4,
 			"combat_type": "physical",
-			"path": "nihility",
+			"path": "harmony",
 			"release": "1.4-2",
 			"splashartOffset": { "w": 90, "l": 52, "t": 55 },
 			"gachaCardOffset": { "l": 45, "t": 150, "w": 400 }

@@ -9,7 +9,6 @@
 			"bannerOffset": { "t": -15, "l": 45, "w": 75 }
 		},
 		{
-			"pro": true,
 			"name": "past-self-in-mirror",
 			"rarity": 5,
 			"path": "harmony",

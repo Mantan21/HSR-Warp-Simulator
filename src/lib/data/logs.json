@@ -203,6 +203,7 @@
 		},
 		{
 			"date": "16 Dec 2023",
+			"featured": true,
 			"changes": [
 				"Unlock Content: The 1st phase of v1.6",
 				"- <b>Ruan Mei & Past Self in Mirror</b>",

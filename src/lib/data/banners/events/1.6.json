@@ -3,7 +3,6 @@
 	"data": [
 		{
 			"phase": 1,
-			"pro": true,
 			"banners": {
 				"regularVersion": 1,
 				"character": {
