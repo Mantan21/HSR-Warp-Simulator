@@ -177,6 +177,30 @@
 			"name": "brilliant-fixation",
 			"featured": "baptism-of-pure-thought",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 31,
+			"name": "ripples-in-reflection",
+			"featured": "black-swan",
+			"type": "character-event"
+		},
+		{
+			"id": 32,
+			"name": "brilliant-fixation",
+			"featured": "reforged-remembrance",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 33,
+			"name": "sparkling-splendor",
+			"featured": "sparkle",
+			"type": "character-event"
+		},
+		{
+			"id": 34,
+			"name": "brilliant-fixation",
+			"featured": "earthly-escapade",
+			"type": "lightcone-event"
 		}
 	]
 }

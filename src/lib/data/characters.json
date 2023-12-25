@@ -1,6 +1,38 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"name": "misha",
+			"rarity": 4,
+			"combat_type": "ice",
+			"path": "destruction",
+			"release": "1000000-2",
+			"splashartOffset": { "w": 90, "l": 50, "t": 45 },
+			"gachaCardOffset": { "l": 35, "t": 110, "w": 400 }
+		},
+		{
+			"pro": true,
+			"name": "sparkle",
+			"rarity": 5,
+			"combat_type": "quantum",
+			"path": "harmony",
+			"bannerOffset": { "b": -42, "l": 12, "w": 103 },
+			"buttonOffset": { "t": -51, "w": 100 },
+			"splashartOffset": { "t": 58, "l": 52, "w": 85 },
+			"gachaCardOffset": { "l": 50, "t": 160, "w": 350 }
+		},
+		{
+			"pro": true,
+			"name": "black-swan",
+			"rarity": 5,
+			"combat_type": "wind",
+			"path": "nihility",
+			"bannerOffset": { "b": -31, "l": 9.5, "w": 115 },
+			"buttonOffset": { "t": -53, "w": 102 },
+			"splashartOffset": { "t": 60, "w": 100, "l": 53 },
+			"gachaCardOffset": { "l": 75, "t": 190, "w": 410 }
+		},
+		{
 			"name": "xueyi",
 			"rarity": 4,
 			"combat_type": "quantum",
