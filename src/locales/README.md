@@ -32,3 +32,32 @@ If you are not familiar with javascript especially sveltekit or don't know how t
    ```
 
 ## Thanks to all contributors who have carried out localization
+
+<table>
+   <thead>
+      <tr>
+         <th> Language </th>
+         <th> Contributor </th>
+      </tr>
+   <thead>
+   <tbody>
+      <tr>
+         <td> Chinese (Simplified) </td>
+         <td>
+            <a href="https://github.com/Xyyaua">
+               <img width="20px" src="https://avatars.githubusercontent.com/u/44024543?s=20" />
+               Xyyaua
+            </a>
+         </td>
+      </tr>
+      <tr>
+         <td> Japanese </td>
+         <td>
+            <a href="https://github.com/Sunny-JP">
+               <img width="20px" src="https://avatars.githubusercontent.com/u/122193933?s=20" />
+               Sunny-JP
+            </a>
+         </td>
+      </tr>
+   </tbody>
+</table>

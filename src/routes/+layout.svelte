@@ -133,6 +133,13 @@
 		type="font/woff2"
 		crossorigin
 	/>
+	<link
+		rel="preload"
+		href="/fonts/optimized_zh_web.woff2"
+		as="font"
+		type="font/woff2"
+		crossorigin
+	/>
 
 	{#if isLoaded && $showAd}
 		<Iklan head />
@@ -170,6 +177,13 @@
 	@font-face {
 		font-family: 'StarRail_JA_Web';
 		src: url('/fonts/optimized_ja_web.woff2') format('woff2');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'StarRail_ZH_Web';
+		src: url('/fonts/optimized_zh_web.woff2') format('woff2');
 		font-weight: normal;
 		font-style: normal;
 	}

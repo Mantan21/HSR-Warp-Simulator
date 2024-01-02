@@ -1,7 +1,7 @@
 <script>
 	import { createEventDispatcher, getContext, setContext } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { locale, locales, t } from 'svelte-i18n';
+	import { locale, t } from 'svelte-i18n';
 
 	import { activePhase, activeVersion } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
@@ -106,7 +106,7 @@
 			<button class="selected-option locale" on:click={handleOption}>
 				{localeName[activeIndicator]}
 				<img
-					src="data:image/png;base64,{flags[activeIndicator.substring(0, 2)]}"
+					src="data:image/png;base64,{flags[activeIndicator]}"
 					alt="flag {activeIndicator}"
 					class="flag"
 				/>
@@ -114,14 +114,10 @@
 
 			{#if showOption}
 				<div class="select-option locale" transition:fly={{ y: -20, duration: 200 }}>
-					{#each $locales as locale}
-						<button class:selected={locale === activeIndicator} on:click={() => setLang(locale)}>
-							<span> {localeName[locale]} </span>
-							<img
-								src="data:image/png;base64,{flags[locale.substring(0, 2)]}"
-								alt="flag {locale}"
-								class="flag"
-							/>
+					{#each Object.keys(localeName) as key}
+						<button class:selected={key === activeIndicator} on:click={() => setLang(key)}>
+							<span> {localeName[key]} </span>
+							<img src="data:image/png;base64,{flags[key]}" alt="flag {key}" class="flag" />
 						</button>
 					{/each}
 
