@@ -48,8 +48,8 @@
 		return t === usedList;
 	});
 
-	const list5star = (itemType) =>
-		get5StarItem({
+	const list5star = (itemType) => {
+		return get5StarItem({
 			phase: $activePhase,
 			version: $activeVersion,
 			stdList,
@@ -57,7 +57,7 @@
 			banner: type,
 			rateupItem: [featured]
 		});
-
+	};
 	const drop5char = [{ ...getCharDetails(featured), rateup: true }, ...list5star('character')];
 	const drop5lc = [{ ...getLCDetails(featured), rateup: true }, ...list5star('lightcone')];
 </script>
