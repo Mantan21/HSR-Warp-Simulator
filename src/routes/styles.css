@@ -1,9 +1,11 @@
 :root {
 	--hsr-neue: 'StarRail Neue', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
 		sans-serif;
-	--hsr-os-font: 'StarRail_Global_Web', 'StarRail_JA_Web', 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--hsr-os-font: 'StarRail_Global_Web', 'StarRail_JA_Web', 'StarRail_ZH_Web', 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--hsr-ja-font: 'StarRail_JA_Web', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+		sans-serif;
+	--hsr-zh-font: 'StarRail_ZH_Web', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
 		sans-serif;
 	--color-text: #e7e8ea;
 	--color-second: #e6cb94;
