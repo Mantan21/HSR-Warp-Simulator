@@ -42,7 +42,6 @@
 			"gachaCardOffset": { "l": 40, "t": 235, "w": 445 }
 		},
 		{
-			"pro": true,
 			"name": "dr-ratio",
 			"rarity": 5,
 			"combat_type": "imaginary",

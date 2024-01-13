@@ -201,7 +201,6 @@
 		},
 		{
 			"date": "16 Dec 2023",
-			"featured": true,
 			"changes": [
 				"Unlock Content: The 1st phase of v1.6",
 				"- <b>Ruan Mei & Past Self in Mirror</b>",
@@ -215,6 +214,15 @@
 				"Add New Character: <b>Black Swan (5★)</b> & <b>Sparkle (5★)</b>",
 				"Add New Character: <b>Misha (4★)</b>",
 				"Add New Light Cones: <b>Reforged Remembrance</b> & <b>Earthly Escapade</b>"
+			]
+		},
+		{
+			"date": "13 Jan 2024",
+			"featured": true,
+			"changes": [
+				"Unlock Content: The 2nd phase of v1.6",
+				"- <b>dr. Ratio & Baptism of Pure Thought</b>",
+				"- <b>Kafka & Patience Is All You Need </b>"
 			]
 		}
 	]
