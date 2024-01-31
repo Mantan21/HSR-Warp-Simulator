@@ -209,7 +209,6 @@
 		},
 		{
 			"date": "25 Dec 2023",
-			"featured": true,
 			"changes": [
 				"Add New Character: <b>Black Swan (5★)</b> & <b>Sparkle (5★)</b>",
 				"Add New Character: <b>Misha (4★)</b>",
@@ -223,6 +222,13 @@
 				"Unlock Content: The 2nd phase of v1.6",
 				"- <b>dr. Ratio & Baptism of Pure Thought</b>",
 				"- <b>Kafka & Patience Is All You Need </b>"
+			]
+		},
+		{
+			"date": "31 Jan 2024",
+			"changes": [
+				"Unlock Content: The 1st phase of v2.0",
+				"- <b>Black Swan & Dan Heng - Imbibitor Lunae</b>"
 			]
 		}
 	]

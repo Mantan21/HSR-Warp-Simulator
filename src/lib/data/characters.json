@@ -1,12 +1,11 @@
 {
 	"data": [
 		{
-			"pro": true,
 			"name": "misha",
 			"rarity": 4,
 			"combat_type": "ice",
 			"path": "destruction",
-			"release": "1000000-2",
+			"release": "2.0-1",
 			"splashartOffset": { "w": 90, "l": 50, "t": 45 },
 			"gachaCardOffset": { "l": 35, "t": 110, "w": 400 }
 		},
@@ -22,7 +21,6 @@
 			"gachaCardOffset": { "l": 50, "t": 160, "w": 350 }
 		},
 		{
-			"pro": true,
 			"name": "black-swan",
 			"rarity": 5,
 			"combat_type": "wind",

@@ -1,0 +1,38 @@
+{
+	"patch": 2.0,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["31-1", "10-2"],
+					"rateup": ["misha", "tingyun", "guinaifen"]
+				},
+				"lightcone": {
+					"bannerID": ["32-1", "21-2"],
+					"rateup": [
+						"resolution-shines-as-pearls-of-sweat",
+						"indelible-promise",
+						"dance-dance-dance"
+					]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["33-1", "5-2"],
+					"rateup": ["sampo", "qingque", "hanya"]
+				},
+				"lightcone": {
+					"bannerID": ["34-1", "16-2"],
+					"rateup": ["under-the-blue-sky", "planetary-rendezvous", "geniuses-repose"]
+				}
+			}
+		}
+	]
+}
