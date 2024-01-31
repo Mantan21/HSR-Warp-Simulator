@@ -94,6 +94,7 @@
 <style>
 	.col {
 		flex-basis: 25%;
+		flex-grow: 1;
 		padding: 0 0.5%;
 		max-width: 300px;
 	}

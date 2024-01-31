@@ -1,6 +1,12 @@
 {
 	"data": [
 		{
+			"name": "indelible-promise",
+			"rarity": 4,
+			"limited": true,
+			"path": "destruction"
+		},
+		{
 			"pro": true,
 			"name": "earthly-escapade",
 			"rarity": 5,
@@ -9,7 +15,6 @@
 			"bannerOffset": { "t": -8, "l": 50, "w": 90 }
 		},
 		{
-			"pro": true,
 			"name": "reforged-remembrance",
 			"rarity": 5,
 			"path": "nihility",

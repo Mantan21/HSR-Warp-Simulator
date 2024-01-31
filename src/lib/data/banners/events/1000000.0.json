@@ -1,35 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"phase": 1,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["31-1"],
-					"rateup": ["xueyi", "march-7th", "tingyun"]
-				},
-				"lightcone": {
-					"bannerID": ["32-1"],
-					"rateup": ["day-one-of-my-new-life", "planetary-rendezvous", "a-secret-vow"]
-				}
-			}
-		},
-		{
-			"phase": 2,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["33-1"],
-					"rateup": ["misha", "natasha", "hook"]
-				},
-				"lightcone": {
-					"bannerID": ["34-1"],
-					"rateup": ["only-silence-remains", "perfect-timing", "landaus-choice"]
-				}
-			}
-		}
-	]
+	"data": []
 }
