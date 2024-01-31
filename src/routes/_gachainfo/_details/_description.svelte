@@ -9,13 +9,13 @@
 	const isCharBanner = bannerType === 'character-event';
 
 	const { drop5char, drop4char, drop5lc, drop4lc } = data;
-	const {
-		name: itemName,
-		path,
-		combat_type
-	} = (drop5char || drop5lc).find(({ rateup }) => rateup) || {};
-	const [item1, item2, item3] =
-		(isCharBanner ? drop4char : drop4lc).filter(({ rateup }) => rateup) || {};
+
+	const fiveStarDrop = bannerType.match('character') ? drop5char : drop5lc;
+	const itemUP5Star = fiveStarDrop.find(({ rateup }) => rateup) || {};
+	const { name: itemName, path, combat_type } = itemUP5Star;
+
+	const rateupDrop = (isCharBanner ? drop4char : drop4lc).filter(({ rateup }) => rateup) || {};
+	const [item1, item2, item3] = rateupDrop;
 
 	const rateUpList = (key) => {
 		return $t(`details.${key}`, {

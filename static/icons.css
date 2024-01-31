@@ -290,3 +290,6 @@
 .hsr-lock:before {
 	content: '\5b';
 }
+.hsr-chat:before {
+	content: '\5d';
+}

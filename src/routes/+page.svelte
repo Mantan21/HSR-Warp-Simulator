@@ -22,13 +22,14 @@
 	import Banners from './_warp/index.svelte';
 	import Menu from './_menu/index.svelte';
 
-	let AllBanner, Collection, Shop, GachaInfo, Phonograph, ObtainedItem, ModalConvert;
+	let AllBanner, Collection, Feedback, Shop, GachaInfo, Phonograph, ObtainedItem, ModalConvert;
 	const asyncLoadComponent = async () => {
 		ObtainedItem = (await import('$lib/components/ObtainedItem.svelte')).default;
 		ModalConvert = (await import('$lib/components/ModalConvert.svelte')).default;
 
 		AllBanner = (await import('./_allbanner/index.svelte')).default;
 		Collection = (await import('./_collection/index.svelte')).default;
+		Feedback = (await import('./_feedback/index.svelte')).default;
 		Shop = (await import('./_shop/index.svelte')).default;
 		GachaInfo = (await import('./_gachainfo/index.svelte')).default;
 		Phonograph = (await import('./_phonograph/index.svelte')).default;
@@ -121,6 +122,17 @@
 	// Express Loader
 	const readyToPull = writable(true);
 	setContext('readyToPull', readyToPull);
+
+	// Feedback
+	let chatLoaded = false; // initial load
+	let showChat = false; // toggle hide-show
+	const chatToggle = () => {
+		chatLoaded = true;
+		showChat = !showChat;
+		playSfx();
+		console.log('ok');
+	};
+	setContext('chatToggle', chatToggle);
 </script>
 
 {#if status === 'error'}
@@ -154,6 +166,10 @@
 {/if}
 
 <!-- Utils -->
+{#if chatLoaded}
+	<svelte:component this={Feedback} show={showChat} />
+{/if}
+
 {#if showObtained}
 	<svelte:component this={ObtainedItem} {...obtainedData} />
 {/if}

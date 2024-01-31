@@ -54,6 +54,30 @@
 					"description": "Recipe: Wildfire-soaked maguey, a lemon slice charged with murder, and a handful of salt fermented from the tears of stars."
 				},
 				{
+					"title": "Sleepwalking",
+					"sourceID": "GTtdZ1QaNxo"
+				},
+				{
+					"title": "In Disbelief",
+					"sourceID": "8mQbpLGpByc"
+				},
+				{
+					"title": "Shadows of Enigma",
+					"sourceID": "E61vTEjxXx8"
+				},
+				{
+					"title": "Lurking Dread",
+					"sourceID": "wEkbC9MuWJo"
+				},
+				{
+					"title": "Aberrant Receptacle",
+					"sourceID": "qYqjGtW41z4"
+				},
+				{
+					"title": "Age of Innocence",
+					"sourceID": "hRn2ieBtyuQ"
+				},
+				{
 					"title": "Drift",
 					"sourceID": "Li_oM7D8qug"
 				},
@@ -80,6 +104,10 @@
 				{
 					"title": "Simulated Universe: Swarm Disaster",
 					"sourceID": "MJLz3NuEK6w"
+				},
+				{
+					"title": "Primordial Resplendence - Simulated Universe: Gold and Gears",
+					"sourceID": "koQou1rtz28"
 				}
 			]
 		},
@@ -449,6 +477,14 @@
 			"album": "experience-the-paths",
 			"tracks": [
 				{
+					"title": "Supreme Idiocy",
+					"sourceID": "3RBLYxNsYCQ"
+				},
+				{
+					"title": "Crown of the Mundane and Divine",
+					"sourceID": "N2HRGBKabpE"
+				},
+				{
 					"title": "Argenti - Chivalric Romances",
 					"sourceID": "zL1pursSH8c"
 				},
@@ -577,6 +613,10 @@
 		{
 			"album": "more-ost",
 			"tracks": [
+				{
+					"title": "Crown of the Mundane and Divine (v1.6 Trailer OST)",
+					"sourceID": "kGX645T5Ia8"
+				},
 				{
 					"title": "The Crepuscule Zone (v1.5 Trailer OST)",
 					"sourceID": "fenn3zue5lM"

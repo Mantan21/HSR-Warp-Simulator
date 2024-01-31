@@ -28,7 +28,7 @@
 			"rarity": 5,
 			"path": "harmony",
 			"limited": true,
-			"bannerOffset": { "b": -48, "r": -30, "w": 80 }
+			"bannerOffset": { "b": -88, "r": -21, "w": 90 }
 		},
 		{
 			"name": "an-instance-before-a-gaze",

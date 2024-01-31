@@ -79,9 +79,10 @@
 	};
 
 	// feedback
+	const chatToggle = getContext('chatToggle');
 	const feedback = () => {
 		playSfx();
-		window.open('/feedback', '_blank');
+		chatToggle();
 	};
 
 	// Phonograph
