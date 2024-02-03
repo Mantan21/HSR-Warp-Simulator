@@ -142,7 +142,7 @@
 	}
 	.item-type small {
 		font-family: var(--hsr-neue);
-		font-size: x-small;
+		font-size: calc(0.0075 * var(--screen-width));
 	}
 
 	.name {

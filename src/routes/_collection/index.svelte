@@ -175,7 +175,7 @@
 
 	.list {
 		width: 100%;
-		height: 100%;
+		height: calc(inherit - 20px);
 	}
 	.footer {
 		margin-top: 10;
