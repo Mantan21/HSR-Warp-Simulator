@@ -1,6 +1,6 @@
 # Honkai: Star Rail Warp Simulator
 
-![License](https://badgen.net/github/license/Mantan21/HSR-Warp-Simulator?icon:github) ![Repo Size](https://img.shields.io/github/repo-size/Mantan21/HSR-Warp-Simulator?color=fa0) [![CodeFactor](https://www.codefactor.io/repository/github/mantan21/hsr-warp-simulator/badge)](https://www.codefactor.io/repository/github/mantan21/hsr-warp-simulator) ![Status](https://badgen.net/github/checks/Mantan21/HSR-Warp-Simulator) ![Code Standard](https://badgen.net/badge/code%20style/standard/f2a) [![Saweria](https://badgen.net/badge/Saweria/Mantan21/F96854)](https://saweria.co/Mantan21)
+![License](https://badgen.net/github/license/Mantan21/HSR-Warp-Simulator?icon:github) ![Repo Size](https://img.shields.io/github/repo-size/Mantan21/HSR-Warp-Simulator?color=fa0) [![CodeFactor](https://www.codefactor.io/repository/github/mantan21/hsr-warp-simulator/badge)](https://www.codefactor.io/repository/github/mantan21/hsr-warp-simulator) ![Status](https://badgen.net/github/checks/Mantan21/HSR-Warp-Simulator) ![Code Standard](https://badgen.net/badge/code%20style/standard/f2a) [![Trakteer](https://badgen.net/badge/Trakteer/Mantan21/BE1E2D)](https://trakteer.id/mantan21)
 
 This project is similar to the [Genshin Impact Wish Simulator](https://github.com/Mantan21/Genshin-Impact-Wish-Simulator), I use the same algorithm and most of the code here I copy from there.
 

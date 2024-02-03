@@ -34,15 +34,15 @@
 		align-items: center;
 		line-height: 0;
 		padding: calc(0.015 * var(--screen-width)) calc(0.025 * var(--screen-width));
-		margin-right: calc(0.02 * var(--screen-width));
+		margin: 0 calc(0.02 * var(--screen-width));
 		font-size: 130%;
 		transition: all 0.5s;
 		opacity: 0.75;
 		position: relative;
 	}
-	@media screen and (max-width: 900px) {
+	@media screen and (max-width: 1200px) {
 		button {
-			margin-right: 30px;
+			margin: 0.5% calc(0.02 * var(--screen-width));
 		}
 	}
 

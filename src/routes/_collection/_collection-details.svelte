@@ -263,13 +263,17 @@
 		font-size: larger;
 	}
 
+	:global(.mobileLandscape) .detail {
+		font-size: 100%;
+	}
+
 	@media screen and (max-width: 600px) {
 		.tanda-air {
 			bottom: 7.5%;
 		}
 
 		.detail {
-			font-size: 120%;
+			font-size: 100%;
 		}
 	}
 </style>

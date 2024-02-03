@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 	import { t } from 'svelte-i18n';
-	import { isMobileLandscape, liteMode } from '$lib/stores/app-store';
+	import { isMobile, isMobileLandscape, liteMode } from '$lib/stores/app-store';
 	import { cookie } from '$lib/stores/cookies';
 	import { owneditem } from '$lib/stores/localstorage';
 	import { data as charDB } from '$lib/data/characters.json';
@@ -113,7 +113,7 @@
 	{:else}
 		<Scrollable>
 			<div class="list" style="--itemWidth: {itemWidth}%">
-				{#if $liteMode}
+				{#if $liteMode || $isMobile}
 					{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }}
 						{#key name}
 							<div class="item">

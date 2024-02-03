@@ -69,9 +69,11 @@ export const get4StarItem = ({
 	// Rateup Item
 	if (useRateup) {
 		const isChar = banner === 'character-event';
-		const DBList = isChar ? getAllChars(4) : regularLightcones(4);
+		const DBList = isChar ? getAllChars(4) : getAllLightCones(4);
 		const rateupList = DBList.filter(({ name }) => rateupNamelist.includes(name));
-		return rateupList;
+		if (rateupList.length > 0) return rateupList;
+		console.log('Rateup Filtering Error');
+		return DBList;
 	}
 
 	// Beginner droplist
