@@ -143,6 +143,14 @@
 							>
 								{$t('menu.getNewKey')}
 							</a>
+							or
+							<a
+								style="color: #be1e2d;"
+								target="_blank"
+								href="https://trakteer.id/mantan21/showcase/access-key-untuk-membership-SJ9X6"
+							>
+								Here for Indonesian!
+							</a>
 						{/if}
 					</div>
 

@@ -13,7 +13,7 @@
 	<div class="content-group" style="--option-height:{donatorHeight}px">
 		<ShopGroup>
 			<ShopGroupItem>
-				<a class="donate-method" href="https://ko-fi.com/mantan21" target="_blank">
+				<a class="donate-method kofi" href="https://ko-fi.com/mantan21" target="_blank">
 					<div class="item-pic">
 						<picture>
 							<img src={assetPath('utils/donate-kofi.png')} alt="Ko-Fi" />
@@ -26,13 +26,13 @@
 			</ShopGroupItem>
 
 			<ShopGroupItem>
-				<a class="donate-method" href="https://saweria.co/AguzzTN54" target="_blank">
+				<a class="donate-method trakteer" href="https://trakteer.id/mantan21" target="_blank">
 					<div class="item-pic">
 						<picture>
-							<img src={assetPath('utils/donate-saweria.webp')} alt="Saweria" />
+							<img src={assetPath('utils/donate-trakteer.png')} alt="Trakteer" />
 						</picture>
 						<div class="via">
-							<span class="name">Donate Via Saweria</span>
+							<span class="name">Donate Via Trakteer</span>
 						</div>
 					</div>
 				</a>
@@ -42,7 +42,9 @@
 	<div class="donationlist" bind:clientHeight={donatorHeight}>
 		{#await supporterList() then listOfSupporters}
 			{#if listOfSupporters.length > 0}
-				{#each listOfSupporters as { name, message, amount, date, platform }, i}
+				{#each listOfSupporters as { name, message, amount, date, type }, i}
+					{@const platform =
+						type === 'tip' ? 'trakteer' : type === 'donation' ? 'saweria' : 'ko-fi'}
 					<div class="donation-item {platform}" in:fade={{ duration: 300, delay: i * 20 }}>
 						<div class="supporter">
 							<div class="info">
@@ -72,7 +74,7 @@
 
 	.content-group {
 		height: calc(var(--screen-height) - var(--option-height) - 75px);
-		width: 100%;
+		flex-grow: 1;
 	}
 
 	:global(.mobileLandscape) .content-group {
@@ -88,9 +90,14 @@
 		color: #000;
 	}
 
-	picture img {
-		width: 30%;
+	.donate-method img {
 		transform: translateY(-25%);
+	}
+	.kofi img {
+		width: 30%;
+	}
+	.trakteer img {
+		width: 75%;
 	}
 
 	picture {
@@ -148,7 +155,7 @@
 	.donation-item .supporter {
 		background-color: rgba(255, 255, 255, 0.7);
 		width: 100%;
-		height: 100px;
+		height: 90px;
 		padding: 2%;
 		border-top-right-radius: 1rem;
 		display: flex;
@@ -213,10 +220,12 @@
 		color: #4f8d28;
 		margin-right: 0.5rem;
 	}
-
 	.saweria .platform {
 		color: rgb(213, 142, 18);
 		margin-right: 0.5rem;
+	}
+	.trakteer .platform {
+		color: #be1e2d;
 	}
 
 	.time {
@@ -241,8 +250,10 @@
 	.donation-item.saweria .amount span {
 		background-color: #e2a12d;
 	}
-
 	.donation-item.sociabuzz .amount span {
 		background-image: linear-gradient(45deg, #3fa9f5 30%, #78c845);
+	}
+	.donation-item.trakteer .amount span {
+		background-color: #be1e2d;
 	}
 </style>
