@@ -1,6 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { assetPath } from '$lib/helpers/assets';
+	import { assets } from '$lib/stores/app-store';
 	import { supporterList } from '$lib/helpers/donation';
 
 	import ShopGroupItem from './_shop-group-item.svelte';
@@ -16,7 +16,7 @@
 				<a class="donate-method kofi" href="https://ko-fi.com/mantan21" target="_blank">
 					<div class="item-pic">
 						<picture>
-							<img src={assetPath('utils/donate-kofi.png')} alt="Ko-Fi" />
+							<img src={$assets['donate-kofi.png']} alt="Ko-Fi" />
 						</picture>
 						<div class="via">
 							<span class="name">Donate Via Ko-Fi</span>
@@ -29,7 +29,7 @@
 				<a class="donate-method trakteer" href="https://trakteer.id/mantan21" target="_blank">
 					<div class="item-pic">
 						<picture>
-							<img src={assetPath('utils/donate-trakteer.png')} alt="Trakteer" />
+							<img src={$assets['donate-trakteer.png']} alt="Trakteer" />
 						</picture>
 						<div class="via">
 							<span class="name">Donate Via Trakteer</span>

@@ -3,8 +3,8 @@
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
 	import { bezier } from '$lib/helpers/easing';
 	import { data } from '$lib/data/characters.json';
-	import { assetPath } from '$lib/helpers/assets';
 	import positionToStyle from '$lib/helpers/css-transformer';
+	import { assets } from '$lib/stores/app-store';
 
 	export let item = {};
 	export let event2 = false;
@@ -27,7 +27,7 @@
 
 	<!-- Left Pane -->
 	<div class="wrapper-info">
-		<div class="info-body" in:fade={{ duration: 500, delay: 250 }}>
+		<div class="info-body" in:fade={{ duration: 250, delay: 250 }}>
 			<div class="short-detail">
 				<h1>{bannerTitle}</h1>
 				<div class="time">
@@ -41,26 +41,26 @@
 			</div>
 
 			<div class="rateup-characters">
-				<div class="rateup-row" in:diagonalSlide={{ delay: 300, duration: 350 }}>
+				<div class="rateup-row" in:diagonalSlide={{ delay: 400, duration: 350 }}>
 					{#each rateup as name, i}
 						{@const offset = characterOffset(name)}
 						<div class="rateup-item">
 							<div class="rateup-content">
 								<picture
 									in:fly={{
-										x: -20,
+										x: -30,
 										duration: 2000,
 										easing: bezier(0.13, 0.14, 0, 1),
-										delay: 300 + 150 * i
+										delay: 500 + 150 * i
 									}}
 								>
 									{#if offset}
 										<source
-											srcset={assetPath(`splash-art/4/${name}`, 1280)}
+											srcset={$assets[`splash-art/medium/${name}`]}
 											media="(min-width: 840px)"
 										/>
 										<img
-											src={assetPath(`splash-art/4/${name}`, 640)}
+											src={$assets[`splash-art/small/${name}`]}
 											alt={$t(name)}
 											class:fullArt={offset}
 											style={offset}
@@ -68,7 +68,7 @@
 										/>
 									{:else}
 										<img
-											src={assetPath(`closeup-bg/4/${name}`)}
+											src={$assets[`closeup-bg/${name}`]}
 											alt={$t(name)}
 											crossorigin="anonymous"
 										/>
@@ -213,7 +213,7 @@
 
 	.rateup-row {
 		display: flex;
-		width: 100%;
+		width: inherit;
 		height: calc(0.202 * var(--bw));
 		justify-content: center;
 		padding: 1.725%;
@@ -221,12 +221,12 @@
 
 	.rateup-item {
 		width: 33.33333333%;
-		height: 100%;
+		height: inherit;
 		padding: 0 2.5%;
 	}
 	.rateup-content {
 		width: 100%;
-		height: 100%;
+		height: inherit;
 		border-radius: 10rem;
 		overflow: hidden;
 		background-color: rgba(255, 255, 255, 0.9);
@@ -234,7 +234,7 @@
 
 	picture {
 		position: relative;
-		height: 100%;
+		height: inherit;
 		display: block;
 	}
 

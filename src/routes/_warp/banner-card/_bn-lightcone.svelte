@@ -4,7 +4,6 @@
 	import { data } from '$lib/data/light-cones.json';
 	import { scaleOrigin } from '$lib/helpers/transition';
 	import { assets, isMobileLandscape, liteMode } from '$lib/stores/app-store';
-	import { assetPath } from '$lib/helpers/assets';
 	import positionToStyle from '$lib/helpers/css-transformer';
 	import BannerTpl from './__banner-tpl.svelte';
 
@@ -37,9 +36,9 @@
 			}}
 		>
 			<picture style={offset}>
-				<source srcset={assetPath(`lc/5/${item.featured}`, 450)} media="(max-width: 640px)" />
+				<source srcset={$assets[`lc/medium/${item.featured}`]} media="(max-width: 640px)" />
 				<img
-					src={assetPath(`lc/5/${item.featured}`, 890)}
+					src={$assets[`lc/large/${item.featured}`]}
 					alt={$t(item.featured)}
 					crossorigin="anonymous"
 				/>

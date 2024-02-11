@@ -3,9 +3,8 @@
 	import { bezier } from '$lib/helpers/easing';
 	import { fly } from '$lib/helpers/transition';
 	import { data } from '$lib/data/characters.json';
-	import { isMobileLandscape, liteMode } from '$lib/stores/app-store';
+	import { assets, isMobileLandscape, liteMode } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/css-transformer';
-	import { assetPath } from '$lib/helpers/assets';
 	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
@@ -45,17 +44,17 @@
 					>
 						<picture style={offset}>
 							<source
-								srcset={assetPath(`splash-art/5/${item.featured}`, 2000)}
+								srcset={$assets[`splash-art/large/${item.featured}`]}
 								media="(min-width: 1280px)"
 							/>
 							<source
-								srcset={assetPath(`splash-art/5/${item.featured}`, 1280)}
+								srcset={$assets[`splash-art/medium/${item.featured}`]}
 								media="(min-width: 640px)"
 							/>
 							<img
 								crossorigin="anonymous"
 								alt={$t(item.featured)}
-								src={assetPath(`splash-art/5/${item.featured}`, 640)}
+								src={$assets[`splash-art/small/${item.featured}`]}
 							/>
 						</picture>
 					</div>

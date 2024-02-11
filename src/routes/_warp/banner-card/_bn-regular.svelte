@@ -1,8 +1,7 @@
 <script>
-	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
 	import { fly } from '$lib/helpers/transition';
-	import { liteMode } from '$lib/stores/app-store';
+	import { assets, liteMode } from '$lib/stores/app-store';
 	import BannerTpl from './__banner-tpl.svelte';
 </script>
 
@@ -19,7 +18,7 @@
 					easing: bezier(0.13, 0.14, 0, 1)
 				}}
 			>
-				<img src={assetPath('banners/regular/himeko.webp')} alt="Himeko" crossorigin="anonymous" />
+				<img src={$assets['banner/himeko']} alt="Himeko" crossorigin="anonymous" />
 			</figure>
 		</div>
 		<div class="splash-art gepard">
@@ -32,7 +31,7 @@
 					easing: bezier(0.13, 0.14, 0, 1)
 				}}
 			>
-				<img src={assetPath('banners/regular/gepard.webp')} alt="Gepard" crossorigin="anonymous" />
+				<img src={$assets['banner/gepard']} alt="Gepard" crossorigin="anonymous" />
 			</figure>
 		</div>
 		<div class="splash-art bronya">
@@ -45,7 +44,7 @@
 					easing: bezier(0.13, 0.14, 0, 1)
 				}}
 			>
-				<img src={assetPath('banners/regular/bronya.webp')} alt="Bronya" crossorigin="anonymous" />
+				<img src={$assets['banner/bronya']} alt="Bronya" crossorigin="anonymous" />
 			</figure>
 		</div>
 	</div>

@@ -130,7 +130,6 @@
 		chatLoaded = true;
 		showChat = !showChat;
 		playSfx();
-		console.log('ok');
 	};
 	setContext('chatToggle', chatToggle);
 </script>

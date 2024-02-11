@@ -3,9 +3,8 @@
 	import { t } from 'svelte-i18n';
 	import { data as charDB } from '$lib/data/characters.json';
 	import { assets } from '$lib/stores/app-store';
-	import { assetPath } from '$lib/helpers/assets';
-	import positionToStyle from '$lib/helpers/css-transformer';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let active = false;
 	export let bannerData = {};
@@ -63,7 +62,7 @@
 		{:else if type === 'lightcone-event'}
 			<img
 				class="cone-bg"
-				src={assetPath(`lc/5/${featured}`, 150)}
+				src={$assets[`lc/small/${featured}`]}
 				alt={$t(featured)}
 				crossorigin="anonymous"
 			/>
@@ -73,7 +72,7 @@
 		<figure>
 			{#if type === 'character-event'}
 				<img
-					src={assetPath(`banners/button/${featured}.webp`)}
+					src={$assets[`icon/${featured}`]}
 					style={buttonOffset(featured)}
 					alt={$t(featured)}
 					crossorigin="anonymous"
@@ -85,7 +84,7 @@
 			{:else if type === 'lightcone-event'}
 				<img
 					class="cone-fg"
-					src={assetPath(`light-cones/icons/${featured}.webp`)}
+					src={$assets[`icon/${featured}`]}
 					alt={$t(featured)}
 					crossorigin="anonymous"
 				/>

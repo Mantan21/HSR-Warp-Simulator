@@ -3,9 +3,8 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 
-	import { assets, viewportWidth } from '$lib/stores/app-store';
+	import { assets } from '$lib/stores/app-store';
 	import { HistoryManager } from '$lib/stores/idbManager';
-	import { assetPath } from '$lib/helpers/assets';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 	import { getCharDetails, getLCDetails } from '$lib/helpers/gacha/gacha-base';
 	import positionToStyle from '$lib/helpers/css-transformer';
@@ -85,7 +84,7 @@
 						<div class="item-art lightcone">
 							<div class="item-content">
 								<div class="lightcone-item">
-									<LightCones item={name} {rarity} />
+									<LightCones item={name} size="large" />
 								</div>
 							</div>
 						</div>
@@ -93,10 +92,7 @@
 						<div class="item-art character">
 							<picture class="item-content">
 								<img
-									use:lazyLoad={assetPath(
-										`splash-art/${rarity}/${name}`,
-										$viewportWidth > 840 ? 1280 : 640
-									)}
+									use:lazyLoad={$assets[`splash-art/large/${name}`]}
 									style={positionToStyle(splashartOffset)}
 									crossorigin="anonymous"
 									alt={$t(name)}

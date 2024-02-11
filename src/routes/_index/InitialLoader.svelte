@@ -1,13 +1,14 @@
 <script>
 	import { getContext, onMount } from 'svelte';
 	import { assets } from '$lib/stores/app-store';
-	import { assetPath, blobAssets, listingAssets } from '$lib/helpers/assets';
+	import { blobAssets, itemList, listingAssets } from '$lib/helpers/assets';
 
 	let anyError = false;
 	let current = 0;
 	$: percentage = current > 99 ? 100 : current.toFixed();
 
 	const handleLoaded = getContext('loaded');
+	const assetList = itemList();
 
 	const assetInit = async () => {
 		const arr = [];
@@ -26,7 +27,7 @@
 		assets.update((pv) => {
 			pv = {};
 			loadedAssets.forEach(({ url, name }) => (pv[name] = url));
-			return pv;
+			return { ...pv, ...assetList };
 		});
 
 		if (anyError === false) handleLoaded();
@@ -65,7 +66,7 @@
 <section>
 	<div class="wrapper">
 		<div class="ornament ornament1">
-			<img src={assetPath('utils/loading-ornament.svg')} alt="" crossorigin="anonymous" />
+			<img src={assetList['loading-ornament.svg']} alt="" crossorigin="anonymous" />
 		</div>
 		<div class="ornament ornament2" />
 		<div class="ornament ornament3" />

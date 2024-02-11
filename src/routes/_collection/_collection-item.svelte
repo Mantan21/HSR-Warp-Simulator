@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import { assetPath } from '$lib/helpers/assets';
+	import { assets } from '$lib/stores/app-store';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 	import LightCones from '$lib/components/LightCones.svelte';
 
@@ -28,14 +28,10 @@
 <div class="item-container star{rarity}" on:mousedown={handleClik}>
 	{#if !combatType}
 		<div class="lightcone">
-			<LightCones item={name} {rarity} small="tiny" />
+			<LightCones item={name} size="small" />
 		</div>
 	{:else}
-		<img
-			use:lazyLoad={assetPath(`closeup/${rarity}/${name}`)}
-			alt={$t(name)}
-			crossorigin="anonymous"
-		/>
+		<img use:lazyLoad={$assets[`closeup/${name}`]} alt={$t(name)} crossorigin="anonymous" />
 	{/if}
 
 	<div class="frame" class:notowned={!isOwned}>

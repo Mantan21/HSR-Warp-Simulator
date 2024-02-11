@@ -23,56 +23,75 @@ const lightcone5star = import.meta.glob('@images/light-cones/full-art/5star/*.we
 
 const utils = import.meta.glob(
 	[
-		'@images/utils/*',
+		'@images/utils/**/*',
 		'@images/banners/**/*',
 		'@images/background/**/*',
 		'@images/light-cones/icons/*.webp',
+		'@images/characters/icons/*.webp',
 		'@images/characters/closeup/**/*.webp',
 		'@images/characters/closeup-bg/**/*.webp'
 	],
 	{ query: { as: 'picture' }, import: 'default', eager: true }
 );
 
-const generateFullPath = (path) => {
-	const [type, rarity, name] = path.split('/');
-
-	if (type === 'lc') {
-		return `/src/images/light-cones/full-art/${rarity}star/${name}.webp`;
-	}
-
-	if (['splash-art', 'closeup', 'closeup-bg'].includes(type)) {
-		return `/src/images/characters/${type}/${rarity}star/${name}.webp`;
-	}
-	const fullpath = `/src/images/${path}`;
-
-	return fullpath;
+const imageModules = {
+	...charSplashArt4,
+	...charSplashArt5,
+	...lightcones34,
+	...lightcone5star,
+	...utils
 };
 
-export const assetPath = (path, size = 0) => {
-	try {
-		const imageModules = {
-			...charSplashArt4,
-			...charSplashArt5,
-			...lightcones34,
-			...lightcone5star,
-			...utils
-		};
-		const fullpath = generateFullPath(path);
-		const findImage = imageModules[fullpath] || {};
+export const itemList = () => {
+	const pathList = {};
 
-		if (typeof findImage === 'string') return findImage;
-		if (Object.keys(findImage.sources) < 1) return findImage.img.src;
+	const getImagePath = (itemType, key, imgArr, defaultSrc) => {
+		const imgSize = ['small', 'medium', 'large'];
+		const isMultiSize = Array.isArray(imgArr) && imgArr.length > 0;
+		if (!isMultiSize) {
+			pathList[`${itemType}/${key}`] = defaultSrc;
+		} else {
+			imgArr.forEach(({ src = '' }, i) => {
+				pathList[`${itemType}/${imgSize[i]}/${key}`] = src;
+			});
+		}
+	};
 
-		const image = Object.values(findImage.sources);
-		if (image.length < 1) throw new Error(`No Image Found for ${fullpath}`);
-		if (!size || size < 1) return image[0][0]?.src;
+	// Proccess Image Modules
+	Object.keys(imageModules).forEach((key) => {
+		const [keyName] = key.split('/').reverse();
+		const [keyNoExt] = keyName.split('.');
 
-		const filterSize = image[0].find(({ w }) => w === parseInt(size));
-		return filterSize?.src;
-	} catch (e) {
-		console.error(e);
-		return null;
-	}
+		if (typeof imageModules[key] !== 'object') {
+			pathList[keyName] = imageModules[key];
+			return;
+		}
+
+		const { img = {}, sources = {} } = imageModules[key];
+		const { src: defaultSrc = '' } = img;
+		const { webp: imgArr = [] } = sources;
+
+		if (key.match(/full-art\//)) {
+			getImagePath('lc', keyNoExt, imgArr, defaultSrc);
+		} else if (key.match(/splash-art/)) {
+			getImagePath('splash-art', keyNoExt, imgArr, defaultSrc);
+		} else if (key.match(/closeup-bg/)) {
+			pathList[`closeup-bg/${keyNoExt}`] = defaultSrc;
+		} else if (key.match(/closeup/)) {
+			pathList[`closeup/${keyNoExt}`] = defaultSrc;
+		} else if (key.match(/(cones\/icons|characters\/icons)/)) {
+			pathList[`icon/${keyNoExt}`] = defaultSrc;
+		} else if (key.match(/(event|regular\/)/)) {
+			pathList[`banner/${keyNoExt}`] = defaultSrc;
+		} else if (key.match(/(starter)/)) {
+			const [, version] = key.split('/').reverse();
+			pathList[`banner/${version}/${keyNoExt}`] = defaultSrc;
+		} else {
+			pathList[keyName] = defaultSrc;
+		}
+	});
+
+	return pathList;
 };
 
 const images = [
@@ -150,11 +169,13 @@ const bgList = () => {
 
 export const listingAssets = () => {
 	const arr = [];
+	const globList = itemList();
 	const allImg = [...images, bgList()];
 
-	allImg.forEach(({ dir, paths }) => {
+	allImg.forEach(({ paths }) => {
 		paths.forEach((path) => {
-			const pathdir = assetPath(`${dir}/${path}`);
+			const pathdir = globList[path];
+			console.log(pathdir, path);
 			const item = { path: pathdir, asset: path };
 			arr.push(item);
 		});

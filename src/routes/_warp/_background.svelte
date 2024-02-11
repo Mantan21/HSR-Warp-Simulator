@@ -3,7 +3,6 @@
 	import { t } from 'svelte-i18n';
 	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
 	import { data } from '$lib/data/characters.json';
-	import { assetPath } from '$lib/helpers/assets';
 	import { activeBanner, assets, bannerList, liteMode } from '$lib/stores/app-store';
 	import { morphIn, morphOut } from '$lib/helpers/transition';
 
@@ -45,7 +44,7 @@
 				// autpic color if no color served
 				const img = new Image();
 				img.crossOrigin = 'anonymous';
-				img.src = assetPath(`splash-art/5/${charName}`, 640);
+				img.src = $assets[`splash-art/small/${charName}`];
 				img.addEventListener('load', () => {
 					const palette = manualColorPick(charName);
 					if (palette) resolve(palette);
@@ -84,7 +83,7 @@
 				out:morphOut={{ key: 'morph' }}
 			>
 				<img
-					src={assetPath(`splash-art/5/${featured}`, 640)}
+					src={$assets[`splash-art/small/${featured}`]}
 					alt={$t(featured)}
 					crossorigin="anonymous"
 				/>
@@ -98,7 +97,7 @@
 				in:morphIn={{ key: 'morph' }}
 				out:morphOut={{ key: 'morph' }}
 			>
-				<img src={assetPath(`lc/5/${featured}`, 150)} alt={$t(featured)} crossorigin="anonymous" />
+				<img src={$assets[`lc/small/${featured}`]} alt={$t(featured)} crossorigin="anonymous" />
 			</div>
 		{:else}
 			{@const bg = type === 'starter' ? 'departure-bg.webp' : 'stellar-bg.webp'}

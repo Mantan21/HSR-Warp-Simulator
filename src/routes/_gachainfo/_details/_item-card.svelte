@@ -1,8 +1,8 @@
 <script>
 	import { t } from 'svelte-i18n';
+	import { assets } from '$lib/stores/app-store';
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
-	import { assetPath } from '$lib/helpers/assets';
 
 	export let rarity;
 	export let name;
@@ -18,11 +18,11 @@
 		</div>
 		{#if combat_type}
 			<picture class="item-pic">
-				<img src={assetPath(`closeup/${rarity}/${name}`)} alt={$t(name)} crossorigin="anonymous" />
+				<img src={$assets[`closeup/${name}`]} alt={$t(name)} crossorigin="anonymous" />
 			</picture>
 		{:else}
 			<div class="item-pic lightcone">
-				<LightCones item={name} {rarity} small />
+				<LightCones item={name} size="small" />
 			</div>
 		{/if}
 

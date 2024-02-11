@@ -3,9 +3,9 @@
 	import { getContext, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { assetPath } from '$lib/helpers/assets';
-	import accessKey from '$lib/helpers/access-key';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { assets } from '$lib/stores/app-store';
+	import accessKey from '$lib/helpers/access-key';
 	import LoadingIcon from '$lib/components/LoadingIcon.svelte';
 
 	let input = '';
@@ -55,7 +55,7 @@
 
 <div class="too-early" out:fade>
 	<img
-		src={assetPath('background/Honkai.Star.Rail.webp')}
+		src={$assets['background/Honkai.Star.Rail.webp']}
 		alt="BG"
 		class="bg"
 		crossorigin="anonymous"
