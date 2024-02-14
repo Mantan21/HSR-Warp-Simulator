@@ -1,53 +1,58 @@
 <script>
-	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
+	import { fade } from 'svelte/transition';
 	import { fly } from '$lib/helpers/transition';
-	import { liteMode } from '$lib/stores/app-store';
+	import { assets, liteMode } from '$lib/stores/app-store';
+	import { getContext } from 'svelte';
 	import BannerTpl from './__banner-tpl.svelte';
+
+	const inEdit = getContext('inEdit');
 </script>
 
 <BannerTpl>
 	<div class="wrapper" class:lite={$liteMode}>
 		<div class="featured-bg" />
-		<div class="splash-art himeko">
-			<figure
-				in:fly={{
-					x: -25,
-					duration: 3000,
-					delay: 250,
-					opacity: 1,
-					easing: bezier(0.13, 0.14, 0, 1)
-				}}
-			>
-				<img src={assetPath('banners/regular/himeko.webp')} alt="Himeko" crossorigin="anonymous" />
-			</figure>
-		</div>
-		<div class="splash-art gepard">
-			<figure
-				in:fly={{
-					x: -20,
-					duration: 3000,
-					delay: 250,
-					opacity: 1,
-					easing: bezier(0.13, 0.14, 0, 1)
-				}}
-			>
-				<img src={assetPath('banners/regular/gepard.webp')} alt="Gepard" crossorigin="anonymous" />
-			</figure>
-		</div>
-		<div class="splash-art bronya">
-			<figure
-				in:fly={{
-					x: -40,
-					delay: 250,
-					duration: 3000,
-					opacity: 1,
-					easing: bezier(0.13, 0.14, 0, 1)
-				}}
-			>
-				<img src={assetPath('banners/regular/bronya.webp')} alt="Bronya" crossorigin="anonymous" />
-			</figure>
-		</div>
+		{#if !$inEdit}
+			<div class="splash-art himeko" transition:fade|local>
+				<figure
+					in:fly={{
+						x: -25,
+						duration: 3000,
+						delay: 250,
+						opacity: 1,
+						easing: bezier(0.13, 0.14, 0, 1)
+					}}
+				>
+					<img src={$assets['banner/himeko']} alt="Himeko" crossorigin="anonymous" />
+				</figure>
+			</div>
+			<div class="splash-art gepard" transition:fade|local>
+				<figure
+					in:fly={{
+						x: -20,
+						duration: 3000,
+						delay: 250,
+						opacity: 1,
+						easing: bezier(0.13, 0.14, 0, 1)
+					}}
+				>
+					<img src={$assets['banner/gepard']} alt="Gepard" crossorigin="anonymous" />
+				</figure>
+			</div>
+			<div class="splash-art bronya" transition:fade|local>
+				<figure
+					in:fly={{
+						x: -40,
+						delay: 250,
+						duration: 3000,
+						opacity: 1,
+						easing: bezier(0.13, 0.14, 0, 1)
+					}}
+				>
+					<img src={$assets['banner/bronya']} alt="Bronya" crossorigin="anonymous" />
+				</figure>
+			</div>
+		{/if}
 	</div>
 </BannerTpl>
 

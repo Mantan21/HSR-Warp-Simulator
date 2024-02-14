@@ -28,50 +28,62 @@
 
 	let rollcount = 0;
 	let isClaimed = false;
-	const handleModal = getContext('handleShowReward');
 	$: ({ isClaimed, rollcount } = $regReward);
+
+	const handleModal = getContext('handleShowReward');
+	const inEdit = getContext('inEdit');
 </script>
 
 <div class="content" in:fade={{ duration: 500, delay: 250 }}>
-	<div class="banner-name">{$t('banner.regular')}</div>
-	<div class="wrapper-info">
-		<div class="info-body">
-			<h1>{$t('banner.stellar')}</h1>
-			<div class="description">
-				<p>{@html $t('warp.warpDescription')}</p>
-				<p>{@html $t('warp.permanent')}</p>
-			</div>
-
-			<RateupLightones {lightcones} showCaption />
+	{#if $inEdit}
+		<div class="banner-name">
+			{$t('banner.regular')} Configuration
 		</div>
-	</div>
-	<div class="character">
-		{#each chars as { combat_type, name }}
-			<div class="char-group {name}">
-				<div class="name">
-					<i class="hsr-{combat_type} icon-gradient {combat_type}" />
-					<span>{$t(name)}</span>
-				</div>
-				<div class="stars">
-					{#each Array(5) as _} <i class="hsr-star" />{/each}
-				</div>
-			</div>
-		{/each}
+	{:else}
+		<div class="banner-name">{$t('banner.regular')}</div>
+	{/if}
 
-		{#if !isClaimed}
-			<div class="char-group additional">
-				<button
-					class:ready={rollcount >= 300}
-					class:halfReady={rollcount >= 150 && rollcount < 300}
-					on:click={handleModal}
-				>
-					<span class="notice">i</span>
-					<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
-				</button>
-				<caption>{$t('warp.additional')}</caption>
+	{#if !$inEdit}
+		<div class="wrapper-info" transition:fade|local>
+			<div class="info-body">
+				<h1>{$t('banner.stellar')}</h1>
+				<div class="description">
+					<p>{@html $t('warp.warpDescription')}</p>
+					<p>{@html $t('warp.permanent')}</p>
+				</div>
+
+				<RateupLightones {lightcones} showCaption />
 			</div>
-		{/if}
-	</div>
+		</div>
+
+		<div class="character" transition:fade|local>
+			{#each chars as { combat_type, name }}
+				<div class="char-group {name}">
+					<div class="name">
+						<i class="hsr-{combat_type} icon-gradient {combat_type}" />
+						<span>{$t(name)}</span>
+					</div>
+					<div class="stars">
+						{#each Array(5) as _} <i class="hsr-star" />{/each}
+					</div>
+				</div>
+			{/each}
+
+			{#if !isClaimed}
+				<div class="char-group additional">
+					<button
+						class:ready={rollcount >= 300}
+						class:halfReady={rollcount >= 150 && rollcount < 300}
+						on:click={handleModal}
+					>
+						<span class="notice">i</span>
+						<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
+					</button>
+					<caption>{$t('warp.additional')}</caption>
+				</div>
+			{/if}
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -91,6 +103,7 @@
 		border-top-right-radius: 2rem;
 		border-bottom-right-radius: 2rem;
 		background-color: #3d81ce;
+		z-index: +1;
 	}
 
 	.wrapper-info {

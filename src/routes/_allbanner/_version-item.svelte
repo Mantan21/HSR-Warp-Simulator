@@ -2,8 +2,7 @@
 	import { getContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { assetPath } from '$lib/helpers/assets';
-	import { activeBanner, activePhase, activeVersion, proUser } from '$lib/stores/app-store';
+	import { activeBanner, activePhase, activeVersion, assets, proUser } from '$lib/stores/app-store';
 	import { localConfig } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { lazyLoad } from '$lib/helpers/lazyload';
@@ -53,7 +52,7 @@
 						{@const { bannerName, runNumber } = charData[0]}
 						<div class="rateup4">
 							<img
-								use:lazyLoad={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
+								use:lazyLoad={$assets[`banner/${bannerName}-${runNumber}`]}
 								alt={$t(`banner.${bannerName}`)}
 								crossorigin="anonymous"
 							/>
@@ -63,7 +62,7 @@
 					{#each charData as { bannerName, runNumber }}
 						<picture>
 							<img
-								use:lazyLoad={assetPath(`banners/events/${bannerName}-${runNumber}.webp`)}
+								use:lazyLoad={$assets[`banner/${bannerName}-${runNumber}`]}
 								alt={$t(`banner.${bannerName}`)}
 								crossorigin="anonymous"
 							/>

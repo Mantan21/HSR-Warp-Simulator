@@ -27,6 +27,23 @@
 	"cancel": "取消",
 	"confirm": "确认",
 	"clickToClose": "点击空白处关闭",
+	"close": "Close",
+	"editor": {
+		"bannerConfig": "{banner} Configuration",
+		"baseRate": "{rarity}-Star Base Rate:",
+		"maxPity": "{rarity}-Star Max Pity:",
+		"hardPity": "Boost {rarity}-Star rate starts from pity:",
+		"currentPity": "{rarity}-Star Current Pity",
+		"winRate": "Chance to get Featured Item:",
+		"charRate": "Chance to get Character instead of Light Cone",
+		"nonRateup": "(When losing 4-Star Item)",
+		"guaranteedSystem": "Guaranteed System",
+		"revert": "Revert",
+		"resetPrompt": "Are you sure to Reset <b>\"{banner}\"</b> probabilities back to default?",
+		"default": "Default",
+		"never": "Never",
+		"always": "Always"
+	},
 	"item": {
 		"embers": "未熄的余烬",
 		"starlight": "未熄的星芒",
@@ -105,7 +122,9 @@
 		"bloom-in-gloom": "令奉贞凶",
 		"thorns-of-scented-crown": "荆冠芳勋",
 		"floral-triptych": "疏影三迭",
-		"panta-rhei": "万物皆流"
+		"panta-rhei": "万物皆流",
+		"ripples-in-reflection": "镜映婆娑",
+		"sparkling-splendor": "Sparkling Splendor"
 	},
 	"details": {
 		"heading": "查看详情",

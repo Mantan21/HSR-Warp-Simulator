@@ -1,8 +1,7 @@
 <script>
 	import { fly } from '$lib/helpers/transition';
-	import { assetPath } from '$lib/helpers/assets';
 	import { bezier } from '$lib/helpers/easing';
-	import { liteMode } from '$lib/stores/app-store';
+	import { assets, liteMode } from '$lib/stores/app-store';
 </script>
 
 <div class="character-group" class:lite={$liteMode}>
@@ -10,47 +9,43 @@
 		class="gepard character"
 		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
-		<img src={assetPath('banners/starter/1.0/gepard.webp')} alt="gepard" crossorigin="anonymous" />
+		<img src={$assets['banner/1.0/gepard']} alt="gepard" crossorigin="anonymous" />
 	</div>
 	<div
 		class="bailu character"
 		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
-		<img src={assetPath('banners/starter/1.0/bailu.webp')} alt="bailu" crossorigin="anonymous" />
+		<img src={$assets['banner/1.0/bailu']} alt="bailu" crossorigin="anonymous" />
 	</div>
 	<div
 		class="yanqing character"
 		in:fly={{ y: 100, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
-		<img
-			src={assetPath('banners/starter/1.0/yanqing.webp')}
-			alt="Yanqing"
-			crossorigin="anonymous"
-		/>
+		<img src={$assets['banner/1.0/yanqing']} alt="Yanqing" crossorigin="anonymous" />
 	</div>
 	<div
 		class="clara character"
 		in:fly={{ y: 100, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
-		<img src={assetPath('banners/starter/1.0/clara.webp')} alt="clara" crossorigin="anonymous" />
+		<img src={$assets['banner/1.0/clara']} alt="clara" crossorigin="anonymous" />
 	</div>
 	<div
 		class="bronya character"
 		in:fly={{ y: 125, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
-		<img src={assetPath('banners/starter/1.0/bronya.webp')} alt="bronya" crossorigin="anonymous" />
+		<img src={$assets['banner/1.0/bronya']} alt="bronya" crossorigin="anonymous" />
 	</div>
 	<div
 		class="himeko character"
 		in:fly={{ y: 125, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
-		<img src={assetPath('banners/starter/1.0/himeko.webp')} alt="Himeko" crossorigin="anonymous" />
+		<img src={$assets['banner/1.0/himeko']} alt="Himeko" crossorigin="anonymous" />
 	</div>
 	<div
 		class="welt character"
 		in:fly={{ y: 200, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
-		<img src={assetPath('banners/starter/1.0/welt.webp')} alt="Welt" crossorigin="anonymous" />
+		<img src={$assets['banner/1.0/welt']} alt="Welt" crossorigin="anonymous" />
 	</div>
 </div>
 

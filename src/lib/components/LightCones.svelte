@@ -1,14 +1,12 @@
 <script>
 	import { t } from 'svelte-i18n';
 	import { fly } from 'svelte/transition';
-	import { liteMode } from '$lib/stores/app-store';
-	import { assetPath } from '$lib/helpers/assets';
+	import { assets, liteMode } from '$lib/stores/app-store';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 
 	export let item = '';
-	export let small = false;
+	export let size = 'medium';
 	export let animate = false;
-	export let rarity = 5;
 
 	const transitionFly = (node, args) => {
 		if (!animate) return;
@@ -19,14 +17,14 @@
 <div
 	class="light-cone"
 	class:lite={$liteMode}
-	class:small
+	class:small={size === 'small'}
 	in:transitionFly={{ y: -300, x: -30, duration: 500 }}
 >
-	{#if !small}
+	{#if size !== 'small'}
 		<div class="layer layer-back" in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }} />
 	{/if}
 	<img
-		use:lazyLoad={assetPath(`lc/${rarity}/${item}`, small ? 150 : 450)}
+		use:lazyLoad={$assets[`lc/${size}/${item}`]}
 		crossorigin="anonymous"
 		alt={$t(item)}
 		on:error={(e) => e.target.remove()}

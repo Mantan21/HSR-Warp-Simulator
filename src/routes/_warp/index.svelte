@@ -35,8 +35,8 @@
 		color2 = clr2;
 	});
 
-	// Banner Index to adjust Transition
-	setContext('beforeMoving', writable(0));
+	setContext('beforeMoving', writable(0)); // Banner Index to adjust Transition
+	setContext('inEdit', writable(false)); // editprob
 
 	// Additional Reward Handle
 	let showAdditional = false;
@@ -142,7 +142,6 @@
 		background-color: black;
 	}
 	.warp-banner {
-		z-index: +1;
 		position: absolute;
 		top: 0;
 		left: 0;

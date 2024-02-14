@@ -1,14 +1,16 @@
 <script>
+	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
+	import { fade } from 'svelte/transition';
 	import { bezier } from '$lib/helpers/easing';
 	import { fly } from '$lib/helpers/transition';
 	import { data } from '$lib/data/characters.json';
-	import { isMobileLandscape, liteMode } from '$lib/stores/app-store';
+	import { assets, isMobileLandscape, liteMode } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/css-transformer';
-	import { assetPath } from '$lib/helpers/assets';
 	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
+	const inEdit = getContext('inEdit');
 
 	let hideOverflow = false;
 	const characterOffset = (characterName, ismobile) => {
@@ -31,36 +33,38 @@
 	<div class="content" class:lite={$liteMode}>
 		<div class="featured-bg" />
 		<div class="overflow" class:hide={hideOverflow}>
-			<div class="splash-art">
-				<div class="wrapper">
-					<div
-						class="art-pic"
-						in:fly={{
-							x: -40,
-							duration: 4000,
-							delay: 250,
-							opacity: 1,
-							easing: bezier(0.13, 0.14, 0, 1)
-						}}
-					>
-						<picture style={offset}>
-							<source
-								srcset={assetPath(`splash-art/5/${item.featured}`, 2000)}
-								media="(min-width: 1280px)"
-							/>
-							<source
-								srcset={assetPath(`splash-art/5/${item.featured}`, 1280)}
-								media="(min-width: 640px)"
-							/>
-							<img
-								crossorigin="anonymous"
-								alt={$t(item.featured)}
-								src={assetPath(`splash-art/5/${item.featured}`, 640)}
-							/>
-						</picture>
+			{#if !$inEdit}
+				<div class="splash-art" transition:fade|local>
+					<div class="wrapper">
+						<div
+							class="art-pic"
+							in:fly={{
+								x: -40,
+								duration: 4000,
+								delay: 250,
+								opacity: 1,
+								easing: bezier(0.13, 0.14, 0, 1)
+							}}
+						>
+							<picture style={offset}>
+								<source
+									srcset={$assets[`splash-art/large/${item.featured}`]}
+									media="(min-width: 1280px)"
+								/>
+								<source
+									srcset={$assets[`splash-art/medium/${item.featured}`]}
+									media="(min-width: 640px)"
+								/>
+								<img
+									crossorigin="anonymous"
+									alt={$t(item.featured)}
+									src={$assets[`splash-art/small/${item.featured}`]}
+								/>
+							</picture>
+						</div>
 					</div>
 				</div>
-			</div>
+			{/if}
 		</div>
 	</div>
 </BannerTpl>

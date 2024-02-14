@@ -11,7 +11,7 @@
 	<div class="lightcones-list">
 		{#each lightcones as { name, rarity }, i}
 			<div in:scale={{ delay: 300 + i * 100, start: 2 }} class="lc-item lc{i + 1}">
-				<LightCones item={name} {rarity} small />
+				<LightCones item={name} size="small" />
 			</div>
 		{/each}
 	</div>

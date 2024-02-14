@@ -1,13 +1,14 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 
+	export let type = 'text';
 	const dispatch = createEventDispatcher();
 	const handleClick = () => {
 		dispatch('click');
 	};
 </script>
 
-<button on:click={handleClick}>
+<button on:click={handleClick} class:icon={type === 'icon'}>
 	<slot />
 </button>
 
@@ -27,6 +28,22 @@
 		transition: all 0.2s;
 	}
 
+	button.icon {
+		width: auto;
+		height: 100%;
+		min-width: unset;
+		aspect-ratio: 1/1;
+		line-height: 0;
+		letter-spacing: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+	button.icon :global(i) {
+		transform: scale(1.3);
+		line-height: 0;
+	}
+
 	button:active {
 		transform: scale(0.95);
 		filter: brightness(85%);
@@ -34,7 +51,7 @@
 
 	button::after {
 		content: '';
-		width: 95%;
+		width: 92.5%;
 		height: 80%;
 		position: absolute;
 		top: 50%;
@@ -42,6 +59,10 @@
 		transform: translate(-50%, -50%);
 		border: 0.08rem solid #bbb;
 		border-radius: 5rem;
+	}
+
+	button:hover {
+		background-color: #ccc;
 	}
 
 	@media screen and (max-width: 750px) {
@@ -52,7 +73,7 @@
 		}
 	}
 
-	:global(.mobileLandscape) button {
+	:global(.mobileLandscape) button:not(.icon) {
 		font-size: 100%;
 		min-width: unset;
 		width: calc(0.13 * var(--width));

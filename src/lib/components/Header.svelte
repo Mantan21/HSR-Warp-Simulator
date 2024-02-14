@@ -4,9 +4,10 @@
 	export let h1 = '';
 	export let h2 = '';
 	export let relative = false;
+	export let invert = false;
 </script>
 
-<header class:relative>
+<header class:relative class:invert>
 	<div class="head-title">
 		<div class="logo" class:showLogo={!hideDesktopIcon}>
 			<i class="hsr-{icon}" />
@@ -38,6 +39,12 @@
 		position: relative;
 	}
 
+	@media screen and (max-width: 670px) {
+		header {
+			padding: 1.8vh 2%;
+		}
+	}
+
 	.row {
 		margin-left: auto;
 		text-align: right;
@@ -63,6 +70,10 @@
 		font-size: 250%;
 	}
 
+	.invert .logo {
+		color: #000;
+	}
+
 	.showLogo.logo,
 	:global(.mobileLandscape) .logo {
 		display: unset;
@@ -75,6 +86,9 @@
 		color: var(--color-second);
 		font-size: 110%;
 		font-weight: normal;
+	}
+	.invert .heading h1 {
+		color: #000;
 	}
 
 	:global(.mobileLandscape) .heading h1 {

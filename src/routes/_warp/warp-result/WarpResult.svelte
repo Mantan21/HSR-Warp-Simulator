@@ -4,11 +4,10 @@
 	import { cubicOut } from 'svelte/easing';
 	import { t } from 'svelte-i18n';
 	import { assets, liteMode, viewportWidth } from '$lib/stores/app-store';
-	import { assetPath } from '$lib/helpers/assets';
 	import { playSfx, stopSfx } from '$lib/helpers/sounds/audiofx';
 	import { lazyLoad } from '$lib/helpers/lazyload';
-	import positionToStyle from '$lib/helpers/css-transformer';
 	import { createLink } from '$lib/helpers/shareable-link';
+	import positionToStyle from '$lib/helpers/css-transformer';
 
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
@@ -148,7 +147,7 @@
 								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
 									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
 										<div class="lightcone-item">
-											<LightCones item={name} {rarity} animate={!$liteMode} />
+											<LightCones item={name} animate={!$liteMode} />
 										</div>
 									</div>
 								</div>
@@ -162,10 +161,9 @@
 										in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}
 									>
 										<img
-											use:lazyLoad={assetPath(
-												`splash-art/${rarity}/${name}`,
-												$viewportWidth > 840 ? 1280 : 640
-											)}
+											use:lazyLoad={$assets[
+												`splash-art/${$viewportWidth > 840 ? 'medium' : 'small'}/${name}`
+											]}
 											style={positionToStyle(splashartOffset)}
 											crossorigin="anonymous"
 											alt={$t(name)}

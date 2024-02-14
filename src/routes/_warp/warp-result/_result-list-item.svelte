@@ -1,10 +1,9 @@
 <script>
 	import { t } from 'svelte-i18n';
 	import { onMount } from 'svelte';
+	import { fade } from '$lib/helpers/transition';
 	import { assets, viewportWidth } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/css-transformer';
-	import { fade } from '$lib/helpers/transition';
-	import { assetPath } from '$lib/helpers/assets';
 
 	import Icon from '$lib/components/Icon.svelte';
 	import LightCones from '$lib/components/LightCones.svelte';
@@ -63,7 +62,7 @@
 				</div>
 				<div class="col lc-right">
 					<div class="lc-picture">
-						<LightCones item={itemName} {rarity} small />
+						<LightCones item={itemName} size="small" />
 					</div>
 				</div>
 			</div>
@@ -105,7 +104,7 @@
 				{/if}
 				<picture>
 					<img
-						src={assetPath(`splash-art/${rarity}/${itemName}`, $viewportWidth > 840 ? 1280 : 640)}
+						src={$assets[`splash-art/${$viewportWidth > 840 ? 'medium' : 'small'}/${itemName}`]}
 						alt={$t(itemName)}
 						style={positionToStyle(cardOffset)}
 						crossorigin="anonymous"

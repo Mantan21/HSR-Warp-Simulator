@@ -27,16 +27,22 @@
 	"cancel": "Batal",
 	"confirm": "OK",
 	"clickToClose": "Click Anywhere in the blank area to close",
-	"item": {
-		"embers": "Undying Embers",
-		"starlight": "Undying Starlight",
-		"stellarJade": "Stellar Jade",
-		"specialPass": "Star Rail Special Pass",
-		"regularPass": "Star Rail Pass",
-		"oneiric": "Oneiric Shards",
-		"obtained": "Item Didapatkan",
-		"specialPassStory": "Direct ticket for the Astral Express with coordinates of specific worlds, suitable for passengers who just want to go from point A to point B.<br/><br/> <i>\"Need to catch up with an old friend? Hop on and see the universe with him/her/it/them!\"</i>",
-		"regularPassStory": "Astral Express Universal Pass. Travel as far as the Star Rail stretches.<br/><br/> <i>\"Map worlds, meet people, make memories.\"</i>"
+	"close": "Tutup",
+	"editor": {
+		"bannerConfig": "Konfigurasi {banner}",
+		"baseRate": "Probabilitas Dasar {rarity}★:",
+		"maxPity": "Piti Maksimal {rarity}★:",
+		"hardPity": "Tingkatkan probabilitas {rarity}★ pada piti:",
+		"currentPity": "Pity {rarity}★ saat ini",
+		"winRate": "Probabilitas mendapat item RateUP:",
+		"charRate": "Probabilitas mendapat Karakter dibanding Light Cone",
+		"nonRateup": "(Item 4★ saat kalah)",
+		"guaranteedSystem": "Sistem Jaminan",
+		"revert": "Kembalikan",
+		"resetPrompt": "Apakah kamu yakin akan mereset pengaturan probabilitas untuk <b>\"{banner}\"</b>?",
+		"default": "Aktif",
+		"never": "NonAktif",
+		"always": "Selalu"
 	},
 	"path": {
 		"all": "Semua",
@@ -106,7 +112,7 @@
 		"thorns-of-scented-crown": "Aroma Mahkota Mawar",
 		"floral-triptych": "Trilogi Elegansi",
 		"panta-rhei": "Ritme Alam Semesta",
-		"ripples-in-reflection": "Ripples in Reflection",
+		"ripples-in-reflection": "Riak Takdir dalam Refleksi Cermin",
 		"sparkling-splendor": "Sparkling Splendor"
 	},
 	"details": {
@@ -201,7 +207,7 @@
 		"description": "Semua data akan riwayat disimpan ke dalam IndexedDB, penyimpanan ini ada di browser kamu dan tidak akan dihapus pada beberapa kondisi tertentu sampai kamu menghapusnya secara manual melalui tombol reset atau menghapus data browser.",
 		"resetButton": "Bersihkan",
 		"resetPromptTitle": "Bersihkan Riwayat?",
-		"resetPrompt": "Tindakan ini akan menghapus semua Karakter dan Senjata dimiliki yang berasal dari banner \"{bannerName}\". <br /> Yakin untuk me-Reset ?",
+		"resetPrompt": "Tindakan ini akan menghapus semua Karakter dan Light Cone dimiliki yang berasal dari banner \"{bannerName}\". <br /> Yakin untuk me-Reset ?",
 		"resetSuccess": "Berhasil me-Reset"
 	},
 	"collection": {
