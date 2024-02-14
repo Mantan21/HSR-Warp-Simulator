@@ -293,3 +293,6 @@
 .hsr-chat:before {
 	content: '\5d';
 }
+.hsr-cog-bold:before {
+	content: '\5e';
+}

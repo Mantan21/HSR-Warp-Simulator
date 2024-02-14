@@ -16,8 +16,8 @@
 		activeBanner
 	} from '$lib/stores/app-store';
 	import { localBalance } from '$lib/stores/localstorage';
-	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import Button from './_button.svelte';
 	import ButtonWarp from './_button-warp.svelte';
 	import ConvertModal from './_convert-modal.svelte';
@@ -133,6 +133,13 @@
 			return afterUpdate;
 		});
 	};
+
+	// Edit Probability Button
+	const inEdit = getContext('inEdit');
+	const editProb = () => {
+		inEdit.set(!$inEdit);
+		playSfx('click2');
+	};
 </script>
 
 {#if showConverModal}
@@ -159,6 +166,14 @@
 					{$t('collection.button')}
 				</Button>
 			</div>
+
+			{#if bannerType !== 'starter'}
+				<div class="btn">
+					<Button type="icon" on:click={editProb}>
+						<i class="hsr-{!$inEdit ? 'cog-bold' : 'check'}" />
+					</Button>
+				</div>
+			{/if}
 		</div>
 		<div class="warp-button">
 			{#if !isStarter}

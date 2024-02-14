@@ -62,6 +62,7 @@
 		top: 0;
 		right: 0;
 		background-image: linear-gradient(170deg, #fff, transparent);
+		z-index: -1;
 	}
 
 	.layer-bg {

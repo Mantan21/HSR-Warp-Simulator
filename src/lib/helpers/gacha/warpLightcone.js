@@ -1,6 +1,12 @@
 import { guaranteedStatus } from '$lib/stores/localstorage';
-import { get3StarItem, get4StarItem, get5StarItem, isRateup, rand } from './gacha-base';
-import { getRate } from './probabilities';
+import {
+	checkGuaranteed,
+	get3StarItem,
+	get4StarItem,
+	get5StarItem,
+	isRateup,
+	rand
+} from './gacha-base';
 import { identifyBanner } from '../banner-loader';
 
 const lightconeWarp = {
@@ -26,9 +32,8 @@ const lightconeWarp = {
 
 		if (rarity === 4) {
 			const { _version: version, _phase: phase, _rateup: rateup } = this;
-			const isGuaranteed = guaranteedStatus.get('lightcone-event-4star');
-			const turnOffGuaranteed = getRate('lightcone-event', 'disGuaranteed');
-			const useRateup = (isGuaranteed && !turnOffGuaranteed) || isRateup('lightcone-event');
+			const { status: isGuaranteed, never, always } = checkGuaranteed('lightcone-event', 4);
+			const useRateup = (isGuaranteed && !never) || always || isRateup('lightcone-event');
 
 			const droplist = get4StarItem({
 				banner: 'lightcone-event',
@@ -44,9 +49,8 @@ const lightconeWarp = {
 
 		if (rarity === 5) {
 			const { _featured, _regularList } = this;
-			const isGuaranteed = guaranteedStatus.get('lightcone-event-5star');
-			const turnOffGuaranteed = getRate('lightcone-event', 'disGuaranteed');
-			const useRateup = (isGuaranteed && !turnOffGuaranteed) || isRateup('lightcone-event');
+			const { status: isGuaranteed, never, always } = checkGuaranteed('lightcone-event', 5);
+			const useRateup = (isGuaranteed && !never) || always || isRateup('lightcone-event');
 
 			const droplist = get5StarItem({
 				banner: 'lightcone-event',
@@ -56,7 +60,8 @@ const lightconeWarp = {
 			});
 			const result = rand(droplist);
 
-			const rateUpStatus = isGuaranteed ? 'guaranteed' : 'win';
+			const statusGuarateed = (isGuaranteed && !never) || always;
+			const rateUpStatus = statusGuarateed ? 'guaranteed' : 'win';
 			const status = useRateup ? rateUpStatus : 'lose';
 			guaranteedStatus.set('lightcone-event-5star', !useRateup);
 			return { ...result, status };

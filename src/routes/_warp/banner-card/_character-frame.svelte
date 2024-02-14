@@ -1,13 +1,15 @@
 <script>
+	import { getContext } from 'svelte';
 	import { t, locale } from 'svelte-i18n';
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
 	import { bezier } from '$lib/helpers/easing';
 	import { data } from '$lib/data/characters.json';
-	import positionToStyle from '$lib/helpers/css-transformer';
 	import { assets } from '$lib/stores/app-store';
+	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let item = {};
 	export let event2 = false;
+	const inEdit = getContext('inEdit');
 
 	let rateup, bannerName, combat_type;
 	$: ({ rateup, bannerName, combat_type, featured } = item);
@@ -20,80 +22,86 @@
 </script>
 
 <div class="content">
-	<div class="banner-name">
-		{$t('banner.character-event')}
-		{event2 ? ($locale === 'ja-JP' ? '2' : '— 2') : ''}
-	</div>
+	{#if $inEdit}
+		<div class="banner-name">{$t('banner.character-event')} Configuration</div>
+	{:else}
+		<div class="banner-name">
+			{$t('banner.character-event')}
+			{event2 ? ($locale === 'ja-JP' ? '2' : '— 2') : ''}
+		</div>
+	{/if}
 
-	<!-- Left Pane -->
-	<div class="wrapper-info">
-		<div class="info-body" in:fade={{ duration: 250, delay: 250 }}>
-			<div class="short-detail">
-				<h1>{bannerTitle}</h1>
-				<div class="time">
-					<i class="hsr-time" />
-					<caption>{$t('warp.duration')}</caption>
+	{#if !$inEdit}
+		<!-- Left Pane -->
+		<div class="wrapper-info" out:fade|local>
+			<div class="info-body" in:fade={{ duration: 250, delay: 250 }}>
+				<div class="short-detail">
+					<h1>{bannerTitle}</h1>
+					<div class="time">
+						<i class="hsr-time" />
+						<caption>{$t('warp.duration')}</caption>
+					</div>
+					<div class="description">
+						<p>{@html $t('warp.warpDescription')}</p>
+						<p>{$t('warp.itemRateBoost', { values: { itemtype: $t('character') } })}</p>
+					</div>
 				</div>
-				<div class="description">
-					<p>{@html $t('warp.warpDescription')}</p>
-					<p>{$t('warp.itemRateBoost', { values: { itemtype: $t('character') } })}</p>
-				</div>
-			</div>
 
-			<div class="rateup-characters">
-				<div class="rateup-row" in:diagonalSlide={{ delay: 400, duration: 350 }}>
-					{#each rateup as name, i}
-						{@const offset = characterOffset(name)}
-						<div class="rateup-item">
-							<div class="rateup-content">
-								<picture
-									in:fly={{
-										x: -30,
-										duration: 2000,
-										easing: bezier(0.13, 0.14, 0, 1),
-										delay: 500 + 150 * i
-									}}
-								>
-									{#if offset}
-										<source
-											srcset={$assets[`splash-art/medium/${name}`]}
-											media="(min-width: 840px)"
-										/>
-										<img
-											src={$assets[`splash-art/small/${name}`]}
-											alt={$t(name)}
-											class:fullArt={offset}
-											style={offset}
-											crossorigin="anonymous"
-										/>
-									{:else}
-										<img
-											src={$assets[`closeup-bg/${name}`]}
-											alt={$t(name)}
-											crossorigin="anonymous"
-										/>
-									{/if}
-								</picture>
+				<div class="rateup-characters">
+					<div class="rateup-row" in:diagonalSlide={{ delay: 400, duration: 400 }}>
+						{#each rateup as name, i}
+							{@const offset = characterOffset(name)}
+							<div class="rateup-item">
+								<div class="rateup-content">
+									<picture
+										in:fly={{
+											x: -30,
+											duration: 2000,
+											easing: bezier(0.13, 0.14, 0, 1),
+											delay: 500 + 150 * i
+										}}
+									>
+										{#if offset}
+											<source
+												srcset={$assets[`splash-art/medium/${name}`]}
+												media="(min-width: 840px)"
+											/>
+											<img
+												src={$assets[`splash-art/small/${name}`]}
+												alt={$t(name)}
+												class:fullArt={offset}
+												style={offset}
+												crossorigin="anonymous"
+											/>
+										{:else}
+											<img
+												src={$assets[`closeup-bg/${name}`]}
+												alt={$t(name)}
+												crossorigin="anonymous"
+											/>
+										{/if}
+									</picture>
+								</div>
 							</div>
-						</div>
-					{/each}
+						{/each}
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Right Pane -->
-	<div class="character">
-		<div class="char-group" style={characterOffset(featured, 'textOffset')}>
-			<div class="name">
-				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
-				<span>{$t(featured)}</span>
-			</div>
-			<div class="stars">
-				{#each Array(5) as _} <i class="hsr-star" />{/each}
+		<!-- Right Pane -->
+		<div class="character" transition:fade|local>
+			<div class="char-group" style={characterOffset(featured, 'textOffset')}>
+				<div class="name">
+					<i class="hsr-{combat_type} icon-gradient {combat_type}" />
+					<span>{$t(featured)}</span>
+				</div>
+				<div class="stars">
+					{#each Array(5) as _} <i class="hsr-star" />{/each}
+				</div>
 			</div>
 		</div>
-	</div>
+	{/if}
 </div>
 
 <style>
@@ -122,6 +130,7 @@
 		color: #333;
 		padding: 1.3%;
 		position: relative;
+		z-index: +1;
 	}
 
 	.info-body {
@@ -221,7 +230,7 @@
 
 	.rateup-item {
 		width: 33.33333333%;
-		height: inherit;
+		height: 100%;
 		padding: 0 2.5%;
 	}
 	.rateup-content {

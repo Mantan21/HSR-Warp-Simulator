@@ -92,7 +92,7 @@
 						<div class="item-art character">
 							<picture class="item-content">
 								<img
-									use:lazyLoad={$assets[`splash-art/large/${name}`]}
+									use:lazyLoad={$assets[`splash-art/medium/${name}`]}
 									style={positionToStyle(splashartOffset)}
 									crossorigin="anonymous"
 									alt={$t(name)}

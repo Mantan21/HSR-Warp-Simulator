@@ -1,7 +1,8 @@
 <script>
-	import { liteMode } from '$lib/stores/app-store';
+	import { isMobile, isMobileLandscape, liteMode, viewportWidth } from '$lib/stores/app-store';
 
 	export let blank = false;
+	$: mobile = $isMobileLandscape || $isMobile || $viewportWidth < 700;
 </script>
 
 <div class="container" class:lite={$liteMode}>
@@ -10,7 +11,7 @@
 	{:else}
 		<div class="info-border" />
 		<div class="info">
-			<div class="wrapper-info" />
+			<div class="wrapper-info" class:mobile />
 		</div>
 		<div class="featured">
 			<slot />
@@ -66,6 +67,10 @@
 		padding: 4.5%;
 	}
 
+	.wrapper-info:not(.mobile) {
+		display: none;
+	}
+
 	.lite .wrapper-info {
 		background-image: unset;
 		background-color: rgb(240, 240, 240);
@@ -90,6 +95,7 @@
 		white-space: normal;
 		display: flex;
 		align-items: center;
+		pointer-events: none;
 	}
 
 	.banner-corner {
@@ -97,5 +103,7 @@
 		right: 0;
 		opacity: 0.65;
 		position: absolute;
+		z-index: +1;
+		pointer-events: none;
 	}
 </style>

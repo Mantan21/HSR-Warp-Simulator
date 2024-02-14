@@ -175,7 +175,6 @@ export const listingAssets = () => {
 	allImg.forEach(({ paths }) => {
 		paths.forEach((path) => {
 			const pathdir = globList[path];
-			console.log(pathdir, path);
 			const item = { path: pathdir, asset: path };
 			arr.push(item);
 		});

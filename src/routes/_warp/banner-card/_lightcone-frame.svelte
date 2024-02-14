@@ -1,4 +1,5 @@
 <script>
+	import { getContext } from 'svelte';
 	import { t, locale } from 'svelte-i18n';
 	import { fade } from '$lib/helpers/transition';
 
@@ -10,49 +11,56 @@
 	export let event2 = false;
 
 	const lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
+	const inEdit = getContext('inEdit');
 </script>
 
 <div class="content">
-	<div class="banner-name">
-		{$t('banner.lightcone-event')}
-		{event2 ? ($locale === 'ja-JP' ? '2' : '— 2') : ''}
-	</div>
-
-	<!-- Left Pane -->
-	<div class="wrapper-info">
-		<div class="info-body" in:fade={{ delay: 250, duration: 1000 }}>
-			<div class="short-detail">
-				<h1>{$t(`banner.${item.bannerName}`)}</h1>
-				<div class="time">
-					<i class="hsr-time" />
-					<caption> {$t('warp.duration')}</caption>
-				</div>
-				<div class="description">
-					<p>{@html $t('warp.warpDescription')}</p>
-					<p>{$t('warp.itemRateBoost', { values: { itemtype: $t('lightcone') } })}</p>
-				</div>
-			</div>
-			<RateupLightones {lightcones} />
+	{#if $inEdit}
+		<div class="banner-name">{$t('banner.lightcone-event')} Configuration</div>
+	{:else}
+		<div class="banner-name">
+			{$t('banner.lightcone-event')}
+			{event2 ? ($locale === 'ja-JP' ? '2' : '— 2') : ''}
 		</div>
-	</div>
+	{/if}
 
-	<!-- Right Pane -->
-	<div class="item-name">
-		<div class="row" in:fade={{ delay: 250, duration: 1000 }}>
-			<div class="path">
-				<Path path={item.path} dark />
+	{#if !$inEdit}
+		<!-- Left Pane -->
+		<div class="wrapper-info" out:fade|local>
+			<div class="info-body" in:fade={{ delay: 250, duration: 1000 }}>
+				<div class="short-detail">
+					<h1>{$t(`banner.${item.bannerName}`)}</h1>
+					<div class="time">
+						<i class="hsr-time" />
+						<caption> {$t('warp.duration')}</caption>
+					</div>
+					<div class="description">
+						<p>{@html $t('warp.warpDescription')}</p>
+						<p>{$t('warp.itemRateBoost', { values: { itemtype: $t('lightcone') } })}</p>
+					</div>
+				</div>
+				<RateupLightones {lightcones} />
 			</div>
-			<div class="name">{$t(item.featured)}</div>
-			<span class="stars">
-				{#each Array(5) as _}
-					<i class="hsr-star" />
-				{/each}
-			</span>
 		</div>
-	</div>
-	<div class="featured-lighcone">
-		<LightCones item={item.featured} />
-	</div>
+
+		<!-- Right Pane -->
+		<div class="item-name" transition:fade|local>
+			<div class="row" in:fade={{ delay: 250, duration: 1000 }}>
+				<div class="path">
+					<Path path={item.path} dark />
+				</div>
+				<div class="name">{$t(item.featured)}</div>
+				<span class="stars">
+					{#each Array(5) as _}
+						<i class="hsr-star" />
+					{/each}
+				</span>
+			</div>
+		</div>
+		<div class="featured-lighcone" transition:fade|local>
+			<LightCones item={item.featured} />
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -72,6 +80,7 @@
 		border-top-right-radius: 2rem;
 		border-bottom-right-radius: 2rem;
 		background-color: #3d81ce;
+		z-index: +1;
 	}
 
 	.wrapper-info {
@@ -80,6 +89,7 @@
 		color: #333;
 		padding: 1.3%;
 		position: relative;
+		z-index: +1;
 	}
 
 	.info-body {
