@@ -1,15 +1,13 @@
 <script>
-	import { getContext } from 'svelte';
 	import { t, locale } from 'svelte-i18n';
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
 	import { bezier } from '$lib/helpers/easing';
 	import { data } from '$lib/data/characters.json';
-	import { assets } from '$lib/stores/app-store';
+	import { assets, probEdit } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let item = {};
 	export let event2 = false;
-	const inEdit = getContext('inEdit');
 
 	let rateup, bannerName, combat_type;
 	$: ({ rateup, bannerName, combat_type, featured } = item);
@@ -22,7 +20,7 @@
 </script>
 
 <div class="content">
-	{#if $inEdit}
+	{#if $probEdit}
 		<div class="banner-name">{$t('banner.character-event')} Configuration</div>
 	{:else}
 		<div class="banner-name">
@@ -31,7 +29,7 @@
 		</div>
 	{/if}
 
-	{#if !$inEdit}
+	{#if !$probEdit}
 		<!-- Left Pane -->
 		<div class="wrapper-info" out:fade|local>
 			<div class="info-body" in:fade={{ duration: 250, delay: 250 }}>

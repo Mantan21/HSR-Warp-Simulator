@@ -226,9 +226,9 @@
 		},
 		{
 			"date": "31 Jan 2024",
+			"featured": true,
 			"changes": [
-				"Unlock Content: The 1st phase of v2.0",
-				"- <b>Black Swan & Dan Heng - Imbibitor Lunae</b>"
+				"Unlock Content: The 1st phase of v2.0 - <b>Black Swan & Dan Heng - Imbibitor Lunae</b>"
 			]
 		}
 	]

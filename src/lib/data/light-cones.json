@@ -19,7 +19,7 @@
 			"rarity": 5,
 			"path": "nihility",
 			"limited": true,
-			"bannerOffset": { "t": -29, "l": 37, "w": 102, "xOrigin": 50, "yOrigin": 90 }
+			"bannerOffset": { "t": -29, "l": 37, "w": 102, "xOrigin": 110, "yOrigin": 20 }
 		},
 		{
 			"name": "baptism-of-pure-thought",

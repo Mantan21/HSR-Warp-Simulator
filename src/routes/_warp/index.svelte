@@ -35,8 +35,8 @@
 		color2 = clr2;
 	});
 
-	setContext('beforeMoving', writable(0)); // Banner Index to adjust Transition
-	setContext('inEdit', writable(false)); // editprob
+	// Banner Index to adjust Transition
+	setContext('beforeMoving', writable(0));
 
 	// Additional Reward Handle
 	let showAdditional = false;

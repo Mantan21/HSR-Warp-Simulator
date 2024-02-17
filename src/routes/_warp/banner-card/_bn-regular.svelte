@@ -2,17 +2,14 @@
 	import { bezier } from '$lib/helpers/easing';
 	import { fade } from 'svelte/transition';
 	import { fly } from '$lib/helpers/transition';
-	import { assets, liteMode } from '$lib/stores/app-store';
-	import { getContext } from 'svelte';
+	import { assets, liteMode, probEdit } from '$lib/stores/app-store';
 	import BannerTpl from './__banner-tpl.svelte';
-
-	const inEdit = getContext('inEdit');
 </script>
 
 <BannerTpl>
 	<div class="wrapper" class:lite={$liteMode}>
 		<div class="featured-bg" />
-		{#if !$inEdit}
+		{#if !$probEdit}
 			<div class="splash-art himeko" transition:fade|local>
 				<figure
 					in:fly={{

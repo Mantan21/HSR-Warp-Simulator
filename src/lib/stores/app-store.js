@@ -24,6 +24,7 @@ export const viewportWidth = writable(0);
 export const viewportHeight = writable(0);
 
 export const assets = writable([]);
+export const probEdit = writable(false);
 
 // Settings
 export const proUser = writable(false);

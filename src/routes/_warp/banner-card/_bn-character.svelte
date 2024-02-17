@@ -1,16 +1,14 @@
 <script>
-	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { fade } from 'svelte/transition';
 	import { bezier } from '$lib/helpers/easing';
 	import { fly } from '$lib/helpers/transition';
 	import { data } from '$lib/data/characters.json';
-	import { assets, isMobileLandscape, liteMode } from '$lib/stores/app-store';
+	import { assets, isMobileLandscape, liteMode, probEdit } from '$lib/stores/app-store';
 	import positionToStyle from '$lib/helpers/css-transformer';
 	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
-	const inEdit = getContext('inEdit');
 
 	let hideOverflow = false;
 	const characterOffset = (characterName, ismobile) => {
@@ -33,7 +31,7 @@
 	<div class="content" class:lite={$liteMode}>
 		<div class="featured-bg" />
 		<div class="overflow" class:hide={hideOverflow}>
-			{#if !$inEdit}
+			{#if !$probEdit}
 				<div class="splash-art" transition:fade|local>
 					<div class="wrapper">
 						<div
