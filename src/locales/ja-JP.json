@@ -245,9 +245,9 @@
 		"payment": "購入",
 		"bonus": "おまけ",
 		"selectMethod": "購入方法を選択",
-		"methodImaginary": "僕が払うよ",
-		"methodWallet": "財布密度低下。",
-		"methodTears": "ウチ…お金ないよ…",
+		"method-imaginary-money": "僕が払うよ",
+		"method-tears": "ウチ…お金ないよ…",
+		"method-firefly-savings": "Fireflys Savings",
 		"autoConvert": "星玉に自動変換",
 		"initialTopup": "初回2倍ボーナス",
 		"donate": "寄付"

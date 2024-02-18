@@ -245,9 +245,9 @@
 		"payment": "Payment",
 		"bonus": "Bonus",
 		"selectMethod": "Select Payment Method",
-		"methodImaginary": "Imaginary Money",
-		"methodWallet": "Empty Wallet",
-		"methodTears": "Tears",
+		"method-imaginary-money": "Imaginary Money",
+		"method-tears": "Tears",
+		"method-firefly-savings": "Firefly's Savings",
 		"autoConvert": "Auto convert to Stellar Jade",
 		"initialTopup": "Initial Topup Bonus ?",
 		"donate": "Donate"

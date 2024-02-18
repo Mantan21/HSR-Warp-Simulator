@@ -234,9 +234,9 @@
 		"payment": "Pembayaran",
 		"bonus": "Bonus",
 		"selectMethod": "Pilih Metode Pembayaran",
-		"methodImaginary": "Imaginary Money",
-		"methodWallet": "Empty Wallet",
-		"methodTears": "Tears",
+		"method-imaginary-money": "Dana Imaginer",
+		"method-tears": "Tears",
+		"method-firefly-savings": "Duit Firefly",
 		"autoConvert": "Ubah ke Stellar Jade secara otomatis?",
 		"initialTopup": "Bonus Topup Perdana?",
 		"donate": "Donasi"
