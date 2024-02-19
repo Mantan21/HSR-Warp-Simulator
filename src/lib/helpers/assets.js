@@ -161,7 +161,7 @@ const videos = ['phonograph1.mp4', 'phonograph2.mp4'];
 
 const bgList = () => {
 	const paths = [];
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 14; i++) {
 		paths.push(`bg${i + 1}.webp`);
 	}
 	return { dir: 'background', paths };
