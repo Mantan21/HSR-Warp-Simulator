@@ -474,14 +474,151 @@
 			]
 		},
 		{
+			"album": "the-flapper-sinthome",
+			"tracks": [
+				{
+					"title": "If I Can Stop One Heart From Breaking (Full)",
+					"sourceID": "S0h5yvN-b1Y"
+				},
+				{
+					"title": "If I Can Stop One Heart From Breaking (Variation)",
+					"sourceID": "ZUktO40eScY"
+				},
+				{
+					"title": "The Big Sleep",
+					"sourceID": "wUYHsLsFSh4"
+				},
+				{
+					"title": "The Big Sleep · A Strange Dream",
+					"sourceID": "Fp-5UQmAE60"
+				},
+				{
+					"title": "Realitätsprinzip ",
+					"sourceID": "6RuJIUkvBnI"
+				},
+				{
+					"title": "Lustprinzip",
+					"sourceID": "HiY8DDAJZUk"
+				},
+				{
+					"title": "The Masked Fools",
+					"sourceID": "QoXVY2Hlvvk"
+				},
+				{
+					"title": "Golden Land",
+					"sourceID": "_HOc5V12naI"
+				},
+				{
+					"title": "Ace in the Hole",
+					"sourceID": "31dMYmGxfXo"
+				},
+				{
+					"title": "This Side of Paradise",
+					"sourceID": "Bq7XiPQZg74"
+				},
+				{
+					"title": "This Side of Paradise (Happy Version)",
+					"sourceID": "i39nxM0YVio"
+				},
+				{
+					"title": "Hi, Dolly! · This Side of Paradise (Calm Version)",
+					"sourceID": "ET8Qd1P1h84"
+				},
+				{
+					"title": "This Side of Paradise (Piano Version)",
+					"sourceID": "mWGIQJ6k6Jk"
+				},
+				{
+					"title": "This Side of Paradise · Odes of Harmony (Empyrean Hymnos)",
+					"sourceID": "wUTXQk8S1FU"
+				},
+				{
+					"title": "Dream Ticker",
+					"sourceID": "fa-8Zny8et4"
+				},
+				{
+					"title": "Chaîne Signifiante",
+					"sourceID": "HWhctNYoOsE"
+				},
+				{
+					"title": "Stade du Miroir",
+					"sourceID": "TpU6bveXFDQ"
+				},
+				{
+					"title": "Dreamjolt Hostelry",
+					"sourceID": "oGt-9ypA1lw"
+				},
+				{
+					"title": "Against The Day",
+					"sourceID": "ShNvgjZLl_4"
+				},
+				{
+					"title": "Challenge to the Reader",
+					"sourceID": "oN7PXYOlyMY"
+				},
+				{
+					"title": "The Player on The Other Side",
+					"sourceID": "60rVJXry6IU"
+				},
+				{
+					"title": "Fair Play",
+					"sourceID": "8MWSNv7j65I"
+				},
+				{
+					"title": "The Stowaway ",
+					"sourceID": "zpt8KipKO4o"
+				},
+				{
+					"title": "Halfway House",
+					"sourceID": "kS859dTFIPQ"
+				},
+				{
+					"title": "Nevermore · Sam Boss Theme",
+					"sourceID": "cjQlnLXmf04"
+				},
+				{
+					"title": "Return of None · Something Unto Death",
+					"sourceID": "8HL8snYICPI"
+				},
+				{
+					"title": "Clockie Plaza",
+					"sourceID": "hLlfFTtRHfg"
+				},
+				{
+					"title": "Peppy Pepeshi’s Salon",
+					"sourceID": "uzTimTzjR1w"
+				},
+				{
+					"title": "Dreamscape Sales Store · Dr. Edward’s Theme",
+					"sourceID": "ol-S-7ICD5M"
+				},
+				{
+					"title": "Lucky Wheel",
+					"sourceID": "Tq0OruN6gvQ"
+				},
+				{
+					"title": "Dreamy Slots",
+					"sourceID": "ia-4M6Ey2CQ"
+				},
+				{
+					"title": "Golden Capsule Machine",
+					"sourceID": "vw15SGjaNeg"
+				}
+			]
+		},
+		{
 			"album": "experience-the-paths",
 			"tracks": [
 				{
-					"title": "Supreme Idiocy",
+					"title": "Black Swan - Lullaby",
+					"sourceID": "X5aXk01454I"
+				},
+				{
+					"title": "Dr.Ratio - Supreme Idiocy",
 					"sourceID": "3RBLYxNsYCQ"
 				},
 				{
-					"title": "Crown of the Mundane and Divine",
+					"title": "Ruan Mei - Crown of the Mundane and Divine",
 					"sourceID": "N2HRGBKabpE"
 				},
 				{
@@ -613,6 +750,10 @@
 		{
 			"album": "more-ost",
 			"tracks": [
+				{
+					"title": "White Night - English Version (v2.0 Trailer OST)",
+					"sourceID": "aD2xyziljBE"
+				},
 				{
 					"title": "Crown of the Mundane and Divine (v1.6 Trailer OST)",
 					"sourceID": "kGX645T5Ia8"

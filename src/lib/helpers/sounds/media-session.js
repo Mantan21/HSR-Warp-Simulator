@@ -5,13 +5,14 @@ const albumCover = (album, images) => {
 		'out-of-control': 'ygKTfYj',
 		'of-snow-and-ember': 'wR0Nj7h',
 		'svah-sanishyu': 'vqbQ66N',
+		'the-flapper-sinthome': 'C1X6Dfp',
 		'experience-the-paths': 'Y2wRLPx'
 	};
 
 	if (Object.keys(albumList).includes(album)) {
-		const sizes = [192, 256, 384, 512, 1024];
+		const sizes = [256, 384, 512];
 		const artwork = sizes.map((size) => {
-			const src = `https://imagecdn.app/v2/image/https://i.ibb.co/${albumList[album]}/${album}.webp?width=${size}`;
+			const src = `https://imagecdn.app/v2/image/https%3A%2F%2Fi.ibb.co%2F${albumList[album]}%2F${album}.webp?width=${size}`;
 			const type = 'image/webp';
 			const sizes = `${size}x${size}`;
 			return { src, type, sizes };
