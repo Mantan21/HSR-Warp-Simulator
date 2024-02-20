@@ -11,7 +11,7 @@
 
 	let rateup, bannerName, combat_type;
 	$: ({ rateup, bannerName, combat_type, featured } = item);
-	$: bannerTitle = $t(`banner.${bannerName}`);
+	$: bannerTitle = bannerName ? $t(`banner.${bannerName}`) : $t(featured);
 
 	const characterOffset = (characterName, offset = 'bannerOffset') => {
 		const item = data.find(({ name }) => name === characterName) || {};
