@@ -116,6 +116,7 @@ const images = [
 			'album_of-snow-and-ember.webp',
 			'album_out-of-control.webp',
 			'album_svah-sanishyu.webp',
+			'album_the-flapper-sinthome.webp',
 			'album_experience-the-paths.webp',
 			'album_more-ost.webp',
 			'album_custom-musics.webp',
@@ -132,9 +133,9 @@ const images = [
 			'eidolon-4star.webp',
 			'eidolon-5star.webp',
 			'item-card-back.webp',
-			'method-tears.webp',
 			'method-imaginary-money.webp',
-			'method-empty-wallet.webp',
+			'method-tears.webp',
+			'method-firefly-savings.webp',
 			'music.svg',
 			'music-disc.webp',
 			'oneiric-shard.webp',
@@ -161,7 +162,7 @@ const videos = ['phonograph1.mp4', 'phonograph2.mp4'];
 
 const bgList = () => {
 	const paths = [];
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 14; i++) {
 		paths.push(`bg${i + 1}.webp`);
 	}
 	return { dir: 'background', paths };

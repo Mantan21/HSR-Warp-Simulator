@@ -44,6 +44,17 @@
 		"never": "NonAktif",
 		"always": "Selalu"
 	},
+	"item": {
+		"embers": "Undying Embers",
+		"starlight": "Undying Starlight",
+		"stellarJade": "Stellar Jade",
+		"specialPass": "Star Rail Special Pass",
+		"regularPass": "Star Rail Pass",
+		"oneiric": "Oneiric Shards",
+		"obtained": "Mendapatkan",
+		"specialPassStory": "Tiket perjalanan langsung Astral Express. Tiket ini mencatat titik koordinat dunia tertentu dan sangat cocok untuk penumpang yang sudah jelas dengan tujuannya.<br/> <br/> \"Ada teman yang sudah lama tak ditemui? Naiklah dan jelajahi semesta bersamanya!\"",
+		"regularPassStory": "Tiket Semesta Astral Express. Jelajahilah dunia sejauh Star Rail membentang. <br/> <br/>\"Pergilah ke tempat yang kamu inginkan, temui orang yang ingin kamu temui, dan tinggalkan kenangan yang ingin kamu ingat.\"</i>"
+	},
 	"path": {
 		"all": "Semua",
 		"abundance": "Abundance",
@@ -234,9 +245,9 @@
 		"payment": "Pembayaran",
 		"bonus": "Bonus",
 		"selectMethod": "Pilih Metode Pembayaran",
-		"methodImaginary": "Imaginary Money",
-		"methodWallet": "Empty Wallet",
-		"methodTears": "Tears",
+		"method-imaginary-money": "Dana Imaginer",
+		"method-tears": "Tears",
+		"method-firefly-savings": "Duit Firefly",
 		"autoConvert": "Ubah ke Stellar Jade secara otomatis?",
 		"initialTopup": "Bonus Topup Perdana?",
 		"donate": "Donasi"
@@ -292,6 +303,7 @@
 		"heading": "Phonograph",
 		"out-of-control": "Out of Control",
 		"svah-sanishyu": "Svah Sanishyu",
+		"the-flapper-sinthome": "The Flapper Sinthome",
 		"of-snow-and-ember": "Of Snow and Ember",
 		"experience-the-paths": "Experience the Paths",
 		"more-ost": "More Music and OST",

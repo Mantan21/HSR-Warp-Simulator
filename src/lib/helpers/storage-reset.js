@@ -11,6 +11,7 @@ import {
 	autoskip,
 	embers,
 	oneiric,
+	probEdit,
 	regReward,
 	regularPass,
 	showStarterBanner,
@@ -45,6 +46,7 @@ export const storageReset = async ({ keepSetting = false, clearCache = false } =
 		const config = storageLocal.get('config');
 		const pity = storageLocal.get('pity');
 		const balance = storageLocal.get('balance');
+		const probabilityRates = storageLocal.get('probabilityRates');
 		localStorage.removeItem('WarpSimulator');
 		delete config.additionalClaimed;
 
@@ -52,6 +54,7 @@ export const storageReset = async ({ keepSetting = false, clearCache = false } =
 		storageLocal.set('pity', pity);
 		storageLocal.set('balance', balance);
 		storageLocal.set('customTracks', customTracks);
+		storageLocal.set('probabilityRates', probabilityRates);
 		return;
 	}
 
@@ -74,4 +77,5 @@ export const storageReset = async ({ keepSetting = false, clearCache = false } =
 	warpAmount.set('default');
 	autoskip.set({ express: false, art: true });
 	muted.set({ bgm: false, sfx: false });
+	probEdit.set(false);
 };

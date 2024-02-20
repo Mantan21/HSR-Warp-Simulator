@@ -1,15 +1,20 @@
 <script>
 	import { getContext, setContext } from 'svelte';
+	import { t } from 'svelte-i18n';
 	import { fade, fly } from '$lib/helpers/transition';
 	import {
 		activeBanner,
 		isMobile,
 		isMobileLandscape,
+		probEdit,
 		showStarterBanner,
 		viewportHeight,
 		viewportWidth
 	} from '$lib/stores/app-store';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { localrate } from '$lib/stores/localstorage';
 
+	import Modal from '$lib/components/Modal.svelte';
 	import BnCharacter from './banner-card/_bn-character.svelte';
 	import BnStarter from './banner-card/_bn-starter.svelte';
 	import BnLightcone from './banner-card/_bn-lightcone.svelte';
@@ -19,10 +24,6 @@
 	import RegularFrame from './banner-card/_regular-frame.svelte';
 	import StarterFrame from './banner-card/_starter-frame.svelte';
 	import ProbabilityEditor from './probability-editor.svelte';
-	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { localrate } from '$lib/stores/localstorage';
-	import Modal from '$lib/components/Modal.svelte';
-	import { t } from 'svelte-i18n';
 
 	export let banner = 'starter';
 	export let bannerIndex;
@@ -32,7 +33,6 @@
 	$: fit = $viewportHeight * ($isMobileLandscape ? 1.9 : 1.7) > $viewportWidth;
 	$: fullscreen = $isMobileLandscape || $isMobile || $viewportWidth < 700;
 
-	const inEdit = getContext('inEdit');
 	let showModalReset = false;
 	setContext('showModalReset', () => {
 		showModalReset = true;
@@ -41,7 +41,7 @@
 	const confirmModal = () => {
 		playSfx();
 		localrate.reset(banner);
-		inEdit.set(false);
+		probEdit.set(false);
 		showModalReset = false;
 	};
 
@@ -71,7 +71,7 @@
 	<div
 		class="wrap"
 		class:fit
-		class:inEdit
+		class:inEdit={$probEdit}
 		style="--bw:{bannerWidth}px;"
 		class:shadow={banner !== 'starter'}
 		bind:clientWidth={bannerWidth}
@@ -114,8 +114,8 @@
 
 		<!-- Probability Controller -->
 		{#if !fullscreen}
-			<div class="prob-manager {banner}" class:inEdit={$inEdit}>
-				{#if $inEdit && banner !== 'starter'}
+			<div class="prob-manager {banner}" class:inEdit={$probEdit}>
+				{#if $probEdit && banner !== 'starter'}
 					<ProbabilityEditor {banner} />
 				{/if}
 			</div>
@@ -125,8 +125,8 @@
 
 <!-- Probability Controller  Fullscreen -->
 {#if fullscreen}
-	<div class="prob-manager fullscreen {banner}" class:inEdit={$inEdit}>
-		{#if $inEdit && banner !== 'starter'}
+	<div class="prob-manager fullscreen {banner}" class:inEdit={$probEdit}>
+		{#if $probEdit && banner !== 'starter'}
 			<ProbabilityEditor fullscreen {banner} />
 		{/if}
 	</div>

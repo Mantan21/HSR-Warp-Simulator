@@ -1,7 +1,7 @@
 <script>
-	import { getContext } from 'svelte';
 	import { t, locale } from 'svelte-i18n';
 	import { fade } from '$lib/helpers/transition';
+	import { probEdit } from '$lib/stores/app-store';
 
 	import LightCones from '$lib/components/LightCones.svelte';
 	import Path from '$lib/components/Path.svelte';
@@ -11,11 +11,10 @@
 	export let event2 = false;
 
 	const lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
-	const inEdit = getContext('inEdit');
 </script>
 
 <div class="content">
-	{#if $inEdit}
+	{#if $probEdit}
 		<div class="banner-name">{$t('banner.lightcone-event')} Configuration</div>
 	{:else}
 		<div class="banner-name">
@@ -24,7 +23,7 @@
 		</div>
 	{/if}
 
-	{#if !$inEdit}
+	{#if !$probEdit}
 		<!-- Left Pane -->
 		<div class="wrapper-info" out:fade|local>
 			<div class="info-body" in:fade={{ delay: 250, duration: 1000 }}>

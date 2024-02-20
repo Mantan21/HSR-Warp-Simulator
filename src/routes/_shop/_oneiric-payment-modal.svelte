@@ -14,8 +14,9 @@
 	const confirmBuy = getContext('confirmBuy');
 	const openObtained = getContext('openObtained');
 
+	const payMethod = ['imaginary-money', 'tears', 'firefly-savings'];
 	let autoConvert = cookie.get('autoconvert-oneiric');
-	let activeMethod = cookie.get('payment-method') || 'tears';
+	let activeMethod = cookie.get('payment-method') || 'firefly-savings';
 	$: cookie.set('autoconvert-oneiric', autoConvert);
 
 	const selectMethod = (method) => {
@@ -68,32 +69,14 @@
 
 			<caption>{$t('shop.selectMethod')}</caption>
 			<div class="payment-method">
-				<div class="method">
-					<button
-						on:click={() => selectMethod('imaginary-money')}
-						class:active={activeMethod === 'imaginary-money'}
-					>
-						<img src={$assets['method-imaginary-money.webp']} alt="Imaginary Money" />
-						{$t('shop.methodImaginary')}
-					</button>
-				</div>
-
-				<div class="method">
-					<button
-						on:click={() => selectMethod('empty-wallet')}
-						class:active={activeMethod === 'empty-wallet'}
-					>
-						<img src={$assets['method-empty-wallet.webp']} alt="Empty Wallet" />
-						{$t('shop.methodWallet')}
-					</button>
-				</div>
-
-				<div class="method">
-					<button on:click={() => selectMethod('tears')} class:active={activeMethod === 'tears'}>
-						<img src={$assets['method-tears.webp']} alt={$t('shop.methodTears')} />
-						{$t('shop.methodTears')}
-					</button>
-				</div>
+				{#each payMethod as method}
+					<div class="method">
+						<button on:click={() => selectMethod(method)} class:active={activeMethod === method}>
+							<img src={$assets[`method-${method}.webp`]} alt={$t(`shop.method-${method}`)} />
+							{$t(`shop.method-${method}`)}
+						</button>
+					</div>
+				{/each}
 			</div>
 
 			<div class="autoConvert">

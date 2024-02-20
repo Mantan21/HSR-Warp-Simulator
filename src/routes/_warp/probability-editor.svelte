@@ -4,16 +4,16 @@
 	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { getRate, setRate } from '$lib/helpers/gacha/probabilities';
+	import { probEdit } from '$lib/stores/app-store';
 	import { localPity } from '$lib/stores/localstorage';
 	import Header from '$lib/components/Header.svelte';
 
 	export let banner = 'character-event';
 	export let fullscreen = false;
 
-	const inEdit = getContext('inEdit');
 	const toggleEditor = () => {
 		playSfx('click2');
-		inEdit.update((v) => !v);
+		probEdit.update((v) => !v);
 	};
 
 	const showModalReset = getContext('showModalReset');

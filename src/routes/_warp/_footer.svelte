@@ -13,7 +13,8 @@
 		embers,
 		starlight,
 		bannerList,
-		activeBanner
+		activeBanner,
+		probEdit
 	} from '$lib/stores/app-store';
 	import { localBalance } from '$lib/stores/localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
@@ -135,9 +136,8 @@
 	};
 
 	// Edit Probability Button
-	const inEdit = getContext('inEdit');
 	const editProb = () => {
-		inEdit.set(!$inEdit);
+		probEdit.update((v) => !v);
 		playSfx('click2');
 	};
 </script>
@@ -170,7 +170,7 @@
 			{#if bannerType !== 'starter'}
 				<div class="btn">
 					<Button type="icon" on:click={editProb}>
-						<i class="hsr-{!$inEdit ? 'cog-bold' : 'check'}" />
+						<i class="hsr-{!$probEdit ? 'cog-bold' : 'check'}" />
 					</Button>
 				</div>
 			{/if}

@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import { fade } from '$lib/helpers/transition';
-	import { assets, regReward } from '$lib/stores/app-store';
+	import { assets, probEdit, regReward } from '$lib/stores/app-store';
 	import RateupLightones from './__rateup-lightcones.svelte';
 
 	const lightcones = [
@@ -31,11 +31,10 @@
 	$: ({ isClaimed, rollcount } = $regReward);
 
 	const handleModal = getContext('handleShowReward');
-	const inEdit = getContext('inEdit');
 </script>
 
 <div class="content" in:fade={{ duration: 500, delay: 250 }}>
-	{#if $inEdit}
+	{#if $probEdit}
 		<div class="banner-name">
 			{$t('banner.regular')} Configuration
 		</div>
@@ -43,7 +42,7 @@
 		<div class="banner-name">{$t('banner.regular')}</div>
 	{/if}
 
-	{#if !$inEdit}
+	{#if !$probEdit}
 		<div class="wrapper-info" transition:fade|local>
 			<div class="info-body">
 				<h1>{$t('banner.stellar')}</h1>

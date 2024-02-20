@@ -62,7 +62,7 @@
 {/if}
 
 <section in:fade={{ duration: 250 }}>
-	<img class="bg" src={$assets[`bg${random(1, 10)}.webp`]} alt="background" />
+	<img class="bg" src={$assets[`bg${random(1, 14)}.webp`]} alt="background" />
 
 	<div class="container" in:fade={{ duration: 500 }}>
 		<Header h1="Store" h2={$t(`shop.${activeShop}`)} icon="shop" relative>
