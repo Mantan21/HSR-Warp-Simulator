@@ -1,6 +1,38 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"name": "gallagher",
+			"rarity": 4,
+			"combat_type": "fire",
+			"path": "abundance",
+			"release": "2.0-1",
+			"splashartOffset": { "w": 70, "l": 45 },
+			"gachaCardOffset": { "l": 35, "t": 170, "w": 290 }
+		},
+		{
+			"pro": true,
+			"name": "aventurine",
+			"rarity": 5,
+			"combat_type": "imaginary",
+			"path": "preservation",
+			"bannerOffset": { "b": -50, "l": -5, "w": 125 },
+			"buttonOffset": { "t": -38, "w": 100 },
+			"splashartOffset": { "t": 58 },
+			"gachaCardOffset": { "l": 12, "t": 165, "w": 475 }
+		},
+		{
+			"pro": true,
+			"name": "acheron",
+			"rarity": 5,
+			"combat_type": "lightning",
+			"path": "nihility",
+			"bannerOffset": { "b": -58, "l": 10, "w": 110 },
+			"buttonOffset": { "t": -38, "w": 100 },
+			"splashartOffset": { "t": 58, "l": 52, "w": 85 },
+			"gachaCardOffset": { "l": 25, "t": 270, "w": 440 }
+		},
+		{
 			"name": "misha",
 			"rarity": 4,
 			"combat_type": "ice",

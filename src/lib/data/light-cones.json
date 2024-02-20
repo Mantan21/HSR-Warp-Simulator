@@ -1,6 +1,22 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"name": "inherently-unjust-destiny",
+			"rarity": 5,
+			"path": "preservation",
+			"limited": true,
+			"bannerOffset": { "t": -83, "l": 35, "w": 80 }
+		},
+		{
+			"pro": true,
+			"name": "along-the-passing-shore",
+			"rarity": 5,
+			"path": "nihility",
+			"limited": true,
+			"bannerOffset": { "t": -8, "l": 50, "w": 90 }
+		},
+		{
 			"name": "indelible-promise",
 			"rarity": 4,
 			"limited": true,

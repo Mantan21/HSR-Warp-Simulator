@@ -230,6 +230,15 @@
 			"changes": [
 				"Unlock Content: The 1st phase of v2.0 - <b>Black Swan & Dan Heng - Imbibitor Lunae</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "20 Feb 2024",
+			"changes": [
+				"Add New Character: <b>Acheron (5★)</b> & <b>Aventurine (5★)</b>",
+				"Add New Character: <b>Gallagher (4★)</b>",
+				"Add New Light Cones: <b>Along the Passing Shore</b> & <b>Inherently Unjust Destiny</b>"
+			]
 		}
 	]
 }
