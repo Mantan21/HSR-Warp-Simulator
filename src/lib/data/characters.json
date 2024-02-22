@@ -10,7 +10,6 @@
 			"gachaCardOffset": { "l": 35, "t": 110, "w": 400 }
 		},
 		{
-			"pro": true,
 			"name": "sparkle",
 			"rarity": 5,
 			"combat_type": "quantum",
