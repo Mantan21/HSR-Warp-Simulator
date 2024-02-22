@@ -2,8 +2,8 @@ import { browser } from '$app/environment';
 import { init, register, getLocaleFromNavigator } from 'svelte-i18n';
 import { localConfig } from '$lib/stores/localstorage';
 
-const supportedLocales = ['en-US', 'id-ID', 'ja-JP', 'zh-CN'];
-const itemLocales = ['en-US', 'ja-JP', 'zh-CN'];
+const supportedLocales = ['en-US', 'id-ID', 'ja-JP', 'zh-CN', 'zh-TW'];
+const itemLocales = ['en-US', 'ja-JP', 'zh-CN', 'zh-TW'];
 
 const checkLocale = () => {
 	const savedLocale = browser ? localConfig.get('locale') : null;
