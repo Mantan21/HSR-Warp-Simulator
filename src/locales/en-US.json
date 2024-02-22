@@ -269,6 +269,8 @@
 		"warpNumber": "Number of Warps",
 		"mutedSFX": "Mute Sound Effects?",
 		"mutedBGM": "Mute Background Musics?",
+		"sfxVolume": "SFX Volume",
+		"musicVolume": "Music Volume",
 		"autoskip": "Auto Skip Express Animation?",
 		"skipSplashArt": "Auto Skip Splash Art as well?",
 		"litemode": "Reduce Animation & Heavy Effects",

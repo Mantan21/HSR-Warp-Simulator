@@ -15,7 +15,9 @@
 
 <div class="content">
 	{#if $probEdit}
-		<div class="banner-name">{$t('banner.lightcone-event')} Configuration</div>
+		<div class="banner-name">
+			{$t('editor.bannerConfig', { values: { banner: $t('banner.lightcone-event') } })}
+		</div>
 	{:else}
 		<div class="banner-name">
 			{$t('banner.lightcone-event')}
@@ -162,6 +164,11 @@
 
 	:global(.ja-JP) h1 {
 		font-size: calc(0.035 * var(--bw));
+	}
+
+	:global(.zh-CN) h1,
+	:global(.zh-TW) h1 {
+		font-size: calc(0.05 * var(--bw));
 	}
 
 	:global(.mobileLandscape) h1 {

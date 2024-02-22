@@ -324,12 +324,13 @@
 	}
 	.fullscreen .content {
 		height: 78%;
+		padding: 0 2%;
 	}
 
 	.form {
 		padding-bottom: calc(0.03 * var(--bw));
 		height: calc(100% - calc(0.02 * var(--bw)));
-		width: inherit;
+		width: 100%;
 	}
 
 	.fullscreen .form {

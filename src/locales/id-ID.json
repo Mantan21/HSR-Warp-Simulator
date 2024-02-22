@@ -269,6 +269,8 @@
 		"warpNumber": "Jumlah Warp",
 		"mutedSFX": "Matikan Efek Suara",
 		"mutedBGM": "Matikan Musik Latar Belakang",
+		"sfxVolume": "Volume Efek Suara",
+		"musicVolume": "Volume Musik Latar Belakang",
 		"autoskip": "Auto Skip Animasi Express",
 		"skipSplashArt": "Auto Skip Splash Art juga?",
 		"litemode": "Kurangi Animasi dan Efek Berat",

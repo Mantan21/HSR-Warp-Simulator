@@ -11,7 +11,7 @@
 
 	let rateup, bannerName, combat_type;
 	$: ({ rateup, bannerName, combat_type, featured } = item);
-	$: bannerTitle = $t(`banner.${bannerName}`);
+	$: bannerTitle = bannerName ? $t(`banner.${bannerName}`) : $t(featured);
 
 	const characterOffset = (characterName, offset = 'bannerOffset') => {
 		const item = data.find(({ name }) => name === characterName) || {};
@@ -21,7 +21,9 @@
 
 <div class="content">
 	{#if $probEdit}
-		<div class="banner-name">{$t('banner.character-event')} Configuration</div>
+		<div class="banner-name">
+			{$t('editor.bannerConfig', { values: { banner: $t('banner.character-event') } })}
+		</div>
 	{:else}
 		<div class="banner-name">
 			{$t('banner.character-event')}
@@ -200,7 +202,9 @@
 		align-items: center;
 	}
 
-	:global(.ja-JP) h1 {
+	:global(.ja-JP) h1,
+	:global(.zh-CN) h1,
+	:global(.zh-TW) h1 {
 		font-size: calc(0.04 * var(--bw));
 	}
 

@@ -73,6 +73,33 @@
 
 <div class="settings" in:fade={{ duration: 250 }}>
 	<Scrollable>
+		<!-- General -->
+		<!-- <h2>{$t('menu.other')}</h2> -->
+		<OptionsItem
+			optionName="locale"
+			activeIndicator={$locale}
+			showOption={activeOption === 'locale'}
+		>
+			{$t('menu.language')}
+		</OptionsItem>
+
+		<OptionsItem
+			showOption={activeOption === 'warpnumber'}
+			optionName="warpnumber"
+			activeIndicator={$warpAmount}
+			on:select={handleSelectAmount}
+		>
+			{$t('menu.warpNumber')}
+		</OptionsItem>
+
+		<OptionsItem optionName="switchbanner">
+			{$t('menu.switchbanner')}
+		</OptionsItem>
+
+		<OptionsItem optionName="reset">{$t('menu.clearStorage')}</OptionsItem>
+		<OptionsItem optionName="feedback">{$t('menu.giveComment')}</OptionsItem>
+
+		<!-- Visual -->
 		<h2>{$t('menu.visual')}</h2>
 		<OptionsItem
 			showOption={activeOption === 'litemode'}
@@ -118,7 +145,9 @@
 
 		{#if !$muted.sfx}
 			<div transition:fly|local={{ y: -10 }}>
-				<OptionsItem sub optionName="sfxVolume" mode="slider">SFX Volume</OptionsItem>
+				<OptionsItem sub optionName="sfxVolume" mode="slider">
+					{$t('menu.sfxVolume')}
+				</OptionsItem>
 			</div>
 		{/if}
 
@@ -138,35 +167,11 @@
 				</OptionsItem>
 			</div>
 			<div transition:fly|local={{ y: -10 }}>
-				<OptionsItem sub optionName="phonoVolume" mode="slider">Music Volume</OptionsItem>
+				<OptionsItem sub optionName="phonoVolume" mode="slider">
+					{$t('menu.musicVolume')}
+				</OptionsItem>
 			</div>
 		{/if}
-
-		<!-- OTHERS -->
-		<h2>{$t('menu.other')}</h2>
-		<OptionsItem
-			optionName="locale"
-			activeIndicator={$locale}
-			showOption={activeOption === 'locale'}
-		>
-			{$t('menu.language')}
-		</OptionsItem>
-
-		<OptionsItem
-			showOption={activeOption === 'warpnumber'}
-			optionName="warpnumber"
-			activeIndicator={$warpAmount}
-			on:select={handleSelectAmount}
-		>
-			{$t('menu.warpNumber')}
-		</OptionsItem>
-
-		<OptionsItem optionName="switchbanner">
-			{$t('menu.switchbanner')}
-		</OptionsItem>
-
-		<OptionsItem optionName="reset">{$t('menu.clearStorage')}</OptionsItem>
-		<OptionsItem optionName="feedback">{$t('menu.giveComment')}</OptionsItem>
 	</Scrollable>
 </div>
 

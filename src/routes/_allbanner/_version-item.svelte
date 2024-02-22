@@ -59,10 +59,10 @@
 						</div>
 					{/if}
 
-					{#each charData as { bannerName, runNumber }}
+					{#each charData as { bannerName, runNumber, featured }}
 						<picture>
 							<img
-								use:lazyLoad={$assets[`banner/${bannerName}-${runNumber}`]}
+								use:lazyLoad={$assets[`banner/${bannerName || featured}-${runNumber}`]}
 								alt={$t(`banner.${bannerName}`)}
 								crossorigin="anonymous"
 							/>

@@ -217,7 +217,6 @@
 		},
 		{
 			"date": "13 Jan 2024",
-			"featured": true,
 			"changes": [
 				"Unlock Content: The 2nd phase of v1.6",
 				"- <b>dr. Ratio & Baptism of Pure Thought</b>",
@@ -226,7 +225,6 @@
 		},
 		{
 			"date": "31 Jan 2024",
-			"featured": true,
 			"changes": [
 				"Unlock Content: The 1st phase of v2.0 - <b>Black Swan & Dan Heng - Imbibitor Lunae</b>"
 			]
@@ -239,6 +237,11 @@
 				"Add New Character: <b>Gallagher (4★)</b>",
 				"Add New Light Cones: <b>Along the Passing Shore</b> & <b>Inherently Unjust Destiny</b>"
 			]
+		},
+		{
+			"date": "31 Jan 2024",
+			"featured": true,
+			"changes": ["Unlock Content: The 2nd phase of v2.0 - <b>Sparkle & Jing Yuan</b>"]
 		}
 	]
 }
