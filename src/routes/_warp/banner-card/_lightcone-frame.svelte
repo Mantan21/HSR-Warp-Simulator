@@ -15,7 +15,9 @@
 
 <div class="content">
 	{#if $probEdit}
-		<div class="banner-name">{$t('banner.lightcone-event')} Configuration</div>
+		<div class="banner-name">
+			{$t('editor.bannerConfig', { values: { banner: $t('banner.lightcone-event') } })}
+		</div>
 	{:else}
 		<div class="banner-name">
 			{$t('banner.lightcone-event')}

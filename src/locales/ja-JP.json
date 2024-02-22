@@ -269,6 +269,8 @@
 		"warpNumber": "跳躍モード",
 		"mutedSFX": "SEのミュート",
 		"mutedBGM": "BGMのミュート",
+		"sfxVolume": "SFX Volume",
+		"musicVolume": "Music Volume",
 		"autoskip": "跳躍アニメーションの自動スキップ",
 		"skipSplashArt": "スプラッシュアートの自動スキップ",
 		"litemode": "アニメーションと重いエフェクトの除去",

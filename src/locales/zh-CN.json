@@ -269,6 +269,8 @@
 		"warpNumber": "跃迁数量",
 		"mutedSFX": "静音音效？",
 		"mutedBGM": "静音背景音乐？",
+		"sfxVolume": "SFX Volume",
+		"musicVolume": "Music Volume",
 		"autoskip": "自动跳过跃迁动画？",
 		"skipSplashArt": "自动跳过立绘？",
 		"litemode": "减少动画和一些效果",
