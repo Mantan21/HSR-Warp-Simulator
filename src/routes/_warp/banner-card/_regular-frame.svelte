@@ -156,7 +156,9 @@
 		display: flex;
 		align-items: center;
 	}
-	:global(.ja-JP) h1 {
+	:global(.ja-JP) h1,
+	:global(.zh-CN) h1,
+	:global(.zh-TW) h1 {
 		font-size: calc(0.055 * var(--bw));
 	}
 

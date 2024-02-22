@@ -164,6 +164,11 @@
 		font-size: calc(0.035 * var(--bw));
 	}
 
+	:global(.zh-CN) h1,
+	:global(.zh-TW) h1 {
+		font-size: calc(0.05 * var(--bw));
+	}
+
 	:global(.mobileLandscape) h1 {
 		margin-top: 13%;
 		font-size: calc(0.022 * var(--bw));

@@ -36,7 +36,7 @@
 	let font = '';
 	$: {
 		const lc = $locale?.toLowerCase() || '';
-		const cnLogo = lc.match(/(cn|ja)/);
+		const cnLogo = lc.match(/(zh|ja)/);
 		font = cnLogo || lc.includes('th') ? lc.split('-')[0] : 'os';
 	}
 

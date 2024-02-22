@@ -51,6 +51,15 @@ If you are not familiar with javascript especially sveltekit or don't know how t
          </td>
       </tr>
       <tr>
+         <td> Chinese (Traditional) </td>
+         <td>
+            <a href="https://github.com/Xyyaua">
+               <img width="20px" src="https://avatars.githubusercontent.com/u/44024543?s=20" />
+               Xyyaua
+            </a>
+         </td>
+      </tr>
+      <tr>
          <td> Japanese </td>
          <td>
             <a href="https://github.com/Sunny-JP">
