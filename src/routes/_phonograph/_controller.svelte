@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { musics } from '$lib/stores/phonograph-store';
-	import { cookie } from '$lib/stores/cookies';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	export let playedSID;

@@ -5,7 +5,7 @@
 	import { assets, regReward } from '$lib/stores/app-store';
 	import { regular } from '$lib/data/banners/regular.json';
 	import { regularChars5Star } from '$lib/helpers/gacha/gacha-base';
-	import { localConfig, owneditem } from '$lib/stores/localstorage';
+	import { localConfig, owneditem } from '$lib/helpers/dataAPI/api-localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';

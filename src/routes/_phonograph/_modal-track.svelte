@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { musics } from '$lib/stores/phonograph-store';
-	import { customTracks } from '$lib/stores/localstorage';
+	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { fetchAudio } from '$lib/helpers/sounds/audio-fetcher';
 

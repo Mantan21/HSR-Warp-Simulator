@@ -16,7 +16,7 @@
 		activeBanner,
 		probEdit
 	} from '$lib/stores/app-store';
-	import { localBalance } from '$lib/stores/localstorage';
+	import { localBalance } from '$lib/helpers/dataAPI/api-localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
 	import Button from './_button.svelte';

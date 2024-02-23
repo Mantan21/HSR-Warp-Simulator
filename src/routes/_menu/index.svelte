@@ -5,8 +5,8 @@
 	import { t } from 'svelte-i18n';
 
 	import { viewportHeight } from '$lib/stores/app-store';
-	import { cookie } from '$lib/stores/cookies';
-	import { storageReset } from '$lib/helpers/storage-reset';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
+	import { storageReset } from '$lib/helpers/dataAPI/storage-reset';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { initTrack, isPlaying } from '$lib/helpers/sounds/phonograph';
 	import { activeBacksound, muted } from '$lib/stores/phonograph-store';

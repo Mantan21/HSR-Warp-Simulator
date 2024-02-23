@@ -4,9 +4,9 @@
 	import { locale, t } from 'svelte-i18n';
 
 	import { activePhase, activeVersion } from '$lib/stores/app-store';
-	import { cookie } from '$lib/stores/cookies';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 	import { flags, localeName } from '$lib/data/country.json';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { playSfx, setSfxVolume } from '$lib/helpers/sounds/audiofx';
 	import { userCurrencies } from '$lib/helpers/shop-price';

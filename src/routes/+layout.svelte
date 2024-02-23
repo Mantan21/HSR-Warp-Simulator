@@ -22,6 +22,7 @@
 	import Iklan from '$lib/components/Iklan.svelte';
 	import InitialLoader from './_index/InitialLoader.svelte';
 	import { IDBUpdater } from '$lib/helpers/migrator/idbUpdater';
+	import { wakeLock } from '$lib/helpers/wakelock';
 
 	let isLoaded = false;
 	const showAd = writable(false);
@@ -72,6 +73,7 @@
 		});
 
 		registerSW(); // Service Worker for Faster Load
+		wakeLock(); // Prevent screen off while open the app
 		await IDBUpdater(); // update site data to the newer version
 
 		// prevent Righ click (hold on android) on production mode

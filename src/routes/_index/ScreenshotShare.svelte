@@ -4,7 +4,7 @@
 	import { toBlob } from 'html-to-image';
 	import { initialAmount } from '$lib/data/warp-setup.json';
 	import { liteMode, stellarJade } from '$lib/stores/app-store';
-	import { localBalance, localConfig } from '$lib/stores/localstorage';
+	import { localBalance, localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 	import { fade as customFade } from '$lib/helpers/transition';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 

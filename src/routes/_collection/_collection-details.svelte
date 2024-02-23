@@ -4,7 +4,7 @@
 	import { t } from 'svelte-i18n';
 
 	import { assets } from '$lib/stores/app-store';
-	import { HistoryManager } from '$lib/stores/idbManager';
+	import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 	import { getCharDetails, getLCDetails } from '$lib/helpers/gacha/gacha-base';
 	import positionToStyle from '$lib/helpers/css-transformer';

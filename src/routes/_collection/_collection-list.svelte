@@ -4,8 +4,8 @@
 	import { flip } from 'svelte/animate';
 	import { t } from 'svelte-i18n';
 	import { isMobile, isMobileLandscape, liteMode } from '$lib/stores/app-store';
-	import { cookie } from '$lib/stores/cookies';
-	import { owneditem } from '$lib/stores/localstorage';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
+	import { owneditem } from '$lib/helpers/dataAPI/api-localstorage';
 	import { data as charDB } from '$lib/data/characters.json';
 	import { data as lcDB } from '$lib/data/light-cones.json';
 

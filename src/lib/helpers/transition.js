@@ -1,4 +1,4 @@
-import { localConfig } from '$lib/stores/localstorage';
+import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 import { cubicOut } from 'svelte/easing';
 import {
 	crossfade,

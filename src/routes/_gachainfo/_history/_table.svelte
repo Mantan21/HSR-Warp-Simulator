@@ -1,7 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import { HistoryManager } from '$lib/stores/idbManager';
+	import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
 	import { identifyBanner } from '$lib/helpers/banner-loader';
 
 	export let banner;

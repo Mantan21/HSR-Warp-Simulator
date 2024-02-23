@@ -1,6 +1,11 @@
 import { regReward, starterRemaining } from '$lib/stores/app-store';
-import { HistoryManager } from '$lib/stores/idbManager';
-import { guaranteedStatus, localPity, owneditem, rollCounter } from '$lib/stores/localstorage';
+import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
+import {
+	guaranteedStatus,
+	localPity,
+	owneditem,
+	rollCounter
+} from '$lib/helpers/dataAPI/api-localstorage';
 import { rates, prob, getRate } from './probabilities';
 
 const { addHistory } = HistoryManager;

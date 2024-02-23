@@ -1,5 +1,5 @@
 import { probabilityRates } from '$lib/data/warp-setup.json';
-import { localrate } from '$lib/stores/localstorage';
+import { localrate } from '$lib/helpers/dataAPI/api-localstorage';
 
 export const rates = ({
 	currentPity = 0,

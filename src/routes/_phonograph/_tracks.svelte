@@ -9,7 +9,7 @@
 	import ModalTrack from './_modal-track.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
-	import { customTracks } from '$lib/stores/localstorage';
+	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
 	import { nextTrack } from '$lib/helpers/sounds/phonograph';
 
 	export let playedAlbum = '';

@@ -12,7 +12,7 @@
 		viewportWidth
 	} from '$lib/stores/app-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { localrate } from '$lib/stores/localstorage';
+	import { localrate } from '$lib/helpers/dataAPI/api-localstorage';
 
 	import Modal from '$lib/components/Modal.svelte';
 	import BnCharacter from './banner-card/_bn-character.svelte';

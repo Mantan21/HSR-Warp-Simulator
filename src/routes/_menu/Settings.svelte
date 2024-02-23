@@ -5,7 +5,7 @@
 
 	import { warpAmount, autoskip, liteMode } from '$lib/stores/app-store';
 	import { muted } from '$lib/stores/phonograph-store';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 	import { initTrack, pauseTrack } from '$lib/helpers/sounds/phonograph';
 	import { check as expressChecker } from '$lib/helpers/express-loader';
 

@@ -1,5 +1,5 @@
-import { HistoryManager } from '$lib/stores/idbManager';
-import { owneditem } from '$lib/stores/localstorage';
+import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
+import { owneditem } from '$lib/helpers/dataAPI/api-localstorage';
 
 const { getList } = HistoryManager;
 const migrateWarpHistory = async () => {

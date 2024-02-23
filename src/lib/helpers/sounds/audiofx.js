@@ -1,6 +1,6 @@
 import { Howl } from 'howler';
-import { localConfig } from '$lib/stores/localstorage';
-import { cookie } from '$lib/stores/cookies';
+import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
+import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 
 const sfxList = [
 	'allbanner',

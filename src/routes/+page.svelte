@@ -10,12 +10,11 @@
 	} from '$lib/stores/app-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
-	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/storage-reader';
+	import { importLocalConfig, setBannerVersionAndPhase } from '$lib/helpers/dataAPI/storage-reader';
 	import { browserState } from '$lib/helpers/page-navigation';
 	import { handleShowStarter, initializeBanner } from '$lib/helpers/banner-loader';
 	import { userCurrencies } from '$lib/helpers/shop-price';
-	import { localConfig } from '$lib/stores/localstorage';
-	import { wakeLock } from '$lib/helpers/wakelock';
+	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 
 	import Welcome from './_index/Welcome.svelte';
 	import PreloadExpress from './_index/PreloadExpress.svelte';
@@ -83,7 +82,6 @@
 
 		// litemode
 		if ($isMobile) handleLiteMode();
-		wakeLock();
 
 		// Detect Currencies
 		userCurrencies.init();

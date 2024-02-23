@@ -1,6 +1,6 @@
 import { Howl } from 'howler';
-import { cookie } from '$lib/stores/cookies';
-import { localConfig } from '$lib/stores/localstorage';
+import { cookie } from '$lib/helpers/dataAPI/api-cookie';
+import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 import { activeBacksound, currentTime, musics } from '$lib/stores/phonograph-store';
 import { fetchAudio } from './audio-fetcher';
 import { mediaSessionHandler } from './media-session';

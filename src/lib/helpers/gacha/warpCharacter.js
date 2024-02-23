@@ -1,4 +1,4 @@
-import { guaranteedStatus } from '$lib/stores/localstorage';
+import { guaranteedStatus } from '$lib/helpers/dataAPI/api-localstorage';
 import {
 	checkGuaranteed,
 	get3StarItem,

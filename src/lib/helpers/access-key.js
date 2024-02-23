@@ -1,4 +1,4 @@
-import { cookie } from '$lib/stores/cookies';
+import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 
 const digestMessage = async (message) => {
 	const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array

@@ -1,8 +1,8 @@
 // import { deleteDB } from 'idb';
 import { data as charDB } from '$lib/data/characters.json';
 import { data as lcDB } from '$lib/data/light-cones.json';
-import { HistoryManager } from '$lib/stores/idbManager';
-import { localConfig } from '$lib/stores/localstorage';
+import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
+import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 import { retriveOldData } from './collect-old-data';
 
 const { getAllHistories, addHistory } = HistoryManager;

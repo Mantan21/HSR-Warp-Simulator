@@ -1,6 +1,6 @@
 <script>
 	import { t } from 'svelte-i18n';
-	import { localPity } from '$lib/stores/localstorage';
+	import { localPity } from '$lib/helpers/dataAPI/api-localstorage';
 	import { userCurrencies } from '$lib/helpers/shop-price';
 	import Icon from '$lib/components/Icon.svelte';
 

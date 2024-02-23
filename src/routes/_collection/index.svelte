@@ -4,7 +4,7 @@
 	import { fade } from '$lib/helpers/transition';
 	import { assets } from '$lib/stores/app-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { cookie } from '$lib/stores/cookies';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 	import Header from '$lib/components/Header.svelte';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Aside from './_aside.svelte';

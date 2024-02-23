@@ -20,7 +20,12 @@ import {
 	stellarJade,
 	warpAmount
 } from '$lib/stores/app-store';
-import { customTracks, localBalance, localConfig, rollCounter } from '$lib/stores/localstorage';
+import {
+	customTracks,
+	localBalance,
+	localConfig,
+	rollCounter
+} from '$lib/helpers/dataAPI/api-localstorage';
 import { musics, muted } from '$lib/stores/phonograph-store';
 
 const importLocalConfig = () => {

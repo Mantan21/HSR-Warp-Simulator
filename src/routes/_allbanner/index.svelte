@@ -7,7 +7,7 @@
 	import unknownBanner from '$lib/data/banners/events/1000000.0.json';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { assets } from '$lib/stores/app-store';
-	import { cookie } from '$lib/stores/cookies';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';

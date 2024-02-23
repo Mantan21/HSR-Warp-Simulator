@@ -3,7 +3,7 @@
 	import { t } from 'svelte-i18n';
 	import { specialPass, regularPass, stellarJade } from '$lib/stores/app-store';
 	import Modal from '$lib/components/Modal.svelte';
-	import { localBalance } from '$lib/stores/localstorage';
+	import { localBalance } from '$lib/helpers/dataAPI/api-localstorage';
 
 	export let isSpecialPass = false;
 	export let rollCost;

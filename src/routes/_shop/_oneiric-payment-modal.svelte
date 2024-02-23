@@ -4,8 +4,8 @@
 	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { assets, oneiric, stellarJade } from '$lib/stores/app-store';
-	import { cookie } from '$lib/stores/cookies';
-	import { localBalance } from '$lib/stores/localstorage';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
+	import { localBalance } from '$lib/helpers/dataAPI/api-localstorage';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 
 	export let data = { qty: 0, bonus: 0, price: '0' };

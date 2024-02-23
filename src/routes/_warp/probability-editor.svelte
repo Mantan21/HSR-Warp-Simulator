@@ -5,7 +5,7 @@
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { getRate, setRate } from '$lib/helpers/gacha/probabilities';
 	import { probEdit } from '$lib/stores/app-store';
-	import { localPity } from '$lib/stores/localstorage';
+	import { localPity } from '$lib/helpers/dataAPI/api-localstorage';
 	import Header from '$lib/components/Header.svelte';
 
 	export let banner = 'character-event';

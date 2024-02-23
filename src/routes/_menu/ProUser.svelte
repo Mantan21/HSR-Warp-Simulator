@@ -5,7 +5,7 @@
 	import { proUser } from '$lib/stores/app-store';
 	import accessKey from '$lib/helpers/access-key';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { restartBannerVersion } from '$lib/helpers/storage-reader';
+	import { restartBannerVersion } from '$lib/helpers/dataAPI/storage-reader';
 
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import LoadingIcon from '$lib/components/LoadingIcon.svelte';

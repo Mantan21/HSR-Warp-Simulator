@@ -5,7 +5,7 @@
 	import { check, loadAnimation, loadProggress } from '$lib/helpers/express-loader';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { assets, autoskip } from '$lib/stores/app-store';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 
 	let onProgress = false;

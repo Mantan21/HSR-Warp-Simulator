@@ -2,7 +2,7 @@ import { starter } from '$lib/data/banners/starter.json';
 import { regular } from '$lib/data/banners/regular.json';
 import { banners } from '$lib/data/banners/lists.json';
 
-import { checkStarterBanner } from '$lib/helpers/storage-reader';
+import { checkStarterBanner } from '$lib/helpers/dataAPI/storage-reader';
 import { bannerList } from '$lib/stores/app-store';
 import { getCharDetails, getLCDetails } from './gacha/gacha-base';
 

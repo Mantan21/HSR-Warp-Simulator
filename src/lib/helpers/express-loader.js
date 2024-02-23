@@ -1,5 +1,5 @@
 import { assets } from '$lib/stores/app-store';
-import { AssetManager } from '$lib/stores/idbManager';
+import { AssetManager } from '$lib/helpers/dataAPI/api-indexeddb';
 import { writable } from 'svelte/store';
 
 const expressList = [
