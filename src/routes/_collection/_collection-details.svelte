@@ -15,10 +15,12 @@
 	import SplashartInfo from '../_warp/warp-result/_splashart-info.svelte';
 
 	export let name = '';
+	export let qty = 0;
 	export let type = 'character';
 
 	let preview = false;
 	setContext('preview', (val) => (preview = val));
+	const close = getContext('closeDetail');
 
 	const getQtyInfo = (type, qty) => {
 		if (type === 'lightcone') {
@@ -41,13 +43,12 @@
 		return getCharDetails(name);
 	};
 
-	const close = getContext('closeDetail');
 	const loadItem = async () => {
-		if (!name) return;
-		const dt = await HistoryManager.getByName(name);
-		const result = { ...(dt[0] || {}), ...getItemDetail(name) };
-		result.qty = dt.length;
-		return result;
+		const data = getItemDetail(name);
+		const idbData = await HistoryManager.getByID(data.itemID);
+		const { time = 'UnTracked' } = idbData[0] || {};
+
+		return { ...data, time };
 	};
 </script>
 
@@ -72,7 +73,7 @@
 		<!-- End Show on Shareable screen -->
 
 		<div class="container">
-			{#await loadItem(name) then { path, rarity, combat_type, splashartOffset, qty, type, time }}
+			{#await loadItem(name) then { path, rarity, combat_type, splashartOffset, time }}
 				{#if qty < 1}
 					<div class="not-indexed">
 						<span>{$t('collection.notOwned')}</span>

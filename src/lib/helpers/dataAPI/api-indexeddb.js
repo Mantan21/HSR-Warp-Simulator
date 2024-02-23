@@ -1,20 +1,24 @@
 import { browser } from '$app/environment';
 import { openDB } from 'idb';
 
-const version = 2;
+const version = 3;
 const DBName = 'WarpSimulator';
 
 let IndexedDB;
 if (browser) {
 	IndexedDB = openDB(DBName, version, {
-		upgrade(db) {
+		upgrade(db, oldVer, newVer, transaction) {
 			if (!db.objectStoreNames.contains('history')) {
 				const historyStore = db.createObjectStore('history', {
 					keyPath: 'id',
 					autoIncrement: true
 				});
 				historyStore.createIndex('banner', 'banner', { unique: false });
-				historyStore.createIndex('name', 'name', { unique: false });
+				historyStore.createIndex('itemID', 'itemID', { unique: false });
+			} else {
+				const historyStore = transaction.objectStore('history');
+				const hasID = historyStore.indexNames.contains('itemID');
+				if (!hasID) historyStore.createIndex('itemID', 'itemID', { unique: false });
 			}
 
 			if (!db.objectStoreNames.contains('assets')) {
@@ -36,8 +40,8 @@ export const HistoryManager = {
 		return (await IndexedDB).countFromIndex('history', 'name', name);
 	},
 
-	async getByName(name) {
-		return (await IndexedDB).getAllFromIndex('history', 'name', name);
+	async getByID(itemID) {
+		return (await IndexedDB).getAllFromIndex('history', 'itemID', itemID);
 	},
 
 	async clearHistory(banner) {

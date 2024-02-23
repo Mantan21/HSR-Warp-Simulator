@@ -47,7 +47,7 @@
 		handleModal({ confirm: true });
 		const result = charList.find(({ name }) => name === selected);
 		handleGachaAnimation([result], 'additional');
-		owneditem.put({ name: selected, source: 'additional' });
+		owneditem.put({ itemID: result.itemID, source: 'additional' });
 		regReward.update(({ rollcount }) => ({ rollcount, isClaimed: true }));
 		localConfig.set('additionalClaimed', true);
 	};
