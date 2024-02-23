@@ -90,16 +90,25 @@ export const owneditem = {
 		const items = storageLocal.get('ownedItem');
 		return items;
 	},
-	put({ name, source = 'warp' }) {
+
+	get(itemID) {
+		const db = this.getAll();
+		const selected = db[itemID];
+		if (!selected) return { qty: 0, itemID };
+
+		const { manual, warp } = selected;
+		return { itemID, qty: manual + warp };
+	},
+
+	put({ itemID, source = 'warp' }) {
 		const allItems = storageLocal.get('ownedItem');
-		const { manual = 0, warp = 0 } = allItems[name] || {};
-		allItems[name] = {
+		const { manual = 0, warp = 0 } = allItems[itemID] || {};
+		allItems[itemID] = {
 			manual: source === 'warp' ? manual : 1 + manual,
 			warp: source === 'warp' ? warp + 1 : warp
 		};
 		storageLocal.set('ownedItem', allItems);
-
-		return allItems[name];
+		return allItems[itemID];
 	}
 };
 

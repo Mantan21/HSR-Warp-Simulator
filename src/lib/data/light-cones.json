@@ -1,12 +1,14 @@
 {
 	"data": [
 		{
+			"itemID": 21042,
 			"name": "indelible-promise",
 			"rarity": 4,
 			"limited": true,
 			"path": "destruction"
 		},
 		{
+			"itemID": 23021,
 			"name": "earthly-escapade",
 			"rarity": 5,
 			"path": "harmony",
@@ -14,6 +16,7 @@
 			"bannerOffset": { "t": -8, "l": 50, "w": 90 }
 		},
 		{
+			"itemID": 23022,
 			"name": "reforged-remembrance",
 			"rarity": 5,
 			"path": "nihility",
@@ -21,6 +24,7 @@
 			"bannerOffset": { "t": -29, "l": 37, "w": 102, "xOrigin": 110, "yOrigin": 20 }
 		},
 		{
+			"itemID": 23020,
 			"name": "baptism-of-pure-thought",
 			"rarity": 5,
 			"path": "hunt",
@@ -28,6 +32,7 @@
 			"bannerOffset": { "t": -15, "l": 45, "w": 75 }
 		},
 		{
+			"itemID": 23019,
 			"name": "past-self-in-mirror",
 			"rarity": 5,
 			"path": "harmony",
@@ -35,6 +40,7 @@
 			"bannerOffset": { "b": -88, "r": -21, "w": 90 }
 		},
 		{
+			"itemID": 23018,
 			"name": "an-instance-before-a-gaze",
 			"rarity": 5,
 			"path": "erudition",
@@ -42,6 +48,7 @@
 			"bannerOffset": { "b": -100, "r": -21, "w": 90, "xOrigin": 60 }
 		},
 		{
+			"itemID": 23017,
 			"name": "night-of-fright",
 			"rarity": 5,
 			"path": "abundance",
@@ -49,6 +56,7 @@
 			"bannerOffset": { "b": -85, "r": -30, "w": 85, "xOrigin": 60 }
 		},
 		{
+			"itemID": 23016,
 			"name": "worrisome-blissful",
 			"rarity": 5,
 			"path": "hunt",
@@ -56,6 +64,7 @@
 			"bannerOffset": { "b": -75, "r": -50, "w": 110 }
 		},
 		{
+			"itemID": 23014,
 			"name": "i-shall-be-my-own-sword",
 			"rarity": 5,
 			"path": "destruction",
@@ -63,6 +72,7 @@
 			"bannerOffset": { "b": -170, "r": -45, "w": 120 }
 		},
 		{
+			"itemID": 23011,
 			"name": "she-already-shut-her-eyes",
 			"rarity": 5,
 			"path": "preservation",
@@ -70,6 +80,7 @@
 			"bannerOffset": { "b": -110, "r": -11, "w": 100, "yOrigin": 75 }
 		},
 		{
+			"itemID": 23015,
 			"name": "brighter-than-the-sun",
 			"rarity": 5,
 			"path": "destruction",
@@ -77,6 +88,7 @@
 			"bannerOffset": { "b": -80, "r": -33, "w": 80 }
 		},
 		{
+			"itemID": 23006,
 			"name": "patience-is-all-you-need",
 			"rarity": 5,
 			"path": "nihility",
@@ -84,6 +96,7 @@
 			"bannerOffset": { "b": -5, "r": -3.5, "w": 85, "yOrigin": 10 }
 		},
 		{
+			"itemID": 23009,
 			"name": "the-unreachable-side",
 			"rarity": 5,
 			"path": "destruction",
@@ -91,6 +104,7 @@
 			"bannerOffset": { "b": -135, "r": -10, "xOrigin": 50, "yOrigin": 100 }
 		},
 		{
+			"itemID": 23008,
 			"name": "echoes-of-the-coffin",
 			"rarity": 5,
 			"path": "abundance",
@@ -98,6 +112,7 @@
 			"bannerOffset": { "b": -127, "r": -53 }
 		},
 		{
+			"itemID": 23007,
 			"name": "incessant-rain",
 			"rarity": 5,
 			"path": "nihility",
@@ -105,6 +120,7 @@
 			"bannerOffset": { "b": -110, "r": -22, "xOrigin": 50, "yOrigin": 0 }
 		},
 		{
+			"itemID": 23010,
 			"name": "before-dawn",
 			"rarity": 5,
 			"path": "erudition",
@@ -112,255 +128,305 @@
 			"bannerOffset": { "b": -120, "r": -60, "w": 105, "xOrigin": 60 }
 		},
 		{
+			"itemID": 23001,
 			"name": "in-the-night",
 			"rarity": 5,
 			"path": "hunt",
 			"limited": true
 		},
 		{
+			"itemID": 23013,
 			"name": "time-waits-for-no-one",
 			"rarity": 5,
 			"path": "abundance"
 		},
 		{
+			"itemID": 23012,
 			"name": "sleep-like-the-dead",
 			"rarity": 5,
 			"path": "hunt"
 		},
 		{
+			"itemID": 23005,
 			"name": "moment-of-victory",
 			"rarity": 5,
 			"path": "preservation"
 		},
 		{
+			"itemID": 23004,
 			"name": "in-the-name-of-the-world",
 			"rarity": 5,
 			"path": "nihility"
 		},
 		{
+			"itemID": 23003,
 			"name": "but-the-battle-isnt-over",
 			"rarity": 5,
 			"path": "harmony"
 		},
 		{
+			"itemID": 23002,
 			"name": "something-irreplaceable",
 			"rarity": 5,
 			"path": "destruction"
 		},
 		{
+			"itemID": 23000,
 			"name": "night-on-the-milky-way",
 			"rarity": 5,
 			"path": "erudition"
 		},
 		{
-			"name": "make-the-world-clamor",
-			"rarity": 4,
-			"path": "erudition"
-		},
-		{
-			"name": "a-secret-vow",
-			"rarity": 4,
-			"path": "destruction"
-		},
-		{
-			"name": "planetary-rendezvous",
-			"rarity": 4,
-			"path": "harmony"
-		},
-		{
-			"name": "swordplay",
-			"rarity": 4,
-			"path": "hunt"
-		},
-		{
-			"name": "landaus-choice",
-			"rarity": 4,
-			"path": "preservation"
-		},
-		{
-			"name": "eyes-of-the-prey",
-			"rarity": 4,
-			"path": "nihility"
-		},
-		{
-			"name": "shared-feeling",
-			"rarity": 4,
-			"path": "abundance"
-		},
-		{
-			"name": "the-birth-of-the-self",
-			"rarity": 4,
-			"path": "erudition"
-		},
-		{
-			"name": "the-moles-welcome-you",
-			"rarity": 4,
-			"path": "destruction"
-		},
-		{
-			"name": "memories-of-the-past",
-			"rarity": 4,
-			"path": "harmony"
-		},
-		{
-			"name": "only-silence-remains",
-			"rarity": 4,
-			"path": "hunt"
-		},
-		{
-			"name": "day-one-of-my-new-life",
-			"rarity": 4,
-			"path": "preservation"
-		},
-		{
-			"name": "good-night-and-sleep-well",
-			"rarity": 4,
-			"path": "nihility"
-		},
-		{
-			"name": "post-op-conversation",
-			"rarity": 4,
-			"path": "abundance"
-		},
-		{
-			"name": "dance-dance-dance",
-			"rarity": 4,
-			"path": "harmony"
-		},
-		{
-			"name": "trend-of-the-universal-market",
-			"rarity": 4,
-			"path": "preservation"
-		},
-		{
+			"itemID": 21020,
 			"name": "geniuses-repose",
 			"rarity": 4,
 			"path": "erudition"
 		},
 		{
-			"name": "subscribe-for-more",
-			"rarity": 4,
-			"path": "hunt"
-		},
-		{
-			"name": "perfect-timing",
-			"rarity": 4,
-			"path": "abundance"
-		},
-		{
-			"name": "resolution-shines-as-pearls-of-sweat",
-			"rarity": 4,
-			"path": "nihility"
-		},
-		{
+			"itemID": 21019,
 			"name": "under-the-blue-sky",
 			"rarity": 4,
 			"path": "destruction"
 		},
 		{
-			"name": "passkey",
+			"itemID": 21018,
+			"name": "dance-dance-dance",
+			"rarity": 4,
+			"path": "harmony"
+		},
+		{
+			"itemID": 21017,
+			"name": "subscribe-for-more",
+			"rarity": 4,
+			"path": "hunt"
+		},
+		{
+			"itemID": 21016,
+			"name": "trend-of-the-universal-market",
+			"rarity": 4,
+			"path": "preservation"
+		},
+		{
+			"itemID": 21015,
+			"name": "resolution-shines-as-pearls-of-sweat",
+			"rarity": 4,
+			"path": "nihility"
+		},
+		{
+			"itemID": 21014,
+			"name": "perfect-timing",
+			"rarity": 4,
+			"path": "abundance"
+		},
+		{
+			"itemID": 21013,
+			"name": "make-the-world-clamor",
+			"rarity": 4,
+			"path": "erudition"
+		},
+		{
+			"itemID": 21012,
+			"name": "a-secret-vow",
+			"rarity": 4,
+			"path": "destruction"
+		},
+		{
+			"itemID": 21011,
+			"name": "planetary-rendezvous",
+			"rarity": 4,
+			"path": "harmony"
+		},
+		{
+			"itemID": 21010,
+			"name": "swordplay",
+			"rarity": 4,
+			"path": "hunt"
+		},
+		{
+			"itemID": 21009,
+			"name": "landaus-choice",
+			"rarity": 4,
+			"path": "preservation"
+		},
+		{
+			"itemID": 21008,
+			"name": "eyes-of-the-prey",
+			"rarity": 4,
+			"path": "nihility"
+		},
+		{
+			"itemID": 21007,
+			"name": "shared-feeling",
+			"rarity": 4,
+			"path": "abundance"
+		},
+		{
+			"itemID": 21006,
+			"name": "the-birth-of-the-self",
+			"rarity": 4,
+			"path": "erudition"
+		},
+		{
+			"itemID": 21005,
+			"name": "the-moles-welcome-you",
+			"rarity": 4,
+			"path": "destruction"
+		},
+		{
+			"itemID": 21004,
+			"name": "memories-of-the-past",
+			"rarity": 4,
+			"path": "harmony"
+		},
+		{
+			"itemID": 21003,
+			"name": "only-silence-remains",
+			"rarity": 4,
+			"path": "hunt"
+		},
+		{
+			"itemID": 21002,
+			"name": "day-one-of-my-new-life",
+			"rarity": 4,
+			"path": "preservation"
+		},
+		{
+			"itemID": 21001,
+			"name": "good-night-and-sleep-well",
+			"rarity": 4,
+			"path": "nihility"
+		},
+		{
+			"itemID": 21000,
+			"name": "post-op-conversation",
+			"rarity": 4,
+			"path": "abundance"
+		},
+		{
+			"itemID": 20020,
+			"name": "sagacity",
 			"rarity": 3,
 			"path": "erudition"
 		},
 		{
-			"name": "meshing-cogs",
-			"rarity": 3,
-			"path": "harmony"
-		},
-		{
-			"name": "loop",
-			"rarity": 3,
-			"path": "nihility"
-		},
-		{
-			"name": "defense",
-			"rarity": 3,
-			"path": "preservation"
-		},
-		{
-			"name": "shattered-home",
-			"rarity": 3,
-			"path": "destruction"
-		},
-		{
-			"name": "fine-fruit",
-			"rarity": 3,
-			"path": "abundance"
-		},
-		{
-			"name": "darting-arrow",
-			"rarity": 3,
-			"path": "hunt"
-		},
-		{
-			"name": "data-bank",
-			"rarity": 3,
-			"path": "erudition"
-		},
-		{
-			"name": "chorus",
-			"rarity": 3,
-			"path": "harmony"
-		},
-		{
-			"name": "void",
-			"rarity": 3,
-			"path": "nihility"
-		},
-		{
-			"name": "amber",
-			"rarity": 3,
-			"path": "preservation"
-		},
-		{
-			"name": "collapsing-sky",
-			"rarity": 3,
-			"path": "destruction"
-		},
-		{
-			"name": "cornucopia",
-			"rarity": 3,
-			"path": "abundance"
-		},
-		{
-			"name": "arrows",
-			"rarity": 3,
-			"path": "hunt"
-		},
-		{
-			"name": "mutual-demise",
-			"rarity": 3,
-			"path": "destruction"
-		},
-		{
+			"itemID": 20019,
 			"name": "mediation",
 			"rarity": 3,
 			"path": "harmony"
 		},
 		{
-			"name": "multiplication",
-			"rarity": 3,
-			"path": "abundance"
-		},
-		{
+			"itemID": 20018,
 			"name": "hidden-shadow",
 			"rarity": 3,
 			"path": "nihility"
 		},
 		{
-			"name": "adversarial",
-			"rarity": 3,
-			"path": "hunt"
-		},
-		{
+			"itemID": 20017,
 			"name": "pioneering",
 			"rarity": 3,
 			"path": "preservation"
 		},
 		{
-			"name": "sagacity",
+			"itemID": 20016,
+			"name": "mutual-demise",
+			"rarity": 3,
+			"path": "destruction"
+		},
+		{
+			"itemID": 20015,
+			"name": "multiplication",
+			"rarity": 3,
+			"path": "abundance"
+		},
+		{
+			"itemID": 20014,
+			"name": "adversarial",
+			"rarity": 3,
+			"path": "hunt"
+		},
+		{
+			"itemID": 20013,
+			"name": "passkey",
 			"rarity": 3,
 			"path": "erudition"
+		},
+		{
+			"itemID": 20012,
+			"name": "meshing-cogs",
+			"rarity": 3,
+			"path": "harmony"
+		},
+		{
+			"itemID": 20011,
+			"name": "loop",
+			"rarity": 3,
+			"path": "nihility"
+		},
+		{
+			"itemID": 20010,
+			"name": "defense",
+			"rarity": 3,
+			"path": "preservation"
+		},
+		{
+			"itemID": 20009,
+			"name": "shattered-home",
+			"rarity": 3,
+			"path": "destruction"
+		},
+		{
+			"itemID": 20008,
+			"name": "fine-fruit",
+			"rarity": 3,
+			"path": "abundance"
+		},
+		{
+			"itemID": 20007,
+			"name": "darting-arrow",
+			"rarity": 3,
+			"path": "hunt"
+		},
+		{
+			"itemID": 20006,
+			"name": "data-bank",
+			"rarity": 3,
+			"path": "erudition"
+		},
+		{
+			"itemID": 20005,
+			"name": "chorus",
+			"rarity": 3,
+			"path": "harmony"
+		},
+		{
+			"itemID": 20004,
+			"name": "void",
+			"rarity": 3,
+			"path": "nihility"
+		},
+		{
+			"itemID": 20003,
+			"name": "amber",
+			"rarity": 3,
+			"path": "preservation"
+		},
+		{
+			"itemID": 20002,
+			"name": "collapsing-sky",
+			"rarity": 3,
+			"path": "destruction"
+		},
+		{
+			"itemID": 20001,
+			"name": "cornucopia",
+			"rarity": 3,
+			"path": "abundance"
+		},
+		{
+			"itemID": 20000,
+			"name": "arrows",
+			"rarity": 3,
+			"path": "hunt"
 		}
 	]
 }

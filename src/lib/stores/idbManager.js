@@ -50,17 +50,24 @@ export const HistoryManager = {
 			return 'failed';
 		}
 	},
+
 	async clearIDB() {
-		return (await IndexedDB).clear('history');
+		const idb = await IndexedDB;
+		const clear = await idb.clear('history');
+		return clear;
 	},
+
 	async getAllHistories() {
 		return (await IndexedDB).getAll('history');
 	},
+
 	async addHistory(data) {
-		// eslint-disable-next-line no-prototype-builtins
-		if (!data.hasOwnProperty('banner')) return;
-		return (await IndexedDB).put('history', data);
+		if (!('banner' in data)) return;
+		const idb = await IndexedDB;
+		const put = await idb.put('history', data);
+		return put;
 	},
+
 	async delete(id) {
 		if (!id) return;
 		return (await IndexedDB).delete('history', id);
@@ -70,8 +77,7 @@ export const HistoryManager = {
 // Assets Manager
 export const AssetManager = {
 	async put(data) {
-		// eslint-disable-next-line no-prototype-builtins
-		if (!data.hasOwnProperty('key')) return;
+		if (!('key' in data)) return;
 		return (await IndexedDB).put('assets', data);
 	},
 	async get(key) {

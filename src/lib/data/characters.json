@@ -1,6 +1,7 @@
 {
 	"data": [
 		{
+			"itemID": 1312,
 			"name": "misha",
 			"rarity": 4,
 			"combat_type": "ice",
@@ -10,6 +11,7 @@
 			"gachaCardOffset": { "l": 35, "t": 110, "w": 400 }
 		},
 		{
+			"itemID": 1306,
 			"name": "sparkle",
 			"rarity": 5,
 			"combat_type": "quantum",
@@ -20,6 +22,7 @@
 			"gachaCardOffset": { "l": 50, "t": 160, "w": 350 }
 		},
 		{
+			"itemID": 1307,
 			"name": "black-swan",
 			"rarity": 5,
 			"combat_type": "wind",
@@ -30,6 +33,7 @@
 			"gachaCardOffset": { "l": 75, "t": 190, "w": 410 }
 		},
 		{
+			"itemID": 1214,
 			"name": "xueyi",
 			"rarity": 4,
 			"combat_type": "quantum",
@@ -39,6 +43,7 @@
 			"gachaCardOffset": { "l": 40, "t": 235, "w": 445 }
 		},
 		{
+			"itemID": 1305,
 			"name": "dr-ratio",
 			"rarity": 5,
 			"combat_type": "imaginary",
@@ -49,6 +54,7 @@
 			"gachaCardOffset": { "l": 45, "t": 330, "w": 570 }
 		},
 		{
+			"itemID": 1303,
 			"name": "ruan-mei",
 			"rarity": 5,
 			"combat_type": "ice",
@@ -59,6 +65,7 @@
 			"gachaCardOffset": { "l": 35, "t": 145, "w": 410 }
 		},
 		{
+			"itemID": 1215,
 			"name": "hanya",
 			"rarity": 4,
 			"combat_type": "physical",
@@ -68,6 +75,7 @@
 			"gachaCardOffset": { "l": 45, "t": 150, "w": 400 }
 		},
 		{
+			"itemID": 1302,
 			"name": "argenti",
 			"rarity": 5,
 			"combat_type": "physical",
@@ -78,6 +86,7 @@
 			"gachaCardOffset": { "l": 118, "t": 250, "w": 525 }
 		},
 		{
+			"itemID": 1217,
 			"name": "huohuo",
 			"rarity": 5,
 			"combat_type": "wind",
@@ -89,6 +98,7 @@
 			"gachaCardOffset": { "l": 60, "t": 160, "w": 400 }
 		},
 		{
+			"itemID": 1210,
 			"name": "guinaifen",
 			"rarity": 4,
 			"combat_type": "fire",
@@ -98,6 +108,7 @@
 			"gachaCardOffset": { "l": 50, "t": 155, "w": 430 }
 		},
 		{
+			"itemID": 1112,
 			"name": "topaz",
 			"rarity": 5,
 			"combat_type": "fire",
@@ -108,6 +119,7 @@
 			"gachaCardOffset": { "l": 20, "t": 225, "w": 410 }
 		},
 		{
+			"itemID": 1212,
 			"name": "jingliu",
 			"rarity": 5,
 			"combat_type": "ice",
@@ -118,6 +130,7 @@
 			"gachaCardOffset": { "l": 37, "t": 230, "w": 425 }
 		},
 		{
+			"itemID": 1110,
 			"name": "lynx",
 			"rarity": 4,
 			"combat_type": "quantum",
@@ -127,6 +140,7 @@
 			"gachaCardOffset": { "l": 20, "t": 115, "w": 400 }
 		},
 		{
+			"itemID": 1208,
 			"name": "fu-xuan",
 			"rarity": 5,
 			"combat_type": "quantum",
@@ -137,6 +151,7 @@
 			"gachaCardOffset": { "l": 60, "t": 200, "w": 500 }
 		},
 		{
+			"itemID": 1213,
 			"name": "imbibitor-lunae",
 			"rarity": 5,
 			"combat_type": "imaginary",
@@ -147,6 +162,7 @@
 			"gachaCardOffset": { "l": 15, "t": 205, "w": 520 }
 		},
 		{
+			"itemID": 1005,
 			"name": "kafka",
 			"rarity": 5,
 			"combat_type": "lightning",
@@ -157,6 +173,7 @@
 			"gachaCardOffset": { "l": 48, "t": 203, "w": 510 }
 		},
 		{
+			"itemID": 1111,
 			"name": "luka",
 			"rarity": 4,
 			"combat_type": "physical",
@@ -166,6 +183,7 @@
 			"gachaCardOffset": { "l": 70, "w": 450, "t": 230 }
 		},
 		{
+			"itemID": 1205,
 			"name": "blade",
 			"rarity": 5,
 			"combat_type": "wind",
@@ -177,6 +195,7 @@
 			"gachaCardOffset": { "t": 340, "l": 33, "w": 475 }
 		},
 		{
+			"itemID": 1203,
 			"name": "luocha",
 			"rarity": 5,
 			"combat_type": "imaginary",
@@ -187,6 +206,7 @@
 			"gachaCardOffset": { "l": 45, "t": 200, "w": 450 }
 		},
 		{
+			"itemID": 1207,
 			"name": "yukong",
 			"rarity": 4,
 			"combat_type": "imaginary",
@@ -196,6 +216,7 @@
 			"gachaCardOffset": { "l": 65, "t": 150, "w": 450 }
 		},
 		{
+			"itemID": 1006,
 			"name": "silver-wolf",
 			"rarity": 5,
 			"combat_type": "quantum",
@@ -208,6 +229,7 @@
 			"textOffset": { "l": 65 }
 		},
 		{
+			"itemID": 1204,
 			"name": "jing-yuan",
 			"rarity": 5,
 			"combat_type": "lightning",
@@ -218,6 +240,7 @@
 			"bannerOffset": { "b": -38, "l": 7, "w": 115 }
 		},
 		{
+			"itemID": 1102,
 			"name": "seele",
 			"rarity": 5,
 			"combat_type": "quantum",
@@ -228,6 +251,7 @@
 			"splashartOffset": { "t": 35, "l": 60, "w": 130 }
 		},
 		{
+			"itemID": 1211,
 			"name": "bailu",
 			"rarity": 5,
 			"combat_type": "lightning",
@@ -236,6 +260,7 @@
 			"gachaCardOffset": { "w": 285, "t": 100, "l": 35 }
 		},
 		{
+			"itemID": 1209,
 			"name": "yanqing",
 			"rarity": 5,
 			"combat_type": "ice",
@@ -243,6 +268,7 @@
 			"gachaCardOffset": { "l": 30, "t": 170 }
 		},
 		{
+			"itemID": 1206,
 			"name": "sushang",
 			"rarity": 4,
 			"combat_type": "physical",
@@ -252,6 +278,7 @@
 			"gachaCardOffset": { "t": 145, "w": 470, "l": 40 }
 		},
 		{
+			"itemID": 1202,
 			"name": "tingyun",
 			"rarity": 4,
 			"combat_type": "lightning",
@@ -261,6 +288,7 @@
 			"gachaCardOffset": { "l": 30, "t": 200 }
 		},
 		{
+			"itemID": 1201,
 			"name": "qingque",
 			"rarity": 4,
 			"combat_type": "quantum",
@@ -269,6 +297,7 @@
 			"gachaCardOffset": { "w": 350, "t": 140 }
 		},
 		{
+			"itemID": 1109,
 			"name": "hook",
 			"rarity": 4,
 			"combat_type": "fire",
@@ -277,6 +306,7 @@
 			"gachaCardOffset": { "l": 50, "t": 65, "w": 460 }
 		},
 		{
+			"itemID": 1108,
 			"name": "sampo",
 			"rarity": 4,
 			"combat_type": "wind",
@@ -284,6 +314,7 @@
 			"release": "1.0-0"
 		},
 		{
+			"itemID": 1107,
 			"name": "clara",
 			"rarity": 5,
 			"combat_type": "physical",
@@ -291,6 +322,7 @@
 			"gachaCardOffset": { "l": 70, "t": 175 }
 		},
 		{
+			"itemID": 1106,
 			"name": "pela",
 			"rarity": 4,
 			"combat_type": "ice",
@@ -300,6 +332,7 @@
 			"gachaCardOffset": { "t": 135, "w": 480, "l": 100 }
 		},
 		{
+			"itemID": 1105,
 			"name": "natasha",
 			"rarity": 4,
 			"combat_type": "physical",
@@ -309,6 +342,7 @@
 			"gachaCardOffset": { "l": 30, "t": 215 }
 		},
 		{
+			"itemID": 1104,
 			"name": "gepard",
 			"rarity": 5,
 			"combat_type": "ice",
@@ -317,6 +351,7 @@
 			"gachaCardOffset": { "l": 0, "t": 100, "w": 580 }
 		},
 		{
+			"itemID": 1103,
 			"name": "serval",
 			"rarity": 4,
 			"combat_type": "lightning",
@@ -325,6 +360,7 @@
 			"gachaCardOffset": { "l": 25, "t": 125, "w": 575 }
 		},
 		{
+			"itemID": 1101,
 			"name": "bronya",
 			"rarity": 5,
 			"combat_type": "wind",
@@ -333,6 +369,7 @@
 			"gachaCardOffset": { "t": 70, "w": 640, "l": 70 }
 		},
 		{
+			"itemID": 1013,
 			"name": "herta",
 			"rarity": 4,
 			"combat_type": "ice",
@@ -342,6 +379,7 @@
 			"gachaCardOffset": { "w": 350, "t": 195, "l": 45 }
 		},
 		{
+			"itemID": 1009,
 			"name": "asta",
 			"rarity": 4,
 			"combat_type": "fire",
@@ -350,6 +388,7 @@
 			"gachaCardOffset": { "t": 145 }
 		},
 		{
+			"itemID": 1005,
 			"name": "arlan",
 			"rarity": 4,
 			"combat_type": "lightning",
@@ -358,6 +397,7 @@
 			"gachaCardOffset": { "t": 100, "l": -30, "w": 450 }
 		},
 		{
+			"itemID": 1004,
 			"name": "welt",
 			"rarity": 5,
 			"combat_type": "imaginary",
@@ -367,6 +407,7 @@
 		{
 			"name": "himeko",
 			"rarity": 5,
+			"itemID": 1003,
 			"combat_type": "fire",
 			"path": "erudition",
 			"splashartOffset": { "t": 32, "w": 90 },
@@ -374,6 +415,7 @@
 		},
 		{
 			"name": "dan-heng",
+			"itemID": 1002,
 			"rarity": 4,
 			"combat_type": "wind",
 			"path": "hunt",
@@ -382,6 +424,7 @@
 			"gachaCardOffset": { "t": 110, "l": 13, "w": 520 }
 		},
 		{
+			"itemID": 1001,
 			"name": "march-7th",
 			"rarity": 4,
 			"combat_type": "ice",

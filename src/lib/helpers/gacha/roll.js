@@ -89,7 +89,7 @@ export const roll = async (banner, WarpInstance, indexOfBanner) => {
 
 	// Get Item
 	const randomItem = WarpInstance.getItem(rarity, banner, indexOfBanner);
-	const { manual, warp } = owneditem.put({ name: randomItem.name });
+	const { manual, warp } = owneditem.put({ itemID: randomItem.itemID });
 	const numberOfOwnedItem = manual + warp - 1;
 	const isNew = numberOfOwnedItem < 1;
 
