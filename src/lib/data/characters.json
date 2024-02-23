@@ -6,7 +6,7 @@
 			"rarity": 4,
 			"combat_type": "fire",
 			"path": "abundance",
-			"release": "2.0-1",
+			"release": "1000000-2",
 			"splashartOffset": { "w": 70, "l": 45 },
 			"gachaCardOffset": { "l": 35, "t": 170, "w": 290 }
 		},
