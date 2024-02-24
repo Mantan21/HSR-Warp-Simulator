@@ -1,6 +1,7 @@
 import { Howl } from 'howler';
 import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 import { cookie } from '$lib/helpers/dataAPI/api-cookie';
+import { browser } from '$app/environment';
 
 const sfxList = [
 	'allbanner',
@@ -46,15 +47,22 @@ const isMuted = () => {
 	return sfx;
 };
 
-const sounds = sfxList.reduce((prev, current) => {
-	const sfx = prev || {};
-	sfx[current] = new Howl({
-		src: [`/audiofx/${current}.mp3`],
-		loop: current === 'warp-backsound'
-		// onfade: fadeTrack
-	});
-	return sfx;
-}, {});
+let sounds = {};
+
+const initSFX = () => {
+	if (!browser) return;
+	sounds = sfxList.reduce((prev, current) => {
+		const sfx = prev || {};
+		sfx[current] = new Howl({
+			src: [`/audiofx/${current}.mp3`],
+			loop: current === 'warp-backsound',
+			html5: true
+			// onfade: fadeTrack
+		});
+		return sfx;
+	}, {});
+};
+initSFX();
 
 const sfxids = {};
 export const playSfx = (nameOfSoundfx = 'click') => {
