@@ -2,7 +2,7 @@ import { Howl } from 'howler';
 import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 import { activeBacksound, currentTime, musics } from '$lib/stores/phonograph-store';
-import { fetchAudio } from './audio-fetcher';
+import { fetchMedia } from '../dataAPI/api-fetcher';
 import { mediaSessionHandler } from './media-session';
 
 let tracks = [];
@@ -58,7 +58,7 @@ export const playTrack = async (ID) => {
 
 	// Fetch track data from network
 	try {
-		const { download, images, status } = await fetchAudio(ID);
+		const { download, images, status } = await fetchMedia(ID);
 		const { album, title } = tracks.find((v) => v.sourceID === ID);
 		musicMediaSession[ID] = { images, album, title };
 		if (status === 'error') return;

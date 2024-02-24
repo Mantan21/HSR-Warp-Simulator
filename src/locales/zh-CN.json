@@ -274,6 +274,7 @@
 		"autoskip": "自动跳过跃迁动画？",
 		"skipSplashArt": "自动跳过立绘？",
 		"litemode": "减少动画和一些效果",
+		"livecone": "Turn On Light Cones Animation if available?",
 		"clearStorage": "清除存储",
 		"clearNow": "现在清除",
 		"promptTitle": "清除数据？",

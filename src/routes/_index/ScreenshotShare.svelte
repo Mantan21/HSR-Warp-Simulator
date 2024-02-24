@@ -1,6 +1,7 @@
 <script>
 	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 	import { toBlob } from 'html-to-image';
 	import { initialAmount } from '$lib/data/warp-setup.json';
 	import { liteMode, stellarJade } from '$lib/stores/app-store';
@@ -10,10 +11,10 @@
 
 	import Icon from '$lib/components/Icon.svelte';
 	import ScreenshotResult from './_screenshot-result.svelte';
-	import { t } from 'svelte-i18n';
 
 	export let animate = false;
 	export let shareURL = '';
+	export let relative = false;
 
 	let blob;
 	let showResult = false;
@@ -36,8 +37,8 @@
 
 	const preview = getContext('preview');
 	const filterShot = (node) => {
-		const notIncluded = ['close', 'skip', 'share', 'logo', 'title', 'hideOnShot'];
-		if (node.classList) return !notIncluded.some((cl) => node.classList.contains(cl));
+		const exclude = ['close', 'skip', 'share', 'logo', 'title', 'hideOnShot'];
+		if (node.classList) return !exclude.some((cl) => node.classList.contains(cl));
 		return true;
 	};
 
@@ -49,6 +50,8 @@
 			loading = true;
 
 			const node = document.querySelector('.warp-result');
+			const videoEl = node.querySelector('video');
+			videoEl?.remove();
 			blob = await toBlob(node, { filter: filterShot });
 
 			playSfx('camera');
@@ -102,7 +105,7 @@
 	</div>
 {/if}
 
-<div class="share" in:animateFade={{ animate, delay: 1000 }}>
+<div class="share" class:relative in:animateFade={{ animate, delay: 1000 }}>
 	{#if isFirstTimeShare && shareURL}
 		<div class="text">
 			{$t('warp.firstTimeShare')}
@@ -120,11 +123,16 @@
 		justify-content: center;
 		align-items: center;
 	}
+
 	.share {
 		position: absolute;
 		bottom: 5%;
 		right: 5%;
 		z-index: +1;
+	}
+
+	.share.relative {
+		position: relative;
 	}
 
 	.text {
@@ -143,7 +151,7 @@
 		width: 40px;
 		aspect-ratio: 1/1;
 		border-radius: 100%;
-		font-size: 2rem;
+		font-size: 1.75rem;
 		transition: all 0.25s;
 	}
 	i {
@@ -166,11 +174,6 @@
 	:global(.mobileLandscape) .text {
 		font-size: 0.65rem;
 		padding: 0.25rem 0.75rem;
-	}
-
-	:global(.mobileLandscape).btn-berbagi {
-		top: 1.5vh;
-		right: 5%;
 	}
 
 	/* Lid */

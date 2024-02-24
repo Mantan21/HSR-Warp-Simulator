@@ -5,7 +5,7 @@
 	import { musics } from '$lib/stores/phonograph-store';
 	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { fetchAudio } from '$lib/helpers/sounds/audio-fetcher';
+	import { fetchMedia } from '$lib/helpers/dataAPI/api-fetcher';
 
 	import LoadingIcon from '$lib/components/LoadingIcon.svelte';
 	import Modal from '$lib/components/Modal.svelte';
@@ -64,7 +64,7 @@
 				message = $t('duplicatedTrack', { values: { trackTitle: isDuplicate.title, albumName } });
 			} else {
 				// Fetch Audio
-				data = await fetchAudio(videoID);
+				data = await fetchMedia(videoID);
 				if (data.message !== 'ok') throw new Error('Server Error');
 			}
 			onCheckProgress = false;

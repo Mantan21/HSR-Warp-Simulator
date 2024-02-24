@@ -3,7 +3,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { locale, t } from 'svelte-i18n';
 
-	import { warpAmount, autoskip, liteMode } from '$lib/stores/app-store';
+	import { warpAmount, autoskip, liteMode, animatedLC } from '$lib/stores/app-store';
 	import { muted } from '$lib/stores/phonograph-store';
 	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 	import { initTrack, pauseTrack } from '$lib/helpers/sounds/phonograph';
@@ -13,6 +13,14 @@
 	import OptionsItem from './_settings-option.svelte';
 
 	export let activeOption;
+
+	// Animated Light Cone
+	const handleLivecone = ({ detail }) => {
+		const { selected } = detail;
+		const isLivecone = selected === 'yes';
+		animatedLC.set(isLivecone);
+		localConfig.set('livecone', isLivecone);
+	};
 
 	// Lite Mode
 	const handleLiteMode = ({ detail }) => {
@@ -102,15 +110,6 @@
 		<!-- Visual -->
 		<h2>{$t('menu.visual')}</h2>
 		<OptionsItem
-			showOption={activeOption === 'litemode'}
-			optionName="litemode"
-			activeIndicator={$liteMode}
-			on:select={handleLiteMode}
-		>
-			{$t('menu.litemode')}
-		</OptionsItem>
-
-		<OptionsItem
 			showOption={activeOption === 'autoskip'}
 			optionName="autoskip"
 			activeIndicator={$autoskip.express}
@@ -118,7 +117,6 @@
 		>
 			{$t('menu.autoskip')}
 		</OptionsItem>
-
 		{#if $autoskip.express}
 			<div transition:fly|local={{ y: -10 }}>
 				<OptionsItem
@@ -131,6 +129,27 @@
 					{$t('menu.skipSplashArt')}
 				</OptionsItem>
 			</div>
+		{/if}
+
+		<OptionsItem
+			showOption={activeOption === 'litemode'}
+			optionName="litemode"
+			activeIndicator={$liteMode}
+			on:select={handleLiteMode}
+		>
+			{$t('menu.litemode')}
+		</OptionsItem>
+
+		{#if !$liteMode}
+			<OptionsItem
+				sub
+				showOption={activeOption === 'livecone'}
+				optionName="livecone"
+				activeIndicator={$animatedLC}
+				on:select={handleLivecone}
+			>
+				{$t('menu.livecone')}
+			</OptionsItem>
 		{/if}
 
 		<!-- AUDIO -->

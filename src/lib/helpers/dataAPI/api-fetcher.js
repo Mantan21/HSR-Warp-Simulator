@@ -1,10 +1,10 @@
-export const fetchAudio = async (sourceID) => {
+export const fetchMedia = async (videoID, type = 'audio') => {
 	try {
-		const dataToPost = { videoID: sourceID };
+		const dataToPost = { videoID, type };
 		const headers = new Headers();
 		headers.append('Content-Type', 'text/plain');
 
-		const data = await fetch('https://phonograph.wishsimulator.app/track', {
+		const data = await fetch('https://api.wishsimulator.app/track', {
 			method: 'POST',
 			body: JSON.stringify(dataToPost),
 			headers

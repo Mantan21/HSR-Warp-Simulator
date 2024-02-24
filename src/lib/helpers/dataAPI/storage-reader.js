@@ -7,6 +7,7 @@ import {
 import {
 	activePhase,
 	activeVersion,
+	animatedLC,
 	autoskip,
 	embers,
 	liteMode,
@@ -51,6 +52,10 @@ const importLocalConfig = () => {
 
 	const llitemode = localConfig.get('litemode') || false;
 	liteMode.set(llitemode);
+
+	const llivecone = localConfig.get('livecone');
+	const isAnimatedLC = typeof llivecone !== 'boolean' ? true : llivecone;
+	animatedLC.set(isAnimatedLC);
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);

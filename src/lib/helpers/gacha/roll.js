@@ -139,6 +139,7 @@ const saveResult = async (result) => {
 	delete data.splashartOffset;
 	delete data.gachaCardOffset;
 	delete data.bannerOffset;
+	delete data.animationID;
 
 	await addHistory(data);
 };

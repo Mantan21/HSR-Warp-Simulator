@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 
-	import { assets } from '$lib/stores/app-store';
+	import { animatedLC, assets, liteMode } from '$lib/stores/app-store';
 	import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 	import { getCharDetails, getLCDetails } from '$lib/helpers/gacha/gacha-base';
@@ -13,6 +13,7 @@
 	import LightCones from '$lib/components/LightCones.svelte';
 	import ScreenshotShare from '../_index/ScreenshotShare.svelte';
 	import SplashartInfo from '../_warp/warp-result/_splashart-info.svelte';
+	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
 	export let name = '';
 	export let qty = 0;
@@ -50,12 +51,18 @@
 
 		return { ...data, time };
 	};
+
+	$: playLC = $animatedLC && !$liteMode;
+	const playPause = (v) => {
+		playSfx('click2');
+		playLC = v;
+	};
 </script>
 
 <section>
 	<div
 		style="--bg:url('{$assets['warp-bg.webp']}')"
-		class="warp-result"
+		class="warp-result collection-detail"
 		class:preview
 		transition:fade={{ duration: 200 }}
 	>
@@ -73,7 +80,7 @@
 		<!-- End Show on Shareable screen -->
 
 		<div class="container">
-			{#await loadItem(name) then { path, rarity, combat_type, splashartOffset, time }}
+			{#await loadItem(name) then { path, rarity, combat_type, splashartOffset, time, animationID }}
 				{#if qty < 1}
 					<div class="not-indexed">
 						<span>{$t('collection.notOwned')}</span>
@@ -85,7 +92,11 @@
 						<div class="item-art lightcone">
 							<div class="item-content">
 								<div class="lightcone-item">
-									<LightCones item={name} size="large" />
+									<LightCones
+										item={name}
+										size="large"
+										animationID={qty > 0 && playLC ? animationID : null}
+									/>
 								</div>
 							</div>
 						</div>
@@ -110,10 +121,17 @@
 						<span class="qty"> {getQtyInfo(type, qty)} </span>
 						<small> {$t('collection.firstSummon', { values: { date: time } })} </small>
 					</div>
-				{/if}
 
-				{#if qty > 0}
-					<ScreenshotShare />
+					<div class="right-bottom">
+						<ScreenshotShare relative />
+						{#if animationID}
+							<div class="playButton">
+								<button class="play" on:click={() => playPause(!playLC)}>
+									<i class="hsr-{playLC ? 'pause' : 'play'}" />
+								</button>
+							</div>
+						{/if}
+					</div>
 				{/if}
 			{/await}
 		</div>
@@ -262,6 +280,40 @@
 
 	:global(.mobileLandscape) .detail {
 		font-size: 100%;
+	}
+
+	.right-bottom {
+		position: absolute;
+		bottom: 5%;
+		right: 5%;
+		z-index: +1;
+		display: flex;
+		align-items: center;
+	}
+
+	button.play {
+		margin-left: 0.5rem;
+		background-color: rgba(255, 255, 255, 0.9);
+		width: 40px;
+		aspect-ratio: 1/1;
+		border-radius: 100%;
+		font-size: 1.75rem;
+		transition: all 0.25s;
+		display: inline-flex;
+		line-height: 0;
+		justify-content: center;
+		align-items: center;
+	}
+	button.play:disabled {
+		filter: brightness(0.5);
+	}
+	button.play:active {
+		transform: scale(0.95);
+		filter: brightness(0.8);
+	}
+	:global(.mobileLandscape) button.play {
+		font-size: 1.5rem;
+		width: 2rem;
 	}
 
 	@media screen and (max-width: 600px) {

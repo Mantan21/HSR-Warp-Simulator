@@ -2,6 +2,7 @@
 	"data": [
 		{
 			"itemID": 21042,
+			"animationID": "-5HaYtTLyw0",
 			"name": "indelible-promise",
 			"rarity": 4,
 			"limited": true,
@@ -18,6 +19,7 @@
 		{
 			"itemID": 23022,
 			"name": "reforged-remembrance",
+			"animationID": "XKCRw_SmjK0",
 			"rarity": 5,
 			"path": "nihility",
 			"limited": true,
@@ -25,6 +27,7 @@
 		},
 		{
 			"itemID": 23020,
+			"animationID": "MADKMncaz6I",
 			"name": "baptism-of-pure-thought",
 			"rarity": 5,
 			"path": "hunt",
@@ -33,6 +36,7 @@
 		},
 		{
 			"itemID": 23019,
+			"animationID": "jEvorWEMdwk",
 			"name": "past-self-in-mirror",
 			"rarity": 5,
 			"path": "harmony",
@@ -41,6 +45,7 @@
 		},
 		{
 			"itemID": 23018,
+			"animationID": "nG3WNMIxI3c",
 			"name": "an-instance-before-a-gaze",
 			"rarity": 5,
 			"path": "erudition",
@@ -49,6 +54,7 @@
 		},
 		{
 			"itemID": 23017,
+			"animationID": "C9nDs-bY38U",
 			"name": "night-of-fright",
 			"rarity": 5,
 			"path": "abundance",
@@ -57,6 +63,7 @@
 		},
 		{
 			"itemID": 23016,
+			"animationID": "aBq2GbzXSfY",
 			"name": "worrisome-blissful",
 			"rarity": 5,
 			"path": "hunt",
@@ -65,6 +72,7 @@
 		},
 		{
 			"itemID": 23014,
+			"animationID": "0T-6s02A5zA",
 			"name": "i-shall-be-my-own-sword",
 			"rarity": 5,
 			"path": "destruction",
@@ -73,6 +81,7 @@
 		},
 		{
 			"itemID": 23011,
+			"animationID": "YW1i9z5Gjt4",
 			"name": "she-already-shut-her-eyes",
 			"rarity": 5,
 			"path": "preservation",
@@ -81,6 +90,7 @@
 		},
 		{
 			"itemID": 23015,
+			"animationID": "wa9V9v34GDU",
 			"name": "brighter-than-the-sun",
 			"rarity": 5,
 			"path": "destruction",
@@ -89,6 +99,7 @@
 		},
 		{
 			"itemID": 23006,
+			"animationID": "UnVluNU9sRY",
 			"name": "patience-is-all-you-need",
 			"rarity": 5,
 			"path": "nihility",
@@ -97,6 +108,7 @@
 		},
 		{
 			"itemID": 23009,
+			"animationID": "TBozlbAOXVM",
 			"name": "the-unreachable-side",
 			"rarity": 5,
 			"path": "destruction",
@@ -105,6 +117,7 @@
 		},
 		{
 			"itemID": 23008,
+			"animationID": "nmKR12DS4ak",
 			"name": "echoes-of-the-coffin",
 			"rarity": 5,
 			"path": "abundance",
@@ -113,6 +126,7 @@
 		},
 		{
 			"itemID": 23007,
+			"animationID": "q-Np9DUs2ac",
 			"name": "incessant-rain",
 			"rarity": 5,
 			"path": "nihility",
@@ -121,6 +135,7 @@
 		},
 		{
 			"itemID": 23010,
+			"animationID": "RjTQyEpt4Fo",
 			"name": "before-dawn",
 			"rarity": 5,
 			"path": "erudition",
@@ -129,6 +144,7 @@
 		},
 		{
 			"itemID": 23001,
+			"animationID": "NasJ6nahDY8",
 			"name": "in-the-night",
 			"rarity": 5,
 			"path": "hunt",
@@ -136,42 +152,49 @@
 		},
 		{
 			"itemID": 23013,
+			"animationID": "yEphdnCVYH0",
 			"name": "time-waits-for-no-one",
 			"rarity": 5,
 			"path": "abundance"
 		},
 		{
 			"itemID": 23012,
+			"animationID": "9NvGwKZQahI",
 			"name": "sleep-like-the-dead",
 			"rarity": 5,
 			"path": "hunt"
 		},
 		{
 			"itemID": 23005,
+			"animationID": "q52nd-93Z4E",
 			"name": "moment-of-victory",
 			"rarity": 5,
 			"path": "preservation"
 		},
 		{
 			"itemID": 23004,
+			"animationID": "W1HK01G6hAA",
 			"name": "in-the-name-of-the-world",
 			"rarity": 5,
 			"path": "nihility"
 		},
 		{
 			"itemID": 23003,
+			"animationID": "-6d8Rr8aqlc",
 			"name": "but-the-battle-isnt-over",
 			"rarity": 5,
 			"path": "harmony"
 		},
 		{
 			"itemID": 23002,
+			"animationID": "kmowycK9_i0",
 			"name": "something-irreplaceable",
 			"rarity": 5,
 			"path": "destruction"
 		},
 		{
 			"itemID": 23000,
+			"animationID": "253h_EYkl2Y",
 			"name": "night-on-the-milky-way",
 			"rarity": 5,
 			"path": "erudition"
@@ -196,6 +219,7 @@
 		},
 		{
 			"itemID": 21017,
+			"animationID": "ilzzuEMrvBY",
 			"name": "subscribe-for-more",
 			"rarity": 4,
 			"path": "hunt"
@@ -208,30 +232,35 @@
 		},
 		{
 			"itemID": 21015,
+			"animationID": "z6Wx9r9-Yyk",
 			"name": "resolution-shines-as-pearls-of-sweat",
 			"rarity": 4,
 			"path": "nihility"
 		},
 		{
 			"itemID": 21014,
+			"animationID": "6RvUYLoLwdU",
 			"name": "perfect-timing",
 			"rarity": 4,
 			"path": "abundance"
 		},
 		{
 			"itemID": 21013,
+			"animationID": "dv1iKGqDukU",
 			"name": "make-the-world-clamor",
 			"rarity": 4,
 			"path": "erudition"
 		},
 		{
 			"itemID": 21012,
+			"animationID": "NLf_vLmI0js",
 			"name": "a-secret-vow",
 			"rarity": 4,
 			"path": "destruction"
 		},
 		{
 			"itemID": 21011,
+			"animationID": "a7zZpEJfnao",
 			"name": "planetary-rendezvous",
 			"rarity": 4,
 			"path": "harmony"
@@ -244,60 +273,70 @@
 		},
 		{
 			"itemID": 21009,
+			"animationID": "wT1sgjJ3e7E",
 			"name": "landaus-choice",
 			"rarity": 4,
 			"path": "preservation"
 		},
 		{
 			"itemID": 21008,
+			"animationID": "CI7LC4qjWWk",
 			"name": "eyes-of-the-prey",
 			"rarity": 4,
 			"path": "nihility"
 		},
 		{
 			"itemID": 21007,
+			"animationID": "q1-h-zbho3k",
 			"name": "shared-feeling",
 			"rarity": 4,
 			"path": "abundance"
 		},
 		{
 			"itemID": 21006,
+			"animationID": "jEugKDGVG90",
 			"name": "the-birth-of-the-self",
 			"rarity": 4,
 			"path": "erudition"
 		},
 		{
 			"itemID": 21005,
+			"animationID": "v6gl5nrnkXk",
 			"name": "the-moles-welcome-you",
 			"rarity": 4,
 			"path": "destruction"
 		},
 		{
 			"itemID": 21004,
+			"animationID": "Ooh0cVjgmtQ",
 			"name": "memories-of-the-past",
 			"rarity": 4,
 			"path": "harmony"
 		},
 		{
 			"itemID": 21003,
+			"animationID": "BTyv-qofLw8",
 			"name": "only-silence-remains",
 			"rarity": 4,
 			"path": "hunt"
 		},
 		{
 			"itemID": 21002,
+			"animationID": "pO2JeQdmEIc",
 			"name": "day-one-of-my-new-life",
 			"rarity": 4,
 			"path": "preservation"
 		},
 		{
 			"itemID": 21001,
+			"animationID": "2zviBc-u1Ko",
 			"name": "good-night-and-sleep-well",
 			"rarity": 4,
 			"path": "nihility"
 		},
 		{
 			"itemID": 21000,
+			"animationID": "FWa_eq11oDM",
 			"name": "post-op-conversation",
 			"rarity": 4,
 			"path": "abundance"

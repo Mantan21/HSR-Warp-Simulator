@@ -21,7 +21,7 @@
 
 	const openOption = getContext('openOption');
 	const dispatch = createEventDispatcher();
-	let select = (selected) => {
+	const select = (selected) => {
 		playSfx('setting-item-option');
 		showOption = !showOption;
 		if (!selected) return;
@@ -228,8 +228,7 @@
 	}
 
 	.caption :global(small) {
-		opacity: 0.8;
-		font-size: x-small;
+		font-size: 80%;
 		font-style: italic;
 	}
 
