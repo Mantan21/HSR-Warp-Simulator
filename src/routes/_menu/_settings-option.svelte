@@ -4,9 +4,9 @@
 	import { locale, t } from 'svelte-i18n';
 
 	import { activePhase, activeVersion } from '$lib/stores/app-store';
-	import { cookie } from '$lib/stores/cookies';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 	import { flags, localeName } from '$lib/data/country.json';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 	import { activeBacksound } from '$lib/stores/phonograph-store';
 	import { playSfx, setSfxVolume } from '$lib/helpers/sounds/audiofx';
 	import { userCurrencies } from '$lib/helpers/shop-price';
@@ -21,7 +21,7 @@
 
 	const openOption = getContext('openOption');
 	const dispatch = createEventDispatcher();
-	let select = (selected) => {
+	const select = (selected) => {
 		playSfx('setting-item-option');
 		showOption = !showOption;
 		if (!selected) return;
@@ -228,8 +228,7 @@
 	}
 
 	.caption :global(small) {
-		opacity: 0.8;
-		font-size: x-small;
+		font-size: 80%;
 		font-style: italic;
 	}
 

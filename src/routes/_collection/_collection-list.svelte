@@ -4,8 +4,8 @@
 	import { flip } from 'svelte/animate';
 	import { t } from 'svelte-i18n';
 	import { isMobile, isMobileLandscape, liteMode } from '$lib/stores/app-store';
-	import { cookie } from '$lib/stores/cookies';
-	import { owneditem } from '$lib/stores/localstorage';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
+	import { owneditem } from '$lib/helpers/dataAPI/api-localstorage';
 	import { data as charDB } from '$lib/data/characters.json';
 	import { data as lcDB } from '$lib/data/light-cones.json';
 
@@ -43,15 +43,16 @@
 		const showHidden = cookie.get('showHiddenBanner');
 		const isChar = type === 'character';
 		const data = isChar ? charDB : lcDB;
-		return data
+		const result = data
 			.filter(({ pro }) => showHidden || !pro)
-			.map(({ name, path, rarity, combat_type }) => {
-				const { warp = 0, manual = 0 } = ownedItems[name] || {};
+			.map(({ name, itemID, path, rarity, combat_type }) => {
+				const { warp = 0, manual = 0 } = ownedItems[itemID] || {};
 				const qty = warp + manual;
 				itemQty[type] = qty > 0 ? itemQty[type] + 1 : itemQty[type];
 				return { name, path, rarity, combat_type, qty, isOwned: qty > 0 };
-			})
-			.sort((a, b) => b.rarity - a.rarity);
+			});
+		const sorted = result.sort((a, b) => b.rarity - a.rarity);
+		return sorted;
 	};
 
 	const getAll = () => {

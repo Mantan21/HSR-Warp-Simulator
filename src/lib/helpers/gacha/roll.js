@@ -1,6 +1,11 @@
 import { regReward, starterRemaining } from '$lib/stores/app-store';
-import { HistoryManager } from '$lib/stores/idbManager';
-import { guaranteedStatus, localPity, owneditem, rollCounter } from '$lib/stores/localstorage';
+import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
+import {
+	guaranteedStatus,
+	localPity,
+	owneditem,
+	rollCounter
+} from '$lib/helpers/dataAPI/api-localstorage';
 import { rates, prob, getRate } from './probabilities';
 
 const { addHistory } = HistoryManager;
@@ -89,7 +94,7 @@ export const roll = async (banner, WarpInstance, indexOfBanner) => {
 
 	// Get Item
 	const randomItem = WarpInstance.getItem(rarity, banner, indexOfBanner);
-	const { manual, warp } = owneditem.put({ name: randomItem.name });
+	const { manual, warp } = owneditem.put({ itemID: randomItem.itemID });
 	const numberOfOwnedItem = manual + warp - 1;
 	const isNew = numberOfOwnedItem < 1;
 
@@ -134,6 +139,7 @@ const saveResult = async (result) => {
 	delete data.splashartOffset;
 	delete data.gachaCardOffset;
 	delete data.bannerOffset;
+	delete data.animationID;
 
 	await addHistory(data);
 };

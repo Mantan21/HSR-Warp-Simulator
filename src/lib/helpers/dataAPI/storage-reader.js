@@ -7,6 +7,7 @@ import {
 import {
 	activePhase,
 	activeVersion,
+	animatedLC,
 	autoskip,
 	embers,
 	liteMode,
@@ -20,7 +21,12 @@ import {
 	stellarJade,
 	warpAmount
 } from '$lib/stores/app-store';
-import { customTracks, localBalance, localConfig, rollCounter } from '$lib/stores/localstorage';
+import {
+	customTracks,
+	localBalance,
+	localConfig,
+	rollCounter
+} from '$lib/helpers/dataAPI/api-localstorage';
 import { musics, muted } from '$lib/stores/phonograph-store';
 
 const importLocalConfig = () => {
@@ -46,6 +52,10 @@ const importLocalConfig = () => {
 
 	const llitemode = localConfig.get('litemode') || false;
 	liteMode.set(llitemode);
+
+	const llivecone = localConfig.get('livecone');
+	const isAnimatedLC = typeof llivecone !== 'boolean' ? true : llivecone;
+	animatedLC.set(isAnimatedLC);
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);

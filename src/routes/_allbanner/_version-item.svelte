@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { activeBanner, activePhase, activeVersion, assets, proUser } from '$lib/stores/app-store';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 	import { identifyBanner } from '$lib/helpers/banner-loader';

@@ -21,7 +21,12 @@
 
 	const openDetails = getContext('openDetails');
 	const handleClik = () => {
-		openDetails({ name, type: combatType ? 'character' : 'lightcone' });
+		const detailData = {
+			qty,
+			name,
+			type: combatType ? 'character' : 'lightcone'
+		};
+		openDetails(detailData);
 	};
 </script>
 

@@ -274,6 +274,7 @@
 		"autoskip": "跳躍アニメーションの自動スキップ",
 		"skipSplashArt": "スプラッシュアートの自動スキップ",
 		"litemode": "アニメーションと重いエフェクトの除去",
+		"livecone": "Turn On Light Cones Animation if available?",
 		"clearStorage": "キャッシュの消去",
 		"clearNow": "はい",
 		"promptTitle": "キャッシュの消去",

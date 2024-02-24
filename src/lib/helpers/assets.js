@@ -12,7 +12,7 @@ const charSplashArt5 = import.meta.glob('@images/characters/splash-art/5star/*.w
 
 const lightcones34 = import.meta.glob(
 	['@images/light-cones/full-art/3star/*.webp', '@images/light-cones/full-art/4star/*.webp'],
-	{ query: { w: '150;450', as: 'picture' }, import: 'default', eager: true }
+	{ query: { w: '150;450;890', as: 'picture' }, import: 'default', eager: true }
 );
 
 const lightcone5star = import.meta.glob('@images/light-cones/full-art/5star/*.webp', {

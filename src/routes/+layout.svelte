@@ -21,6 +21,8 @@
 	import { mountLocale } from '$lib/helpers/i18n';
 	import Iklan from '$lib/components/Iklan.svelte';
 	import InitialLoader from './_index/InitialLoader.svelte';
+	import { IDBUpdater } from '$lib/helpers/migrator/idbUpdater';
+	import { wakeLock } from '$lib/helpers/wakelock';
 
 	let isLoaded = false;
 	const showAd = writable(false);
@@ -56,20 +58,23 @@
 	};
 
 	mountLocale();
-	onMount(() => {
+	onMount(async () => {
 		redirectIfNotValidPath();
 
 		const url = new URL(window.location.href);
 		const searchParams = new URLSearchParams(url.search);
 		isPWA.set(!!searchParams.get('pwasc'));
 
-		registerSW();
 		isMobile.set(mobileDetect() || innerWidth < 601);
 		if ($isMobile) setMobileMode();
 
 		window.addEventListener('orientationchange', () => {
 			if ($isMobile) setMobileMode();
 		});
+
+		registerSW(); // Service Worker for Faster Load
+		wakeLock(); // Prevent screen off while open the app
+		await IDBUpdater(); // update site data to the newer version
 
 		// prevent Righ click (hold on android) on production mode
 		if (!dev) document.addEventListener('contextmenu', (e) => e.preventDefault());

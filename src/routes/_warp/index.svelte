@@ -11,7 +11,7 @@
 		bannerList,
 		showStarterBanner
 	} from '$lib/stores/app-store';
-	import { rollCounter } from '$lib/stores/localstorage';
+	import { rollCounter } from '$lib/helpers/dataAPI/api-localstorage';
 	import { pauseTrack, resumeTrack } from '$lib/helpers/sounds/phonograph';
 	import { playSfx } from '$lib/helpers/sounds/audiofx.js';
 

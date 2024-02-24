@@ -1,7 +1,7 @@
 import { data as lcDB } from '$lib/data/light-cones.json';
 import { data as charsDB } from '$lib/data/characters.json';
 import { getRate, prob } from './probabilities';
-import { guaranteedStatus } from '$lib/stores/localstorage';
+import { guaranteedStatus } from '$lib/helpers/dataAPI/api-localstorage';
 
 export const rand = (array) => {
 	if (!Array.isArray(array)) return array;

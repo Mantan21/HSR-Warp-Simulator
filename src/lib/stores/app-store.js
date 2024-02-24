@@ -23,6 +23,8 @@ export const isMobile = writable(false);
 export const viewportWidth = writable(0);
 export const viewportHeight = writable(0);
 
+export const animatedLC = writable(true); // animated LC
+export const liveconeList = writable({}); // animated lc List
 export const assets = writable([]);
 export const probEdit = writable(false);
 

@@ -6,8 +6,8 @@
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import Modal from '$lib/components/Modal.svelte';
 	import Toast from '$lib/components/Toast.svelte';
-	import { HistoryManager } from '$lib/stores/idbManager';
-	import { guaranteedStatus, localPity, rollCounter } from '$lib/stores/localstorage';
+	import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
+	import { guaranteedStatus, localPity, rollCounter } from '$lib/helpers/dataAPI/api-localstorage';
 
 	export let banner;
 

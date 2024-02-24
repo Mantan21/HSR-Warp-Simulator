@@ -274,6 +274,7 @@
 		"autoskip": "Auto Skip Express Animation?",
 		"skipSplashArt": "Auto Skip Splash Art as well?",
 		"litemode": "Reduce Animation & Heavy Effects",
+		"livecone": "Turn On Light Cones Animation if available?",
 		"clearStorage": "Clear Storage",
 		"clearNow": "Clear Now",
 		"promptTitle": "Clear Data?",

@@ -4,9 +4,9 @@
 	import { t } from 'svelte-i18n';
 	import { activeVersion, assets, priceList } from '$lib/stores/app-store';
 	import { oneiricBonus } from '$lib/data/pricelist.json';
-	import { cookie } from '$lib/stores/cookies';
+	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { localConfig } from '$lib/stores/localstorage';
+	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
 
 	import Icon from '$lib/components/Icon.svelte';
 	import ShopGroupItem from './_shop-group-item.svelte';

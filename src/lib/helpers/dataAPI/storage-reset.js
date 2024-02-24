@@ -22,8 +22,8 @@ import {
 	warpAmount
 } from '$lib/stores/app-store';
 import { muted } from '$lib/stores/phonograph-store';
-import { HistoryManager } from '$lib/stores/idbManager';
-import { localConfig, storageLocal } from '$lib/stores/localstorage';
+import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
+import { localConfig, storageLocal } from '$lib/helpers/dataAPI/api-localstorage';
 
 const { clearIDB } = HistoryManager;
 

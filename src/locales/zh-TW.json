@@ -274,6 +274,7 @@
 		"autoskip": "自動跳過躍遷動畫？",
 		"skipSplashArt": "自動跳過立繪？",
 		"litemode": "減少動畫和一些效果",
+		"livecone": "Turn On Light Cones Animation if available?",
 		"clearStorage": "清除儲存",
 		"clearNow": "現在清除",
 		"promptTitle": "清除資料？",

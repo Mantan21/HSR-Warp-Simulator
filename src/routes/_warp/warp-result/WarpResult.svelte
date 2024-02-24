@@ -3,7 +3,7 @@
 	import { fade, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { t } from 'svelte-i18n';
-	import { assets, liteMode, viewportWidth } from '$lib/stores/app-store';
+	import { animatedLC, assets, liteMode, viewportWidth } from '$lib/stores/app-store';
 	import { playSfx, stopSfx } from '$lib/helpers/sounds/audiofx';
 	import { lazyLoad } from '$lib/helpers/lazyload';
 	import { createLink } from '$lib/helpers/shareable-link';
@@ -133,7 +133,7 @@
 		<ResultList {list} {standalone} />
 	{:else}
 		<div class="container">
-			{#each list as { name, path, rarity, combat_type, splashartOffset, eidolon, undyingType, undyingQty, isNew }, i}
+			{#each list as { name, path, rarity, combat_type, splashartOffset, eidolon, undyingType, undyingQty, isNew, animationID }, i}
 				{#if activeIndex === i}
 					{#if intro5star && !$liteMode}
 						<SsrScreen {path} />
@@ -147,7 +147,11 @@
 								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
 									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
 										<div class="lightcone-item">
-											<LightCones item={name} animate={!$liteMode} />
+											<LightCones
+												item={name}
+												animate={!$liteMode}
+												animationID={!$liteMode && $animatedLC ? animationID : null}
+											/>
 										</div>
 									</div>
 								</div>

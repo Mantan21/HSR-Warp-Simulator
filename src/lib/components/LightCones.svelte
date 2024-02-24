@@ -1,16 +1,34 @@
 <script>
 	import { t } from 'svelte-i18n';
-	import { fly } from 'svelte/transition';
-	import { assets, liteMode } from '$lib/stores/app-store';
+	import { fade, fly } from 'svelte/transition';
+	import { assets, liteMode, liveconeList } from '$lib/stores/app-store';
 	import { lazyLoad } from '$lib/helpers/lazyload';
+	import { fetchMedia } from '$lib/helpers/dataAPI/api-fetcher';
 
 	export let item = '';
 	export let size = 'medium';
 	export let animate = false;
+	export let animationID = null;
 
 	const transitionFly = (node, args) => {
 		if (!animate) return;
 		return fly(node, args);
+	};
+
+	const loadVideo = async (vID) => {
+		const storedURL = $liveconeList[vID];
+		if (storedURL) return { ...storedURL, success: true };
+
+		// fetch New
+		const { status, formats = {} } = await fetchMedia(vID, 'video');
+		if (status === 'error') return { success: false };
+
+		const videoURL = { mp4: formats['video/mp4'], webm: formats['video/webm'] };
+		liveconeList.update((v) => {
+			v[vID] = videoURL;
+			return v;
+		});
+		return { ...videoURL, success: true };
 	};
 </script>
 
@@ -23,12 +41,20 @@
 	{#if size !== 'small'}
 		<div class="layer layer-back" in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }} />
 	{/if}
-	<img
-		use:lazyLoad={$assets[`lc/${size}/${item}`]}
-		crossorigin="anonymous"
-		alt={$t(item)}
-		on:error={(e) => e.target.remove()}
-	/>
+	<img use:lazyLoad={$assets[`lc/${size}/${item}`]} crossorigin="anonymous" alt={$t(item)} />
+
+	{#if animationID && size !== 'small'}
+		{#await loadVideo(animationID) then { webm, success }}
+			{#if success}
+				<div class="videoWrapper" in:fade>
+					<video autoplay loop>
+						<source src={webm} type="video/webm" crossorigin="anonymous" />
+						<track kind="captions" />
+					</video>
+				</div>
+			{/if}
+		{/await}
+	{/if}
 	<div
 		class="layer layer-front"
 		in:transitionFly={{ y: -300, x: -30, duration: 500, opacity: 1 }}
@@ -41,6 +67,27 @@
 		height: auto;
 		aspect-ratio: 53/74;
 		position: relative;
+	}
+
+	.videoWrapper {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		border: 0.3rem solid #fff;
+	}
+
+	video {
+		width: inherit;
+		height: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		/* top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%); */
 	}
 
 	img {
