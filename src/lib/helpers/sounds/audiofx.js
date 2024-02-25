@@ -54,9 +54,8 @@ const initSFX = () => {
 	sounds = sfxList.reduce((prev, current) => {
 		const sfx = prev || {};
 		sfx[current] = new Howl({
-			src: [`/audiofx/${current}.mp3`],
-			loop: current === 'warp-backsound',
-			html5: true
+			src: [`/audiofx/${current}.ogg`],
+			loop: current === 'warp-backsound'
 			// onfade: fadeTrack
 		});
 		return sfx;
