@@ -10,7 +10,7 @@ const { getAllHistories, addHistory } = HistoryManager;
 export const IDBUpdater = async () => {
 	const idbVer = localConfig.get('idbVer');
 
-	if (!idbVer || idbVer < 2) {
+	if (!idbVer || idbVer < 3) {
 		// Update IDB
 		const itemIDs = {};
 		charDB.forEach(({ itemID, name }) => (itemIDs[name] = itemID));
@@ -24,7 +24,7 @@ export const IDBUpdater = async () => {
 
 			if (i < historyData.length - 1) continue;
 			await retriveOldData();
-			localConfig.set('idbVer', 2);
+			localConfig.set('idbVer', 3);
 		}
 	}
 };

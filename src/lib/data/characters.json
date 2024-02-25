@@ -388,7 +388,7 @@
 			"gachaCardOffset": { "t": 145 }
 		},
 		{
-			"itemID": 1005,
+			"itemID": 1008,
 			"name": "arlan",
 			"rarity": 4,
 			"combat_type": "lightning",
