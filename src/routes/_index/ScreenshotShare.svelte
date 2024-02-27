@@ -37,7 +37,7 @@
 
 	const preview = getContext('preview');
 	const filterShot = (node) => {
-		const exclude = ['close', 'skip', 'share', 'logo', 'title', 'hideOnShot'];
+		const exclude = ['close', 'skip', 'share', 'logo', 'title', 'hideOnShot', 'playButton'];
 		if (node.classList) return !exclude.some((cl) => node.classList.contains(cl));
 		return true;
 	};

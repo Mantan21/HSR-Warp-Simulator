@@ -233,16 +233,12 @@
 		display: block;
 		position: fixed;
 		bottom: 0px;
-		right: 2em;
+		left: 5%;
 		padding: 0.2%;
 		z-index: 9999;
-		color: #fff;
+		color: #ddd;
 		text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.7);
 		-webkit-text-stroke: 0.01rem #000;
 		pointer-events: none;
-	}
-
-	.mobileLandscape .uid {
-		right: 5%;
 	}
 </style>

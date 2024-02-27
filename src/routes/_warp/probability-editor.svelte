@@ -124,7 +124,7 @@
 				<i class="hsr-refresh" />
 				{$t('editor.revert')}
 			</button>
-			<button class="close" on:click={toggleEditor}> <i class="hsr-times" /> {$t('close')} </button>
+			<button class="close" on:click={toggleEditor}> <i class="hsr-check" /> {$t('close')} </button>
 		</div>
 
 		<div class="form">
