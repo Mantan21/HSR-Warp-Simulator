@@ -173,7 +173,7 @@
 					<div class="col">
 						<input
 							type="number"
-							value={localPity.get(`pity5-${banner}`)}
+							value={localPity.get(`pity5${banner}`)}
 							on:input={(e) => changePity(e, 'now5')}
 						/>
 					</div>
@@ -227,7 +227,7 @@
 					<div class="col">
 						<input
 							type="number"
-							value={localPity.get(`pity4-${banner}`)}
+							value={localPity.get(`pity4${banner}`)}
 							on:input={(e) => changePity(e, 'now4')}
 						/>
 					</div>
