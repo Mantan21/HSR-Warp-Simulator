@@ -3,14 +3,14 @@ import { data as charDB } from '$lib/data/characters.json';
 import { data as lcDB } from '$lib/data/light-cones.json';
 import { HistoryManager } from '$lib/helpers/dataAPI/api-indexeddb';
 import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
-import { retriveOldData } from './collect-old-data';
+import { setNewCalculation } from './newItemCalculation';
 
 const { getAllHistories, addHistory } = HistoryManager;
 
 export const IDBUpdater = async () => {
 	const idbVer = localConfig.get('idbVer');
 
-	if (!idbVer || idbVer < 3) {
+	if (!idbVer || idbVer < 5) {
 		// Update IDB
 		const itemIDs = {};
 		charDB.forEach(({ itemID, name }) => (itemIDs[name] = itemID));
@@ -23,8 +23,8 @@ export const IDBUpdater = async () => {
 			await addHistory(data);
 
 			if (i < historyData.length - 1) continue;
-			await retriveOldData();
-			localConfig.set('idbVer', 3);
+			await setNewCalculation();
+			localConfig.set('idbVer', 5);
 		}
 	}
 };
