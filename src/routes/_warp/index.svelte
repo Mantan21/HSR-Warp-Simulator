@@ -30,9 +30,11 @@
 
 	let color1 = '0,0,0';
 	let color2 = color1;
-	setContext('setColor', (clr1, clr2) => {
+	let color3 = null;
+	setContext('setColor', (clr1, clr2, clr3 = null) => {
 		color1 = clr1;
 		color2 = clr2;
+		color3 = clr3 || clr2;
 	});
 
 	// Banner Index to adjust Transition
@@ -114,7 +116,9 @@
 
 <div
 	class="banner"
-	style="--bn-color2: rgba({color2}, .9); --bn-color1: rgba({color1}, .9)"
+	style="--bn-color2: rgba({color2}, .9);
+	--bn-color1: rgba({color1}, .9);
+	--ribbon-color: rgba({color3}, .9)"
 	transition:fade={{ duration: 250 }}
 >
 	<Background />

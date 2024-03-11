@@ -120,8 +120,8 @@
 		padding: 0.45% 1.5% 0.5%;
 		border-top-right-radius: 2rem;
 		border-bottom-right-radius: 2rem;
-		background-color: var(--bn-color2);
-		z-index: +1;
+		background-color: var(--ribbon-color);
+		z-index: +2;
 	}
 
 	.wrapper-info {

@@ -86,7 +86,7 @@
 		border-top-right-radius: 2rem;
 		border-bottom-right-radius: 2rem;
 		background-color: #3d81ce;
-		z-index: +1;
+		z-index: +2;
 	}
 
 	.wrapper-info {

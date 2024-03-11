@@ -31,9 +31,9 @@
 
 	const changeColor = (charName) => {
 		if (!activeType.match('character')) return;
-		const [color1, color2] = colorList[charName] || [];
+		const [color1, color2, color3 = null] = colorList[charName] || [];
 		if (!color1) return;
-		setColor(color1, color2);
+		setColor(color1, color2, color3);
 	};
 
 	// Get Dominant Color
@@ -63,10 +63,11 @@
 	const manualColorPick = (charName) => {
 		const { colors } = data.find(({ name }) => name === charName);
 		if (Array.isArray(colors) && colors?.length > 1) {
-			const [cl1, cl2] = colors;
+			const [cl1, cl2, cl3] = colors;
 			const color1 = cl1.split(' ').join(',');
 			const color2 = cl2.split(' ').join(',');
-			return [color1, color2];
+			const color3 = cl3?.split(' ').join(',');
+			return [color1, color2, color3];
 		}
 		return null;
 	};
