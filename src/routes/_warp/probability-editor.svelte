@@ -103,8 +103,8 @@
 
 		// Current Pity Changer
 		const value = parseInt(val);
-		if (variable === 'now4') localPity.set(`pity4-${banner}`, value);
-		if (variable === 'now5') localPity.set(`pity5-${banner}`, value);
+		if (variable === 'now4') localPity.set(`pity4${banner}`, value);
+		if (variable === 'now5') localPity.set(`pity5${banner}`, value);
 	};
 </script>
 
