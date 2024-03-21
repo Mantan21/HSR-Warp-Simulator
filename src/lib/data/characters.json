@@ -1,7 +1,6 @@
 {
 	"data": [
 		{
-			"pro": true,
 			"itemID": 1301,
 			"name": "gallagher",
 			"rarity": 4,
@@ -18,13 +17,13 @@
 			"rarity": 5,
 			"combat_type": "imaginary",
 			"path": "preservation",
+			"colors": ["32 26 19", "176 160 136"],
 			"bannerOffset": { "b": -50, "l": -5, "w": 125 },
 			"buttonOffset": { "t": -38, "w": 100 },
 			"splashartOffset": { "t": 58 },
 			"gachaCardOffset": { "l": 12, "t": 165, "w": 475 }
 		},
 		{
-			"pro": true,
 			"itemID": 1308,
 			"name": "acheron",
 			"rarity": 5,
@@ -161,6 +160,7 @@
 			"rarity": 5,
 			"combat_type": "ice",
 			"path": "destruction",
+			"colors": ["33 46 78", "45 47 60", "61 129 206"],
 			"bannerOffset": { "b": -44, "l": 8.5, "w": 110 },
 			"buttonOffset": { "t": -34, "l": 0, "w": 100 },
 			"splashartOffset": { "t": 58, "w": 90, "l": 52 },

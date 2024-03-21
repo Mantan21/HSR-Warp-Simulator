@@ -1,0 +1,34 @@
+{
+	"patch": 2.1,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["35-1", "7-2"],
+					"rateup": ["gallagher", "pela", "dan-heng"]
+				},
+				"lightcone": {
+					"bannerID": ["36-1", "18-2"],
+					"rateup": ["good-night-and-sleep-well", "post-op-conversation", "subscribe-for-more"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["37-1", "12-2"],
+					"rateup": ["lynx", "luka", "serval"]
+				},
+				"lightcone": {
+					"bannerID": ["38-1", "14-2"],
+					"rateup": ["concert-for-two", "shared-feeling", "make-the-world-clamor"]
+				}
+			}
+		}
+	]
+}

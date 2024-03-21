@@ -204,7 +204,7 @@
 		},
 		{
 			"id": 35,
-			"name": "",
+			"name": "words-of-yore",
 			"featured": "acheron",
 			"type": "character-event"
 		},
@@ -216,7 +216,7 @@
 		},
 		{
 			"id": 37,
-			"name": "",
+			"name": "gilded-imprisonment",
 			"featured": "aventurine",
 			"type": "character-event"
 		},

@@ -2,6 +2,14 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 21043,
+			"name": "concert-for-two",
+			"rarity": 4,
+			"path": "preservation",
+			"limited": true
+		},
+		{
+			"pro": true,
 			"itemID": 23023,
 			"name": "inherently-unjust-destiny",
 			"rarity": 5,
@@ -10,8 +18,8 @@
 			"bannerOffset": { "t": -83, "l": 35, "w": 80 }
 		},
 		{
-			"pro": true,
 			"itemID": 23024,
+			"animationID": "yvExiR7oXl8",
 			"name": "along-the-passing-shore",
 			"rarity": 5,
 			"path": "nihility",

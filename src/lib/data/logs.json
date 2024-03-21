@@ -230,7 +230,6 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "20 Feb 2024",
 			"changes": [
 				"Add New Character: <b>Acheron (5★)</b> & <b>Aventurine (5★)</b>",
@@ -240,8 +239,15 @@
 		},
 		{
 			"date": "31 Jan 2024",
-			"featured": true,
 			"changes": ["Unlock Content: The 2nd phase of v2.0 - <b>Sparkle & Jing Yuan</b>"]
+		},
+		{
+			"date": "21 Mar 2024",
+			"featured": true,
+			"changes": [
+				"Unlock Content: The 1st phase of v2.1 - <b>Acheron & Luocha</b>",
+				"Add New Light Cones: <b>Concert of Two (4★)</b>"
+			]
 		}
 	]
 }
