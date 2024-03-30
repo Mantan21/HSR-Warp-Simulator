@@ -1,12 +1,38 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 1315,
+			"name": "boothill",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "hunt",
+			"colors": ["15 18 31", "95 57 110"],
+			"bannerOffset": { "b": -40, "w": 125 },
+			"buttonOffset": { "t": -38, "w": 100 },
+			"splashartOffset": { "w": 100 },
+			"gachaCardOffset": { "l": 40, "t": 145, "w": 475 }
+		},
+		{
+			"pro": true,
+			"itemID": 1309,
+			"name": "robin",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "harmony",
+			"colors": ["31 17 59", "96 82 116"],
+			"bannerOffset": { "b": -65, "l": -2, "w": 135 },
+			"buttonOffset": { "t": -40, "w": 105 },
+			"splashartOffset": { "t": 66, "w": 100 },
+			"gachaCardOffset": { "l": 22, "t": 275, "w": 570 }
+		},
+		{
 			"itemID": 1301,
 			"name": "gallagher",
 			"rarity": 4,
 			"combat_type": "fire",
 			"path": "abundance",
-			"release": "1000000-2",
+			"release": "2.1-2",
 			"splashartOffset": { "w": 70, "l": 45 },
 			"gachaCardOffset": { "l": 35, "t": 170, "w": 290 }
 		},

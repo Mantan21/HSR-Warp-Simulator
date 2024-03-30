@@ -14,6 +14,7 @@
 	$: event = bannerType.match('event');
 	$: balance = event ? $specialPass : $regularPass;
 	$: unlimitedWarp = $warpAmount === 'unlimited';
+	$: heading = bannerName ? $t(`banner.${bannerName}`) : 'Subject To Change';
 
 	const navigate = getContext('navigate');
 	const openAllBanners = () => {
@@ -22,7 +23,7 @@
 	};
 </script>
 
-<Header icon="warp" h1={$t('warp.heading')} h2={$t(`banner.${bannerName}`)} hideDesktopIcon>
+<Header icon="warp" h1={$t('warp.heading')} h2={heading} hideDesktopIcon>
 	<div class="budget">
 		<MyFund type={event ? 'specialPass' : 'regularPass'}>
 			{unlimitedWarp ? '∞' : balance}

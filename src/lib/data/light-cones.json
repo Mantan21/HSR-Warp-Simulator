@@ -2,6 +2,24 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 23027,
+			"name": "sailing-towards-a-second-life",
+			"rarity": 5,
+			"path": "hunt",
+			"limited": true,
+			"bannerOffset": { "t": -5, "l": 50 }
+		},
+		{
+			"pro": true,
+			"itemID": 23026,
+			"name": "flowing-nightglow",
+			"rarity": 5,
+			"path": "harmony",
+			"limited": true,
+			"bannerOffset": { "t": -90, "l": 25, "w": 80 }
+		},
+		{
+			"pro": true,
 			"itemID": 21043,
 			"name": "concert-for-two",
 			"rarity": 4,

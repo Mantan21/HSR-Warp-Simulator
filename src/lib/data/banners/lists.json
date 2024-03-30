@@ -225,6 +225,30 @@
 			"name": "brilliant-fixation",
 			"featured": "inherently-unjust-destiny",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 39,
+			"name": "",
+			"featured": "robin",
+			"type": "character-event"
+		},
+		{
+			"id": 40,
+			"name": "brilliant-fixation",
+			"featured": "flowing-nightglow",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 41,
+			"name": "",
+			"featured": "boothill",
+			"type": "character-event"
+		},
+		{
+			"id": 42,
+			"name": "brilliant-fixation",
+			"featured": "sailing-towards-a-second-life",
+			"type": "lightcone-event"
 		}
 	]
 }
