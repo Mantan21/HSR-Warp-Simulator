@@ -4,7 +4,7 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 
-	import { animatedLC, liteMode, viewportHeight } from '$lib/stores/app-store';
+	import { liteMode, viewportHeight } from '$lib/stores/app-store';
 	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 	import { storageReset } from '$lib/helpers/dataAPI/storage-reset';
 	import { localConfig } from '$lib/helpers/dataAPI/api-localstorage';
@@ -98,7 +98,6 @@
 		if (!soundOn) initTrack();
 		readyToPull.set(await checkExpress());
 		localConfig.set('litemode', $liteMode);
-		localConfig.set('livecone', $animatedLC);
 	};
 
 	// Storage Size
