@@ -8,6 +8,7 @@ import {
 	activeBanner,
 	activePhase,
 	activeVersion,
+	animatedLC,
 	autoskip,
 	embers,
 	oneiric,
@@ -74,6 +75,7 @@ export const storageReset = async ({ keepSetting = false, clearCache = false } =
 	activePhase.set(warpPhase);
 	activeBanner.set(0);
 
+	animatedLC.set(false);
 	warpAmount.set('default');
 	autoskip.set({ express: false, art: true });
 	muted.set({ bgm: false, sfx: false });
