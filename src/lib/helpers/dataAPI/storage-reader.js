@@ -53,9 +53,8 @@ const importLocalConfig = () => {
 	const llitemode = localConfig.get('litemode') || false;
 	liteMode.set(llitemode);
 
-	const llivecone = localConfig.get('livecone');
-	const isAnimatedLC = typeof llivecone !== 'boolean' ? true : llivecone;
-	animatedLC.set(isAnimatedLC);
+	const llivecone = localConfig.get('livecone') || false;
+	animatedLC.set(llivecone);
 
 	const lWarpAmount = localConfig.get('warpAmount') || 'default';
 	warpAmount.set(lWarpAmount);
