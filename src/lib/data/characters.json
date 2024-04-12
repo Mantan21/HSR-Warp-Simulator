@@ -37,7 +37,6 @@
 			"gachaCardOffset": { "l": 35, "t": 170, "w": 290 }
 		},
 		{
-			"pro": true,
 			"itemID": 1304,
 			"name": "aventurine",
 			"rarity": 5,

@@ -19,7 +19,6 @@
 			"bannerOffset": { "t": -90, "l": 25, "w": 80 }
 		},
 		{
-			"pro": true,
 			"itemID": 21043,
 			"name": "concert-for-two",
 			"rarity": 4,
@@ -27,7 +26,6 @@
 			"limited": true
 		},
 		{
-			"pro": true,
 			"itemID": 23023,
 			"name": "inherently-unjust-destiny",
 			"rarity": 5,
@@ -42,7 +40,7 @@
 			"rarity": 5,
 			"path": "nihility",
 			"limited": true,
-			"bannerOffset": { "t": -8, "l": 50, "w": 90 }
+			"bannerOffset": { "t": -5, "l": 0, "w": 110 }
 		},
 		{
 			"itemID": 21042,
