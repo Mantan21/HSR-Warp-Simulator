@@ -92,14 +92,14 @@
 		"loadExpressMsg": "{item}アニメーションをダウンロード中",
 		"expressNotLoaded": "跳躍アニメーションがストレージに見つかりません。スムーズな跳躍のために、事前に<span>ダウンロード</span>するか、<span>跳躍アニメーションのスキップをオン</span>にします",
 		"preloadFilesMsg": "*読み込まれたファイルはブラウザストレージに保存されるため、サイトが更新されるまで再度読み込む必要はありません。",
-		"firstTimeShare": "First-time Share Rewards:",
-		"firstShareObtain": "First-time Sharing will Obtain {reward}",
-		"sharingTxt": "Come and try this Honkai: Star Rail Warp Simulator!"
+		"firstTimeShare": "初回シェアで獲得:",
+		"firstShareObtain": "初回シェアで獲得 {reward}",
+		"sharingTxt": "崩壊:スターレイル 跳躍シミュを試してみてね！"
 	},
 	"banner": {
 		"all": "すべて",
-		"stc": "Subject To Change",
-		"showHidden": "Show Hidden Banner",
+		"stc": "未確定",
+		"showHidden": "隠された跳躍を表示",
 		"undefined": "未定義",
 		"starter": "初心者跳躍",
 		"regular": "恒常跳躍",
@@ -218,10 +218,10 @@
 		"guaranteed": "確定獲得",
 		"untracked": "記録なし",
 		"description": "祈願データをインターネット上に保存することはありません。IndexedDBを利用するため、データはすべてブラウザのキャッシュに保存されることになります。ユーザー自身が削除/リセットボタンで削除するか、ブラウザのデータを消去しない限り削除されません。",
-		"resetButton": "Clear",
-		"resetPromptTitle": "Clear History ?",
-		"resetPrompt": "It's also remove all Characters and Light Cones related to \"{bannerName}\" Banner from your Inventory. <br /> Are You Sure to Reset ?",
-		"resetSuccess": "Reset Successful !"
+		"resetButton": "クリア",
+		"resetPromptTitle": "跳躍履歴の削除",
+		"resetPrompt": "\"{bannerName}\"に関連するすべてのキャラクターと光円錐も削除されます。<br />リセットしてよろしいですか？",
+		"resetSuccess": "リセット成功！"
 	},
 	"collection": {
 		"heading": "コレクション",
@@ -247,9 +247,9 @@
 		"payment": "購入",
 		"bonus": "おまけ",
 		"selectMethod": "購入方法を選択",
-		"method-imaginary-money": "僕が払うよ",
+		"method-imaginary-money": "危険指数上昇",
 		"method-tears": "ウチ…お金ないよ…",
-		"method-firefly-savings": "Fireflys Savings",
+		"method-firefly-savings": "ホタルの予算",
 		"autoConvert": "星玉に自動変換",
 		"initialTopup": "初回2倍ボーナス",
 		"donate": "寄付"
@@ -276,7 +276,7 @@
 		"autoskip": "跳躍アニメーションの自動スキップ",
 		"skipSplashArt": "スプラッシュアートの自動スキップ",
 		"litemode": "アニメーションと重いエフェクトの除去",
-		"livecone": "Turn On Light Cones Animation if available?",
+		"livecone": "光円錐のアニメーション(可能な場合)",
 		"clearStorage": "キャッシュの消去",
 		"clearNow": "はい",
 		"promptTitle": "キャッシュの消去",
@@ -289,7 +289,7 @@
 		"checkingKey": "キーの確認中",
 		"verifyFail": "キーの検証に失敗しました。接続を確認してください！",
 		"keyExpired": "キーの期限が切れています",
-		"keyExpiredNotice": "あなたのキー: \"{key}\" は{date}から期限切れです",
+		"keyExpiredNotice": "あなたのキー:「{key}」は{date}から期限切れです",
 		"invalidKey": "無効なキーです",
 		"noKey": "キーを持っていませんか？",
 		"getNewKey": "ここから入手",
@@ -308,9 +308,9 @@
 		"heading": "蓄音機",
 		"out-of-control": "制御不能",
 		"svah-sanishyu": "長き生の短き夢",
-		"the-flapper-sinthome": "The Flapper Sinthome",
+		"the-flapper-sinthome": "フラッパーのサントーム",
 		"of-snow-and-ember": "雪は灰燼に融ける",
-		"experience-the-paths": "Experience the Paths",
+		"experience-the-paths": "運命の道を歩んで",
 		"more-ost": "その他の曲",
 		"custom-musics": "追加曲",
 		"currentSong": "Now Playing",
@@ -325,7 +325,7 @@
 		"addCustom": "曲の追加",
 		"addTrack": "曲の追加",
 		"removeTrack": "曲の削除",
-		"duplicatedTrack": "\"{trackTitle}\" is already listed in \"{albumName}\" album",
-		"failedToFetch": "Failed to Fetch Track Information"
+		"duplicatedTrack": "「{trackTitle}」はすでに「{albumName}」に追加されています",
+		"failedToFetch": "トラック情報の取得に失敗しました"
 	}
 }
