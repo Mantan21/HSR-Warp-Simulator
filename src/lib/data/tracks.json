@@ -683,36 +683,8 @@
 			]
 		},
 		{
-			"album": "experience-the-paths",
+			"album": "experience-the-paths-1",
 			"tracks": [
-				{
-					"title": "Acheron - \"Your Color\"",
-					"sourceID": "IISXNH3YHtA"
-				},
-				{
-					"title": "Sparkle  - Monodrama",
-					"sourceID": "76sILCE57mE"
-				},
-				{
-					"title": "Black Swan - Lullaby",
-					"sourceID": "X5aXk01454I"
-				},
-				{
-					"title": "Dr.Ratio - Supreme Idiocy",
-					"sourceID": "3RBLYxNsYCQ"
-				},
-				{
-					"title": "Ruan Mei - Crown of the Mundane and Divine",
-					"sourceID": "N2HRGBKabpE"
-				},
-				{
-					"title": "Argenti - Chivalric Romances",
-					"sourceID": "zL1pursSH8c"
-				},
-				{
-					"title": "Huohuo - Night of Thrills",
-					"sourceID": "_CNpOc2sQFA"
-				},
 				{
 					"title": "Topaz - Expert Tutorial",
 					"sourceID": "HvMrYtLxfuk"
@@ -832,19 +804,112 @@
 			]
 		},
 		{
-			"album": "more-ost",
+			"album": "experience-the-paths-2",
 			"tracks": [
 				{
-					"title": "White Night - English Version (v2.0 Trailer OST)",
-					"sourceID": "aD2xyziljBE"
+					"title": "Wanna Go Have Some Fun!",
+					"sourceID": "gSamE0HTDeY"
+				},
+				{
+					"title": "Into the Yawning Chasm (2.1 Trailer OST)",
+					"sourceID": "WmmVFHo0dJ8"
+				},
+				{
+					"title": "Rondo Across Countless Kalpas",
+					"sourceID": "03RNkZwTcDM"
+				},
+				{
+					"title": "Kyoden: A Cleave Across the Transient World",
+					"sourceID": "9YtLxln8rAA"
+				},
+				{
+					"title": "Acheron - \"Your Color\"",
+					"sourceID": "SnFbeIsJv4M"
+				},
+				{
+					"title": "Sparkle: Behind the Curtain",
+					"sourceID": "uv0waNl82YY"
+				},
+				{
+					"title": "Sparkle  - Monodrama",
+					"sourceID": "ktdd8OMPjTs"
+				},
+				{
+					"title": "Welcome to Dreamville! Part 3",
+					"sourceID": "dspCPFjIR1Y"
+				},
+				{
+					"title": "Welcome to Dreamville! Part 2",
+					"sourceID": "V5fg1kMJMYY"
+				},
+				{
+					"title": "Welcome to Dreamville! Part 1",
+					"sourceID": "p-Sg05T9pC8"
+				},
+				{
+					"title": "Harmony Greets the New Year",
+					"sourceID": "YVu2wbwfhxc"
+				},
+				{
+					"title": "Black Swan - Lullaby",
+					"sourceID": "7-AB5o5VdBY"
+				},
+				{
+					"title": "A Revisiting of Past Dreams",
+					"sourceID": "ff2-BY7VKhk"
+				},
+				{
+					"title": "A Night of Ever-Flame: Scene 33",
+					"sourceID": "y7-o9i5nHZo"
+				},
+				{
+					"title": "Dr. Ratio - Supreme Idiocy",
+					"sourceID": "gqTFZxYYjOg"
+				},
+				{
+					"title": "Ruan Mei - In All Does Life Flow",
+					"sourceID": "F4mgx0lOkoo"
+				},
+				{
+					"title": "Transcendent Ruan Tunes, Blushing Mei Blooms",
+					"sourceID": "QnzYX19xtfw"
 				},
 				{
 					"title": "Crown of the Mundane and Divine (v1.6 Trailer OST)",
-					"sourceID": "kGX645T5Ia8"
+					"sourceID": "ASi9aJ9dVYE"
+				},
+				{
+					"title": "A Story That Never Grows Dull",
+					"sourceID": "ksIZTuecG8M"
+				},
+				{
+					"title": "Huohuo - Night of Thrills",
+					"sourceID": "xQfniF3nk-k"
+				},
+				{
+					"title": "Argenti - Chivalric Romances",
+					"sourceID": "lrIJxUeDGcs"
 				},
 				{
 					"title": "The Crepuscule Zone (v1.5 Trailer OST)",
-					"sourceID": "fenn3zue5lM"
+					"sourceID": "QAcckBru_vk"
+				}
+			]
+		},
+		{
+			"album": "more-ost",
+			"tracks": [
+				{
+					"title": "Aventurine - The Golden Touch",
+					"sourceID": "WfqyDkZEVQE"
+				},
+				{
+					"title": "Monodrama - Jazz (Anniversary Musical Celebration)",
+					"sourceID": "iqvUcYYlscc"
+				},
+				{
+					"title": "White Night - English Version (v2.0 Trailer OST)",
+					"sourceID": "aD2xyziljBE"
 				},
 				{
 					"title": "Jolted Awake From a Winter Dream (v1.4 Trailer OST)",

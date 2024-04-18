@@ -6,7 +6,8 @@ const albumCover = (album, images) => {
 		'of-snow-and-ember': 'wR0Nj7h',
 		'svah-sanishyu': 'vqbQ66N',
 		'the-flapper-sinthome': 'C1X6Dfp',
-		'experience-the-paths': 'Y2wRLPx'
+		'experience-the-paths-1': 'Y2wRLPx',
+		'experience-the-paths-2': 'zJRxzGK'
 	};
 
 	if (Object.keys(albumList).includes(album)) {
@@ -34,7 +35,11 @@ const albumCover = (album, images) => {
 
 const albumTitle = (album) => {
 	let localeAlbum;
-	t.subscribe((l) => (localeAlbum = l(`phonograph.${album}`)));
+	t.subscribe((l) => {
+		if (!album.match('paths')) return (localeAlbum = l(`phonograph.${album}`));
+		const vol = album.split('-').reverse()[0];
+		localeAlbum = `${l('phonograph.experience-the-paths')} - ${vol}`;
+	});
 	return localeAlbum;
 };
 

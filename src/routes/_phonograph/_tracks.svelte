@@ -3,14 +3,14 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
+	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
+	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
+	import { nextTrack } from '$lib/helpers/sounds/phonograph';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import TrackItem from './_track-item.svelte';
 	import ModalTrack from './_modal-track.svelte';
 	import Modal from '$lib/components/Modal.svelte';
-	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
-	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
-	import { nextTrack } from '$lib/helpers/sounds/phonograph';
 
 	export let playedAlbum = '';
 	export let trackList = [];
@@ -23,6 +23,12 @@
 	let isWaiting = false;
 	setContext('wait', (val) => (isWaiting = val));
 	setContext('songReady', (val) => (songReady = val));
+
+	const albumTitle = (album) => {
+		if (!album.match('paths')) return $t(`phonograph.${album}`);
+		const vol = album.split('-').reverse()[0];
+		return `${$t('phonograph.experience-the-paths')} Vol.${vol}`;
+	};
 
 	const setMusic = getContext('setMusic');
 	const pickTrack = getContext('pickTrack');
@@ -79,7 +85,7 @@
 {/if}
 
 <div class="tracks" bind:clientWidth={width} style="--wd:{width}px">
-	<div class="album-name"><i> {$t(`phonograph.${playedAlbum}`)}</i></div>
+	<div class="album-name"><i> {albumTitle(playedAlbum)}</i></div>
 	<div class="track-list">
 		<Scrollable visibility="hidden">
 			<div class="list-wrapper">
