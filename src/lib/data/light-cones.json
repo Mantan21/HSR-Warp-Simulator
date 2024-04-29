@@ -10,7 +10,13 @@
 			"bannerOffset": { "t": -5, "l": 50 }
 		},
 		{
-			"pro": true,
+			"itemID": 21044,
+			"name": "boundless-choreo",
+			"rarity": 4,
+			"path": "nihility",
+			"limited": true
+		},
+		{
 			"itemID": 23026,
 			"name": "flowing-nightglow",
 			"rarity": 5,

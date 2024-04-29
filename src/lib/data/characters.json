@@ -14,7 +14,6 @@
 			"gachaCardOffset": { "l": 40, "t": 145, "w": 475 }
 		},
 		{
-			"pro": true,
 			"itemID": 1309,
 			"name": "robin",
 			"rarity": 5,
