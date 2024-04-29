@@ -27,11 +27,12 @@
 		},
 		{
 			"itemID": 23023,
+			"animationID": "ErS6nbtR2XA",
 			"name": "inherently-unjust-destiny",
 			"rarity": 5,
 			"path": "preservation",
 			"limited": true,
-			"bannerOffset": { "t": -83, "l": 35, "w": 80 }
+			"bannerOffset": { "t": -35, "l": 35, "w": 115 }
 		},
 		{
 			"itemID": 23024,
