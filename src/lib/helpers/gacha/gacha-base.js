@@ -3,6 +3,10 @@ import { data as charsDB } from '$lib/data/characters.json';
 import { getRate, prob } from './probabilities';
 import { guaranteedStatus } from '$lib/helpers/dataAPI/api-localstorage';
 
+export const randomNumber = (min = 1, max = 9) => {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
 export const rand = (array) => {
 	if (!Array.isArray(array)) return array;
 	if (array.length < 2) return array[0];

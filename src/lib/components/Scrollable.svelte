@@ -1,9 +1,10 @@
 <script>
 	export let dark = false;
 	export let visibility = 'auto';
+	export let height = '';
 </script>
 
-<div class="scroll {visibility}" class:dark>
+<div class="scroll {visibility}" style="height: {height};" class:dark>
 	<slot />
 </div>
 

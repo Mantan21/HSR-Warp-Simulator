@@ -2,7 +2,7 @@
 	import { getContext, onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { assets } from '$lib/stores/app-store';
+	import { assets, viewportWidth } from '$lib/stores/app-store';
 	import { cookie } from '$lib/helpers/dataAPI/api-cookie';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		<div class="info-content">
-			<Scrollable dark>
+			<Scrollable dark height="calc({$viewportWidth > 500 ? '0.415' : '0.75'} * var(--width))">
 				<div class="content">
 					{#if activeInfo === 'details'}
 						<Details />
@@ -71,6 +71,7 @@
 	section {
 		width: 100%;
 		height: 100%;
+		aspect-ratio: var(--ratio);
 		background-image: var(--bg);
 		background-size: cover;
 		background-position: center center;

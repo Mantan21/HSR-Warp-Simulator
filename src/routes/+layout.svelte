@@ -10,6 +10,8 @@
 	import './styles.css';
 
 	import { APP_TITLE, DESCRIPTION, HOST, KEYWORDS } from '$lib/data/site-setup.json';
+	import { IDBUpdater } from '$lib/helpers/migrator/idbUpdater';
+	import { wakeLock } from '$lib/helpers/wakelock';
 	import {
 		isMobile,
 		isMobileLandscape,
@@ -19,10 +21,9 @@
 	} from '$lib/stores/app-store';
 	import { mobileDetect } from '$lib/helpers/mobile-detect';
 	import { mountLocale } from '$lib/helpers/i18n';
+
 	import Iklan from '$lib/components/Iklan.svelte';
 	import InitialLoader from './_index/InitialLoader.svelte';
-	import { IDBUpdater } from '$lib/helpers/migrator/idbUpdater';
-	import { wakeLock } from '$lib/helpers/wakelock';
 
 	let isLoaded = false;
 	const showAd = writable(false);
@@ -152,7 +153,7 @@
 </svelte:head>
 
 <main
-	style="--screen-width:{innerWidth}px; --screen-height:{innerHeight}px; --hsr-font:var(--hsr-{font}-font)"
+	style="--screen-width:{innerWidth}px; --screen-height:{innerHeight}px; --ratio:{innerWidth}/{innerHeight}; --hsr-font:var(--hsr-{font}-font)"
 	class:mobileLandscape={$isMobileLandscape}
 	class={$locale}
 >
@@ -211,6 +212,7 @@
 		display: block;
 		width: 100vw;
 		height: 100vh;
+		aspect-ratio: var(--ratio);
 		overflow: hidden;
 		font-family: var(--hsr-font);
 		background-color: #000;

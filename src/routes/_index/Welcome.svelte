@@ -26,7 +26,7 @@
 		if (status === 'offline') return retry();
 
 		proUser.set(!!validity);
-		if ($isPWA) return showAd.set(false);
+		// if ($isPWA) return showAd.set(false);
 		showAd.set(!validity);
 	};
 
