@@ -9,9 +9,6 @@
 	import { dev } from '$app/environment';
 	import './styles.css';
 
-	import { APP_TITLE, DESCRIPTION, HOST, KEYWORDS } from '$lib/data/site-setup.json';
-	import { IDBUpdater } from '$lib/helpers/migrator/idbUpdater';
-	import { wakeLock } from '$lib/helpers/wakelock';
 	import {
 		isMobile,
 		isMobileLandscape,
@@ -19,7 +16,11 @@
 		viewportWidth,
 		viewportHeight
 	} from '$lib/stores/app-store';
+	import { APP_TITLE, DESCRIPTION, HOST, KEYWORDS } from '$lib/data/site-setup.json';
+	import { IDBUpdater } from '$lib/helpers/migrator/idbUpdater';
+	import { wakeLock } from '$lib/helpers/wakelock';
 	import { mobileDetect } from '$lib/helpers/mobile-detect';
+	import { loadTracks } from '$lib/helpers/sounds/media-session';
 	import { mountLocale } from '$lib/helpers/i18n';
 
 	import Iklan from '$lib/components/Iklan.svelte';
@@ -73,6 +74,7 @@
 			if ($isMobile) setMobileMode();
 		});
 
+		loadTracks(); // Load Phonograph Tracks
 		registerSW(); // Service Worker for Faster Load
 		wakeLock(); // Prevent screen off while open the app
 		await IDBUpdater(); // update site data to the newer version
