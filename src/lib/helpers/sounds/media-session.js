@@ -8,6 +8,7 @@ const trackAlbums = {
 	'the-flapper-sinthome': 'C1X6Dfp',
 	'experience-the-paths-1': 'Y2wRLPx',
 	'experience-the-paths-2': 'zJRxzGK',
+	inside: 'ZfbV2mv',
 	'more-ost': ''
 };
 
@@ -33,11 +34,11 @@ export const loadTracks = async () => {
 };
 
 const albumCover = (album, images) => {
-	const albums = Object.keys(albumList).filter((key) => !!albumList[key]);
+	const albums = Object.keys(trackAlbums).filter((key) => !!trackAlbums[key]);
 	if (albums.includes(album)) {
 		const sizes = [256, 384, 512];
 		const artwork = sizes.map((size) => {
-			const src = `https://imagecdn.app/v2/image/https%3A%2F%2Fi.ibb.co%2F${albumList[album]}%2F${album}.webp?width=${size}`;
+			const src = `https://imagecdn.app/v2/image/https%3A%2F%2Fi.ibb.co%2F${trackAlbums[album]}%2F${album}.webp?width=${size}`;
 			const type = 'image/webp';
 			const sizes = `${size}x${size}`;
 			return { src, type, sizes };

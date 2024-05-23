@@ -119,6 +119,7 @@ const images = [
 			'album_the-flapper-sinthome.webp',
 			'album_experience-the-paths-1.webp',
 			'album_experience-the-paths-2.webp',
+			'album_inside.webp',
 			'album_more-ost.webp',
 			'album_custom-musics.webp',
 			'circle-ornament1.svg',
