@@ -233,6 +233,7 @@
 
 	.btn {
 		padding: 0.5%;
+		white-space: nowrap;
 	}
 
 	/* Mobile Landscape */

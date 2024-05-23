@@ -133,6 +133,7 @@
 		flex-direction: column;
 		height: calc(0.2 * var(--bw));
 		overflow: auto;
+		opacity: 0.75;
 	}
 	.description :global(p) {
 		font-size: calc(0.017 * var(--bw));
@@ -160,6 +161,10 @@
 	:global(.zh-CN) h1,
 	:global(.zh-TW) h1 {
 		font-size: calc(0.055 * var(--bw));
+	}
+
+	:global(.ru-RU) h1 {
+		text-shadow: 0 0 calc(0.0012 * var(--bw)) #000;
 	}
 
 	:global(.mobileLandscape) h1 {

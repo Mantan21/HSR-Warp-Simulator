@@ -85,6 +85,10 @@
 		color: rgba(255, 255, 255, 0.9);
 	}
 
+	:global(.ru-RU) h1 {
+		text-shadow: 0 0 calc(0.0015 * var(--bw)) #fff;
+	}
+
 	.description {
 		background-color: rgba(0, 0, 0, 0.5);
 		padding: calc(0.02 * var(--bw)) 2.5%;

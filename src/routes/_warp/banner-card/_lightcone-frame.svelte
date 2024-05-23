@@ -133,6 +133,7 @@
 		flex-direction: column;
 		height: calc(0.09 * var(--bw));
 		overflow: auto;
+		opacity: 0.75;
 		mask-image: linear-gradient(black 80%, transparent);
 	}
 
@@ -165,6 +166,10 @@
 		height: calc(0.16 * var(--bw));
 		display: flex;
 		align-items: center;
+	}
+
+	:global(.ru-RU) h1 {
+		text-shadow: 0 0 calc(0.0012 * var(--bw)) #000;
 	}
 
 	:global(.ja-JP) h1 {
