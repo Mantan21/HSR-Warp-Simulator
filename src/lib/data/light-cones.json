@@ -2,6 +2,32 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 21045,
+			"name": "after-the-charmony-fall",
+			"rarity": 4,
+			"path": "erudition",
+			"limited": true
+		},
+		{
+			"pro": true,
+			"itemID": 23028,
+			"name": "yet-hope-is-priceless",
+			"rarity": 5,
+			"path": "erudition",
+			"limited": true,
+			"bannerOffset": { "t": -5, "l": 40 }
+		},
+		{
+			"pro": true,
+			"itemID": 23025,
+			"name": "whereabouts-should-dreams-rest",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "t": -5, "l": 29 }
+		},
+		{
+			"pro": true,
 			"itemID": 23027,
 			"name": "sailing-towards-a-second-life",
 			"rarity": 5,
@@ -11,6 +37,7 @@
 		},
 		{
 			"itemID": 21044,
+			"animationID": "A93C0IfRWgI",
 			"name": "boundless-choreo",
 			"rarity": 4,
 			"path": "nihility",
@@ -18,6 +45,7 @@
 		},
 		{
 			"itemID": 23026,
+			"animationID": "QUqVsbYVwnk",
 			"name": "flowing-nightglow",
 			"rarity": 5,
 			"path": "harmony",
@@ -26,6 +54,7 @@
 		},
 		{
 			"itemID": 21043,
+			"animationID": "AQEevegC7xE",
 			"name": "concert-for-two",
 			"rarity": 4,
 			"path": "preservation",

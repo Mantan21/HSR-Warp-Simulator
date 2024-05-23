@@ -249,6 +249,30 @@
 			"name": "brilliant-fixation",
 			"featured": "sailing-towards-a-second-life",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 43,
+			"name": "",
+			"featured": "firefly",
+			"type": "character-event"
+		},
+		{
+			"id": 44,
+			"name": "brilliant-fixation",
+			"featured": "whereabouts-should-dreams-rest",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 45,
+			"name": "",
+			"featured": "jade",
+			"type": "character-event"
+		},
+		{
+			"id": 46,
+			"name": "brilliant-fixation",
+			"featured": "yet-hope-is-priceless",
+			"type": "lightcone-event"
 		}
 	]
 }

@@ -2,6 +2,32 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1314,
+			"name": "jade",
+			"rarity": 5,
+			"combat_type": "quantum",
+			"path": "erudition",
+			"colors": ["67 58 105", "125 110 174"],
+			"bannerOffset": { "b": -95, "w": 170, "l": -23 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 120, "t": 65, "l": 52 },
+			"gachaCardOffset": { "l": 20, "t": 290, "w": 660 }
+		},
+		{
+			"pro": true,
+			"itemID": 1310,
+			"name": "firefly",
+			"rarity": 5,
+			"combat_type": "fire",
+			"path": "destruction",
+			"colors": ["92 119 172", "119 202 190", "238 158 65"],
+			"bannerOffset": { "b": -50, "w": 151, "l": -5 },
+			"buttonOffset": { "t": -29, "w": 102 },
+			"splashartOffset": { "w": 125, "l": 57, "t": 40 },
+			"gachaCardOffset": { "l": 75, "t": 98, "w": 600 }
+		},
+		{
+			"pro": true,
 			"itemID": 1315,
 			"name": "boothill",
 			"rarity": 5,

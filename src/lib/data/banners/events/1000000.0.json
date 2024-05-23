@@ -1,4 +1,35 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"phase": 1,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["43-1"],
+					"rateup": ["march-7th", "hanya", "xueyi"]
+				},
+				"lightcone": {
+					"bannerID": ["44-1"],
+					"rateup": ["swordplay", "boundless-choreo", "perfect-timing"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"pro": true,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["45-1"],
+					"rateup": ["pela", "luka", "hook"]
+				},
+				"lightcone": {
+					"bannerID": ["46-1"],
+					"rateup": ["after-the-charmony-fall", "geniuses-repose", "landaus-choice"]
+				}
+			}
+		}
+	]
 }
