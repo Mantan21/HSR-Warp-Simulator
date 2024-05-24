@@ -3,14 +3,9 @@
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
-	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
-	import { nextTrack } from '$lib/helpers/sounds/phonograph';
 	import ButtonGeneral from '$lib/components/ButtonGeneral.svelte';
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import TrackItem from './_track-item.svelte';
-	import ModalTrack from './_modal-track.svelte';
-	import Modal from '$lib/components/Modal.svelte';
 
 	export let playedAlbum = '';
 	export let trackList = [];
@@ -44,45 +39,9 @@
 	};
 	setContext('selectTrack', selectTrack);
 
-	// Modal to mange Track
-	let showModalAdd = false;
-	const handleModal = (val) => (showModalAdd = val);
-	setContext('handleModal', handleModal);
-
-	let showModalDelete = false;
-	let musicIDToDelete = '';
-	const closeModalDelete = () => {
-		playSfx('modal-close');
-		showModalDelete = false;
-	};
-	setContext('closeModal', closeModalDelete);
-
-	setContext('deletePrompt', (id) => {
-		musicIDToDelete = id;
-		showModalDelete = true;
-	});
-
-	const confirmDelete = () => {
-		playSfx();
-		if ($activeBacksound.sourceID === musicIDToDelete) nextTrack();
-		musics.update((m) => m.filter((m) => m.sourceID !== musicIDToDelete));
-		customTracks.delete(musicIDToDelete);
-		musicIDToDelete = '';
-		showModalDelete = false;
-	};
+	// Modal
+	const handleModal = getContext('handleModal');
 </script>
-
-<ModalTrack show={showModalAdd} />
-
-{#if showModalDelete}
-	<Modal
-		title={$t('phonograph.removeTrack')}
-		on:confirm={confirmDelete}
-		on:cancel={closeModalDelete}
-	>
-		<div class="deleteTrack">{$t('phonograph.deleteTrack')}</div>
-	</Modal>
-{/if}
 
 <div class="tracks" bind:clientWidth={width} style="--wd:{width}px">
 	<div class="album-name"><i> {albumTitle(playedAlbum)}</i></div>

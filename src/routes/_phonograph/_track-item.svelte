@@ -58,6 +58,19 @@
 		playSfx();
 		deletePrompt(sourceID);
 	};
+
+	const marquee = (content) => {
+		const setMarquee = () => {
+			const titleContainer = content.querySelector('.track-title');
+			const titleEl = titleContainer.querySelector('.title');
+			const containerWidth = titleContainer.offsetWidth;
+			const titleWidth = titleEl.offsetWidth;
+			if (containerWidth > titleWidth) return content.classList.remove('marquee');
+			content.classList.add('marquee');
+			content.style.setProperty('--marquee-width', `${containerWidth}px`);
+		};
+		new ResizeObserver(setMarquee).observe(content);
+	};
 </script>
 
 <button
@@ -67,6 +80,7 @@
 	disabled={isWaiting}
 	class:custom={album === 'custom-musics'}
 	on:click={() => previewTrack(sourceID)}
+	use:marquee
 >
 	<i class="hsr-right-arrow" />
 	<div class="track-wrapper">
@@ -257,10 +271,21 @@
 		font-size: calc(0.05 * var(--wd));
 		padding: 4% 0;
 		position: relative;
-		overflow: hidden;
-		text-overflow: ellipsis;
 		white-space: nowrap;
+		overflow: hidden;
 		width: 100%;
+	}
+
+	button:not(:hover) .track-title,
+	button.isPlayed .track-title {
+		text-overflow: ellipsis;
+	}
+
+	button.marquee:hover .track-title .title,
+	button.marquee.isPlayed .track-title .title {
+		display: block;
+		width: fit-content;
+		animation: marquee 7.5s linear infinite;
 	}
 
 	.progress {
@@ -362,6 +387,15 @@
 		}
 		100% {
 			transform: scaleY(1);
+		}
+	}
+
+	@keyframes marquee {
+		from {
+			transform: translateX(var(--marquee-width));
+		}
+		to {
+			transform: translateX(-100%);
 		}
 	}
 </style>

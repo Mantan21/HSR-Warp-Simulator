@@ -32,7 +32,9 @@
 		<div class="wrapper-info" out:fade|local>
 			<div class="info-body" in:fade={{ delay: 250, duration: 1000 }}>
 				<div class="short-detail">
-					<h1>{$t(`banner.${item.bannerName}`)}</h1>
+					<h1>
+						<span> {$t(`banner.${item.bannerName}`)} </span>
+					</h1>
 					<div class="time">
 						<i class="hsr-time" />
 						<caption> {$t('warp.duration')}</caption>
@@ -186,6 +188,22 @@
 		font-size: calc(0.022 * var(--bw));
 		height: calc(0.07 * var(--bw));
 		line-height: 100%;
+	}
+
+	h1 span {
+		display: block;
+		position: relative;
+	}
+
+	h1 span::before {
+		content: '';
+		height: 80%;
+		width: calc(0.006 * var(--bw));
+		background-color: #3d81ce;
+		position: absolute;
+		left: calc(0.0275 * var(--bw) * -1);
+		top: 50%;
+		transform: translateY(-50%);
 	}
 
 	/* Right Pane */

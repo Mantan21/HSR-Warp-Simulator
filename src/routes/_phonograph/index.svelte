@@ -5,7 +5,7 @@
 	import { liteMode } from '$lib/stores/app-store';
 	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
-	import { pauseTrack, playTrack } from '$lib/helpers/sounds/phonograph';
+	import { nextTrack, pauseTrack, playTrack } from '$lib/helpers/sounds/phonograph';
 
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
@@ -14,6 +14,9 @@
 	import Albums from './_albums.svelte';
 	import Tracks from './_tracks.svelte';
 	import Controller from './_controller.svelte';
+	import ModalTrack from './_modal-track.svelte';
+	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
+	import Modal from '$lib/components/Modal.svelte';
 
 	let detailHeight;
 	onMount(() => playSfx('music-loaded'));
@@ -47,11 +50,50 @@
 		await pauseTrack();
 		playTrack(activeTrack);
 	});
+
+	// Modal to mange Track
+	let showModalAdd = false;
+	const handleModal = (val) => (showModalAdd = val);
+	setContext('handleModal', handleModal);
+
+	let showModalDelete = false;
+	let musicIDToDelete = '';
+	const closeModalDelete = () => {
+		playSfx('modal-close');
+		showModalDelete = false;
+	};
+	setContext('closeModal', closeModalDelete);
+
+	setContext('deletePrompt', (id) => {
+		musicIDToDelete = id;
+		showModalDelete = true;
+	});
+
+	const confirmDelete = () => {
+		playSfx();
+		if ($activeBacksound.sourceID === musicIDToDelete) nextTrack();
+		musics.update((m) => m.filter((m) => m.sourceID !== musicIDToDelete));
+		customTracks.delete(musicIDToDelete);
+		musicIDToDelete = '';
+		showModalDelete = false;
+	};
 </script>
 
 <svelte:head>
 	<title>{$t('phonograph.heading')} | {$t('title')}</title>
 </svelte:head>
+
+<ModalTrack show={showModalAdd} />
+
+{#if showModalDelete}
+	<Modal
+		title={$t('phonograph.removeTrack')}
+		on:confirm={confirmDelete}
+		on:cancel={closeModalDelete}
+	>
+		<div class="deleteTrack">{$t('phonograph.deleteTrack')}</div>
+	</Modal>
+{/if}
 
 <section transition:fade={{ duration: 250 }} class:lite={$liteMode}>
 	<Background />
