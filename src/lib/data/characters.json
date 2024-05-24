@@ -27,7 +27,6 @@
 			"gachaCardOffset": { "l": 75, "t": 98, "w": 600 }
 		},
 		{
-			"pro": true,
 			"itemID": 1315,
 			"name": "boothill",
 			"rarity": 5,
