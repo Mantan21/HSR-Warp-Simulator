@@ -2,13 +2,13 @@ import { t } from 'svelte-i18n';
 import { musics, albumList } from '$lib/stores/phonograph-store';
 
 const trackAlbums = {
-	'out-of-control': 'ygKTfYj',
-	'of-snow-and-ember': 'wR0Nj7h',
-	'svah-sanishyu': 'vqbQ66N',
-	'the-flapper-sinthome': 'C1X6Dfp',
-	'experience-the-paths-1': 'Y2wRLPx',
-	'experience-the-paths-2': 'zJRxzGK',
-	inside: 'ZfbV2mv',
+	'out-of-control': 'm4kdBdn',
+	'of-snow-and-ember': '4fq5BGg',
+	'svah-sanishyu': 'pKsGkwH',
+	'the-flapper-sinthome': 'Lx0h7B6',
+	'experience-the-paths-1': 'ZLhLMvZ',
+	'experience-the-paths-2': 'hBwzvZj',
+	inside: 'R2nsXP2',
 	'more-ost': ''
 };
 

@@ -11,51 +11,51 @@ const icons = iconSize.map((size) => {
 		sizes: `${size}x${size}`,
 		type: 'image/png'
 	};
-	if (size === 192) iconObj.purpose = 'maskable';
-	if (size === 384) iconObj.purpose = 'any';
+	if (size === 72) iconObj.purpose = 'maskable';
+	if (size === 192) iconObj.purpose = 'any';
 	return iconObj;
 });
 
 const screenshots = [
 	{
-		sizes: '1280x720',
-		src: 'https://i.ibb.co/7NF6qNp/sc1.jpg',
+		sizes: '640x360',
+		src: 'https://i.ibb.co/n74SYpr/sc1.jpg',
 		label: 'Section 1',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '1280x720',
-		src: 'https://i.ibb.co/n3hN3w3/sc2.jpg',
+		sizes: '640x360',
+		src: 'https://i.ibb.co/CPPydzc/sc2.jpg',
 		label: 'Section 2',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '1280x720',
-		src: 'https://i.ibb.co/VMrtX8v/sc3.jpg',
+		sizes: '640x360',
+		src: 'https://i.ibb.co/Q9DgGMN/sc3.jpg',
 		label: 'Section 3',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '1280x720',
-		src: 'https://i.ibb.co/fX29p3X/sc4.jpg',
+		sizes: '640x360',
+		src: 'https://i.ibb.co/pLNZBv2/sc4.jpg',
 		label: 'Section 4',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '1280x720',
-		src: 'https://i.ibb.co/ZH8y8N5/sc5.jpg',
+		sizes: '640x360',
+		src: 'https://i.ibb.co/q7K3vkv/sc5.jpg',
 		label: 'Section 5',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '1280x720',
-		src: 'https://i.ibb.co/128RLT1/sc6.jpg',
+		sizes: '640x360',
+		src: 'https://i.ibb.co/34Ddkgp/sc6.jpg',
 		label: 'Section 6',
 		type: 'image/jpg'
 	},
 	{
-		sizes: '1280x720',
-		src: 'https://i.ibb.co/p4Yfkdh/sc7.jpg',
+		sizes: '640x360',
+		src: 'https://i.ibb.co/LSKRZgC/sc7.jpg',
 		label: 'Section 7',
 		type: 'image/jpg'
 	}
