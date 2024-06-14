@@ -18,8 +18,8 @@
 			"bannerOffset": { "t": -5, "l": 40 }
 		},
 		{
-			"pro": true,
 			"itemID": 23025,
+			"animationID": "0gDodxkbzCM",
 			"name": "whereabouts-should-dreams-rest",
 			"rarity": 5,
 			"path": "destruction",
@@ -28,6 +28,7 @@
 		},
 		{
 			"itemID": 23027,
+			"animationID": "Bg_SF18T_zQ",
 			"name": "sailing-towards-a-second-life",
 			"rarity": 5,
 			"path": "hunt",

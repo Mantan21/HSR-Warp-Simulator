@@ -14,7 +14,6 @@
 			"gachaCardOffset": { "l": 20, "t": 290, "w": 660 }
 		},
 		{
-			"pro": true,
 			"itemID": 1310,
 			"name": "firefly",
 			"rarity": 5,

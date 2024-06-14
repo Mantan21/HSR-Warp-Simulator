@@ -265,7 +265,6 @@
 		},
 		{
 			"date": "6 May 2024",
-			"featured": true,
 			"changes": [
 				"Add New Character: <b>Firefly (5★)</b> & <b>Jade (5★)</b>",
 				"Add New Light Cones: <b>Whereabouts Should Dreams Rest</b> & <b>Yet Hope Is Priceless</b>"
@@ -275,6 +274,11 @@
 			"date": "24 May 2024",
 			"featured": true,
 			"changes": ["Unlock 2nd  phase of v2.2 - <b>Boothill & Fu Xuan</b>"]
+		},
+		{
+			"date": "29 Apr 2024",
+			"featured": true,
+			"changes": ["Unlock Content: The 1st phase of v2.3 - <b>Firefly & Ruan Mei</b>"]
 		}
 	]
 }
