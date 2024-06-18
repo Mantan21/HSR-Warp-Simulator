@@ -2,6 +2,30 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1218,
+			"name": "jiaoqiu",
+			"rarity": 5,
+			"combat_type": "fire",
+			"path": "nihility",
+			"bannerOffset": { "b": -57, "w": 130, "l": 5 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 95, "t": 60, "l": 56 },
+			"gachaCardOffset": { "l": 55, "t": 235, "w": 555 }
+		},
+		{
+			"pro": true,
+			"itemID": 1221,
+			"name": "yunli",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "destruction",
+			"bannerOffset": { "b": -50, "w": 155, "l": -18 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 120, "t": 42, "l": 52 },
+			"gachaCardOffset": { "l": 40, "t": 120, "w": 600 }
+		},
+		{
+			"pro": true,
 			"itemID": 1314,
 			"name": "jade",
 			"rarity": 5,

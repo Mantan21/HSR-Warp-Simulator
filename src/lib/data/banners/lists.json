@@ -273,6 +273,30 @@
 			"name": "brilliant-fixation",
 			"featured": "yet-hope-is-priceless",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 47,
+			"name": "",
+			"featured": "yunli",
+			"type": "character-event"
+		},
+		{
+			"id": 48,
+			"name": "brilliant-fixation",
+			"featured": "dance-at-sunset",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 49,
+			"name": "",
+			"featured": "jiaoqiu",
+			"type": "character-event"
+		},
+		{
+			"id": 50,
+			"name": "brilliant-fixation",
+			"featured": "those-many-springs",
+			"type": "lightcone-event"
 		}
 	]
 }

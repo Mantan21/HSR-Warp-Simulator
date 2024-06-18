@@ -2,6 +2,24 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 23029,
+			"name": "those-many-springs",
+			"rarity": 5,
+			"path": "nihility",
+			"limited": true,
+			"bannerOffset": { "t": -5, "l": 40 }
+		},
+		{
+			"pro": true,
+			"itemID": 23030,
+			"name": "dance-at-sunset",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "t": -40, "l": 3, "w": 135 }
+		},
+		{
+			"pro": true,
 			"itemID": 21045,
 			"name": "after-the-charmony-fall",
 			"rarity": 4,

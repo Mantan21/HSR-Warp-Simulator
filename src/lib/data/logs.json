@@ -279,6 +279,14 @@
 			"date": "29 Apr 2024",
 			"featured": true,
 			"changes": ["Unlock Content: The 1st phase of v2.3 - <b>Firefly & Ruan Mei</b>"]
+		},
+		{
+			"date": "6 May 2024",
+			"featured": true,
+			"changes": [
+				"Add New Character: <b>Yunli (5★)</b> & <b>Jiaoqiu (5★)</b>",
+				"Add New Light Cones: <b>Dance at Sunset</b> & <b>Those Many Springs</b>"
+			]
 		}
 	]
 }
