@@ -19,7 +19,6 @@
 			"bannerOffset": { "t": -40, "l": 3, "w": 135 }
 		},
 		{
-			"pro": true,
 			"itemID": 21045,
 			"name": "after-the-charmony-fall",
 			"rarity": 4,
@@ -27,7 +26,6 @@
 			"limited": true
 		},
 		{
-			"pro": true,
 			"itemID": 23028,
 			"name": "yet-hope-is-priceless",
 			"rarity": 5,

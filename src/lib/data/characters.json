@@ -25,7 +25,6 @@
 			"gachaCardOffset": { "l": 40, "t": 120, "w": 600 }
 		},
 		{
-			"pro": true,
 			"itemID": 1314,
 			"name": "jade",
 			"rarity": 5,
