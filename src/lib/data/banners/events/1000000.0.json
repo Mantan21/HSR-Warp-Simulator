@@ -1,35 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"phase": 1,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["47-1"],
-					"rateup": ["gallagher", "misha", "xueyi"]
-				},
-				"lightcone": {
-					"bannerID": ["48-1"],
-					"rateup": ["day-one-of-my-new-life", "memories-of-the-past", "eyes-of-the-prey"]
-				}
-			}
-		},
-		{
-			"phase": 2,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["49-1"],
-					"rateup": ["serval", "natasha", "asta"]
-				},
-				"lightcone": {
-					"bannerID": ["50-1"],
-					"rateup": ["trend-of-the-universal-market", "shared-feeling", "after-the-charmony-fall"]
-				}
-			}
-		}
-	]
+	"data": []
 }

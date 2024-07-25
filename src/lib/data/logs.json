@@ -280,7 +280,6 @@
 		},
 		{
 			"date": "17 Jun 2024",
-			"featured": true,
 			"changes": [
 				"Add New Character: <b>Yunli (5★)</b> & <b>Jiaoqiu (5★)</b>",
 				"Add New Light Cones: <b>Dance at Sunset</b> & <b>Those Many Springs</b>"
@@ -290,6 +289,11 @@
 			"date": "06 Jul 2024",
 			"featured": true,
 			"changes": ["Unlock 2nd  phase of v2.2 - <b>Jade & Argenti</b>"]
+		},
+		{
+			"date": "25 Jul 2024",
+			"featured": true,
+			"changes": ["Unlock Content: 1st  phase of v2.4 - <b>Yunli & Huohuo</b>"]
 		}
 	]
 }

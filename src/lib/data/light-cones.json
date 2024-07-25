@@ -2,6 +2,14 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 21046,
+			"name": "poised-to-bloom",
+			"rarity": 4,
+			"path": "harmony",
+			"limited": true
+		},
+		{
+			"pro": true,
 			"itemID": 23029,
 			"name": "those-many-springs",
 			"rarity": 5,
