@@ -297,6 +297,30 @@
 			"name": "brilliant-fixation",
 			"featured": "those-many-springs",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 51,
+			"name": "",
+			"featured": "feixiao",
+			"type": "character-event"
+		},
+		{
+			"id": 52,
+			"name": "brilliant-fixation",
+			"featured": "i-venture-forth-to-hunt",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 53,
+			"name": "",
+			"featured": "lingsha",
+			"type": "character-event"
+		},
+		{
+			"id": 54,
+			"name": "brilliant-fixation",
+			"featured": "scent-alone-stays-true",
+			"type": "lightcone-event"
 		}
 	]
 }

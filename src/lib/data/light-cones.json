@@ -2,6 +2,32 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 21047,
+			"name": "shadowed-by-night",
+			"rarity": 4,
+			"path": "hunt",
+			"limited": true
+		},
+		{
+			"pro": true,
+			"itemID": 23032,
+			"name": "scent-alone-stays-true",
+			"rarity": 5,
+			"path": "abundance",
+			"limited": true,
+			"bannerOffset": { "b": -40, "l": 50 }
+		},
+		{
+			"pro": true,
+			"itemID": 23031,
+			"name": "i-venture-forth-to-hunt",
+			"rarity": 5,
+			"path": "hunt",
+			"limited": true,
+			"bannerOffset": { "t": -30, "l": 35, "w": 150 }
+		},
+		{
+			"pro": true,
 			"itemID": 21046,
 			"name": "poised-to-bloom",
 			"rarity": 4,

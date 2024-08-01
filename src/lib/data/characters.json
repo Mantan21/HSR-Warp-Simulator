@@ -2,6 +2,41 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1223,
+			"name": "moze",
+			"rarity": 4,
+			"combat_type": "lightning",
+			"path": "hunt",
+			"release": "2.5-2",
+			"splashartOffset": { "w": 85, "t": 55, "l": 53 },
+			"gachaCardOffset": { "t": 200, "w": 460 }
+		},
+		{
+			"pro": true,
+			"itemID": 1222,
+			"name": "lingsha",
+			"rarity": 5,
+			"combat_type": "fire",
+			"path": "abundance",
+			"bannerOffset": { "b": -65, "w": 145, "l": -12 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 100, "t": 55, "l": 50 },
+			"gachaCardOffset": { "l": 45, "t": 175, "w": 555 }
+		},
+		{
+			"pro": true,
+			"itemID": 1220,
+			"name": "feixiao",
+			"rarity": 5,
+			"combat_type": "wind",
+			"path": "hunt",
+			"bannerOffset": { "b": -55, "w": 190, "l": -50 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 150, "l": 35 },
+			"gachaCardOffset": { "l": -35, "t": 130, "w": 850 }
+		},
+		{
+			"pro": true,
 			"itemID": 1218,
 			"name": "jiaoqiu",
 			"rarity": 5,
