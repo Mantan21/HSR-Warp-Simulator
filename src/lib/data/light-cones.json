@@ -29,6 +29,7 @@
 		{
 			"pro": true,
 			"itemID": 21046,
+			"animationID": "1yD19scR4FQ",
 			"name": "poised-to-bloom",
 			"rarity": 4,
 			"path": "harmony",
@@ -46,6 +47,7 @@
 		{
 			"pro": true,
 			"itemID": 23030,
+			"animationID": "HClcD4rj_Mw",
 			"name": "dance-at-sunset",
 			"rarity": 5,
 			"path": "destruction",
@@ -54,6 +56,7 @@
 		},
 		{
 			"itemID": 21045,
+			"animationID": "2YY3vb7tIho",
 			"name": "after-the-charmony-fall",
 			"rarity": 4,
 			"path": "erudition",
@@ -61,6 +64,7 @@
 		},
 		{
 			"itemID": 23028,
+			"animationID": "ngTMWlZ6bU8",
 			"name": "yet-hope-is-priceless",
 			"rarity": 5,
 			"path": "erudition",
