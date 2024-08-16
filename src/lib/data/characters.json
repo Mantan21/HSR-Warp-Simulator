@@ -36,7 +36,6 @@
 			"gachaCardOffset": { "l": -35, "t": 130, "w": 850 }
 		},
 		{
-			"pro": true,
 			"itemID": 1218,
 			"name": "jiaoqiu",
 			"rarity": 5,

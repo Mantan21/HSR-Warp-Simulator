@@ -36,7 +36,6 @@
 			"limited": true
 		},
 		{
-			"pro": true,
 			"itemID": 23029,
 			"name": "those-many-springs",
 			"rarity": 5,
@@ -45,7 +44,6 @@
 			"bannerOffset": { "t": -5, "l": 40 }
 		},
 		{
-			"pro": true,
 			"itemID": 23030,
 			"animationID": "HClcD4rj_Mw",
 			"name": "dance-at-sunset",

@@ -291,7 +291,6 @@
 		},
 		{
 			"date": "25 Jul 2024",
-			"featured": true,
 			"changes": ["Unlock Content: 1st  phase of v2.4 - <b>Yunli & Huohuo</b>"]
 		},
 		{
@@ -303,6 +302,11 @@
 				"Add New Character: <b> Moze (4★)</b>",
 				"Add New Light Cones: <b>I Venture Forth to Hunt </b> & <b>Scent Alone Stays True</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "16 Aug 2024",
+			"changes": ["Unlock Content: 2nd  phase of v2.4 - <b>Jiaoqiu & Sparkle</b>"]
 		}
 	]
 }
