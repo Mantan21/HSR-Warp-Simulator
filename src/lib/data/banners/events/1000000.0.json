@@ -1,35 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"phase": 1,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["51-1"],
-					"rateup": ["hanya", "yukong", "lynx"]
-				},
-				"lightcone": {
-					"bannerID": ["52-1"],
-					"rateup": ["perfect-timing", "the-moles-welcome-you", "the-birth-of-the-self"]
-				}
-			}
-		},
-		{
-			"phase": 2,
-			"pro": true,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["53-1"],
-					"rateup": ["moze", "guinaifen", "arlan"]
-				},
-				"lightcone": {
-					"bannerID": ["54-1"],
-					"rateup": ["eyes-of-the-prey", "shadowed-by-night", "a-secret-vow"]
-				}
-			}
-		}
-	]
+	"data": []
 }

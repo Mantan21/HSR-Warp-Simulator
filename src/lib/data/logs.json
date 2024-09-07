@@ -295,7 +295,6 @@
 		},
 		{
 			"date": "17 Jun 2024",
-			"featured": true,
 			"changes": [
 				"Add New Character: <b> Feixiao (5★)</b>",
 				"Add New Character: <b> Lingsha (5★)</b>",
@@ -304,9 +303,20 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "16 Aug 2024",
 			"changes": ["Unlock Content: 2nd  phase of v2.4 - <b>Jiaoqiu & Sparkle</b>"]
+		},
+		{
+			"featured": true,
+			"date": "16 Aug 2024",
+			"changes": [
+				"Unlock Content: 1st phase of v2.5",
+				"- New Character: <b>Feixiao</b>",
+				"- New Character: <b>Moze</b>",
+				"- Rerun Banner: <b>Kafka</b>",
+				"- Rerun Banner: <b>Blackswan</b>",
+				"- Rerun Banner: <b>Robin</b>"
+			]
 		}
 	]
 }

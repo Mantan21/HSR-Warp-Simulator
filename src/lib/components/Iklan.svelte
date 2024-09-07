@@ -55,18 +55,15 @@
 		<!-- Autotag -->
 		<!-- don't show autotag if PWA -->
 		{#if !($isPWA && $isMobile)}
-			<script
-				data-cfasync="false"
-				type="text/javascript"
-				data-adel="atag"
-				src="//acacdn.com/script/atg.js"
-				czid="v1xd6wvvpe"
-			></script>
+			<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+			<script type="text/javascript">
+				aclib.runAutoTag({ zoneId: 'v1xd6wvvpe' });
+			</script>
 		{/if}
 		<!-- Autotag -->
 
 		<!-- Desktop Only -->
-		{#if !$isMobile}
+		<!-- {#if !$isMobile}
 			{#if randomNumber(1, 2) === 1}
 				<script
 					type="text/javascript"
@@ -78,7 +75,7 @@
 				type="text/javascript"
 				src="//pl17419889.profitablecpmgate.com/fb/35/45/fb3545e433a3f40f53c83f80f24037ec.js"
 			></script>
-		{/if}
+		{/if} -->
 	{/if}
 {/if}
 

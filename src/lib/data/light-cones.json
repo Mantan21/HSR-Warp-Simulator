@@ -3,6 +3,7 @@
 		{
 			"pro": true,
 			"itemID": 21047,
+			"animationID": "BSHsAtXYusw",
 			"name": "shadowed-by-night",
 			"rarity": 4,
 			"path": "hunt",
@@ -18,8 +19,8 @@
 			"bannerOffset": { "b": -40, "l": 50 }
 		},
 		{
-			"pro": true,
 			"itemID": 23031,
+			"animationID": "6-Iq_aD6pTc",
 			"name": "i-venture-forth-to-hunt",
 			"rarity": 5,
 			"path": "hunt",
@@ -27,7 +28,6 @@
 			"bannerOffset": { "t": -30, "l": 35, "w": 150 }
 		},
 		{
-			"pro": true,
 			"itemID": 21046,
 			"animationID": "1yD19scR4FQ",
 			"name": "poised-to-bloom",
@@ -37,6 +37,7 @@
 		},
 		{
 			"itemID": 23029,
+			"animationID": "6vnEaW1AkXE",
 			"name": "those-many-springs",
 			"rarity": 5,
 			"path": "nihility",

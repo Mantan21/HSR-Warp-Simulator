@@ -1,7 +1,6 @@
 {
 	"data": [
 		{
-			"pro": true,
 			"itemID": 1223,
 			"name": "moze",
 			"rarity": 4,
@@ -24,13 +23,12 @@
 			"gachaCardOffset": { "l": 45, "t": 175, "w": 555 }
 		},
 		{
-			"pro": true,
 			"itemID": 1220,
 			"name": "feixiao",
 			"rarity": 5,
 			"combat_type": "wind",
 			"path": "hunt",
-			"bannerOffset": { "b": -55, "w": 190, "l": -50 },
+			"bannerOffset": { "b": -55, "w": 200, "l": -57 },
 			"buttonOffset": { "t": -31, "w": 110 },
 			"splashartOffset": { "w": 150, "l": 35 },
 			"gachaCardOffset": { "l": -35, "t": 130, "w": 850 }

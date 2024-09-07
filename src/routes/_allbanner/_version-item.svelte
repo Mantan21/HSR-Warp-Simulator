@@ -50,9 +50,10 @@
 				<div class="wrapper" class:dual={bannerID.length > 1}>
 					{#if bannerID.length > 1}
 						{@const { bannerName, runNumber } = charData[0]}
+						{@const img = $assets[`banner/${bannerName}-${runNumber}`]}
 						<div class="rateup4">
 							<img
-								use:lazyLoad={$assets[`banner/${bannerName}-${runNumber}`]}
+								use:lazyLoad={img || $assets[`banner/${version.replace('.', '-')}_${phase}`]}
 								alt={$t(`banner.${bannerName}`)}
 								crossorigin="anonymous"
 							/>
@@ -60,9 +61,10 @@
 					{/if}
 
 					{#each charData as { bannerName, runNumber, featured }}
-						<picture>
+						{@const img = $assets[`banner/${bannerName || featured}-${runNumber}`]}
+						<picture class:bg={!img}>
 							<img
-								use:lazyLoad={$assets[`banner/${bannerName || featured}-${runNumber}`]}
+								use:lazyLoad={img || $assets[`closeup/${featured}`]}
 								alt={$t(`banner.${bannerName}`)}
 								crossorigin="anonymous"
 							/>
@@ -128,6 +130,14 @@
 		width: 100%;
 	}
 
+	picture.bg {
+		background-image: linear-gradient(to top, rgba(255, 198, 87, 0.85), #07103e 40%);
+		background-color: #121731;
+	}
+	picture.bg img {
+		height: 100%;
+	}
+
 	picture img {
 		width: 100%;
 	}
@@ -142,7 +152,7 @@
 	}
 
 	.dual picture,
-	.dual picture img {
+	.dual picture:not(.bg) img {
 		height: 100%;
 		object-position: 80%;
 	}
