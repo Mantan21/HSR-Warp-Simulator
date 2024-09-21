@@ -1,6 +1,19 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 1317,
+			"name": "rappa",
+			"rarity": 5,
+			"combat_type": "imaginary",
+			"path": "erudition",
+			"colors": ["31 14 59", "84 64 115"],
+			"bannerOffset": { "b": -25, "w": 125, "l": -10 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 95, "t": 35, "l": 45 },
+			"gachaCardOffset": { "l": 5, "t": 35, "w": 430 }
+		},
+		{
 			"itemID": 1223,
 			"name": "moze",
 			"rarity": 4,

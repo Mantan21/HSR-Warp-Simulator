@@ -317,6 +317,14 @@
 				"- Rerun Banner: <b>Blackswan</b>",
 				"- Rerun Banner: <b>Robin</b>"
 			]
+		},
+		{
+			"date": "21 Sep 2024",
+			"featured": true,
+			"changes": [
+				"Add New Character: <b>Rappa (5★)</b>",
+				"Add New Lightcone: <b>Ninjutsu Inscription: Dazzling Evilbreaker (5★) & Dreams Montage (4★)</b>"
+			]
 		}
 	]
 }

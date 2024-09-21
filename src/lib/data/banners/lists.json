@@ -321,6 +321,18 @@
 			"name": "brilliant-fixation",
 			"featured": "scent-alone-stays-true",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 55,
+			"name": "",
+			"featured": "rappa",
+			"type": "character-event"
+		},
+		{
+			"id": 56,
+			"name": "brilliant-fixation",
+			"featured": "ninjutsu-inscription",
+			"type": "lightcone-event"
 		}
 	]
 }

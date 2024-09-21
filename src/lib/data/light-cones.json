@@ -2,6 +2,23 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 21048,
+			"name": "dreams-montage",
+			"rarity": 4,
+			"path": "abundance",
+			"limited": true
+		},
+		{
+			"pro": true,
+			"itemID": 23033,
+			"name": "ninjutsu-inscription",
+			"rarity": 5,
+			"path": "erudition",
+			"limited": true,
+			"bannerOffset": { "b": -132, "l": 43 }
+		},
+		{
+			"pro": true,
 			"itemID": 21047,
 			"animationID": "BSHsAtXYusw",
 			"name": "shadowed-by-night",
