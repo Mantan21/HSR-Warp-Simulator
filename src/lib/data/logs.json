@@ -307,7 +307,6 @@
 			"changes": ["Unlock Content: 2nd  phase of v2.4 - <b>Jiaoqiu & Sparkle</b>"]
 		},
 		{
-			"featured": true,
 			"date": "16 Aug 2024",
 			"changes": [
 				"Unlock Content: 1st phase of v2.5",
@@ -325,6 +324,11 @@
 				"Add New Character: <b>Rappa (5★)</b>",
 				"Add New Lightcone: <b>Ninjutsu Inscription: Dazzling Evilbreaker (5★) & Dreams Montage (4★)</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "30 Sep 2024",
+			"changes": ["Unlock Content: 2nd phase of v2.5 - <b>Lingsha & Topaz</b>"]
 		}
 	]
 }

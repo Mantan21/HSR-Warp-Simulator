@@ -24,7 +24,6 @@
 			"gachaCardOffset": { "t": 200, "w": 460 }
 		},
 		{
-			"pro": true,
 			"itemID": 1222,
 			"name": "lingsha",
 			"rarity": 5,

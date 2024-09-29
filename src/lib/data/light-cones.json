@@ -18,7 +18,6 @@
 			"bannerOffset": { "b": -132, "l": 43 }
 		},
 		{
-			"pro": true,
 			"itemID": 21047,
 			"animationID": "BSHsAtXYusw",
 			"name": "shadowed-by-night",
@@ -27,8 +26,8 @@
 			"limited": true
 		},
 		{
-			"pro": true,
 			"itemID": 23032,
+			"animationID": "iwaXn3FoGE8",
 			"name": "scent-alone-stays-true",
 			"rarity": 5,
 			"path": "abundance",
