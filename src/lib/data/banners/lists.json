@@ -333,6 +333,30 @@
 			"name": "brilliant-fixation",
 			"featured": "ninjutsu-inscription",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 57,
+			"name": "",
+			"featured": "sunday",
+			"type": "character-event"
+		},
+		{
+			"id": 58,
+			"name": "brilliant-fixation",
+			"featured": "a-grounded-ascent",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 59,
+			"name": "",
+			"featured": "fugue",
+			"type": "character-event"
+		},
+		{
+			"id": 60,
+			"name": "brilliant-fixation",
+			"featured": "long-road-leads-home",
+			"type": "lightcone-event"
 		}
 	]
 }

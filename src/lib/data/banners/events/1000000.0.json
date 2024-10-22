@@ -1,4 +1,35 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"pro": true,
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["57-1"],
+					"rateup": ["lynx", "xueyi", "yukong"]
+				},
+				"lightcone": {
+					"bannerID": ["58-1"],
+					"rateup": ["dreams-montage", "under-the-blue-sky", "after-the-charmony-fall"]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["59-1"],
+					"rateup": ["march-7th", "sampo", "pela"]
+				},
+				"lightcone": {
+					"bannerID": ["60-1"],
+					"rateup": ["day-one-of-my-new-life", "boundless-choreo", "make-the-world-clamor"]
+				}
+			}
+		}
+	]
 }

@@ -1,6 +1,32 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 1225,
+			"name": "fugue",
+			"rarity": 5,
+			"combat_type": "fire",
+			"path": "nihility",
+			"colors": ["104 42 27", "142 63 50"],
+			"bannerOffset": { "b": -45, "w": 150, "l": 5 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 110, "t": 40, "l": 58 },
+			"gachaCardOffset": { "l": 130, "t": 110, "w": 560 }
+		},
+		{
+			"pro": true,
+			"itemID": 1313,
+			"name": "sunday",
+			"rarity": 5,
+			"combat_type": "imaginary",
+			"path": "harmony",
+			"colors": ["32 33 53", "215 213 227", "61 64 126"],
+			"bannerOffset": { "b": -55, "w": 130 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 100, "t": 55, "l": 52 },
+			"gachaCardOffset": { "l": 35, "t": 255, "w": 610 }
+		},
+		{
 			"itemID": 1317,
 			"name": "rappa",
 			"rarity": 5,

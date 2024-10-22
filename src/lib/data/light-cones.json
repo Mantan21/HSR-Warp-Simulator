@@ -1,6 +1,24 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 23035,
+			"name": "long-road-leads-home",
+			"rarity": 5,
+			"path": "nihility",
+			"limited": true,
+			"bannerOffset": { "b": -195, "l": 2, "w": 145 }
+		},
+		{
+			"pro": true,
+			"itemID": 23034,
+			"name": "a-grounded-ascent",
+			"rarity": 5,
+			"path": "harmony",
+			"limited": true,
+			"bannerOffset": { "b": -100, "l": 25, "w": 90 }
+		},
+		{
 			"itemID": 21048,
 			"name": "dreams-montage",
 			"rarity": 4,
