@@ -1,7 +1,6 @@
 {
 	"data": [
 		{
-			"pro": true,
 			"itemID": 21048,
 			"name": "dreams-montage",
 			"rarity": 4,
@@ -9,8 +8,8 @@
 			"limited": true
 		},
 		{
-			"pro": true,
 			"itemID": 23033,
+			"animationID": "sNdRYS68Jw0",
 			"name": "ninjutsu-inscription",
 			"rarity": 5,
 			"path": "erudition",

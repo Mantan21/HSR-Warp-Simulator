@@ -1,20 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"pro": true,
-			"phase": 1,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["55-1"],
-					"rateup": ["moze", "asta", "luka"]
-				},
-				"lightcone": {
-					"bannerID": ["56-1"],
-					"rateup": ["dreams-montage", "swordplay", "the-birth-of-the-self"]
-				}
-			}
-		}
-	]
+	"data": []
 }
