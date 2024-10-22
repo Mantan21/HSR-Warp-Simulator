@@ -18,3 +18,15 @@ export const fetchMedia = async (videoID, type = 'audio') => {
 		return { status: 'error' };
 	}
 };
+
+export const toBlob = async (url) => {
+	try {
+		if (!url) return url;
+		const vi = await fetch(url);
+		const blob = await vi.blob();
+		const blobURL = URL.createObjectURL(blob);
+		return blobURL;
+	} catch (e) {
+		return url;
+	}
+};

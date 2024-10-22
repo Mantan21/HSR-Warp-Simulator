@@ -3,7 +3,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { assets, liteMode, liveconeList } from '$lib/stores/app-store';
 	import { lazyLoad } from '$lib/helpers/lazyload';
-	import { fetchMedia } from '$lib/helpers/dataAPI/api-fetcher';
+	import { fetchMedia, toBlob } from '$lib/helpers/dataAPI/api-fetcher';
 
 	export let item = '';
 	export let size = 'medium';
@@ -15,19 +15,31 @@
 		return fly(node, args);
 	};
 
+	const updateStore = async (videoURL, vID) => {
+		const obj = {
+			mp4: await toBlob(videoURL.mp4),
+			webm: await toBlob(videoURL.webm)
+		};
+		liveconeList.update((v) => {
+			v[vID] = obj;
+			return v;
+		});
+	};
+
 	const loadVideo = async (vID) => {
 		const storedURL = $liveconeList[vID];
 		if (storedURL) return { ...storedURL, success: true };
 
 		// fetch New
-		const { status, formats = {} } = await fetchMedia(vID, 'video');
+		const { status, formats = {}, download } = await fetchMedia(vID, 'video');
 		if (status === 'error') return { success: false };
 
-		const videoURL = { mp4: formats['video/mp4'], webm: formats['video/webm'] };
-		liveconeList.update((v) => {
-			v[vID] = videoURL;
-			return v;
-		});
+		const videoURL = {
+			mp4: formats['video/mp4'] || download,
+			webm: formats['video/webm'] || null
+		};
+
+		updateStore(videoURL, vID);
 		return { ...videoURL, success: true };
 	};
 </script>
@@ -44,11 +56,12 @@
 	<img use:lazyLoad={$assets[`lc/${size}/${item}`]} crossorigin="anonymous" alt={$t(item)} />
 
 	{#if animationID && size !== 'small'}
-		{#await loadVideo(animationID) then { webm, success }}
+		{#await loadVideo(animationID) then { webm, mp4, success }}
 			{#if success}
 				<div class="videoWrapper" in:fade>
-					<video autoplay loop>
+					<video autoplay loop muted>
 						<source src={webm} type="video/webm" crossorigin="anonymous" />
+						<source src={mp4} type="video/mp4" crossorigin="anonymous" />
 						<track kind="captions" />
 					</video>
 				</div>
