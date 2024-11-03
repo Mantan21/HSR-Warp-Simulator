@@ -34,13 +34,12 @@
 		const { status, formats = {}, download } = await fetchMedia(vID, 'video');
 		if (status === 'error') return { success: false };
 
-		const videoURL = {
-			mp4: formats['video/mp4'] || download,
-			webm: formats['video/webm'] || null
-		};
+		const mp4 = formats['video/mp4'] || download;
+		const webm = formats['video/webm'] || null;
+		if (!(mp4 || webm)) return { success: false };
 
-		updateStore(videoURL, vID);
-		return { ...videoURL, success: true };
+		updateStore({ mp4, webm }, vID);
+		return { mp4, webm, success: true };
 	};
 </script>
 

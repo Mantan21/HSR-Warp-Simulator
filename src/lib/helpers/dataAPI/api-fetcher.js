@@ -22,6 +22,8 @@ export const fetchMedia = async (videoID, type = 'audio') => {
 export const toBlob = async (url) => {
 	try {
 		if (!url) return url;
+		if (/videoplayback|googlevideo/.test(url)) return url;
+
 		const vi = await fetch(url);
 		const blob = await vi.blob();
 		const blobURL = URL.createObjectURL(blob);
