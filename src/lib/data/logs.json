@@ -329,18 +329,22 @@
 			"changes": ["Unlock Content: 2nd phase of v2.5 - <b>Lingsha & Topaz</b>"]
 		},
 		{
-			"featured": true,
 			"date": "20 Oct 2024",
 			"changes": ["Unlock Content: 1st phase of v2.6 - <b>Rappa & Dan Heng - Imbibitor Lunae</b>"]
 		},
 		{
 			"featured": true,
-			"date": "13 Oct 2024",
+			"date": "23 Oct 2024",
 			"changes": [
 				"Add New Character: <b> Sunday (5★)</b>",
 				"Add New Character: <b> Fugue (5★)</b>",
 				"Add New Light Cones: <b>A Grounded Ascent</b> & <b>Long Road Leads Home</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "12 Nov 2024",
+			"changes": ["Unlock Content: 2nd phase of v2.6 - <b>Acheron & Aventurine</b>"]
 		}
 	]
 }
