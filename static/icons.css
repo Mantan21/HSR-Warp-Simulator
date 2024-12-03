@@ -296,3 +296,6 @@
 .hsr-cog-bold:before {
 	content: '\5e';
 }
+.hsr-remembrance:before {
+	content: '\5f';
+}

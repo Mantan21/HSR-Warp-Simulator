@@ -1,6 +1,6 @@
 {
 	"title": "\"Honkai: Star Rail\" Warp Simulator",
-	"welcomeMsg": "Welcome and Good Luck! 🙂",
+	"welcomeMsg": "THIS IS JUST A SIMULATION, NO REAL MONEY NEEDED!!!!!",
 	"loadSimulator": "Load Simulator",
 	"disclaimer": "This Website is not affiliated with HoYoverse, all assets files are property of their original owners",
 	"character": "Character",
@@ -63,6 +63,7 @@
 		"harmony": "Harmony",
 		"hunt": "Hunt",
 		"nihility": "Nihility",
+		"remembrance": "Remembrance",
 		"preservation": "Preservation",
 		"the-abundance": "The Abundance",
 		"the-destruction": "The Destruction",
@@ -70,7 +71,8 @@
 		"the-harmony": "The Harmony",
 		"the-hunt": "The Hunt",
 		"the-nihility": "The Nihility",
-		"the-preservation": "The Preservation"
+		"the-preservation": "The Preservation",
+		"the-remembrance": "The Remembrance"
 	},
 	"warp": {
 		"heading": "Warp",

@@ -341,7 +341,6 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "12 Nov 2024",
 			"changes": ["Unlock Content: 2nd phase of v2.6 - <b>Acheron & Aventurine</b>"]
 		},
@@ -349,6 +348,15 @@
 			"featured": true,
 			"date": "28 Nov 2024",
 			"changes": ["Unlock Content: 1st phase of v2.7 - <b>Sunday & Jing Yuan</b>"]
+		},
+		{
+			"featured": true,
+			"date": "03 Dec 2024",
+			"changes": [
+				"Add New Character: <b> Aglaea (5★)</b>",
+				"Add New Character: <b> The Herta (5★)</b>",
+				"Warp Banner Unlocked Periodically for regular User"
+			]
 		}
 	]
 }

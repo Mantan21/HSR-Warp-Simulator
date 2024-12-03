@@ -63,6 +63,7 @@
 		"harmony": "Гармония",
 		"hunt": "Охота",
 		"nihility": "Небытие",
+		"remembrance": "Память",
 		"preservation": "Сохранение",
 		"the-abundance": "Изобилие",
 		"the-destruction": "Разрушение",
@@ -70,7 +71,8 @@
 		"the-harmony": "Гармония",
 		"the-hunt": "Охота",
 		"the-nihility": "Небытие",
-		"the-preservation": "Сохранение"
+		"the-preservation": "Сохранение",
+		"the-remembrance": "Память"
 	},
 	"warp": {
 		"heading": "Прыжок",

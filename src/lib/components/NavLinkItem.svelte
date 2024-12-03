@@ -28,7 +28,7 @@
 	}
 
 	button {
-		padding: calc(0.005 * var(--screen-width)) calc(0.015 * var(--screen-width));
+		padding: calc(0.004 * var(--screen-width)) calc(0.015 * var(--screen-width));
 		padding-left: calc(0.005 * var(--screen-width));
 		display: inline-flex;
 		align-items: center;

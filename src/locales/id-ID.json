@@ -1,6 +1,6 @@
 {
 	"title": "\"Honkai: Star Rail\" Warp Simulator",
-	"welcomeMsg": "Welcome and Good Luck! 🙂",
+	"welcomeMsg": "CUMA SIMULASI!!! GRATIS, TIDAK TERHUBUNG DENGAN AKUN GAME!!",
 	"loadSimulator": "Buka Simulator",
 	"disclaimer": "Website ini tidak terafiliasi dengan HoYoverse, semua asset adalah property pemilik asli",
 	"character": "Karakter",
@@ -63,6 +63,7 @@
 		"harmony": "Harmony",
 		"hunt": "Hunt",
 		"nihility": "Nihility",
+		"remembrance": "Remembrance",
 		"preservation": "Preservation",
 		"the-abundance": "The Abundance",
 		"the-destruction": "The Destruction",
@@ -70,7 +71,8 @@
 		"the-harmony": "The Harmony",
 		"the-hunt": "The Hunt",
 		"the-nihility": "The Nihility",
-		"the-preservation": "The Preservation"
+		"the-preservation": "The Preservation",
+		"the-remembrance": "The Remembrance"
 	},
 	"warp": {
 		"heading": "Warp",
@@ -136,7 +138,7 @@
 		"stormriders-bold": "Gelora Pengendara Badai",
 		"let-scent-sink-in": "Lelap dalam Air Semerbak",
 		"eyes-of-a-ninja": "Ketajaman Mata Ninja",
-		"eyes-to-the-stars": "Arahkanlah Matamu ke Bindang",
+		"eyes-to-the-stars": "Arahkanlah Matamu ke Bintang",
 		"the-long-voyage-home": "Jalan Pulang yang Berliku"
 	},
 	"details": {

@@ -63,6 +63,7 @@
 		"harmony": "調和",
 		"hunt": "巡狩",
 		"nihility": "虚無",
+		"remembrance": "記憶",
 		"preservation": "存護",
 		"the-abundance": "豊穣",
 		"the-destruction": "壊滅",
@@ -70,7 +71,8 @@
 		"the-harmony": "調和",
 		"the-hunt": "巡狩",
 		"the-nihility": "虚無",
-		"the-preservation": "存護"
+		"the-preservation": "存護",
+		"the-remembrance": "記憶"
 	},
 	"warp": {
 		"heading": "跳躍",

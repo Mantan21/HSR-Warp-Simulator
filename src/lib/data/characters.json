@@ -2,6 +2,30 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1401,
+			"name": "the-herta",
+			"rarity": 5,
+			"combat_type": "ice",
+			"path": "erudition",
+			"bannerOffset": { "b": -65, "w": 165, "l": -18 },
+			"buttonOffset": { "t": -24, "w": 101 },
+			"splashartOffset": { "w": 115, "t": 43, "l": 50 },
+			"gachaCardOffset": { "l": 55, "t": 135, "w": 560 }
+		},
+		{
+			"pro": true,
+			"itemID": 1402,
+			"name": "aglaea",
+			"rarity": 5,
+			"combat_type": "lightning",
+			"path": "remembrance",
+			"bannerOffset": { "b": -100, "w": 160, "l": -35 },
+			"buttonOffset": { "t": -40, "w": 103 },
+			"splashartOffset": { "w": 120, "t": 80, "l": 43 },
+			"gachaCardOffset": { "l": -55, "t": 345, "w": 660 }
+		},
+		{
+			"pro": true,
 			"itemID": 1225,
 			"name": "fugue",
 			"rarity": 5,

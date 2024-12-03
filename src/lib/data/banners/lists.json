@@ -357,6 +357,30 @@
 			"name": "brilliant-fixation",
 			"featured": "long-road-leads-home",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 61,
+			"name": "",
+			"featured": "aglaea",
+			"type": "character-event"
+		},
+		{
+			"id": 62,
+			"name": "brilliant-fixation",
+			"featured": "time-woven-into-gold",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 63,
+			"name": "",
+			"featured": "the-herta",
+			"type": "character-event"
+		},
+		{
+			"id": 64,
+			"name": "brilliant-fixation",
+			"featured": "into-the-unreachable-veil",
+			"type": "lightcone-event"
 		}
 	]
 }

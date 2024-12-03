@@ -2,6 +2,39 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 23037,
+			"name": "into-the-unreachable-veil",
+			"rarity": 5,
+			"path": "erudition",
+			"limited": true,
+			"bannerOffset": { "b": -150, "l": 33, "w": 115 }
+		},
+		{
+			"pro": true,
+			"itemID": 23036,
+			"name": "time-woven-into-gold",
+			"rarity": 5,
+			"path": "remembrance",
+			"limited": true,
+			"bannerOffset": { "b": -170, "l": 25, "w": 130 }
+		},
+		{
+			"pro": true,
+			"itemID": 20022,
+			"name": "reminiscence",
+			"rarity": 3,
+			"path": "remembrance"
+		},
+		{
+			"pro": true,
+			"itemID": 20021,
+			"name": "shadowburn",
+			"rarity": 3,
+			"limited": true,
+			"path": "remembrance"
+		},
+		{
+			"pro": true,
 			"itemID": 23035,
 			"name": "long-road-leads-home",
 			"rarity": 5,

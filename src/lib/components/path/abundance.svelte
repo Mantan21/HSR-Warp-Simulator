@@ -1,5 +1,5 @@
 <script>
-	export let dark = true;
+	export let dark;
 </script>
 
 <svg width="42.7567mm" height="48.4438mm" version="1.1" viewBox="0 0 133.57 151.34" class:dark>

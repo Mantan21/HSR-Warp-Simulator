@@ -63,6 +63,7 @@
 		"harmony": "同谐",
 		"hunt": "巡猎",
 		"nihility": "虚无",
+		"remembrance": "记忆",
 		"preservation": "存护",
 		"the-abundance": "丰饶",
 		"the-destruction": "毁灭",
@@ -70,7 +71,8 @@
 		"the-harmony": "同谐",
 		"the-hunt": "巡猎",
 		"the-nihility": "虚无",
-		"the-preservation": "存护"
+		"the-preservation": "存护",
+		"the-remembrance": "记忆"
 	},
 	"warp": {
 		"heading": "跃迁",

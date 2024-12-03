@@ -22,7 +22,8 @@
 		'harmony',
 		'nihility',
 		'preservation',
-		'abundance'
+		'abundance',
+		'remembrance'
 	];
 </script>
 

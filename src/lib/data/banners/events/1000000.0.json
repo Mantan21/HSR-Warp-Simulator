@@ -1,4 +1,35 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"pro": true,
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["61-1"],
+					"rateup": ["gallagher", "yukong", "misha"]
+				},
+				"lightcone": {
+					"bannerID": ["62-1"],
+					"rateup": ["indelible-promise", "resolution-shines-as-pearls-of-sweat", "concert-for-two"]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["63-1"],
+					"rateup": ["gallagher", "yukong", "misha"]
+				},
+				"lightcone": {
+					"bannerID": ["64-1"],
+					"rateup": ["indelible-promise", "resolution-shines-as-pearls-of-sweat", "concert-for-two"]
+				}
+			}
+		}
+	]
 }
