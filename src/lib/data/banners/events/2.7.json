@@ -1,0 +1,34 @@
+{
+	"patch": 2.7,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["57-1", "5-3"],
+					"rateup": ["qingque", "arlan", "tingyun"]
+				},
+				"lightcone": {
+					"bannerID": ["58-1", "16-3"],
+					"rateup": ["poised-to-bloom", "the-birth-of-the-self", "swordplay"]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["59-1", "43-2"],
+					"rateup": ["gallagher", "yukong", "misha"]
+				},
+				"lightcone": {
+					"bannerID": ["60-1", "44-2"],
+					"rateup": ["indelible-promise", "resolution-shines-as-pearls-of-sweat", "concert-for-two"]
+				}
+			}
+		}
+	]
+}

@@ -10,8 +10,8 @@
 			"bannerOffset": { "b": -195, "l": 2, "w": 145 }
 		},
 		{
-			"pro": true,
 			"itemID": 23034,
+			"animationID": "dHlIxOaoZrI",
 			"name": "a-grounded-ascent",
 			"rarity": 5,
 			"path": "harmony",

@@ -14,7 +14,6 @@
 			"gachaCardOffset": { "l": 130, "t": 110, "w": 560 }
 		},
 		{
-			"pro": true,
 			"itemID": 1313,
 			"name": "sunday",
 			"rarity": 5,
