@@ -345,7 +345,6 @@
 			"changes": ["Unlock Content: 2nd phase of v2.6 - <b>Acheron & Aventurine</b>"]
 		},
 		{
-			"featured": true,
 			"date": "28 Nov 2024",
 			"changes": ["Unlock Content: 1st phase of v2.7 - <b>Sunday & Jing Yuan</b>"]
 		},
@@ -357,6 +356,11 @@
 				"Add New Character: <b> The Herta (5★)</b>",
 				"Warp Banner Unlocked Periodically for regular User"
 			]
+		},
+		{
+			"featured": true,
+			"date": "20 Dec 2024",
+			"changes": ["Unlock Content: 2nd phase of v2.7 - <b>Fugue & Firefly</b>"]
 		}
 	]
 }
