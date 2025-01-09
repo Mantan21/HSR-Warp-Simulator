@@ -349,7 +349,6 @@
 			"changes": ["Unlock Content: 1st phase of v2.7 - <b>Sunday & Jing Yuan</b>"]
 		},
 		{
-			"featured": true,
 			"date": "03 Dec 2024",
 			"changes": [
 				"Add New Character: <b> Aglaea (5★)</b>",
@@ -361,6 +360,14 @@
 			"featured": true,
 			"date": "20 Dec 2024",
 			"changes": ["Unlock Content: 2nd phase of v2.7 - <b>Fugue & Firefly</b>"]
+		},
+		{
+			"featured": true,
+			"date": "9 Jan 2025",
+			"changes": [
+				"<b>Welcome To Amphoreus!</b>",
+				"Unlock Content: 1st phase of v3.0 - <b>The Herta, Lingsha, Feixiao & Jade</b>"
+			]
 		}
 	]
 }

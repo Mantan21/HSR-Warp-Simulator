@@ -360,7 +360,7 @@
 		},
 		{
 			"id": 61,
-			"name": "",
+			"name": "tailored-fate",
 			"featured": "aglaea",
 			"type": "character-event"
 		},
@@ -372,7 +372,7 @@
 		},
 		{
 			"id": 63,
-			"name": "",
+			"name": "message-from-beyond",
 			"featured": "the-herta",
 			"type": "character-event"
 		},

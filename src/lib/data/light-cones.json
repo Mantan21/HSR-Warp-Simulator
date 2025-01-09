@@ -1,8 +1,16 @@
 {
 	"data": [
 		{
-			"pro": true,
+			"itemID": 21051,
+			"animationID": "R8ZZj1oJQ-Y",
+			"name": "geniuses-greetings",
+			"rarity": 4,
+			"path": "remembrance",
+			"limited": true
+		},
+		{
 			"itemID": 23037,
+			"animationID": "ra8826zieEk",
 			"name": "into-the-unreachable-veil",
 			"rarity": 5,
 			"path": "erudition",
@@ -19,22 +27,20 @@
 			"bannerOffset": { "b": -170, "l": 25, "w": 130 }
 		},
 		{
-			"pro": true,
 			"itemID": 20022,
 			"name": "reminiscence",
 			"rarity": 3,
 			"path": "remembrance"
 		},
 		{
-			"pro": true,
 			"itemID": 20021,
 			"name": "shadowburn",
 			"rarity": 3,
-			"limited": true,
 			"path": "remembrance"
 		},
 		{
 			"itemID": 23035,
+			"animationID": "mnU1cdlaemk",
 			"name": "long-road-leads-home",
 			"rarity": 5,
 			"path": "nihility",
