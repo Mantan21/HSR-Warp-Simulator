@@ -7,7 +7,7 @@ export const removeDash = (name) => {
 		.join(' ');
 };
 
-export const getSlug = (name) => name.replace(/ /g, '-').replace(new RegExp("'"), '_');
+export const getSlug = (name) => name.replace(/ /g, '-').replace(/'/g, '_');
 
 export const copy = (text) => {
 	if (navigator.clipboard) {
