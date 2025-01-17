@@ -1,6 +1,24 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 23038,
+			"name": "if-time-were-a-flower",
+			"rarity": 5,
+			"path": "harmony",
+			"limited": true,
+			"bannerOffset": { "b": -110, "l": 35 }
+		},
+		{
+			"pro": true,
+			"itemID": 23039,
+			"name": "flame-of-blood-blaze-my-path",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -132, "l": 43 }
+		},
+		{
 			"itemID": 21051,
 			"animationID": "R8ZZj1oJQ-Y",
 			"name": "geniuses-greetings",
