@@ -36,7 +36,6 @@
 			"gachaCardOffset": { "l": 55, "t": 135, "w": 560 }
 		},
 		{
-			"pro": true,
 			"itemID": 1402,
 			"name": "aglaea",
 			"rarity": 5,
