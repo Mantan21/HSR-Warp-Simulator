@@ -381,6 +381,30 @@
 			"name": "brilliant-fixation",
 			"featured": "into-the-unreachable-veil",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 65,
+			"name": "hati-singa-yang-membara",
+			"featured": "mydei",
+			"type": "character-event"
+		},
+		{
+			"id": 66,
+			"name": "brilliant-fixation",
+			"featured": "flame-of-blood-blaze-my-path",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 67,
+			"name": "back-to-fons-et-origo",
+			"featured": "tribbie",
+			"type": "character-event"
+		},
+		{
+			"id": 68,
+			"name": "brilliant-fixation",
+			"featured": "if-time-were-a-flower",
+			"type": "lightcone-event"
 		}
 	]
 }

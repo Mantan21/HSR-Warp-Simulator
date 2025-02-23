@@ -1,6 +1,24 @@
 {
 	"data": [
 		{
+			"itemID": 23038,
+			"animationID": "Rf6F7-pYKNQ",
+			"name": "if-time-were-a-flower",
+			"rarity": 5,
+			"path": "harmony",
+			"limited": true,
+			"bannerOffset": { "b": -110, "l": 35 }
+		},
+		{
+			"pro": true,
+			"itemID": 23039,
+			"name": "flame-of-blood-blaze-my-path",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -132, "l": 43 }
+		},
+		{
 			"itemID": 21051,
 			"animationID": "R8ZZj1oJQ-Y",
 			"name": "geniuses-greetings",
@@ -18,8 +36,8 @@
 			"bannerOffset": { "b": -150, "l": 33, "w": 115 }
 		},
 		{
-			"pro": true,
 			"itemID": 23036,
+			"animationID": "m9WVjeFNrSI",
 			"name": "time-woven-into-gold",
 			"rarity": 5,
 			"path": "remembrance",

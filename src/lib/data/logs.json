@@ -357,17 +357,25 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "20 Dec 2024",
 			"changes": ["Unlock Content: 2nd phase of v2.7 - <b>Fugue & Firefly</b>"]
 		},
 		{
-			"featured": true,
 			"date": "9 Jan 2025",
 			"changes": [
 				"<b>Welcome To Amphoreus!</b>",
 				"Unlock Content: 1st phase of v3.0 - <b>The Herta, Lingsha, Feixiao & Jade</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "30 Jan 2024",
+			"changes": ["Unlock Content: 2nd phase of v3.0 - <b>Aglaea, Bothill, Robin & Silver Wolf</b>"]
+		},
+		{
+			"featured": true,
+			"date": "24 Feb 2024",
+			"changes": ["Unlock Content: 1st phase of v3.1 - <b>Tribbie & Yunli</b>"]
 		}
 	]
 }

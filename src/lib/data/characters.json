@@ -1,6 +1,29 @@
 {
 	"data": [
 		{
+			"itemID": 1403,
+			"name": "tribbie",
+			"rarity": 5,
+			"combat_type": "quantum",
+			"path": "harmony",
+			"bannerOffset": { "b": -60, "w": 150 },
+			"buttonOffset": { "t": -27, "w": 103 },
+			"splashartOffset": { "w": 105, "t": 50, "l": 55 },
+			"gachaCardOffset": { "l": 100, "t": 133, "w": 520 }
+		},
+		{
+			"pro": true,
+			"itemID": 1404,
+			"name": "mydei",
+			"rarity": 5,
+			"combat_type": "imaginary",
+			"path": "destruction",
+			"bannerOffset": { "b": -50, "w": 150, "l": -5 },
+			"buttonOffset": { "t": -20, "w": 103 },
+			"splashartOffset": { "w": 110, "t": 40, "l": 55 },
+			"gachaCardOffset": { "l": 50, "t": 70, "w": 600 }
+		},
+		{
 			"itemID": 1401,
 			"name": "the-herta",
 			"rarity": 5,
@@ -12,7 +35,6 @@
 			"gachaCardOffset": { "l": 55, "t": 135, "w": 560 }
 		},
 		{
-			"pro": true,
 			"itemID": 1402,
 			"name": "aglaea",
 			"rarity": 5,
