@@ -1,35 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"pro": true,
-			"phase": 1,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["65-1"],
-					"rateup": ["natasha", "asta", "moze"]
-				},
-				"lightcone": {
-					"bannerID": ["66-1"],
-					"rateup": ["only-silence-remains", "landaus-choice", "geniuses-repose"]
-				}
-			}
-		},
-		{
-			"pro": true,
-			"phase": 2,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["67-1"],
-					"rateup": ["tingyun", "hanya", "sushang"]
-				},
-				"lightcone": {
-					"bannerID": ["68-1"],
-					"rateup": ["geniuses-greetings", "subscribe-for-more", "the-moles-welcome-you"]
-				}
-			}
-		}
-	]
+	"data": []
 }
