@@ -368,14 +368,21 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "30 Jan 2024",
 			"changes": ["Unlock Content: 2nd phase of v3.0 - <b>Aglaea, Bothill, Robin & Silver Wolf</b>"]
 		},
 		{
 			"featured": true,
-			"date": "24 Feb 2024",
+			"date": "24 Feb 2025",
 			"changes": ["Unlock Content: 1st phase of v3.1 - <b>Tribbie & Yunli</b>"]
+		},
+		{
+			"featured": true,
+			"date": "26 Feb 2025",
+			"changes": [
+				"Add New Character: <b> Castorice (5★)</b>",
+				"Add New Character: <b> Anaxa (5★)</b>"
+			]
 		}
 	]
 }

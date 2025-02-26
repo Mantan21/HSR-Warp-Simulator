@@ -1,4 +1,39 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"pro": true,
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["69-1"],
+					"rateup": ["lynx", "hook", "guinaifen"]
+				},
+				"lightcone": {
+					"bannerID": ["70-1"],
+					"rateup": [
+						"post-op-conversation",
+						"planetary-rendezvous",
+						"trend-of-the-universal-market"
+					]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["71-1"],
+					"rateup": ["arlan", "xueyi", "natasha"]
+				},
+				"lightcone": {
+					"bannerID": ["72-1"],
+					"rateup": ["perfect-timing", "a-secret-vow", "memories-of-the-past"]
+				}
+			}
+		}
+	]
 }
