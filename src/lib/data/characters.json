@@ -25,7 +25,6 @@
 			"gachaCardOffset": { "w": 580, "t": 210, "l": 60 }
 		},
 		{
-			"pro": true,
 			"itemID": 1404,
 			"name": "mydei",
 			"rarity": 5,
