@@ -1,0 +1,34 @@
+{
+	"patch": 3.2,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["69-1", "59-2", "49-2", "35-3"],
+					"rateup": ["pela", "gallagher", "lynx"]
+				},
+				"lightcone": {
+					"bannerID": ["70-1", "60-2", "50-2", "36-3"],
+					"rateup": ["good-night-and-sleep-well", "post-op-conversation", "boundless-choreo"]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["71-1", "29-2"],
+					"rateup": ["dan-heng", "serval", "moze"]
+				},
+				"lightcone": {
+					"bannerID": ["72-1", "30-2"],
+					"rateup": ["perfect-timing", "a-secret-vow", "memories-of-the-past"]
+				}
+			}
+		}
+	]
+}

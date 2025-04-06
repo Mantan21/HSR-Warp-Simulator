@@ -1,6 +1,33 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 23041,
+			"name": "life-should-be-cast-to-flames",
+			"rarity": 5,
+			"path": "erudition",
+			"limited": true,
+			"bannerOffset": { "b": -120, "l": 37 }
+		},
+		{
+			"animationID": "klOOBYEBLQ8",
+			"itemID": 23040,
+			"name": "make-farewells-more-beautiful",
+			"rarity": 5,
+			"path": "remembrance",
+			"limited": true,
+			"bannerOffset": { "b": -110, "l": 40 }
+		},
+		{
+			"animationID": "K_l1Oc_1zaA",
+			"itemID": 23039,
+			"name": "flame-of-blood-blaze-my-path",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -132, "l": 43 }
+		},
+		{
 			"itemID": 23038,
 			"animationID": "Rf6F7-pYKNQ",
 			"name": "if-time-were-a-flower",
@@ -8,15 +35,6 @@
 			"path": "harmony",
 			"limited": true,
 			"bannerOffset": { "b": -110, "l": 35 }
-		},
-		{
-			"pro": true,
-			"itemID": 23039,
-			"name": "flame-of-blood-blaze-my-path",
-			"rarity": 5,
-			"path": "destruction",
-			"limited": true,
-			"bannerOffset": { "b": -132, "l": 43 }
 		},
 		{
 			"itemID": 21051,
@@ -27,15 +45,6 @@
 			"limited": true
 		},
 		{
-			"itemID": 23037,
-			"animationID": "ra8826zieEk",
-			"name": "into-the-unreachable-veil",
-			"rarity": 5,
-			"path": "erudition",
-			"limited": true,
-			"bannerOffset": { "b": -150, "l": 33, "w": 115 }
-		},
-		{
 			"itemID": 23036,
 			"animationID": "m9WVjeFNrSI",
 			"name": "time-woven-into-gold",
@@ -43,6 +52,15 @@
 			"path": "remembrance",
 			"limited": true,
 			"bannerOffset": { "b": -170, "l": 25, "w": 130 }
+		},
+		{
+			"itemID": 23037,
+			"animationID": "ra8826zieEk",
+			"name": "into-the-unreachable-veil",
+			"rarity": 5,
+			"path": "erudition",
+			"limited": true,
+			"bannerOffset": { "b": -150, "l": 33, "w": 115 }
 		},
 		{
 			"itemID": 20022,

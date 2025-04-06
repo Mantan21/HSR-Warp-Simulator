@@ -1,18 +1,29 @@
 {
 	"data": [
 		{
-			"itemID": 1403,
-			"name": "tribbie",
+			"pro": true,
+			"itemID": 1405,
+			"name": "anaxa",
 			"rarity": 5,
-			"combat_type": "quantum",
-			"path": "harmony",
-			"bannerOffset": { "b": -60, "w": 150 },
-			"buttonOffset": { "t": -27, "w": 103 },
-			"splashartOffset": { "w": 105, "t": 50, "l": 55 },
-			"gachaCardOffset": { "l": 100, "t": 133, "w": 520 }
+			"combat_type": "wind",
+			"path": "erudition",
+			"buttonOffset": { "t": -38, "w": 100 },
+			"bannerOffset": { "b": -40, "w": 130, "l": -17 },
+			"splashartOffset": { "l": 43, "t": 50, "w": 85 },
+			"gachaCardOffset": { "l": -15, "t": 155, "w": 480 }
 		},
 		{
-			"pro": true,
+			"itemID": 1407,
+			"name": "castorice",
+			"rarity": 5,
+			"combat_type": "quantum",
+			"path": "remembrance",
+			"buttonOffset": { "t": -28, "w": 100 },
+			"bannerOffset": { "b": -55, "w": 135, "l": 3 },
+			"splashartOffset": { "w": 95, "t": 54, "l": 58 },
+			"gachaCardOffset": { "w": 580, "t": 210, "l": 60 }
+		},
+		{
 			"itemID": 1404,
 			"name": "mydei",
 			"rarity": 5,
@@ -24,15 +35,15 @@
 			"gachaCardOffset": { "l": 50, "t": 70, "w": 600 }
 		},
 		{
-			"itemID": 1401,
-			"name": "the-herta",
+			"itemID": 1403,
+			"name": "tribbie",
 			"rarity": 5,
-			"combat_type": "ice",
-			"path": "erudition",
-			"bannerOffset": { "b": -65, "w": 165, "l": -18 },
-			"buttonOffset": { "t": -24, "w": 101 },
-			"splashartOffset": { "w": 115, "t": 43, "l": 50 },
-			"gachaCardOffset": { "l": 55, "t": 135, "w": 560 }
+			"combat_type": "quantum",
+			"path": "harmony",
+			"bannerOffset": { "b": -60, "w": 150 },
+			"buttonOffset": { "t": -27, "w": 103 },
+			"splashartOffset": { "w": 105, "t": 50, "l": 55 },
+			"gachaCardOffset": { "l": 100, "t": 133, "w": 520 }
 		},
 		{
 			"itemID": 1402,
@@ -46,16 +57,15 @@
 			"gachaCardOffset": { "l": -55, "t": 345, "w": 660 }
 		},
 		{
-			"itemID": 1225,
-			"name": "fugue",
+			"itemID": 1401,
+			"name": "the-herta",
 			"rarity": 5,
-			"combat_type": "fire",
-			"path": "nihility",
-			"colors": ["104 42 27", "142 63 50"],
-			"bannerOffset": { "b": -45, "w": 150, "l": 5 },
-			"buttonOffset": { "t": -31, "w": 110 },
-			"splashartOffset": { "w": 110, "t": 40, "l": 58 },
-			"gachaCardOffset": { "l": 130, "t": 110, "w": 560 }
+			"combat_type": "ice",
+			"path": "erudition",
+			"bannerOffset": { "b": -65, "w": 165, "l": -18 },
+			"buttonOffset": { "t": -24, "w": 101 },
+			"splashartOffset": { "w": 115, "t": 43, "l": 50 },
+			"gachaCardOffset": { "l": 55, "t": 135, "w": 560 }
 		},
 		{
 			"itemID": 1313,
@@ -68,6 +78,18 @@
 			"buttonOffset": { "t": -31, "w": 110 },
 			"splashartOffset": { "w": 100, "t": 55, "l": 52 },
 			"gachaCardOffset": { "l": 35, "t": 255, "w": 610 }
+		},
+		{
+			"itemID": 1225,
+			"name": "fugue",
+			"rarity": 5,
+			"combat_type": "fire",
+			"path": "nihility",
+			"colors": ["104 42 27", "142 63 50"],
+			"bannerOffset": { "b": -45, "w": 150, "l": 5 },
+			"buttonOffset": { "t": -31, "w": 110 },
+			"splashartOffset": { "w": 110, "t": 40, "l": 58 },
+			"gachaCardOffset": { "l": 130, "t": 110, "w": 560 }
 		},
 		{
 			"itemID": 1317,

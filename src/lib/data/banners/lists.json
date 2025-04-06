@@ -405,6 +405,30 @@
 			"name": "brilliant-fixation",
 			"featured": "if-time-were-a-flower",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 69,
+			"name": "blossom-to-the-beyond",
+			"featured": "castorice",
+			"type": "character-event"
+		},
+		{
+			"id": 70,
+			"name": "brilliant-fixation",
+			"featured": "make-farewells-more-beautiful",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 71,
+			"name": "the-universe-in-a-seed",
+			"featured": "anaxa",
+			"type": "character-event"
+		},
+		{
+			"id": 72,
+			"name": "brilliant-fixation",
+			"featured": "life-should-be-cast-to-flames",
+			"type": "lightcone-event"
 		}
 	]
 }
