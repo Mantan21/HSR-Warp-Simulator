@@ -376,7 +376,6 @@
 			"changes": ["Unlock Content: 1st phase of v3.1 - <b>Tribbie & Yunli</b>"]
 		},
 		{
-			"featured": true,
 			"date": "26 Feb 2025",
 			"changes": [
 				"Add New Character: <b> Castorice (5★)</b>",
@@ -386,7 +385,12 @@
 		{
 			"featured": true,
 			"date": "16 Mar 2025",
-			"changes": ["Unlock Content: 2nd phase of v3.2 - <b>Mydei & Huohuo</b>"]
+			"changes": ["Unlock Content: 2nd phase of v3.1 - <b>Mydei & Huohuo</b>"]
+		},
+		{
+			"featured": true,
+			"date": "06 Apr 2025",
+			"changes": ["Unlock Content: 1st phase of v3.2 - <b>Castorice</b>"]
 		}
 	]
 }

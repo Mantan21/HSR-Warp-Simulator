@@ -13,7 +13,6 @@
 			"gachaCardOffset": { "l": -15, "t": 155, "w": 480 }
 		},
 		{
-			"pro": true,
 			"itemID": 1407,
 			"name": "castorice",
 			"rarity": 5,
