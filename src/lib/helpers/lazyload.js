@@ -14,6 +14,7 @@ export const lazyLoad = (image, src) => {
 		if (entries[0].isIntersecting) {
 			// image Loaded
 			image.src = src;
+			observer.unobserve(image);
 			if (image.complete) {
 				image.style.transition = 'unset';
 				loaded();
