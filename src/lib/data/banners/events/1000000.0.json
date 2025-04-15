@@ -1,4 +1,35 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"pro": true,
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["73-1"],
+					"rateup": ["pela", "gallagher", "lynx"]
+				},
+				"lightcone": {
+					"bannerID": ["74-1"],
+					"rateup": ["good-night-and-sleep-well", "post-op-conversation", "boundless-choreo"]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["75-1"],
+					"rateup": ["dan-heng", "serval", "moze"]
+				},
+				"lightcone": {
+					"bannerID": ["76-1"],
+					"rateup": ["perfect-timing", "a-secret-vow", "memories-of-the-past"]
+				}
+			}
+		}
+	]
 }

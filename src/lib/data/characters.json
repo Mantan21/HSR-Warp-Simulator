@@ -2,6 +2,30 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1406,
+			"name": "cipher",
+			"rarity": 5,
+			"combat_type": "quantum",
+			"path": "nihility",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -60, "w": 130, "l": -5 },
+			"splashartOffset": { "t": 60, "w": 90 },
+			"gachaCardOffset": { "l": 60, "t": 135, "w": 420 }
+		},
+		{
+			"pro": true,
+			"itemID": 1409,
+			"name": "hyacine",
+			"rarity": 5,
+			"combat_type": "wind",
+			"path": "remembrance",
+			"buttonOffset": { "t": -28, "w": 100 },
+			"bannerOffset": { "b": -45, "w": 125, "l": -12 },
+			"splashartOffset": { "w": 95, "t": 54, "l": 45 },
+			"gachaCardOffset": { "w": 435, "t": 110, "l": 25 }
+		},
+		{
+			"pro": true,
 			"itemID": 1405,
 			"name": "anaxa",
 			"rarity": 5,

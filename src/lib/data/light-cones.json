@@ -2,6 +2,24 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 23043,
+			"name": "lies-dance-on-the-breeze",
+			"rarity": 5,
+			"path": "nihility",
+			"limited": true,
+			"bannerOffset": { "b": -40, "l": 27 }
+		},
+		{
+			"pro": true,
+			"itemID": 23042,
+			"name": "long-may-rainbows-adorn-the-sky",
+			"rarity": 5,
+			"path": "remembrance",
+			"limited": true,
+			"bannerOffset": { "b": -110, "l": 20 }
+		},
+		{
+			"pro": true,
 			"itemID": 23041,
 			"name": "life-should-be-cast-to-flames",
 			"rarity": 5,
