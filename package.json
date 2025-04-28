@@ -23,7 +23,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-cloudflare": "^2.2.1",
 		"@sveltejs/adapter-static": "^2.0.2",
-		"@sveltejs/kit": "^2.8.3",
+		"@sveltejs/kit": "^2.20.6",
 		"autoprefixer": "^10.4.14",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
