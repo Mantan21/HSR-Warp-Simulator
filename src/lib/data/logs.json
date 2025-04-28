@@ -387,7 +387,6 @@
 			"changes": ["Unlock Content: 2nd phase of v3.1 - <b>Mydei & Huohuo</b>"]
 		},
 		{
-			"featured": true,
 			"date": "06 Apr 2025",
 			"changes": ["Unlock Content: 1st phase of v3.2 - <b>Castorice</b>"]
 		},
@@ -398,6 +397,11 @@
 				"Add New Character: <b> Hyacine (5★)</b>",
 				"Add New Character: <b> Cipher (5★)</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "29 Apr 2025",
+			"changes": ["Unlock Content: 2nd phase of v3.2 - <b>Anaxa</b> & <b>dr. Ratio</b>"]
 		}
 	]
 }

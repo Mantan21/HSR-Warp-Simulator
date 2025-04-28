@@ -25,7 +25,6 @@
 			"gachaCardOffset": { "w": 435, "t": 110, "l": 25 }
 		},
 		{
-			"pro": true,
 			"itemID": 1405,
 			"name": "anaxa",
 			"rarity": 5,
