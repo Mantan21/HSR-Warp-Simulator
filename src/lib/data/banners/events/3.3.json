@@ -1,0 +1,34 @@
+{
+	"patch": 3.3,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["73-1", "63-2"],
+					"rateup": ["misha", "serval", "natasha"]
+				},
+				"lightcone": {
+					"bannerID": ["74-1", "64-2"],
+					"rateup": ["shadowed-by-night", "make-the-world-clamor", "day-one-of-my-new-life"]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["75-1", "61-2"],
+					"rateup": ["qingque", "xueyi", "sushang"]
+				},
+				"lightcone": {
+					"bannerID": ["76-1", "62-2"],
+					"rateup": ["geniuses-greetings", "eyes-of-the-prey", "shared-feeling"]
+				}
+			}
+		}
+	]
+}
