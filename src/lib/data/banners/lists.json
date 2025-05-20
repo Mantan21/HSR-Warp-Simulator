@@ -429,6 +429,30 @@
 			"name": "brilliant-fixation",
 			"featured": "life-should-be-cast-to-flames",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 73,
+			"name": "a-rainbow-onto-twilight",
+			"featured": "hyacine",
+			"type": "character-event"
+		},
+		{
+			"id": 74,
+			"name": "brilliant-fixation",
+			"featured": "long-may-rainbows-adorn-the-sky",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 75,
+			"name": "slick-and-speedy-steals-the-sky",
+			"featured": "cipher",
+			"type": "character-event"
+		},
+		{
+			"id": 76,
+			"name": "brilliant-fixation",
+			"featured": "lies-dance-on-the-breeze",
+			"type": "lightcone-event"
 		}
 	]
 }

@@ -383,14 +383,29 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "16 Mar 2025",
 			"changes": ["Unlock Content: 2nd phase of v3.1 - <b>Mydei & Huohuo</b>"]
 		},
 		{
-			"featured": true,
 			"date": "06 Apr 2025",
 			"changes": ["Unlock Content: 1st phase of v3.2 - <b>Castorice</b>"]
+		},
+		{
+			"date": "15 Apr 2025",
+			"changes": [
+				"Add New Character: <b> Hyacine (5★)</b>",
+				"Add New Character: <b> Cipher (5★)</b>"
+			]
+		},
+		{
+			"featured": true,
+			"date": "29 Apr 2025",
+			"changes": ["Unlock Content: 2nd phase of v3.2 - <b>Anaxa</b> & <b>dr. Ratio</b>"]
+		},
+		{
+			"featured": true,
+			"date": "20 May 2025",
+			"changes": ["Unlock Content: 1st phase of v3.3 - <b>Hyacine & The Herta</b>"]
 		}
 	]
 }
