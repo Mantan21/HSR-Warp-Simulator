@@ -453,6 +453,42 @@
 			"name": "brilliant-fixation",
 			"featured": "lies-dance-on-the-breeze",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 77,
+			"name": "",
+			"featured": "saber",
+			"type": "character-event"
+		},
+		{
+			"id": 78,
+			"name": "brilliant-fixation",
+			"featured": "a-thankless-coronation",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 79,
+			"name": "",
+			"featured": "archer",
+			"type": "character-event"
+		},
+		{
+			"id": 80,
+			"name": "brilliant-fixation",
+			"featured": "the-hell-where-ideals-burn",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 81,
+			"name": "",
+			"featured": "phainon",
+			"type": "character-event"
+		},
+		{
+			"id": 82,
+			"name": "brilliant-fixation",
+			"featured": "thus-burns-the-dawn",
+			"type": "lightcone-event"
 		}
 	]
 }

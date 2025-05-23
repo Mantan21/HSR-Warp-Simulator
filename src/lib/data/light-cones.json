@@ -2,6 +2,33 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 23046,
+			"name": "the-hell-where-ideals-burn",
+			"rarity": 5,
+			"path": "hunt",
+			"limited": true,
+			"bannerOffset": { "b": -115, "l": 35 }
+		},
+		{
+			"pro": true,
+			"itemID": 23045,
+			"name": "a-thankless-coronation",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -115, "l": 53 }
+		},
+		{
+			"pro": true,
+			"itemID": 23044,
+			"name": "thus-burns-the-dawn",
+			"rarity": 5,
+			"path": "destruction",
+			"limited": true,
+			"bannerOffset": { "b": -105, "l": 52 }
+		},
+		{
+			"pro": true,
 			"itemID": 23043,
 			"name": "lies-dance-on-the-breeze",
 			"rarity": 5,

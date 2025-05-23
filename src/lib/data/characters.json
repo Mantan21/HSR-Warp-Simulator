@@ -2,6 +2,42 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1015,
+			"name": "archer",
+			"rarity": 5,
+			"combat_type": "quantum",
+			"path": "hunt",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -60, "w": 157, "l": -24 },
+			"splashartOffset": { "w": 100 },
+			"gachaCardOffset": { "l": 25, "t": 195, "w": 660 }
+		},
+		{
+			"pro": true,
+			"itemID": 1014,
+			"name": "saber",
+			"rarity": 5,
+			"combat_type": "wind",
+			"path": "destruction",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -50, "w": 130 },
+			"splashartOffset": { "t": 58, "l": 55, "w": 95 },
+			"gachaCardOffset": { "l": 50, "t": 245, "w": 555 }
+		},
+		{
+			"pro": true,
+			"itemID": 1408,
+			"name": "phainon",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "destruction",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -60, "w": 150, "l": -7 },
+			"splashartOffset": { "t": 50, "w": 100, "l": 55 },
+			"gachaCardOffset": { "l": 57, "t": 218, "w": 580 }
+		},
+		{
+			"pro": true,
 			"itemID": 1406,
 			"name": "cipher",
 			"rarity": 5,
