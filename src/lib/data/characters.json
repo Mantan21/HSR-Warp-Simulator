@@ -37,7 +37,6 @@
 			"gachaCardOffset": { "l": 57, "t": 218, "w": 580 }
 		},
 		{
-			"pro": true,
 			"itemID": 1406,
 			"name": "cipher",
 			"rarity": 5,

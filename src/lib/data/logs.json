@@ -402,7 +402,6 @@
 			"changes": ["Unlock Content: 2nd phase of v3.2 - <b>Anaxa</b> & <b>dr. Ratio</b>"]
 		},
 		{
-			"featured": true,
 			"date": "20 May 2025",
 			"changes": ["Unlock Content: 1st phase of v3.3 - <b>Hyacine & The Herta</b>"]
 		},
@@ -414,6 +413,11 @@
 				"Add New Character: <b> Archer (5★)</b>",
 				"Add New Character: <b> Phainon (5★)</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "9 Jun 2025",
+			"changes": ["Unlock Content: 2nd phase of v3.3 - <b>Cipher & Aglaea</b>"]
 		}
 	]
 }
