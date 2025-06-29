@@ -1,6 +1,14 @@
 {
 	"data": [
 		{
+			"itemID": 21054,
+			"name": "the-storys-next-page",
+			"rarity": 4,
+			"path": "remembrance",
+			"limited": true,
+			"release": "3.4-1"
+		},
+		{
 			"pro": true,
 			"itemID": 23046,
 			"name": "the-hell-where-ideals-burn",
@@ -21,6 +29,7 @@
 		{
 			"pro": true,
 			"itemID": 23044,
+			"animationID": "zo8jNDlIl6c",
 			"name": "thus-burns-the-dawn",
 			"rarity": 5,
 			"path": "destruction",
@@ -29,6 +38,7 @@
 		},
 		{
 			"itemID": 23043,
+			"animationID": "bBL2ve6GJ7Q",
 			"name": "lies-dance-on-the-breeze",
 			"rarity": 5,
 			"path": "nihility",
@@ -37,6 +47,7 @@
 		},
 		{
 			"itemID": 23042,
+			"animationID": "TrWp1Avo5yY",
 			"name": "long-may-rainbows-adorn-the-sky",
 			"rarity": 5,
 			"path": "remembrance",
@@ -45,6 +56,7 @@
 		},
 		{
 			"itemID": 23041,
+			"animationID": "wF3q2zOt4yc",
 			"name": "life-should-be-cast-to-flames",
 			"rarity": 5,
 			"path": "erudition",

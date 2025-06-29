@@ -456,31 +456,31 @@
 		},
 		{
 			"id": 77,
-			"name": "",
+			"name": "excalibur-excelsior",
 			"featured": "saber",
 			"type": "character-event"
 		},
 		{
 			"id": 78,
-			"name": "brilliant-fixation",
+			"name": "birth-of-a-king",
 			"featured": "a-thankless-coronation",
 			"type": "lightcone-event"
 		},
 		{
 			"id": 79,
-			"name": "",
+			"name": "i-am-the-bone-of-my-sword",
 			"featured": "archer",
 			"type": "character-event"
 		},
 		{
 			"id": 80,
-			"name": "brilliant-fixation",
+			"name": "red-radiance-of-fuyuki",
 			"featured": "the-hell-where-ideals-burn",
 			"type": "lightcone-event"
 		},
 		{
 			"id": 81,
-			"name": "",
+			"name": "to-evermore-burn-as-the-sun",
 			"featured": "phainon",
 			"type": "character-event"
 		},

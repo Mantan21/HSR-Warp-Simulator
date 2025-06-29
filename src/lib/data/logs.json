@@ -406,7 +406,6 @@
 			"changes": ["Unlock Content: 1st phase of v3.3 - <b>Hyacine & The Herta</b>"]
 		},
 		{
-			"featured": true,
 			"date": "23 May 2025",
 			"changes": [
 				"Add New Character: <b> Saber (5★)</b>",
@@ -418,6 +417,14 @@
 			"featured": true,
 			"date": "9 Jun 2025",
 			"changes": ["Unlock Content: 2nd phase of v3.3 - <b>Cipher & Aglaea</b>"]
+		},
+		{
+			"featured": true,
+			"date": "29 June 2025",
+			"changes": [
+				"Unlock Content: 1st phase of v3.3 - <b>Phainon (5★)</b>",
+				"Unlock Content: Collaboration Warp <b> Saber (5★) & Archer (5★) </b>"
+			]
 		}
 	]
 }

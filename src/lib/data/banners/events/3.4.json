@@ -1,0 +1,34 @@
+{
+	"patch": 3.4,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["81-1", "67-2", "57-2", "33-3", "77-1", "79-1"],
+					"rateup": ["tingyun", "march-7th", "yukong"]
+				},
+				"lightcone": {
+					"bannerID": ["82-1", "68-2", "58-2", "34-3", "78-1", "80-1"],
+					"rateup": ["the-storys-next-page", "planetary-rendezvous", "under-the-blue-sky"]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["43-3", "12-3", "9-3", "77-1", "79-1"],
+					"rateup": ["hanya", "lynx", "luka"]
+				},
+				"lightcone": {
+					"bannerID": ["44-3", "14-3", "19-3", "78-1", "80-1"],
+					"rateup": ["a-secret-vow", "subscribe-for-more", "resolution-shines-as-pearls-of-sweat"]
+				}
+			}
+		}
+	]
+}
