@@ -108,7 +108,12 @@
 	};
 </script>
 
-<div class="prob-container" class:fullscreen in:fade|local={{ delay: 500 }}>
+<div
+	class="prob-container"
+	class:fullscreen
+	class:group={banner?.type?.match('group')}
+	in:fade|local={{ delay: 500 }}
+>
 	{#if fullscreen}
 		<Header
 			icon="cog-bold"

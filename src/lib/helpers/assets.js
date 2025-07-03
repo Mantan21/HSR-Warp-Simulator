@@ -135,6 +135,7 @@ const images = [
 			'eidolon-4star.webp',
 			'eidolon-5star.webp',
 			'item-card-back.webp',
+			'menu-side-title-bg.webp',
 			'method-imaginary-money.webp',
 			'method-tears.webp',
 			'method-firefly-savings.webp',

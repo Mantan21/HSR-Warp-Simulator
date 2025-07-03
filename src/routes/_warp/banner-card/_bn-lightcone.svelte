@@ -8,6 +8,7 @@
 	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
+	export let group = false;
 
 	let xOrigin = 100;
 	let yOrigin = 100;
@@ -24,30 +25,32 @@
 	const offset = lcOffset(item.featured, $isMobileLandscape);
 </script>
 
-<BannerTpl blank>
-	<div class="wrapper" class:lite={$liteMode}>
-		<div
-			class="layer-bg"
-			in:scaleOrigin={{
-				start: 1.15,
-				duration: 3000,
-				origin: `${xOrigin}% ${yOrigin}%`,
-				easing: cubicOut
-			}}
-		>
-			<picture style={offset}>
-				<source srcset={$assets[`lc/medium/${item.featured}`]} media="(max-width: 640px)" />
-				<img
-					src={$assets[`lc/large/${item.featured}`]}
-					alt={$t(item.featured)}
-					crossorigin="anonymous"
-				/>
-			</picture>
-		</div>
-		<div class="layer-white">
-			<img src={$assets['circle-ornament1.svg']} alt="Circle" class="ornament ornament1" />
-			<img src={$assets['circle-ornament2.svg']} alt="Circle" class="ornament ornament2" />
-			<div class="ornament ornament3" />
+<BannerTpl blank {group}>
+	<div class="wrapper" class:group class:lite={$liteMode}>
+		<div class="overflow">
+			<div
+				class="layer-bg"
+				in:scaleOrigin={{
+					start: 1.15,
+					duration: 3000,
+					origin: `${xOrigin}% ${yOrigin}%`,
+					easing: cubicOut
+				}}
+			>
+				<picture style={offset}>
+					<source srcset={$assets[`lc/medium/${item.featured}`]} media="(max-width: 640px)" />
+					<img
+						src={$assets[`lc/large/${item.featured}`]}
+						alt={$t(item.featured)}
+						crossorigin="anonymous"
+					/>
+				</picture>
+			</div>
+			<div class="layer-white">
+				<img src={$assets['circle-ornament1.svg']} alt="Circle" class="ornament ornament1" />
+				<img src={$assets['circle-ornament2.svg']} alt="Circle" class="ornament ornament2" />
+				<div class="ornament ornament3" />
+			</div>
 		</div>
 	</div>
 </BannerTpl>
@@ -61,13 +64,34 @@
 		overflow: hidden;
 		top: 0;
 		right: 0;
-		background-image: linear-gradient(170deg, #fff, transparent);
+		/* background-image: linear-gradient(170deg, #fff, transparent); */
 		z-index: -1;
+	}
+
+	/* .wrapper.group {
+		background-image: unset;
+	} */
+
+	.overflow {
+		margin-left: auto;
+		width: 75%;
+		height: 100%;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.group .overflow {
+		overflow: hidden;
+		border-top-left-radius: calc(0.04 * var(--bw));
+		mask-image: linear-gradient(black);
 	}
 
 	.layer-bg {
 		display: block;
 		width: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
 		height: 100%;
 		transform: scale(1.0001);
 	}
@@ -122,16 +146,20 @@
 	}
 
 	.ornament1 {
-		width: 125%;
+		height: 222.2%;
 		aspect-ratio: 1/1;
 		object-fit: contain;
 		top: 50%;
-		left: 28%;
+		right: -58.5%;
 		transform: translateY(-50%);
 		animation: rotate linear infinite 210s;
 	}
+	.group .ornament1 {
+		display: none;
+	}
+
 	.ornament2 {
-		width: 23%;
+		height: 40%;
 		aspect-ratio: 1/1;
 		top: 50%;
 		left: 47.5%;
@@ -139,8 +167,9 @@
 		animation: rotate linear reverse infinite 60s;
 		opacity: 0.3;
 	}
+
 	.ornament3 {
-		width: 40%;
+		height: 77.1%;
 		aspect-ratio: 1/1;
 		top: 50%;
 		left: 40%;

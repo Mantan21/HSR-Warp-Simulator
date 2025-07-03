@@ -15,8 +15,10 @@ export const priceList = writable({ oneiric: {}, supplyPass: null });
 export const activeVersion = writable(null);
 export const activePhase = writable(null);
 export const activeBanner = writable(0);
-export const showStarterBanner = writable(true);
+export const activeWarp = writable({});
+export const warpList = writable([]);
 export const bannerList = writable([{ type: 'starter' }]);
+export const showStarterBanner = writable(true);
 
 export const isMobileLandscape = writable(false);
 export const isMobile = writable(false);

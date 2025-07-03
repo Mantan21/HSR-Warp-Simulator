@@ -12,17 +12,16 @@
 		regularPass,
 		embers,
 		starlight,
-		bannerList,
-		activeBanner,
-		probEdit
+		probEdit,
+		activeWarp
 	} from '$lib/stores/app-store';
 	import { localBalance } from '$lib/helpers/dataAPI/api-localstorage';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import WARP, { roll } from '$lib/helpers/gacha/Warp';
-	import Button from './_button.svelte';
-	import ButtonWarp from './_button-warp.svelte';
+	import Button from './button/_button.svelte';
+	import ButtonWarp from './button/_button-warp.svelte';
 	import ConvertModal from './_convert-modal.svelte';
-	import ButtonShop from './_button-shop.svelte';
+	import ButtonShop from './button/_button-shop.svelte';
 
 	export let bannerType = 'starter';
 
@@ -70,14 +69,6 @@
 	};
 	$: initialWarp($activeVersion, $activePhase);
 
-	const getIndexOfBanner = (bannerToRoll) => {
-		if (!bannerToRoll.match('event')) return 0;
-		const nowBanner = $bannerList[$activeBanner];
-		const events = $bannerList.filter(({ type }) => type === bannerToRoll);
-		const index = events.findIndex(({ featured }) => featured === nowBanner.featured);
-		return index;
-	};
-
 	const handleGachaAnimation = getContext('handleGachaAnimation');
 	const doRoll = async (count, bannerToRoll) => {
 		warpProgress = true;
@@ -87,10 +78,9 @@
 
 		rollCost = bannerToRoll === 'starter' ? 8 : count;
 		if (!isUnlimited && rollCost > currencyUsed) return (showConverModal = true);
-		const indexOfBanner = getIndexOfBanner(bannerToRoll);
 
 		for (let i = 0; i < count; i++) {
-			const result = await roll(bannerToRoll, WarpInstance, indexOfBanner);
+			const result = await roll(bannerToRoll, WarpInstance, $activeWarp.bannerID);
 			tmp.push(result);
 		}
 

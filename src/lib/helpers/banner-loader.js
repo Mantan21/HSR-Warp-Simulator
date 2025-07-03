@@ -3,7 +3,7 @@ import { regular } from '$lib/data/banners/regular.json';
 import { banners } from '$lib/data/banners/lists.json';
 
 import { checkStarterBanner } from '$lib/helpers/dataAPI/storage-reader';
-import { bannerList } from '$lib/stores/app-store';
+import { activeWarp, bannerList, warpList } from '$lib/stores/app-store';
 import { getCharDetails, getLCDetails } from './gacha/gacha-base';
 
 export const identifyBanner = (bnid = '0-0') => {
@@ -20,27 +20,70 @@ export const initializeBanner = async (version, phase) => {
 		const { character, lightcone, regularVersion } = data.find((d) => d.phase === phase).banners;
 		const regularData = regular.find(({ version }) => version === regularVersion);
 
+		const prepareList = (id, rateup) => {
+			const { bannerName: banner, featured, runNumber, type } = identifyBanner(id);
+			const cek = type.match('character') ? getCharDetails : getLCDetails;
+			const { path, combat_type } = cek(featured);
+			const bannerName = type.match('cone') && runNumber > 1 ? 'bygone-reminiscence' : banner;
+			const result = {
+				bannerName,
+				featured,
+				runNumber,
+				type,
+				path,
+				combat_type,
+				rateup,
+				bannerID: id
+			};
+			return result;
+		};
+
 		[character, lightcone].forEach(({ bannerID, rateup }) => {
 			bannerID.forEach((id) => {
-				const { bannerName: banner, featured, runNumber, type } = identifyBanner(id);
-				const cek = type.match('character') ? getCharDetails : getLCDetails;
-				const { path, combat_type } = cek(featured);
-
-				const bannerName = type.match('cone') && runNumber > 1 ? 'bygone-reminiscence' : banner;
-
-				// prettier-ignore
-				list.push({ bannerName, featured, runNumber, type, path, combat_type, rateup,bannerID: id });
+				if (!Array.isArray(id)) return list.push(prepareList(id, rateup));
+				let type = 'character-group';
+				const content = id.map((id) => {
+					const parsed = prepareList(id, rateup);
+					type = parsed.type.match('cone') ? 'lightcone-group' : 'character-group';
+					return parsed;
+				});
+				const toPush = { content, type };
+				list.push(toPush);
 			});
 		});
 
 		list.push({ ...regularData, ...identifyBanner(regularData.bannerID) });
 		bannerList.set(list);
+		setFlattenWarpList(list);
 
 		return { status: 'ok' };
 	} catch (e) {
 		console.error(e);
 		return { status: 'error', e };
 	}
+};
+
+const setFlattenWarpList = (list = []) => {
+	const ls = [];
+	list.forEach((warp) => {
+		if (warp.type.match('group')) {
+			warp.content.forEach((w) => ls.push(w));
+		} else {
+			ls.push(warp);
+		}
+	});
+	warpList.set(ls);
+};
+
+export const setActiveWarp = (list, activeIndex, indexInGroup = 0) => {
+	const activeBanner = list[activeIndex];
+	if (!activeBanner) return;
+	if (!activeBanner.type.match('group')) return activeWarp.set(activeBanner);
+
+	// If grouped banner
+	const index = indexInGroup >= activeBanner.content.length ? 0 : indexInGroup;
+	const active = activeBanner.content[index];
+	activeWarp.set(active);
 };
 
 export const handleShowStarter = (show) => {

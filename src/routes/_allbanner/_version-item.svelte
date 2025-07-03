@@ -23,10 +23,17 @@
 	$: featuredChar = charData.map(({ featured }) => $t(featured)).join(' || ');
 
 	const getInfo = (ids) => {
-		charData = ids.map((id) => {
+		let data = [];
+		const pushData = (id) => {
 			const { bannerName, featured, runNumber } = identifyBanner(id);
-			return { bannerName, featured, runNumber };
+			data.push({ bannerName, featured, runNumber });
+		};
+
+		ids.forEach((id) => {
+			if (Array.isArray(id)) return id.map(pushData);
+			pushData(id);
 		});
+		charData = data;
 	};
 
 	const navigate = getContext('navigate');

@@ -6,11 +6,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": ["69-1", "59-2", "49-2", "35-3"],
+					"bannerID": ["69-1", ["59-2", "49-2", "35-3"]],
 					"rateup": ["pela", "gallagher", "lynx"]
 				},
 				"lightcone": {
-					"bannerID": ["70-1", "60-2", "50-2", "36-3"],
+					"bannerID": ["70-1", ["60-2", "50-2", "36-3"]],
 					"rateup": ["good-night-and-sleep-well", "post-op-conversation", "boundless-choreo"]
 				}
 			}

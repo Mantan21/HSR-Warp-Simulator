@@ -2,7 +2,7 @@
 	import { getContext, setContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { bannerList, showStarterBanner, starterRemaining } from '$lib/stores/app-store';
+	import { warpList, showStarterBanner, starterRemaining } from '$lib/stores/app-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import Modal from '$lib/components/Modal.svelte';
 	import Toast from '$lib/components/Toast.svelte';
@@ -13,7 +13,7 @@
 
 	let showSelectList = false;
 
-	$: list = $bannerList.filter((item, i, arr) => i === arr.findIndex((v) => v.type === item.type));
+	$: list = $warpList.filter((item, i, arr) => i === arr.findIndex((v) => v.type === item.type));
 	//  check if beginner banner already gone, push it to hostory list
 	$: if (list.findIndex(({ type }) => type === 'starter') < 0) list.unshift({ type: 'starter' });
 	$: nowOpenIndex = list.findIndex(({ type }) => type === banner.toLocaleLowerCase());

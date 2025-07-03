@@ -29,6 +29,12 @@ export const prob = (items) => {
 	return result;
 };
 
+const rateKey = (banner) => {
+	if (banner.match('char')) return 'character-event';
+	if (banner.match('cone')) return 'lightcone-event';
+	return banner;
+};
+
 // Read Custom Probability
 export const getRate = (banner, key) => {
 	if (banner === 'starter') {
@@ -36,8 +42,8 @@ export const getRate = (banner, key) => {
 		return initial[key];
 	}
 
-	const initial = probabilityRates[banner];
-	const local = localrate.get(banner);
+	const initial = probabilityRates[rateKey(banner)];
+	const local = localrate.get(rateKey(banner));
 	if (!(local[key] || local[key] >= 0)) return initial[key];
 
 	const val = parseFloat(local[key]);
@@ -46,7 +52,7 @@ export const getRate = (banner, key) => {
 };
 
 export const setRate = (banner, key, val) => {
-	const local = localrate.get(banner);
+	const local = localrate.get(rateKey(banner));
 	if (typeof val === 'boolean') {
 		local[key] = val;
 	} else {
@@ -55,5 +61,5 @@ export const setRate = (banner, key, val) => {
 		else local[key] = value;
 	}
 
-	localrate.set(banner, local);
+	localrate.set(rateKey(banner), local);
 };

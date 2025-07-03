@@ -31,8 +31,9 @@
 			"rarity": 5,
 			"combat_type": "physical",
 			"path": "destruction",
+			"colors": ["34 43 99", "216 208 199", "66 63 66"],
 			"buttonOffset": { "t": -27, "w": 100 },
-			"bannerOffset": { "b": -60, "w": 150, "l": -7 },
+			"bannerOffset": { "b": -55, "w": 140, "l": -5 },
 			"splashartOffset": { "t": 50, "w": 100, "l": 55 },
 			"gachaCardOffset": { "l": 57, "t": 218, "w": 580 }
 		},
@@ -75,6 +76,7 @@
 			"rarity": 5,
 			"combat_type": "quantum",
 			"path": "remembrance",
+			"colors": ["78 52 121", "182 203 222", "60 35 70"],
 			"buttonOffset": { "t": -28, "w": 100 },
 			"bannerOffset": { "b": -55, "w": 135, "l": 3 },
 			"splashartOffset": { "w": 95, "t": 54, "l": 58 },
@@ -544,7 +546,7 @@
 			"combat_type": "quantum",
 			"path": "hunt",
 			"buttonOffset": { "t": -30, "w": 110 },
-			"bannerOffset": { "b": -55, "l": -6, "w": 163, "o": "hide" },
+			"bannerOffset": { "b": -55, "l": -6, "w": 163 },
 			"gachaCardOffset": { "t": 15, "l": 140, "w": 585 },
 			"splashartOffset": { "t": 35, "l": 60, "w": 130 }
 		},

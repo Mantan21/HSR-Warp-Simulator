@@ -6,11 +6,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": ["51-1", "8-3", "31-3", "39-2"],
+					"bannerID": ["51-1", ["8-3", "31-3", "39-2"]],
 					"rateup": ["moze", "asta", "luka"]
 				},
 				"lightcone": {
-					"bannerID": ["52-1", "20-3", "32-3", "40-2"],
+					"bannerID": ["52-1", ["20-3", "32-3", "40-2"]],
 					"rateup": ["resolution-shines-as-pearls-of-sweat", "swordplay", "the-birth-of-the-self"]
 				}
 			}

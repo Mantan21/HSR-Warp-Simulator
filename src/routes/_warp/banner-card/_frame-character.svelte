@@ -1,5 +1,5 @@
 <script>
-	import { t, locale } from 'svelte-i18n';
+	import { t } from 'svelte-i18n';
 	import { diagonalSlide, fade, fly } from '$lib/helpers/transition';
 	import { bezier } from '$lib/helpers/easing';
 	import { data } from '$lib/data/characters.json';
@@ -7,10 +7,8 @@
 	import positionToStyle from '$lib/helpers/css-transformer';
 
 	export let item = {};
-	export let event2 = false;
 
-	let rateup, bannerName, combat_type;
-	$: ({ rateup, bannerName, combat_type, featured } = item);
+	let { rateup, bannerName, combat_type, featured } = item;
 	$: bannerTitle = bannerName ? $t(`banner.${bannerName}`) : $t(featured);
 
 	const characterOffset = (characterName, offset = 'bannerOffset') => {
@@ -27,7 +25,6 @@
 	{:else}
 		<div class="banner-name">
 			{$t('banner.character-event')}
-			{event2 ? ($locale === 'ja-JP' ? '2' : '— 2') : ''}
 		</div>
 	{/if}
 
@@ -52,7 +49,6 @@
 				<div class="rateup-characters">
 					<div class="rateup-row" in:diagonalSlide={{ delay: 400, duration: 400 }}>
 						{#each rateup as name, i}
-							{@const offset = characterOffset(name)}
 							<div class="rateup-item">
 								<div class="rateup-content">
 									<picture
@@ -63,25 +59,11 @@
 											delay: 500 + 150 * i
 										}}
 									>
-										{#if offset}
-											<source
-												srcset={$assets[`splash-art/medium/${name}`]}
-												media="(min-width: 840px)"
-											/>
-											<img
-												src={$assets[`splash-art/small/${name}`]}
-												alt={$t(name)}
-												class:fullArt={offset}
-												style={offset}
-												crossorigin="anonymous"
-											/>
-										{:else}
-											<img
-												src={$assets[`closeup-bg/${name}`]}
-												alt={$t(name)}
-												crossorigin="anonymous"
-											/>
-										{/if}
+										<img
+											src={$assets[`closeup-bg/${name}`]}
+											alt={$t(name)}
+											crossorigin="anonymous"
+										/>
 									</picture>
 								</div>
 							</div>
@@ -275,18 +257,10 @@
 
 	picture img {
 		position: absolute;
-		height: 200%;
-		top: -7.5%;
-	}
-
-	img:not(.fullArt) {
 		height: 125%;
-		left: 50%;
+		top: -7.5%;
 		transform: translateX(-50%);
-	}
-
-	:global(.mobileLandscape) picture img.fullArt {
-		transform: translateX(-1.3%);
+		left: 50%;
 	}
 
 	/* character name */

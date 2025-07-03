@@ -2,14 +2,18 @@
 	import { isMobile, isMobileLandscape, liteMode, viewportWidth } from '$lib/stores/app-store';
 
 	export let blank = false;
+	export let group = false;
 	$: mobile = $isMobileLandscape || $isMobile || $viewportWidth < 700;
 </script>
 
-<div class="container" class:lite={$liteMode}>
+<div class="container" class:lite={$liteMode} class:group>
 	{#if blank}
 		<slot />
 	{:else}
-		<div class="info-border" />
+		{#if !group}
+			<div class="info-border" />
+		{/if}
+
 		<div class="info">
 			<div class="wrapper-info" class:mobile />
 		</div>
@@ -43,6 +47,9 @@
 		height: 100%;
 		position: relative;
 	}
+	.group .info {
+		width: 25%;
+	}
 
 	.info-border {
 		width: calc(0.009 * var(--bw));
@@ -67,6 +74,11 @@
 		padding: 4.5%;
 	}
 
+	.group .wrapper-info {
+		background-image: linear-gradient(rgba(51, 48, 38, 0.9), rgba(26, 26, 26, 0.9) 40%);
+		width: 100%;
+	}
+
 	.wrapper-info:not(.mobile) {
 		display: none;
 	}
@@ -80,6 +92,10 @@
 		position: relative;
 		width: 70%;
 	}
+	.group .featured {
+		width: 75%;
+	}
+
 	.corner-text {
 		position: absolute;
 		bottom: 88.5%;

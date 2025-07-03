@@ -1,7 +1,7 @@
 <script>
 	import { setContext } from 'svelte';
 	import { t } from 'svelte-i18n';
-	import { activeBanner, bannerList } from '$lib/stores/app-store';
+	import { activeWarp } from '$lib/stores/app-store';
 
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import Iklan from '$lib/components/Iklan.svelte';
@@ -12,8 +12,7 @@
 	import Pagination from './_pagination.svelte';
 	import SelectBanner from './_select-banner.svelte';
 
-	let type;
-	$: ({ type } = $bannerList[$activeBanner]);
+	$: type = $activeWarp.type;
 
 	let dataLength = 0;
 	let filteredDataLength = 0;

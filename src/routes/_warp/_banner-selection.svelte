@@ -1,8 +1,10 @@
 <script>
+	import { setActiveWarp } from '$lib/helpers/banner-loader';
 	import { activeBanner, bannerList } from '$lib/stores/app-store';
-	import ButtonBanner from './_button-banner.svelte';
+	import ButtonBanner from './button/_button-banner.svelte';
 
 	const selectBanner = (bn) => activeBanner.set(bn);
+	$: setActiveWarp($bannerList, $activeBanner); // this only chenges when activeBanner changes
 </script>
 
 <svg
@@ -43,6 +45,7 @@
 <style>
 	.banner-selection {
 		padding-top: 1%;
+		padding-right: 1%;
 		position: absolute;
 		left: 0;
 		top: 13%;

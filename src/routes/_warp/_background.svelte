@@ -3,21 +3,22 @@
 	import { t } from 'svelte-i18n';
 	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
 	import { data } from '$lib/data/characters.json';
-	import { activeBanner, assets, bannerList, liteMode } from '$lib/stores/app-store';
+	import { warpList, assets, liteMode, activeWarp } from '$lib/stores/app-store';
 	import { morphIn, morphOut } from '$lib/helpers/transition';
 
 	let featured, activeType;
-	$: ({ featured, type: activeType } = $bannerList[$activeBanner]);
+	$: ({ featured, type: activeType } = $activeWarp);
 
 	// Fetch Colors
 	let colorList = {};
 	const setColor = getContext('setColor');
 	const colorthief = new ColorThief();
 
-	$: fetchAllColor($bannerList);
+	$: fetchAllColor($warpList);
 	$: changeColor(featured);
 
 	const fetchAllColor = async (list) => {
+		if (!list || list.length < 1) return;
 		const charBanner = list.filter(({ type }) => type.match('character')) || [];
 		if (charBanner.length < 1) return;
 		for (let i = 0; i < charBanner.length; i++) {
@@ -30,6 +31,7 @@
 	};
 
 	const changeColor = (charName) => {
+		if (!charName || !colorList) return;
 		if (!activeType.match('character')) return;
 		const [color1, color2, color3 = null] = colorList[charName] || [];
 		if (!color1) return;
@@ -73,8 +75,8 @@
 	};
 </script>
 
-{#each $bannerList as { type }, i}
-	{#if i === $activeBanner}
+{#each $warpList as { type, featured: item }}
+	{#if item === featured && type === activeType}
 		<!-- Character Event -->
 		{#if type === 'character-event'}
 			<div

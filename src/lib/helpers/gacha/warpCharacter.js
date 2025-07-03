@@ -11,9 +11,9 @@ import { identifyBanner } from '../banner-loader';
 
 const characterWarp = {
 	init(opt) {
-		const { data, version, phase, regularList, indexOfBanner } = opt;
+		const { data, version, phase, regularList, bannerId } = opt;
 		const { rateup } = data;
-		const { featured } = identifyBanner(data.bannerID[indexOfBanner]);
+		const { featured } = identifyBanner(bannerId);
 
 		this._featured = featured;
 		this._rateup = rateup;

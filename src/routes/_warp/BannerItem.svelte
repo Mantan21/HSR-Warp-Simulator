@@ -4,10 +4,10 @@
 	import { fade, fly } from '$lib/helpers/transition';
 	import {
 		activeBanner,
+		activeWarp,
 		isMobile,
 		isMobileLandscape,
 		probEdit,
-		showStarterBanner,
 		viewportHeight,
 		viewportWidth
 	} from '$lib/stores/app-store';
@@ -19,11 +19,12 @@
 	import BnStarter from './banner-card/_bn-starter.svelte';
 	import BnLightcone from './banner-card/_bn-lightcone.svelte';
 	import BnRegular from './banner-card/_bn-regular.svelte';
-	import CharacterFrame from './banner-card/_character-frame.svelte';
-	import LightconeFrame from './banner-card/_lightcone-frame.svelte';
-	import RegularFrame from './banner-card/_regular-frame.svelte';
-	import StarterFrame from './banner-card/_starter-frame.svelte';
+	import CharacterFrame from './banner-card/_frame-character.svelte';
+	import LightconeFrame from './banner-card/_frame-lightcone.svelte';
+	import RegularFrame from './banner-card/_frame-regular.svelte';
+	import StarterFrame from './banner-card/_frame-starter.svelte';
 	import ProbabilityEditor from './probability-editor.svelte';
+	import FrameGroup from './banner-card/_frame-group.svelte';
 
 	export let banner = 'starter';
 	export let bannerIndex;
@@ -73,7 +74,7 @@
 		class:fit
 		class:inEdit={$probEdit}
 		style="--bw:{bannerWidth}px;"
-		class:shadow={banner !== 'starter'}
+		class:shadow={!banner.match(/starter|group/)}
 		bind:clientWidth={bannerWidth}
 		in:slideIn|local={{ fade: banner === 'starter' }}
 		out:slideOut|local
@@ -95,20 +96,30 @@
 		{:else if banner === 'character-event'}
 			<BnCharacter {item} />
 			<div class="frame">
-				<CharacterFrame
-					event2={bannerIndex > 1 || (!$showStarterBanner && bannerIndex > 0)}
-					{item}
-				/>
+				<CharacterFrame {item} />
+			</div>
+		{:else if banner === 'character-group'}
+			<!-- <img src="/example.jpg" alt="" style="width: 100%; position: absolute; left:0; top:0" /> -->
+			{#key $activeWarp}
+				<BnCharacter item={$activeWarp} group />
+			{/key}
+			<div class="frame">
+				<FrameGroup {item} />
 			</div>
 
 			<!-- Lightcone -->
 		{:else if banner === 'lightcone-event'}
 			<BnLightcone {item} />
 			<div class="frame">
-				<LightconeFrame
-					{item}
-					event2={bannerIndex > 3 || (!$showStarterBanner && bannerIndex > 2)}
-				/>
+				<LightconeFrame {item} />
+			</div>
+		{:else if banner === 'lightcone-group'}
+			<!-- <img src="/image1.jpg" alt="" style="width: 100%; position: absolute; left:0; top:0" /> -->
+			{#key $activeWarp}
+				<BnLightcone item={$activeWarp} group />
+			{/key}
+			<div class="frame">
+				<FrameGroup {item} />
 			</div>
 		{/if}
 
@@ -218,6 +229,13 @@
 		background-image: linear-gradient(rgba(255, 255, 255, 0.9) 85%, transparent);
 		border-top-right-radius: calc(0.05 * var(--bw));
 		transition: all 0.5s;
+	}
+
+	.prob-manager.character-group:not(.inEdit),
+	.prob-manager.lightcone-group:not(.inEdit) {
+		background-image: linear-gradient(rgba(51, 48, 38, 0.9), rgba(26, 26, 26, 0.9) 40%);
+		border-top-right-radius: calc(0.04 * var(--bw));
+		width: 25%;
 	}
 
 	.prob-manager.inEdit {

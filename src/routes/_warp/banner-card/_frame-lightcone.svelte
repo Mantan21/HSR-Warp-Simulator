@@ -1,5 +1,5 @@
 <script>
-	import { t, locale } from 'svelte-i18n';
+	import { t } from 'svelte-i18n';
 	import { fade } from '$lib/helpers/transition';
 	import { animatedLC, liteMode, probEdit } from '$lib/stores/app-store';
 	import { getLCDetails } from '$lib/helpers/gacha/gacha-base';
@@ -9,7 +9,6 @@
 	import RateupLightones from './__rateup-lightcones.svelte';
 
 	export let item = {};
-	export let event2 = false;
 
 	const lightcones = item.rateup.map((d) => ({ name: d, rarity: 4 }));
 	const { animationID } = getLCDetails(item.featured) || null;
@@ -23,7 +22,6 @@
 	{:else}
 		<div class="banner-name">
 			{$t('banner.lightcone-event')}
-			{event2 ? ($locale === 'ja-JP' ? '2' : '— 2') : ''}
 		</div>
 	{/if}
 
@@ -62,7 +60,7 @@
 				</span>
 			</div>
 		</div>
-		<div class="featured-lighcone" transition:fade|local>
+		<div class="featured-lightcone" transition:fade|local>
 			<LightCones
 				item={item.featured}
 				animationID={$animatedLC && !$liteMode ? animationID : null}
@@ -207,7 +205,7 @@
 	}
 
 	/* Right Pane */
-	.featured-lighcone {
+	.featured-lightcone {
 		position: absolute;
 		width: 24%;
 		right: 24%;
@@ -215,7 +213,7 @@
 		transform: rotate(7deg);
 	}
 
-	:global(.mobileLandscape) .featured-lighcone {
+	:global(.mobileLandscape) .featured-lightcone {
 		width: 21.5%;
 		right: 27%;
 	}

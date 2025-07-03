@@ -9,6 +9,7 @@
 	import BannerTpl from './__banner-tpl.svelte';
 
 	export let item = {};
+	export let group = false;
 
 	let hideOverflow = false;
 	const characterOffset = (characterName, ismobile) => {
@@ -27,38 +28,40 @@
 	$: offset = characterOffset(item.featured, $isMobileLandscape);
 </script>
 
-<BannerTpl>
-	<div class="content" class:lite={$liteMode}>
+<BannerTpl {group}>
+	<div class="content" class:group class:lite={$liteMode}>
 		<div class="featured-bg" />
 		<div class="overflow" class:hide={hideOverflow}>
 			{#if !$probEdit}
-				<div class="splash-art" transition:fade|local>
-					<div class="wrapper">
-						<div
-							class="art-pic"
-							in:fly={{
-								x: -40,
-								duration: 4000,
-								delay: 250,
-								opacity: 1,
-								easing: bezier(0.13, 0.14, 0, 1)
-							}}
-						>
-							<picture style={offset}>
-								<source
-									srcset={$assets[`splash-art/large/${item.featured}`]}
-									media="(min-width: 1280px)"
-								/>
-								<source
-									srcset={$assets[`splash-art/medium/${item.featured}`]}
-									media="(min-width: 640px)"
-								/>
-								<img
-									crossorigin="anonymous"
-									alt={$t(item.featured)}
-									src={$assets[`splash-art/small/${item.featured}`]}
-								/>
-							</picture>
+				<div class="splash-art">
+					<div class="wrapper" in:fade>
+						<div class="mask-content">
+							<div
+								class="art-pic"
+								in:fly={{
+									x: -50,
+									duration: 4000,
+									delay: 250,
+									opacity: 1,
+									easing: bezier(0.13, 0.14, 0, 1)
+								}}
+							>
+								<picture style={offset}>
+									<source
+										srcset={$assets[`splash-art/large/${item.featured}`]}
+										media="(min-width: 1280px)"
+									/>
+									<source
+										srcset={$assets[`splash-art/medium/${item.featured}`]}
+										media="(min-width: 640px)"
+									/>
+									<img
+										crossorigin="anonymous"
+										alt={$t(item.featured)}
+										src={$assets[`splash-art/small/${item.featured}`]}
+									/>
+								</picture>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -90,6 +93,11 @@
 		background-position: top left;
 		position: relative;
 	}
+
+	.group .featured-bg {
+		border-top-left-radius: calc(0.04 * var(--bw));
+	}
+
 	.overflow {
 		width: 143%;
 		height: 130%;
@@ -98,6 +106,10 @@
 		right: 0;
 		z-index: -1;
 	}
+	.group .overflow {
+		width: 133%;
+	}
+
 	.overflow.hide {
 		overflow: hidden;
 	}
@@ -114,9 +126,15 @@
 
 	.wrapper {
 		display: block;
-		width: 100%;
+		width: 150%;
 		height: 100%;
 		mask-image: linear-gradient(black 75%, transparent 100%);
+	}
+	.mask-content {
+		display: block;
+		width: calc(100 / 150 * 100%);
+		height: 100%;
+		position: relative;
 	}
 
 	.lite .featured-bg,

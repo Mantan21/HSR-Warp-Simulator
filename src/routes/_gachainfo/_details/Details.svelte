@@ -1,6 +1,6 @@
 <script>
 	import { t } from 'svelte-i18n';
-	import { activeBanner, activePhase, activeVersion, bannerList } from '$lib/stores/app-store';
+	import { activePhase, activeVersion, activeWarp, warpList } from '$lib/stores/app-store';
 	import { identifyBanner } from '$lib/helpers/banner-loader';
 	import {
 		get3StarItem,
@@ -15,7 +15,7 @@
 	import ItemCard from './_item-card.svelte';
 	import Table from './_table.svelte';
 
-	let { type, bannerName, bannerID, rateup = [] } = $bannerList[$activeBanner];
+	let { type, bannerName, bannerID, rateup = [] } = $activeWarp;
 	const { featured } = identifyBanner(bannerID);
 	$: nameOfbanner = $t(`banner.${bannerName}`);
 
@@ -44,7 +44,7 @@
 
 	// Drop 5star
 
-	const { characters: stdList = [] } = $bannerList.find(({ type: t }) => {
+	const { characters: stdList = [] } = $warpList.find(({ type: t }) => {
 		const usedList = type === 'starter' ? 'starter' : 'regular';
 		return t === usedList;
 	});

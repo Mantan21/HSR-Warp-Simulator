@@ -6,6 +6,7 @@
 
 	import {
 		activeBanner,
+		activeWarp,
 		assets,
 		autoskip,
 		bannerList,
@@ -25,7 +26,7 @@
 	import WarpResult from './warp-result/WarpResult.svelte';
 
 	let type, bannerName;
-	$: ({ bannerName, featured, type } = $bannerList[$activeBanner]);
+	$: ({ bannerName, featured, type } = $activeWarp);
 	$: bannerType = type;
 
 	let color1 = '0,0,0';

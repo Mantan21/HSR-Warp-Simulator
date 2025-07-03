@@ -6,11 +6,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": ["63-1", "53-2", "51-2", "45-2"],
+					"bannerID": ["63-1", ["53-2", "51-2", "45-2"]],
 					"rateup": ["natasha", "asta", "moze"]
 				},
 				"lightcone": {
-					"bannerID": ["64-1", "54-2", "52-2", "46-2"],
+					"bannerID": ["64-1", ["54-2", "52-2", "46-2"]],
 					"rateup": ["only-silence-remains", "landaus-choice", "geniuses-repose"]
 				}
 			}
@@ -20,11 +20,11 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": ["61-1", "41-2", "39-3", "6-3"],
+					"bannerID": ["61-1", ["41-2", "39-3", "6-3"]],
 					"rateup": ["tingyun", "hanya", "sushang"]
 				},
 				"lightcone": {
-					"bannerID": ["62-1", "42-2", "40-3", "17-3"],
+					"bannerID": ["62-1", ["42-2", "40-3", "17-3"]],
 					"rateup": ["geniuses-greetings", "subscribe-for-more", "the-moles-welcome-you"]
 				}
 			}
