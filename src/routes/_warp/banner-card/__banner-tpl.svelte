@@ -7,7 +7,7 @@
 </script>
 
 <div class="container" class:lite={$liteMode} class:group>
-	{#if blank}
+	{#if blank && !group}
 		<slot />
 	{:else}
 		{#if !group}

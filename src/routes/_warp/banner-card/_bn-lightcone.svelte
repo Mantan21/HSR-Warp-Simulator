@@ -64,17 +64,17 @@
 		overflow: hidden;
 		top: 0;
 		right: 0;
-		/* background-image: linear-gradient(170deg, #fff, transparent); */
 		z-index: -1;
 	}
 
-	/* .wrapper.group {
+	.wrapper.group {
+		border-top-left-radius: calc(0.04 * var(--bw));
 		background-image: unset;
-	} */
+	}
 
 	.overflow {
 		margin-left: auto;
-		width: 75%;
+		width: var(--bw);
 		height: 100%;
 		display: flex;
 		justify-content: flex-end;
@@ -82,8 +82,9 @@
 
 	.group .overflow {
 		overflow: hidden;
-		border-top-left-radius: calc(0.04 * var(--bw));
 		mask-image: linear-gradient(black);
+		position: relative;
+		transform: translateX(-25%);
 	}
 
 	.layer-bg {

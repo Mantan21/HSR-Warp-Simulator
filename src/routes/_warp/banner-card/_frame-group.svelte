@@ -180,7 +180,9 @@
 		z-index: +1;
 		overflow: hidden;
 		border-top-right-radius: calc(0.025 * var(--bw));
+		/* background-image: linear-gradient(rgba(51, 48, 38, 0.9), rgba(26, 26, 26, 0.9) 40%); */
 	}
+
 	.wrapper-info::after {
 		content: '';
 		position: absolute;
