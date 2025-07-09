@@ -489,6 +489,30 @@
 			"name": "brilliant-fixation",
 			"featured": "thus-burns-the-dawn",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 83,
+			"name": "",
+			"featured": "hysilens",
+			"type": "character-event"
+		},
+		{
+			"id": 84,
+			"name": "brilliant-fixation",
+			"featured": "why-does-the-ocean-sing",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 85,
+			"name": "",
+			"featured": "cerydra",
+			"type": "character-event"
+		},
+		{
+			"id": 86,
+			"name": "brilliant-fixation",
+			"featured": "epoch-etched-in-golden-blood",
+			"type": "lightcone-event"
 		}
 	]
 }

@@ -1,6 +1,24 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 23048,
+			"name": "epoch-etched-in-golden-blood",
+			"rarity": 5,
+			"path": "harmony",
+			"limited": true,
+			"bannerOffset": { "b": -115, "l": 35 }
+		},
+		{
+			"pro": true,
+			"itemID": 23047,
+			"name": "why-does-the-ocean-sing",
+			"rarity": 5,
+			"path": "nihility",
+			"limited": true,
+			"bannerOffset": { "b": -115, "l": 35 }
+		},
+		{
 			"itemID": 21054,
 			"name": "the-storys-next-page",
 			"rarity": 4,
@@ -9,7 +27,6 @@
 			"release": "3.4-1"
 		},
 		{
-			"pro": true,
 			"itemID": 23046,
 			"name": "the-hell-where-ideals-burn",
 			"rarity": 5,
@@ -18,7 +35,6 @@
 			"bannerOffset": { "b": -115, "l": 35 }
 		},
 		{
-			"pro": true,
 			"itemID": 23045,
 			"name": "a-thankless-coronation",
 			"rarity": 5,
@@ -27,7 +43,6 @@
 			"bannerOffset": { "b": -115, "l": 53 }
 		},
 		{
-			"pro": true,
 			"itemID": 23044,
 			"animationID": "zo8jNDlIl6c",
 			"name": "thus-burns-the-dawn",

@@ -185,12 +185,14 @@
 		height: calc(0.16 * var(--bw));
 		display: flex;
 		align-items: center;
+		font-weight: initial;
 	}
 
 	:global(.ja-JP) h1,
 	:global(.zh-CN) h1,
 	:global(.zh-TW) h1 {
 		font-size: calc(0.04 * var(--bw));
+		font-weight: bold;
 	}
 
 	:global(.ru-RU) h1 {

@@ -2,6 +2,30 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1412,
+			"name": "cerydra",
+			"rarity": 5,
+			"combat_type": "wind",
+			"path": "harmony",
+			"colors": ["14 49 141", "217 231 232", "14 44 138"],
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -75, "w": 156, "l": -18 },
+			"splashartOffset": { "w": 110, "t": 55 },
+			"gachaCardOffset": { "l": 12, "t": 210, "w": 550 }
+		},
+		{
+			"pro": true,
+			"itemID": 1410,
+			"name": "hysilens",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "nihility",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -50, "w": 135, "l": 10 },
+			"splashartOffset": { "w": 115, "t": 55, "l": 68 },
+			"gachaCardOffset": { "l": 135, "t": 195, "w": 475 }
+		},
+		{
 			"itemID": 1015,
 			"name": "archer",
 			"rarity": 5,
@@ -13,7 +37,6 @@
 			"gachaCardOffset": { "l": 25, "t": 195, "w": 660 }
 		},
 		{
-			"pro": true,
 			"itemID": 1014,
 			"name": "saber",
 			"rarity": 5,
@@ -25,7 +48,6 @@
 			"gachaCardOffset": { "l": 50, "t": 245, "w": 555 }
 		},
 		{
-			"pro": true,
 			"itemID": 1408,
 			"name": "phainon",
 			"rarity": 5,
