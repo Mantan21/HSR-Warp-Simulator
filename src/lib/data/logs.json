@@ -418,7 +418,6 @@
 			"changes": ["Unlock Content: 2nd phase of v3.3 - <b>Cipher & Aglaea</b>"]
 		},
 		{
-			"featured": true,
 			"date": "29 June 2025",
 			"changes": [
 				"Unlock Content: 1st phase of v3.3 - <b>Phainon (5★)</b>",
@@ -432,6 +431,11 @@
 				"Add New Character: <b> Hysilens (5★)</b>",
 				"Add New Character: <b> Cerydra (5★)</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "15 Jul 2025",
+			"changes": ["Unlock Content: 2nd phase of v3.4 - <b>Firefly, Jingliu & Blade</b>"]
 		}
 	]
 }
