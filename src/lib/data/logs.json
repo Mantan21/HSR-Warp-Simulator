@@ -425,7 +425,6 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "09 Jul 2025",
 			"changes": [
 				"Add New Character: <b> Hysilens (5★)</b>",
@@ -436,6 +435,11 @@
 			"featured": true,
 			"date": "15 Jul 2025",
 			"changes": ["Unlock Content: 2nd phase of v3.4 - <b>Firefly, Jingliu & Blade</b>"]
+		},
+		{
+			"featured": true,
+			"date": "09 Aug 2025",
+			"changes": ["Unlock Content: 1st phase of v3.5 - <b>Hysilens (5★)</b> & <b>Kafka (5★)</b>"]
 		}
 	]
 }

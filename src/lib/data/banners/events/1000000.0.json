@@ -1,35 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"pro": true,
-			"phase": 1,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["83-1"],
-					"rateup": ["tingyun", "march-7th", "yukong"]
-				},
-				"lightcone": {
-					"bannerID": ["84-1"],
-					"rateup": ["the-storys-next-page", "planetary-rendezvous", "under-the-blue-sky"]
-				}
-			}
-		},
-		{
-			"pro": true,
-			"phase": 2,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["85-1"],
-					"rateup": ["hanya", "lynx", "luka"]
-				},
-				"lightcone": {
-					"bannerID": ["86-1"],
-					"rateup": ["a-secret-vow", "subscribe-for-more", "resolution-shines-as-pearls-of-sweat"]
-				}
-			}
-		}
-	]
+	"data": []
 }
