@@ -513,6 +513,30 @@
 			"name": "brilliant-fixation",
 			"featured": "epoch-etched-in-golden-blood",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 87,
+			"name": "",
+			"featured": "evernight",
+			"type": "character-event"
+		},
+		{
+			"id": 88,
+			"name": "brilliant-fixation",
+			"featured": "to-evernights-stars",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 89,
+			"name": "",
+			"featured": "dan-heng-permansor-terrae",
+			"type": "character-event"
+		},
+		{
+			"id": 90,
+			"name": "brilliant-fixation",
+			"featured": "though-worlds-apart",
+			"type": "lightcone-event"
 		}
 	]
 }

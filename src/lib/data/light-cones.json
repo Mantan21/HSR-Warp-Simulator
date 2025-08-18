@@ -2,6 +2,24 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 23051,
+			"name": "though-worlds-apart",
+			"rarity": 5,
+			"path": "preservation",
+			"limited": true,
+			"bannerOffset": { "b": -115, "l": 35 }
+		},
+		{
+			"pro": true,
+			"itemID": 23049,
+			"name": "to-evernights-stars",
+			"rarity": 5,
+			"path": "remembrance",
+			"limited": true,
+			"bannerOffset": { "b": -115, "l": 35 }
+		},
+		{
+			"pro": true,
 			"itemID": 23048,
 			"name": "epoch-etched-in-golden-blood",
 			"rarity": 5,

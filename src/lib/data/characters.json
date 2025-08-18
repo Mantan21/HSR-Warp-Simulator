@@ -2,6 +2,30 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1414,
+			"name": "dan-heng-permansor-terrae",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "preservation",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -65, "w": 160, "l": -18 },
+			"splashartOffset": { "w": 135, "t": 55, "l": 53 },
+			"gachaCardOffset": { "t": 205, "w": 645 }
+		},
+		{
+			"pro": true,
+			"itemID": 1413,
+			"name": "evernight",
+			"rarity": 5,
+			"combat_type": "ice",
+			"path": "remembrance",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -73, "w": 160, "l": -15 },
+			"splashartOffset": { "w": 110, "t": 55 },
+			"gachaCardOffset": { "l": 65, "t": 225, "w": 560 }
+		},
+		{
+			"pro": true,
 			"itemID": 1412,
 			"name": "cerydra",
 			"rarity": 5,
