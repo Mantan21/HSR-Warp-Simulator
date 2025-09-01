@@ -436,7 +436,6 @@
 			"changes": ["Unlock Content: 2nd phase of v3.4 - <b>Firefly, Jingliu & Blade</b>"]
 		},
 		{
-			"featured": true,
 			"date": "09 Aug 2025",
 			"changes": ["Unlock Content: 1st phase of v3.5 - <b>Hysilens (5★)</b> & <b>Kafka (5★)</b>"]
 		},
@@ -446,6 +445,13 @@
 			"changes": [
 				"Add New Character: <b> Evernight (5★)</b>",
 				"Add New Character: <b> Dan Heng • Permansor Terrae (5★)</b>"
+			]
+		},
+		{
+			"featured": true,
+			"date": "02 Sep 2025",
+			"changes": [
+				"Unlock Content: 2nd phase of v3.5 - <b>Cerydra (5★)</b> & <b>Silver Wolf (5★)</b>"
 			]
 		}
 	]

@@ -25,7 +25,6 @@
 			"gachaCardOffset": { "l": 65, "t": 225, "w": 560 }
 		},
 		{
-			"pro": true,
 			"itemID": 1412,
 			"name": "cerydra",
 			"rarity": 5,
