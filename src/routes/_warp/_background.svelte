@@ -51,9 +51,9 @@
 					const palette = manualColorPick(charName);
 					if (palette) resolve(palette);
 					const [clr1, clr2] = colorthief.getPalette(img, 2);
-					const color1 = clr2.join(',');
-					const color2 = clr1.join(',');
-					resolve([color1, color2]);
+					const color1 = clr2?.join(',');
+					const color2 = clr1?.join(',');
+					resolve([color1 || '0 0 0', color2 || '0 0 0']);
 				});
 			});
 		} catch (e) {

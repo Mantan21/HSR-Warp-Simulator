@@ -90,7 +90,7 @@
 		handleTrack();
 
 		window.addEventListener('popstate', (e) => {
-			if (e.state.page) return;
+			if (e.state?.page) return;
 			if (pageActive === 'index') return;
 			navigate('index');
 		});
