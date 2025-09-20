@@ -13,7 +13,7 @@
 	"homepage": "https://hsr.wishsimulator.app",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build && node postbuild.js",
+		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
@@ -53,6 +53,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sentry/sveltekit": "^10.12.0",
 		"colorthief": "^2.6.0",
 		"file-saver": "^2.0.5",
 		"howler": "^2.2.4",
@@ -66,8 +67,9 @@
 			"intl-messageformat": "^10.7.16"
 		},
 		"onlyBuiltDependencies": [
-			"esbuild",
+			"@sentry/cli",
 			"es5-ext",
+			"esbuild",
 			"sharp"
 		]
 	}

@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import devtoolsJson from 'vite-plugin-devtools-json';
+import { sentrySvelteKit } from '@sentry/sveltekit';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from 'vite-imagetools';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -120,6 +121,20 @@ const manifest = {
 
 export default defineConfig({
 	plugins: [
+		sentrySvelteKit({
+			sentryUrl: 'https://721ca11ea8894a84a70e4f83d6ee5101@sink.wishsimulator.app',
+			authToken: '5ee893d7fd1c420ad616428b6374af44e435cceffa9524f566e84bfeb255a65a',
+			bundleSizeOptimizations: {
+				excludeReplayIframe: true,
+				excludeReplayShadowDom: true,
+				excludeReplayWorker: true
+			},
+			sourcemaps: {
+				filesToDeleteAfterUpload: ['./build/internal/immutable/**/*.map', './build/sw.js.map']
+			},
+			project: 'skillboost-helper-sink',
+			org: 'ekrafdev'
+		}),
 		imagetools({}),
 		sveltekit(),
 		devtoolsJson(),
