@@ -40,7 +40,7 @@
 					{$t('details.heading')}
 				</button>
 
-				<div class="divider" />
+				<div class="divider"></div>
 
 				<button class:active={activeInfo === 'history'} on:click={() => selectInfo('history')}>
 					{$t('history.heading')}

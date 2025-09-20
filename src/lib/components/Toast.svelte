@@ -14,7 +14,13 @@
 	}
 </script>
 
-<div class="toast" transition:fly|local={{ y: -20 }} on:mousedown={closeToast}>
+<div
+	class="toast"
+	role="dialog"
+	tabindex="0"
+	transition:fly|local={{ y: -20 }}
+	on:mousedown={closeToast}
+>
 	<slot />
 </div>
 

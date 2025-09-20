@@ -73,7 +73,7 @@
 <div class="oneiric-section" in:fade={{ duration: 250 }}>
 	<div class="content-group" style="--option-height:{optionHeight}px">
 		<ShopGroup>
-			{#each oneiricList as { qty, price, doubleBonus }, i}
+			{#each oneiricList as { qty, price, doubleBonus }, i (oneiricList[i])}
 				<ShopGroupItem>
 					<button
 						class="oneiric-item"
@@ -116,11 +116,14 @@
 				on:change={() => playSfx('click2')}
 			/>
 			<span
+				aria-label="Toggle Topup"
+				role="button"
+				tabindex="0"
 				on:mousedown={() => {
 					playSfx('click2');
 					initialTopup = !initialTopup;
 				}}
-			/>
+			></span>
 		</div>
 		<label for="keepsetting"> {$t('shop.initialTopup')} </label>
 	</div>

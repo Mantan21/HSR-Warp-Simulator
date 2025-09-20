@@ -6,17 +6,17 @@
 	import { activeBacksound, musics } from '$lib/stores/phonograph-store';
 	import { playSfx } from '$lib/helpers/sounds/audiofx';
 	import { nextTrack, pauseTrack, playTrack } from '$lib/helpers/sounds/phonograph';
+	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
 
 	import Scrollable from '$lib/components/Scrollable.svelte';
 	import ButtonIcon from '$lib/components/ButtonIcon.svelte';
 	import Header from '$lib/components/Header.svelte';
+	import Modal from '$lib/components/Modal.svelte';
 	import Background from './_background.svelte';
 	import Albums from './_albums.svelte';
 	import Tracks from './_tracks.svelte';
 	import Controller from './_controller.svelte';
 	import ModalTrack from './_modal-track.svelte';
-	import { customTracks } from '$lib/helpers/dataAPI/api-localstorage';
-	import Modal from '$lib/components/Modal.svelte';
 
 	let detailHeight;
 	onMount(() => playSfx('music-loaded'));

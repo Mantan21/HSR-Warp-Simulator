@@ -126,10 +126,13 @@
 	<div class="content">
 		<div class="control">
 			<button class="revert" on:click={resetClick}>
-				<i class="hsr-refresh" />
+				<i class="hsr-refresh"></i>
 				{$t('editor.revert')}
 			</button>
-			<button class="close" on:click={toggleEditor}> <i class="hsr-check" /> {$t('close')} </button>
+			<button class="close" on:click={toggleEditor}>
+				<i class="hsr-check"></i>
+				{$t('close')}
+			</button>
 		</div>
 
 		<div class="form">

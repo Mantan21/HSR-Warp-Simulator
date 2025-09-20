@@ -30,7 +30,7 @@
 	};
 </script>
 
-<div class="item-container star{rarity}" on:mousedown={handleClik}>
+<div class="item-container star{rarity}" role="dialog" tabindex="0" on:mousedown={handleClik}>
 	{#if !combatType}
 		<div class="lightcone">
 			<LightCones item={name} size="small" />
@@ -42,22 +42,22 @@
 	<div class="frame" class:notowned={!isOwned}>
 		<div class="icon-info">
 			{#if combatType}
-				<span> <i class="hsr-{combatType} {combatType} icon-gradient" /> </span>
+				<span> <i class="hsr-{combatType} {combatType} icon-gradient"></i> </span>
 			{/if}
-			<span><i class="hsr-{path}" /> </span>
+			<span><i class="hsr-{path}"></i> </span>
 		</div>
 		{#if qty > 1}
 			<span class="qty">{getQty(qty)}</span>
 		{/if}
 
-		<caption>
+		<div class="caption">
 			<span class="name">{$t(name)}</span>
 			<div class="rarity">
-				{#each Array(rarity) as _}
-					<i class="hsr-star" />
+				{#each Array(rarity) as _, i (i)}
+					<i class="hsr-star"></i>
 				{/each}
 			</div>
-		</caption>
+		</div>
 
 		{#if !isOwned}
 			<div class="not-owned">
@@ -65,7 +65,7 @@
 			</div>
 		{/if}
 
-		<div class="ornament" />
+		<div class="ornament"></div>
 	</div>
 </div>
 
@@ -182,7 +182,7 @@
 		border-bottom-left-radius: calc(0.02 * var(--screen-width));
 	}
 
-	caption {
+	.caption {
 		position: absolute;
 		left: 0;
 		bottom: 0;
@@ -191,12 +191,12 @@
 		padding: 6%;
 	}
 
-	caption .name {
+	.caption .name {
 		font-size: 135%;
 		display: block;
 		padding-bottom: 5%;
 	}
-	:global(.mobileLandscape) caption .name,
+	:global(.mobileLandscape) .caption .name,
 	:global(.mobileLandscape) .not-owned {
 		font-size: 100%;
 	}

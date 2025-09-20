@@ -11,11 +11,11 @@
 		<slot />
 	{:else}
 		{#if !group}
-			<div class="info-border" />
+			<div class="info-border"></div>
 		{/if}
 
 		<div class="info">
-			<div class="wrapper-info" class:mobile />
+			<div class="wrapper-info" class:mobile></div>
 		</div>
 		<div class="featured">
 			<slot />

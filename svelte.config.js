@@ -1,17 +1,17 @@
 import path from 'path';
 import adapter from '@sveltejs/adapter-static';
-import preprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	preprocess: vitePreprocess(),
 	kit: {
 		appDir: 'internal',
 		adapter: adapter(),
 		alias: {
 			'@image': path.resolve('./src/post')
 		}
-	},
-	preprocess: preprocess({ postcss: true })
+	}
 };
 
 export default config;

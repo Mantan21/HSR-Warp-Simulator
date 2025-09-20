@@ -10,15 +10,15 @@
 			<Path {path} />
 		</div>
 		<div class="stars">
-			<i class="hsr-star" in:fly={{ y: 75, duration: 250, delay: 25 }} style="--delay: .025s;" />
-			<i class="hsr-star" in:fly={{ y: 75, duration: 250, delay: 75 }} style="--delay: .075s;" />
+			<i class="hsr-star" in:fly={{ y: 75, duration: 250, delay: 25 }} style="--delay: .025s;"></i>
+			<i class="hsr-star" in:fly={{ y: 75, duration: 250, delay: 75 }} style="--delay: .075s;"></i>
 			<i
 				class="hsr-star star-center"
 				in:fly={{ y: 75, duration: 250, delay: 125 }}
 				style="--delay: .125s;"
-			/>
-			<i class="hsr-star" in:fly={{ y: 75, duration: 250, delay: 75 }} style="--delay: .075s;" />
-			<i class="hsr-star" in:fly={{ y: 75, duration: 250, delay: 25 }} style="--delay: .025s;" />
+			></i>
+			<i class="hsr-star" in:fly={{ y: 75, duration: 250, delay: 75 }} style="--delay: .075s;"></i>
+			<i class="hsr-star" in:fly={{ y: 75, duration: 250, delay: 25 }} style="--delay: .025s;"></i>
 		</div>
 	</div>
 </div>

@@ -51,11 +51,11 @@
 	<div class="tooltip" transition:fade={{ duration: 250 }}>
 		{#if onProgress}
 			<div class="loader">
-				<caption class="load-text" style="position: relative;">
+				<div class="load-text" style="position: relative;">
 					{@html $t('warp.loadExpressMsg', { values: { item: `<span> ${warpType} </span>` } })}
-				</caption>
+				</div>
 				<div class="progress-bar" style="--per:{percentage}%">
-					<span />
+					<span></span>
 				</div>
 				<div class="percentage">
 					{percentage.toFixed(0)}%

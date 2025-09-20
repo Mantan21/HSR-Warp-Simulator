@@ -87,6 +87,8 @@
 </script>
 
 <div
+	role="dialog"
+	tabindex="0"
 	class:show
 	class="express"
 	style="height: {$viewportHeight}px"
@@ -100,21 +102,21 @@
 			src={$assets['regular-3star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
-		/>
+		></video>
 		<video
 			bind:this={regular4star}
 			muted
 			src={$assets['regular-4star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
-		/>
+		></video>
 		<video
 			bind:this={regular5star}
 			muted
 			src={$assets['regular-5star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
-		/>
+		></video>
 
 		<!-- Event Warp -->
 		<video
@@ -123,21 +125,21 @@
 			src={$assets['event-3star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
-		/>
+		></video>
 		<video
 			bind:this={event4star}
 			muted
 			src={$assets['event-4star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
-		/>
+		></video>
 		<video
 			bind:this={event5star}
 			muted
 			src={$assets['event-5star.mp4']}
 			type="video/mp4"
 			crossorigin="anonymous"
-		/>
+		></video>
 
 		{#if showSkipButton}
 			<div class="skip" in:fade={{ duration: 200 }}>

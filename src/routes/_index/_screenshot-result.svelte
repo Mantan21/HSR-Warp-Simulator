@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { t } from 'svelte-i18n';
-	import { saveAs } from 'file-saver';
+	import * as filesaver from 'file-saver';
 
 	import { APP_TITLE } from '$lib/data/site-setup.json';
 	import { initialAmount } from '$lib/data/warp-setup.json';
@@ -45,7 +45,7 @@
 
 	const saveHandler = () => {
 		playSfx('click2');
-		saveAs(blob, `HSR.WishSimulator.App - ${new Date().toLocaleString()}.png`);
+		filesaver.saveAs(blob, `HSR.WishSimulator.App - ${new Date().toLocaleString()}.png`);
 		addFunds();
 	};
 
@@ -108,21 +108,29 @@
 			<button class="shareableLink" title="Copy Link" on:click={copyHandle}>
 				<span class="link"> {shareLink} </span>
 				<span class="icon">
-					<i class="hsr-clone" />
+					<i class="hsr-clone"></i>
 				</span>
 			</button>
 		{/if}
 
 		<div class="social-button" transition:fade>
 			{#if shareURL}
-				<button on:click={facebookHandle}> <i class="hsr-facebook" /> </button>
-				<button on:click={twitterHandle}> <i class="hsr-twitter" /> </button>
-				<!-- <button on:click={pinterestHandle}> <i class="hsr-pinterest" /> </button> -->
+				<button on:click={facebookHandle} aria-label="Share on Facebook">
+					<i class="hsr-facebook"></i>
+				</button>
+				<button on:click={twitterHandle} aria-label="Share on Twitter">
+					<i class="hsr-twitter"></i>
+				</button>
+				<!-- <button on:click={pinterestHandle}> <i class="hsr-pinterest" ></i> </button> -->
 				{#if navigator.share}
-					<button on:click={webShareHandle}> <i class="hsr-dot-3" /> </button>
+					<button on:click={webShareHandle} aria-label="Share via Web Share">
+						<i class="hsr-dot-3"></i>
+					</button>
 				{/if}
 			{/if}
-			<button on:click={saveHandler}> <i class="hsr-save" /> </button>
+			<button on:click={saveHandler} aria-label="Save Screenshot">
+				<i class="hsr-save"></i>
+			</button>
 		</div>
 
 		{#if isFirstTIme && shareURL}

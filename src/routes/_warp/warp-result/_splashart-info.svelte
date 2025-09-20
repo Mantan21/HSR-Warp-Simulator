@@ -39,8 +39,8 @@
 				</div>
 				<div class="name">{$t(name)}</div>
 				<div class="rarity">
-					{#each Array(rarity) as _}
-						<i class="hsr-star" />
+					{#each Array(rarity) as _, i (i)}
+						<i class="hsr-star"></i>
 					{/each}
 				</div>
 
@@ -48,14 +48,14 @@
 					<div class="new">
 						<span>
 							{$t('new')}
-							<i class="hsr-star" />
+							<i class="hsr-star"></i>
 						</span>
 					</div>
 				{/if}
 
 				{#if combatType}
 					<div class="path">
-						<i class="hsr-{path}" />
+						<i class="hsr-{path}"></i>
 						<span>{$t(`path.the-${path}`)}</span>
 					</div>
 				{/if}

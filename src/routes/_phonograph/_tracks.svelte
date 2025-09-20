@@ -79,7 +79,7 @@
 			</div>
 		</Scrollable>
 	</div>
-	<div class="divider" />
+	<div class="divider"></div>
 	<div class="set-bgm">
 		<ButtonGeneral
 			icon="music"

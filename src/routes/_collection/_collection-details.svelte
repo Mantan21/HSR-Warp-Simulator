@@ -126,8 +126,12 @@
 						<ScreenshotShare relative />
 						{#if animationID}
 							<div class="playButton">
-								<button class="play" on:click={() => playPause(!playLC)}>
-									<i class="hsr-{playLC ? 'pause' : 'play'}" />
+								<button
+									aria-label="Player Control"
+									class="play"
+									on:click={() => playPause(!playLC)}
+								>
+									<i class="hsr-{playLC ? 'pause' : 'play'}"></i>
 								</button>
 							</div>
 						{/if}

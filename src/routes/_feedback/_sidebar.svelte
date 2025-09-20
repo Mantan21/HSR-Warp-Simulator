@@ -12,7 +12,7 @@
 				<span class="chat-target">HSR Warp Sim</span>
 				<span class="online">• Online</span>
 			</div>
-			<i class="hsr-honor" />
+			<i class="hsr-honor"></i>
 		</div>
 	</nav>
 </div>

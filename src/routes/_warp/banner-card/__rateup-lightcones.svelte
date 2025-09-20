@@ -9,7 +9,7 @@
 
 <div class="featured-lightcones">
 	<div class="lightcones-list">
-		{#each lightcones as { name, rarity }, i}
+		{#each lightcones as { name, rarity }, i (name)}
 			<div in:scale={{ delay: 300 + i * 100, start: 2 }} class="lc-item lc{i + 1}">
 				<LightCones item={name} size="small" />
 			</div>
@@ -22,7 +22,9 @@
 				<span>{$t('etc')}</span>
 			</div>
 			<div class="stars">
-				{#each Array(5) as _} <i class="hsr-star" /> {/each}
+				{#each Array(5) as _, i (i)}
+					<i class="hsr-star"></i>
+				{/each}
 			</div>
 		</div>
 	{/if}

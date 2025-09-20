@@ -43,13 +43,19 @@
 </script>
 
 {#if showPreview}
-	<div class="preview" on:mousedown|self={handlePreview} transition:fade={{ duration: 250 }}>
+	<div
+		class="preview"
+		role="dialog"
+		tabindex="0"
+		on:mousedown|self={handlePreview}
+		transition:fade={{ duration: 250 }}
+	>
 		<iframe
 			src="https://www.youtube.com/embed/vaUGgsqe2c4"
 			title="Pulling at Honkai: Star Rail Warp Simulator"
 			frameborder="0"
 			allowfullscreen
-		/>
+		></iframe>
 	</div>
 {/if}
 
@@ -94,7 +100,7 @@
 				</div>
 				<div class="footer">
 					<button on:click={handleSubmit} disabled={input.trim().length < 1}>
-						<i class="hsr-bulb" />
+						<i class="hsr-bulb"></i>
 						{#if onProcess}
 							<span class="verify"> Verifying... </span>
 						{:else}

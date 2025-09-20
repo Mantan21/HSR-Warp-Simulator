@@ -28,7 +28,7 @@
 		}}
 	>
 		{$t('history.filterTxt')} / {filterTxt}
-		<i class="hsr-caret-{showTableFilterOption ? 'up' : 'down'}" />
+		<i class="hsr-caret-{showTableFilterOption ? 'up' : 'down'}"></i>
 	</button>
 	{#if showTableFilterOption}
 		<div class="options" transition:fade={{ duration: 200 }}>

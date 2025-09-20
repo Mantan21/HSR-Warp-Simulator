@@ -41,19 +41,21 @@
 					<div class="cell">{$t('nodata')}</div>
 				</div>
 			{:else}
-				{#each dataToShow as { name, type, rarity, time, pity, bannerID, status }, i}
+				{#each dataToShow as { name, type, rarity, time, pity, bannerID, status }, i (name)}
 					{#if i > (page.activepage - 1) * page.itemPerPage - 1 && i < page.itemPerPage * page.activepage}
 						<div class="row">
 							<div class="cell cell0 star{rarity}">
 								{pity}
 								{#if status}
-									<span class="status"> <i class="hsr-{status}" /> </span>
+									<span class="status"> <i class="hsr-{status}"></i> </span>
 								{/if}
 							</div>
 							<div class="cell cell1">{$t(type)}</div>
 							<div class="cell cell2 star{rarity}">
 								{$t(name)}
-								{#if rarity > 3} ( {rarity}★ ) {/if}
+								{#if rarity > 3}
+									( {rarity}★ )
+								{/if}
 							</div>
 							<div class="cell cell3">
 								{#if bannerID}

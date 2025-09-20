@@ -54,6 +54,7 @@
 	{#if controller}
 		<div class="btn">
 			<button
+				aria-label="Decrease"
 				disabled={isNaN(value) || value <= 1}
 				on:touchstart|preventDefault|nonpassive={() => rangeControl('min')}
 				on:mousedown|preventDefault={() => rangeControl('min')}
@@ -61,7 +62,7 @@
 				on:mouseup={clearTimers}
 				on:touchend={clearTimers}
 			>
-				<i class="hsr-minus" />
+				<i class="hsr-minus"></i>
 			</button>
 		</div>
 	{/if}
@@ -83,6 +84,7 @@
 	{#if controller}
 		<div class="btn">
 			<button
+				aria-label="Increase"
 				on:touchstart|preventDefault|nonpassive={() => rangeControl('plus')}
 				on:mousedown|preventDefault={() => rangeControl('plus')}
 				on:mouseleave={clearTimers}
@@ -90,7 +92,7 @@
 				on:touchend={clearTimers}
 				disabled={isNaN(value) || value >= max}
 			>
-				<i class="hsr-plus" />
+				<i class="hsr-plus"></i>
 			</button>
 		</div>
 	{/if}
@@ -111,7 +113,9 @@
 		padding: 0;
 		height: 1.5rem;
 		background: transparent;
-		font: 1rem/1 arial, sans-serif;
+		font:
+			1rem/1 arial,
+			sans-serif;
 	}
 
 	[type='range'],

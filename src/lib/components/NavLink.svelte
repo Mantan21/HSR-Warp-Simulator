@@ -30,8 +30,8 @@
 
 	{#if resizeable}
 		<div class="toggle">
-			<button on:click={() => toggleShowAside()}>
-				<i class="hsr-chevron-right" />
+			<button aria-label="sidebar" on:click={() => toggleShowAside()}>
+				<i class="hsr-chevron-right"></i>
 			</button>
 		</div>
 	{/if}
@@ -39,10 +39,12 @@
 
 {#if isOpen && resizeable}
 	<div
+		tabindex="0"
+		role="dialog"
 		class="overlay"
 		transition:fly={{ x: $viewportWidth * -1, duration: 300 }}
 		on:mousedown={() => toggleShowAside('close')}
-	/>
+	></div>
 {/if}
 
 <style>

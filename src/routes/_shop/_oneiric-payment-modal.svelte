@@ -48,7 +48,13 @@
 	};
 </script>
 
-<div class="modal" on:mousedown|self={closeModal} transition:fade={{ duration: 200 }}>
+<div
+	class="modal"
+	role="dialog"
+	tabindex="0"
+	on:mousedown|self={closeModal}
+	transition:fade={{ duration: 200 }}
+>
 	<div class="container" transition:fly={{ y: 20, duration: 250 }}>
 		<div class="header">
 			<h1>{$t('shop.payment')}</h1>
@@ -67,9 +73,9 @@
 				<div class="price">{data.price}</div>
 			</div>
 
-			<caption>{$t('shop.selectMethod')}</caption>
+			<span class="caption">{$t('shop.selectMethod')}</span>
 			<div class="payment-method">
-				{#each payMethod as method}
+				{#each payMethod as method (method)}
 					<div class="method">
 						<button on:click={() => selectMethod(method)} class:active={activeMethod === method}>
 							<img src={$assets[`method-${method}.webp`]} alt={$t(`shop.method-${method}`)} />
@@ -162,7 +168,7 @@
 		color: #de6422;
 	}
 
-	caption {
+	.caption {
 		display: block;
 		width: 100%;
 		padding: 2% 0;

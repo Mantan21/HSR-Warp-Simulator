@@ -14,17 +14,17 @@
 <div class="description">
 	<Scrollable visibility="hidden">
 		{#if selected && combatType && readyToPick}
-			<caption class="charinfo" in:fade={{ duration: 500 }}>
-				<i class="hsr-{combatType} {combatType} icon-gradient" />
+			<div class="charinfo" in:fade={{ duration: 500 }}>
+				<i class="hsr-{combatType} {combatType} icon-gradient"></i>
 				<span>{$t(selected)}</span>
-			</caption>
+			</div>
 			<p in:fade={{ duration: 500 }}>
 				{@html $t(`additionalReward.description.${selected}`)}
 			</p>
 		{:else}
-			<caption class="strong">
+			<span class="strong">
 				{@html $t('additionalReward.note')}
-			</caption>
+			</span>
 			<p>
 				{$t('additionalReward.detail', { values: { characters } })}
 			</p>
@@ -40,7 +40,7 @@
 		height: calc(0.13 * var(--wd));
 	}
 
-	caption {
+	.caption {
 		display: block;
 	}
 	.strong {

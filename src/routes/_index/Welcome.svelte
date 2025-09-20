@@ -86,12 +86,14 @@
 					</div>
 				{:else}
 					<div class="updates">
-						{#each [...logs.filter(({ featured }) => featured)].reverse() as { date, changes }}
+						{#each [...logs.filter(({ featured }) => featured)].reverse() as { date, changes } (changes)}
 							<span>
 								<i class="tgl"> {date} </i>
 							</span>
-							{#each changes as txt} <p>{@html txt}</p> {/each}
-							<div style="height: .5rem" />
+							{#each changes as txt (txt)}
+								<p>{@html txt}</p>
+							{/each}
+							<div style="height: .5rem"></div>
 						{/each}
 					</div>
 				{/if}
@@ -103,7 +105,7 @@
 
 			<div class="footer">
 				<button on:click={handleSubmit}>
-					<i class="hsr-bulb" />
+					<i class="hsr-bulb"></i>
 					<span> {$t('loadSimulator')} </span>
 				</button>
 			</div>

@@ -78,6 +78,7 @@
 	let lid;
 	const handleLid = (node) => {
 		node.addEventListener('animationend', () => {
+			// eslint-disable-next-line svelte/no-dom-manipulating
 			lid.remove();
 		});
 	};
@@ -91,8 +92,8 @@
 {#if showResult}
 	{#if !$liteMode}
 		<div class="lid" bind:this={lid}>
-			<div class="top-lid" use:handleLid />
-			<div class="bottom-lid" />
+			<div class="top-lid" use:handleLid></div>
+			<div class="bottom-lid"></div>
 		</div>
 	{/if}
 
@@ -101,7 +102,7 @@
 
 {#if loading}
 	<div class="loader" in:fade={{ duration: 200 }}>
-		<i class="hsr-spinner" />
+		<i class="hsr-spinner"></i>
 	</div>
 {/if}
 
@@ -112,8 +113,9 @@
 			<Icon type="stellarJade" /> × {initialAmount.shareReward}
 		</div>
 	{/if}
-	<button class="btn-berbagi" on:click={takeShot} disabled={loading}><i class="hsr-share" /></button
-	>
+	<button class="btn-berbagi" on:click={takeShot} aria-label="Share Now" disabled={loading}>
+		<i class="hsr-share"></i>
+	</button>
 </div>
 
 <style>

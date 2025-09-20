@@ -50,7 +50,10 @@
 	in:transitionFly={{ y: -300, x: -30, duration: 500 }}
 >
 	{#if size !== 'small'}
-		<div class="layer layer-back" in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }} />
+		<div
+			class="layer layer-back"
+			in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }}
+		></div>
 	{/if}
 	<img use:lazyLoad={$assets[`lc/${size}/${item}`]} crossorigin="anonymous" alt={$t(item)} />
 
@@ -70,7 +73,7 @@
 	<div
 		class="layer layer-front"
 		in:transitionFly={{ y: -300, x: -30, duration: 500, opacity: 1 }}
-	/>
+	></div>
 </div>
 
 <style>

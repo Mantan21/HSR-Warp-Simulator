@@ -75,8 +75,8 @@
 		<h2>{$t('details.dropRateBoost')}</h2>
 		<div class="rateInfo">
 			<div class="rarity">
-				{#each Array(5) as _}
-					<i class="hsr-star" />
+				{#each Array(5) as _, i (i)}
+					<i class="hsr-star"></i>
 				{/each}
 			</div>
 			<span>
@@ -94,8 +94,8 @@
 
 		<div class="rateInfo">
 			<div class="rarity">
-				{#each Array(5) as _, i}
-					<i class="hsr-star" class:hidden={i > 3} />
+				{#each Array(5) as _, i (i)}
+					<i class="hsr-star" class:hidden={i > 3}></i>
 				{/each}
 			</div>
 			<span>
@@ -106,7 +106,7 @@
 		</div>
 
 		<div class="item-group">
-			{#each type === 'character-event' ? drop4char : drop4lc as { name, path, combat_type }, i}
+			{#each type === 'character-event' ? drop4char : drop4lc as { name, path, combat_type }, i (name)}
 				{#if i < 3}
 					<div class="col">
 						<ItemCard rarity="4" {name} {path} {combat_type} />
@@ -130,8 +130,8 @@
 
 	<div class="rateInfo">
 		<div class="rarity">
-			{#each Array(5) as _}
-				<i class="hsr-star" />
+			{#each Array(5) as _, i (i)}
+				<i class="hsr-star"></i>
 			{/each}
 		</div>
 		<span>
@@ -154,8 +154,8 @@
 	<br />
 	<div class="rateInfo">
 		<div class="rarity">
-			{#each Array(5) as _, i}
-				<i class="hsr-star" class:hidden={i > 3} />
+			{#each Array(5) as _, i (i)}
+				<i class="hsr-star" class:hidden={i > 3}></i>
 			{/each}
 		</div>
 		<span>
@@ -175,8 +175,8 @@
 
 	<div class="rateInfo">
 		<div class="rarity">
-			{#each Array(5) as _, i}
-				<i class="hsr-star" class:hidden={i > 2} />
+			{#each Array(5) as _, i (i)}
+				<i class="hsr-star" class:hidden={i > 2}></i>
 			{/each}
 		</div>
 		<span>

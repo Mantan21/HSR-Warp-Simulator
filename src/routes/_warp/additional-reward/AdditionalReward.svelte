@@ -64,6 +64,8 @@
 
 <div
 	class="modal"
+	role="dialog"
+	tabindex="0"
 	on:mousedown={handleModal}
 	in:fade={{ duration: 200 }}
 	out:fade={{ duration: 200 }}
@@ -75,15 +77,15 @@
 		in:fly={{ y: 20, duration: 250, opacity: 1 }}
 		out:fly={{ y: 50, duration: 100, opacity: 1 }}
 	>
-		<div class="wrapper" on:mousedown|stopPropagation>
+		<div class="wrapper" role="dialog" tabindex="0" on:mousedown|stopPropagation>
 			<Charlist {selected} {charList} />
 			<Description {charList} {selected} {combatType} {readyToPick} />
 
 			<div class="footer">
-				<span><i class="hsr-star" /></span>
+				<span><i class="hsr-star"></i></span>
 
 				{#if readyToPick && !selected}
-					<caption> {$t('additionalReward.selectChar')} </caption>
+					<span class="caption"> {$t('additionalReward.selectChar')} </span>
 				{:else}
 					<ButtonGeneral icon="note" notAllowed>
 						{$t('additionalReward.viewDetail')}
@@ -185,7 +187,7 @@
 		opacity: 0.5;
 	}
 
-	.footer caption {
+	.footer .caption {
 		color: var(--color-second);
 		position: relative;
 		z-index: +1;

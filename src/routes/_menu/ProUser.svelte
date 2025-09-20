@@ -118,8 +118,12 @@
 							on:input={(e) => ({ value } = e.detail.target)}
 						/>
 						{#if userKey}
-							<button class="toggle-visible" on:click|preventDefault={showKeyHandle}>
-								<i class="hsr-eye{!showKey ? '-slash' : ''}" />
+							<button
+								aria-label="Show Toggle"
+								class="toggle-visible"
+								on:click|preventDefault={showKeyHandle}
+							>
+								<i class="hsr-eye{!showKey ? '-slash' : ''}"></i>
 							</button>
 						{/if}
 					</div>
@@ -176,7 +180,7 @@
 			<h2>{$t('menu.benefit')}</h2>
 			<div class="row">
 				<ol>
-					{#each $json('menu.benefitList') as benefit}
+					{#each $json('menu.benefitList') as benefit (benefit)}
 						<li>
 							{@html $t(benefit, {
 								values: {

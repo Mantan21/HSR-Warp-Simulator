@@ -54,7 +54,7 @@
 	.jadeSpend strong {
 		background-image: linear-gradient(#9160d9, #4b90ff);
 		background-clip: text;
-		text-fill-color: transparent;
+		/* text-fill-color: transparent; */
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-size: 180%;

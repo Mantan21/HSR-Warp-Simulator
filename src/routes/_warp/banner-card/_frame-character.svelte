@@ -37,8 +37,8 @@
 						<span> {bannerTitle} </span>
 					</h1>
 					<div class="time">
-						<i class="hsr-time" />
-						<caption>{$t('warp.duration')}</caption>
+						<i class="hsr-time"></i>
+						<span>{$t('warp.duration')}</span>
 					</div>
 					<div class="description">
 						<p>{@html $t('warp.warpDescription')}</p>
@@ -48,7 +48,7 @@
 
 				<div class="rateup-characters">
 					<div class="rateup-row" in:diagonalSlide={{ delay: 400, duration: 400 }}>
-						{#each rateup as name, i}
+						{#each rateup as name, i (name)}
 							<div class="rateup-item">
 								<div class="rateup-content">
 									<picture
@@ -77,11 +77,12 @@
 		<div class="character" transition:fade|local>
 			<div class="char-group" style={characterOffset(featured, 'textOffset')}>
 				<div class="name">
-					<i class="hsr-{combat_type} icon-gradient {combat_type}" />
+					<i class="hsr-{combat_type} icon-gradient {combat_type}"></i>
 					<span>{$t(featured)}</span>
 				</div>
 				<div class="stars">
-					{#each Array(5) as _} <i class="hsr-star" />{/each}
+					{#each Array(5) as _, i (i)}
+						<i class="hsr-star"></i>{/each}
 				</div>
 			</div>
 		</div>

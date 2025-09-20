@@ -1,4 +1,6 @@
 import path from 'path';
+import { defineConfig } from 'vite';
+import devtoolsJson from 'vite-plugin-devtools-json';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from 'vite-imagetools';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -116,11 +118,11 @@ const manifest = {
 	]
 };
 
-/** @type {import('vite').UserConfig} */
-const config = {
+export default defineConfig({
 	plugins: [
 		imagetools({}),
 		sveltekit(),
+		devtoolsJson(),
 		MdPlugin({ mode: 'html' }),
 		VitePWA({
 			strategies: 'injectManifest',
@@ -139,8 +141,7 @@ const config = {
 	},
 	build: {
 		chunkSizeWarningLimit: 350,
+		// sourcemap: true,
 		target: ['es2020']
 	}
-};
-
-export default config;
+});

@@ -19,7 +19,8 @@
 <div
 	class="modal"
 	class:exchange
-	aria-label=""
+	tabindex="0"
+	role="dialog"
 	on:mousedown|self={closeModal}
 	in:fade={{ duration: 200 }}
 	out:fade={{ duration: 80 }}

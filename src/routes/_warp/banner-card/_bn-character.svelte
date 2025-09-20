@@ -30,7 +30,7 @@
 
 <BannerTpl {group}>
 	<div class="content" class:group class:lite={$liteMode}>
-		<div class="featured-bg" />
+		<div class="featured-bg"></div>
 		<div class="overflow" class:hide={hideOverflow}>
 			{#if !$probEdit}
 				<div class="splash-art">

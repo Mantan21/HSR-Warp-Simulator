@@ -31,7 +31,7 @@
 </svg>
 
 <div class="banner-selection">
-	{#each $bannerList as banner, i}
+	{#each $bannerList as banner, i (i)}
 		<div class="item">
 			<ButtonBanner
 				active={i === $activeBanner}

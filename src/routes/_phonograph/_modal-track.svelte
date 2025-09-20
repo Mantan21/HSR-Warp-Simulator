@@ -121,7 +121,7 @@
 					<div class="info">
 						<div class="title">{title}</div>
 						<div class="channel">
-							<i class="hsr-character" />
+							<i class="hsr-character"></i>
 							{author}
 						</div>
 						{#if description}

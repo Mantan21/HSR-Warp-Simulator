@@ -116,7 +116,7 @@
 			<div class="keep-setting">
 				<div class="checkbox">
 					<input type="checkbox" name="keep" id="keepsetting" bind:checked={keepSetting} />
-					<span role="button" tabindex="-1" on:mousedown={toggleResetOption} />
+					<span role="button" tabindex="-1" on:mousedown={toggleResetOption}></span>
 				</div>
 				<label role="" for="keepsetting" on:mousedown={() => playSfx('click2')}>
 					<span> {@html $t('menu.keepSetting')} </span>
@@ -126,7 +126,7 @@
 			<div class="clear-cache">
 				<div class="checkbox">
 					<input type="checkbox" name="cache" id="clearCache" bind:checked={clearCache} />
-					<span role="button" tabindex="-1" on:mousedown={() => toggleResetOption('cache')} />
+					<span role="button" tabindex="-1" on:mousedown={() => toggleResetOption('cache')}> </span>
 				</div>
 				<label role="" for="clearCache" on:mousedown={() => playSfx('click2')}>
 					<span>{@html $t('menu.clearCache', { values: { size: storageSize } })} </span>
@@ -138,26 +138,26 @@
 
 <div class="menu" class:hide={!showToggle} transition:fade={{ duration: 250 }}>
 	<div class="wrapper">
-		<button title="Options" on:click={toggleShowMenu}>
-			<i class="hsr-cog" />
+		<button title="Options" aria-label="Settings" on:click={toggleShowMenu}>
+			<i class="hsr-cog"></i>
 		</button>
 
 		{#if !$muted.bgm}
-			<button title="PhonoGraph" on:click={openPhonograph}>
-				<i class="hsr-phonograph" />
+			<button title="PhonoGraph" aria-label="Phonograph" on:click={openPhonograph}>
+				<i class="hsr-phonograph"></i>
 			</button>
 		{/if}
 
-		<button title="Feedback" on:click={toggleChat}>
-			<i class="hsr-chat" />
+		<button title="Feedback" aria-label="Chatbox" on:click={toggleChat}>
+			<i class="hsr-chat"></i>
 		</button>
 
-		<button on:click={handleFullscreen} title="Fullscreen">
-			<i class="hsr-{!fullscreen ? 'fullscreen' : 'shrink'}" />
+		<button on:click={handleFullscreen} aria-label="Fullscreen" title="Fullscreen">
+			<i class="hsr-{!fullscreen ? 'fullscreen' : 'shrink'}"></i>
 		</button>
 
-		<button class="toggle" on:click={toggleMenuList} title="Show Menu">
-			<i class="hsr-chevron-right" />
+		<button class="toggle" on:click={toggleMenuList} aria-label="Show Menu" title="Show Menu">
+			<i class="hsr-chevron-right"></i>
 		</button>
 	</div>
 </div>

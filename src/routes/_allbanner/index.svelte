@@ -83,7 +83,7 @@
 					</div>
 				{:then data}
 					{@const allBanners = filterBanner(data, showAll)}
-					{#each allBanners as { patch, data }, i}
+					{#each allBanners as { patch, data }, i (allBanners[i])}
 						<div class="group" in:fade={{ duration: 300, delay: Math.sqrt(i * 10000) }}>
 							{#if patch === 1000000}
 								<h3>{$t('banner.stc')}</h3>
@@ -91,7 +91,7 @@
 								<h3>{$t('version')} {patch.toFixed(1)}</h3>
 							{/if}
 							<div class="banner">
-								{#each data as { phase, banners, pro }}
+								{#each data as { phase, banners, pro }, i (data[i])}
 									<VersionItem {phase} version={patch.toFixed(1)} data={banners} {pro} />
 								{/each}
 							</div>

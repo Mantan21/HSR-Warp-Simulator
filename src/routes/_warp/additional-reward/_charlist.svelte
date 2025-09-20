@@ -10,7 +10,7 @@
 </script>
 
 <div class="charlist">
-	{#each charList as { name, combat_type }}
+	{#each charList as { name, combat_type } (name)}
 		<div class="char-item">
 			<button
 				class="item-wrapper"

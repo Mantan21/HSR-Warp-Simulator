@@ -101,7 +101,7 @@
 		<slot />
 	</div>
 
-	<div class="option-select" on:mousedown|stopPropagation aria-label="">
+	<div class="option-select" role="dialog" tabindex="0" on:mousedown|stopPropagation>
 		<!-- Locales -->
 		{#if optionName === 'locale'}
 			<button class="selected-option locale" on:click={handleOption}>
@@ -115,7 +115,7 @@
 
 			{#if showOption}
 				<div class="select-option locale" transition:fly={{ y: -20, duration: 200 }}>
-					{#each Object.keys(localeName) as key}
+					{#each Object.keys(localeName) as key (key)}
 						<button class:selected={key === activeIndicator} on:click={() => setLang(key)}>
 							<span> {localeName[key]} </span>
 							<img src="data:image/png;base64,{flags[key]}" alt="flag {key}" class="flag" />
@@ -131,7 +131,7 @@
 			<!-- Clear Storage -->
 		{:else if optionName === 'reset'}
 			<button class="selected-option" on:click={clearStorage}>
-				{$t('menu.clearNow')} <i class="hsr-trash" />
+				{$t('menu.clearNow')} <i class="hsr-trash"></i>
 			</button>
 
 			<!-- Choose Backsound -->
@@ -145,32 +145,32 @@
 				<marquee style="width: 75%;">
 					{$activeBacksound.title}{activeAlbum}
 				</marquee>
-				<i class="hsr-music" />
+				<i class="hsr-music"></i>
 			</button>
 
 			<!-- Switch Banner -->
 		{:else if optionName === 'switchbanner'}
 			<button class="selected-option" on:click={switchBanner}>
 				{$activeVersion === '1000000.0' ? 'Pro' : $activeVersion} - {$activePhase}
-				<i class="hsr-caret-down" />
+				<i class="hsr-caret-down"></i>
 			</button>
 
 			<!-- Feedback -->
 		{:else if optionName === 'feedback'}
 			<button class="selected-option" on:click={feedback}>
 				{$t('menu.feedback')}
-				<i class="hsr-bug" />
+				<i class="hsr-bug"></i>
 			</button>
 
 			<!-- Number of Warps -->
 		{:else if optionName === 'warpnumber'}
 			<button class="selected-option" on:click={handleOption}>
-				{$t(activeIndicator)} <i class="hsr-caret-{showOption ? 'up' : 'down'}" />
+				{$t(activeIndicator)} <i class="hsr-caret-{showOption ? 'up' : 'down'}"></i>
 			</button>
 
 			{#if showOption}
 				<div class="select-option" transition:fly={{ y: -20, duration: 200 }}>
-					{#each ['default', 'unlimited'] as op}
+					{#each ['default', 'unlimited'] as op (op)}
 						<button class:selected={op === activeIndicator} on:click={() => select(op)}>
 							<span> {$t(op)} </span>
 						</button>
@@ -188,7 +188,7 @@
 		{:else}
 			<button class="selected-option" on:click={handleOption}>
 				{activeIndicator ? $t('menu.yes') : $t('menu.no')}
-				<i class="hsr-caret-{showOption ? 'up' : 'down'}" />
+				<i class="hsr-caret-{showOption ? 'up' : 'down'}"></i>
 			</button>
 
 			{#if showOption}

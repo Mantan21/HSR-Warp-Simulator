@@ -25,7 +25,7 @@
 </script>
 
 <ShopGroup>
-	{#each ['specialPass', 'regularPass'] as pass}
+	{#each ['specialPass', 'regularPass'] as pass (pass)}
 		<ShopGroupItem>
 			<button class="oneiric-item" in:fade={{ duration: 250 }} on:click={() => selectItem(pass)}>
 				<div class="item-pic">
@@ -36,8 +36,8 @@
 					<div class="info">
 						<span class="name">{$t(`item.${pass}`)}</span>
 						<span class="rarity">
-							{#each Array(5) as _}
-								<i class="hsr-star" />
+							{#each Array(5) as _, i (i)}
+								<i class="hsr-star"></i>
 							{/each}
 						</span>
 					</div>

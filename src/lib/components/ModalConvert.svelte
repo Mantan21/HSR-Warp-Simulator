@@ -67,7 +67,7 @@
 				</div>
 			</div>
 			<div class="divider">
-				<i class="hsr-arrow-right" />
+				<i class="hsr-arrow-right"></i>
 			</div>
 			<div class="stellarJade item">
 				<div class="icon">

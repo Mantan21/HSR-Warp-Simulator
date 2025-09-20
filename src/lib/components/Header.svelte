@@ -10,7 +10,7 @@
 <header class:relative class:invert>
 	<div class="head-title">
 		<div class="logo" class:showLogo={!hideDesktopIcon}>
-			<i class="hsr-{icon}" />
+			<i class="hsr-{icon}"></i>
 		</div>
 		<div class="heading">
 			<h1>{h1}</h1>

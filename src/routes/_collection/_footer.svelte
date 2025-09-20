@@ -9,13 +9,13 @@
 <div class="row">
 	<button class:active={itemtype === 'character'} on:click={() => showItem('character')}>
 		<span class="icon">
-			<i class="hsr-character" />
+			<i class="hsr-character"></i>
 		</span>
 		<span> {$t('character')}</span>
 	</button>
 	<button class:active={itemtype === 'lightcone'} on:click={() => showItem('lightcone')}>
 		<span class="icon">
-			<i class="hsr-lightcone" />
+			<i class="hsr-lightcone"></i>
 		</span>
 		<span> {$t('lightcone')}</span>
 	</button>

@@ -15,7 +15,7 @@
 </script>
 
 <div class="album-list">
-	{#each $albumList as name}
+	{#each $albumList as name (name)}
 		<div class="album-item">
 			<button
 				class="wrapper"
@@ -23,7 +23,7 @@
 				on:click={() => selectAlbum(name)}
 			>
 				<div class="indicator">
-					<span />
+					<span></span>
 				</div>
 				<picture class="cover">
 					<img src={$assets[`album_${name}.webp`]} alt={name} />
@@ -34,7 +34,7 @@
 
 				{#if activeAlbum === name}
 					<span class="note">
-						<i class="hsr-music" />
+						<i class="hsr-music"></i>
 					</span>
 				{/if}
 			</button>

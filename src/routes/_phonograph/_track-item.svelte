@@ -82,22 +82,22 @@
 	on:click={() => previewTrack(sourceID)}
 	use:marquee
 >
-	<i class="hsr-right-arrow" />
+	<i class="hsr-right-arrow"></i>
 	<div class="track-wrapper">
 		<div class="icon">
 			{#if isPlayed}
 				{#if isloaded && duration > 0}
 					<div class="play-icon">
-						<span />
-						<span />
-						<span />
-						<span />
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
 					</div>
 				{:else}
-					<i class="hsr-spinner" />
+					<i class="hsr-spinner"></i>
 				{/if}
 			{:else}
-				<i class="hsr-play" />
+				<i class="hsr-play"></i>
 			{/if}
 		</div>
 		<div class="track-info">
@@ -106,12 +106,12 @@
 
 				{#if sourceID === bgm.sourceID}
 					<span class="note">
-						<i class="hsr-music" />
+						<i class="hsr-music"></i>
 					</span>
 				{/if}
 			</div>
 			<div class="progress">
-				<span style="--per:{percentage}%" />
+				<span style="--per:{percentage}%"> </span>
 			</div>
 			<div class="duration">
 				{isPlayed ? `${current} /` : ''}
@@ -126,8 +126,8 @@
 </button>
 
 {#if album === 'custom-musics'}
-	<button class="delete" on:click={deleteMusic}>
-		<i class="hsr-trash" />
+	<button class="delete" aria-label="Delete" on:click={deleteMusic}>
+		<i class="hsr-trash"></i>
 	</button>
 {/if}
 
@@ -281,8 +281,8 @@
 		text-overflow: ellipsis;
 	}
 
-	button.marquee:hover .track-title .title,
-	button.marquee.isPlayed .track-title .title {
+	:global(button.marquee:hover) .track-title .title,
+	:global(button.marquee.isPlayed) .track-title .title {
 		display: block;
 		width: fit-content;
 		animation: marquee 7.5s linear infinite;

@@ -43,7 +43,7 @@
 
 {#if dev && type === 'banner' && show}
 	<div class="row placeholder">
-		<div class="banner" />
+		<div class="banner"></div>
 	</div>
 {/if}
 
@@ -56,7 +56,7 @@
 			data-ad-client="ca-pub-1874822310102113"
 			data-ad-format="auto"
 			data-full-width-responsive="true"
-		/>
+		></ins>
 	{/if}
 
 	{#if head && !type}

@@ -14,7 +14,7 @@
 	onMount(() => playSfx('item-obtained'));
 </script>
 
-<section in:fade={{ duration: 250 }} on:mousedown={closeObtained}>
+<section in:fade={{ duration: 250 }} tabindex="0" role="dialog" on:mousedown={closeObtained}>
 	<div class="container" bind:clientWidth={width} style="--wd:{width}px">
 		<div class="top" in:fly={{ y: 30, duration: 500, easing: bezier(0.13, 0.14, 0, 1) }}>
 			<svg
@@ -70,19 +70,19 @@
 				/>
 			</svg>
 
-			<div class="item" on:mousedown|stopPropagation>
+			<div class="item" tabindex="0" role="listbox" on:mousedown|stopPropagation>
 				<div class="item-pic" in:scale={{ start: 0.5, duration: 300 }}>
 					<picture>
 						<Icon type={item} />
 					</picture>
 					<span class="star">
-						{#each Array(5) as _}
-							<i class="hsr-star" />
+						{#each Array(5) as _, i (i)}
+							<i class="hsr-star"></i>
 						{/each}
 					</span>
 					<span class="qty">{qty}</span>
 				</div>
-				<caption in:fade={{ duration: 250 }}> {$t(`item.${item}`)} </caption>
+				<span class="caption" in:fade={{ duration: 250 }}> {$t(`item.${item}`)} </span>
 			</div>
 		</div>
 
@@ -207,7 +207,7 @@
 		display: block;
 	}
 
-	caption {
+	.caption {
 		display: block;
 		padding: 5% 0;
 		font-size: calc(0.015 * var(--wd));

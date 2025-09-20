@@ -115,12 +115,10 @@
 		<Scrollable>
 			<div class="list" style="--itemWidth: {itemWidth}%">
 				{#if $liteMode || $isMobile}
-					{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }}
-						{#key name}
-							<div class="item">
-								<CollectionItem {rarity} {name} {path} {isOwned} combatType={combat_type} {qty} />
-							</div>
-						{/key}
+					{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty } (name)}
+						<div class="item">
+							<CollectionItem {rarity} {name} {path} {isOwned} combatType={combat_type} {qty} />
+						</div>
 					{/each}
 				{:else}
 					{#each dataToShow as { rarity, name, path, combat_type, isOwned, qty }, i (name)}

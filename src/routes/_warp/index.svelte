@@ -126,7 +126,7 @@
 	<Header {bannerType} {bannerName} />
 	<BannerSelection />
 
-	{#each $bannerList as banner, i}
+	{#each $bannerList as banner, i (i)}
 		{#if i === $activeBanner}
 			<div class="warp-banner">
 				<BannerItem banner={banner.type} item={banner} bannerIndex={i} />

@@ -97,16 +97,16 @@
 		}}
 	>
 		{@html $t(`banner.${bn(banner)}`)}
-		<i class="hsr-caret-{showSelectList ? 'up' : 'down'}" />
+		<i class="hsr-caret-{showSelectList ? 'up' : 'down'}"></i>
 	</button>
 
 	<button class="clear" on:click={showModalReset}>
-		<i class="hsr-trash" /> {$t('history.resetButton')}</button
+		<i class="hsr-trash"></i> {$t('history.resetButton')}</button
 	>
 
 	{#if showSelectList}
 		<div class="select-list" transition:fade={{ duration: 200 }}>
-			{#each list as { type }, i}
+			{#each list as { type }, i (type[i])}
 				<button
 					class="item"
 					class:active={selected === i}

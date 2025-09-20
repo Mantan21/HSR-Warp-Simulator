@@ -15,7 +15,7 @@
 
 <button on:click={handleClick} {disabled} class:notAllowed class:colored class:dark>
 	{#if !!icon}
-		<i class="hsr-{icon}" />
+		<i class="hsr-{icon}"></i>
 	{/if}
 	<span> <slot /> </span>
 </button>

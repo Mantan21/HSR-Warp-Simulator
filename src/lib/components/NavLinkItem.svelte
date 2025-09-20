@@ -14,8 +14,8 @@
 	<button class:active on:click={click}>
 		<div class="icon-wrapper">
 			<div class="icon">
-				<div class="ornament"><span /></div>
-				<i class="hsr-{icon}" />
+				<div class="ornament"><span></span></div>
+				<i class="hsr-{icon}"></i>
 			</div>
 		</div>
 		<span> <slot /> </span>

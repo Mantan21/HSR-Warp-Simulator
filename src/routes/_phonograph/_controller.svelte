@@ -36,7 +36,7 @@
 	</div>
 	<div class="controls">
 		<button class:active={isLoop} on:click={handleLoop} title="Loop This Music">
-			<i class="hsr-loop" />
+			<i class="hsr-loop"></i>
 			{$t('phonograph.loop')}
 		</button>
 		{#if !isLoop}
@@ -46,7 +46,7 @@
 				on:click={handleSuffle}
 				transition:fade={{ duration: 250 }}
 			>
-				<i class="hsr-suffle" />
+				<i class="hsr-suffle"></i>
 				{$t('phonograph.suffle')}
 			</button>
 		{/if}

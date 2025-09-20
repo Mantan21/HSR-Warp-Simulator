@@ -7,22 +7,22 @@
 </script>
 
 <div class="light anim star{rarity}" use:removeAfterComplete>
-	<div class="border anim" use:removeAfterComplete />
+	<div class="border anim" use:removeAfterComplete></div>
 </div>
 <div class="light anim star{rarity}">
-	<div class="donut donut1 anim" use:removeAfterComplete />
+	<div class="donut donut1 anim" use:removeAfterComplete></div>
 </div>
 
 <div class="light anim star{rarity}" use:removeAfterComplete>
-	<div class="donut donut2 anim" use:removeAfterComplete />
+	<div class="donut donut2 anim" use:removeAfterComplete></div>
 </div>
 
 <div class="light anim star{rarity}" use:removeAfterComplete>
-	<div class="dotted-border anim" use:removeAfterComplete />
+	<div class="dotted-border anim" use:removeAfterComplete></div>
 </div>
 
-<div class="anim overlay star{rarity}" use:removeAfterComplete />
-<div class="anim shadow" use:removeAfterComplete />
+<div class="anim overlay star{rarity}" use:removeAfterComplete></div>
+<div class="anim shadow" use:removeAfterComplete></div>
 
 <style>
 	.light {

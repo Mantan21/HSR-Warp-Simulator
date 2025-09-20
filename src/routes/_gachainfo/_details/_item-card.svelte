@@ -27,9 +27,9 @@
 		{/if}
 
 		<div class="icon">
-			<i class="hsr-{combat_type} {combat_type} icon-gradient" />
+			<i class="hsr-{combat_type} {combat_type} icon-gradient"></i>
 		</div>
-		<caption> {$t(name)} </caption>
+		<span class="caption"> {$t(name)} </span>
 	</div>
 </div>
 
@@ -54,7 +54,7 @@
 	.path,
 	.item-pic,
 	.icon,
-	caption {
+	.caption {
 		position: absolute;
 	}
 
@@ -95,7 +95,7 @@
 		font-size: calc(0.02 * var(--width));
 	}
 
-	caption {
+	.caption {
 		width: 65%;
 		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7) 50%, transparent);
 		color: #fff;

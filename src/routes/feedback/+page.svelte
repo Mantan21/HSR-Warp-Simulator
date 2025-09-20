@@ -33,7 +33,7 @@
 	<div class="container">
 		<Scrollable>
 			<div class="wrapper">
-				<div id="disqus_thread" />
+				<div id="disqus_thread"></div>
 			</div>
 		</Scrollable>
 	</div>

@@ -42,7 +42,7 @@
 	<div class="donationlist" bind:clientHeight={donatorHeight}>
 		{#await supporterList() then listOfSupporters}
 			{#if listOfSupporters.length > 0}
-				{#each listOfSupporters as { name, message, amount, date, type }, i}
+				{#each listOfSupporters as { name, message, amount, date, type }, i (listOfSupporters[i])}
 					{@const platform =
 						type === 'tip' ? 'trakteer' : type === 'donation' ? 'saweria' : 'ko-fi'}
 					<div class="donation-item {platform}" in:fade={{ duration: 300, delay: i * 20 }}>
@@ -200,8 +200,9 @@
 		margin-left: 0.5rem;
 	}
 	.info .name span {
-		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
-			Geneva, Verdana, sans-serif;
+		font-family:
+			'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+			sans-serif;
 		font-size: larger;
 		font-weight: bold;
 	}
@@ -239,8 +240,9 @@
 		padding: 0.4rem 0.6rem;
 		border-radius: 1rem;
 		color: #fff;
-		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
-			Geneva, Verdana, sans-serif;
+		font-family:
+			'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+			sans-serif;
 		font-weight: bold;
 	}
 

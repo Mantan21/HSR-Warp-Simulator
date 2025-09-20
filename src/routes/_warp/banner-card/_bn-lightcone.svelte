@@ -49,7 +49,7 @@
 			<div class="layer-white">
 				<img src={$assets['circle-ornament1.svg']} alt="Circle" class="ornament ornament1" />
 				<img src={$assets['circle-ornament2.svg']} alt="Circle" class="ornament ornament2" />
-				<div class="ornament ornament3" />
+				<div class="ornament ornament3"></div>
 			</div>
 		</div>
 	</div>

@@ -160,7 +160,7 @@
 			{#if bannerType !== 'starter'}
 				<div class="btn">
 					<Button type="icon" on:click={editProb}>
-						<i class="hsr-{!$probEdit ? 'cog-bold' : 'check'}" />
+						<i class="hsr-{!$probEdit ? 'cog-bold' : 'check'}"></i>
 					</Button>
 				</div>
 			{/if}

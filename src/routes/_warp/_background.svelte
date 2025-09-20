@@ -75,7 +75,7 @@
 	};
 </script>
 
-{#each $warpList as { type, featured: item }}
+{#each $warpList as { type, featured: item }, i (i)}
 	{#if item === featured && type === activeType}
 		<!-- Character Event -->
 		{#if type === 'character-event'}

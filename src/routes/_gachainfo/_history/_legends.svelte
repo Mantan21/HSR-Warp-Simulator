@@ -6,10 +6,10 @@
 
 {#if !['starter', 'regular'].includes(banner)}
 	<div class="legend">
-		{#each ['win', 'lose', 'guaranteed'] as v}
+		{#each ['win', 'lose', 'guaranteed'] as v (v)}
 			<div class="item">
 				<span class="star5">
-					<i class="hsr-{v}" style="font-size: larger;" />
+					<i class="hsr-{v}" style="font-size: larger;"></i>
 				</span>
 				&nbsp; : &nbsp; {$t(`history.${v}`)}
 			</div>

@@ -10,8 +10,8 @@
 	};
 </script>
 
-<button on:click|preventDefault|stopPropagation={handleClose} class:dark>
-	<i class="hsr-{icon}" />
+<button aria-label="action" on:click|preventDefault|stopPropagation={handleClose} class:dark>
+	<i class="hsr-{icon}"></i>
 </button>
 
 <style>

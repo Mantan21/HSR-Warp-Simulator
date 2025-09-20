@@ -50,54 +50,52 @@
 	};
 </script>
 
-{#key charData}
-	<div class="col" class:locked in:fade={{ duration: 300 }}>
-		<button on:click={selectBanner} disabled={locked} title={featuredChar}>
-			<div class="banner-pic">
-				<div class="wrapper" class:dual={bannerID.length > 1}>
-					{#if bannerID.length > 1}
-						{@const { bannerName, runNumber } = charData[0]}
-						{@const img = $assets[`banner/${bannerName}-${runNumber}`]}
-						<div class="rateup4">
-							<img
-								use:lazyLoad={img || $assets[`banner/${version.replace('.', '-')}_${phase}`]}
-								alt={$t(`banner.${bannerName}`)}
-								crossorigin="anonymous"
-							/>
-						</div>
-					{/if}
-
-					{#each charData as { bannerName, runNumber, featured }}
-						{@const img = $assets[`banner/${bannerName || featured}-${runNumber}`]}
-						<picture class:bg={!img}>
-							<img
-								use:lazyLoad={img || $assets[`closeup/${featured}`]}
-								alt={$t(`banner.${bannerName}`)}
-								crossorigin="anonymous"
-							/>
-						</picture>
-					{/each}
-				</div>
-				{#if pro}
-					<span class="phase"> STC </span>
-				{:else}
-					<span class="phase"> {$t('phase')} {phase} </span>
-				{/if}
-
-				{#if locked}
-					<div class="lock">
-						<span>
-							<i class="hsr-lock" style="transform:translateY(15%); display:inline-block" /> Locked
-						</span>
+<div class="col" class:locked in:fade={{ duration: 300 }}>
+	<button on:click={selectBanner} disabled={locked} title={featuredChar}>
+		<div class="banner-pic">
+			<div class="wrapper" class:dual={bannerID.length > 1}>
+				{#if bannerID.length > 1}
+					{@const { bannerName, runNumber } = charData[0]}
+					{@const img = $assets[`banner/${bannerName}-${runNumber}`]}
+					<div class="rateup4">
+						<img
+							use:lazyLoad={img || $assets[`banner/${version.replace('.', '-')}_${phase}`]}
+							alt={$t(`banner.${bannerName}`)}
+							crossorigin="anonymous"
+						/>
 					</div>
 				{/if}
+
+				{#each charData as { bannerName, runNumber, featured }, i (charData[i])}
+					{@const img = $assets[`banner/${bannerName || featured}-${runNumber}`]}
+					<picture class:bg={!img}>
+						<img
+							use:lazyLoad={img || $assets[`closeup/${featured}`]}
+							alt={$t(`banner.${bannerName}`)}
+							crossorigin="anonymous"
+						/>
+					</picture>
+				{/each}
 			</div>
-			<caption>
-				{featuredChar}
-			</caption>
-		</button>
-	</div>
-{/key}
+			{#if pro}
+				<span class="phase"> STC </span>
+			{:else}
+				<span class="phase"> {$t('phase')} {phase} </span>
+			{/if}
+
+			{#if locked}
+				<div class="lock">
+					<span>
+						<i class="hsr-lock" style="transform:translateY(15%); display:inline-block"></i> Locked
+					</span>
+				</div>
+			{/if}
+		</div>
+		<span class="caption">
+			{featuredChar}
+		</span>
+	</button>
+</div>
 
 <style>
 	.col {
@@ -228,7 +226,7 @@
 		padding: 0.25rem 0.8rem;
 	}
 
-	caption {
+	.caption {
 		display: block;
 		width: 100%;
 		color: var(--color-second);
@@ -241,7 +239,7 @@
 		white-space: nowrap;
 	}
 
-	button:hover caption {
+	button:hover .caption {
 		opacity: 1;
 	}
 

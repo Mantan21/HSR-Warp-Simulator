@@ -32,7 +32,7 @@
 		{/if}
 		<div class="chatroom">
 			<div class="chats">
-				<div id="disqus_thread" />
+				<div id="disqus_thread"></div>
 			</div>
 		</div>
 	</div>

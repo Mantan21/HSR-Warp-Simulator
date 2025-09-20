@@ -35,14 +35,15 @@
 </script>
 
 <div class="content" in:fade={{ duration: 500, delay: 250 }}>
-	{#each chars as { combat_type, name }}
+	{#each chars as { combat_type, name } (name)}
 		<div class="char-group {name}">
 			<div class="name">
-				<i class="hsr-{combat_type} icon-gradient {combat_type}" />
+				<i class="hsr-{combat_type} icon-gradient {combat_type}"></i>
 				<span>{$t(name)}</span>
 			</div>
 			<div class="stars">
-				{#each Array(5) as _} <i class="hsr-star" />{/each}
+				{#each Array(5) as _, i (i)}
+					<i class="hsr-star"></i>{/each}
 			</div>
 		</div>
 	{/each}

@@ -112,6 +112,7 @@
 			<div class="via">WARPVIA</div>
 		{/if}
 		<div class="site">
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<a href="/" title="Try Your Luck by this Simulator"> HSR.WISHSIMULATOR.APP </a>
 		</div>
 	</div>
@@ -133,11 +134,12 @@
 		<ResultList {list} {standalone} />
 	{:else}
 		<div class="container">
-			{#each list as { name, path, rarity, combat_type, splashartOffset, eidolon, undyingType, undyingQty, isNew, animationID }, i}
+			{#each list as { name, path, rarity, combat_type, splashartOffset, eidolon, undyingType, undyingQty, isNew, animationID }, i (name)}
 				{#if activeIndex === i}
 					{#if intro5star && !$liteMode}
 						<SsrScreen {path} />
 					{:else}
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
 						<div class="wrapper" on:mousedown={showItem}>
 							{#if !$liteMode || !standalone}
 								<SplashLight {rarity} />

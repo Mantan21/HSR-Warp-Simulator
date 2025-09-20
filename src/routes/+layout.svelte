@@ -1,5 +1,4 @@
 <script>
-	import { registerSW } from 'virtual:pwa-register';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { onMount, setContext } from 'svelte';
@@ -75,10 +74,13 @@
 		});
 
 		loadTracks(); // Load Phonograph Tracks
-		registerSW(); // Service Worker for Faster Load
 		wakeLock(); // Prevent screen off while open the app
 		await IDBUpdater(); // update site data to the newer version
 
+		// Service Worker for Faster Load
+		if ('serviceWorker' in navigator && !dev) {
+			navigator.serviceWorker.register('/sw.js'); // /dev-sw.js?dev-sw
+		}
 		// prevent Righ click (hold on android) on production mode
 		if (!dev) document.addEventListener('contextmenu', (e) => e.preventDefault());
 	});

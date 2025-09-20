@@ -94,7 +94,7 @@
 			{@html $t('details.bannerStarted', { values: { banner: bannerName } })}
 		</p>
 		<p>
-			{#each $json('details.eventDetails') as txt}
+			{#each $json('details.eventDetails') as txt (txt)}
 				{@html $t(txt, {
 					values: {
 						banner: bannerName,
@@ -111,7 +111,7 @@
 		</p>
 
 		<p>
-			{#each $json('details.eventWarpRate') as txt}
+			{#each $json('details.eventWarpRate') as txt (txt)}
 				{@html $t(txt, {
 					values: {
 						itemType: isCharBanner ? $t('character') : $t('lightcone'),
@@ -124,7 +124,7 @@
 		</p>
 
 		<p>
-			{#each $json('details.boostedRate') as txt}
+			{#each $json('details.boostedRate') as txt (txt)}
 				{@html $t(txt, {
 					values: {
 						rateupList: rateUpList(isCharBanner ? 'rateupCharList' : 'rateupLCList'),
@@ -142,21 +142,21 @@
 		{#if bannerType == 'starter'}
 			<p>{@html $t('details.starterDescription')}</p>
 			<p>
-				{#each $json('details.starterDetail') as txt}
+				{#each $json('details.starterDetail') as txt (txt)}
 					{@html $t(txt)} <br />
 				{/each}
 			</p>
 		{:else}
 			<p>{@html $t('details.regularDescription')}</p>
 			<p>
-				{#each $json('details.regular5starRate') as txt}
+				{#each $json('details.regular5starRate') as txt (txt)}
 					{@html $t(txt)} <br />
 				{/each}
 			</p>
 		{/if}
 
 		<p>
-			{#each $json('details.regular4starRate') as txt}
+			{#each $json('details.regular4starRate') as txt (txt)}
 				{@html $t(txt)} <br />
 			{/each}
 		</p>
@@ -168,7 +168,9 @@
 	<p>
 		{$t('details.special')}
 		<br />
-		● {#if ['regular', 'lightcone-event'].includes(bannerType)} {@html convertion(5)} {/if}
+		● {#if ['regular', 'lightcone-event'].includes(bannerType)}
+			{@html convertion(5)}
+		{/if}
 		{@html convertion(4)}
 		{@html convertion(3)}
 		<br />

@@ -56,14 +56,15 @@
 		</div>
 
 		<div class="character" transition:fade|local>
-			{#each chars as { combat_type, name }}
+			{#each chars as { combat_type, name } (name)}
 				<div class="char-group {name}">
 					<div class="name">
-						<i class="hsr-{combat_type} icon-gradient {combat_type}" />
+						<i class="hsr-{combat_type} icon-gradient {combat_type}"></i>
 						<span>{$t(name)}</span>
 					</div>
 					<div class="stars">
-						{#each Array(5) as _} <i class="hsr-star" />{/each}
+						{#each Array(5) as _, i (i)}
+							<i class="hsr-star"></i>{/each}
 					</div>
 				</div>
 			{/each}
@@ -78,7 +79,7 @@
 						<span class="notice">i</span>
 						<img src={$assets['additional-reward.svg']} alt="Additional Rewards" />
 					</button>
-					<caption>{$t('warp.additional')}</caption>
+					<span class="caption">{$t('warp.additional')}</span>
 				</div>
 			{/if}
 		</div>
@@ -282,7 +283,7 @@
 		width: 80%;
 	}
 
-	.additional caption {
+	.additional .caption {
 		text-align: center;
 		font-size: calc(0.014 * var(--bw));
 	}

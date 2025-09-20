@@ -182,7 +182,9 @@
 		z-index: -1;
 	}
 	.shadow {
-		box-shadow: 0.2rem -0.2rem 0.2rem rgba(0, 0, 0, 0.2), -0.2rem -0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+		box-shadow:
+			0.2rem -0.2rem 0.2rem rgba(0, 0, 0, 0.2),
+			-0.2rem -0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 	}
 
 	:global(.mobileLandscape) .wrap {

@@ -1,23 +1,17 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
-			"$post": ["src/post"],
-			"$post/*": ["src/post/*"],
-			"@images/*": ["src/images/*"]
-		},
-		"preserveValueImports": false,
 		"allowJs": true,
+		// "checkJs": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"ignoreDeprecations": "5.0"
+		"moduleResolution": "bundler",
+		"noImplicitThis": false,
+		"typeRoots": ["node_modules/@types"]
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]
+	"files": ["node_modules/vite-plugin-pwa/client.d.ts"]
 }

@@ -58,14 +58,14 @@
 						<span> {$t(`banner.${bannername}`)} </span>
 					</h1>
 					<div class="time">
-						<i class="hsr-time" />
-						<caption>{$t('warp.duration')}</caption>
+						<i class="hsr-time"></i>
+						<span class="caption">{$t('warp.duration')}</span>
 					</div>
 				</div>
 
 				<div class="banner-select-container">
 					<div class="banner-content">
-						{#each item.content as content, i}
+						{#each item.content as content, i (content)}
 							<ButtonBanner
 								mode={2}
 								bannerData={content}
@@ -87,12 +87,13 @@
 			>
 				<div class="name">
 					{#if bannertype === 'character'}
-						<i class="hsr-{combat_type} icon-gradient {combat_type}" />
+						<i class="hsr-{combat_type} icon-gradient {combat_type}"></i>
 					{/if}
 					<span>{$t(featured)}</span>
 				</div>
 				<div class="stars">
-					{#each Array(5) as _} <i class="hsr-star" />{/each}
+					{#each Array(5) as _, i (i)}
+						<i class="hsr-star"></i>{/each}
 				</div>
 
 				{#if bannertype === 'lightcone'}
@@ -120,7 +121,7 @@
 					</div>
 				{:else}
 					<div class="rateup-row" in:diagonalSlide={{ delay: 400, duration: 400 }}>
-						{#each rateup as name, i}
+						{#each rateup as name, i (name)}
 							<div class="rateup-item">
 								<div class="rateup-content">
 									<picture

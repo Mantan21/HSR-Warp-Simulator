@@ -19,12 +19,17 @@
 </script>
 
 <div class="pagination">
-	<button class="prev" disabled={activepage === 1} on:click={previous}>
-		<i class="hsr-left-arrow" />
+	<button class="prev" aria-label="Previous" disabled={activepage === 1} on:click={previous}>
+		<i class="hsr-left-arrow"></i>
 	</button>
 	<span class="active">{activepage}</span>
-	<button class="next" disabled={!(dataLength > activepage * itemPerPage)} on:click={next}>
-		<i class="hsr-right-arrow" />
+	<button
+		class="next"
+		aria-label="Next"
+		disabled={!(dataLength > activepage * itemPerPage)}
+		on:click={next}
+	>
+		<i class="hsr-right-arrow"></i>
 	</button>
 </div>
 

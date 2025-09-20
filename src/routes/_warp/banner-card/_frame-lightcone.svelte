@@ -34,8 +34,8 @@
 						<span> {$t(`banner.${item.bannerName}`)} </span>
 					</h1>
 					<div class="time">
-						<i class="hsr-time" />
-						<caption> {$t('warp.duration')}</caption>
+						<i class="hsr-time"></i>
+						<span class="duration-caption">{$t('warp.duration')}</span>
 					</div>
 					<div class="description">
 						<p>{@html $t('warp.warpDescription')}</p>
@@ -54,8 +54,8 @@
 				</div>
 				<div class="name">{$t(item.featured)}</div>
 				<span class="stars">
-					{#each Array(5) as _}
-						<i class="hsr-star" />
+					{#each Array(5) as _, i (i)}
+						<i class="hsr-star"></i>
 					{/each}
 				</span>
 			</div>

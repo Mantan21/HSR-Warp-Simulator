@@ -32,7 +32,7 @@
 		<slot />
 	</span>
 	{#if allowAddition}
-		<span class="plus"> <i class="hsr-plus" /> </span>
+		<span class="plus"> <i class="hsr-plus"> </i></span>
 	{/if}
 </button>
 

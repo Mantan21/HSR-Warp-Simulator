@@ -1,6 +1,6 @@
 <div class="loader-ripple">
-	<span />
-	<span />
+	<span></span>
+	<span></span>
 </div>
 
 <style>

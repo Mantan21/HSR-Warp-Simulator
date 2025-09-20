@@ -23,7 +23,12 @@
 	onMount(() => playSfx('setting-loaded'));
 </script>
 
-<section aria-label="" transition:fade={{ duration: 200 }} on:mousedown={() => openOption('')}>
+<section
+	role="dialog"
+	tabindex="0"
+	transition:fade={{ duration: 200 }}
+	on:mousedown={() => openOption('')}
+>
 	<Header h1={$t('menu.heading')} h2={$t(`menu.${activeMenu}`)} icon="menu" relative>
 		{#if !$isMobileLandscape}
 			<Navbar horizontal {activeMenu} />

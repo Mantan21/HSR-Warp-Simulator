@@ -28,7 +28,7 @@
 </script>
 
 <NavLink {isOpen} dynamic>
-	{#each nav as item}
+	{#each nav as item (item)}
 		<NavLinkItem icon={item} active={activePath === item} on:click={() => select(item)}>
 			{$t(`path.${item}`)}
 		</NavLinkItem>

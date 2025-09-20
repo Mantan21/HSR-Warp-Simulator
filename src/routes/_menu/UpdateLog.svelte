@@ -7,7 +7,7 @@
 <div class="log-update" in:fade={{ duration: 250 }}>
 	<div class="container">
 		<Scrollable dark>
-			{#each [...logs].reverse() as { changes, date }, i}
+			{#each [...logs].reverse() as { changes, date }, i (changes)}
 				<div class="item">
 					<h2>
 						<i class="date">{date}</i>
@@ -15,7 +15,7 @@
 							( Latest Update )
 						{/if}
 					</h2>
-					{#each changes as change}
+					{#each changes as change (change)}
 						<p>{@html change}</p>
 					{/each}
 				</div>

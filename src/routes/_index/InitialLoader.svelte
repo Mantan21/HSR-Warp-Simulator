@@ -68,8 +68,8 @@
 		<div class="ornament ornament1">
 			<img src={assetList['loading-ornament.svg']} alt="" crossorigin="anonymous" />
 		</div>
-		<div class="ornament ornament2" />
-		<div class="ornament ornament3" />
+		<div class="ornament ornament2"></div>
+		<div class="ornament ornament3"></div>
 		<div class="text">
 			<div class="loading">{percentage < 1 ? 'CONNECTING' : 'LOADING'}</div>
 			{#if percentage > 0}
@@ -161,7 +161,7 @@
 		font-size: calc(0.37 * var(--screen-width));
 		transform: translateY(-10%);
 		background-clip: text;
-		text-fill-color: transparent;
+		/* text-fill-color: transparent; */
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.08));

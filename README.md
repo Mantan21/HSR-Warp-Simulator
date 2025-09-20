@@ -64,7 +64,6 @@ I don't know how HoyoVerse's algorithm is, so I tried to create mine as realisti
 Based on the formula above, it can be concluded that the probability table is as follows:
 
 1. Probability for 4★ item on Character Event Warp
-
    - 4★ item guaranteed at `10` roll and promoted 4★ item guaranteed at `20` roll.
    - Base rate to get 4★ item is `5.1%`, guaranteed to get 4★ item at pity `10`
 
@@ -73,7 +72,6 @@ Based on the formula above, it can be concluded that the probability table is as
    | **Rate** | 5.1% | 5.1% | 5.1% | 5.1% | 5.1% | 5.1% | 5.1% | 5.1% | 52.55% | 100% |
 
 2. Probability for 4★ item on Light Cone Event Warp
-
    - 4★ item guaranteed at `10` roll and promoted 4★ item guaranteed at `20` roll.
    - Base rate to get 4★ item is `6.6%`, guaranteed to get 4★ item at pity `10`
 
@@ -82,7 +80,6 @@ Based on the formula above, it can be concluded that the probability table is as
    | **Rate** | 6.6% | 6.6% | 6.6% | 6.6% | 6.6% | 6.6% | 6.6% | 6.6% | 53.30% | 100% |
 
 3. Light Cone Warp Probability
-
    - 5★ Item guaranteed at `80` roll and promoted 5★ item guaranteed at `160` roll.
    - Probability to get 5★ item is `0.8%`, the rate starts to increase at pity 63 and then guaranteed at pity `80`.
 
@@ -91,7 +88,6 @@ Based on the formula above, it can be concluded that the probability table is as
    | **Rate** | 0.8% | 6.31% | 11.82% | 17.33% | 22.84% | 28.35% | 33.86% | 39.38% | 44.88% | 50.40% | 55.91% | 61.42% | 66.93% | 72.44% | 77.95% | 83.47% | 88.98% | 94.49% | 100% |
 
 4. Character Event and Regular Warp Probability
-
    - 5★ Item guaranteed at `90` roll and promoted 5★ item guaranteed at `180` roll.
    - Probability to get 5★ item is `0.6%`, the rate starts to increase at pity 74 and then guaranteed at pity `90`.
 

@@ -52,8 +52,8 @@
 						<Path {path} />
 					</div>
 					<div class="rarity">
-						{#each Array(parseInt(rarity)) as _}
-							<i class="hsr-star" />
+						{#each Array(parseInt(rarity)) as _, i (i)}
+							<i class="hsr-star"></i>
 						{/each}
 					</div>
 					<div class="caption">
@@ -74,14 +74,14 @@
 					<div class="bonus-item undying star{undyingType === 'embers' ? 4 : 5}">
 						<div class="icon">
 							<Icon type={undyingType} style="width:70%" />
-							<caption> ×{undyingQty}</caption>
+							<span class="caption"> ×{undyingQty}</span>
 						</div>
 					</div>
 					{#if eidolon}
 						<div class="bonus-item eidolon star{rarity}">
 							<div class="icon">
 								<Icon type="eidolon{rarity}" style="width:70%" />
-								<caption> ×1</caption>
+								<span class="caption"> ×1</span>
 							</div>
 						</div>
 					{/if}
@@ -96,8 +96,8 @@
 						</div>
 
 						<div class="rarity">
-							{#each Array(parseInt(rarity)) as _}
-								<i class="hsr-star" />
+							{#each Array(parseInt(rarity)) as _, i (i)}
+								<i class="hsr-star"></i>
 							{/each}
 						</div>
 					</div>
@@ -121,7 +121,9 @@
 		width: 100%;
 		aspect-ratio: 2/1.1;
 		transform: scale(0.9998);
-		transition: transform 0.2s, box-shadow 0.3s;
+		transition:
+			transform 0.2s,
+			box-shadow 0.3s;
 		transform-style: preserve-3d;
 	}
 
@@ -157,21 +159,15 @@
 
 	.star5.item.character::after,
 	.star5.item.character::before {
-		background-image: repeating-linear-gradient(
-				90deg,
-				rgba(249, 170, 2, 0.5),
-				rgba(249, 170, 2, 0) 10%
-			),
+		background-image:
+			repeating-linear-gradient(90deg, rgba(249, 170, 2, 0.5), rgba(249, 170, 2, 0) 10%),
 			repeating-linear-gradient(0deg, rgba(249, 170, 2, 0.5), rgba(249, 170, 2, 0) 10%);
 	}
 
 	.star4.item.character::after,
 	.star4.item.character::before {
-		background-image: repeating-linear-gradient(
-				90deg,
-				rgba(254, 175, 254, 0.6),
-				rgba(254, 175, 254, 0) 10%
-			),
+		background-image:
+			repeating-linear-gradient(90deg, rgba(254, 175, 254, 0.6), rgba(254, 175, 254, 0) 10%),
 			repeating-linear-gradient(0deg, rgba(254, 175, 254, 0.6), rgba(254, 175, 254, 0) 10%);
 	}
 
@@ -481,7 +477,7 @@
 		background-image: linear-gradient(#7a514f, #d0a050 80%);
 	}
 
-	caption {
+	.caption {
 		position: absolute;
 		display: block;
 		bottom: 0;

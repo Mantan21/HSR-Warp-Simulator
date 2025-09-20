@@ -29,7 +29,7 @@
 		</svg>
 
 		<div class="icon">
-			<i class="hsr-shop" />
+			<i class="hsr-shop"></i>
 		</div>
 
 		<span class="caption">

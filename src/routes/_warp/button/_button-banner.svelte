@@ -23,7 +23,7 @@
 	const dispatch = createEventDispatcher();
 	const click = () => {
 		dispatch('select', { selected: type });
-		if (active) return;
+		console.log('hubla');
 		playSfx('switch-banner');
 	};
 </script>
@@ -41,7 +41,7 @@
 				<div class="circle-right">
 					<!--  -->
 				</div>
-				<div class="circle-left" />
+				<div class="circle-left"></div>
 			</div>
 		</div>
 	{/if}
@@ -116,7 +116,7 @@
 				/>
 			{:else if type.match('group')}
 				<div class="group">
-					{#each content as { featured }, i}
+					{#each content as { featured }, i (content[i])}
 						{#if type.match('cone')}
 							<img
 								class="cone-fg cone{i}"
@@ -126,7 +126,10 @@
 							/>
 						{:else if type.match('character')}
 							<div class="group-item">
-								<div class="image" style="background-image: url({$assets[`icon/${featured}`]});" />
+								<div
+									class="image"
+									style="background-image: url({$assets[`icon/${featured}`]});"
+								></div>
 							</div>
 						{/if}
 					{/each}
@@ -325,7 +328,9 @@
 		transform-origin: left;
 		padding-top: 2%;
 		filter: brightness(50%);
-		transition: transform 0.2s linear 0.23s, filter 0.5s;
+		transition:
+			transform 0.2s linear 0.23s,
+			filter 0.5s;
 	}
 
 	:global(.mobileLandscape) button {
