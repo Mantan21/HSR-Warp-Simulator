@@ -41,7 +41,7 @@
 					<div class="cell">{$t('nodata')}</div>
 				</div>
 			{:else}
-				{#each dataToShow as { name, type, rarity, time, pity, bannerID, status }, i (name)}
+				{#each dataToShow as { name, type, rarity, time, pity, bannerID, status }, i (dataToShow[i])}
 					{#if i > (page.activepage - 1) * page.itemPerPage - 1 && i < page.itemPerPage * page.activepage}
 						<div class="row">
 							<div class="cell cell0 star{rarity}">
