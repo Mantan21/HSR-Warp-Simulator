@@ -48,12 +48,15 @@
 		{/if}
 	</div>
 
-	<div class="list-wrapper" in:customScale={{ start: 1.3, duration: 400 }}>
+	<div class="list-wrapper" in:customScale|global={{ start: 1.3, duration: 400 }}>
 		<div class="list" bind:clientWidth={width} style="--item-width:{width}px">
 			{#if Object.keys(groupedList).length > 0}
 				{#each Object.keys(groupedList) as key, layer (key)}
-					<div class="{key} row" in:customfly={{ x: layer === 1 ? 200 : -200, duration: 600 }}>
-						{#each groupedList[key] as { name, rarity, combat_type, type, path, gachaCardOffset, isNew, eidolon, undyingType, undyingQty }, i (name)}
+					<div
+						class="{key} row"
+						in:customfly|global={{ x: layer === 1 ? 200 : -200, duration: 600 }}
+					>
+						{#each groupedList[key] as { name, rarity, combat_type, type, path, gachaCardOffset, isNew, eidolon, undyingType, undyingQty }, i (groupedList[key][i])}
 							<div class=" item item{i}">
 								<ResultListItem
 									{rarity}

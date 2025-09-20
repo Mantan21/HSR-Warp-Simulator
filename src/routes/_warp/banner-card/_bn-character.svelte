@@ -34,11 +34,11 @@
 		<div class="overflow" class:hide={hideOverflow}>
 			{#if !$probEdit}
 				<div class="splash-art">
-					<div class="wrapper" in:fade>
+					<div class="wrapper" in:fade|global>
 						<div class="mask-content">
 							<div
 								class="art-pic"
-								in:fly={{
+								in:fly|global={{
 									x: -50,
 									duration: 4000,
 									delay: 250,

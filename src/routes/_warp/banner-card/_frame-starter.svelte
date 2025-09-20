@@ -34,7 +34,7 @@
 	];
 </script>
 
-<div class="content" in:fade={{ duration: 500, delay: 250 }}>
+<div class="content" in:fade|global={{ duration: 500, delay: 250 }}>
 	{#each chars as { combat_type, name } (name)}
 		<div class="char-group {name}">
 			<div class="name">

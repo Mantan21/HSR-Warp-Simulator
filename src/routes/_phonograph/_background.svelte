@@ -31,7 +31,7 @@
 	.background {
 		width: var(--screen-width);
 		height: calc(9 / 16 * var(--screen-width));
-		position: absolute;
+		position: fixed;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);

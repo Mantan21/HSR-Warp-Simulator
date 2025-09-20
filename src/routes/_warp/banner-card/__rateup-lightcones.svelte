@@ -10,13 +10,13 @@
 <div class="featured-lightcones">
 	<div class="lightcones-list">
 		{#each lightcones as { name, rarity }, i (name)}
-			<div in:scale={{ delay: 300 + i * 100, start: 2 }} class="lc-item lc{i + 1}">
+			<div in:scale|global={{ delay: 300 + i * 100, start: 2 }} class="lc-item lc{i + 1}">
 				<LightCones item={name} size="small" />
 			</div>
 		{/each}
 	</div>
 	{#if showCaption}
-		<div class="lightcones-info" in:fade={{ delay: 300 }}>
+		<div class="lightcones-info" in:fade|global={{ delay: 300 }}>
 			<div class="lightcones-name">
 				{$t('something-irreplaceable')}
 				<span>{$t('etc')}</span>

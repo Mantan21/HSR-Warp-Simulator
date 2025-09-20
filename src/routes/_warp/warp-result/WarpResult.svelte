@@ -134,7 +134,7 @@
 		<ResultList {list} {standalone} />
 	{:else}
 		<div class="container">
-			{#each list as { name, path, rarity, combat_type, splashartOffset, eidolon, undyingType, undyingQty, isNew, animationID }, i (name)}
+			{#each list as { name, path, rarity, combat_type, splashartOffset, eidolon, undyingType, undyingQty, isNew, animationID }, i (list[i])}
 				{#if activeIndex === i}
 					{#if intro5star && !$liteMode}
 						<SsrScreen {path} />
@@ -146,8 +146,14 @@
 							{/if}
 
 							{#if !combat_type}
-								<div class="item-art lightcone" in:scale={{ start: 2, duration: 500, opacity: 1 }}>
-									<div class="item-content" in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}>
+								<div
+									class="item-art lightcone"
+									in:scale|global={{ start: 2, duration: 500, opacity: 1 }}
+								>
+									<div
+										class="item-content"
+										in:scale|global={{ start: 1.05, duration: 2500, opacity: 1 }}
+									>
 										<div class="lightcone-item">
 											<LightCones
 												item={name}
@@ -160,11 +166,11 @@
 							{:else}
 								<div
 									class="item-art character"
-									in:scale={{ start: 1.3, duration: 500, opacity: 1 }}
+									in:scale|global={{ start: 1.3, duration: 500, opacity: 1 }}
 								>
 									<picture
 										class="item-content"
-										in:scale={{ start: 1.05, duration: 2500, opacity: 1 }}
+										in:scale|global={{ start: 1.05, duration: 2500, opacity: 1 }}
 									>
 										<img
 											use:lazyLoad={$assets[

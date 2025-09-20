@@ -7,43 +7,43 @@
 <div class="character-group" class:lite={$liteMode}>
 	<div
 		class="gepard character"
-		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
+		in:fly|global={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={$assets['banner/1.0/gepard']} alt="gepard" crossorigin="anonymous" />
 	</div>
 	<div
 		class="bailu character"
-		in:fly={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
+		in:fly|global={{ y: 50, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={$assets['banner/1.0/bailu']} alt="bailu" crossorigin="anonymous" />
 	</div>
 	<div
 		class="yanqing character"
-		in:fly={{ y: 100, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
+		in:fly|global={{ y: 100, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={$assets['banner/1.0/yanqing']} alt="Yanqing" crossorigin="anonymous" />
 	</div>
 	<div
 		class="clara character"
-		in:fly={{ y: 100, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
+		in:fly|global={{ y: 100, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={$assets['banner/1.0/clara']} alt="clara" crossorigin="anonymous" />
 	</div>
 	<div
 		class="bronya character"
-		in:fly={{ y: 125, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
+		in:fly|global={{ y: 125, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={$assets['banner/1.0/bronya']} alt="bronya" crossorigin="anonymous" />
 	</div>
 	<div
 		class="himeko character"
-		in:fly={{ y: 125, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
+		in:fly|global={{ y: 125, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={$assets['banner/1.0/himeko']} alt="Himeko" crossorigin="anonymous" />
 	</div>
 	<div
 		class="welt character"
-		in:fly={{ y: 200, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
+		in:fly|global={{ y: 200, opacity: 0.8, duration: 2000, easing: bezier(0.13, 0.14, 0, 1) }}
 	>
 		<img src={$assets['banner/1.0/welt']} alt="Welt" crossorigin="anonymous" />
 	</div>

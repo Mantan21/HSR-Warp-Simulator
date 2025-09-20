@@ -30,7 +30,7 @@
 		<div class="overflow">
 			<div
 				class="layer-bg"
-				in:scaleOrigin={{
+				in:scaleOrigin|global={{
 					start: 1.15,
 					duration: 3000,
 					origin: `${xOrigin}% ${yOrigin}%`,

@@ -47,12 +47,12 @@
 	class="light-cone"
 	class:lite={$liteMode}
 	class:small={size === 'small'}
-	in:transitionFly={{ y: -300, x: -30, duration: 500 }}
+	in:transitionFly|global={{ y: -300, x: -30, duration: 500 }}
 >
 	{#if size !== 'small'}
 		<div
 			class="layer layer-back"
-			in:transitionFly={{ y: 200, x: 30, duration: 300, opacity: 1 }}
+			in:transitionFly|global={{ y: 200, x: 30, duration: 300, opacity: 1 }}
 		></div>
 	{/if}
 	<img use:lazyLoad={$assets[`lc/${size}/${item}`]} crossorigin="anonymous" alt={$t(item)} />
@@ -60,7 +60,7 @@
 	{#if animationID && size !== 'small'}
 		{#await loadVideo(animationID) then { webm, mp4, success }}
 			{#if success}
-				<div class="videoWrapper" in:fade>
+				<div class="videoWrapper" in:fade|global>
 					<video autoplay loop muted>
 						<source src={webm} type="video/webm" crossorigin="anonymous" />
 						<source src={mp4} type="video/mp4" crossorigin="anonymous" />
@@ -72,7 +72,7 @@
 	{/if}
 	<div
 		class="layer layer-front"
-		in:transitionFly={{ y: -300, x: -30, duration: 500, opacity: 1 }}
+		in:transitionFly|global={{ y: -300, x: -30, duration: 500, opacity: 1 }}
 	></div>
 </div>
 

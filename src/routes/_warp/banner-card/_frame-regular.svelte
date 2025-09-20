@@ -33,7 +33,7 @@
 	const handleModal = getContext('handleShowReward');
 </script>
 
-<div class="content" in:fade={{ duration: 500, delay: 250 }}>
+<div class="content" in:fade|global={{ duration: 500, delay: 250 }}>
 	{#if $probEdit}
 		<div class="banner-name">
 			{$t('banner.regular')} Configuration
@@ -43,7 +43,7 @@
 	{/if}
 
 	{#if !$probEdit}
-		<div class="wrapper-info" transition:fade|local>
+		<div class="wrapper-info" transition:fade|global>
 			<div class="info-body">
 				<h1>{$t('banner.stellar')}</h1>
 				<div class="description">
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 
-		<div class="character" transition:fade|local>
+		<div class="character" transition:fade|global>
 			{#each chars as { combat_type, name } (name)}
 				<div class="char-group {name}">
 					<div class="name">

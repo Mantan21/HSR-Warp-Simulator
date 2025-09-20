@@ -23,7 +23,6 @@
 	const dispatch = createEventDispatcher();
 	const click = () => {
 		dispatch('select', { selected: type });
-		console.log('hubla');
 		playSfx('switch-banner');
 	};
 </script>

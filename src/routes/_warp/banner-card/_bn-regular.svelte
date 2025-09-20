@@ -10,9 +10,9 @@
 	<div class="wrapper" class:lite={$liteMode}>
 		<div class="featured-bg"></div>
 		{#if !$probEdit}
-			<div class="splash-art himeko" transition:fade|local>
+			<div class="splash-art himeko" transition:fade|global>
 				<figure
-					in:fly={{
+					in:fly|global={{
 						x: -25,
 						duration: 3000,
 						delay: 250,
@@ -23,9 +23,9 @@
 					<img src={$assets['banner/himeko']} alt="Himeko" crossorigin="anonymous" />
 				</figure>
 			</div>
-			<div class="splash-art gepard" transition:fade|local>
+			<div class="splash-art gepard" transition:fade|global>
 				<figure
-					in:fly={{
+					in:fly|global={{
 						x: -20,
 						duration: 3000,
 						delay: 250,
@@ -36,9 +36,9 @@
 					<img src={$assets['banner/gepard']} alt="Gepard" crossorigin="anonymous" />
 				</figure>
 			</div>
-			<div class="splash-art bronya" transition:fade|local>
+			<div class="splash-art bronya" transition:fade|global>
 				<figure
-					in:fly={{
+					in:fly|global={{
 						x: -40,
 						delay: 250,
 						duration: 3000,

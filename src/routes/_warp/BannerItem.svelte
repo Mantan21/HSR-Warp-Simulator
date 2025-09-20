@@ -76,8 +76,8 @@
 		style="--bw:{bannerWidth}px;"
 		class:shadow={!banner.match(/starter|group/)}
 		bind:clientWidth={bannerWidth}
-		in:slideIn|local={{ fade: banner === 'starter' }}
-		out:slideOut|local
+		in:slideIn={{ fade: banner === 'starter' }}
+		out:slideOut
 	>
 		{#if banner === 'starter'}
 			<BnStarter />

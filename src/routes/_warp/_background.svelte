@@ -82,8 +82,8 @@
 			<div
 				class="bg character"
 				class:lite={$liteMode}
-				in:morphIn={{ key: 'morph' }}
-				out:morphOut={{ key: 'morph' }}
+				in:morphIn|global={{ key: 'morph' }}
+				out:morphOut|global={{ key: 'morph' }}
 			>
 				<img
 					src={$assets[`splash-art/small/${featured}`]}
@@ -97,14 +97,14 @@
 			<div
 				class="bg lightcone"
 				class:lite={$liteMode}
-				in:morphIn={{ key: 'morph' }}
-				out:morphOut={{ key: 'morph' }}
+				in:morphIn|global={{ key: 'morph' }}
+				out:morphOut|global={{ key: 'morph' }}
 			>
 				<img src={$assets[`lc/small/${featured}`]} alt={$t(featured)} crossorigin="anonymous" />
 			</div>
 		{:else}
 			{@const bg = type === 'starter' ? 'departure-bg.webp' : 'stellar-bg.webp'}
-			<div class="bg" in:morphIn={{ key: 'morph' }} out:morphOut={{ key: 'morph' }}>
+			<div class="bg" in:morphIn|global={{ key: 'morph' }} out:morphOut|global={{ key: 'morph' }}>
 				<img src={$assets[bg]} alt="Background" crossorigin="anonymous" />
 			</div>
 		{/if}

@@ -30,8 +30,8 @@
 
 	{#if !$probEdit}
 		<!-- Left Pane -->
-		<div class="wrapper-info" out:fade|local>
-			<div class="info-body" in:fade={{ duration: 250, delay: 250 }}>
+		<div class="wrapper-info" out:fade|global>
+			<div class="info-body" in:fade|global={{ duration: 250, delay: 250 }}>
 				<div class="short-detail">
 					<h1>
 						<span> {bannerTitle} </span>
@@ -47,12 +47,12 @@
 				</div>
 
 				<div class="rateup-characters">
-					<div class="rateup-row" in:diagonalSlide={{ delay: 400, duration: 400 }}>
+					<div class="rateup-row" in:diagonalSlide|global={{ delay: 400, duration: 400 }}>
 						{#each rateup as name, i (name)}
 							<div class="rateup-item">
 								<div class="rateup-content">
 									<picture
-										in:fly={{
+										in:fly|global={{
 											x: -30,
 											duration: 2000,
 											easing: bezier(0.13, 0.14, 0, 1),
@@ -74,7 +74,7 @@
 		</div>
 
 		<!-- Right Pane -->
-		<div class="character" transition:fade|local>
+		<div class="character" transition:fade|global>
 			<div class="char-group" style={characterOffset(featured, 'textOffset')}>
 				<div class="name">
 					<i class="hsr-{combat_type} icon-gradient {combat_type}"></i>

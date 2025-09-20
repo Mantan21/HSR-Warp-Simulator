@@ -27,8 +27,8 @@
 
 	{#if !$probEdit}
 		<!-- Left Pane -->
-		<div class="wrapper-info" out:fade|local>
-			<div class="info-body" in:fade={{ delay: 250, duration: 1000 }}>
+		<div class="wrapper-info" out:fade|global>
+			<div class="info-body" in:fade|global={{ delay: 250, duration: 1000 }}>
 				<div class="short-detail">
 					<h1>
 						<span> {$t(`banner.${item.bannerName}`)} </span>
@@ -47,8 +47,8 @@
 		</div>
 
 		<!-- Right Pane -->
-		<div class="item-name" transition:fade|local>
-			<div class="row" in:fade={{ delay: 250, duration: 1000 }}>
+		<div class="item-name" transition:fade|global>
+			<div class="row" in:fade|global={{ delay: 250, duration: 1000 }}>
 				<div class="path">
 					<Path path={item.path} dark />
 				</div>
@@ -60,7 +60,7 @@
 				</span>
 			</div>
 		</div>
-		<div class="featured-lightcone" transition:fade|local>
+		<div class="featured-lightcone" transition:fade|global>
 			<LightCones
 				item={item.featured}
 				animationID={$animatedLC && !$liteMode ? animationID : null}

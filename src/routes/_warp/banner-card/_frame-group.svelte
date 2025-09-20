@@ -51,8 +51,12 @@
 	{/if}
 
 	{#if !$probEdit}
-		<div class="wrapper-info" out:fade|local style="--bg:url({$assets['menu-side-title-bg.webp']})">
-			<div class="info-body" in:fade={{ duration: 250, delay: 250 }}>
+		<div
+			class="wrapper-info"
+			out:fade|global
+			style="--bg:url({$assets['menu-side-title-bg.webp']})"
+		>
+			<div class="info-body" in:fade|global={{ duration: 250, delay: 250 }}>
 				<div class="short-detail">
 					<h1>
 						<span> {$t(`banner.${bannername}`)} </span>
@@ -79,7 +83,7 @@
 		</div>
 
 		<!-- Right Content -->
-		<div class="container-right" transition:fade|local>
+		<div class="container-right" transition:fade|global>
 			<div
 				class="item-row"
 				class:cone={bannertype === 'lightcone'}
@@ -105,7 +109,7 @@
 
 			{#if bannertype === 'lightcone'}
 				{#key featured}
-					<div class="featured-lightcone" in:fly|local={{ x: -30, duration: 500 }}>
+					<div class="featured-lightcone" in:fly={{ x: -30, duration: 500 }}>
 						<LightCones
 							item={featured}
 							animationID={$animatedLC && !$liteMode ? getLCDetails(featured)?.animationID : null}
@@ -120,12 +124,12 @@
 						<RateupLightcones lightcones={rateup.map((d) => ({ name: d, rarity: 4 }))} />
 					</div>
 				{:else}
-					<div class="rateup-row" in:diagonalSlide={{ delay: 400, duration: 400 }}>
+					<div class="rateup-row" in:diagonalSlide|global={{ delay: 400, duration: 400 }}>
 						{#each rateup as name, i (name)}
 							<div class="rateup-item">
 								<div class="rateup-content">
 									<picture
-										in:fly={{
+										in:fly|global={{
 											x: -30,
 											duration: 2000,
 											easing: bezier(0.13, 0.14, 0, 1),
