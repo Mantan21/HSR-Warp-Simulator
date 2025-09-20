@@ -10,8 +10,8 @@
 			"bannerOffset": { "b": -115, "l": 35 }
 		},
 		{
-			"pro": true,
 			"itemID": 23049,
+			"animationID": "ITPYWyeEEkA",
 			"name": "to-evernights-stars",
 			"rarity": 5,
 			"path": "remembrance",
@@ -20,6 +20,7 @@
 		},
 		{
 			"itemID": 23048,
+			"animationID": "_IytvhveZnI",
 			"name": "epoch-etched-in-golden-blood",
 			"rarity": 5,
 			"path": "harmony",
@@ -28,6 +29,7 @@
 		},
 		{
 			"itemID": 23047,
+			"animationID": "utYFH8ulYjI",
 			"name": "why-does-the-ocean-sing",
 			"rarity": 5,
 			"path": "nihility",
@@ -44,6 +46,7 @@
 		},
 		{
 			"itemID": 23046,
+			"animationID": "jovWSHPVlUM",
 			"name": "the-hell-where-ideals-burn",
 			"rarity": 5,
 			"path": "hunt",
@@ -52,6 +55,7 @@
 		},
 		{
 			"itemID": 23045,
+			"animationID": "ALiFRmKnXzY",
 			"name": "a-thankless-coronation",
 			"rarity": 5,
 			"path": "destruction",

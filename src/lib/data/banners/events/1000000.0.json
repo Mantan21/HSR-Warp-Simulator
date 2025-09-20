@@ -1,35 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"pro": true,
-			"phase": 1,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["87-1"],
-					"rateup": ["asta", "arlan", "hook"]
-				},
-				"lightcone": {
-					"bannerID": ["88-1"],
-					"rateup": ["eyes-of-the-prey", "poised-to-bloom", "indelible-promise"]
-				}
-			}
-		},
-		{
-			"pro": true,
-			"phase": 2,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["89-1"],
-					"rateup": ["sampo", "qingque", "dan-heng"]
-				},
-				"lightcone": {
-					"bannerID": ["90-1"],
-					"rateup": ["the-birth-of-the-self", "swordplay", "good-night-and-sleep-well"]
-				}
-			}
-		}
-	]
+	"data": []
 }
