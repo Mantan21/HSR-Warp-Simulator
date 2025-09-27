@@ -102,9 +102,9 @@
 
 	// Storage Size
 	const getSize = async () => {
-		const { usage } = await navigator.storage.estimate();
+		const { usage } = (await navigator.storage.estimate?.()) || { usage: 0 };
 		const size = (usage / 1000000).toFixed(2);
-		storageSize = `${size}MB`;
+		storageSize = size > 0 ? `${size}MB` : 'Uknown';
 	};
 	onMount(getSize);
 </script>
