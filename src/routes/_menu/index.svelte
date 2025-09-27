@@ -29,11 +29,11 @@
 	const handleFullscreen = () => {
 		if (!fullscreen) {
 			const body = document.body;
-			if (body.requestFullscreen) return body.requestFullscreen();
+			if (body.requestFullscreen) return body.requestFullscreen().catch(() => {});
 			if (body.webkitRequestFullscreen) return body.webkitRequestFullscreen();
 			if (body.msRequestFullscreen) return body?.msRequestFullscreen();
 		} else {
-			if (document.exitFullscreen) return document?.exitFullscreen();
+			if (document.exitFullscreen) return document?.exitFullscreen().catch(() => {});
 			if (document.webkitExitFullscreen) return document?.webkitExitFullscreen();
 			if (document.msExitFullscreen) return document?.msExitFullscreen();
 		}
