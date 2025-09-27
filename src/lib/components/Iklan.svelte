@@ -35,7 +35,7 @@
 		sc.setAttribute('type', 'text/javascript');
 		sc.src = '//acscdn.com/script/aclib.js';
 		document.head.appendChild(sc);
-		sc.addEventListener('load', () => window.aclib.runAutoTag({ zoneId: 'v1xd6wvvpe' }));
+		sc.addEventListener('load', () => window.aclib?.runAutoTag({ zoneId: 'v1xd6wvvpe' }));
 	};
 
 	$: if ($showAd && !dev && head && !type && !($isPWA && $isMobile)) loadAdcash();

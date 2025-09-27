@@ -7,7 +7,8 @@ Sentry.init({
 	tracesSampleRate: 1.0,
 	enableLogs: true,
 	environment: dev ? 'development' : 'production',
-	integrations: [Sentry.httpClientIntegration(), Sentry.browserTracingIntegration()]
+	integrations: [Sentry.httpClientIntegration(), Sentry.browserTracingIntegration()],
+	denyUrls: [/pagead2\.googlesyndication\.com/, /googletagservices\.com/, /doubleclick\.net/]
 });
 
 const errorhandler = async (error) => {

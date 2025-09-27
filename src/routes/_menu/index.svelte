@@ -29,11 +29,11 @@
 	const handleFullscreen = () => {
 		if (!fullscreen) {
 			const body = document.body;
-			if (body.requestFullscreen) return body.requestFullscreen();
+			if (body.requestFullscreen) return body.requestFullscreen().catch(() => {});
 			if (body.webkitRequestFullscreen) return body.webkitRequestFullscreen();
 			if (body.msRequestFullscreen) return body?.msRequestFullscreen();
 		} else {
-			if (document.exitFullscreen) return document?.exitFullscreen();
+			if (document.exitFullscreen) return document?.exitFullscreen().catch(() => {});
 			if (document.webkitExitFullscreen) return document?.webkitExitFullscreen();
 			if (document.msExitFullscreen) return document?.msExitFullscreen();
 		}
@@ -102,9 +102,9 @@
 
 	// Storage Size
 	const getSize = async () => {
-		const { usage } = await navigator.storage.estimate();
+		const { usage } = (await navigator.storage.estimate?.()) || { usage: 0 };
 		const size = (usage / 1000000).toFixed(2);
-		storageSize = `${size}MB`;
+		storageSize = size > 0 ? `${size}MB` : 'Uknown';
 	};
 	onMount(getSize);
 </script>
