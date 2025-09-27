@@ -537,6 +537,18 @@
 			"name": "brilliant-fixation",
 			"featured": "though-worlds-apart",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 91,
+			"name": "",
+			"featured": "cyrene",
+			"type": "character-event"
+		},
+		{
+			"id": 92,
+			"name": "brilliant-fixation",
+			"featured": "this-love-forever",
+			"type": "lightcone-event"
 		}
 	]
 }

@@ -2,6 +2,18 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 1415,
+			"name": "cyrene",
+			"rarity": 5,
+			"combat_type": "ice",
+			"path": "remembrance",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -49, "w": 182, "l": -30 },
+			"splashartOffset": { "w": 135, "t": 30 },
+			"gachaCardOffset": { "t": 5, "l": 55, "w": 620 }
+		},
+		{
+			"pro": true,
 			"itemID": 1414,
 			"name": "dan-heng-permansor-terrae",
 			"rarity": 5,

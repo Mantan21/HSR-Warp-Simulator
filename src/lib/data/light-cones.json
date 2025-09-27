@@ -2,6 +2,15 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 23052,
+			"name": "this-love-forever",
+			"rarity": 5,
+			"path": "remembrance",
+			"limited": true,
+			"bannerOffset": { "b": -115, "l": 25 }
+		},
+		{
+			"pro": true,
 			"itemID": 23051,
 			"name": "though-worlds-apart",
 			"rarity": 5,

@@ -447,7 +447,6 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "02 Sep 2025",
 			"changes": [
 				"Unlock Content: 2nd phase of v3.5 - <b>Cerydra (5★)</b> & <b>Silver Wolf (5★)</b>"
@@ -459,6 +458,11 @@
 			"changes": [
 				"Unlock Content: 1st phase of v3.6 - <b>Evernight (5★)</b> & <b>The Herta (5★)</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "20 Sep 2025",
+			"changes": ["Add New Character: <b> Cyrene (5★)</b>"]
 		}
 	]
 }
