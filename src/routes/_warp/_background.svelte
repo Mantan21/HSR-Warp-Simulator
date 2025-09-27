@@ -1,10 +1,10 @@
 <script>
+	import { fade } from 'svelte/transition';
 	import { getContext } from 'svelte';
 	import { t } from 'svelte-i18n';
 	import ColorThief from '../../../node_modules/colorthief/dist/color-thief.mjs';
 	import { data } from '$lib/data/characters.json';
 	import { warpList, assets, liteMode, activeWarp } from '$lib/stores/app-store';
-	import { morphIn, morphOut } from '$lib/helpers/transition';
 
 	let featured, activeType;
 	$: ({ featured, type: activeType } = $activeWarp);
@@ -79,12 +79,7 @@
 	{#if item === featured && type === activeType}
 		<!-- Character Event -->
 		{#if type === 'character-event'}
-			<div
-				class="bg character"
-				class:lite={$liteMode}
-				in:morphIn|global={{ key: 'morph' }}
-				out:morphOut|global={{ key: 'morph' }}
-			>
+			<div class="bg character" class:lite={$liteMode} transition:fade|global>
 				<img
 					src={$assets[`splash-art/small/${featured}`]}
 					alt={$t(featured)}
@@ -94,17 +89,12 @@
 
 			<!-- LightCone Event -->
 		{:else if type === 'lightcone-event'}
-			<div
-				class="bg lightcone"
-				class:lite={$liteMode}
-				in:morphIn|global={{ key: 'morph' }}
-				out:morphOut|global={{ key: 'morph' }}
-			>
+			<div class="bg lightcone" class:lite={$liteMode} transition:fade|global>
 				<img src={$assets[`lc/small/${featured}`]} alt={$t(featured)} crossorigin="anonymous" />
 			</div>
 		{:else}
 			{@const bg = type === 'starter' ? 'departure-bg.webp' : 'stellar-bg.webp'}
-			<div class="bg" in:morphIn|global={{ key: 'morph' }} out:morphOut|global={{ key: 'morph' }}>
+			<div class="bg" transition:fade|global>
 				<img src={$assets[bg]} alt="Background" crossorigin="anonymous" />
 			</div>
 		{/if}
