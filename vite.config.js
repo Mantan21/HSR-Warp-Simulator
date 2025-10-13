@@ -122,8 +122,8 @@ const manifest = {
 export default defineConfig({
 	plugins: [
 		sentrySvelteKit({
-			sentryUrl: 'https://721ca11ea8894a84a70e4f83d6ee5101@sink.wishsimulator.app',
-			authToken: '5ee893d7fd1c420ad616428b6374af44e435cceffa9524f566e84bfeb255a65a',
+			sentryUrl: 'https://491991121826437a991c013d90a8afc1@sink.mantan.dev',
+			authToken: 'ebdc849317a4a63604689ba0562be794730f8d4b4f557f8590496226bc8a930b',
 			bundleSizeOptimizations: {
 				excludeReplayIframe: true,
 				excludeReplayShadowDom: true,
@@ -132,8 +132,8 @@ export default defineConfig({
 			sourcemaps: {
 				filesToDeleteAfterUpload: ['./build/internal/immutable/**/*.map', './build/sw.js.map']
 			},
-			project: 'skillboost-helper-sink',
-			org: 'ekrafdev'
+			project: 'hsr-warp-sim',
+			org: 'mantan-dev'
 		}),
 		imagetools({}),
 		sveltekit(),
