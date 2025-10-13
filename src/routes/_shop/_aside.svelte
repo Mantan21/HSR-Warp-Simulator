@@ -3,6 +3,7 @@
 	import NavLink from '$lib/components/NavLink.svelte';
 	import NavLinkItem from '$lib/components/NavLinkItem.svelte';
 	import { t } from 'svelte-i18n';
+	import { isPWA } from '$lib/stores/app-store';
 
 	export let isOpen = false;
 	export let activeShop;
@@ -47,7 +48,13 @@
 		{$t('shop.stellarTrade')}
 	</NavLinkItem>
 
-	<NavLinkItem icon="honor" active={activeShop === 'donate'} on:click={() => selectShop('donate')}>
-		{$t('shop.donate')}
-	</NavLinkItem>
+	{#if !$isPWA}
+		<NavLinkItem
+			icon="honor"
+			active={activeShop === 'donate'}
+			on:click={() => selectShop('donate')}
+		>
+			{$t('shop.donate')}
+		</NavLinkItem>
+	{/if}
 </NavLink>
