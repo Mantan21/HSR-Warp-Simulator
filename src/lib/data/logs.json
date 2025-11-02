@@ -459,16 +459,19 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "20 Sep 2025",
 			"changes": ["Add New Character: <b> Cyrene (5★)</b>"]
 		},
 		{
-			"featured": true,
 			"date": "13 Oct 2025",
 			"changes": [
 				"Unlock Content: 2nd phase of v3.6 - <b>Dan Heng • Permansor Terrae (5★)</b> & <b>Anaxa (5★)</b>"
 			]
+		},
+		{
+			"featured": true,
+			"date": "02 Nov 2025",
+			"changes": ["Unlock Content: 1st phase of v3.7 - <b>Cyrene (5★)</b>"]
 		}
 	]
 }

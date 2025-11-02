@@ -1,20 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"pro": true,
-			"phase": 1,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["91-1"],
-					"rateup": ["sushang", "hanya", "serval"]
-				},
-				"lightcone": {
-					"bannerID": ["92-1"],
-					"rateup": ["landaus-choice", "only-silence-remains", "perfect-timing"]
-				}
-			}
-		}
-	]
+	"data": []
 }
