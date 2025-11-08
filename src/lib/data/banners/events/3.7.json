@@ -6,7 +6,7 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": ["91-1", ["73-2", "69-2", "67-3"]],
+					"bannerID": ["91-1", ["73-2", "69-2", "67-3"], ["77-1", "79-1"]],
 					"rateup": ["moze", "lynx", "pela"]
 				},
 				"lightcone": {
@@ -20,7 +20,7 @@
 			"banners": {
 				"regularVersion": 1,
 				"character": {
-					"bannerID": ["91-1", ["81-2", "75-2", "65-2"]],
+					"bannerID": ["91-1", ["81-2", "75-2", "65-2"], ["77-1", "79-1"]],
 					"rateup": ["moze", "lynx", "pela"]
 				},
 				"lightcone": {
