@@ -1,19 +1,4 @@
 {
 	"patch": 1000000,
-	"data": [
-		{
-			"phase": 1,
-			"banners": {
-				"regularVersion": 1,
-				"character": {
-					"bannerID": ["93-1"],
-					"rateup": ["moze", "lynx", "pela"]
-				},
-				"lightcone": {
-					"bannerID": ["94-1"],
-					"rateup": ["the-storys-next-page", "concert-for-two", "boundless-choreo"]
-				}
-			}
-		}
-	]
+	"data": []
 }

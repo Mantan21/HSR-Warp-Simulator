@@ -1,0 +1,33 @@
+{
+	"patch": 3.8,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["93-1", "43-4", ["77-1", "79-1"]],
+					"rateup": ["gallagher", "luka", "march-7th"]
+				},
+				"lightcone": {
+					"bannerID": ["94-1", "44-4"],
+					"rateup": ["concert-for-two", "good-night-and-sleep-well", "memories-of-the-past"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["59-3", "53-3", ["77-1", "79-1"]],
+					"rateup": ["sampo", "natasha", "arlan"]
+				},
+				"lightcone": {
+					"bannerID": ["60-3", "54-3"],
+					"rateup": ["geniuses-repose", "the-moles-welcome-you", "post-op-conversation"]
+				}
+			}
+		}
+	]
+}
