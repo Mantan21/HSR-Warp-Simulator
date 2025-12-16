@@ -1,6 +1,17 @@
 {
 	"data": [
 		{
+			"itemID": 1321,
+			"name": "the-dahlia",
+			"rarity": 5,
+			"combat_type": "fire",
+			"path": "nihility",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -56, "w": 140, "l": -5 },
+			"splashartOffset": { "w": 105, "t": 60, "l": 55 },
+			"gachaCardOffset": { "t": 212, "l": 60, "w": 520 }
+		},
+		{
 			"itemID": 1415,
 			"name": "cyrene",
 			"rarity": 5,

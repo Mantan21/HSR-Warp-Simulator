@@ -1,6 +1,14 @@
 {
 	"data": [
 		{
+			"itemID": 23050,
+			"name": "never-forget-her-flame",
+			"rarity": 5,
+			"path": "nihility",
+			"limited": true,
+			"bannerOffset": { "b": -160, "l": 3, "w": 120 }
+		},
+		{
 			"itemID": 23052,
 			"name": "this-love-forever",
 			"rarity": 5,

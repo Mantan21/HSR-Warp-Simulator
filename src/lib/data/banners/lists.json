@@ -549,6 +549,18 @@
 			"name": "brilliant-fixation",
 			"featured": "this-love-forever",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 93,
+			"name": "dance-in-flame",
+			"featured": "the-dahlia",
+			"type": "character-event"
+		},
+		{
+			"id": 94,
+			"name": "brilliant-fixation",
+			"featured": "never-forget-her-flame",
+			"type": "lightcone-event"
 		}
 	]
 }

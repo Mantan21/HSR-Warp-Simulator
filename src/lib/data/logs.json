@@ -469,9 +469,17 @@
 			]
 		},
 		{
-			"featured": true,
 			"date": "02 Nov 2025",
 			"changes": ["Unlock Content: 1st phase of v3.7 - <b>Cyrene (5★)</b>"]
+		},
+		{
+			"date": "08 Nov 2025",
+			"changes": ["Add New Character: <b> The Dahlia (5★)</b>"]
+		},
+		{
+			"featured": true,
+			"date": "16 Dec 2025",
+			"changes": ["Unlock Content For the 1st phase of 3.8 - <b>Dahlia</b>"]
 		}
 	]
 }
