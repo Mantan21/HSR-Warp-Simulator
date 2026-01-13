@@ -561,6 +561,30 @@
 			"name": "brilliant-fixation",
 			"featured": "never-forget-her-flame",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 95,
+			"name": "",
+			"featured": "sparxie",
+			"type": "character-event"
+		},
+		{
+			"id": 96,
+			"name": "brilliant-fixation",
+			"featured": "dazzled-by-a-flowery-world",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 97,
+			"name": "",
+			"featured": "yao-guang",
+			"type": "character-event"
+		},
+		{
+			"id": 98,
+			"name": "brilliant-fixation",
+			"featured": "when-she-decided-to-see",
+			"type": "lightcone-event"
 		}
 	]
 }

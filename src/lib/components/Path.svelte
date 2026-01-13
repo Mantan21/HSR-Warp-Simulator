@@ -7,6 +7,7 @@
 	import Nihility from './path/nihility.svelte';
 	import Preservation from './path/preservation.svelte';
 	import Remembrance from './path/remembrance.svelte';
+	import Elation from './path/elation.svelte';
 
 	export let path = '';
 	export let dark = false;
@@ -19,7 +20,8 @@
 		hunt: Hunt,
 		nihility: Nihility,
 		preservation: Preservation,
-		remembrance: Remembrance
+		remembrance: Remembrance,
+		elation: Elation
 	};
 </script>
 

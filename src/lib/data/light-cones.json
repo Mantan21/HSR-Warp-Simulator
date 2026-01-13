@@ -1,6 +1,24 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 23053,
+			"name": "dazzled-by-a-flowery-world",
+			"rarity": 5,
+			"path": "elation",
+			"limited": true,
+			"bannerOffset": { "b": -110, "l": 40 }
+		},
+		{
+			"pro": true,
+			"itemID": 23054,
+			"name": "when-she-decided-to-see",
+			"rarity": 5,
+			"path": "elation",
+			"limited": true,
+			"bannerOffset": { "b": -95, "l": 38 }
+		},
+		{
 			"itemID": 23050,
 			"name": "never-forget-her-flame",
 			"rarity": 5,

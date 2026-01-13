@@ -23,7 +23,8 @@
 		'nihility',
 		'preservation',
 		'abundance',
-		'remembrance'
+		'remembrance',
+		'elation'
 	];
 </script>
 
