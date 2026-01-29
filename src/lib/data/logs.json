@@ -477,9 +477,13 @@
 			"changes": ["Add New Character: <b> The Dahlia (5★)</b>"]
 		},
 		{
-			"featured": true,
 			"date": "16 Dec 2025",
 			"changes": ["Unlock Content For the 1st phase of 3.8 - <b>Dahlia</b>"]
+		},
+		{
+			"featured": true,
+			"date": "30 jan 2026",
+			"changes": ["Unlock Content For the 3rd phase of 3.8 - <b>Aglaea</b> & <b>Sunday</b>"]
 		}
 	]
 }

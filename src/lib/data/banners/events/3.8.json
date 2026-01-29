@@ -28,6 +28,20 @@
 					"rateup": ["geniuses-repose", "the-moles-welcome-you", "post-op-conversation"]
 				}
 			}
+		},
+		{
+			"phase": 3,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["61-3", "57-3", ["77-1", "79-1"]],
+					"rateup": ["tingyun", "yukong", "dan-heng"]
+				},
+				"lightcone": {
+					"bannerID": ["62-3", "58-3"],
+					"rateup": ["geniuses-greetings", "trend-of-the-universal-market", "dance-dance-dance"]
+				}
+			}
 		}
 	]
 }
