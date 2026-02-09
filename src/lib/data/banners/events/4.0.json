@@ -1,0 +1,42 @@
+{
+	"patch": 4.0,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["97-1", ["87-2", "83-2", "31-3"]],
+					"rateup": ["pela", "hanya", "qingque"]
+				},
+				"lightcone": {
+					"bannerID": ["98-1", ["88-2", "84-2", "32-3"]],
+					"rateup": [
+						"planetary-rendezvous",
+						"resolution-shines-as-pearls-of-sweat",
+						"the-storys-next-page"
+					]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["95-1", ["85-2", "55-2", "33-4"]],
+					"rateup": ["pela", "hanya", "qingque"]
+				},
+				"lightcone": {
+					"bannerID": ["96-1", ["86-2", "56-2", "34-4"]],
+					"rateup": [
+						"planetary-rendezvous",
+						"resolution-shines-as-pearls-of-sweat",
+						"the-storys-next-page"
+					]
+				}
+			}
+		}
+	]
+}

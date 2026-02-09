@@ -1,14 +1,13 @@
 {
 	"data": [
 		{
-			"pro": true,
 			"itemID": 1502,
 			"name": "yao-guang",
 			"rarity": 5,
 			"combat_type": "physical",
 			"path": "elation",
 			"buttonOffset": { "t": -27, "w": 100 },
-			"bannerOffset": { "b": -56, "w": 140, "l": -5 },
+			"bannerOffset": { "b": -40, "w": 135, "l": 2 },
 			"splashartOffset": { "w": 110, "l": 58 },
 			"gachaCardOffset": { "t": 158, "l": 72, "w": 510 }
 		},

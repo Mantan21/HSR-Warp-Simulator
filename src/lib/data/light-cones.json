@@ -10,13 +10,24 @@
 			"bannerOffset": { "b": -110, "l": 40 }
 		},
 		{
-			"pro": true,
 			"itemID": 23054,
 			"name": "when-she-decided-to-see",
 			"rarity": 5,
 			"path": "elation",
 			"limited": true,
 			"bannerOffset": { "b": -95, "l": 38 }
+		},
+		{
+			"itemID": 20024,
+			"name": "lingering-tear",
+			"rarity": 3,
+			"path": "elation"
+		},
+		{
+			"itemID": 20023,
+			"name": "sneering",
+			"rarity": 3,
+			"path": "elation"
 		},
 		{
 			"itemID": 23050,
