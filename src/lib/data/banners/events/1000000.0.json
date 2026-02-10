@@ -1,4 +1,24 @@
 {
 	"patch": 1000000,
-	"data": []
+	"data": [
+		{
+			"pro": true,
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["99-1"],
+					"rateup": ["pela", "hanya", "qingque"]
+				},
+				"lightcone": {
+					"bannerID": ["100-1"],
+					"rateup": [
+						"planetary-rendezvous",
+						"resolution-shines-as-pearls-of-sweat",
+						"the-storys-next-page"
+					]
+				}
+			}
+		}
+	]
 }

@@ -564,7 +564,7 @@
 		},
 		{
 			"id": 95,
-			"name": "",
+			"name": "project-party-time",
 			"featured": "sparxie",
 			"type": "character-event"
 		},
@@ -576,7 +576,7 @@
 		},
 		{
 			"id": 97,
-			"name": "",
+			"name": "gleam-of-thousand-plumes",
 			"featured": "yao-guang",
 			"type": "character-event"
 		},
@@ -584,6 +584,18 @@
 			"id": 98,
 			"name": "brilliant-fixation",
 			"featured": "when-she-decided-to-see",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 99,
+			"name": "",
+			"featured": "ashveil",
+			"type": "character-event"
+		},
+		{
+			"id": 100,
+			"name": "brilliant-fixation",
+			"featured": "the-finale-of-a-lie",
 			"type": "lightcone-event"
 		}
 	]

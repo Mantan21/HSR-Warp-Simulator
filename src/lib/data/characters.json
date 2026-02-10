@@ -1,15 +1,16 @@
 {
 	"data": [
 		{
-			"itemID": 1502,
-			"name": "yao-guang",
+			"pro": true,
+			"itemID": 1504,
+			"name": "ashveil",
 			"rarity": 5,
-			"combat_type": "physical",
-			"path": "elation",
+			"combat_type": "lightning",
+			"path": "hunt",
 			"buttonOffset": { "t": -27, "w": 100 },
-			"bannerOffset": { "b": -40, "w": 135, "l": 2 },
-			"splashartOffset": { "w": 110, "l": 58 },
-			"gachaCardOffset": { "t": 158, "l": 72, "w": 510 }
+			"bannerOffset": { "b": -50, "w": 135, "l": -5 },
+			"splashartOffset": { "w": 112, "t": 55 },
+			"gachaCardOffset": { "t": 170, "l": 40, "w": 450 }
 		},
 		{
 			"pro": true,
@@ -22,6 +23,17 @@
 			"bannerOffset": { "b": -50, "w": 150 },
 			"splashartOffset": { "w": 105, "l": 55 },
 			"gachaCardOffset": { "t": 20, "l": 50, "w": 385 }
+		},
+		{
+			"itemID": 1502,
+			"name": "yao-guang",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "elation",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -40, "w": 135, "l": 2 },
+			"splashartOffset": { "w": 110, "l": 58 },
+			"gachaCardOffset": { "t": 158, "l": 72, "w": 510 }
 		},
 		{
 			"itemID": 1321,

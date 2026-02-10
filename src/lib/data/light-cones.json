@@ -2,6 +2,15 @@
 	"data": [
 		{
 			"pro": true,
+			"itemID": 23056,
+			"name": "the-finale-of-a-lie",
+			"rarity": 5,
+			"path": "hunt",
+			"limited": true,
+			"bannerOffset": { "b": -110, "l": 40 }
+		},
+		{
+			"pro": true,
 			"itemID": 23053,
 			"name": "dazzled-by-a-flowery-world",
 			"rarity": 5,
