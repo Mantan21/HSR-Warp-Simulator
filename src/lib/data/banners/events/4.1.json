@@ -1,0 +1,33 @@
+{
+	"patch": 4.1,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["99-1", "73-3"],
+					"rateup": ["asta", "moze", "misha"]
+				},
+				"lightcone": {
+					"bannerID": ["100-1", "74-3"],
+					"rateup": ["make-the-world-clamor", "shadowed-by-night", "dreams-montage"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["99-1", "41-3"],
+					"rateup": ["asta", "moze", "misha"]
+				},
+				"lightcone": {
+					"bannerID": ["100-1", "42-3"],
+					"rateup": ["make-the-world-clamor", "shadowed-by-night", "dreams-montage"]
+				}
+			}
+		}
+	]
+}
