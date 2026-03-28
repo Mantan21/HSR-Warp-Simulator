@@ -1,6 +1,24 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 23057,
+			"name": "until-the-flowers-bloom-again",
+			"rarity": 5,
+			"path": "elation",
+			"limited": true,
+			"bannerOffset": { "b": -90, "l": 33 }
+		},
+		{
+			"pro": true,
+			"itemID": 23058,
+			"name": "welcome-to-the-cosmic-city",
+			"rarity": 5,
+			"path": "elation",
+			"limited": true,
+			"bannerOffset": { "b": -110, "l": 40 }
+		},
+		{
 			"itemID": 23056,
 			"name": "the-finale-of-a-lie",
 			"rarity": 5,

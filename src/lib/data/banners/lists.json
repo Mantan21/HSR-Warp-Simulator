@@ -597,6 +597,30 @@
 			"name": "brilliant-fixation",
 			"featured": "the-finale-of-a-lie",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 101,
+			"name": "",
+			"featured": "silver-wolf-lv999",
+			"type": "character-event"
+		},
+		{
+			"id": 102,
+			"name": "brilliant-fixation",
+			"featured": "welcome-to-the-cosmic-city",
+			"type": "lightcone-event"
+		},
+		{
+			"id": 103,
+			"name": "",
+			"featured": "evanescia",
+			"type": "character-event"
+		},
+		{
+			"id": 104,
+			"name": "brilliant-fixation",
+			"featured": "until-the-flowers-bloom-again",
+			"type": "lightcone-event"
 		}
 	]
 }

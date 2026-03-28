@@ -1,6 +1,30 @@
 {
 	"data": [
 		{
+			"pro": true,
+			"itemID": 1505,
+			"name": "evanescia",
+			"rarity": 5,
+			"combat_type": "physical",
+			"path": "elation",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -50, "w": 135, "l": -5 },
+			"splashartOffset": { "w": 100, "t": 55 },
+			"gachaCardOffset": { "t": 160, "l": 30, "w": 450 }
+		},
+		{
+			"pro": true,
+			"itemID": 1506,
+			"name": "silver-wolf-lv999",
+			"rarity": 5,
+			"combat_type": "imaginary",
+			"path": "elation",
+			"buttonOffset": { "t": -27, "w": 100 },
+			"bannerOffset": { "b": -50, "w": 130 },
+			"splashartOffset": { "w": 105, "t": 55, "l": 52 },
+			"gachaCardOffset": { "t": 155, "l": 55, "w": 450 }
+		},
+		{
 			"itemID": 1504,
 			"name": "ashveil",
 			"rarity": 5,
