@@ -13,7 +13,6 @@
 			"gachaCardOffset": { "t": 160, "l": 30, "w": 450 }
 		},
 		{
-			"pro": true,
 			"itemID": 1506,
 			"name": "silver-wolf-lv999",
 			"rarity": 5,

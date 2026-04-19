@@ -1,0 +1,34 @@
+{
+	"patch": 4.2,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["101-1", ["93-2", "69-3", "43-5"]],
+					"rateup": ["gallagher", "xueyi", "hook"]
+				},
+				"lightcone": {
+					"bannerID": ["102-1", ["94-2", "70-3", "44-5"]],
+					"rateup": ["poised-to-bloom", "indelible-promise", "eyes-of-the-prey"]
+				}
+			}
+		},
+		{
+			"pro": true,
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["103-1", ["67-4", "57-4", "51-3"]],
+					"rateup": ["guinaifen", "lynx", "sushang"]
+				},
+				"lightcone": {
+					"bannerID": ["104-1", ["68-4", "58-4", "52-3"]],
+					"rateup": ["swordplay", "memories-of-the-past", "shared-feeling"]
+				}
+			}
+		}
+	]
+}

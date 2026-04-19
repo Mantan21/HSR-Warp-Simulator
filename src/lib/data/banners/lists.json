@@ -600,7 +600,7 @@
 		},
 		{
 			"id": 101,
-			"name": "",
+			"name": "godmode-player",
 			"featured": "silver-wolf-lv999",
 			"type": "character-event"
 		},
@@ -612,7 +612,7 @@
 		},
 		{
 			"id": 103,
-			"name": "",
+			"name": "the-demoiselle-in-charge",
 			"featured": "evanescia",
 			"type": "character-event"
 		},
