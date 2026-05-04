@@ -621,6 +621,18 @@
 			"name": "brilliant-fixation",
 			"featured": "until-the-flowers-bloom-again",
 			"type": "lightcone-event"
+		},
+		{
+			"id": 105,
+			"name": "",
+			"featured": "mortenax-blade",
+			"type": "character-event"
+		},
+		{
+			"id": 106,
+			"name": "brilliant-fixation",
+			"featured": "reforged-in-hellfire",
+			"type": "lightcone-event"
 		}
 	]
 }

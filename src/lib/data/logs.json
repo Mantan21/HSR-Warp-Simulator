@@ -496,17 +496,19 @@
 			"changes": ["Unlock Content For the 2nd phase of 4.0 - <b>Sparxie</b>"]
 		},
 		{
-			"featured": true,
 			"date": "27 Mar 2026",
 			"changes": ["Unlock Content For the 1st phase of 4.1 - <b>Ashveil</b>"]
 		},
 		{
-			"featured": true,
 			"date": "27 Mar 2026",
 			"changes": [
 				"Add New Character: <b>Evanescia (5★)</b>",
 				"Add New Character: <b>Silver Wolf lv999(5★)</b>"
 			]
+		},
+		{
+			"date": "04 May 2026",
+			"changes": ["Add New Character: <b>Mortenax Blade (5★)</b>"]
 		}
 	]
 }
