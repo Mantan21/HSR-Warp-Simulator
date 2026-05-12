@@ -507,8 +507,14 @@
 			]
 		},
 		{
+			"featured": true,
 			"date": "04 May 2026",
 			"changes": ["Add New Character: <b>Mortenax Blade (5★)</b>"]
+		},
+		{
+			"featured": true,
+			"date": "13 May 2026",
+			"changes": ["Unlock Content For the 2nd phase of 4.2 - <b>Evanescia</b>"]
 		}
 	]
 }
