@@ -1,0 +1,33 @@
+{
+	"patch": 4.3,
+	"data": [
+		{
+			"phase": 1,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["105-1", "97-2"],
+					"rateup": ["sampo", "luka", "tingyun"]
+				},
+				"lightcone": {
+					"bannerID": ["106-1", "98-2"],
+					"rateup": ["good-night-and-sleep-well", "day-one-of-my-new-life", "the-moles-welcome-you"]
+				}
+			}
+		},
+		{
+			"phase": 2,
+			"banners": {
+				"regularVersion": 1,
+				"character": {
+					"bannerID": ["91-2", "81-3"],
+					"rateup": ["march-7th", "arlan", "yukong"]
+				},
+				"lightcone": {
+					"bannerID": ["92-2", "82-3"],
+					"rateup": ["swordplay", "memories-of-the-past", "shared-feeling"]
+				}
+			}
+		}
+	]
+}
